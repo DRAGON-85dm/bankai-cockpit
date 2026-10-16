@@ -3,58 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>BANKAI v9.0 | سامانه جامع هوش تحلیلی و بهینه‌سازی کمّی</title>
+    <title>BANKAI v10.0 | سامانه جامع هوش تحلیلی و بهینه‌سازی کمّی</title>
     <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <!-- Typography: Vazirmatn & JetBrains Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* ==========================================================================
-           BANKAI ULTRA-LUXURY EXECUTIVE DESIGN SYSTEM (100% PURE EMBEDDED CSS)
-           Designed for Bahador | Department of Management & Economics Benchmark
+           BANKAI MASTERPIECE DESIGN SYSTEM (PRO EXECUTIVE EDITION v10.0)
+           Engineered for Bahador | Benchmark: Sharif, UT & CFA Institute
            ========================================================================== */
         :root {
             --bg-body: #F8FAFC;
             --bg-card: #FFFFFF;
             --bg-inner: #F1F5F9;
-            --bg-glass: rgba(255, 255, 255, 0.92);
+            --bg-elevated: #FFFFFF;
             --border-card: #E2E8F0;
-            --border-light: #F1F5F9;
-            --border-active: #0F172A;
+            --border-subtle: #F1F5F9;
+            --border-focus: #0F172A;
             
             --text-title: #0F172A;
             --text-body: #334155;
             --text-muted: #64748B;
             --text-dim: #94A3B8;
             
-            /* Discipline Jewel Accents */
-            --c-micro: #1D4ED8;     /* Sapphire */
+            /* Discipline Accents */
+            --c-micro: #1D4ED8;
             --c-micro-bg: #EFF6FF;
             --c-micro-border: #BFDBFE;
             
-            --c-cost: #047857;      /* Emerald */
+            --c-cost: #047857;
             --c-cost-bg: #ECFDF5;
             --c-cost-border: #A7F3D0;
             
-            --c-finance: #6D28D9;   /* Amethyst */
+            --c-finance: #6D28D9;
             --c-finance-bg: #FAF5FF;
             --c-finance-border: #E9D5FF;
             
-            --c-or: #0E7490;        /* Cyan */
+            --c-or: #0E7490;
             --c-or-bg: #ECFEFF;
             --c-or-border: #A5F3FC;
             
-            --c-stat: #4338CA;      /* Indigo */
+            --c-stat: #4338CA;
             --c-stat-bg: #EEF2FF;
             --c-stat-border: #C7D2FE;
             
-            --c-gold: #B45309;      /* Gold */
-            --c-rose: #B91C1C;      /* Ruby */
+            --c-gold: #B45309;
+            --c-rose: #B91C1C;
             
             --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
             --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
-            --shadow-float: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
-            --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
+            --shadow-float: 0 12px 28px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+            --shadow-glow: 0 0 25px rgba(37, 99, 235, 0.18);
         }
 
         * {
@@ -65,14 +65,14 @@
         }
 
         body {
-            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-body);
             color: var(--text-body);
             line-height: 1.6;
-            padding: 14px;
-            max-width: 1260px;
+            padding: 12px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding-bottom: 95px; /* space for bottom executive dock */
+            padding-bottom: 100px;
             touch-action: manipulation;
         }
 
@@ -80,15 +80,15 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Luxury Cards */
+        /* Masterpiece Cards */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 16px;
+            padding: 18px;
+            margin-bottom: 14px;
             box-shadow: var(--shadow-card);
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .card:hover {
             box-shadow: var(--shadow-float);
@@ -99,44 +99,44 @@
             background: var(--bg-inner);
             border: 1px solid var(--border-card);
             border-radius: 12px;
-            padding: 14px 16px;
+            padding: 12px 14px;
         }
 
-        /* Top Executive Cockpit Header */
+        /* Header Cockpit HUD */
         .cockpit-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 12px;
             border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 16px;
-            margin-bottom: 18px;
+            padding-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         .cockpit-brand {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
         .cockpit-emblem {
-            width: 52px;
-            height: 52px;
-            border-radius: 16px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             background: linear-gradient(135deg, #090D16 0%, #1E293B 50%, #0F172A 100%);
-            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
             color: #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
+            font-size: 24px;
             box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
             flex-shrink: 0;
         }
 
         .cockpit-title h1 {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 900;
             color: var(--text-title);
             display: flex;
@@ -160,43 +160,39 @@
         .badge-or { background: var(--c-or-bg); color: var(--c-or); border: 1px solid var(--c-or-border); }
         .badge-stat { background: var(--c-stat-bg); color: var(--c-stat); border: 1px solid var(--c-stat-border); }
         .badge-dark { background: #0F172A; color: #FFFFFF; }
+        .badge-pro { background: linear-gradient(135deg, #2563EB, #7C3AED); color: #FFFFFF; font-weight: 900; }
 
-        /* 5 Main Subject Cards Carousel/Grid */
+        /* Course Selector Grid */
         .subject-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 12px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
         }
 
         .subject-btn {
             background: #FFFFFF;
             border: 2px solid #E2E8F0;
-            border-radius: 16px;
-            padding: 14px 16px;
+            border-radius: 14px;
+            padding: 12px 14px;
             text-align: right;
             cursor: pointer;
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
             user-select: none;
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            position: relative;
-            overflow: hidden;
+            gap: 3px;
         }
-
         .subject-btn:hover {
             border-color: #94A3B8;
             transform: translateY(-2px);
         }
-
         .subject-btn.active {
             background: #0F172A !important;
             border-color: #0F172A !important;
             box-shadow: 0 8px 20px rgba(15, 23, 42, 0.22);
             transform: translateY(-2px);
         }
-
         .subject-btn.active .s-title,
         .subject-btn.active .s-desc,
         .subject-btn.active .s-badge {
@@ -207,14 +203,10 @@
             border-color: rgba(255, 255, 255, 0.2) !important;
         }
 
-        .s-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .s-icon { font-size: 1.6rem; }
-        .s-title { font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-top: 4px; }
-        .s-desc { font-size: 0.72rem; color: #64748B; font-weight: 500; }
+        .s-header { display: flex; justify-content: space-between; align-items: center; }
+        .s-icon { font-size: 1.5rem; }
+        .s-title { font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 3px; }
+        .s-desc { font-size: 0.7rem; color: #64748B; font-weight: 500; }
 
         /* Active Course Executive Banner */
         .banner-executive {
@@ -222,8 +214,8 @@
             border: 1px solid #E2E8F0;
             border-right: 6px solid #1D4ED8;
             border-radius: 16px;
-            padding: 16px 20px;
-            margin-bottom: 18px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
             box-shadow: var(--shadow-card);
             transition: border-right-color 0.2s ease;
         }
@@ -233,8 +225,8 @@
             align-items: center;
             gap: 8px;
             flex-wrap: wrap;
-            margin-top: 12px;
-            padding-top: 12px;
+            margin-top: 10px;
+            padding-top: 10px;
             border-top: 1px solid #F1F5F9;
         }
 
@@ -242,8 +234,8 @@
             background: #F8FAFC;
             border: 1px solid #CBD5E1;
             border-radius: 9999px;
-            padding: 5px 12px;
-            font-size: 0.74rem;
+            padding: 4px 11px;
+            font-size: 0.72rem;
             font-weight: 700;
             color: #334155;
             cursor: pointer;
@@ -251,7 +243,7 @@
             user-select: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
         .scenario-chip:hover, .scenario-chip:active {
             background: #0F172A;
@@ -265,7 +257,7 @@
             gap: 8px;
             overflow-x: auto;
             padding-bottom: 6px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             scrollbar-width: none;
         }
         .subtabs-bar::-webkit-scrollbar { display: none; }
@@ -274,8 +266,8 @@
             background: #FFFFFF;
             border: 1.5px solid #CBD5E1;
             border-radius: 12px;
-            padding: 10px 16px;
-            font-size: 0.82rem;
+            padding: 9px 15px;
+            font-size: 0.8rem;
             font-weight: 800;
             color: #475569;
             cursor: pointer;
@@ -284,7 +276,7 @@
             user-select: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
         }
         .subtab-pill:hover {
             border-color: #94A3B8;
@@ -301,7 +293,7 @@
         .sim-layout {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 18px;
+            gap: 16px;
         }
         @media (min-width: 960px) {
             .sim-layout {
@@ -313,9 +305,9 @@
         .param-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
-            border-radius: 14px;
-            padding: 12px 14px;
-            margin-bottom: 10px;
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
             transition: border-color 0.15s;
         }
         .param-card:focus-within {
@@ -327,18 +319,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .param-label {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 800;
             color: #1E293B;
         }
         .param-input-box {
-            width: 90px;
-            padding: 5px 8px;
+            width: 85px;
+            padding: 4px 6px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 800;
             text-align: center;
             border: 1.5px solid #CBD5E1;
@@ -368,68 +360,117 @@
         .kpi-row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 14px;
+            gap: 8px;
+            margin-top: 12px;
         }
         .kpi-box {
             background: #F8FAFC;
             border: 1px solid #E2E8F0;
             border-radius: 12px;
-            padding: 12px;
+            padding: 10px;
         }
-        .kpi-tag { font-size: 0.7rem; color: #64748B; font-weight: 700; display: block; }
-        .kpi-number { font-size: 1.25rem; font-family: 'JetBrains Mono', monospace; font-weight: 900; margin-top: 2px; display: block; }
-        .kpi-subtext { font-size: 0.7rem; color: #64748B; margin-top: 2px; display: block; }
+        .kpi-tag { font-size: 0.68rem; color: #64748B; font-weight: 700; display: block; }
+        .kpi-number { font-size: 1.2rem; font-family: 'JetBrains Mono', monospace; font-weight: 900; margin-top: 2px; display: block; }
+        .kpi-subtext { font-size: 0.68rem; color: #64748B; margin-top: 2px; display: block; }
 
-        /* Canvas Arena */
+        /* Canvas Arena & Crosshair Tooltip */
+        .canvas-arena-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .canvas-layer-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .layer-toggle {
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            padding: 3px 8px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #475569;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.15s;
+        }
+        .layer-toggle.active {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+
         .canvas-arena {
             width: 100%;
-            height: 380px;
+            height: 400px;
             background: #FFFFFF;
             border: 1.5px solid #CBD5E1;
             border-radius: 14px;
-            padding: 8px;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            cursor: crosshair;
         }
         canvas {
+            display: block;
             width: 100% !important;
             height: 100% !important;
-            display: block;
         }
 
-        /* Tree Diagrams: Luxury SVG & Card Based Visual Mind Map */
+        /* Live Tooltip Floating Box */
+        .chart-tooltip {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 8px 12px;
+            color: #FFFFFF;
+            font-family: 'JetBrains Mono', 'Vazirmatn', monospace;
+            font-size: 0.72rem;
+            pointer-events: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transition: opacity 0.15s ease;
+            z-index: 50;
+        }
+
+        /* Tree Diagrams: Luxury Hierarchical Mind Map */
         .tree-container {
-            padding: 10px;
+            padding: 6px;
         }
         .tree-trunk {
             background: #0F172A;
             color: #FFFFFF;
             font-size: 0.95rem;
             font-weight: 900;
-            padding: 12px 20px;
+            padding: 12px 18px;
             border-radius: 14px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .tree-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
+            gap: 14px;
         }
 
         .tree-branch-card {
             background: #FFFFFF;
             border: 1.5px solid #E2E8F0;
             border-radius: 14px;
-            padding: 16px;
+            padding: 14px;
             position: relative;
             box-shadow: var(--shadow-subtle);
         }
@@ -441,15 +482,15 @@
             font-weight: 900;
             color: #0F172A;
             border-bottom: 1px solid #F1F5F9;
-            padding-bottom: 10px;
-            margin-bottom: 12px;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .tree-leaf-item {
             background: #F8FAFC;
             border: 1px solid #E2E8F0;
             border-radius: 10px;
-            padding: 10px 12px;
+            padding: 9px 11px;
             margin-bottom: 8px;
             font-size: 0.74rem;
         }
@@ -462,27 +503,52 @@
         .formula-card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 14px;
+            gap: 12px;
         }
         .formula-card {
             background: #FFFFFF;
             border: 1.5px solid #E2E8F0;
             border-radius: 14px;
-            padding: 16px;
+            padding: 14px;
             box-shadow: var(--shadow-subtle);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .formula-display {
             background: #F8FAFC;
             border: 1px solid #E2E8F0;
             border-radius: 10px;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             font-family: 'JetBrains Mono', monospace;
             font-size: 1.05rem;
             font-weight: 900;
             color: #1E3A8A;
-            margin: 10px 0;
+            margin: 8px 0;
             letter-spacing: 0.02em;
+        }
+
+        .btn-copy-formula {
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            width: fit-content;
+            margin-top: 8px;
+        }
+        .btn-copy-formula:hover {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
         }
 
         /* Step by Step Algorithm Cards */
@@ -490,8 +556,8 @@
             background: #F8FAFC;
             border-right: 5px solid #2563EB;
             border-radius: 10px;
-            padding: 14px;
-            margin-bottom: 12px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
             font-size: 0.78rem;
         }
         .algo-step-title {
@@ -499,7 +565,7 @@
             font-weight: 900;
             color: #1E3A8A;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         /* Traps & Notebook Capsule */
@@ -507,8 +573,8 @@
             background: #FFF1F2;
             border: 1.5px solid #FECDD3;
             border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 12px;
+            padding: 12px;
+            margin-bottom: 10px;
             font-size: 0.76rem;
         }
         .trap-header {
@@ -524,7 +590,7 @@
             background: #F8FAFC;
             border: 2px dashed #94A3B8;
             border-radius: 14px;
-            padding: 18px;
+            padding: 16px;
             font-family: 'JetBrains Mono', 'Vazirmatn', monospace;
             font-size: 0.76rem;
             line-height: 1.9;
@@ -535,17 +601,17 @@
         /* Floating Bottom Executive Dock */
         .executive-dock {
             position: fixed;
-            bottom: 14px;
+            bottom: 12px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 28px);
-            max-width: 620px;
+            width: calc(100% - 24px);
+            max-width: 600px;
             background: rgba(15, 23, 42, 0.94);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            padding: 6px 10px;
+            padding: 6px 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -557,7 +623,7 @@
             background: transparent;
             border: none;
             color: #94A3B8;
-            padding: 8px 10px;
+            padding: 7px 8px;
             border-radius: 14px;
             cursor: pointer;
             font-family: 'Vazirmatn', sans-serif;
@@ -566,7 +632,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3px;
+            gap: 2px;
             transition: all 0.15s ease;
             user-select: none;
             flex: 1;
@@ -582,16 +648,16 @@
         /* Toast Notification */
         .toast {
             position: fixed;
-            top: 20px;
+            top: 18px;
             left: 50%;
             transform: translateX(-50%) translateY(-100px);
             background: #0F172A;
             color: #FFFFFF;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 12px;
             font-size: 0.8rem;
             font-weight: 800;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 2000;
             display: flex;
@@ -618,23 +684,23 @@
             <div class="cockpit-title">
                 <h1>
                     <span>BANKAI</span>
-                    <span class="badge badge-dark">EXECUTIVE v9.0</span>
+                    <span class="badge badge-pro">PRO MASTERPIECE v10.0</span>
                 </h1>
                 <p style="font-size: 0.75rem; color: #64748B; margin-top: 2px;">
-                    سامانه جامع هوش تحلیلی و بهینه‌سازی کمّی | پورتال اختصاصی بهادر
+                    سامانه هوش تحلیلی و بهینه‌سازی کمّی | پورتال اختصاصی بهادر
                 </p>
             </div>
         </div>
 
         <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span class="badge badge-cost">🟢 موتور بومی ۶۰ فریم فعال</span>
+            <span class="badge badge-cost">🟢 رندرینگ رتینا HD و ۶۰ فریم</span>
             <button onclick="exportFullBrief()" class="badge badge-micro" style="cursor: pointer; padding: 6px 12px; font-weight: 800; text-decoration: none;">
                 📋 کپی گزارش تحلیلی
             </button>
         </div>
     </header>
 
-    <!-- 5 MAIN DISCIPLINE CARDS (پنج جبهه درسی بهادر) -->
+    <!-- 5 MAIN DISCIPLINE CARDS -->
     <nav class="subject-grid">
         <div class="subject-btn active" id="btn-course-micro" onclick="selectCourse('micro')">
             <div class="s-header">
@@ -694,20 +760,17 @@
             <span class="badge badge-micro" id="banner-indicator">تحلیل فعال</span>
         </div>
 
-        <!-- 1-Tap Real World Scenario Injection -->
         <div class="scenario-chips-row">
             <span style="font-size: 0.72rem; font-weight: 800; color: #475569;">🚀 سناریوهای واقعی بازار (تزریق آنی عدد):</span>
-            <div id="scenario-chips-container" style="display: flex; gap: 6px; flex-wrap: wrap;">
-                <!-- dynamic chips will be loaded here -->
-            </div>
+            <div id="scenario-chips-container" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
         </div>
     </section>
 
-    <!-- 5 TOP MODULE SUBTABS (تب‌های پنج‌گانه لوکس) -->
+    <!-- 5 TOP MODULE SUBTABS -->
     <div class="subtabs-bar">
         <button class="subtab-pill active" id="pill-tab-sim" onclick="selectTab('sim')">
             <span>📊</span>
-            <span>رسم نمودار و اشکال زنده (Canvas)</span>
+            <span>رسم نمودار زنده با دقت رتینا HD</span>
         </button>
 
         <button class="subtab-pill" id="pill-tab-tree" onclick="selectTab('tree')">
@@ -742,10 +805,10 @@
             <!-- 1.1 SIMULATOR & NATIVE CANVAS -->
             <div id="micro-tab-sim" class="subtab-view">
                 <div class="sim-layout">
-                    <!-- Left: Parameter Controls -->
+                    <!-- Controls -->
                     <div class="card" style="margin-bottom: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 14px;">
-                            <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-micro);">⚙️ تنظیمات زنده توابع و مالیات</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                            <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-micro);">⚙️ متغیرهای تعادل و مالیات واحدی</span>
                             <span class="font-mono badge badge-micro">Xd = a - bP | Xs = c + dP</span>
                         </div>
 
@@ -819,30 +882,38 @@
                         </div>
                     </div>
 
-                    <!-- Right: Native Canvas Plot -->
+                    <!-- Right: Native Canvas Plot & Tooltip HUD -->
                     <div class="card" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                                <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A;">📊 نمودار هندسی عرضه، تقاضا و مثلث رفاهی DWL</h3>
+                                <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A;">📊 تعادل عرضه، تقاضا و مثلث رفاهی DWL</h3>
                                 <span class="badge badge-micro font-mono" id="m-choke-badge">P_max: 50.0</span>
                             </div>
-                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 12px;">
-                                ترسیم زنده ۶۰ فریم بر ثانیه با تغییر فوری اعداد تایپی یا اسلایدر
-                            </p>
+
+                            <!-- Interactive Layer Toggles -->
+                            <div class="canvas-layer-controls">
+                                <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">لایه‌های تحلیلی:</span>
+                                <button class="layer-toggle active" id="m-layer-dwl" onclick="toggleLayer('micro', 'dwl')">مثلث DWL</button>
+                                <button class="layer-toggle active" id="m-layer-cs" onclick="toggleLayer('micro', 'cs')">مازاد رفاهی (CS/PS)</button>
+                                <button class="layer-toggle active" id="m-layer-tax" onclick="toggleLayer('micro', 'tax')">درآمد دولت</button>
+                            </div>
                         </div>
 
-                        <div class="canvas-arena">
-                            <canvas id="canvasMicro" width="600" height="380"></canvas>
+                        <div class="canvas-arena-wrapper">
+                            <div class="canvas-arena" id="arena-micro">
+                                <canvas id="canvasMicro"></canvas>
+                                <div class="chart-tooltip" id="tooltip-micro" style="opacity: 0;"></div>
+                            </div>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
-                            <div style="display: flex; gap: 14px; align-items: center;">
-                                <span><strong style="color: #1D4ED8;">—</strong> خط تقاضا</span>
-                                <span><strong style="color: #047857;">┄┄</strong> عرضه قبل مالیات</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 10px; font-size: 0.72rem; color: #64748B;">
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <span><strong style="color: #1D4ED8;">—</strong> تقاضا</span>
+                                <span><strong style="color: #047857;">┄┄</strong> عرضه اولیه</span>
                                 <span><strong style="color: #DC2626;">—</strong> عرضه با مالیات</span>
                                 <span><strong style="color: #F87171;">■</strong> مثلث DWL</span>
                             </div>
-                            <span style="font-weight: 800; color: #0F172A;">تعادل اولیه: E1 | ثانویه: E2</span>
+                            <span style="font-weight: 800; color: #0F172A;">نقطه تعادل اولیه: E1 | ثانویه: E2</span>
                         </div>
                     </div>
                 </div>
@@ -940,37 +1011,52 @@
             <div id="micro-tab-formula" class="subtab-view" style="display: none;">
                 <div class="formula-card-grid">
                     <div class="formula-card">
-                        <span class="badge badge-micro">فرمول طلایی ۱</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
-                        <div class="formula-display">Burden_C / Burden_P = Es / |Ed| = d / b</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>کالبدشکافی متغیرها:</strong>
-                            <p>• <b>Burden_C:</b> سهم افزایش قیمت پرداختی مصرف‌کننده (Pc - P*).</p>
-                            <p>• <b>Burden_P:</b> سهم کاهش قیمت دریافتی تولیدکننده (P* - Pp).</p>
-                            <p>• <b>Es / |Ed|:</b> نسبت شیب عرضه به تقاضا (d/b) در توابع خطی؛ کشش کمتر = تحمل بار بیشتر.</p>
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۱</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
+                            <div class="formula-display">Burden_C / Burden_P = Es / |Ed| = d / b</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>کالبدشکافی متغیرها:</strong>
+                                <p>• <b>Burden_C:</b> سهم افزایش قیمت پرداختی مصرف‌کننده (Pc - P*).</p>
+                                <p>• <b>Burden_P:</b> سهم کاهش قیمت دریافتی تولیدکننده (P* - Pp).</p>
+                                <p>• <b>Es / |Ed|:</b> نسبت شیب عرضه به تقاضا (d/b) در توابع خطی؛ کشش کمتر = تحمل بار بیشتر.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Burden_C / Burden_P = Es / |Ed| = d / b')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-micro">فرمول طلایی ۲</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">زیان بار مرده جامعه (Deadweight Loss)</h4>
-                        <div class="formula-display">DWL = 0.5 × t × (Q0 - Qt)</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>کالبدشکافی متغیرها:</strong>
-                            <p>• <b>0.5:</b> ضریب مساحت هندسی مثلث.</p>
-                            <p>• <b>t:</b> قاعده مثلث برابر نرخ مالیات واحدی وضع‌شده.</p>
-                            <p>• <b>(Q0 - Qt):</b> ارتفاع مثلث برابر کاهش مقدار مبادلات در اثر افزایش قیمت.</p>
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۲</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">زیان بار مرده جامعه (Deadweight Loss)</h4>
+                            <div class="formula-display">DWL = 0.5 × t × (Q0 - Qt)</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>کالبدشکافی متغیرها:</strong>
+                                <p>• <b>0.5:</b> ضریب مساحت هندسی مثلث.</p>
+                                <p>• <b>t:</b> قاعده مثلث برابر نرخ مالیات واحدی وضع‌شده.</p>
+                                <p>• <b>(Q0 - Qt):</b> ارتفاع مثلث برابر کاهش مقدار مبادلات در اثر افزایش قیمت.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('DWL = 0.5 * t * (Q0 - Qt)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-micro">فرمول طلایی ۳</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص درجه انحصار لرنر (Lerner Index)</h4>
-                        <div class="formula-display">L = (P - MC) / P = 1 / |Ed|</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>مفهوم استراتژیک:</strong>
-                            <p>نشان‌دهنده توانایی انحصارگر در قیمت‌گذاری بالاتر از هزینه نهایی است. در رقابت کامل L = 0 و در انحصار تا ۱ میل می‌کند.</p>
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۳</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص درجه انحصار لرنر (Lerner Index)</h4>
+                            <div class="formula-display">L = (P - MC) / P = 1 / |Ed|</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>مفهوم استراتژیک:</strong>
+                                <p>نشان‌دهنده توانایی انحصارگر در قیمت‌گذاری بالاتر از هزینه نهایی است. در رقابت کامل L = 0 و در انحصار تا ۱ میل می‌کند.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('L = (P - MC) / P = 1 / |Ed|')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
                 </div>
             </div>
@@ -979,7 +1065,7 @@
             <div id="micro-tab-solution" class="subtab-view" style="display: none;">
                 <div class="card">
                     <span class="badge badge-micro" style="margin-bottom: 8px;">مسئله تیپ کنکور کارشناسی ارشد تهران و شریف</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 14px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
                         صورت مسئله: توابع تقاضا و عرضه به صورت Xd = 100 - 2P و Xs = -20 + 4P است. با وضع مالیات واحدی t = 6 ریال، تعادل جدید، درآمد دولت و زیان رفاهی جامعه را حساب کنید.
                     </h3>
 
@@ -1010,7 +1096,7 @@
             <!-- 1.5 EXAM TRAPS & NOTEBOOK CAPSULE -->
             <div id="micro-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
-                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 12px;">⚠️ تله‌های مرگبار امتحانی اقتصاد خرد</h4>
+                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی اقتصاد خرد</h4>
                     <div class="trap-box">
                         <div class="trap-header"><span>🚨</span> دام تستی ۱: تقاضای کاملاً بی‌کشش (|Ed| = 0)</div>
                         داوطلب گمان می‌کند مالیات همیشه بین خریدار و فروشنده تقسیم می‌شود! اگر تقاضا کاملاً عمودی باشد، ۱۰۰٪ مالیات به قیمت خریدار اضافه می‌شود، تیراژ بازار تغییر نمی‌کند و DWL دقیقاً صفر است!
@@ -1045,7 +1131,7 @@
             <div id="cost-tab-sim" class="subtab-view">
                 <div class="sim-layout">
                     <div class="card" style="margin-bottom: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 14px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
                             <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-cost);">⚙️ داده‌های بهای تمام‌شده و تولید صنعتی</span>
                             <span class="font-mono badge badge-cost">TC = FC + VC × Q</span>
                         </div>
@@ -1115,25 +1201,33 @@
                     <div class="card" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                                <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A;">📊 نمودار ساختار بهای تمام‌شده و نقطه سر‌به‌سر</h3>
+                                <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A;">📊 ساختار بهای تمام‌شده، نقطه سر‌به‌سر و سود</h3>
                                 <span class="badge badge-cost font-mono" id="c-bep-badge">فروش سر‌به‌سر: 200k</span>
                             </div>
-                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 12px;">
-                                تفکیک دقیق ناحیه سود و زیان عملیاتی بر روی بوم ۲ بعدی
-                            </p>
+
+                            <!-- Interactive Layer Toggles -->
+                            <div class="canvas-layer-controls">
+                                <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">لایه‌های تحلیلی:</span>
+                                <button class="layer-toggle active" id="c-layer-zones" onclick="toggleLayer('cost', 'zones')">ناحیه سود و زیان</button>
+                                <button class="layer-toggle active" id="c-layer-fc" onclick="toggleLayer('cost', 'fc')">خط هزینه ثابت (FC)</button>
+                                <button class="layer-toggle active" id="c-layer-target" onclick="toggleLayer('cost', 'target')">تیراژ سود هدف</button>
+                            </div>
                         </div>
 
-                        <div class="canvas-arena">
-                            <canvas id="canvasCost" width="600" height="380"></canvas>
+                        <div class="canvas-arena-wrapper">
+                            <div class="canvas-arena" id="arena-cost">
+                                <canvas id="canvasCost"></canvas>
+                                <div class="chart-tooltip" id="tooltip-cost" style="opacity: 0;"></div>
+                            </div>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
-                            <div style="display: flex; gap: 14px; align-items: center;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 10px; font-size: 0.72rem; color: #64748B;">
+                            <div style="display: flex; gap: 12px; align-items: center;">
                                 <span><strong style="color: #047857;">—</strong> درآمد کل (TR)</span>
                                 <span><strong style="color: #DC2626;">—</strong> هزینه کل (TC)</span>
                                 <span><strong style="color: #64748B;">┄┄</strong> هزینه ثابت (FC)</span>
                             </div>
-                            <span style="font-weight: 800; color: #0F172A;">تقاطع: BEP</span>
+                            <span style="font-weight: 800; color: #0F172A;">تقاطع تعادلی: BEP</span>
                         </div>
                     </div>
                 </div>
@@ -1183,33 +1277,48 @@
             <div id="cost-tab-formula" class="subtab-view" style="display: none;">
                 <div class="formula-card-grid">
                     <div class="formula-card">
-                        <span class="badge badge-cost">فرمول طلایی ۱</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ نقطه سر‌به‌سر (BEP)</h4>
-                        <div class="formula-display">Q_bep = FC / (P - VC) = FC / CM</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>منطق صورت و مخرج:</strong>
-                            <p>هزینه‌های ثابت کل (FC) در صورت قرار دارد؛ هر واحد محصول فروخته‌شده مبلغ حاشیه فروش (CM) را از هزینه ثابت کسر می‌کند تا به صفر برسد.</p>
+                        <div>
+                            <span class="badge badge-cost">فرمول طلایی ۱</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ نقطه سر‌به‌سر (BEP)</h4>
+                            <div class="formula-display">Q_bep = FC / (P - VC) = FC / CM</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>منطق صورت و مخرج:</strong>
+                                <p>هزینه‌های ثابت کل (FC) در صورت قرار دارد؛ هر واحد محصول فروخته‌شده مبلغ حاشیه فروش (CM) را از هزینه ثابت کسر می‌کند تا به صفر برسد.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Q_bep = FC / (P - VC) = FC / CM')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-cost">فرمول طلایی ۲</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درجه اهرم عملیاتی (DOL)</h4>
-                        <div class="formula-display">DOL = Total CM / EBIT = (Q × CM) / (Q × CM - FC)</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تحلیل حساسیت:</strong>
-                            <p>نشان می‌دهد به ازای ۱٪ تغییر در تیراژ فروش، سود عملیاتی شرکت چند درصد جهش می‌کند. با نزدیک شدن به BEP، اهرم به بی‌نهایت میل می‌کند.</p>
+                        <div>
+                            <span class="badge badge-cost">فرمول طلایی ۲</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درجه اهرم عملیاتی (DOL)</h4>
+                            <div class="formula-display">DOL = Total CM / EBIT = (Q × CM) / (Q × CM - FC)</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>تحلیل حساسیت:</strong>
+                                <p>نشان می‌دهد به ازای ۱٪ تغییر در تیراژ فروش، سود عملیاتی شرکت چند درصد جهش می‌کند. با نزدیک شدن به BEP، اهرم به بی‌نهایت میل می‌کند.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('DOL = (Q * CM) / (Q * CM - FC)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-cost">فرمول طلایی ۳</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ سود هدف با مالیات شرکتی</h4>
-                        <div class="formula-display">Q_target = [ FC + Target_Profit / (1 - T) ] / CM</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>سپر مالیاتی:</strong>
-                            <p>چون هزینه‌ها قبل از مالیات پرداخت می‌شوند، سود خالص هدف باید بر (1 - T) تقسیم شود تا سود قبل از مالیات لازم به دست آید.</p>
+                        <div>
+                            <span class="badge badge-cost">فرمول طلایی ۳</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ سود هدف با مالیات شرکتی</h4>
+                            <div class="formula-display">Q_target = [ FC + Target_Profit / (1 - T) ] / CM</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>سپر مالیاتی:</strong>
+                                <p>چون هزینه‌ها قبل از مالیات پرداخت می‌شوند، سود خالص هدف باید بر (1 - T) تقسیم شود تا سود قبل از مالیات لازم به دست آید.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Q_target = [FC + Target_Profit / (1 - T)] / CM')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1218,7 +1327,7 @@
             <div id="cost-tab-solution" class="subtab-view" style="display: none;">
                 <div class="card">
                     <span class="badge badge-cost" style="margin-bottom: 8px;">مسئله تفکیک هزینه‌های نیمه‌متغیر (روش High-Low)</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 14px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
                         صورت مسئله: در بالاترین سطح فعالیت (۱۰,۰۰۰ ساعت) بهای کل ۵۰۰,۰۰۰ تومان و در پایین‌ترین سطح (۴,۰۰۰ ساعت) بهای کل ۲۶۰,۰۰۰ تومان است. معادله هزینه و نقطه سر‌به‌سر در قیمت فروش ۸۰ تومان چیست؟
                     </h3>
 
@@ -1246,7 +1355,7 @@
             <!-- 2.5 TRAPS & CAPSULE -->
             <div id="cost-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
-                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 12px;">⚠️ تله‌های مرگبار امتحانی حسابداری صنعتی</h4>
+                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی حسابداری صنعتی</h4>
                     <div class="trap-box">
                         <div class="trap-header"><span>🚨</span> دام تستی ۱: هزینه ثابت هر واحد متغیر است!</div>
                         داوطلب فکر می‌کند چون نامش هزینه ثابت است در سطح هر واحد هم ثابت است! کل هزینه ثابت ثابت است؛ هزینه ثابت هر واحد با افزایش تولید کاهش می‌یابد.
@@ -1281,7 +1390,7 @@
             <div id="finance-tab-sim" class="subtab-view">
                 <div class="sim-layout">
                     <div class="card" style="margin-bottom: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 14px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
                             <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-finance);">💎 متغیرهای ارزش‌گذاری CAPM و SML</span>
                             <span class="font-mono badge badge-finance">E(R) = Rf + β(Rm - Rf)</span>
                         </div>
@@ -1344,20 +1453,28 @@
                                 <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A;">📊 خط بازار اوراق بهادار (Security Market Line - SML)</h3>
                                 <span class="badge badge-finance font-mono">CAPM Frontier</span>
                             </div>
-                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 12px;">
-                                موقعیت دقیق سهم انتخابی بهادر روی خط تعادل ریسک و بازده
-                            </p>
+
+                            <!-- Interactive Layer Toggles -->
+                            <div class="canvas-layer-controls">
+                                <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">لایه‌های تحلیلی:</span>
+                                <button class="layer-toggle active" id="f-layer-sml" onclick="toggleLayer('finance', 'sml')">خط تعادل SML</button>
+                                <button class="layer-toggle active" id="f-layer-market" onclick="toggleLayer('finance', 'market')">پرتفوی بازار M</button>
+                                <button class="layer-toggle active" id="f-layer-rf" onclick="toggleLayer('finance', 'rf')">نرخ تنزیل Rf</button>
+                            </div>
                         </div>
 
-                        <div class="canvas-arena">
-                            <canvas id="canvasFinance" width="600" height="380"></canvas>
+                        <div class="canvas-arena-wrapper">
+                            <div class="canvas-arena" id="arena-finance">
+                                <canvas id="canvasFinance"></canvas>
+                                <div class="chart-tooltip" id="tooltip-finance" style="opacity: 0;"></div>
+                            </div>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
-                            <div style="display: flex; gap: 14px; align-items: center;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 10px; font-size: 0.72rem; color: #64748B;">
+                            <div style="display: flex; gap: 12px; align-items: center;">
                                 <span><strong style="color: #6D28D9;">—</strong> خط SML</span>
                                 <span><strong style="color: #D97706;">●</strong> سهم انتخابی بهادر</span>
-                                <span><strong style="color: #1D4ED8;">┄┄</strong> نرخ بدون ریسک Rf</span>
+                                <span><strong style="color: #1D4ED8;">┄┄</strong> بازده بدون ریسک Rf</span>
                             </div>
                             <span style="font-weight: 800; color: #0F172A;">شیب خط: MRP</span>
                         </div>
@@ -1409,33 +1526,48 @@
             <div id="finance-tab-formula" class="subtab-view" style="display: none;">
                 <div class="formula-card-grid">
                     <div class="formula-card">
-                        <span class="badge badge-finance">فرمول طلایی ۱</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل قیمت‌گذاری CAPM</h4>
-                        <div class="formula-display">E(R) = Rf + Beta × [ Rm - Rf ]</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>منطق وال‌استریت:</strong>
-                            <p>هیچ سرمایه‌گذاری برای پذیرش ریسک غیرسیستماتیک (قابل حذف با تنوع‌بخشی) پاداش نمی‌گیرد؛ تنها ریسک سیستماتیک (Beta) قیمت‌گذاری می‌شود.</p>
+                        <div>
+                            <span class="badge badge-finance">فرمول طلایی ۱</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل قیمت‌گذاری CAPM</h4>
+                            <div class="formula-display">E(R) = Rf + Beta × [ Rm - Rf ]</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>منطق وال‌استریت:</strong>
+                                <p>هیچ سرمایه‌گذاری برای پذیرش ریسک غیرسیستماتیک پاداش نمی‌گیرد؛ تنها ریسک سیستماتیک (Beta) قیمت‌گذاری می‌شود.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('E(R) = Rf + Beta * [Rm - Rf]')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-finance">فرمول طلایی ۲</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین موزون هزینه سرمایه (WACC)</h4>
-                        <div class="formula-display">WACC = (E/V)Ke + (D/V)Kd(1 - T)</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>سپر مالیاتی بدهی:</strong>
-                            <p>بهره وام از درآمد مشمول مالیات کسر می‌شود، لذا هزینه واقعی بدهی Kd(1 - T) است در حالی که سود سهام مشمول سپر مالیاتی نیست.</p>
+                        <div>
+                            <span class="badge badge-finance">فرمول طلایی ۲</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین موزون هزینه سرمایه (WACC)</h4>
+                            <div class="formula-display">WACC = (E/V)Ke + (D/V)Kd(1 - T)</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>سپر مالیاتی بدهی:</strong>
+                                <p>بهره وام از درآمد مشمول مالیات کسر می‌شود، لذا هزینه واقعی بدهی Kd(1 - T) است در حالی که سود سهام مشمول سپر مالیاتی نیست.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('WACC = (E/V)*Ke + (D/V)*Kd*(1 - T)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-finance">فرمول طلایی ۳</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">معادله بتای اهرمی همادا (Hamada)</h4>
-                        <div class="formula-display">β_L = β_U × [ 1 + (1 - T)(D / E) ]</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تفکیک ریسک:</strong>
-                            <p>β_U بتای عملیاتی خالص شرکت است و عبارت داخل کروشه میزان ریسک مالی تحمیل‌شده ناشی از استقراض وام را نشان می‌دهد.</p>
+                        <div>
+                            <span class="badge badge-finance">فرمول طلایی ۳</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">معادله بتای اهرمی همادا (Hamada)</h4>
+                            <div class="formula-display">β_L = β_U × [ 1 + (1 - T)(D / E) ]</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>تفکیک ریسک:</strong>
+                                <p>β_U بتای عملیاتی خالص شرکت است و عبارت داخل کروشه میزان ریسک مالی تحمیل‌شده ناشی از استقراض وام را نشان می‌دهد.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Beta_L = Beta_U * [1 + (1 - T)*(D/E)]')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1444,7 +1576,7 @@
             <div id="finance-tab-solution" class="subtab-view" style="display: none;">
                 <div class="card">
                     <span class="badge badge-finance" style="margin-bottom: 8px;">مسئله بودجه‌بندی سرمایه‌ای و تنزیل جریان‌های نقدی</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 14px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
                         صورت مسئله: پروژه‌ای به سرمایه اولیه ۱۰۰ میلیون تومان نیاز دارد و در ۳ سال آتی جریان‌های ۴۰، ۵۰ و ۶۰ میلیون تولید می‌کند. با هزینه سرمایه ۲۰٪ آیا طرح توجیه دارد؟
                     </h3>
 
@@ -1471,7 +1603,7 @@
             <!-- 3.5 TRAPS & CAPSULE -->
             <div id="finance-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
-                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 12px;">⚠️ تله‌های مرگبار امتحانی مدیریت مالی</h4>
+                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی مدیریت مالی</h4>
                     <div class="trap-box">
                         <div class="trap-header"><span>🚨</span> دام تستی ۱: پرمیوم بازار در برابر بازده بازار</div>
                         اگر سوال بگوید: «صرف ریسک بازار ۱۰٪ است»، مستقیماً Beta × 10 می‌شود. اما اگر بگوید «بازده بازار ۳۰٪ و نرخ بدون ریسک ۲۰٪ است»، ابتدا باید تفاضل گرفته شود!
@@ -1505,7 +1637,7 @@
             <div id="or-tab-sim" class="subtab-view">
                 <div class="sim-layout">
                     <div class="card" style="margin-bottom: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 14px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
                             <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-or);">⚙️ مدل برنامه‌ریزی خطی ۲ متغیره</span>
                             <span class="font-mono badge badge-or">Max Z = c1 x1 + c2 x2</span>
                         </div>
@@ -1528,10 +1660,10 @@
                             <input type="range" id="or-c2-slider" min="10" max="100" step="5" value="30">
                         </div>
 
-                        <div class="card-inner" style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: #334155; margin-top: 10px;">
+                        <div class="card-inner" style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: #334155; margin-top: 8px;">
                             <strong style="color: #0F172A; display: block; margin-bottom: 4px;">قیود منابع کارخانه:</strong>
-                            <div>• 2 x1 + 1 x2 ≤ 100  (ظرفیت دستگاه تراشکاری)</div>
-                            <div>• 1 x1 + 2 x2 ≤ 80   (ظرفیت خط مونتاژ)</div>
+                            <div>• 2 x1 + 1 x2 ≤ 100  (دستگاه تراشکاری)</div>
+                            <div>• 1 x1 + 2 x2 ≤ 80   (خط مونتاژ)</div>
                             <div>• x1, x2 ≥ 0</div>
                         </div>
 
@@ -1555,22 +1687,30 @@
                                 <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A;">📊 ناحیه موجه (Feasible Region) و خطوط تراز سود</h3>
                                 <span class="badge badge-or font-mono">Convex Polygon</span>
                             </div>
-                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 12px;">
-                                رسم چندضلعی محدب موجه، تقاطع قیود و نقطه بهینه سیمپلکس روی بوم بومی
-                            </p>
+
+                            <!-- Interactive Layer Toggles -->
+                            <div class="canvas-layer-controls">
+                                <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">لایه‌های تحلیلی:</span>
+                                <button class="layer-toggle active" id="or-layer-poly" onclick="toggleLayer('or', 'poly')">چندضلعی موجه</button>
+                                <button class="layer-toggle active" id="or-layer-isoprofit" onclick="toggleLayer('or', 'isoprofit')">خطوط تراز سود</button>
+                                <button class="layer-toggle active" id="or-layer-vertices" onclick="toggleLayer('or', 'vertices')">نقاط گوشه‌ای</button>
+                            </div>
                         </div>
 
-                        <div class="canvas-arena">
-                            <canvas id="canvasOR" width="600" height="380"></canvas>
+                        <div class="canvas-arena-wrapper">
+                            <div class="canvas-arena" id="arena-or">
+                                <canvas id="canvasOR"></canvas>
+                                <div class="chart-tooltip" id="tooltip-or" style="opacity: 0;"></div>
+                            </div>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
-                            <div style="display: flex; gap: 14px; align-items: center;">
-                                <span><strong style="color: #0284C7;">—</strong> قید ۱ (چوب)</span>
-                                <span><strong style="color: #047857;">—</strong> قید ۲ (کارگر)</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 10px; font-size: 0.72rem; color: #64748B;">
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <span><strong style="color: #0284C7;">—</strong> قید ۱ (تراش)</span>
+                                <span><strong style="color: #047857;">—</strong> قید ۲ (مونتاژ)</span>
                                 <span><strong style="color: #D97706;">●</strong> نقطه بهینه Z*</span>
                             </div>
-                            <span style="font-weight: 800; color: #0F172A;">سطح فیروزه‌ای: ناحیه موجه</span>
+                            <span style="font-weight: 800; color: #0F172A;">سطح فیروزه‌ای: چندضلعی محدب</span>
                         </div>
                     </div>
                 </div>
@@ -1620,33 +1760,48 @@
             <div id="or-tab-formula" class="subtab-view" style="display: none;">
                 <div class="formula-card-grid">
                     <div class="formula-card">
-                        <span class="badge badge-or">فرمول طلایی ۱</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قیمت سایه و ارزش منبع محدودکننده</h4>
-                        <div class="formula-display">y_i* = ∂Z* / ∂b_i</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>مفهوم کاربردی:</strong>
-                            <p>حداکثر قیمتی که مدیر حاضر است برای خرید یک واحد منبع اضافی iام پرداخت کند تا سود شرکت افزایش یابد.</p>
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۱</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قیمت سایه و ارزش منبع محدودکننده</h4>
+                            <div class="formula-display">y_i* = ∂Z* / ∂b_i</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>مفهوم کاربردی:</strong>
+                                <p>حداکثر قیمتی که مدیر حاضر است برای خرید یک واحد منبع اضافی iام پرداخت کند تا سود شرکت افزایش یابد.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('y_i = dZ / db_i')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-or">فرمول طلایی ۲</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قضیه مکمل فزونی (Complementary Slackness)</h4>
-                        <div class="formula-display">s_i × y_i = 0  و  x_j × e_j = 0</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>قاعده طلایی:</strong>
-                            <p>اگر منبعی اضافه بیاید (Slack &gt; 0)، ارزش سایه آن منبع صفر مطلق است؛ برای منبع مازاد پولی نباید پرداخت شود.</p>
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۲</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قضیه مکمل فزونی (Complementary Slackness)</h4>
+                            <div class="formula-display">s_i × y_i = 0  و  x_j × e_j = 0</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>قاعده طلایی:</strong>
+                                <p>اگر منبعی اضافه بیاید (Slack &gt; 0)، ارزش سایه آن منبع صفر مطلق است؛ برای منبع مازاد پولی نباید پرداخت شود.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('s_i * y_i = 0')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-or">فرمول طلایی ۳</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">آزمون حداقل نسبت سیمپلکس</h4>
-                        <div class="formula-display">θ = min { b_i / a_ik  |  a_ik > 0 }</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>شرط موجه ماندن:</strong>
-                            <p>ستون لولایی k را تعیین کرده و مقادیر مثبت سمت راست را تقسیم می‌کنیم؛ کمترین نسبت مثبت متغیر خروجی را مشخص می‌کند.</p>
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۳</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">آزمون حداقل نسبت سیمپلکس</h4>
+                            <div class="formula-display">θ = min { b_i / a_ik  |  a_ik > 0 }</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>شرط موجه ماندن:</strong>
+                                <p>ستون لولایی k را تعیین کرده و مقادیر مثبت سمت راست را تقسیم می‌کنیم؛ کمترین نسبت مثبت متغیر خروجی را مشخص می‌کند.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('theta = min{ b_i / a_ik | a_ik > 0 }')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1655,7 +1810,7 @@
             <div id="or-tab-solution" class="subtab-view" style="display: none;">
                 <div class="card">
                     <span class="badge badge-or" style="margin-bottom: 8px;">الگوریتم حل جدول سیمپلکس با آزمون حداقل نسبت</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 14px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
                         صورت مسئله: Max Z = 3x1 + 5x2 تحت قیود x1 ≤ 4 و 2x2 ≤ 12 و 3x1 + 2x2 ≤ 18.
                     </h3>
 
@@ -1681,7 +1836,7 @@
             <!-- 4.5 TRAPS & CAPSULE -->
             <div id="or-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
-                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 12px;">⚠️ تله‌های مرگبار امتحانی تحقیق در عملیات</h4>
+                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی تحقیق در عملیات</h4>
                     <div class="trap-box">
                         <div class="trap-header"><span>🚨</span> دام تستی ۱: مسئله نامتناهی (Unbounded) در آزمون نسبت</div>
                         اگر متغیر ورودی انتخاب شد اما تمام درایه‌های ستون لولایی صفر یا منفی بودند، آزمون نسبت ناممکن است؛ مسئله نامتناهی بوده و جواب بهینه در بی‌نهایت است!
@@ -1715,7 +1870,7 @@
             <div id="stat-tab-sim" class="subtab-view">
                 <div class="sim-layout">
                     <div class="card" style="margin-bottom: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 14px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
                             <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-stat);">📊 توزیع نرمال و سنجش ریسک دم</span>
                             <span class="font-mono badge badge-stat">Z = (X - μ) / σ</span>
                         </div>
@@ -1771,22 +1926,30 @@
                     <div class="card" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                                <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A;">📊 منحنی چگالی احتمال توزیع نرمال و ناحیه ریسک دم</h3>
+                                <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A;">📊 چگالی احتمال گاوسی و سطح احتمال زیان</h3>
                                 <span class="badge badge-stat font-mono">Gaussian Bell</span>
                             </div>
-                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 12px;">
-                                ترسیم دقیق زنگوله‌ای گاوسی، خط میانگین و سطح سایه‌زده احتمال زیان
-                            </p>
+
+                            <!-- Interactive Layer Toggles -->
+                            <div class="canvas-layer-controls">
+                                <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">لایه‌های تحلیلی:</span>
+                                <button class="layer-toggle active" id="s-layer-tail" onclick="toggleLayer('stat', 'tail')">ریسک زیان دم</button>
+                                <button class="layer-toggle active" id="s-layer-ci" onclick="toggleLayer('stat', 'ci')">بازه ۹۵٪ (±1.96σ)</button>
+                                <button class="layer-toggle active" id="s-layer-sigmas" onclick="toggleLayer('stat', 'sigmas')">مرزهای انحراف معیار</button>
+                            </div>
                         </div>
 
-                        <div class="canvas-arena">
-                            <canvas id="canvasStat" width="600" height="380"></canvas>
+                        <div class="canvas-arena-wrapper">
+                            <div class="canvas-arena" id="arena-stat">
+                                <canvas id="canvasStat"></canvas>
+                                <div class="chart-tooltip" id="tooltip-stat" style="opacity: 0;"></div>
+                            </div>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
-                            <div style="display: flex; gap: 14px; align-items: center;">
-                                <span><strong style="color: #4338CA;">—</strong> منحنی چگالی گاوسی</span>
-                                <span><strong style="color: #DC2626;">■</strong> ناحیه احتمال زیان دم</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 10px; font-size: 0.72rem; color: #64748B;">
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <span><strong style="color: #4338CA;">—</strong> منحنی چگالی</span>
+                                <span><strong style="color: #DC2626;">■</strong> ریسک دم زیان</span>
                                 <span><strong style="color: #64748B;">┄┄</strong> میانگین μ</span>
                             </div>
                             <span style="font-weight: 800; color: #0F172A;">قانون تجربی: ۶۸٪ - ۹۵٪ - ۹۹.۷٪</span>
@@ -1839,33 +2002,48 @@
             <div id="stat-tab-formula" class="subtab-view" style="display: none;">
                 <div class="formula-card-grid">
                     <div class="formula-card">
-                        <span class="badge badge-stat">فرمول طلایی ۱</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شیب رگرسیون بتای بازار</h4>
-                        <div class="formula-display">β_i = Cov(Ri, Rm) / Var(Rm) = ρ × (σi / σm)</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>ریشه آماری بتا:</strong>
-                            <p>بتا ضریب زاویه خط رگرسیون کمترین مربعات است که میزان ریسک سیستماتیک سهم در مقایسه با کل بازار را می‌سنجد.</p>
+                        <div>
+                            <span class="badge badge-stat">فرمول طلایی ۱</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شیب رگرسیون بتای بازار</h4>
+                            <div class="formula-display">β_i = Cov(Ri, Rm) / Var(Rm) = ρ × (σi / σm)</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>ریشه آماری بتا:</strong>
+                                <p>بتا ضریب زاویه خط رگرسیون کمترین مربعات است که میزان ریسک سیستماتیک سهم در مقایسه با کل بازار را می‌سنجد.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Beta = Cov(Ri, Rm) / Var(Rm) = rho * (sigma_i / sigma_m)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-stat">فرمول طلایی ۲</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">آماره آزمون Z میانگین جامعه</h4>
-                        <div class="formula-display">Z = (X_bar - μ) / (σ / √n)</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>انحراف معیار نمونه‌گیری:</strong>
-                            <p>مخرج کسر خطای معیار (SE) است؛ هر چه نمونه بزرگ‌تر باشد خطای برآورد کمتر و قدرت آزمون بیشتر می‌شود.</p>
+                        <div>
+                            <span class="badge badge-stat">فرمول طلایی ۲</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">آماره آزمون Z میانگین جامعه</h4>
+                            <div class="formula-display">Z = (X_bar - μ) / (σ / √n)</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>انحراف معیار نمونه‌گیری:</strong>
+                                <p>مخرج کسر خطای معیار (SE) است؛ هر چه نمونه بزرگ‌تر باشد خطای برآورد کمتر و قدرت آزمون بیشتر می‌شود.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Z = (X_bar - mu) / (sigma / sqrt(n))')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
 
                     <div class="formula-card">
-                        <span class="badge badge-stat">فرمول طلایی ۳</span>
-                        <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">فرمول کارگاهی واریانس</h4>
-                        <div class="formula-display">Var(X) = E(X²) - [E(X)]²</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تکنیک حل تست سریع:</strong>
-                            <p>امید ریاضی مربع منهای مربع امید ریاضی؛ سریع‌ترین روش محاسبه واریانس متغیرهای تصادفی در کنکور ارشد.</p>
+                        <div>
+                            <span class="badge badge-stat">فرمول طلایی ۳</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">فرمول کارگاهی واریانس</h4>
+                            <div class="formula-display">Var(X) = E(X²) - [E(X)]²</div>
+                            <div class="card-inner" style="font-size: 0.74rem;">
+                                <strong>تکنیک حل تست سریع:</strong>
+                                <p>امید ریاضی مربع منهای مربع امید ریاضی؛ سریع‌ترین روش محاسبه واریانس متغیرهای تصادفی در کنکور ارشد.</p>
+                            </div>
                         </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Var(X) = E(X^2) - [E(X)]^2')">
+                            <span>📋</span> کپی فرمول
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1874,7 +2052,7 @@
             <div id="stat-tab-solution" class="subtab-view" style="display: none;">
                 <div class="card">
                     <span class="badge badge-stat" style="margin-bottom: 8px;">آزمون فرض میانگین با آماره Z در سطح معناداری ۵٪</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 14px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
                         صورت مسئله: میانگین بازده ماهانه ادعایی یک صندوق ۲.۵٪ است. نمونه‌ای ۳۶ تایی دارای میانگین ۲.۱٪ و انحراف معیار ۰.۹٪ است. ادعا را در سطح ۵٪ بسنجید.
                     </h3>
 
@@ -1900,7 +2078,7 @@
             <!-- 5.5 TRAPS & CAPSULE -->
             <div id="stat-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
-                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 12px;">⚠️ تله‌های مرگبار امتحانی آمار کاربردی</h4>
+                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی آمار کاربردی</h4>
                     <div class="trap-box">
                         <div class="trap-header"><span>🚨</span> دام تستی ۱: عدم تشخیص آزمون Z از T استیودنت</div>
                         اگر واریانس جامعه مجهول باشد و حجم نمونه کمتر از ۳۰ باشد، استفاده از Z کاملاً اشتباه است و باید از توزیع T با درجه آزادی n-1 استفاده شود.
@@ -1927,11 +2105,11 @@
 
     </main>
 
-    <!-- FLOATING BOTTOM EXECUTIVE DOCK (داک ناوبری شناور ارگونومیک با یک انگشت) -->
+    <!-- FLOATING BOTTOM EXECUTIVE DOCK -->
     <nav class="executive-dock">
         <button class="dock-btn active" id="dock-sim" onclick="selectTab('sim')">
             <span>📊</span>
-            <span>نمودار</span>
+            <span>نمودار HD</span>
         </button>
         <button class="dock-btn" id="dock-tree" onclick="selectTab('tree')">
             <span>🌳</span>
@@ -1951,7 +2129,7 @@
         </button>
     </nav>
 
-    <!-- PURE JAVASCRIPT ENGINE (BULLETPROOF TELEGRAM WEBAPP EXECUTION) -->
+    <!-- PURE JAVASCRIPT MASTERPIECE ENGINE (RETINA 2X, LIVE CROSSHAIRS & SCENARIOS) -->
     <script>
         // Telegram WebApp Safe Init
         try {
@@ -1962,12 +2140,35 @@
                 window.Telegram.WebApp.setBackgroundColor('#F8FAFC');
             }
         } catch (e) {
-            console.log('Telegram WebApp fallback to standard browser mode.');
+            console.log('Telegram WebApp running in standard web mode.');
         }
 
         // Active State
         let currentCourse = 'micro';
         let currentTab = 'sim';
+
+        // Layer States
+        const layers = {
+            micro: { dwl: true, cs: true, tax: true },
+            cost: { zones: true, fc: true, target: true },
+            finance: { sml: true, market: true, rf: true },
+            or: { poly: true, isoprofit: true, vertices: true },
+            stat: { tail: true, ci: true, sigmas: true }
+        };
+
+        function toggleLayer(course, layer) {
+            layers[course][layer] = !layers[course][layer];
+            const btn = document.getElementById(course[0] + '-layer-' + layer);
+            if (btn) {
+                if (layers[course][layer]) btn.classList.add('active');
+                else btn.classList.remove('active');
+            }
+            if (course === 'micro') drawMicro();
+            if (course === 'cost') drawCost();
+            if (course === 'finance') drawFinance();
+            if (course === 'or') drawOR();
+            if (course === 'stat') drawStat();
+        }
 
         // Course Metadata & Scenarios
         const courseData = {
@@ -2032,7 +2233,6 @@
         function selectCourse(c) {
             currentCourse = c;
 
-            // 1. Update Course Selection Buttons
             ['micro', 'cost', 'finance', 'or', 'stat'].forEach(k => {
                 const btn = document.getElementById('btn-course-' + k);
                 if (btn) {
@@ -2046,7 +2246,6 @@
                 }
             });
 
-            // 2. Update Banner & Scenarios
             const meta = courseData[c];
             document.getElementById('banner-title').innerText = meta.title;
             document.getElementById('banner-desc').innerText = meta.desc;
@@ -2055,7 +2254,6 @@
             ind.className = 'badge ' + meta.badge;
             ind.innerText = 'تحلیل فعال';
 
-            // Populate Scenario Chips
             const container = document.getElementById('scenario-chips-container');
             container.innerHTML = meta.scenarios.map((sc, idx) => `
                 <button class="scenario-chip" onclick="applyScenario('${c}', ${idx})">
@@ -2063,36 +2261,25 @@
                 </button>
             `).join('');
 
-            // Activate current tab in the newly selected course
             selectTab(currentTab);
         }
 
-        // SubTab Switching Function (Top Pills & Bottom Dock Synchronized)
+        // SubTab Switching Function
         function selectTab(t) {
             currentTab = t;
-
             const tabs = ['sim', 'tree', 'formula', 'solution', 'traps'];
 
-            // 1. Top Pills
             tabs.forEach(k => {
                 const pill = document.getElementById('pill-tab-' + k);
                 if (pill) {
                     if (k === t) pill.classList.add('active');
                     else pill.classList.remove('active');
                 }
-            });
-
-            // 2. Bottom Dock Buttons
-            tabs.forEach(k => {
                 const dockBtn = document.getElementById('dock-' + k);
                 if (dockBtn) {
                     if (k === t) dockBtn.classList.add('active');
                     else dockBtn.classList.remove('active');
                 }
-            });
-
-            // 3. SubPanes in Current Course
-            tabs.forEach(k => {
                 const el = document.getElementById(currentCourse + '-tab-' + k);
                 if (el) {
                     if (k === t) el.style.display = 'block';
@@ -2100,7 +2287,6 @@
                 }
             });
 
-            // 4. Trigger Canvas Draw if in sim
             if (t === 'sim') {
                 setTimeout(() => {
                     if (currentCourse === 'micro') drawMicro();
@@ -2108,7 +2294,7 @@
                     if (currentCourse === 'finance') drawFinance();
                     if (currentCourse === 'or') drawOR();
                     if (currentCourse === 'stat') drawStat();
-                }, 10);
+                }, 20);
             }
         }
 
@@ -2173,6 +2359,15 @@
             }, 2500);
         }
 
+        // Copy Formula Helper
+        function copyFormula(fText) {
+            navigator.clipboard.writeText(fText).then(() => {
+                showToast(`فرمول «${fText}» کپی شد.`);
+            }).catch(() => {
+                showToast('خطا در کپی فرمول.');
+            });
+        }
+
         // Export Full Analytical Brief
         function exportFullBrief() {
             let text = `⚔️ گزارش تحلیلی سامانه BANKAI (بهادر)
@@ -2229,13 +2424,64 @@
             });
         }
 
+        // Setup Retina HD Canvas
+        function setupRetina(canvas) {
+            const dpr = window.devicePixelRatio || 2;
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr);
+            return { ctx, width: rect.width, height: rect.height };
+        }
+
+        // Mouse/Touch Tracking on Canvases
+        let mouseState = {
+            micro: { active: false, x: 0, y: 0 },
+            cost: { active: false, x: 0, y: 0 },
+            finance: { active: false, x: 0, y: 0 },
+            or: { active: false, x: 0, y: 0 },
+            stat: { active: false, x: 0, y: 0 }
+        };
+
+        function initCanvasHover(course, drawFn) {
+            const arena = document.getElementById('arena-' + course);
+            const canvas = document.getElementById('canvas' + course.charAt(0).toUpperCase() + course.slice(1));
+            const tooltip = document.getElementById('tooltip-' + course);
+            if (!arena || !canvas) return;
+
+            function updatePos(e) {
+                const rect = canvas.getBoundingClientRect();
+                let clientX = e.clientX;
+                let clientY = e.clientY;
+                if (e.touches && e.touches.length > 0) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+                mouseState[course].active = true;
+                mouseState[course].x = clientX - rect.left;
+                mouseState[course].y = clientY - rect.top;
+                drawFn();
+            }
+
+            function clearPos() {
+                mouseState[course].active = false;
+                if (tooltip) tooltip.style.opacity = 0;
+                drawFn();
+            }
+
+            arena.addEventListener('mousemove', updatePos);
+            arena.addEventListener('mouseleave', clearPos);
+            arena.addEventListener('touchstart', updatePos, { passive: true });
+            arena.addEventListener('touchmove', updatePos, { passive: true });
+            arena.addEventListener('touchend', clearPos);
+        }
+
         // ==================== 1. CANVAS: MICRO ====================
         function drawMicro() {
             const canvas = document.getElementById('canvasMicro');
             if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            const W = canvas.width;
-            const H = canvas.height;
+            const { ctx, width: W, height: H } = setupRetina(canvas);
 
             const t = parseFloat(document.getElementById('m-t-num').value) || 0;
             const a = parseFloat(document.getElementById('m-a-num').value) || 100;
@@ -2270,6 +2516,8 @@
 
             function toX(q) { return padL + (q / maxQ) * plotW; }
             function toY(p) { return H - padB - (p / maxP) * plotH; }
+            function fromX(x) { return ((x - padL) / plotW) * maxQ; }
+            function fromY(y) { return ((H - padB - y) / plotH) * maxP; }
 
             // Grid lines
             ctx.strokeStyle = '#F1F5F9';
@@ -2292,7 +2540,7 @@
 
             // Axis Labels
             ctx.fillStyle = '#64748B';
-            ctx.font = '11px JetBrains Mono, Vazirmatn';
+            ctx.font = '10px JetBrains Mono, Vazirmatn';
             ctx.textAlign = 'center';
             ctx.fillText('مقدار مبادلات (Q)', padL + plotW / 2, H - 12);
             ctx.save();
@@ -2301,24 +2549,69 @@
             ctx.fillText('قیمت (P)', 0, 0);
             ctx.restore();
 
-            // DWL Shaded Triangle
-            if (t > 0 && Qstar > Qt) {
-                ctx.fillStyle = 'rgba(239, 68, 68, 0.22)';
+            // Layer 1: Consumer & Producer Surplus Shading
+            if (layers.micro.cs && Qt > 0) {
+                // CS Gradient
+                const csGrad = ctx.createLinearGradient(0, toY(a / b), 0, toY(Pc));
+                csGrad.addColorStop(0, 'rgba(37, 99, 235, 0.25)');
+                csGrad.addColorStop(1, 'rgba(37, 99, 235, 0.05)');
+                ctx.fillStyle = csGrad;
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(a / b));
+                ctx.lineTo(toX(Qt), toY(Pc));
+                ctx.lineTo(toX(0), toY(Pc));
+                ctx.closePath();
+                ctx.fill();
+
+                // PS Gradient
+                const psGrad = ctx.createLinearGradient(0, toY(Pp), 0, toY(-c / d));
+                psGrad.addColorStop(0, 'rgba(4, 120, 87, 0.22)');
+                psGrad.addColorStop(1, 'rgba(4, 120, 87, 0.04)');
+                ctx.fillStyle = psGrad;
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(Pp));
+                ctx.lineTo(toX(Qt), toY(Pp));
+                ctx.lineTo(toX(0), toY(Math.max(0, -c / d)));
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            // Layer 2: Tax Revenue Box
+            if (layers.micro.tax && t > 0 && Qt > 0) {
+                ctx.fillStyle = 'rgba(217, 119, 6, 0.12)';
+                ctx.fillRect(toX(0), toY(Pc), toX(Qt) - toX(0), toY(Pp) - toY(Pc));
+                ctx.strokeStyle = 'rgba(217, 119, 6, 0.4)';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(toX(0), toY(Pc), toX(Qt) - toX(0), toY(Pp) - toY(Pc));
+            }
+
+            // Layer 3: DWL Shaded Triangle
+            if (layers.micro.dwl && t > 0 && Qstar > Qt) {
+                const dwlGrad = ctx.createLinearGradient(toX(Qt), 0, toX(Qstar), 0);
+                dwlGrad.addColorStop(0, 'rgba(239, 68, 68, 0.35)');
+                dwlGrad.addColorStop(1, 'rgba(239, 68, 68, 0.1)');
+                ctx.fillStyle = dwlGrad;
                 ctx.beginPath();
                 ctx.moveTo(toX(Qt), toY(Pc));
                 ctx.lineTo(toX(Qstar), toY(Pstar));
                 ctx.lineTo(toX(Qt), toY(Pp));
                 ctx.closePath();
                 ctx.fill();
+                ctx.strokeStyle = '#DC2626';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
             }
 
             // 1. Demand Line
+            ctx.shadowColor = 'rgba(29, 78, 216, 0.25)';
+            ctx.shadowBlur = 6;
             ctx.strokeStyle = '#1D4ED8';
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.moveTo(toX(0), toY(a / b));
             ctx.lineTo(toX(a), toY(0));
             ctx.stroke();
+            ctx.shadowBlur = 0;
 
             // 2. Supply Initial Line
             ctx.strokeStyle = '#047857';
@@ -2331,30 +2624,57 @@
             ctx.setLineDash([]);
 
             // 3. Supply Post-Tax Line
+            ctx.shadowColor = 'rgba(220, 38, 38, 0.2)';
+            ctx.shadowBlur = 6;
             ctx.strokeStyle = '#DC2626';
             ctx.lineWidth = 2.5;
             ctx.beginPath();
             ctx.moveTo(toX(0), toY(-c / d + t));
             ctx.lineTo(toX(maxQ), toY((maxQ - c) / d + t));
             ctx.stroke();
+            ctx.shadowBlur = 0;
 
-            // Points
+            // Equilibrium Points
             // E1
             ctx.fillStyle = '#047857';
             ctx.beginPath(); ctx.arc(toX(Qstar), toY(Pstar), 5, 0, Math.PI * 2); ctx.fill();
             ctx.fillStyle = '#0F172A';
             ctx.font = 'bold 10px JetBrains Mono';
-            ctx.fillText('E1(' + Qstar.toFixed(0) + ',' + Pstar.toFixed(0) + ')', toX(Qstar) + 25, toY(Pstar) - 6);
+            ctx.fillText('E1(' + Qstar.toFixed(0) + ',' + Pstar.toFixed(0) + ')', toX(Qstar) + 24, toY(Pstar) - 6);
 
             // E2
             ctx.fillStyle = '#DC2626';
             ctx.beginPath(); ctx.arc(toX(Qt), toY(Pc), 5, 0, Math.PI * 2); ctx.fill();
-            ctx.fillText('E2(' + Qt.toFixed(0) + ',' + Pc.toFixed(1) + ')', toX(Qt) - 25, toY(Pc) - 8);
+            ctx.fillText('E2(' + Qt.toFixed(0) + ',' + Pc.toFixed(1) + ')', toX(Qt) - 24, toY(Pc) - 8);
 
             // Pp Point
             ctx.fillStyle = '#D97706';
-            ctx.beginPath(); ctx.arc(toX(Qt), toY(Pp), 4, 0, Math.PI * 2); ctx.fill();
-            ctx.fillText('Pp(' + Pp.toFixed(1) + ')', toX(Qt) - 22, toY(Pp) + 12);
+            ctx.beginPath(); ctx.arc(toX(Qt), toY(Pp), 4.5, 0, Math.PI * 2); ctx.fill();
+            ctx.fillText('Pp(' + Pp.toFixed(1) + ')', toX(Qt) - 20, toY(Pp) + 12);
+
+            // Interactive Crosshair & Tooltip
+            if (mouseState.micro.active && mouseState.micro.x >= padL && mouseState.micro.x <= W - padR) {
+                const mx = mouseState.micro.x;
+                const my = mouseState.micro.y;
+                const currQ = Math.max(0, fromX(mx));
+                const currP = Math.max(0, fromY(my));
+
+                // Dotted crosshair
+                ctx.strokeStyle = '#94A3B8';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(mx, padT); ctx.lineTo(mx, H - padB); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(padL, my); ctx.lineTo(W - padR, my); ctx.stroke();
+                ctx.setLineDash([]);
+
+                const tooltip = document.getElementById('tooltip-micro');
+                if (tooltip) {
+                    tooltip.style.opacity = 1;
+                    tooltip.innerHTML = `<div>مختصات: <b>Q = ${currQ.toFixed(1)}</b> | <b>P = ${currP.toFixed(1)}</b></div>
+                                         <div style="color: #60A5FA;">قیمت تقاضا: ${(Math.max(0, (a - currQ)/b)).toFixed(1)}</div>
+                                         <div style="color: #34D399;">قیمت عرضه: ${((currQ - c)/d).toFixed(1)}</div>`;
+                }
+            }
         }
 
         bindDual('m-t-slider', 'm-t-num', drawMicro);
@@ -2362,14 +2682,13 @@
         bindDual('m-b-slider', 'm-b-num', drawMicro);
         bindDual('m-d-slider', 'm-d-num', drawMicro);
         bindDual('m-c-slider', 'm-c-num', drawMicro);
+        initCanvasHover('micro', drawMicro);
 
         // ==================== 2. CANVAS: COST ====================
         function drawCost() {
             const canvas = document.getElementById('canvasCost');
             if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            const W = canvas.width;
-            const H = canvas.height;
+            const { ctx, width: W, height: H } = setupRetina(canvas);
 
             const fc = parseFloat(document.getElementById('c-fc-num').value) || 120000;
             const p = parseFloat(document.getElementById('c-p-num').value) || 50;
@@ -2393,11 +2712,12 @@
             const plotW = W - padL - padR;
             const plotH = H - padT - padB;
 
-            const maxQ = Math.max(qtarget * 1.4, 7500);
+            const maxQ = Math.max(qtarget * 1.35, 7500);
             const maxRev = maxQ * p;
 
             function toX(q) { return padL + (q / maxQ) * plotW; }
             function toY(r) { return H - padB - (r / maxRev) * plotH; }
+            function fromX(x) { return ((x - padL) / plotW) * maxQ; }
 
             // Grid
             ctx.strokeStyle = '#F1F5F9';
@@ -2418,35 +2738,81 @@
 
             // Labels
             ctx.fillStyle = '#64748B';
-            ctx.font = '11px JetBrains Mono, Vazirmatn';
+            ctx.font = '10px JetBrains Mono, Vazirmatn';
             ctx.textAlign = 'center';
-            ctx.fillText('تیراژ تولید (Q)', padL + plotW / 2, H - 12);
+            ctx.fillText('تیراژ تولید و فروش (Q)', padL + plotW / 2, H - 12);
+
+            // Shading: Loss Zone & Profit Zone
+            if (layers.cost.zones && qbep < maxQ) {
+                // Loss Wedge
+                ctx.fillStyle = 'rgba(239, 68, 68, 0.12)';
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(fc));
+                ctx.lineTo(toX(qbep), toY(revBep));
+                ctx.lineTo(toX(0), toY(0));
+                ctx.closePath();
+                ctx.fill();
+
+                // Profit Wedge
+                ctx.fillStyle = 'rgba(4, 120, 87, 0.14)';
+                ctx.beginPath();
+                ctx.moveTo(toX(qbep), toY(revBep));
+                ctx.lineTo(toX(maxQ), toY(maxQ * p));
+                ctx.lineTo(toX(maxQ), toY(fc + maxQ * vc));
+                ctx.closePath();
+                ctx.fill();
+            }
 
             // Fixed Cost Line (FC)
-            ctx.strokeStyle = '#64748B';
-            ctx.lineWidth = 1.5;
-            ctx.setLineDash([4, 4]);
-            ctx.beginPath();
-            ctx.moveTo(toX(0), toY(fc));
-            ctx.lineTo(toX(maxQ), toY(fc));
-            ctx.stroke();
-            ctx.setLineDash([]);
+            if (layers.cost.fc) {
+                ctx.strokeStyle = '#64748B';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(fc));
+                ctx.lineTo(toX(maxQ), toY(fc));
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#64748B';
+                ctx.font = '9px JetBrains Mono';
+                ctx.fillText('FC=' + (fc/1000).toFixed(0) + 'k', toX(maxQ) - 25, toY(fc) - 6);
+            }
 
             // Total Cost Line (TC)
+            ctx.shadowColor = 'rgba(220, 38, 38, 0.2)';
+            ctx.shadowBlur = 6;
             ctx.strokeStyle = '#DC2626';
             ctx.lineWidth = 2.5;
             ctx.beginPath();
             ctx.moveTo(toX(0), toY(fc));
             ctx.lineTo(toX(maxQ), toY(fc + maxQ * vc));
             ctx.stroke();
+            ctx.shadowBlur = 0;
 
             // Total Revenue Line (TR)
+            ctx.shadowColor = 'rgba(4, 120, 87, 0.25)';
+            ctx.shadowBlur = 6;
             ctx.strokeStyle = '#047857';
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.moveTo(toX(0), toY(0));
             ctx.lineTo(toX(maxQ), toY(maxQ * p));
             ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            // Target Point Marker
+            if (layers.cost.target && qtarget <= maxQ) {
+                ctx.strokeStyle = '#6D28D9';
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath();
+                ctx.moveTo(toX(qtarget), H - padB);
+                ctx.lineTo(toX(qtarget), toY(qtarget * p));
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#6D28D9';
+                ctx.beginPath(); ctx.arc(toX(qtarget), toY(qtarget * p), 4.5, 0, Math.PI * 2); ctx.fill();
+                ctx.fillText('سود هدف (' + Math.round(qtarget) + 'u)', toX(qtarget) - 25, toY(qtarget * p) - 10);
+            }
 
             // BEP Point
             ctx.fillStyle = '#0F172A';
@@ -2454,20 +2820,43 @@
             ctx.fillStyle = '#0F172A';
             ctx.font = 'bold 10px JetBrains Mono';
             ctx.fillText('BEP(' + Math.round(qbep) + 'u)', toX(qbep) + 20, toY(revBep) - 10);
+
+            // Crosshair
+            if (mouseState.cost.active && mouseState.cost.x >= padL && mouseState.cost.x <= W - padR) {
+                const mx = mouseState.cost.x;
+                const currQ = Math.round(fromX(mx));
+                const currTR = currQ * p;
+                const currTC = fc + currQ * vc;
+                const ebit = currTR - currTC;
+
+                ctx.strokeStyle = '#94A3B8';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(mx, padT); ctx.lineTo(mx, H - padB); ctx.stroke();
+                ctx.setLineDash([]);
+
+                const tooltip = document.getElementById('tooltip-cost');
+                if (tooltip) {
+                    tooltip.style.opacity = 1;
+                    tooltip.innerHTML = `<div>تیراژ: <b>${currQ.toLocaleString()} واحد</b></div>
+                                         <div style="color: #34D399;">درآمد: ${currTR.toLocaleString()}</div>
+                                         <div style="color: #F87171;">هزینه کل: ${currTC.toLocaleString()}</div>
+                                         <div style="color: ${ebit >= 0 ? '#34D399' : '#F87171'}; font-weight: 800;">سود/زیان: ${ebit.toLocaleString()} تومان</div>`;
+                }
+            }
         }
 
         bindDual('c-fc-slider', 'c-fc-num', drawCost);
         bindDual('c-p-slider', 'c-p-num', drawCost);
         bindDual('c-vc-slider', 'c-vc-num', drawCost);
         bindDual('c-tp-slider', 'c-tp-num', drawCost);
+        initCanvasHover('cost', drawCost);
 
         // ==================== 3. CANVAS: FINANCE ====================
         function drawFinance() {
             const canvas = document.getElementById('canvasFinance');
             if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            const W = canvas.width;
-            const H = canvas.height;
+            const { ctx, width: W, height: H } = setupRetina(canvas);
 
             const rf = parseFloat(document.getElementById('f-rf-num').value) || 22;
             const rm = parseFloat(document.getElementById('f-rm-num').value) || 35;
@@ -2505,6 +2894,7 @@
 
             function toX(b) { return padL + (b / maxBeta) * plotW; }
             function toY(r) { return H - padB - (r / maxEr) * plotH; }
+            function fromX(x) { return ((x - padL) / plotW) * maxBeta; }
 
             // Axes
             ctx.strokeStyle = '#94A3B8';
@@ -2515,17 +2905,66 @@
             ctx.lineTo(W - padR, H - padB);
             ctx.stroke();
 
-            // SML Line
-            ctx.strokeStyle = '#6D28D9';
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(toX(0), toY(rf));
-            ctx.lineTo(toX(maxBeta), toY(rf + maxBeta * mrp));
-            ctx.stroke();
+            // Labels
+            ctx.fillStyle = '#64748B';
+            ctx.font = '10px JetBrains Mono, Vazirmatn';
+            ctx.textAlign = 'center';
+            ctx.fillText('ضریب بتای سیستماتیک (Beta)', padL + plotW / 2, H - 12);
 
-            // Asset Dot
+            // Layer 1: SML Line
+            if (layers.finance.sml) {
+                // Gradient under SML
+                const smlGrad = ctx.createLinearGradient(0, toY(rf + maxBeta * mrp), 0, toY(rf));
+                smlGrad.addColorStop(0, 'rgba(109, 40, 217, 0.15)');
+                smlGrad.addColorStop(1, 'rgba(109, 40, 217, 0.02)');
+                ctx.fillStyle = smlGrad;
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(rf));
+                ctx.lineTo(toX(maxBeta), toY(rf + maxBeta * mrp));
+                ctx.lineTo(toX(maxBeta), toY(rf));
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.shadowColor = 'rgba(109, 40, 217, 0.25)';
+                ctx.shadowBlur = 8;
+                ctx.strokeStyle = '#6D28D9';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(rf));
+                ctx.lineTo(toX(maxBeta), toY(rf + maxBeta * mrp));
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+
+            // Layer 2: Market Portfolio M
+            if (layers.finance.market) {
+                ctx.fillStyle = '#1D4ED8';
+                ctx.beginPath(); ctx.arc(toX(1.0), toY(rm), 5, 0, Math.PI * 2); ctx.fill();
+                ctx.strokeStyle = '#1D4ED8';
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(toX(1.0), H - padB); ctx.lineTo(toX(1.0), toY(rm)); ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.font = 'bold 9px JetBrains Mono';
+                ctx.fillText('پرتفوی بازار M(1.0, ' + rm + '%)', toX(1.0) + 15, toY(rm) - 8);
+            }
+
+            // Layer 3: Rf
+            if (layers.finance.rf) {
+                ctx.strokeStyle = '#94A3B8';
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath(); ctx.moveTo(padL, toY(rf)); ctx.lineTo(W - padR, toY(rf)); ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#475569';
+                ctx.font = '9px JetBrains Mono';
+                ctx.fillText('Rf=' + rf + '%', padL - 25, toY(rf) + 3);
+            }
+
+            // Asset Dot (Bahador's Selected Stock)
+            ctx.shadowColor = 'rgba(217, 119, 6, 0.4)';
+            ctx.shadowBlur = 10;
             ctx.fillStyle = '#D97706';
-            ctx.beginPath(); ctx.arc(toX(beta), toY(er), 6, 0, Math.PI * 2); ctx.fill();
+            ctx.beginPath(); ctx.arc(toX(beta), toY(er), 6.5, 0, Math.PI * 2); ctx.fill();
+            ctx.shadowBlur = 0;
 
             // Guideline dashes
             ctx.strokeStyle = '#D97706';
@@ -2539,20 +2978,39 @@
             ctx.fillStyle = '#0F172A';
             ctx.font = 'bold 10px JetBrains Mono';
             ctx.fillText('سهم بهادر(' + beta.toFixed(2) + ' , ' + er.toFixed(1) + '%)', toX(beta) + 15, toY(er) - 10);
-            ctx.fillText('Rf(' + rf + '%)', padL - 35, toY(rf) + 4);
+
+            // Crosshair
+            if (mouseState.finance.active && mouseState.finance.x >= padL && mouseState.finance.x <= W - padR) {
+                const mx = mouseState.finance.x;
+                const currBeta = Math.max(0, fromX(mx));
+                const fairEr = rf + currBeta * mrp;
+
+                ctx.strokeStyle = '#94A3B8';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(mx, padT); ctx.lineTo(mx, H - padB); ctx.stroke();
+                ctx.setLineDash([]);
+
+                const tooltip = document.getElementById('tooltip-finance');
+                if (tooltip) {
+                    tooltip.style.opacity = 1;
+                    tooltip.innerHTML = `<div>ضریب بتا: <b>β = ${currBeta.toFixed(2)}</b></div>
+                                         <div style="color: #A78BFA;">بازده منصفانه SML: ${fairEr.toFixed(2)}%</div>
+                                         <div style="color: #FCD34D;">پاداش ریسک: ${(currBeta * mrp).toFixed(2)}%</div>`;
+                }
+            }
         }
 
         bindDual('f-rf-slider', 'f-rf-num', drawFinance);
         bindDual('f-rm-slider', 'f-rm-num', drawFinance);
         bindDual('f-beta-slider', 'f-beta-num', drawFinance);
+        initCanvasHover('finance', drawFinance);
 
         // ==================== 4. CANVAS: OR ====================
         function drawOR() {
             const canvas = document.getElementById('canvasOR');
             if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            const W = canvas.width;
-            const H = canvas.height;
+            const { ctx, width: W, height: H } = setupRetina(canvas);
 
             const c1 = parseFloat(document.getElementById('or-c1-num').value) || 40;
             const c2 = parseFloat(document.getElementById('or-c2-num').value) || 30;
@@ -2571,6 +3029,8 @@
 
             function toX(x) { return padL + (x / maxX) * plotW; }
             function toY(y) { return H - padB - (y / maxY) * plotH; }
+            function fromX(x) { return ((x - padL) / plotW) * maxX; }
+            function fromY(y) { return ((H - padB - y) / plotH) * maxY; }
 
             // Axes
             ctx.strokeStyle = '#94A3B8';
@@ -2581,17 +3041,22 @@
             ctx.lineTo(W - padR, H - padB);
             ctx.stroke();
 
-            // Feasible Region Polygon
-            ctx.fillStyle = 'rgba(14, 116, 144, 0.16)';
-            ctx.beginPath();
-            ctx.moveTo(toX(0), toY(0));
-            ctx.lineTo(toX(50), toY(0));
-            ctx.lineTo(toX(40), toY(20));
-            ctx.lineTo(toX(0), toY(40));
-            ctx.closePath();
-            ctx.fill();
+            // Layer 1: Feasible Region Polygon
+            if (layers.or.poly) {
+                const polyGrad = ctx.createLinearGradient(toX(0), toY(0), toX(40), toY(20));
+                polyGrad.addColorStop(0, 'rgba(14, 116, 144, 0.22)');
+                polyGrad.addColorStop(1, 'rgba(14, 116, 144, 0.06)');
+                ctx.fillStyle = polyGrad;
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(0));
+                ctx.lineTo(toX(50), toY(0));
+                ctx.lineTo(toX(40), toY(20));
+                ctx.lineTo(toX(0), toY(40));
+                ctx.closePath();
+                ctx.fill();
+            }
 
-            // Constraint 1
+            // Constraint 1: 2x1 + x2 <= 100
             ctx.strokeStyle = '#0284C7';
             ctx.lineWidth = 2;
             ctx.beginPath();
@@ -2599,7 +3064,7 @@
             ctx.lineTo(toX(50), toY(0));
             ctx.stroke();
 
-            // Constraint 2
+            // Constraint 2: x1 + 2x2 <= 80
             ctx.strokeStyle = '#047857';
             ctx.lineWidth = 2;
             ctx.beginPath();
@@ -2607,24 +3072,70 @@
             ctx.lineTo(toX(80), toY(0));
             ctx.stroke();
 
-            // Best Point
-            ctx.fillStyle = '#D97706';
-            ctx.beginPath(); ctx.arc(toX(40), toY(20), 6, 0, Math.PI * 2); ctx.fill();
-            ctx.fillStyle = '#0F172A';
-            ctx.font = 'bold 10px JetBrains Mono';
-            ctx.fillText('Z*(40, 20)', toX(40) + 12, toY(20) - 8);
+            // Layer 2: Iso-profit line passing through optimal point
+            if (layers.or.isoprofit) {
+                ctx.strokeStyle = '#D97706';
+                ctx.lineWidth = 1.8;
+                ctx.setLineDash([5, 4]);
+                ctx.beginPath();
+                ctx.moveTo(toX(0), toY(best.z / c2));
+                ctx.lineTo(toX(best.z / c1), toY(0));
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
+            // Layer 3: Vertices Dots
+            if (layers.or.vertices) {
+                const vertices = [
+                    {x: 0, y: 0, label: 'O(0,0)'},
+                    {x: 50, y: 0, label: 'A(50,0)'},
+                    {x: 40, y: 20, label: 'B*(40,20)'},
+                    {x: 0, y: 40, label: 'C(0,40)'}
+                ];
+                vertices.forEach(v => {
+                    ctx.fillStyle = (v.x === 40 && v.y === 20) ? '#D97706' : '#0E7490';
+                    ctx.beginPath(); ctx.arc(toX(v.x), toY(v.y), (v.x === 40 && v.y === 20) ? 6 : 4, 0, Math.PI * 2); ctx.fill();
+                    ctx.fillStyle = '#0F172A';
+                    ctx.font = 'bold 9px JetBrains Mono';
+                    ctx.fillText(v.label, toX(v.x) + 8, toY(v.y) - 6);
+                });
+            }
+
+            // Crosshair
+            if (mouseState.or.active && mouseState.or.x >= padL && mouseState.or.x <= W - padR) {
+                const mx = mouseState.or.x;
+                const my = mouseState.or.y;
+                const cx1 = Math.max(0, fromX(mx));
+                const cx2 = Math.max(0, fromY(my));
+                const cz = cx1 * c1 + cx2 * c2;
+                const isFeas = (2*cx1 + cx2 <= 100.01) && (cx1 + 2*cx2 <= 80.01);
+
+                ctx.strokeStyle = '#94A3B8';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(mx, padT); ctx.lineTo(mx, H - padB); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(padL, my); ctx.lineTo(W - padR, my); ctx.stroke();
+                ctx.setLineDash([]);
+
+                const tooltip = document.getElementById('tooltip-or');
+                if (tooltip) {
+                    tooltip.style.opacity = 1;
+                    tooltip.innerHTML = `<div>نقطه: <b>x1=${cx1.toFixed(1)}, x2=${cx2.toFixed(1)}</b></div>
+                                         <div style="color: #38BDF8;">سود Z = ${cz.toFixed(0)}</div>
+                                         <div style="color: ${isFeas ? '#34D399' : '#F87171'}; font-weight: 800;">وضعیت: ${isFeas ? '✅ موجه' : '❌ ناموجه'}</div>`;
+                }
+            }
         }
 
         bindDual('or-c1-slider', 'or-c1-num', drawOR);
         bindDual('or-c2-slider', 'or-c2-num', drawOR);
+        initCanvasHover('or', drawOR);
 
         // ==================== 5. CANVAS: STAT ====================
         function drawStat() {
             const canvas = document.getElementById('canvasStat');
             if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            const W = canvas.width;
-            const H = canvas.height;
+            const { ctx, width: W, height: H } = setupRetina(canvas);
 
             const mu = parseFloat(document.getElementById('s-mu-num').value) || 25;
             const sigma = parseFloat(document.getElementById('s-sigma-num').value) || 12;
@@ -2659,6 +3170,7 @@
 
             function toX(x) { return padL + ((x - minX) / (maxX - minX)) * plotW; }
             function toY(f) { return H - padB - (f / maxF) * plotH; }
+            function fromX(x) { return minX + ((x - padL) / plotW) * (maxX - minX); }
 
             // Axes
             ctx.strokeStyle = '#94A3B8';
@@ -2668,29 +3180,49 @@
             ctx.lineTo(W - padR, H - padB);
             ctx.stroke();
 
-            // Shaded Tail
-            ctx.fillStyle = 'rgba(239, 68, 68, 0.25)';
+            // Layer 1: Shaded Tail
+            if (layers.stat.tail && xVal >= minX) {
+                ctx.fillStyle = 'rgba(239, 68, 68, 0.28)';
+                ctx.beginPath();
+                ctx.moveTo(toX(minX), toY(0));
+                for (let x = minX; x <= Math.min(xVal, maxX); x += sigma / 15) {
+                    let f = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
+                    ctx.lineTo(toX(x), toY(f));
+                }
+                ctx.lineTo(toX(Math.min(xVal, maxX)), toY(0));
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            // Bell Curve Body Gradient Fill
+            const bellGrad = ctx.createLinearGradient(0, toY(maxF), 0, toY(0));
+            bellGrad.addColorStop(0, 'rgba(67, 56, 202, 0.18)');
+            bellGrad.addColorStop(1, 'rgba(67, 56, 202, 0.02)');
+            ctx.fillStyle = bellGrad;
             ctx.beginPath();
             ctx.moveTo(toX(minX), toY(0));
-            for (let x = minX; x <= Math.min(xVal, maxX); x += sigma / 10) {
+            for (let x = minX; x <= maxX; x += sigma / 15) {
                 let f = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
                 ctx.lineTo(toX(x), toY(f));
             }
-            ctx.lineTo(toX(Math.min(xVal, maxX)), toY(0));
+            ctx.lineTo(toX(maxX), toY(0));
             ctx.closePath();
             ctx.fill();
 
-            // Bell Curve Line
+            // Bell Curve Stroke
+            ctx.shadowColor = 'rgba(67, 56, 202, 0.25)';
+            ctx.shadowBlur = 6;
             ctx.strokeStyle = '#4338CA';
             ctx.lineWidth = 2.5;
             ctx.beginPath();
             let first = true;
-            for (let x = minX; x <= maxX; x += sigma / 10) {
+            for (let x = minX; x <= maxX; x += sigma / 15) {
                 let f = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
                 if (first) { ctx.moveTo(toX(x), toY(f)); first = false; }
                 else ctx.lineTo(toX(x), toY(f));
             }
             ctx.stroke();
+            ctx.shadowBlur = 0;
 
             // Center Mean Marker
             ctx.strokeStyle = '#64748B';
@@ -2698,25 +3230,81 @@
             ctx.beginPath(); ctx.moveTo(toX(mu), toY(maxF)); ctx.lineTo(toX(mu), H - padB); ctx.stroke();
             ctx.setLineDash([]);
 
+            // Layer 2: 95% Confidence Interval markers
+            if (layers.stat.ci) {
+                ctx.strokeStyle = '#047857';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([2, 2]);
+                ctx.beginPath(); ctx.moveTo(toX(lower), H - padB); ctx.lineTo(toX(lower), toY(maxF * 0.3)); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(toX(upper), H - padB); ctx.lineTo(toX(upper), toY(maxF * 0.3)); ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#047857';
+                ctx.font = '8px JetBrains Mono';
+                ctx.fillText('-1.96σ', toX(lower) - 12, toY(maxF * 0.3) - 4);
+                ctx.fillText('+1.96σ', toX(upper) - 12, toY(maxF * 0.3) - 4);
+            }
+
+            // Layer 3: Sigma markers (±1σ)
+            if (layers.stat.sigmas) {
+                ctx.strokeStyle = '#CBD5E1';
+                ctx.setLineDash([2, 4]);
+                ctx.beginPath(); ctx.moveTo(toX(mu - sigma), H - padB); ctx.lineTo(toX(mu - sigma), toY(maxF * 0.6)); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(toX(mu + sigma), H - padB); ctx.lineTo(toX(mu + sigma), toY(maxF * 0.6)); ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
             // Threshold Cutoff Line
             ctx.strokeStyle = '#DC2626';
             ctx.lineWidth = 2;
-            ctx.beginPath(); ctx.moveTo(toX(xVal), toY(0)); ctx.lineTo(toX(xVal), toY(maxF * 0.8)); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(toX(xVal), toY(0)); ctx.lineTo(toX(xVal), toY(maxF * 0.85)); ctx.stroke();
 
             ctx.fillStyle = '#0F172A';
-            ctx.font = 'bold 10px JetBrains Mono';
-            ctx.fillText('X=' + xVal + '%', toX(xVal) - 15, toY(maxF * 0.8) - 6);
-            ctx.fillText('μ=' + mu + '%', toX(mu) - 12, H - padB + 16);
+            ctx.font = 'bold 9px JetBrains Mono';
+            ctx.fillText('X=' + xVal + '%', toX(xVal) - 14, toY(maxF * 0.85) - 6);
+            ctx.fillText('μ=' + mu + '%', toX(mu) - 10, H - padB + 16);
+
+            // Crosshair
+            if (mouseState.stat.active && mouseState.stat.x >= padL && mouseState.stat.x <= W - padR) {
+                const mx = mouseState.stat.x;
+                const currX = fromX(mx);
+                const currZ = (currX - mu) / sigma;
+                const currF = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow(currZ, 2));
+
+                ctx.strokeStyle = '#94A3B8';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(mx, padT); ctx.lineTo(mx, H - padB); ctx.stroke();
+                ctx.setLineDash([]);
+
+                const tooltip = document.getElementById('tooltip-stat');
+                if (tooltip) {
+                    tooltip.style.opacity = 1;
+                    tooltip.innerHTML = `<div>نقطه بازده: <b>X = ${currX.toFixed(1)}%</b></div>
+                                         <div style="color: #818CF8;">نمره استاندارد: Z = ${currZ.toFixed(2)}</div>
+                                         <div style="color: #C7D2FE;">چگالی: ${currF.toFixed(4)}</div>`;
+                }
+            }
         }
 
         bindDual('s-mu-slider', 's-mu-num', drawStat);
         bindDual('s-sigma-slider', 's-sigma-num', drawStat);
         bindDual('s-x-slider', 's-x-num', drawStat);
+        initCanvasHover('stat', drawStat);
 
-        // Window Startup
+        // Window Startup & Responsive Resize Handler
         window.addEventListener('load', () => {
             selectCourse('micro');
             selectTab('sim');
+        });
+
+        window.addEventListener('resize', () => {
+            if (currentTab === 'sim') {
+                if (currentCourse === 'micro') drawMicro();
+                if (currentCourse === 'cost') drawCost();
+                if (currentCourse === 'finance') drawFinance();
+                if (currentCourse === 'or') drawOR();
+                if (currentCourse === 'stat') drawStat();
+            }
         });
     </script>
 </body>
