@@ -2,1041 +2,1008 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BANKAI | سامانه جامع هوش تحلیلی و بهینه‌سازی کمّی</title>
-    <!-- Telegram WebApp SDK -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Google Fonts: Vazirmatn & JetBrains Mono -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            background-color: #060913;
-            color: #F8FAFC;
+        :root {
+            --bg-main: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --border-card: #E2E8F0;
+            --text-title: #0F172A;
+            --text-body: #334155;
+            --text-muted: #64748B;
+            --c-blue: #2563EB;
+            --c-emerald: #059669;
+            --c-purple: #7C3AED;
+            --c-amber: #D97706;
+            --c-rose: #E11D48;
+            --c-cyan: #0891B2;
+        }
+        * {
+            box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
         .font-mono {
             font-family: 'JetBrains Mono', monospace;
         }
         .bento-card {
-            background: rgba(13, 20, 36, 0.85);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(51, 65, 85, 0.6);
-            border-radius: 1.25rem;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease-in-out;
         }
         .bento-card:hover {
-            border-color: rgba(56, 189, 248, 0.6);
-            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.25);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+            border-color: #CBD5E1;
         }
         .bento-inner {
-            background: rgba(10, 15, 29, 0.9);
-            border: 1px solid rgba(30, 41, 59, 0.8);
-            border-radius: 0.875rem;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 0.75rem;
         }
+        /* Active Buttons */
         .course-btn-active {
-            background: linear-gradient(135deg, #0284C7 0%, #1D4ED8 100%) !important;
+            background: #1E293B !important;
             color: #FFFFFF !important;
-            border-color: #38BDF8 !important;
-            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.45);
+            border-color: #0F172A !important;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+        }
+        .course-btn-active span {
+            color: #FFFFFF !important;
         }
         .subtab-btn-active {
-            background: rgba(56, 189, 248, 0.15) !important;
-            color: #38BDF8 !important;
-            border-color: rgba(56, 189, 248, 0.4) !important;
+            background: #2563EB !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
             font-weight: 800;
         }
+        /* Sliders */
         input[type=range] {
-            accent-color: #38BDF8;
+            accent-color: #2563EB;
+            cursor: pointer;
         }
-        /* Custom scrollbars */
-        ::-webkit-scrollbar {
-            height: 4px;
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #060913;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1E293B;
-            border-radius: 4px;
-        }
-        .glow-crimson {
-            box-shadow: 0 0 25px -5px rgba(239, 68, 68, 0.3);
+        /* Canvas */
+        canvas {
+            display: block;
+            width: 100%;
+            border-radius: 0.75rem;
+            background: #FFFFFF;
         }
     </style>
 </head>
-<body class="min-h-screen p-2.5 sm:p-4 md:p-6 pb-24 text-slate-100 select-none">
+<body class="p-3 sm:p-5 md:p-8 max-w-7xl mx-auto pb-24">
 
-    <!-- TOP HEADER: BANKAI COCKPIT -->
-    <header class="max-w-7xl mx-auto mb-4 bento-card p-3.5 sm:p-5 flex flex-col sm:flex-row justify-between items-center gap-3 border-sky-900/60 shadow-2xl relative overflow-hidden">
-        <div class="absolute -top-16 -left-16 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="flex items-center gap-3 w-full sm:w-auto">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-600 via-sky-600 to-indigo-600 flex items-center justify-center text-2xl font-black shadow-lg shadow-sky-500/25 shrink-0 glow-crimson">
+    <!-- TOP HEADER: BANKAI INFORMATION SYSTEM HUD -->
+    <header class="bento-card p-4 sm:p-6 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 border-slate-200">
+        <div class="flex items-center gap-4 w-full md:w-auto">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-900 to-blue-900 flex items-center justify-center text-2xl font-black text-white shadow-md shrink-0">
                 ⚔️
             </div>
             <div>
                 <div class="flex items-center gap-2">
-                    <h1 class="text-lg sm:text-2xl font-black text-white tracking-wider">BANKAI</h1>
-                    <span class="px-2 py-0.5 text-[10px] sm:text-xs font-black rounded-md bg-gradient-to-r from-red-500/20 to-sky-500/20 text-sky-300 border border-sky-400/30">QUANT SUITE v5.0</span>
+                    <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">BANKAI</h1>
+                    <span class="px-2.5 py-0.5 text-xs font-black rounded-full bg-blue-50 text-blue-700 border border-blue-200">SYSTEM v6.0</span>
+                    <span class="px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">تم سفید آکادمیک</span>
                 </div>
-                <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">سامانه جامع هوش تحلیلی ۵ جبهه تخصصی | بهادر</p>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">سامانه جامع اطلاعاتی و بهینه‌سازی کمّی | پورتال دانشگاهی بهادر</p>
             </div>
         </div>
 
-        <!-- Global Utilities -->
-        <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end text-xs">
-            <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="text-[11px]">هپتیک فعال</span>
+        <!-- Global HUD Metrics -->
+        <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end text-xs">
+            <div class="px-3.5 py-2 rounded-xl bento-inner flex items-center gap-2 text-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="font-bold">موتور محاسباتی زنده (۶۰ FPS)</span>
             </div>
-            <button onclick="toggleSound()" id="sound-btn" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1">
-                <span id="sound-icon">🔊</span>
-                <span class="text-[11px]">صدا</span>
-            </button>
-            <button onclick="openMasteryModal()" class="px-3 py-1.5 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-300 hover:bg-sky-500/25 transition flex items-center gap-1 text-[11px] font-bold">
+            <button onclick="openMasteryModal()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold transition flex items-center gap-1.5 shadow-sm">
                 <span>🎯</span>
-                <span id="mastery-summary">پیشرفت: ۲۵٪</span>
+                <span id="mastery-summary">ردیاب آمادگی کنکور: ۰٪</span>
             </button>
         </div>
     </header>
 
     <!-- GLOBAL SEARCH BAR -->
-    <div class="max-w-7xl mx-auto mb-4">
+    <div class="mb-6 relative">
         <div class="relative w-full">
             <input type="text" id="global-search" oninput="handleGlobalSearch()" placeholder="🔍 جستجوی بلادرنگ در تمام دروس: فرمول، متغیر، راه حل یا تله کنکور..." 
-                   class="w-full bg-slate-900/90 border border-slate-800 hover:border-sky-500/50 focus:border-sky-500 rounded-2xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none transition shadow-lg">
-            <button onclick="clearSearch()" id="clear-search-btn" class="hidden absolute left-3 top-2.5 text-slate-400 hover:text-white text-xs">✕ پاکسازی</button>
+                   class="w-full bg-white border border-slate-300 hover:border-blue-400 focus:border-blue-600 rounded-2xl px-5 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition shadow-sm">
+            <button onclick="clearSearch()" id="clear-search-btn" class="hidden absolute left-4 top-3 text-slate-400 hover:text-slate-700 text-xs font-bold">✕ پاکسازی</button>
         </div>
         <!-- Search Results Dropdown -->
-        <div id="search-results-box" class="hidden mt-2 bento-card p-3 space-y-2 border-sky-500/40 max-h-72 overflow-y-auto"></div>
+        <div id="search-results-box" class="hidden mt-2 bento-card p-3 space-y-2 border-blue-300 max-h-80 overflow-y-auto z-30"></div>
     </div>
 
-    <!-- MAIN COURSE PORTAL SELECTOR (جبهه‌های درسی بهادر) -->
-    <nav class="max-w-7xl mx-auto mb-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-        <button onclick="selectCourse('micro')" id="course-btn-micro" class="course-nav-btn course-btn-active p-3 rounded-2xl bento-card border border-slate-800 text-right transition flex items-center gap-2.5">
-            <span class="text-xl">📈</span>
-            <div class="truncate">
-                <span class="text-xs font-black block text-white truncate">اقتصاد خرد</span>
-                <span class="text-[10px] text-sky-200 block truncate">تعادل، رفاه و کشش</span>
-            </div>
+    <!-- MAIN COURSE SELECTOR (۵ جبهه درسی بهادر) -->
+    <nav class="mb-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <!-- 1. Micro -->
+        <button onclick="selectCourse('micro')" id="course-btn-micro" class="course-nav-btn course-btn-active p-3.5 rounded-2xl bento-card text-right transition border border-slate-200">
+            <div class="text-2xl mb-1">📈</div>
+            <span class="text-xs font-black block text-slate-900 truncate">اقتصاد خرد</span>
+            <span class="text-[11px] text-slate-500 block truncate">تعادل، رفاه و کشش</span>
         </button>
 
-        <button onclick="selectCourse('cost')" id="course-btn-cost" class="course-nav-btn p-3 rounded-2xl bento-card border border-slate-800 text-right transition flex items-center gap-2.5">
-            <span class="text-xl">🏭</span>
-            <div class="truncate">
-                <span class="text-xs font-black block text-white truncate">حسابداری صنعتی ۱</span>
-                <span class="text-[10px] text-slate-400 block truncate">CVP، بهای تمام‌شده و BEP</span>
-            </div>
+        <!-- 2. Cost -->
+        <button onclick="selectCourse('cost')" id="course-btn-cost" class="course-nav-btn p-3.5 rounded-2xl bento-card text-right transition border border-slate-200">
+            <div class="text-2xl mb-1">🏭</div>
+            <span class="text-xs font-black block text-slate-900 truncate">حسابداری صنعتی ۱</span>
+            <span class="text-[11px] text-slate-500 block truncate">CVP، بهای تمام‌شده و BEP</span>
         </button>
 
-        <button onclick="selectCourse('finance')" id="course-btn-finance" class="course-nav-btn p-3 rounded-2xl bento-card border border-slate-800 text-right transition flex items-center gap-2.5">
-            <span class="text-xl">💰</span>
-            <div class="truncate">
-                <span class="text-xs font-black block text-white truncate">مدیریت مالی ۱</span>
-                <span class="text-[10px] text-slate-400 block truncate">CAPM، بودجه‌بندی و WACC</span>
-            </div>
+        <!-- 3. Finance -->
+        <button onclick="selectCourse('finance')" id="course-btn-finance" class="course-nav-btn p-3.5 rounded-2xl bento-card text-right transition border border-slate-200">
+            <div class="text-2xl mb-1">💰</div>
+            <span class="text-xs font-black block text-slate-900 truncate">مدیریت مالی ۱</span>
+            <span class="text-[11px] text-slate-500 block truncate">CAPM، بودجه‌بندی و WACC</span>
         </button>
 
-        <button onclick="selectCourse('or')" id="course-btn-or" class="course-nav-btn p-3 rounded-2xl bento-card border border-slate-800 text-right transition flex items-center gap-2.5">
-            <span class="text-xl">⚙️</span>
-            <div class="truncate">
-                <span class="text-xs font-black block text-white truncate">تحقیق در عملیات ۱</span>
-                <span class="text-[10px] text-slate-400 block truncate">سیمپلکس، دوگان و LP</span>
-            </div>
+        <!-- 4. OR -->
+        <button onclick="selectCourse('or')" id="course-btn-or" class="course-nav-btn p-3.5 rounded-2xl bento-card text-right transition border border-slate-200">
+            <div class="text-2xl mb-1">⚙️</div>
+            <span class="text-xs font-black block text-slate-900 truncate">تحقیق در عملیات ۱</span>
+            <span class="text-[11px] text-slate-500 block truncate">سیمپلکس، دوگان و LP</span>
         </button>
 
-        <button onclick="selectCourse('stat')" id="course-btn-stat" class="course-nav-btn col-span-2 sm:col-span-1 p-3 rounded-2xl bento-card border border-slate-800 text-right transition flex items-center gap-2.5">
-            <span class="text-xl">📊</span>
-            <div class="truncate">
-                <span class="text-xs font-black block text-white truncate">آمار کاربردی ۱</span>
-                <span class="text-[10px] text-slate-400 block truncate">واریانس، بتا و رگرسیون</span>
-            </div>
+        <!-- 5. Stat -->
+        <button onclick="selectCourse('stat')" id="course-btn-stat" class="course-nav-btn col-span-2 sm:col-span-1 p-3.5 rounded-2xl bento-card text-right transition border border-slate-200">
+            <div class="text-2xl mb-1">📊</div>
+            <span class="text-xs font-black block text-slate-900 truncate">آمار کاربردی ۱</span>
+            <span class="text-[11px] text-slate-500 block truncate">واریانس، بتا و رگرسیون</span>
         </button>
     </nav>
 
     <!-- ACTIVE COURSE BANNER & SUB-TABS -->
-    <div class="max-w-7xl mx-auto mb-5 bento-card p-3 sm:p-4 border-slate-800 flex flex-col md:flex-row justify-between items-center gap-3">
-        <div class="flex items-center gap-3 w-full md:w-auto">
-            <span id="active-course-icon" class="text-2xl">📈</span>
+    <div class="bento-card p-4 sm:p-5 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 bg-white border-slate-200">
+        <div class="flex items-center gap-3.5 w-full md:w-auto">
+            <span id="active-course-icon" class="text-3xl">📈</span>
             <div>
-                <h2 id="active-course-title" class="text-sm sm:text-base font-black text-white">جبهه اول: اقتصاد خرد (Microeconomics)</h2>
-                <p id="active-course-desc" class="text-[11px] text-slate-400">تحلیل هندسی تعادل، کشش‌های قیمتی، دخالت دولت و اتلاف رفاهی جامعه</p>
+                <h2 id="active-course-title" class="text-base sm:text-lg font-black text-slate-900">جبهه اول: اقتصاد خرد (Microeconomics)</h2>
+                <p id="active-course-desc" class="text-xs text-slate-500">تحلیل هندسی تعادل، کشش‌های قیمتی، دخالت دولت و اتلاف رفاهی جامعه</p>
             </div>
         </div>
 
         <!-- 5 Pillars Sub-Tabs -->
-        <div class="flex overflow-x-auto gap-1.5 w-full md:w-auto pb-1 md:pb-0 scrollbar-none text-xs">
-            <button onclick="selectSubTab('sim')" id="subtab-sim" class="subtab-btn subtab-btn-active px-3 py-1.5 rounded-xl border border-transparent transition whitespace-nowrap">
-                🧮 شبیه‌ساز زنده
+        <div class="flex overflow-x-auto gap-2 w-full md:w-auto pb-1 md:pb-0 scrollbar-none text-xs">
+            <button onclick="selectSubTab('sim')" id="subtab-sim" class="subtab-btn subtab-btn-active px-3.5 py-2 rounded-xl transition whitespace-nowrap">
+                🧮 شبیه‌ساز و چارت زنده
             </button>
-            <button onclick="selectSubTab('formula')" id="subtab-formula" class="subtab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">
+            <button onclick="selectSubTab('formula')" id="subtab-formula" class="subtab-btn px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900 bento-inner transition whitespace-nowrap">
                 📐 فرمول‌ها و اثبات
             </button>
-            <button onclick="selectSubTab('solution')" id="subtab-solution" class="subtab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">
-                🛠️ مسئله و حل تیپ
+            <button onclick="selectSubTab('solution')" id="subtab-solution" class="subtab-btn px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900 bento-inner transition whitespace-nowrap">
+                🛠️ مسئله تیپ و حل گام‌به‌گام
             </button>
-            <button onclick="selectSubTab('traps')" id="subtab-traps" class="subtab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">
+            <button onclick="selectSubTab('traps')" id="subtab-traps" class="subtab-btn px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900 bento-inner transition whitespace-nowrap">
                 ⚠️ تله‌های طراحان تست
             </button>
-            <button onclick="selectSubTab('notes')" id="subtab-notes" class="subtab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">
+            <button onclick="selectSubTab('notes')" id="subtab-notes" class="subtab-btn px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900 bento-inner transition whitespace-nowrap">
                 📝 کپسول دفترچه
             </button>
         </div>
     </div>
 
-    <!-- MAIN PORTAL DISPLAY CONTAINER -->
-    <main class="max-w-7xl mx-auto" id="portal-content">
+    <!-- MAIN PORTAL CONTENT AREA -->
+    <main id="portal-content">
 
-        <!-- ==================== 1. MICROECONOMICS CONTAINER ==================== -->
-        <div id="course-pane-micro" class="space-y-5">
-            <!-- SubTab 1: Simulator -->
-            <div id="micro-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- ==================== 1. MICROECONOMICS PANE ==================== -->
+        <div id="course-pane-micro" class="space-y-6">
+            <!-- SubTab 1: Sim & Native Canvas Chart -->
+            <div id="micro-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Left Controls (5 cols) -->
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="bento-card p-4 space-y-3.5 border-sky-900/40">
-                        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
-                            <span class="text-xs font-bold text-sky-400">⚙️ کنترلرهای تعادل و مالیات</span>
-                            <span class="text-[10px] font-mono text-slate-400">Xd = a - bP | Xs = c + dP</span>
+                    <div class="bento-card p-5 space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-2.5">
+                            <h3 class="text-xs font-black text-blue-700 flex items-center gap-1.5">
+                                <span>⚙️</span> تنظیمات زنده توابع و مالیات
+                            </h3>
+                            <span class="text-[11px] font-mono font-bold text-slate-400">Xd = a - bP | Xs = c + dP</span>
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">نرخ مالیات واحدی (t):</span>
-                                <span id="m-t-val" class="text-amber-400 font-mono font-bold">6 ریال</span>
+
+                        <!-- Slider: Tax t -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">نرخ مالیات واحدی دولت (t):</span>
+                                <span id="m-t-disp" class="text-rose-600 font-mono font-black text-sm">6 ریال</span>
                             </div>
-                            <input type="range" id="m-t-slide" min="0" max="25" step="1" value="6" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="m-t-slider" min="0" max="25" step="1" value="6" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">تقاضای خودکفا در قیمت صفر (a):</span>
-                                <span id="m-a-val" class="text-sky-400 font-mono font-bold">100</span>
+
+                        <!-- Slider: a -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">تقاضای خودکفا در قیمت صفر (a):</span>
+                                <span id="m-a-disp" class="text-blue-600 font-mono font-black text-sm">100</span>
                             </div>
-                            <input type="range" id="m-a-slide" min="60" max="180" step="5" value="100" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="m-a-slider" min="60" max="180" step="5" value="100" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="grid grid-cols-2 gap-2 text-xs pt-1">
-                            <div class="bento-inner p-2">
-                                <div class="flex justify-between text-[11px] mb-1">
-                                    <span class="text-slate-400">شیب تقاضا (b):</span>
-                                    <span id="m-b-val" class="text-sky-400 font-mono font-bold">2</span>
+
+                        <!-- Slopes b and d -->
+                        <div class="grid grid-cols-2 gap-3 pt-1">
+                            <div class="bento-inner p-3">
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span class="text-slate-600">شیب تقاضا (b):</span>
+                                    <span id="m-b-disp" class="text-blue-700 font-mono font-black">2</span>
                                 </div>
-                                <input type="range" id="m-b-slide" min="1" max="5" step="0.5" value="2" class="w-full h-1 bg-slate-800 rounded cursor-pointer">
+                                <input type="range" id="m-b-slider" min="1" max="5" step="0.5" value="2" class="w-full h-1.5 bg-slate-200 rounded">
                             </div>
-                            <div class="bento-inner p-2">
-                                <div class="flex justify-between text-[11px] mb-1">
-                                    <span class="text-slate-400">شیب عرضه (d):</span>
-                                    <span id="m-d-val" class="text-emerald-400 font-mono font-bold">4</span>
+                            <div class="bento-inner p-3">
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span class="text-slate-600">شیب عرضه (d):</span>
+                                    <span id="m-d-disp" class="text-emerald-700 font-mono font-black">4</span>
                                 </div>
-                                <input type="range" id="m-d-slide" min="1" max="8" step="0.5" value="4" class="w-full h-1 bg-slate-800 rounded cursor-pointer">
+                                <input type="range" id="m-d-slider" min="1" max="8" step="0.5" value="4" class="w-full h-1.5 bg-slate-200 rounded">
                             </div>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-2.5">
-                        <div class="bento-card p-3 border-red-500/30">
-                            <span class="text-[10px] text-slate-400 block">قیمت خریدار (Pc)</span>
-                            <span id="m-pc-disp" class="text-lg font-black text-red-400 font-mono">24.0 ریال</span>
-                            <span id="m-pc-diff" class="text-[10px] text-red-500 block">+4.0 ریال گرانی</span>
+                    <!-- Live KPI Cards -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bento-card p-4 border-rose-200 bg-rose-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">قیمت ناخالص خریدار (Pc)</span>
+                            <span id="m-kpi-pc" class="text-xl font-black text-rose-600 font-mono mt-1 block">24.0 ریال</span>
+                            <span id="m-kpi-pcdiff" class="text-[11px] font-bold text-rose-500 block mt-0.5">+4.0 ریال گرانی</span>
                         </div>
-                        <div class="bento-card p-3 border-amber-500/30">
-                            <span class="text-[10px] text-slate-400 block">عایدی فروشنده (Pp)</span>
-                            <span id="m-pp-disp" class="text-lg font-black text-amber-400 font-mono">18.0 ریال</span>
-                            <span id="m-pp-diff" class="text-[10px] text-amber-500 block">-2.0 ریال افت</span>
+                        <div class="bento-card p-4 border-amber-200 bg-amber-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">عایدی خالص فروشنده (Pp)</span>
+                            <span id="m-kpi-pp" class="text-xl font-black text-amber-600 font-mono mt-1 block">18.0 ریال</span>
+                            <span id="m-kpi-ppdiff" class="text-[11px] font-bold text-amber-600 block mt-0.5">-2.0 ریال افت عایدی</span>
                         </div>
-                        <div class="bento-card p-3 border-sky-500/30">
-                            <span class="text-[10px] text-slate-400 block">تیراژ تعادلی بازار (Qt)</span>
-                            <span id="m-qt-disp" class="text-lg font-black text-sky-400 font-mono">52 واحد</span>
-                            <span id="m-q0-disp" class="text-[10px] text-slate-400 block">از ۶۰ واحد اولیه</span>
+                        <div class="bento-card p-4 border-blue-200 bg-blue-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">تیراژ تعادلی بازار (Qt)</span>
+                            <span id="m-kpi-qt" class="text-xl font-black text-blue-700 font-mono mt-1 block">52 واحد</span>
+                            <span id="m-kpi-qinit" class="text-[11px] text-slate-500 block mt-0.5">قبل از مالیات: ۶۰</span>
                         </div>
-                        <div class="bento-card p-3 border-purple-500/30">
-                            <span class="text-[10px] text-slate-400 block">زیان بار مرده (DWL)</span>
-                            <span id="m-dwl-disp" class="text-lg font-black text-purple-400 font-mono">24.0 ریال</span>
-                            <span class="text-[10px] text-purple-400 block">اتلاف خالص رفاه</span>
+                        <div class="bento-card p-4 border-purple-200 bg-purple-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">زیان بار مرده (DWL)</span>
+                            <span id="m-kpi-dwl" class="text-xl font-black text-purple-700 font-mono mt-1 block">24.0 ریال</span>
+                            <span class="text-[11px] text-purple-600 block mt-0.5">اتلاف خالص رفاه جامعه</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 bento-card p-4 flex flex-col justify-between border-slate-800">
-                    <div class="flex justify-between items-center mb-2">
+                <!-- Right Canvas Plot (7 cols) -->
+                <div class="lg:col-span-7 bento-card p-5 flex flex-col justify-between">
+                    <div class="flex justify-between items-center mb-3">
                         <div>
-                            <h3 class="text-sm font-bold text-white">منحنی‌های هندسی تعادل و مالیات بر واحد</h3>
-                            <p class="text-[11px] text-slate-400">Equilibrium, Choke Price & Tax Wedge</p>
+                            <h3 class="text-sm sm:text-base font-black text-slate-900">نمودار دقیق هندسی عرضه، تقاضا و شکاف مالیاتی (Tax Wedge)</h3>
+                            <p class="text-xs text-slate-500">موتور بومی Canvas 2D بدون وابستگی به اینترنت یا CDN خارجی</p>
                         </div>
-                        <span id="m-choke-badge" class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-sky-400 font-mono">P_max: 50.0</span>
+                        <span id="m-choke-badge" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 font-mono text-xs font-bold">P_max: 50.0</span>
                     </div>
-                    <div class="relative w-full h-[280px] sm:h-[340px]">
-                        <canvas id="chartMicro"></canvas>
+                    <div class="w-full h-[320px] sm:h-[380px] bento-inner p-2 relative flex items-center justify-center">
+                        <canvas id="canvasMicro" width="600" height="380"></canvas>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-slate-100 flex flex-wrap justify-between items-center text-xs text-slate-500">
+                        <div class="flex items-center gap-4">
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-blue-600 rounded"></span> تقاضا</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-emerald-600 rounded"></span> عرضه قبل مالیات</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-rose-600 rounded"></span> عرضه با مالیات</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-2 bg-rose-200 rounded"></span> مثلث DWL</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- SubTab 2: Formulas -->
-            <div id="micro-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 space-y-2 border-sky-500/30">
+            <div id="micro-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۱. نسبت تسهیم بار مالیاتی با کشش‌ها</h4>
-                        <button onclick="copyMath('Burden_C / Burden_P = E_s / |E_d|')" class="text-xs text-sky-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۱. نسبت تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
+                        <button onclick="copyToClipboard('Burden_C / Burden_P = E_S / |E_D|')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-sky-400 text-sm font-bold">
-                        Burden_C / Burden_P = Es / |Ed|
+                    <div class="bento-inner p-3.5 text-center font-mono text-blue-700 text-base font-black">
+                        Burden_C / Burden_P = Es / |Ed| = d / b
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>کالبدشکافی ریشه‌ای:</b> هر سمتی از بازار که کشش کمتری داشته باشد (توان جایگزینی کمتر و اجبار بیشتر برای معامله)، بخش بزرگ‌تری از بار مالیات را بر دوش می‌کشد.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        <b>کالبدشکافی از صفر تا صد:</b> نسبت بار مالیاتی مصرف‌کننده به تولیدکننده مستقیماً با کشش عرضه و معکوس با کشش تقاضا رابطه دارد. هر طرفی که ناچارتـر باشد و کشش کمتری داشته باشد، بخش بزرگ‌تری از مالیات را تحمل می‌کند.
                     </p>
                 </div>
 
-                <div class="bento-card p-4 space-y-2 border-amber-500/30">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۲. فرمول زیان بار مرده (Deadweight Loss)</h4>
-                        <button onclick="copyMath('DWL = 0.5 * t * (Q_0 - Q_t)')" class="text-xs text-amber-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۲. فرمول محاسبه مساحت مثلث زیان بار مرده (DWL)</h4>
+                        <button onclick="copyToClipboard('DWL = 0.5 * t * (Q_0 - Q_t)')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-amber-400 text-sm font-bold">
+                    <div class="bento-inner p-3.5 text-center font-mono text-purple-700 text-base font-black">
                         DWL = 0.5 × t × (Q0 - Qt)
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>مفهوم هندسی:</b> مساحت مثلث مثلثی است با قاعده برابر با نرخ مالیات (t) و ارتفاع برابر با انقباض تیراژ بازار (ΔQ) که نه به جیب دولت می‌رود و نه به تولیدکننده؛ اتلاف خالص اجتماعی است.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        <b>تفسیر هندسی و رفاهی:</b> مساحت مثلثی است که قاعده‌اش برابر با نرخ مالیات (t) و ارتفاعش انقباض حجم مبادلات بازار (ΔQ) است. این مبلغ به خزانه دولت هم وارد نمی‌شود و تبخیر خالص رفاه اقتصادی جامعه است.
                     </p>
                 </div>
             </div>
 
             <!-- SubTab 3: Canonical Solution -->
-            <div id="micro-sub-solution" class="hidden bento-card p-5 space-y-4 border-slate-800">
-                <div class="border-b border-slate-800 pb-3">
-                    <span class="px-2.5 py-1 rounded bg-sky-500/20 text-sky-400 text-xs font-bold">مسئله تیپ آزمون کارشناسی ارشد تهران و شریف</span>
-                    <h3 class="text-base font-bold text-white mt-2">صورت مسئله: فرض کنید توابع تقاضا و عرضه به صورت Xd = 100 - 2P و Xs = -20 + 4P باشد. دولت مالیات t = 6 ریال بر هر واحد وضع می‌کند. تعادل جدید و تسهیم بار را حساب کنید.</h3>
+            <div id="micro-sub-solution" class="hidden bento-card p-6 space-y-4">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-black">مسئله تیپ کنکور کارشناسی ارشد تهران و شریف</span>
+                    <h3 class="text-base font-black text-slate-900 mt-2">صورت مسئله: توابع تقاضا و عرضه به صورت Xd = 100 - 2P و Xs = -20 + 4P است. اگر دولت مالیات t = 6 ریال بر هر واحد کالا وضع کند، تعادل جدید، درآمد دولت و زیان رفاهی را محاسبه کنید.</h3>
                 </div>
-                <div class="space-y-3 text-xs leading-relaxed text-slate-300">
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-sky-400">گام اول: تعادل اولیه بازار (قبل از مالیات)</b>
+                <div class="space-y-3 text-xs leading-relaxed text-slate-700">
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-blue-600">
+                        <b class="text-blue-800 text-sm">گام اول: تعادل اولیه بازار قبل از مالیات</b>
                         <p>برابری تقاضا و عرضه: 100 - 2P = -20 + 4P  =>  6P = 120  =>  P* = 20 ریال.</p>
-                        <p>جایگذاری در تابع تقاضا: Q* = 100 - 2(20) = 60 واحد.</p>
+                        <p>تیراژ تعادلی اولیه: Q* = 100 - 2(20) = 60 واحد.</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-amber-400">گام دوم: تعادل ثانویه با مالیات واحدی t = 6</b>
-                        <p>تولیدکننده قیمت ناخالص خریدار (Pc) را می‌گیرد اما فقط Pp = Pc - 6 برایش می‌ماند. پس تابع عرضه می‌شود: Xs = -20 + 4(Pc - 6) = -44 + 4Pc.</p>
-                        <p>برابری با تقاضا: 100 - 2Pc = -44 + 4Pc  =>  6Pc = 144  =>  Pc = 24 ریال.</p>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-amber-600">
+                        <b class="text-amber-800 text-sm">گام دوم: تعادل ثانویه با ایجاد شکاف قیمت خریدار و فروشنده</b>
+                        <p>رابطه شکاف مالیاتی: Pc = Pp + 6  =>  Pp = Pc - 6.</p>
+                        <p>تابع عرضه پس از مالیات: Xs = -20 + 4(Pc - 6) = -44 + 4Pc.</p>
+                        <p>تعادل جدید: 100 - 2Pc = -44 + 4Pc  =>  6Pc = 144  =>  Pc = 24 ریال.</p>
                         <p>عایدی خالص فروشنده: Pp = 24 - 6 = 18 ریال.</p>
-                        <p>تیراژ تعادلی جدید: Qt = 100 - 2(24) = 52 واحد.</p>
+                        <p>تیراژ تعادلی پس از مالیات: Qt = 100 - 2(24) = 52 واحد.</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-emerald-400">گام سوم: تسهیم بار و زیان رفاهی</b>
-                        <p>سهم خریدار از مالیات: 24 - 20 = 4 ریال (دو سوم کل مالیات).</p>
-                        <p>سهم فروشنده از مالیات: 20 - 18 = 2 ریال (یک سوم کل مالیات).</p>
-                        <p>زیان بار مرده رفاهی: DWL = 0.5 × 6 × (60 - 52) = 24 ریال.</p>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-emerald-600">
+                        <b class="text-emerald-800 text-sm">گام سوم: درآمد مالیاتی دولت و زیان بار مرده</b>
+                        <p>درآمد دولت: T = t × Qt = 6 × 52 = 312 ریال.</p>
+                        <p>سهم پرداختی مصرف‌کننده: (24 - 20) × 52 = 208 ریال (دو سوم کل مالیات).</p>
+                        <p>سهم پرداختی تولیدکننده: (20 - 18) × 52 = 104 ریال (یک سوم کل مالیات).</p>
+                        <p>زیان بار مرده (DWL): 0.5 × 6 × (60 - 52) = 24 ریال.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 4: Exam Traps -->
-            <div id="micro-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۱ طراحان کنکور</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">کشش تقاضای صفر مطلق (|Ed| = 0)</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        طراح در صورت سوال می‌گوید: تقاضای بنزین یا داروی حیاتی کاملاً بی‌کشش است و دولت ۵۰۰ تومان مالیات می‌بندد. قیمت چقدر گران می‌شود؟<br>
-                        <b>دام تستی:</b> داوطلب فکر می‌کند بار مالیات بین دو طرف تقسیم می‌شود. اما در کشش صفر، خریدار کل ۵۰۰ تومان را بدون کم‌وکاست می‌پردازد و قیمت دقیقاً ۵۰۰ تومان بالا می‌رود!
+            <!-- SubTab 4: Traps -->
+            <div id="micro-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام تستی شماره ۱ کنکور</span>
+                    <h4 class="font-black text-slate-900 text-sm">کشش تقاضای صفر مطلق (|Ed| = 0)</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        طراح سوال می‌گوید: تقاضای کالایی کاملاً بی‌کشش است و دولت ۲۰۰ تومان مالیات وضع می‌کند. قیمت چقدر گران می‌شود؟<br>
+                        <b>دام تستی:</b> داوطلب گمان می‌کند مالیات همیشه بین خریدار و فروشنده تقسیم می‌شود. اما وقتی تقاضا کاملاً عمودی و بی‌کشش است، خریدار تمام ۲۰۰ تومان را تحمل می‌کند و قیمت دقیقاً ۲۰۰ تومان گران می‌شود!
                     </p>
                 </div>
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۲ طراحان کنکور</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">اشتباه گرفتن شیب تابع تقاضا با کشش قیمتی</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        شیب تابع تقاضای خطی همواره ثابت است (-b)، اما کشش قیمتی در طول خط متغیر است! در قیمت‌های بالا کشش بزرگ‌تر از ۱، در نقطه وسط برابر با ۱ و در قیمت‌های پایین کمتر از ۱ است.
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام تستی شماره ۲ کنکور</span>
+                    <h4 class="font-black text-slate-900 text-sm">اشتباه گرفتن شیب خط تقاضا با کشش قیمتی</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        شیب تابع تقاضای خطی همواره عددی ثابت است (-b)، اما کشش قیمتی تقاضا در طول خط تغییر می‌کند! در قیمت‌های بالا کشش بزرگ‌تر از ۱، در نقطه وسط برابر با ۱ و در قیمت‌های پایین کمتر از ۱ است.
                     </p>
                 </div>
             </div>
 
             <!-- SubTab 5: Notes -->
-            <div id="micro-sub-notes" class="hidden bento-card p-5 space-y-3 border-slate-800">
-                <h4 class="font-bold text-sky-400 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (اقتصاد خرد)</h4>
-                <div class="bento-inner p-4 font-mono text-xs text-slate-200 leading-relaxed space-y-2">
-                    <div>1. P* = (a - c) / (b + d)  [شرط اولیه تعادل]</div>
+            <div id="micro-sub-notes" class="hidden bento-card p-6 space-y-3">
+                <h4 class="font-black text-blue-700 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (اقتصاد خرد)</h4>
+                <div class="bento-inner p-4 font-mono text-xs text-slate-800 leading-relaxed space-y-2">
+                    <div>1. P* = (a - c) / (b + d)  [نقطه اولیه تعادل]</div>
                     <div>2. Pc = (a - c + d*t) / (b + d)  [قیمت خریدار با مالیات]</div>
                     <div>3. Pp = Pc - t  [عایدی خالص فروشنده]</div>
-                    <div>4. Burden_C / Burden_P = d / b = Es / |Ed|  [تسهیم معکوس کشش]</div>
-                    <div>5. DWL = 0.5 * t * (Q0 - Qt)  [اتلاف بار مرده اجتماعی]</div>
+                    <div>4. Burden_C / Burden_P = d / b = Es / |Ed|  [قاعده طلایی تسهیم]</div>
+                    <div>5. DWL = 0.5 * t * (Q0 - Qt)  [اتلاف خالص رفاه]</div>
                 </div>
             </div>
         </div>
 
-        <!-- ==================== 2. COST ACCOUNTING CONTAINER ==================== -->
-        <div id="course-pane-cost" class="hidden space-y-5">
-            <!-- SubTab 1: Sim -->
-            <div id="cost-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- ==================== 2. COST ACCOUNTING PANE ==================== -->
+        <div id="course-pane-cost" class="hidden space-y-6">
+            <div id="cost-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="bento-card p-4 space-y-3.5 border-emerald-900/40">
-                        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
-                            <span class="text-xs font-bold text-emerald-400">🏭 متغیرهای صنعتی و CVP</span>
-                            <span class="text-[10px] font-mono text-slate-400">TC = FC + VC × Q</span>
+                    <div class="bento-card p-5 space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-2.5">
+                            <h3 class="text-xs font-black text-emerald-700 flex items-center gap-1.5">
+                                <span>🏭</span> داده‌های بهای تمام‌شده و تولید صنعتی
+                            </h3>
+                            <span class="text-[11px] font-mono font-bold text-slate-400">TC = FC + VC × Q</span>
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">هزینه‌های ثابت کل (FC):</span>
-                                <span id="c-fc-val" class="text-emerald-400 font-mono font-bold">120,000 تومان</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">هزینه‌های ثابت کل (FC):</span>
+                                <span id="c-fc-disp" class="text-emerald-700 font-mono font-black text-sm">120,000 تومان</span>
                             </div>
-                            <input type="range" id="c-fc-slide" min="30000" max="300000" step="10000" value="120000" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="c-fc-slider" min="30000" max="300000" step="10000" value="120000" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">قیمت فروش هر واحد (P):</span>
-                                <span id="c-p-val" class="text-sky-400 font-mono font-bold">50 تومان</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">قیمت فروش هر واحد (P):</span>
+                                <span id="c-p-disp" class="text-blue-700 font-mono font-black text-sm">50 تومان</span>
                             </div>
-                            <input type="range" id="c-p-slide" min="30" max="120" step="5" value="50" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="c-p-slider" min="30" max="120" step="5" value="50" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">هزینه متغیر هر واحد (VC):</span>
-                                <span id="c-vc-val" class="text-red-400 font-mono font-bold">20 تومان</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">هزینه متغیر هر واحد (VC):</span>
+                                <span id="c-vc-disp" class="text-rose-600 font-mono font-black text-sm">20 تومان</span>
                             </div>
-                            <input type="range" id="c-vc-slide" min="10" max="45" step="2" value="20" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="c-vc-slider" min="10" max="45" step="2" value="20" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1 pt-1 border-t border-slate-800">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-purple-300">سود هدف عملیاتی (Target):</span>
-                                <span id="c-tp-val" class="text-purple-400 font-mono font-bold">60,000 تومان</span>
+                        <div class="space-y-1.5 pt-1 border-t border-slate-100">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-purple-700">سود هدف عملیاتی (Target Profit):</span>
+                                <span id="c-tp-disp" class="text-purple-700 font-mono font-black text-sm">60,000 تومان</span>
                             </div>
-                            <input type="range" id="c-tp-slide" min="0" max="150000" step="10000" value="60000" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="c-tp-slider" min="0" max="150000" step="10000" value="60000" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-2.5">
-                        <div class="bento-card p-3 border-emerald-500/30">
-                            <span class="text-[10px] text-slate-400 block">تیراژ نقطه سر‌به‌سر (Qbep)</span>
-                            <span id="c-qbep-disp" class="text-lg font-black text-emerald-400 font-mono">4,000 واحد</span>
-                            <span class="text-[10px] text-slate-400 block">FC / CM</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bento-card p-4 border-emerald-200 bg-emerald-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">تیراژ نقطه سر‌به‌سر (Qbep)</span>
+                            <span id="c-kpi-qbep" class="text-xl font-black text-emerald-700 font-mono mt-1 block">4,000 واحد</span>
+                            <span class="text-[11px] text-slate-500 block mt-0.5">FC / CM</span>
                         </div>
-                        <div class="bento-card p-3 border-purple-500/30">
-                            <span class="text-[10px] text-slate-400 block">تیراژ برای سود هدف</span>
-                            <span id="c-qtarget-disp" class="text-lg font-black text-purple-400 font-mono">6,000 واحد</span>
-                            <span class="text-[10px] text-purple-400 block">(FC + Target) / CM</span>
+                        <div class="bento-card p-4 border-purple-200 bg-purple-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">تیراژ برای سود هدف</span>
+                            <span id="c-kpi-qtarget" class="text-xl font-black text-purple-700 font-mono mt-1 block">6,000 واحد</span>
+                            <span class="text-[11px] text-purple-600 block mt-0.5">(FC + Target) / CM</span>
                         </div>
-                        <div class="bento-card p-3 border-amber-500/30">
-                            <span class="text-[10px] text-slate-400 block">حاشیه فروش هر واحد (CM)</span>
-                            <span id="c-cm-disp" class="text-lg font-black text-amber-400 font-mono">30 تومان</span>
-                            <span class="text-[10px] text-amber-400 block">P - VC</span>
+                        <div class="bento-card p-4 border-amber-200 bg-amber-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">حاشیه فروش هر واحد (CM)</span>
+                            <span id="c-kpi-cm" class="text-xl font-black text-amber-700 font-mono mt-1 block">30 تومان</span>
+                            <span class="text-[11px] text-amber-600 block mt-0.5">P - VC</span>
                         </div>
-                        <div class="bento-card p-3 border-sky-500/30">
-                            <span class="text-[10px] text-slate-400 block">نسبت حاشیه فروش (CM%)</span>
-                            <span id="c-cmratio-disp" class="text-lg font-black text-sky-400 font-mono">60.0%</span>
-                            <span class="text-[10px] text-slate-400 block">CM / P</span>
+                        <div class="bento-card p-4 border-blue-200 bg-blue-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">نسبت حاشیه فروش (CM%)</span>
+                            <span id="c-kpi-cmratio" class="text-xl font-black text-blue-700 font-mono mt-1 block">60.0%</span>
+                            <span class="text-[11px] text-slate-500 block mt-0.5">CM / P</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 bento-card p-4 flex flex-col justify-between border-slate-800">
-                    <div class="flex justify-between items-center mb-2">
+                <div class="lg:col-span-7 bento-card p-5 flex flex-col justify-between">
+                    <div class="flex justify-between items-center mb-3">
                         <div>
-                            <h3 class="text-sm font-bold text-white">نمودار ساختار بهای تمام‌شده و مرز سودآوری</h3>
-                            <p class="text-[11px] text-slate-400">Total Revenue, Fixed vs Variable & Break-Even</p>
+                            <h3 class="text-sm sm:text-base font-black text-slate-900">نمودار ساختار بهای تمام‌شده، درآمد کل و نقطه سر‌به‌سر</h3>
+                            <p class="text-xs text-slate-500">تفکیک ناحیه سود و زیان عملیاتی بر روی بستر اختصاصی Canvas</p>
                         </div>
-                        <span id="c-bep-badge" class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-emerald-400 font-mono">فروش سر‌به‌سر: 200k</span>
+                        <span id="c-bep-badge" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono text-xs font-bold">فروش سر‌به‌سر: 200k</span>
                     </div>
-                    <div class="relative w-full h-[280px] sm:h-[340px]">
-                        <canvas id="chartCost"></canvas>
+                    <div class="w-full h-[320px] sm:h-[380px] bento-inner p-2 relative flex items-center justify-center">
+                        <canvas id="canvasCost" width="600" height="380"></canvas>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-slate-100 flex flex-wrap justify-between items-center text-xs text-slate-500">
+                        <div class="flex items-center gap-4">
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-emerald-600 rounded"></span> درآمد کل (TR)</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-rose-600 rounded"></span> بهای کل (TC)</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-slate-500 rounded"></span> هزینه ثابت (FC)</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 2: Formulas -->
-            <div id="cost-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 space-y-2 border-emerald-500/30">
+            <!-- SubTabs for Cost -->
+            <div id="cost-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۱. حاشیه امنیت (Margin of Safety)</h4>
-                        <button onclick="copyMath('MS = \frac{\text{Actual Sales} - \text{BEP Sales}}{\text{Actual Sales}}')" class="text-xs text-emerald-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۱. حاشیه امنیت (Margin of Safety)</h4>
+                        <button onclick="copyToClipboard('MS = (Actual Sales - BEP Sales) / Actual Sales')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-emerald-400 text-sm font-bold">
+                    <div class="bento-inner p-3.5 text-center font-mono text-emerald-700 text-base font-black">
                         MS% = (فروش واقعی - فروش سر‌به‌سر) ÷ فروش واقعی
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>مفهوم مالی:</b> سپری که نشان می‌دهد فروش شرکت چقدر می‌تواند ریزش کند قبل از اینکه شرکت وارد منطقه زیان‌دهی شود.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        <b>مفهوم مالی:</b> سپری که نشان می‌دهد شرکت تا چه میزان می‌تواند افت فروش را بدون ورود به مرحله زیان‌دهی تحمل کند.
                     </p>
                 </div>
-
-                <div class="bento-card p-4 space-y-2 border-sky-500/30">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۲. درجه اهرم عملیاتی (DOL)</h4>
-                        <button onclick="copyMath('DOL = \frac{\text{Total CM}}{\text{EBIT}} = \frac{Q(P - VC)}{Q(P - VC) - FC}')" class="text-xs text-sky-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۲. درجه اهرم عملیاتی (DOL)</h4>
+                        <button onclick="copyToClipboard('DOL = Total CM / EBIT')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-sky-400 text-sm font-bold">
+                    <div class="bento-inner p-3.5 text-center font-mono text-blue-700 text-base font-black">
                         DOL = کل حاشیه فروش (TCM) ÷ سود عملیاتی (EBIT)
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>حساسیت سود:</b> اگر فروش ۱٪ رشد کند، سود عملیاتی چند درصد جهش می‌کند؟ در نزدیکی نقطه سر‌به‌سر، اهرم عملیاتی به بی‌نهایت میل می‌کند!
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        <b>تحلیل حساسیت:</b> نشان می‌دهد به ازای ۱٪ تغییر در تیراژ فروش، سود عملیاتی شرکت چند درصد تغییر خواهد کرد.
                     </p>
                 </div>
             </div>
 
-            <!-- SubTab 3: Canonical Solution -->
-            <div id="cost-sub-solution" class="hidden bento-card p-5 space-y-4 border-slate-800">
-                <div class="border-b border-slate-800 pb-3">
-                    <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 text-xs font-bold">مسئله تفکیک هزینه‌های نیمه‌متغیر صنعتی (روش بالاترین و پایین‌ترین سطح فعالیت)</span>
-                    <h3 class="text-base font-bold text-white mt-2">صورت مسئله: شرکتی در بالاترین سطح فعالیت (۱۰,۰۰۰ ساعت) دارای بهای کل ۵۰۰,۰۰۰ تومان و در پایین‌ترین سطح (۴,۰۰۰ ساعت) دارای بهای کل ۲۶۰,۰۰۰ تومان است. معادله هزینه و نقطه سر‌به‌سر را در قیمت فروش ۸۰ تومان به دست آورید.</h3>
+            <div id="cost-sub-solution" class="hidden bento-card p-6 space-y-4">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-black">مسئله تفکیک هزینه‌های نیمه‌متغیر (روش High-Low)</span>
+                    <h3 class="text-base font-black text-slate-900 mt-2">صورت مسئله: در بالاترین سطح فعالیت (۱۰,۰۰۰ ساعت) بهای کل ۵۰۰,۰۰۰ تومان و در پایین‌ترین سطح (۴,۰۰۰ ساعت) بهای کل ۲۶۰,۰۰۰ تومان است. معادله هزینه و نقطه سر‌به‌سر در قیمت فروش ۸۰ تومان چیست؟</h3>
                 </div>
-                <div class="space-y-3 text-xs leading-relaxed text-slate-300">
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-emerald-400">گام اول: استخراج هزینه متغیر هر ساعت (b = ΔY / ΔX)</b>
+                <div class="space-y-3 text-xs leading-relaxed text-slate-700">
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-emerald-600">
+                        <b class="text-emerald-800 text-sm">گام اول: استخراج نرخ متغیر (b = ΔY / ΔX)</b>
                         <p>تغییر هزینه: 500,000 - 260,000 = 240,000 تومان.</p>
-                        <p>تغییر فعالیت: 10,000 - 4,000 = 6,000 ساعت.</p>
+                        <p>تغییر ساعت: 10,000 - 4,000 = 6,000 ساعت.</p>
                         <p>هزینه متغیر هر ساعت (b): 240,000 ÷ 6,000 = 40 تومان.</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-sky-400">گام دوم: استخراج هزینه ثابت کل (a = Y - bX)</b>
-                        <p>جایگذاری در نقطه بیشینه: a = 500,000 - (40 × 10,000) = 100,000 تومان.</p>
-                        <p>معادله نهایی هزینه: TC = 100,000 + 40 × Q</p>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-blue-600">
+                        <b class="text-blue-800 text-sm">گام دوم: استخراج هزینه ثابت کل (a = Y - bX)</b>
+                        <p>جایگذاری در بالاترین نقطه: a = 500,000 - (40 × 10,000) = 100,000 تومان.</p>
+                        <p>معادله هزینه کل: TC = 100,000 + 40 × Q</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-amber-400">گام سوم: تیراژ سر‌به‌سر</b>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-amber-600">
+                        <b class="text-amber-800 text-sm">گام سوم: تیراژ نقطه سر‌به‌سر</b>
                         <p>حاشیه فروش هر واحد: CM = 80 - 40 = 40 تومان.</p>
                         <p>تیراژ سر‌به‌سر: Qbep = 100,000 ÷ 40 = 2,500 واحد.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 4: Traps -->
-            <div id="cost-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۱ حسابداری صنعتی</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">هزینه ثابت هر واحد با تیراژ تغییر می‌کند!</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        خیلی از دانشجویان فکر می‌کنند هزینه ثابت در هر حالتی ثابت است. «کل هزینه ثابت» در دامنه مربوط ثابت است، اما «هزینه ثابت هر واحد» با افزایش تولید کاهش می‌یابد و منحنی آن یک هذلولی نزولی است!
+            <div id="cost-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام تستی حسابداری صنعتی</span>
+                    <h4 class="font-black text-slate-900 text-sm">هزینه ثابت هر واحد متغیر است!</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        داوطلب گمان می‌کند چون اسمش «هزینه ثابت» است پس در سطح هر واحد هم ثابت می‌ماند. اما کل هزینه ثابت بدون تغییر است و هزینه ثابت هر واحد با افزایش تیراژ تولید، کاهش پیدا می‌کند.
                     </p>
                 </div>
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۲ سود هدف بعد از مالیات</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">فراموش کردن تبدیل سود پس از مالیات</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        اگر طراح گفت «سود خالص پس از مالیات هدف ۲۰,۰۰۰ تومان و نرخ مالیات ۲۵٪ است»، باید ابتدا آن را قبل از مالیات کنی: 20,000 ÷ (1 - 0.25) = 26,667 تومان؛ سپس با هزینه ثابت جمع کنی.
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام سود هدف پس از مالیات</span>
+                    <h4 class="font-black text-slate-900 text-sm">تبدیل سود خالص به سود قبل از مالیات</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        اگر صورت سوال سود هدف را پس از مالیات داد، باید فرمول سود هدف بر (1 - T) تقسیم شود؛ غفلت از این کار پاسخ تست را به گزینه‌های انحرافی می‌برد!
                     </p>
                 </div>
             </div>
 
-            <!-- SubTab 5: Notes -->
-            <div id="cost-sub-notes" class="hidden bento-card p-5 space-y-3 border-slate-800">
-                <h4 class="font-bold text-emerald-400 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (حسابداری صنعتی)</h4>
-                <div class="bento-inner p-4 font-mono text-xs text-slate-200 leading-relaxed space-y-2">
+            <div id="cost-sub-notes" class="hidden bento-card p-6 space-y-3">
+                <h4 class="font-black text-emerald-700 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (حسابداری صنعتی)</h4>
+                <div class="bento-inner p-4 font-mono text-xs text-slate-800 leading-relaxed space-y-2">
                     <div>1. CM = P - VC  [حاشیه فروش واحد]</div>
-                    <div>2. CM% = (P - VC) / P  [نسبت حاشیه فروش]</div>
+                    <div>2. CM% = CM / P  [نسبت حاشیه فروش]</div>
                     <div>3. Q_bep = FC / CM  [تیراژ سر‌به‌سر]</div>
-                    <div>4. Q_target = (FC + Target_Profit) / CM  [تیراژ سود هدف]</div>
-                    <div>5. DOL = (Q * CM) / [Q * CM - FC]  [اهرم عملیاتی]</div>
+                    <div>4. Q_target = (FC + Target) / CM  [سود هدف قبل مالیات]</div>
+                    <div>5. DOL = (Q * CM) / (Q * CM - FC)  [اهرم عملیاتی]</div>
                 </div>
             </div>
         </div>
 
-        <!-- ==================== 3. FINANCIAL MANAGEMENT CONTAINER ==================== -->
-        <div id="course-pane-finance" class="hidden space-y-5">
-            <!-- SubTab 1: Sim -->
-            <div id="finance-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- ==================== 3. FINANCIAL MANAGEMENT PANE ==================== -->
+        <div id="course-pane-finance" class="hidden space-y-6">
+            <div id="finance-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="bento-card p-4 space-y-3.5 border-purple-900/40">
-                        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
-                            <span class="text-xs font-bold text-purple-400">💎 متغیرهای ارزش‌گذاری CAPM و WACC</span>
-                            <span class="text-[10px] font-mono text-slate-400">E(R) = Rf + β(Rm - Rf)</span>
+                    <div class="bento-card p-5 space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-2.5">
+                            <h3 class="text-xs font-black text-purple-700 flex items-center gap-1.5">
+                                <span>💎</span> متغیرهای ارزش‌گذاری CAPM و SML
+                            </h3>
+                            <span class="text-[11px] font-mono font-bold text-slate-400">E(R) = Rf + β(Rm - Rf)</span>
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">نرخ بدون ریسک (Rf):</span>
-                                <span id="f-rf-val" class="text-sky-400 font-mono font-bold">22%</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">نرخ بدون ریسک (Rf):</span>
+                                <span id="f-rf-disp" class="text-blue-700 font-mono font-black text-sm">22%</span>
                             </div>
-                            <input type="range" id="f-rf-slide" min="10" max="35" step="1" value="22" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="f-rf-slider" min="10" max="35" step="1" value="22" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">بازده مورد انتظار بازار (Rm):</span>
-                                <span id="f-rm-val" class="text-emerald-400 font-mono font-bold">35%</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">بازده مورد انتظار بازار (Rm):</span>
+                                <span id="f-rm-disp" class="text-emerald-700 font-mono font-black text-sm">35%</span>
                             </div>
-                            <input type="range" id="f-rm-slide" min="20" max="55" step="1" value="35" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="f-rm-slider" min="20" max="55" step="1" value="35" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">ضریب بتای سیستماتیک (Beta):</span>
-                                <span id="f-beta-val" class="text-amber-400 font-mono font-bold">1.35</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">ضریب بتای سیستماتیک سهم (Beta):</span>
+                                <span id="f-beta-disp" class="text-amber-700 font-mono font-black text-sm">1.35</span>
                             </div>
-                            <input type="range" id="f-beta-slide" min="0" max="3.0" step="0.05" value="1.35" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="f-beta-slider" min="0" max="3.0" step="0.05" value="1.35" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-2.5">
-                        <div class="bento-card p-3 border-purple-500/30">
-                            <span class="text-[10px] text-slate-400 block">بازده مورد انتظار E(R)</span>
-                            <span id="f-er-disp" class="text-lg font-black text-purple-400 font-mono">39.55%</span>
-                            <span class="text-[10px] text-purple-400 block">هزینه حقوق صاحبان سهام Ke</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bento-card p-4 border-purple-200 bg-purple-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">بازده مورد انتظار E(R)</span>
+                            <span id="f-kpi-er" class="text-xl font-black text-purple-700 font-mono mt-1 block">39.55%</span>
+                            <span class="text-[11px] text-purple-600 block mt-0.5">هزینه حقوق صاحبان سهام Ke</span>
                         </div>
-                        <div class="bento-card p-3 border-sky-500/30">
-                            <span class="text-[10px] text-slate-400 block">صَرف ریسک بازار (MRP)</span>
-                            <span id="f-mrp-disp" class="text-lg font-black text-sky-400 font-mono">13.00%</span>
-                            <span class="text-[10px] text-slate-400 block">Rm - Rf</span>
+                        <div class="bento-card p-4 border-blue-200 bg-blue-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">صَرف ریسک بازار (MRP)</span>
+                            <span id="f-kpi-mrp" class="text-xl font-black text-blue-700 font-mono mt-1 block">13.00%</span>
+                            <span class="text-[11px] text-slate-500 block mt-0.5">Rm - Rf</span>
                         </div>
-                        <div class="bento-card p-3 border-amber-500/30 col-span-2">
+                        <div class="bento-card p-4 border-amber-200 bg-amber-50/30 col-span-2">
                             <div class="flex justify-between items-center text-xs">
-                                <span class="text-slate-300 font-semibold">رفتار شناسی نوسان دارایی:</span>
-                                <span id="f-beta-badge" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold text-[10px]">سهم تهاجمی (Aggressive)</span>
+                                <span class="text-slate-700 font-bold">کالبدشکافی ریسک سیستماتیک سهم:</span>
+                                <span id="f-kpi-badge" class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 font-black text-[11px]">سهم تهاجمی (Aggressive)</span>
                             </div>
-                            <p class="text-[11px] text-slate-400 mt-1" id="f-beta-desc">
-                                بتای ۱.۳۵ یعنی در رشدهای بازار ۳۵٪ سریع‌تر سود می‌سازد و در ریزش‌ها ۳۵٪ عمیق‌تر می‌ریزد.
+                            <p class="text-xs text-slate-600 mt-1" id="f-kpi-desc">
+                                بتای ۱.۳۵ نشان‌دهنده نوسان‌پذیری ۳۵٪ بالاتر نسبت به شاخص کل بورس تهران است.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 bento-card p-4 flex flex-col justify-between border-slate-800">
-                    <div class="flex justify-between items-center mb-2">
+                <div class="lg:col-span-7 bento-card p-5 flex flex-col justify-between">
+                    <div class="flex justify-between items-center mb-3">
                         <div>
-                            <h3 class="text-sm font-bold text-white">خط بازار اوراق بهادار (Security Market Line - SML)</h3>
-                            <p class="text-[11px] text-slate-400">Risk Premium & Cost of Capital Calibration</p>
+                            <h3 class="text-sm sm:text-base font-black text-slate-900">خط بازار اوراق بهادار (Security Market Line - SML)</h3>
+                            <p class="text-xs text-slate-500">موقعیت دقیق سهم بهادر روی خط تعادل ریسک و بازده</p>
                         </div>
                     </div>
-                    <div class="relative w-full h-[280px] sm:h-[340px]">
-                        <canvas id="chartFinance"></canvas>
+                    <div class="w-full h-[320px] sm:h-[380px] bento-inner p-2 relative flex items-center justify-center">
+                        <canvas id="canvasFinance" width="600" height="380"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 2: Formulas -->
-            <div id="finance-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 space-y-2 border-purple-500/30">
+            <!-- SubTabs for Finance -->
+            <div id="finance-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۱. میانگین موزون هزینه سرمایه (WACC)</h4>
-                        <button onclick="copyMath('WACC = \frac{E}{V} K_e + \frac{D}{V} K_d (1 - T)')" class="text-xs text-purple-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۱. میانگین موزون هزینه سرمایه (WACC)</h4>
+                        <button onclick="copyToClipboard('WACC = (E/V)*Ke + (D/V)*Kd*(1 - T)')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-purple-400 text-sm font-bold">
+                    <div class="bento-inner p-3.5 text-center font-mono text-purple-700 text-base font-black">
                         WACC = (E/V)Ke + (D/V)Kd(1 - T)
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>نکته طلایی:</b> سپر مالیاتی فقط به هزینه بهره بدهی تعلق می‌گیرد [Kd(1 - T)]؛ حقوق صاحبان سهام (Ke) از سود خالص پس از کسر مالیات پرداخت می‌شود.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        <b>قاعده وال‌استریت:</b> سپر مالیاتی منحصراً به بدهی تعلق می‌گیرد؛ سود سهام از سود پس از مالیات پرداخت می‌شود.
                     </p>
                 </div>
-
-                <div class="bento-card p-4 space-y-2 border-amber-500/30">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۲. معادله بتای اهرمی همادا (Hamada)</h4>
-                        <button onclick="copyMath('\beta_L = \beta_U [1 + (1 - T)\frac{D}{E}]')" class="text-xs text-amber-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۲. معادله بتای اهرمی همادا (Hamada)</h4>
+                        <button onclick="copyToClipboard('Beta_L = Beta_U * [1 + (1 - T)*(D/E)]')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-amber-400 text-sm font-bold">
-                        β_L = β_U × [1 + (1 - T) × (D / E)]
+                    <div class="bento-inner p-3.5 text-center font-mono text-amber-700 text-base font-black">
+                        β_L = β_U × [1 + (1 - T)(D / E)]
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>تفکیک ریسک:</b> بتای بدون اهرم (β_U) فقط نشان‌دهنده ریسک تجاری عملیات شرکت است؛ وام و استقراض (D/E) ریسک مالی را اضافه کرده و بتا را به β_L اهرمی تبدیل می‌کند.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        <b>تفکیک ریسک عملیاتی و مالی:</b> بتای بدون اهرم فقط ریسک کسب‌وکار است و اهرم بدهی، ریسک مالی را اضافه می‌کند.
                     </p>
                 </div>
             </div>
 
-            <!-- SubTab 3: Canonical Solution -->
-            <div id="finance-sub-solution" class="hidden bento-card p-5 space-y-4 border-slate-800">
-                <div class="border-b border-slate-800 pb-3">
-                    <span class="px-2.5 py-1 rounded bg-purple-500/20 text-purple-400 text-xs font-bold">مسئله ارزیابی بودجه‌بندی سرمایه‌ای با ارزش فعلی خالص (NPV)</span>
-                    <h3 class="text-base font-bold text-white mt-2">صورت مسئله: پروژه‌ای به سرمایه‌گذاری اولیه ۱۰۰ میلیون تومان نیاز دارد و در سال‌های ۱، ۲ و ۳ به ترتیب ۴۰، ۵۰ و ۶۰ میلیون تومان جریان نقدی آزاد ایجاد می‌کند. اگر نرخ هزینه سرمایه (WACC) معادل ۲۰٪ باشد، NPV طرح را محاسبه و قضاوت کنید.</h3>
+            <div id="finance-sub-solution" class="hidden bento-card p-6 space-y-4">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200 text-xs font-black">مسئله بودجه‌بندی سرمایه‌ای با جریان‌های نقدی ناهمگون</span>
+                    <h3 class="text-base font-black text-slate-900 mt-2">صورت مسئله: پروژه‌ای به سرمایه اولیه ۱۰۰ میلیون نیاز دارد و در ۳ سال آتی جریان‌های ۴۰، ۵۰ و ۶۰ میلیون تولید می‌کند. با هزینه سرمایه ۲۰٪ آیا طرح توجیه دارد؟</h3>
                 </div>
-                <div class="space-y-3 text-xs leading-relaxed text-slate-300">
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-purple-400">گام اول: تنزیل جریان‌های نقدی با نرخ تنزیل r = 20%</b>
-                        <p>ارزش فعلی سال ۱: 40 ÷ (1.20)¹ = 33.33 میلیون تومان.</p>
+                <div class="space-y-3 text-xs leading-relaxed text-slate-700">
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-purple-600">
+                        <b class="text-purple-800 text-sm">گام اول: تنزیل جریان‌های نقدی با r = 20%</b>
+                        <p>ارزش فعلی سال ۱: 40 ÷ 1.20 = 33.33 میلیون تومان.</p>
                         <p>ارزش فعلی سال ۲: 50 ÷ (1.20)² = 34.72 میلیون تومان.</p>
                         <p>ارزش فعلی سال ۳: 60 ÷ (1.20)³ = 34.72 میلیون تومان.</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-emerald-400">گام دوم: مجموع ارزش فعلی جریان‌های ورودی (PV)</b>
-                        <p>مجموع PV = 33.33 + 34.72 + 34.72 = 102.77 میلیون تومان.</p>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-emerald-600">
+                        <b class="text-emerald-800 text-sm">گام دوم: مجموع ارزش فعلی جریان‌های ورودی</b>
+                        <p>PV کل = 33.33 + 34.72 + 34.72 = 102.77 میلیون تومان.</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-amber-400">گام سوم: کسر سرمایه‌گذاری اولیه و تصمیم‌گیری</b>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-amber-600">
+                        <b class="text-amber-800 text-sm">گام سوم: محاسبه NPV و تصمیم‌گیری</b>
                         <p>NPV = 102.77 - 100 = +2.77 میلیون تومان.</p>
-                        <p>قضاوت تحلیلی: چون NPV مثبت است، طرح توجیه‌پذیر بوده و ثروت سهامداران را ۲.۷۷ میلیون تومان افزایش می‌دهد؛ بنابراین تصویب می‌شود.</p>
+                        <p>قضاوت تحلیلی: چون ارزش فعلی خالص مثبت است، پروژه ثروت سهامداران را افزایش می‌دهد و باید تصویب شود.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 4: Traps -->
-            <div id="finance-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۱ کنکور و CFA</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">پرمیوم بازار در برابر بازده بازار</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        اگر سوال بگوید: «نرخ بدون ریسک ۲۰٪ و صرف ریسک بازار ۱۰٪ است»، فرمول می‌شود: 20 + Beta × 10. اگر بگوید «بازده بازار ۳۰٪ است»، فرمول می‌شود: 20 + Beta × (30 - 20). اشتباه در این تفکیک مساوی با غلط زدن تست است!
+            <div id="finance-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام تستی CAPM</span>
+                    <h4 class="font-black text-slate-900 text-sm">پرمیوم بازار در برابر بازده بازار</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        اگر سوال بگوید: «صرف ریسک بازار ۱۰٪ است»، مستقیماً Beta × 10 می‌شود. اما اگر بگوید «بازده کل بازار ۳۰٪ و نرخ بدون ریسک ۲۰٪ است»، ابتدا باید تفاضل گرفته شود.
                     </p>
                 </div>
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۲ تضاد NPV و IRR</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">طرح‌های متقابل و تضاد در انتخاب</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        در طرح‌های مانعه‌الجمع (Mutually Exclusive) با مقیاس‌های متفاوت، ممکن است طرحی IRR بالاتری داشته باشد ولی NPV کمتری خلق کند. قاعده مطلق وال‌استریت: هر جا تضاد پیش بیاید، حکم نهایی فقط با NPV است چون حداکثرسازی ثروت را هدف دارد!
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام تضاد NPV و IRR</span>
+                    <h4 class="font-black text-slate-900 text-sm">طرح‌های متقابل و تضاد در انتخاب</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        در طرح‌های مانعه‌الجمع با مقیاس‌های متفاوت، ممکن است طرحی IRR بالاتری داشته باشد ولی NPV کمتری خلق کند. طبق استاندارد وال‌استریت، اولویت مطلق همیشه با NPV است.
                     </p>
                 </div>
             </div>
 
-            <!-- SubTab 5: Notes -->
-            <div id="finance-sub-notes" class="hidden bento-card p-5 space-y-3 border-slate-800">
-                <h4 class="font-bold text-purple-400 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (مدیریت مالی ۱)</h4>
-                <div class="bento-inner p-4 font-mono text-xs text-slate-200 leading-relaxed space-y-2">
+            <div id="finance-sub-notes" class="hidden bento-card p-6 space-y-3">
+                <h4 class="font-black text-purple-700 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (مدیریت مالی ۱)</h4>
+                <div class="bento-inner p-4 font-mono text-xs text-slate-800 leading-relaxed space-y-2">
                     <div>1. E(R) = Rf + Beta * [Rm - Rf]  [مدل CAPM]</div>
                     <div>2. WACC = (E/V)*Ke + (D/V)*Kd*(1 - T)  [نرخ مانع]</div>
-                    <div>3. NPV = sum[ CF_t / (1 + WACC)^t ] - CF_0  [ارزش فعلی خالص]</div>
+                    <div>3. NPV = sum[ CF_t / (1 + r)^t ] - CF_0  [ارزش فعلی خالص]</div>
                     <div>4. Beta_L = Beta_U * [ 1 + (1 - T)*(D/E) ]  [رابطه همادا]</div>
                 </div>
             </div>
         </div>
 
-        <!-- ==================== 4. OPERATIONS RESEARCH CONTAINER ==================== -->
-        <div id="course-pane-or" class="hidden space-y-5">
-            <!-- SubTab 1: Sim -->
-            <div id="or-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- ==================== 4. OPERATIONS RESEARCH PANE ==================== -->
+        <div id="course-pane-or" class="hidden space-y-6">
+            <div id="or-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="bento-card p-4 space-y-3.5 border-cyan-900/40">
-                        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
-                            <span class="text-xs font-bold text-cyan-400">⚙️ مدل‌سازی برنامه‌ریزی خطی (LP)</span>
-                            <span class="text-[10px] font-mono text-slate-400">Max Z = c1 x1 + c2 x2</span>
+                    <div class="bento-card p-5 space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-2.5">
+                            <h3 class="text-xs font-black text-cyan-700 flex items-center gap-1.5">
+                                <span>⚙️</span> مدل برنامه‌ریزی خطی ۲ متغیره
+                            </h3>
+                            <span class="text-[11px] font-mono font-bold text-slate-400">Max Z = c1 x1 + c2 x2</span>
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">سود هر واحد محصول ۱ (c1):</span>
-                                <span id="or-p-c1" class="text-cyan-400 font-mono font-bold">40 تومان</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">سود هر واحد محصول ۱ (c1):</span>
+                                <span id="or-c1-disp" class="text-cyan-700 font-mono font-black text-sm">40 تومان</span>
                             </div>
-                            <input type="range" id="or-slide-c1" min="10" max="100" step="5" value="40" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="or-c1-slider" min="10" max="100" step="5" value="40" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">سود هر واحد محصول ۲ (c2):</span>
-                                <span id="or-p-c2" class="text-emerald-400 font-mono font-bold">30 تومان</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">سود هر واحد محصول ۲ (c2):</span>
+                                <span id="or-c2-disp" class="text-emerald-700 font-mono font-black text-sm">30 تومان</span>
                             </div>
-                            <input type="range" id="or-slide-c2" min="10" max="100" step="5" value="30" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="or-c2-slider" min="10" max="100" step="5" value="30" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="bento-inner p-2.5 text-xs font-mono text-slate-300 space-y-1">
-                            <span class="text-slate-400 font-bold block">قیود منابع:</span>
+                        <div class="bento-inner p-3 text-xs font-mono text-slate-700 space-y-1">
+                            <span class="text-slate-500 font-bold block">قیود منابع کارخانه:</span>
                             <div>• 2x1 + x2 ≤ 100  (قید چوب)</div>
                             <div>• x1 + 2x2 ≤ 80   (قید کارگر)</div>
                         </div>
                     </div>
 
-                    <div class="bento-card p-3 border-cyan-500/30">
-                        <span class="text-[10px] text-slate-400 block">نقطه بهینه سیمپلکس (Optimal Solution)</span>
+                    <div class="bento-card p-4 border-cyan-200 bg-cyan-50/30">
+                        <span class="text-xs font-bold text-slate-500 block">نقطه بهینه سیمپلکس (Optimal Solution)</span>
                         <div class="flex justify-between items-center mt-1">
-                            <span id="or-p-opt" class="text-base font-black text-cyan-400 font-mono">x1* = 40 , x2* = 20</span>
-                            <span id="or-p-z" class="text-lg font-black text-emerald-400 font-mono">Max Z = 2,200</span>
+                            <span id="or-kpi-opt" class="text-base font-black text-cyan-800 font-mono">x1* = 40 , x2* = 20</span>
+                            <span id="or-kpi-z" class="text-lg font-black text-emerald-700 font-mono">Max Z = 2,200</span>
                         </div>
-                        <span class="text-[10px] text-slate-400 block mt-0.5">تقاطع دو قید فعال (Binding Constraints)</span>
+                        <span class="text-[11px] text-slate-500 block mt-1">تقاطع دو قید فعال (Binding Constraints)</span>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 bento-card p-4 flex flex-col justify-between border-slate-800">
-                    <div class="flex justify-between items-center mb-2">
+                <div class="lg:col-span-7 bento-card p-5 flex flex-col justify-between">
+                    <div class="flex justify-between items-center mb-3">
                         <div>
-                            <h3 class="text-sm font-bold text-white">ناحیه موجه (Feasible Region) و خط تراز سود</h3>
-                            <p class="text-[11px] text-slate-400">Corner Points Evaluation & Simplex Geometry</p>
+                            <h3 class="text-sm sm:text-base font-black text-slate-900">ناحیه موجه (Feasible Region) و نقاط گوشه‌ای</h3>
+                            <p class="text-xs text-slate-500">رسم خطوط قیود، چندضلعی موجه و خط تراز سود روی بوم اختصاصی</p>
                         </div>
                     </div>
-                    <div class="relative w-full h-[280px] sm:h-[340px]">
-                        <canvas id="chartORCourse"></canvas>
+                    <div class="w-full h-[320px] sm:h-[380px] bento-inner p-2 relative flex items-center justify-center">
+                        <canvas id="canvasOR" width="600" height="380"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 2: Formulas -->
-            <div id="or-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 space-y-2 border-cyan-500/30">
+            <!-- SubTabs for OR -->
+            <div id="or-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۱. قیمت سایه و متغیر دوگان (Shadow Price)</h4>
-                        <button onclick="copyMath('y_i^* = \frac{\partial Z^*}{\partial b_i}')" class="text-xs text-cyan-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۱. قیمت سایه و متغیر دوگان (Shadow Price)</h4>
+                        <button onclick="copyToClipboard('y_i = dZ / db_i')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-cyan-400 text-sm font-bold">
+                    <div class="bento-inner p-3.5 text-center font-mono text-cyan-700 text-base font-black">
                         y_i* = ∂Z* / ∂bi
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>تفسیر اقتصادی:</b> اگر ظرفیت منبع iام ۱ واحد افزایش یابد، سود کل در نقطه بهینه دقیقاً چقدر رشد می‌کند؟ نشان‌دهنده حداکثر مبلغی است که حاضریم برای خرید ۱ واحد اضافی از آن منبع بپردازیم.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        <b>مفهوم اقتصادی:</b> به ازای افزودن ۱ واحد به ظرفیت منبع iام، سود بهینه دقیقاً چند واحد رشد می‌کند.
                     </p>
                 </div>
-
-                <div class="bento-card p-4 space-y-2 border-emerald-500/30">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۲. قضیه مکمل فزونی (Complementary Slackness)</h4>
-                        <button onclick="copyMath('s_i \times y_i = 0 \quad \text{and} \quad x_j \times e_j = 0')" class="text-xs text-emerald-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۲. قضیه مکمل فزونی (Complementary Slackness)</h4>
+                        <button onclick="copyToClipboard('s_i * y_i = 0')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-emerald-400 text-sm font-bold">
+                    <div class="bento-inner p-3.5 text-center font-mono text-emerald-700 text-base font-black">
                         si × yi = 0  و  xj × ej = 0
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>قاعده کلیدی دوگان:</b> اگر منبعی مازاد داشته باشد (Slack > 0)، قیمت سایه آن حتماً صفر است! برعکس اگر قیمت سایه مثبت باشد، کل آن منبع کاملاً مصرف شده است.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        اگر منبعی اضافه بیاید (Slack > 0)، ارزش سایه آن صفر است و حاضر نیستیم برای خرید آن پول اضافی بدهیم.
                     </p>
                 </div>
             </div>
 
-            <!-- SubTab 3: Canonical Solution -->
-            <div id="or-sub-solution" class="hidden bento-card p-5 space-y-4 border-slate-800">
-                <div class="border-b border-slate-800 pb-3">
-                    <span class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 text-xs font-bold">حل گام‌به‌گام جدول سیمپلکس با روش جبری</span>
-                    <h3 class="text-base font-bold text-white mt-2">صورت مسئله: Max Z = 3x1 + 5x2  تحت قیود: x1 ≤ 4 و 2x2 ≤ 12 و 3x1 + 2x2 ≤ 18 و x1, x2 ≥ 0.</h3>
+            <div id="or-sub-solution" class="hidden bento-card p-6 space-y-4">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="px-3 py-1 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 text-xs font-black">الگوریتم حل جدول سیمپلکس با آزمون حداقل نسبت</span>
+                    <h3 class="text-base font-black text-slate-900 mt-2">صورت مسئله: Max Z = 3x1 + 5x2 تحت قیود x1 ≤ 4 و 2x2 ≤ 12 و 3x1 + 2x2 ≤ 18.</h3>
                 </div>
-                <div class="space-y-3 text-xs leading-relaxed text-slate-300">
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-cyan-400">گام اول: استانداردسازی و افزودن متغیرهای کمکی (Slack)</b>
+                <div class="space-y-3 text-xs leading-relaxed text-slate-700">
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-cyan-600">
+                        <b class="text-cyan-800 text-sm">گام اول: استانداردسازی و متغیرهای کمکی</b>
                         <p>Z - 3x1 - 5x2 = 0</p>
-                        <p>x1 + s1 = 4</p>
-                        <p>2x2 + s2 = 12</p>
-                        <p>3x1 + 2x2 + s3 = 18</p>
+                        <p>x1 + s1 = 4 | 2x2 + s2 = 12 | 3x1 + 2x2 + s3 = 18</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-amber-400">گام دوم: انتخاب متغیر ورودی و خروجی در جدول اول</b>
-                        <p>متغیر ورودی: منفی‌ترین ضریب در سطر Z برابر 5- برای x2 است (بیشترین نرخ بهبود سود).</p>
-                        <p>آزمون حداقل نسبت نامنفی (Minimum Ratio Test): سطر ۲ نسبت 12/2 = 6 و سطر ۳ نسبت 18/2 = 9 می‌دهد. کمترین مقدار ۶ است؛ پس متغیر خروجی s2 است.</p>
-                        <p>عنصر لولایی (Pivot): عدد ۲ در تقاطع ستون x2 و سطر s2.</p>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-amber-600">
+                        <b class="text-amber-800 text-sm">گام دوم: انتخاب متغیر ورودی و خروجی</b>
+                        <p>ورودی: منفی‌ترین ضریب سطر Z برابر 5- برای x2 است.</p>
+                        <p>خروجی با حداقل نسبت مثبت: min{ 12/2=6 , 18/2=9 } = 6؛ پس متغیر خروجی s2 است.</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-emerald-400">گام سوم: عملیات سطری لولایی (Pivoting) و رسیدن به جدول بهینه</b>
-                        <p>پس از انجام گام‌های سطری گاوس-جردن، کلیه ضرایب سطر Z نامنفی می‌شوند که شرط توقف سیمپلکس است.</p>
-                        <p>جواب نهایی بهینه: x1* = 2 , x2* = 6  با سود بیشینه Max Z = 36.</p>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-emerald-600">
+                        <b class="text-emerald-800 text-sm">گام سوم: عملیات سطری لولایی و رسیدن به جدول بهینه</b>
+                        <p>جواب نهایی: x1* = 2 , x2* = 6  با سود بیشینه Max Z = 36.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 4: Traps -->
-            <div id="or-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۱ تحقیق در عملیات</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">تشخیص مسئله با جواب نامتناهی (Unbounded)</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        اگر متغیر ورودی را بر اساس ضریب منفی سطر Z انتخاب کردید، اما هنگام انجام آزمون نسبت، تمام درایه‌های ستون متغیر ورودی صفر یا منفی بودند، یعنی هیچ قیدی جلوی رشد این متغیر را نمی‌گیرد؛ مسئله «نامتناهی» است و سود تا بی‌نهایت بالا می‌رود!
+            <div id="or-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام تستی نامتناهی بودن</span>
+                    <h4 class="font-black text-slate-900 text-sm">عدم وجود ضریب مثبت در ستون ورودی</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        اگر متغیر ورودی انتخاب شد اما تمام درایه‌های ستون لولایی صفر یا منفی بودند، آزمون نسبت ناممکن است؛ مسئله نامتناهی (Unbounded) بوده و جواب بهینه در بی‌نهایت است!
                     </p>
                 </div>
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۲ چندگانگی جواب بهینه</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">صفر شدن ضریب متغیر غیرپایه‌ای در جدول بهینه</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        اگر در جدول نهایی و بهینه سیمپلکس، ضریب یکی از متغیرهای غیرپایه‌ای (Non-basic) در سطر Z برابر با صفر شد، نشانه قطعی وجود «جواب‌های بهینه چندگانه متناهی» است (خط تراز سود موازی با یکی از قیود فعال است).
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام جواب‌های چندگانه</span>
+                    <h4 class="font-black text-slate-900 text-sm">صفر شدن ضریب متغیر غیرپایه‌ای</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        اگر در جدول نهایی بهینه، ضریب متغیر غیرپایه‌ای در سطر Z صفر شد، نشانه وجود بی‌شمار جواب بهینه متناهی است.
                     </p>
                 </div>
             </div>
 
-            <!-- SubTab 5: Notes -->
-            <div id="or-sub-notes" class="hidden bento-card p-5 space-y-3 border-slate-800">
-                <h4 class="font-bold text-cyan-400 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (تحقیق در عملیات ۱)</h4>
-                <div class="bento-inner p-4 font-mono text-xs text-slate-200 leading-relaxed space-y-2">
-                    <div>1. Max Z = c^T x  s.t. Ax <= b, x >= 0  [فرم ماتریسی LP]</div>
+            <div id="or-sub-notes" class="hidden bento-card p-6 space-y-3">
+                <h4 class="font-black text-cyan-700 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (تحقیق در عملیات ۱)</h4>
+                <div class="bento-inner p-4 font-mono text-xs text-slate-800 leading-relaxed space-y-2">
+                    <div>1. Max Z = c^T x  s.t. Ax <= b, x >= 0  [فرم استاندارد]</div>
                     <div>2. Min Ratio Test: min{ b_i / a_ik | a_ik > 0 }  [قاعده خروج]</div>
-                    <div>3. Shadow Price: y_i = dZ / db_i  [قیمت سایه منابع]</div>
-                    <div>4. Strong Duality: Max Z = Min W  [برابری ارزش بهینه اولیه و دوگان]</div>
+                    <div>3. Shadow Price: y_i = dZ / db_i  [قیمت سایه]</div>
                 </div>
             </div>
         </div>
 
-        <!-- ==================== 5. BUSINESS STATISTICS CONTAINER ==================== -->
-        <div id="course-pane-stat" class="hidden space-y-5">
-            <!-- SubTab 1: Sim -->
-            <div id="stat-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- ==================== 5. BUSINESS STATISTICS PANE ==================== -->
+        <div id="course-pane-stat" class="hidden space-y-6">
+            <div id="stat-sub-sim" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="bento-card p-4 space-y-3.5 border-indigo-900/40">
-                        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
-                            <span class="text-xs font-bold text-indigo-400">📊 شبیه‌ساز ریسک و توزیع نرمال Z</span>
-                            <span class="text-[10px] font-mono text-slate-400">Z = (X - μ) / σ</span>
+                    <div class="bento-card p-5 space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-2.5">
+                            <h3 class="text-xs font-black text-indigo-700 flex items-center gap-1.5">
+                                <span>📊</span> توزیع نرمال و سنجش ریسک دم
+                            </h3>
+                            <span class="text-[11px] font-mono font-bold text-slate-400">Z = (X - μ) / σ</span>
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">میانگین بازدهی سهم (μ):</span>
-                                <span id="s-mu-val" class="text-sky-400 font-mono font-bold">25%</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">میانگین بازدهی سهم (μ):</span>
+                                <span id="s-mu-disp" class="text-blue-700 font-mono font-black text-sm">25%</span>
                             </div>
-                            <input type="range" id="s-mu-slide" min="10" max="40" step="1" value="25" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="s-mu-slider" min="10" max="40" step="1" value="25" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">انحراف معیار ریسک سهم (σ):</span>
-                                <span id="s-sigma-val" class="text-red-400 font-mono font-bold">12%</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">انحراف معیار ریسک (σ):</span>
+                                <span id="s-sigma-disp" class="text-rose-600 font-mono font-black text-sm">12%</span>
                             </div>
-                            <input type="range" id="s-sigma-slide" min="4" max="25" step="1" value="12" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="s-sigma-slider" min="4" max="25" step="1" value="12" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-slate-300">حد آستانه بازدهی مدنظر (X):</span>
-                                <span id="s-x-val" class="text-amber-400 font-mono font-bold">10%</span>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-700">آستانه بازدهی مدنظر (X):</span>
+                                <span id="s-x-disp" class="text-amber-700 font-mono font-black text-sm">10%</span>
                             </div>
-                            <input type="range" id="s-x-slide" min="-10" max="30" step="1" value="10" class="w-full h-1.5 bg-slate-800 rounded cursor-pointer">
+                            <input type="range" id="s-x-slider" min="-10" max="30" step="1" value="10" class="w-full h-2 bg-slate-200 rounded-lg">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-2.5">
-                        <div class="bento-card p-3 border-indigo-500/30">
-                            <span class="text-[10px] text-slate-400 block">نمره استاندارد (Z-Score)</span>
-                            <span id="s-z-disp" class="text-lg font-black text-indigo-400 font-mono">-1.25</span>
-                            <span class="text-[10px] text-slate-400 block">(X - μ) / σ</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bento-card p-4 border-indigo-200 bg-indigo-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">نمره استاندارد (Z-Score)</span>
+                            <span id="s-kpi-z" class="text-xl font-black text-indigo-700 font-mono mt-1 block">-1.25</span>
+                            <span class="text-[11px] text-slate-500 block mt-0.5">(X - μ) / σ</span>
                         </div>
-                        <div class="bento-card p-3 border-red-500/30">
-                            <span class="text-[10px] text-slate-400 block">احتمال بازده کمتر از حد (ریسک زیان)</span>
-                            <span id="s-prob-disp" class="text-lg font-black text-red-400 font-mono">10.56%</span>
-                            <span class="text-[10px] text-red-400 block">P(Return < X)</span>
+                        <div class="bento-card p-4 border-rose-200 bg-rose-50/30">
+                            <span class="text-xs font-bold text-slate-500 block">ریسک زیان P(Return < X)</span>
+                            <span id="s-kpi-prob" class="text-xl font-black text-rose-600 font-mono mt-1 block">10.56%</span>
+                            <span class="text-[11px] text-rose-500 block mt-0.5">احتمال بازده کمتر از آستانه</span>
                         </div>
-                        <div class="bento-card p-3 border-emerald-500/30 col-span-2">
-                            <span class="text-[10px] text-slate-400 block">بازه اطمینان ۹۵٪ بازدهی سالانه سهم:</span>
-                            <span id="s-ci-disp" class="text-sm font-bold text-emerald-400 font-mono block mt-0.5">[ 1.48%  تا  48.52% ]</span>
-                            <span class="text-[10px] text-slate-400 block mt-0.5">μ ± 1.96 × σ</span>
+                        <div class="bento-card p-4 border-emerald-200 bg-emerald-50/30 col-span-2">
+                            <span class="text-xs font-bold text-slate-500 block">فاصله اطمینان ۹۵٪ بازدهی سالانه:</span>
+                            <span id="s-kpi-ci" class="text-sm font-black text-emerald-800 font-mono mt-1 block">[ 1.48%  تا  48.52% ]</span>
+                            <span class="text-[11px] text-slate-500 block mt-0.5">μ ± 1.96 × σ</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 bento-card p-4 flex flex-col justify-between border-slate-800">
-                    <div class="flex justify-between items-center mb-2">
+                <div class="lg:col-span-7 bento-card p-5 flex flex-col justify-between">
+                    <div class="flex justify-between items-center mb-3">
                         <div>
-                            <h3 class="text-sm font-bold text-white">منحنی توزیع نرمال بازدهی و سطح ریسک دم (Tail Risk)</h3>
-                            <p class="text-[11px] text-slate-400">Gaussian Probability Density Function</p>
+                            <h3 class="text-sm sm:text-base font-black text-slate-900">منحنی چگالی احتمال توزیع نرمال و ناحیه ریسک دم</h3>
+                            <p class="text-xs text-slate-500">ترسیم دقیق منحنی زنگوله‌ای گاوسی بر پایه ریاضیات بومی بدون لود کدهای سنگین</p>
                         </div>
                     </div>
-                    <div class="relative w-full h-[280px] sm:h-[340px]">
-                        <canvas id="chartStat"></canvas>
+                    <div class="w-full h-[320px] sm:h-[380px] bento-inner p-2 relative flex items-center justify-center">
+                        <canvas id="canvasStat" width="600" height="380"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 2: Formulas -->
-            <div id="stat-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 space-y-2 border-indigo-500/30">
+            <!-- SubTabs for Stat -->
+            <div id="stat-sub-formula" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۱. فرمول کوواریانس و بتای دارایی</h4>
-                        <button onclick="copyMath('\beta_i = \frac{\text{Cov}(R_i, R_m)}{\text{Var}(R_m)} = \rho_{i,m} \frac{\sigma_i}{\sigma_m}')" class="text-xs text-indigo-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۱. فرمول کوواریانس و بتای دارایی</h4>
+                        <button onclick="copyToClipboard('Beta = Cov(Ri, Rm) / Var(Rm)')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-indigo-400 text-sm font-bold">
+                    <div class="bento-inner p-3.5 text-center font-mono text-indigo-700 text-base font-black">
                         βi = Cov(Ri, Rm) / Var(Rm)
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>کالبدشکافی آماری:</b> بتا همان شیب خط رگرسیون ساده بین بازده سهم و بازده شاخص کل است؛ یعنی سهم این دارایی در کل ریسک سیستماتیک بازار.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        بتا شیب خط رگرسیون ساده بین بازده سهم و بازده شاخص کل است که سهم دارایی از کل ریسک سیستماتیک را نشان می‌دهد.
                     </p>
                 </div>
-
-                <div class="bento-card p-4 space-y-2 border-amber-500/30">
+                <div class="bento-card p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-xs sm:text-sm">۲. قضیه حد مرکزی (Central Limit Theorem)</h4>
-                        <button onclick="copyMath('\bar{X} \sim N(\mu, \frac{\sigma^2}{n})')" class="text-xs text-amber-400 hover:text-white">📋 کپی</button>
+                        <h4 class="font-black text-slate-900 text-sm">۲. قضیه حد مرکزی (Central Limit Theorem)</h4>
+                        <button onclick="copyToClipboard('X_bar ~ N(mu, sigma^2 / n)')" class="text-xs font-bold text-blue-600 hover:text-blue-800">📋 کپی فرمول</button>
                     </div>
-                    <div class="bento-inner p-3 text-center font-mono text-amber-400 text-sm font-bold">
+                    <div class="bento-inner p-3.5 text-center font-mono text-emerald-700 text-base font-black">
                         X_bar ~ N( μ , σ² / n )
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <b>بزرگ‌ترین قضیه آمار:</b> مستقل از اینکه توزیع اولیه داده‌ها چه شکلی داشته باشد، میانگین نمونه‌ها در حجم‌های بزرگ (n ≥ 30) همواره به سمت توزیع نرمال همگرا می‌شود.
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        در نمونه‌های بزرگ (n ≥ 30)، میانگین نمونه‌ها مستقل از شکل توزیع اولیه به سمت توزیع نرمال همگرا می‌شود.
                     </p>
                 </div>
             </div>
 
-            <!-- SubTab 3: Solution -->
-            <div id="stat-sub-solution" class="hidden bento-card p-5 space-y-4 border-slate-800">
-                <div class="border-b border-slate-800 pb-3">
-                    <span class="px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-400 text-xs font-bold">مسئله آزمون فرض میانگین با آماره Z</span>
-                    <h3 class="text-base font-bold text-white mt-2">صورت مسئله: مدیر یک صندوق سرمایه‌گذاری ادعا می‌کند میانگین بازده ماهانه صندوق ۲.۵٪ است. نمونه‌ای ۳۶ تایی از بازده‌های گذشته دارای میانگین ۲.۱٪ و انحراف معیار ۰.۹٪ است. در سطح معناداری ۵٪ ادعای مدیر را بسنجید.</h3>
+            <div id="stat-sub-solution" class="hidden bento-card p-6 space-y-4">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-black">آزمون فرض میانگین با آماره Z در سطح معناداری ۵٪</span>
+                    <h3 class="text-base font-black text-slate-900 mt-2">صورت مسئله: میانگین ادعایی ۲.۵٪ است. نمونه ۳۶ تایی دارای میانگین ۲.۱٪ و انحراف معیار ۰.۹٪ است. ادعا را بسنجید.</h3>
                 </div>
-                <div class="space-y-3 text-xs leading-relaxed text-slate-300">
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-indigo-400">گام اول: بیان فرضیات آماری</b>
-                        <p>فرض صفر: H0: μ = 2.5%  (ادعای مدیر صندوق)</p>
-                        <p>فرض مقابل: H1: μ ≠ 2.5%  (آزمون دوطرفه)</p>
+                <div class="space-y-3 text-xs leading-relaxed text-slate-700">
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-indigo-600">
+                        <b class="text-indigo-800 text-sm">گام اول: بیان فرضیات</b>
+                        <p>H0: μ = 2.5%  در برابر  H1: μ ≠ 2.5%</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-amber-400">گام دوم: محاسبه آماره آزمون Z</b>
-                        <p>خطای معیار میانگین: SE = s / sqrt(n) = 0.9% / sqrt(36) = 0.9% / 6 = 0.15%.</p>
-                        <p>آماره Z محاسباتی: Z_calc = (2.1% - 2.5%) / 0.15% = -0.40% / 0.15% = -2.67.</p>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-amber-600">
+                        <b class="text-amber-800 text-sm">گام دوم: محاسبه خطای معیار و آماره Z</b>
+                        <p>خطای معیار: SE = 0.9% / sqrt(36) = 0.15%.</p>
+                        <p>آماره محاسباتی: Z = (2.1% - 2.5%) / 0.15% = -2.67.</p>
                     </div>
-                    <div class="p-3 bento-inner space-y-1">
-                        <b class="text-red-400">گام سوم: مقایسه با مقدار بحرانی و نتیجه‌گیری</b>
-                        <p>مقدار بحرانی توزیع نرمال در سطح α = 0.05 برابر با ±1.96 است.</p>
-                        <p>نتیجه آماری: چون |Z_calc| = 2.67 بزرگ‌تر از 1.96 است، آماره در ناحیه رد فرض صفر قرار می‌گیرد. بنابراین ادعای مدیر صندوق با اطمینان ۹۵٪ رد می‌شود!</p>
+                    <div class="p-4 bento-inner space-y-1.5 border-r-4 border-r-rose-600">
+                        <b class="text-rose-800 text-sm">گام سوم: رد فرض صفر</b>
+                        <p>چون |-2.67| > 1.96 است، فرض صفر با اطمینان ۹۵٪ رد می‌شود و ادعای مدیر صندوق مردود است.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- SubTab 4: Traps -->
-            <div id="stat-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۱ آمار کاربردی</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">تشخیص آزمون Z در برابر آزمون T استیودنت</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        اگر انحراف معیار کل جامعه (σ) مجهول باشد و حجم نمونه کوچک (n < 30) باشد، استفاده از Z غلط است و باید از توزیع T با درجه آزادی n - 1 استفاده شود. تنها در صورتی که n ≥ 30 باشد طبق CLT می‌توان به تقریب نرمال اتکا کرد.
+            <div id="stat-sub-traps" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام تستی آزمون Z و T</span>
+                    <h4 class="font-black text-slate-900 text-sm">عدم تشخیص واریانس معلوم و مجهول</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        اگر واریانس جامعه نامعلوم باشد و حجم نمونه کمتر از ۳۰ باشد، استفاده از Z کاملاً اشتباه است و باید از آزمون T استیودنت استفاده شود.
                     </p>
                 </div>
-                <div class="bento-card p-4 border-red-500/30 space-y-2">
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px] font-bold">دام شماره ۲ خطای نوع اول و دوم</span>
-                    <h4 class="font-bold text-white text-xs sm:text-sm">خطای نوع اول (α) در برابر توان آزمون (1 - β)</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        خطای نوع اول یعنی «رد کردن فرض صفری که در واقعیت درست بوده است» (محکوم کردن بی‌گناه). خطای نوع دوم یعنی «پذیرفتن فرض صفری که در واقع غلط بوده است». کاهش α همیشه به قیمت افزایش β تمام می‌شود مگر اینکه حجم نمونه (n) افزایش یابد!
+                <div class="bento-card p-5 border-rose-200 bg-rose-50/20 space-y-2.5">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-xs font-black">دام خطای نوع اول و دوم</span>
+                    <h4 class="font-black text-slate-900 text-sm">رابطه الاکلنگی آلفا و بتا</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        کاهش خطای نوع اول (رد بی‌دلیل فرض صفر) همواره موجب افزایش خطای نوع دوم می‌شود مگر آنکه حجم نمونه افزایش یابد!
                     </p>
                 </div>
             </div>
 
-            <!-- SubTab 5: Notes -->
-            <div id="stat-sub-notes" class="hidden bento-card p-5 space-y-3 border-slate-800">
-                <h4 class="font-bold text-indigo-400 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (آمار کاربردی ۱)</h4>
-                <div class="bento-inner p-4 font-mono text-xs text-slate-200 leading-relaxed space-y-2">
+            <div id="stat-sub-notes" class="hidden bento-card p-6 space-y-3">
+                <h4 class="font-black text-indigo-700 text-sm">📌 کپسول دست‌نویس دفترچه بهادر (آمار کاربردی ۱)</h4>
+                <div class="bento-inner p-4 font-mono text-xs text-slate-800 leading-relaxed space-y-2">
                     <div>1. Var(X) = E(X^2) - [E(X)]^2  [فرمول کارگاهی واریانس]</div>
-                    <div>2. Cov(X, Y) = E(XY) - E(X)E(Y)  [کوواریانس مشترک]</div>
-                    <div>3. Z = (X_bar - mu) / (sigma / sqrt(n))  [آماره آزمون میانگین]</div>
-                    <div>4. CI_95% = X_bar +- 1.96 * (s / sqrt(n))  [فاصله اطمینان ۹۵٪]</div>
+                    <div>2. Z = (X_bar - mu) / (sigma / sqrt(n))  [آماره Z]</div>
+                    <div>3. CI_95% = X_bar +- 1.96 * (s / sqrt(n))  [بازه اطمینان]</div>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- MASTERY / PROGRESS MODAL -->
-    <div id="mastery-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-        <div class="bento-card p-5 max-w-md w-full space-y-4 border-sky-500/40 shadow-2xl">
-            <div class="flex justify-between items-center border-b border-slate-800 pb-2.5">
-                <h3 class="text-base font-black text-white flex items-center gap-2">
-                    <span>🎯</span> ارزیابی تسلط بر ۵ جبهه (Bankai Mastery)
+    <!-- MASTERY TRACKER MODAL -->
+    <div id="mastery-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bento-card p-6 max-w-lg w-full space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                <h3 class="text-base font-black text-slate-900 flex items-center gap-2">
+                    <span>🎯</span> ارزیابی و پایش تسلط کمّی (BANKAI Mastery)
                 </h3>
-                <button onclick="closeMasteryModal()" class="text-slate-400 hover:text-white text-base">✕</button>
+                <button onclick="closeMasteryModal()" class="text-slate-400 hover:text-slate-700 text-lg font-bold">✕</button>
             </div>
-            <p class="text-xs text-slate-300">مباحثی را که کاملاً مسلط شده‌ای تیک بزن تا شاخص آمادگی‌ات در کنکور و امتحانات ثبت شود:</p>
-            <div class="space-y-2 text-xs" id="mastery-list">
-                <!-- Checkboxes populated by JS -->
-            </div>
-            <div class="pt-2 border-t border-slate-800 flex justify-between items-center">
-                <span id="mastery-pct" class="font-mono text-sky-400 font-bold text-sm">پیشرفت کل: ۰٪</span>
-                <button onclick="closeMasteryModal()" class="px-4 py-1.5 rounded-xl bg-sky-600 text-white font-bold text-xs hover:bg-sky-500 transition">ذخیره و تایید</button>
+            <p class="text-xs text-slate-600">مباحثی را که مسلط شده‌ای تیک بزن تا شاخص آمادگی‌ات ثبت شود:</p>
+            <div class="space-y-2 text-xs" id="mastery-list"></div>
+            <div class="pt-3 border-t border-slate-100 flex justify-between items-center">
+                <span id="mastery-pct" class="font-mono text-blue-700 font-black text-sm">پیشرفت کل: ۰٪</span>
+                <button onclick="closeMasteryModal()" class="px-5 py-2 rounded-xl bg-blue-600 text-white font-black text-xs hover:bg-blue-700 transition">ذخیره و تایید</button>
             </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT MASTER ENGINE -->
+    <!-- PURE ROBUST JAVASCRIPT ENGINE (NO EXTERNAL LIBS FOR LOGIC) -->
     <script>
-        // Telegram WebApp Setup
-        const tg = window.Telegram?.WebApp;
-        if (tg) {
-            tg.ready();
-            tg.expand();
-            if (tg.setHeaderColor) tg.setHeaderColor('#060913');
-            if (tg.setBackgroundColor) tg.setBackgroundColor('#060913');
-        }
-
-        // Haptic Feedback
-        function triggerHaptic(type = 'light') {
-            if (tg?.HapticFeedback) {
-                if (type === 'light') tg.HapticFeedback.impactOccurred('light');
-                else if (type === 'medium') tg.HapticFeedback.impactOccurred('medium');
-                else if (type === 'success') tg.HapticFeedback.notificationOccurred('success');
-            }
-        }
-
-        // Web Audio Synthesizer
-        let soundOn = true;
-        let audioCtx = null;
-        function playTone(freq = 440, type = 'sine', duration = 0.05) {
-            if (!soundOn) return;
-            try {
-                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = type;
-                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start();
-                osc.stop(audioCtx.currentTime + duration);
-            } catch(e){}
-        }
-
-        function toggleSound() {
-            soundOn = !soundOn;
-            document.getElementById('sound-icon').innerText = soundOn ? '🔊' : '🔇';
-            triggerHaptic('medium');
-        }
-
-        // Current Navigation State
+        // Current state
         let currentCourse = 'micro';
         let currentSubTab = 'sim';
 
@@ -1068,79 +1035,93 @@
             }
         };
 
+        // Course Switching
         function selectCourse(c) {
-            triggerHaptic('light');
-            playTone(460, 'triangle', 0.06);
             currentCourse = c;
 
-            // Update course buttons
+            // Nav buttons style
             document.querySelectorAll('.course-nav-btn').forEach(btn => {
                 btn.classList.remove('course-btn-active');
             });
-            document.getElementById(`course-btn-${c}`).classList.add('course-btn-active');
+            const activeBtn = document.getElementById('course-btn-' + c);
+            if (activeBtn) activeBtn.classList.add('course-btn-active');
 
-            // Update Banner
+            // Banner
             document.getElementById('active-course-icon').innerText = courseMeta[c].icon;
             document.getElementById('active-course-title').innerText = courseMeta[c].title;
             document.getElementById('active-course-desc').innerText = courseMeta[c].desc;
 
-            // Show/hide course panes
+            // Panes
             ['micro', 'cost', 'finance', 'or', 'stat'].forEach(k => {
-                const p = document.getElementById(`course-pane-${k}`);
-                if (k === c) p.classList.remove('hidden');
-                else p.classList.add('hidden');
-            });
-
-            // Reset subtab to current
-            selectSubTab(currentSubTab);
-        }
-
-        function selectSubTab(st) {
-            triggerHaptic('light');
-            playTone(520, 'sine', 0.05);
-            currentSubTab = st;
-
-            // Update Subtab buttons
-            document.querySelectorAll('.subtab-btn').forEach(b => {
-                b.classList.remove('subtab-btn-active');
-                b.classList.add('text-slate-400');
-            });
-            document.getElementById(`subtab-${st}`).classList.add('subtab-btn-active');
-            document.getElementById(`subtab-${st}`).classList.remove('text-slate-400');
-
-            // Show/hide within active course
-            const subtabs = ['sim', 'formula', 'solution', 'traps', 'notes'];
-            subtabs.forEach(sub => {
-                const el = document.getElementById(`${currentCourse}-sub-${sub}`);
-                if (el) {
-                    if (sub === st) el.classList.remove('hidden');
-                    else el.classList.add('hidden');
+                const pane = document.getElementById('course-pane-' + k);
+                if (pane) {
+                    if (k === c) pane.style.display = 'block';
+                    else pane.style.display = 'none';
                 }
             });
 
-            // Render chart if sim selected
+            // Activate current subtab
+            selectSubTab(currentSubTab);
+        }
+
+        // SubTab Switching
+        function selectSubTab(st) {
+            currentSubTab = st;
+
+            // SubTab Buttons
+            document.querySelectorAll('.subtab-btn').forEach(btn => {
+                btn.classList.remove('subtab-btn-active');
+                btn.classList.add('bento-inner');
+            });
+            const activeSub = document.getElementById('subtab-' + st);
+            if (activeSub) {
+                activeSub.classList.add('subtab-btn-active');
+                activeSub.classList.remove('bento-inner');
+            }
+
+            // SubPanes in current course
+            const subtabs = ['sim', 'formula', 'solution', 'traps', 'notes'];
+            subtabs.forEach(sub => {
+                const el = document.getElementById(currentCourse + '-sub-' + sub);
+                if (el) {
+                    if (sub === st) el.style.display = 'grid';
+                    else el.style.display = 'none';
+                    if (sub === 'solution' || sub === 'notes') {
+                        if (sub === st) el.style.display = 'block';
+                    }
+                }
+            });
+
+            // Trigger canvas draw if in sim
             if (st === 'sim') {
-                if (currentCourse === 'micro') updateMicro();
-                if (currentCourse === 'cost') updateCost();
-                if (currentCourse === 'finance') updateFinance();
-                if (currentCourse === 'or') updateORCourse();
-                if (currentCourse === 'stat') updateStat();
+                setTimeout(() => {
+                    if (currentCourse === 'micro') drawMicro();
+                    if (currentCourse === 'cost') drawCost();
+                    if (currentCourse === 'finance') drawFinance();
+                    if (currentCourse === 'or') drawOR();
+                    if (currentCourse === 'stat') drawStat();
+                }, 10);
             }
         }
 
-        // ==================== 1. MICRO SIMULATOR ====================
-        let chartMicroInstance = null;
-        function updateMicro() {
-            const t = parseFloat(document.getElementById('m-t-slide').value);
-            const a = parseFloat(document.getElementById('m-a-slide').value);
-            const b = parseFloat(document.getElementById('m-b-slide').value);
-            const d = parseFloat(document.getElementById('m-d-slide').value);
+        // ==================== 1. NATIVE CANVAS: MICRO ====================
+        function drawMicro() {
+            const canvas = document.getElementById('canvasMicro');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width;
+            const H = canvas.height;
+
+            const t = parseFloat(document.getElementById('m-t-slider').value);
+            const a = parseFloat(document.getElementById('m-a-slider').value);
+            const b = parseFloat(document.getElementById('m-b-slider').value);
+            const d = parseFloat(document.getElementById('m-d-slider').value);
             const c = -20;
 
-            document.getElementById('m-t-val').innerText = `${t} ریال`;
-            document.getElementById('m-a-val').innerText = `${a}`;
-            document.getElementById('m-b-val').innerText = `${b}`;
-            document.getElementById('m-d-val').innerText = `${d}`;
+            document.getElementById('m-t-disp').innerText = t + ' ریال';
+            document.getElementById('m-a-disp').innerText = a;
+            document.getElementById('m-b-disp').innerText = b;
+            document.getElementById('m-d-disp').innerText = d;
 
             const Pstar = (a - c) / (b + d);
             const Qstar = a - b * Pstar;
@@ -1149,72 +1130,131 @@
             const Qt = Math.max(0, a - b * Pc);
             const dwl = 0.5 * t * Math.max(0, Qstar - Qt);
 
-            document.getElementById('m-pc-disp').innerText = `${Pc.toFixed(1)} ریال`;
-            document.getElementById('m-pc-diff').innerText = `+${(Pc - Pstar).toFixed(1)} ریال گرانی`;
-            document.getElementById('m-pp-disp').innerText = `${Pp.toFixed(1)} ریال`;
-            document.getElementById('m-pp-diff').innerText = `-${(Pstar - Pp).toFixed(1)} ریال افت`;
-            document.getElementById('m-qt-disp').innerText = `${Qt.toFixed(1)} واحد`;
-            document.getElementById('m-q0-disp').innerText = `قبل از مالیات: ${Qstar.toFixed(1)}`;
-            document.getElementById('m-dwl-disp').innerText = `${dwl.toFixed(1)} ریال`;
+            document.getElementById('m-kpi-pc').innerText = Pc.toFixed(1) + ' ریال';
+            document.getElementById('m-kpi-pcdiff').innerText = '+' + (Pc - Pstar).toFixed(1) + ' ریال گرانی';
+            document.getElementById('m-kpi-pp').innerText = Pp.toFixed(1) + ' ریال';
+            document.getElementById('m-kpi-ppdiff').innerText = '-' + (Pstar - Pp).toFixed(1) + ' ریال افت';
+            document.getElementById('m-kpi-qt').innerText = Qt.toFixed(1) + ' واحد';
+            document.getElementById('m-kpi-qinit').innerText = 'قبل از مالیات: ' + Qstar.toFixed(1);
+            document.getElementById('m-kpi-dwl').innerText = dwl.toFixed(1) + ' ریال';
+            document.getElementById('m-choke-badge').innerText = 'P_max: ' + (a / b).toFixed(1);
 
-            const choke = a / b;
-            document.getElementById('m-choke-badge').innerText = `P_max: ${choke.toFixed(1)}`;
+            // Canvas coordinate mapping
+            ctx.clearRect(0, 0, W, H);
 
-            const qPoints = [0, Qt * 0.5, Qt, Qstar, Math.max(Qstar * 1.4, 90)];
-            qPoints.sort((x,y) => x - y);
-            const pDemand = qPoints.map(q => Math.max(0, (a - q) / b));
-            const pSupply1 = qPoints.map(q => (q - c) / d);
-            const pSupply2 = qPoints.map(q => (q - c) / d + t);
+            const padL = 60, padR = 30, padT = 30, padB = 40;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
 
-            if (chartMicroInstance) {
-                chartMicroInstance.data.labels = qPoints.map(q => q.toFixed(0));
-                chartMicroInstance.data.datasets[0].data = pDemand;
-                chartMicroInstance.data.datasets[1].data = pSupply1;
-                chartMicroInstance.data.datasets[2].data = pSupply2;
-                chartMicroInstance.update();
-            } else {
-                const ctx = document.getElementById('chartMicro').getContext('2d');
-                chartMicroInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: qPoints.map(q => q.toFixed(0)),
-                        datasets: [
-                            { label: 'تقاضا (Demand)', data: pDemand, borderColor: '#38BDF8', borderWidth: 2.5 },
-                            { label: 'عرضه اولیه (Supply)', data: pSupply1, borderColor: '#F59E0B', borderWidth: 2, borderDash: [4, 4] },
-                            { label: 'عرضه با مالیات (Post-Tax)', data: pSupply2, borderColor: '#EF4444', borderWidth: 2.5 }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { labels: { color: '#94A3B8', font: { family: 'Vazirmatn' } } } },
-                        scales: {
-                            x: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } } },
-                            y: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } } }
-                        }
-                    }
-                });
+            const maxQ = Math.max(Qstar * 1.5, 100);
+            const maxP = Math.max(a / b * 1.2, 55);
+
+            function toX(q) { return padL + (q / maxQ) * plotW; }
+            function toY(p) { return H - padB - (p / maxP) * plotH; }
+
+            // Grid lines
+            ctx.strokeStyle = '#F1F5F9';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 5; i++) {
+                let y = padT + (plotH / 5) * i;
+                ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR, y); ctx.stroke();
+                let x = padL + (plotW / 5) * i;
+                ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, H - padB); ctx.stroke();
             }
+
+            // Axes
+            ctx.strokeStyle = '#94A3B8';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(padL, padT);
+            ctx.lineTo(padL, H - padB);
+            ctx.lineTo(W - padR, H - padB);
+            ctx.stroke();
+
+            // Axis Labels
+            ctx.fillStyle = '#64748B';
+            ctx.font = '11px JetBrains Mono, Vazirmatn';
+            ctx.textAlign = 'center';
+            ctx.fillText('مقدار مبادلات (Q)', padL + plotW / 2, H - 12);
+            ctx.save();
+            ctx.translate(18, padT + plotH / 2);
+            ctx.rotate(-Math.PI / 2);
+            ctx.fillText('قیمت (P)', 0, 0);
+            ctx.restore();
+
+            // DWL Shaded Triangle
+            if (t > 0 && Qstar > Qt) {
+                ctx.fillStyle = 'rgba(239, 68, 68, 0.2)';
+                ctx.beginPath();
+                ctx.moveTo(toX(Qt), toY(Pc));
+                ctx.lineTo(toX(Qstar), toY(Pstar));
+                ctx.lineTo(toX(Qt), toY(Pp));
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            // 1. Demand Line
+            ctx.strokeStyle = '#2563EB';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(a / b));
+            ctx.lineTo(toX(a), toY(0));
+            ctx.stroke();
+
+            // 2. Supply Initial Line
+            ctx.strokeStyle = '#059669';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 4]);
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(-c / d));
+            ctx.lineTo(toX(maxQ), toY((maxQ - c) / d));
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // 3. Supply Post-Tax Line
+            ctx.strokeStyle = '#DC2626';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(-c / d + t));
+            ctx.lineTo(toX(maxQ), toY((maxQ - c) / d + t));
+            ctx.stroke();
+
+            // Points
+            // Initial E1
+            ctx.fillStyle = '#059669';
+            ctx.beginPath(); ctx.arc(toX(Qstar), toY(Pstar), 5, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = '#0F172A';
+            ctx.font = 'bold 10px JetBrains Mono';
+            ctx.fillText('E1(' + Qstar.toFixed(0) + ',' + Pstar.toFixed(0) + ')', toX(Qstar) + 25, toY(Pstar) - 6);
+
+            // Post-tax E2
+            ctx.fillStyle = '#DC2626';
+            ctx.beginPath(); ctx.arc(toX(Qt), toY(Pc), 5, 0, Math.PI * 2); ctx.fill();
+            ctx.fillText('E2(' + Qt.toFixed(0) + ',' + Pc.toFixed(1) + ')', toX(Qt) - 25, toY(Pc) - 8);
+
+            // Pp Point
+            ctx.fillStyle = '#D97706';
+            ctx.beginPath(); ctx.arc(toX(Qt), toY(Pp), 4, 0, Math.PI * 2); ctx.fill();
+            ctx.fillText('Pp(' + Pp.toFixed(1) + ')', toX(Qt) - 22, toY(Pp) + 12);
         }
-        ['m-t-slide', 'm-a-slide', 'm-b-slide', 'm-d-slide'].forEach(id => {
-            document.getElementById(id).addEventListener('input', () => {
-                triggerHaptic('light');
-                updateMicro();
-            });
-        });
 
-        // ==================== 2. COST SIMULATOR ====================
-        let chartCostInstance = null;
-        function updateCost() {
-            const fc = parseFloat(document.getElementById('c-fc-slide').value);
-            const p = parseFloat(document.getElementById('c-p-slide').value);
-            const vc = parseFloat(document.getElementById('c-vc-slide').value);
-            const tp = parseFloat(document.getElementById('c-tp-slide').value);
+        // ==================== 2. NATIVE CANVAS: COST ====================
+        function drawCost() {
+            const canvas = document.getElementById('canvasCost');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width;
+            const H = canvas.height;
 
-            document.getElementById('c-fc-val').innerText = `${fc.toLocaleString()} تومان`;
-            document.getElementById('c-p-val').innerText = `${p} تومان`;
-            document.getElementById('c-vc-val').innerText = `${vc} تومان`;
-            document.getElementById('c-tp-val').innerText = `${tp.toLocaleString()} تومان`;
+            const fc = parseFloat(document.getElementById('c-fc-slider').value);
+            const p = parseFloat(document.getElementById('c-p-slider').value);
+            const vc = parseFloat(document.getElementById('c-vc-slider').value);
+            const tp = parseFloat(document.getElementById('c-tp-slider').value);
+
+            document.getElementById('c-fc-disp').innerText = fc.toLocaleString() + ' تومان';
+            document.getElementById('c-p-disp').innerText = p + ' تومان';
+            document.getElementById('c-vc-disp').innerText = vc + ' تومان';
+            document.getElementById('c-tp-disp').innerText = tp.toLocaleString() + ' تومان';
 
             const cm = Math.max(0.1, p - vc);
             const cmRatio = (cm / p) * 100;
@@ -1222,338 +1262,400 @@
             const qtarget = (fc + tp) / cm;
             const revBep = qbep * p;
 
-            document.getElementById('c-qbep-disp').innerText = `${Math.round(qbep).toLocaleString()} واحد`;
-            document.getElementById('c-qtarget-disp').innerText = `${Math.round(qtarget).toLocaleString()} واحد`;
-            document.getElementById('c-cm-disp').innerText = `${cm.toFixed(0)} تومان`;
-            document.getElementById('c-cmratio-disp').innerText = `${cmRatio.toFixed(1)}%`;
-            document.getElementById('c-bep-badge').innerText = `فروش سر‌به‌سر: ${(revBep/1000).toFixed(0)}k تومان`;
+            document.getElementById('c-kpi-qbep').innerText = Math.round(qbep).toLocaleString() + ' واحد';
+            document.getElementById('c-kpi-qtarget').innerText = Math.round(qtarget).toLocaleString() + ' واحد';
+            document.getElementById('c-kpi-cm').innerText = cm.toFixed(0) + ' تومان';
+            document.getElementById('c-kpi-cmratio').innerText = cmRatio.toFixed(1) + '%';
+            document.getElementById('c-bep-badge').innerText = 'فروش سر‌به‌سر: ' + (revBep / 1000).toFixed(0) + 'k تومان';
 
-            const maxQ = Math.max(qtarget * 1.4, 7000);
-            const qPoints = [0, qbep * 0.5, qbep, qtarget, maxQ];
-            qPoints.sort((x,y) => x - y);
-            const tr = qPoints.map(q => q * p);
-            const tc = qPoints.map(q => fc + q * vc);
-            const fcLine = qPoints.map(() => fc);
+            ctx.clearRect(0, 0, W, H);
+            const padL = 65, padR = 30, padT = 30, padB = 40;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
 
-            if (chartCostInstance) {
-                chartCostInstance.data.labels = qPoints.map(q => Math.round(q).toLocaleString());
-                chartCostInstance.data.datasets[0].data = tr;
-                chartCostInstance.data.datasets[1].data = tc;
-                chartCostInstance.data.datasets[2].data = fcLine;
-                chartCostInstance.update();
-            } else {
-                const ctx = document.getElementById('chartCost').getContext('2d');
-                chartCostInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: qPoints.map(q => Math.round(q).toLocaleString()),
-                        datasets: [
-                            { label: 'درآمد کل (TR)', data: tr, borderColor: '#10B981', borderWidth: 2.5 },
-                            { label: 'بهای تمام‌شده کل (TC)', data: tc, borderColor: '#EF4444', borderWidth: 2.5 },
-                            { label: 'هزینه ثابت (FC)', data: fcLine, borderColor: '#64748B', borderWidth: 1.5, borderDash: [4, 4] }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { labels: { color: '#94A3B8', font: { family: 'Vazirmatn' } } } },
-                        scales: {
-                            x: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } } },
-                            y: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } } }
-                        }
-                    }
-                });
+            const maxQ = Math.max(qtarget * 1.4, 7500);
+            const maxRev = maxQ * p;
+
+            function toX(q) { return padL + (q / maxQ) * plotW; }
+            function toY(r) { return H - padB - (r / maxRev) * plotH; }
+
+            // Grid
+            ctx.strokeStyle = '#F1F5F9';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 5; i++) {
+                let y = padT + (plotH / 5) * i;
+                ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR, y); ctx.stroke();
             }
+
+            // Axes
+            ctx.strokeStyle = '#94A3B8';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(padL, padT);
+            ctx.lineTo(padL, H - padB);
+            ctx.lineTo(W - padR, H - padB);
+            ctx.stroke();
+
+            // Labels
+            ctx.fillStyle = '#64748B';
+            ctx.font = '11px JetBrains Mono, Vazirmatn';
+            ctx.textAlign = 'center';
+            ctx.fillText('تیراژ تولید (Q)', padL + plotW / 2, H - 12);
+
+            // Fixed Cost Line (FC)
+            ctx.strokeStyle = '#64748B';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(fc));
+            ctx.lineTo(toX(maxQ), toY(fc));
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Total Cost Line (TC)
+            ctx.strokeStyle = '#DC2626';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(fc));
+            ctx.lineTo(toX(maxQ), toY(fc + maxQ * vc));
+            ctx.stroke();
+
+            // Total Revenue Line (TR)
+            ctx.strokeStyle = '#059669';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(0));
+            ctx.lineTo(toX(maxQ), toY(maxQ * p));
+            ctx.stroke();
+
+            // BEP Point
+            ctx.fillStyle = '#0F172A';
+            ctx.beginPath(); ctx.arc(toX(qbep), toY(revBep), 6, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = '#0F172A';
+            ctx.font = 'bold 10px JetBrains Mono';
+            ctx.fillText('BEP(' + Math.round(qbep) + 'u)', toX(qbep) + 20, toY(revBep) - 10);
         }
-        ['c-fc-slide', 'c-p-slide', 'c-vc-slide', 'c-tp-slide'].forEach(id => {
-            document.getElementById(id).addEventListener('input', () => {
-                triggerHaptic('light');
-                updateCost();
-            });
-        });
 
-        // ==================== 3. FINANCE SIMULATOR ====================
-        let chartFinanceInstance = null;
-        function updateFinance() {
-            const rf = parseFloat(document.getElementById('f-rf-slide').value);
-            const rm = parseFloat(document.getElementById('f-rm-slide').value);
-            const beta = parseFloat(document.getElementById('f-beta-slide').value);
+        // ==================== 3. NATIVE CANVAS: FINANCE ====================
+        function drawFinance() {
+            const canvas = document.getElementById('canvasFinance');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width;
+            const H = canvas.height;
 
-            document.getElementById('f-rf-val').innerText = `${rf}%`;
-            document.getElementById('f-rm-val').innerText = `${rm}%`;
-            document.getElementById('f-beta-val').innerText = beta.toFixed(2);
+            const rf = parseFloat(document.getElementById('f-rf-slider').value);
+            const rm = parseFloat(document.getElementById('f-rm-slider').value);
+            const beta = parseFloat(document.getElementById('f-beta-slider').value);
+
+            document.getElementById('f-rf-disp').innerText = rf + '%';
+            document.getElementById('f-rm-disp').innerText = rm + '%';
+            document.getElementById('f-beta-disp').innerText = beta.toFixed(2);
 
             const mrp = rm - rf;
             const er = rf + beta * mrp;
 
-            document.getElementById('f-er-disp').innerText = `${er.toFixed(2)}%`;
-            document.getElementById('f-mrp-disp').innerText = `${mrp.toFixed(2)}%`;
+            document.getElementById('f-kpi-er').innerText = er.toFixed(2) + '%';
+            document.getElementById('f-kpi-mrp').innerText = mrp.toFixed(2) + '%';
 
-            const badge = document.getElementById('f-beta-badge');
-            const desc = document.getElementById('f-beta-desc');
+            const badge = document.getElementById('f-kpi-badge');
+            const desc = document.getElementById('f-kpi-desc');
             if (beta > 1.0) {
-                badge.className = "px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold text-[10px]";
+                badge.className = "px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 font-black text-[11px]";
                 badge.innerText = "سهم تهاجمی (Aggressive)";
                 desc.innerText = `بتای ${beta.toFixed(2)} یعنی نوسانات سهم ${((beta-1)*100).toFixed(0)}% تندتر از شاخص کل است.`;
             } else if (beta < 1.0) {
-                badge.className = "px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-bold text-[10px]";
+                badge.className = "px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 font-black text-[11px]";
                 badge.innerText = "سهم تدافعی (Defensive)";
-                desc.innerText = `بتای ${beta.toFixed(2)} یعنی نوسانات سهم آرام‌تر از بازار است؛ ریسک محافظه‌کارانه.`;
+                desc.innerText = `بتای ${beta.toFixed(2)} یعنی نوسانات آرام‌تر و محافظه‌کارانه‌تر نسبت به شاخص.`;
             } else {
-                badge.className = "px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px]";
-                badge.innerText = "همگام با شاخص (Beta = 1.0)";
-                desc.innerText = "ریسک سیستماتیک کاملاً منطبق بر پرتفوی بازار.";
+                badge.className = "px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-black text-[11px]";
+                badge.innerText = "همگام با بازار (Beta = 1.0)";
+                desc.innerText = "ریسک سیستماتیک کاملاً منطبق بر کل پرتفوی بازار است.";
             }
 
-            const betas = [0, 0.5, 1.0, 1.5, 2.0, 2.5];
-            const smlLine = betas.map(b => rf + b * mrp);
+            ctx.clearRect(0, 0, W, H);
+            const padL = 60, padR = 30, padT = 30, padB = 40;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
 
-            if (chartFinanceInstance) {
-                chartFinanceInstance.data.datasets[0].data = smlLine;
-                chartFinanceInstance.data.datasets[1].data = [{x: beta, y: er}];
-                chartFinanceInstance.update();
-            } else {
-                const ctx = document.getElementById('chartFinance').getContext('2d');
-                chartFinanceInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: betas.map(b => b.toFixed(1)),
-                        datasets: [
-                            { label: 'خط بازار اوراق بهادار (SML)', data: smlLine, borderColor: '#A855F7', borderWidth: 2.5 },
-                            { label: 'موقعیت سهم بهادر', data: [{x: beta, y: er}], backgroundColor: '#F59E0B', pointRadius: 9, showLine: false }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { labels: { color: '#94A3B8', font: { family: 'Vazirmatn' } } } },
-                        scales: {
-                            x: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } }, title: { display: true, text: 'ضریب بتا (Beta)', color: '#94A3B8' } },
-                            y: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } }, title: { display: true, text: 'بازده مورد انتظار E(R) %', color: '#94A3B8' } }
-                        }
-                    }
-                });
-            }
+            const maxBeta = 2.5;
+            const maxEr = rf + maxBeta * mrp * 1.15;
+
+            function toX(b) { return padL + (b / maxBeta) * plotW; }
+            function toY(r) { return H - padB - (r / maxEr) * plotH; }
+
+            // Axes
+            ctx.strokeStyle = '#94A3B8';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(padL, padT);
+            ctx.lineTo(padL, H - padB);
+            ctx.lineTo(W - padR, H - padB);
+            ctx.stroke();
+
+            // SML Line
+            ctx.strokeStyle = '#7C3AED';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(rf));
+            ctx.lineTo(toX(maxBeta), toY(rf + maxBeta * mrp));
+            ctx.stroke();
+
+            // Asset Dot
+            ctx.fillStyle = '#D97706';
+            ctx.beginPath(); ctx.arc(toX(beta), toY(er), 6, 0, Math.PI * 2); ctx.fill();
+
+            // Guideline dashes
+            ctx.strokeStyle = '#D97706';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath(); ctx.moveTo(toX(beta), toY(er)); ctx.lineTo(toX(beta), H - padB); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(toX(beta), toY(er)); ctx.lineTo(padL, toY(er)); ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Labels
+            ctx.fillStyle = '#0F172A';
+            ctx.font = 'bold 10px JetBrains Mono';
+            ctx.fillText('سهم بهادر(' + beta.toFixed(2) + ' , ' + er.toFixed(1) + '%)', toX(beta) + 15, toY(er) - 10);
+            ctx.fillText('Rf(' + rf + '%)', padL - 35, toY(rf) + 4);
         }
-        ['f-rf-slide', 'f-rm-slide', 'f-beta-slide'].forEach(id => {
-            document.getElementById(id).addEventListener('input', () => {
-                triggerHaptic('light');
-                updateFinance();
-            });
-        });
 
-        // ==================== 4. OR SIMULATOR ====================
-        let chartORCourseInstance = null;
-        function updateORCourse() {
-            const c1 = parseFloat(document.getElementById('or-slide-c1').value);
-            const c2 = parseFloat(document.getElementById('or-slide-c2').value);
+        // ==================== 4. NATIVE CANVAS: OR ====================
+        function drawOR() {
+            const canvas = document.getElementById('canvasOR');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width;
+            const H = canvas.height;
 
-            document.getElementById('or-p-c1').innerText = `${c1} تومان`;
-            document.getElementById('or-p-c2').innerText = `${c2} تومان`;
+            const c1 = parseFloat(document.getElementById('or-c1-slider').value);
+            const c2 = parseFloat(document.getElementById('or-c2-slider').value);
 
-            const corners = [
-                {x: 0, y: 0, z: 0},
-                {x: 50, y: 0, z: 50 * c1},
-                {x: 0, y: 40, z: 40 * c2},
-                {x: 40, y: 20, z: 40 * c1 + 20 * c2}
-            ];
-            corners.sort((a,b) => b.z - a.z);
-            const best = corners[0];
+            document.getElementById('or-c1-disp').innerText = c1 + ' تومان';
+            document.getElementById('or-c2-disp').innerText = c2 + ' تومان';
 
-            document.getElementById('or-p-opt').innerText = `x1* = ${best.x} , x2* = ${best.y}`;
-            document.getElementById('or-p-z').innerText = `Max Z = ${best.z.toLocaleString()}`;
+            const best = {x: 40, y: 20, z: 40 * c1 + 20 * c2};
+            document.getElementById('or-kpi-opt').innerText = `x1* = ${best.x} , x2* = ${best.y}`;
+            document.getElementById('or-kpi-z').innerText = `Max Z = ${best.z.toLocaleString()}`;
 
-            const xPoints = [0, 20, 40, 50, 60];
-            const line1 = xPoints.map(x => Math.max(0, 100 - 2 * x));
-            const line2 = xPoints.map(x => Math.max(0, (80 - x) / 2));
+            ctx.clearRect(0, 0, W, H);
+            const padL = 50, padR = 30, padT = 30, padB = 40;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
 
-            if (chartORCourseInstance) {
-                chartORCourseInstance.data.datasets[2].data = [{x: best.x, y: best.y}];
-                chartORCourseInstance.update();
-            } else {
-                const ctx = document.getElementById('chartORCourse').getContext('2d');
-                chartORCourseInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: xPoints.map(x => x.toString()),
-                        datasets: [
-                            { label: 'قید چوب: 2x1 + x2 <= 100', data: line1, borderColor: '#0284C7', borderWidth: 2 },
-                            { label: 'قید کارگر: x1 + 2x2 <= 80', data: line2, borderColor: '#10B981', borderWidth: 2 },
-                            { label: 'نقطه بهینه Z*', data: [{x: best.x, y: best.y}], backgroundColor: '#F59E0B', pointRadius: 9, showLine: false }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { labels: { color: '#94A3B8', font: { family: 'Vazirmatn' } } } },
-                        scales: {
-                            x: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } } },
-                            y: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } } }
-                        }
-                    }
-                });
-            }
+            const maxX = 70;
+            const maxY = 110;
+
+            function toX(x) { return padL + (x / maxX) * plotW; }
+            function toY(y) { return H - padB - (y / maxY) * plotH; }
+
+            // Axes
+            ctx.strokeStyle = '#94A3B8';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(padL, padT);
+            ctx.lineTo(padL, H - padB);
+            ctx.lineTo(W - padR, H - padB);
+            ctx.stroke();
+
+            // Feasible Region Polygon: (0,0) -> (50,0) -> (40,20) -> (0,40) -> (0,0)
+            ctx.fillStyle = 'rgba(8, 145, 178, 0.15)';
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(0));
+            ctx.lineTo(toX(50), toY(0));
+            ctx.lineTo(toX(40), toY(20));
+            ctx.lineTo(toX(0), toY(40));
+            ctx.closePath();
+            ctx.fill();
+
+            // Constraint 1: 2x1 + x2 <= 100
+            ctx.strokeStyle = '#0284C7';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(100));
+            ctx.lineTo(toX(50), toY(0));
+            ctx.stroke();
+
+            // Constraint 2: x1 + 2x2 <= 80
+            ctx.strokeStyle = '#059669';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(toX(0), toY(40));
+            ctx.lineTo(toX(80), toY(0));
+            ctx.stroke();
+
+            // Best Point
+            ctx.fillStyle = '#D97706';
+            ctx.beginPath(); ctx.arc(toX(40), toY(20), 6, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = '#0F172A';
+            ctx.font = 'bold 10px JetBrains Mono';
+            ctx.fillText('Z*(40, 20)', toX(40) + 12, toY(20) - 8);
         }
-        ['or-slide-c1', 'or-slide-c2'].forEach(id => {
-            document.getElementById(id).addEventListener('input', () => {
-                triggerHaptic('light');
-                updateORCourse();
-            });
-        });
 
-        // ==================== 5. STAT SIMULATOR ====================
-        let chartStatInstance = null;
-        function updateStat() {
-            const mu = parseFloat(document.getElementById('s-mu-slide').value);
-            const sigma = parseFloat(document.getElementById('s-sigma-slide').value);
-            const x = parseFloat(document.getElementById('s-x-slide').value);
+        // ==================== 5. NATIVE CANVAS: STAT ====================
+        function drawStat() {
+            const canvas = document.getElementById('canvasStat');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width;
+            const H = canvas.height;
 
-            document.getElementById('s-mu-val').innerText = `${mu}%`;
-            document.getElementById('s-sigma-val').innerText = `${sigma}%`;
-            document.getElementById('s-x-val').innerText = `${x}%`;
+            const mu = parseFloat(document.getElementById('s-mu-slider').value);
+            const sigma = parseFloat(document.getElementById('s-sigma-slider').value);
+            const xVal = parseFloat(document.getElementById('s-x-slider').value);
 
-            const z = (x - mu) / sigma;
-            document.getElementById('s-z-disp').innerText = z.toFixed(2);
+            document.getElementById('s-mu-disp').innerText = mu + '%';
+            document.getElementById('s-sigma-disp').innerText = sigma + '%';
+            document.getElementById('s-x-disp').innerText = xVal + '%';
 
-            // Approximation of standard normal CDF
-            function normCDF(z) {
-                return 0.5 * (1 + Math.erf(z / Math.SQRT2));
-            }
-            const p = normCDF(z) * 100;
-            document.getElementById('s-prob-disp').innerText = `${p.toFixed(2)}%`;
+            const z = (xVal - mu) / sigma;
+            document.getElementById('s-kpi-z').innerText = z.toFixed(2);
 
-            const lower = mu - 1.96 * sigma;
-            const upper = mu + 1.96 * sigma;
-            document.getElementById('s-ci-disp').innerText = `[ ${lower.toFixed(2)}%  تا  ${upper.toFixed(2)}% ]`;
-
-            // Bell curve points
-            const xSteps = [];
-            const ySteps = [];
-            for (let i = mu - 3.5 * sigma; i <= mu + 3.5 * sigma; i += sigma / 4) {
-                xSteps.push(i.toFixed(1));
-                const val = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((i - mu) / sigma, 2));
-                ySteps.push(val);
-            }
-
-            if (chartStatInstance) {
-                chartStatInstance.data.labels = xSteps;
-                chartStatInstance.data.datasets[0].data = ySteps;
-                chartStatInstance.update();
-            } else {
-                const ctx = document.getElementById('chartStat').getContext('2d');
-                chartStatInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: xSteps,
-                        datasets: [{
-                            label: 'تابع چگالی احتمال توزیع نرمال f(x)',
-                            data: ySteps,
-                            borderColor: '#6366F1',
-                            backgroundColor: 'rgba(99, 102, 241, 0.15)',
-                            fill: true,
-                            borderWidth: 2.5,
-                            tension: 0.3
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { labels: { color: '#94A3B8', font: { family: 'Vazirmatn' } } } },
-                        scales: {
-                            x: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } }, title: { display: true, text: 'نرخ بازده %', color: '#94A3B8' } },
-                            y: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8', font: { family: 'Vazirmatn' } } }
-                        }
-                    }
-                });
-            }
-        }
-        ['s-mu-slide', 's-sigma-slide', 's-x-slide'].forEach(id => {
-            document.getElementById(id).addEventListener('input', () => {
-                triggerHaptic('light');
-                updateStat();
-            });
-        });
-
-        // Math.erf implementation for browsers without it
-        if (!Math.erf) {
-            Math.erf = function(x) {
-                const a1 =  0.254829592;
-                const a2 = -0.284496736;
-                const a3 =  1.421413741;
-                const a4 = -1.453152027;
-                const a5 =  1.061405429;
-                const p  =  0.3275911;
+            function erf(x) {
+                const a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741, a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
                 const sign = x < 0 ? -1 : 1;
                 x = Math.abs(x);
                 const t = 1.0 / (1.0 + p * x);
                 const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
                 return sign * y;
-            };
-        }
-
-        // Copy Formula Helper
-        function copyMath(tex) {
-            navigator.clipboard.writeText(tex);
-            triggerHaptic('success');
-            playTone(880, 'sine', 0.1);
-            if (tg?.showPopup) {
-                tg.showPopup({ title: 'کپی شد!', message: 'فرمول در کلیپ‌بورد کپی شد:
-' + tex, buttons: [{type: 'ok'}] });
-            } else {
-                alert('فرمول در کلیپ‌بورد کپی شد:
-' + tex);
             }
+            const pNorm = 0.5 * (1 + erf(z / Math.SQRT2)) * 100;
+            document.getElementById('s-kpi-prob').innerText = pNorm.toFixed(2) + '%';
+
+            const lower = mu - 1.96 * sigma;
+            const upper = mu + 1.96 * sigma;
+            document.getElementById('s-kpi-ci').innerText = '[ ' + lower.toFixed(2) + '%  تا  ' + upper.toFixed(2) + '% ]';
+
+            ctx.clearRect(0, 0, W, H);
+            const padL = 40, padR = 40, padT = 30, padB = 40;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
+
+            const minX = mu - 3.5 * sigma;
+            const maxX = mu + 3.5 * sigma;
+            const maxF = 1 / (sigma * Math.sqrt(2 * Math.PI));
+
+            function toX(x) { return padL + ((x - minX) / (maxX - minX)) * plotW; }
+            function toY(f) { return H - padB - (f / maxF) * plotH; }
+
+            // Axes
+            ctx.strokeStyle = '#94A3B8';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(padL, H - padB);
+            ctx.lineTo(W - padR, H - padB);
+            ctx.stroke();
+
+            // Shaded Tail
+            ctx.fillStyle = 'rgba(239, 68, 68, 0.25)';
+            ctx.beginPath();
+            ctx.moveTo(toX(minX), toY(0));
+            for (let x = minX; x <= Math.min(xVal, maxX); x += sigma / 10) {
+                let f = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
+                ctx.lineTo(toX(x), toY(f));
+            }
+            ctx.lineTo(toX(Math.min(xVal, maxX)), toY(0));
+            ctx.closePath();
+            ctx.fill();
+
+            // Bell Curve Line
+            ctx.strokeStyle = '#4F46E5';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            let first = true;
+            for (let x = minX; x <= maxX; x += sigma / 10) {
+                let f = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
+                if (first) { ctx.moveTo(toX(x), toY(f)); first = false; }
+                else ctx.lineTo(toX(x), toY(f));
+            }
+            ctx.stroke();
+
+            // Center Mean Marker
+            ctx.strokeStyle = '#64748B';
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath(); ctx.moveTo(toX(mu), toY(maxF)); ctx.lineTo(toX(mu), H - padB); ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Threshold Cutoff Line
+            ctx.strokeStyle = '#DC2626';
+            ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(toX(xVal), toY(0)); ctx.lineTo(toX(xVal), toY(maxF * 0.8)); ctx.stroke();
+
+            ctx.fillStyle = '#0F172A';
+            ctx.font = 'bold 10px JetBrains Mono';
+            ctx.fillText('X=' + xVal + '%', toX(xVal) - 15, toY(maxF * 0.8) - 6);
+            ctx.fillText('μ=' + mu + '%', toX(mu) - 12, H - padB + 16);
         }
 
-        // ==================== GLOBAL SEARCH ENGINE ====================
-        const searchDatabase = [
+        // Attach Slider Events
+        ['m-t-slider', 'm-a-slider', 'm-b-slider', 'm-d-slider'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', drawMicro);
+        });
+        ['c-fc-slider', 'c-p-slider', 'c-vc-slider', 'c-tp-slider'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', drawCost);
+        });
+        ['f-rf-slider', 'f-rm-slider', 'f-beta-slider'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', drawFinance);
+        });
+        ['or-c1-slider', 'or-c2-slider'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', drawOR);
+        });
+        ['s-mu-slider', 's-sigma-slider', 's-x-slider'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', drawStat);
+        });
+
+        // Copy Helper
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert('فرمول در کلیپ‌بورد کپی شد:
+' + text);
+        }
+
+        // Global Search
+        const searchDB = [
             { course: 'micro', sub: 'formula', title: 'تسهیم بار مالیاتی با کشش‌ها', text: 'Burden_C / Burden_P = Es / |Ed| کشش تقاضا و عرضه مالیات دولت' },
             { course: 'micro', sub: 'formula', title: 'زیان بار مرده (DWL)', text: 'DWL = 0.5 * t * (Q0 - Qt) اتلاف رفاه مثلث رفاهی جامعه' },
             { course: 'micro', sub: 'traps', title: 'تله کشش صفر مطلق تقاضا', text: 'کشش صفر Ed = 0 انتقال کامل مالیات به خریدار گرانی ۱۰۰ درصدی' },
             { course: 'cost', sub: 'formula', title: 'نقطه سر‌به‌سر تعدادی و ریالی', text: 'Qbep = FC / (P - VC) حاشیه فروش CM نسبت حاشیه فروش CMR' },
-            { course: 'cost', sub: 'formula', title: 'درجه اهرم عملیاتی DOL', text: 'DOL = TCM / EBIT اهرم عملیاتی نوسان سود حساسیت سود' },
-            { course: 'cost', sub: 'solution', title: 'روش بالاترین و پایین‌ترین نقطه (High-Low)', text: 'تفکیک هزینه نیمه‌متغیر b = dY / dX هزینه ثابت a = Y - bX' },
+            { course: 'cost', sub: 'solution', title: 'روش تفکیک هزینه High-Low', text: 'تفکیک هزینه نیمه‌متغیر b = dY / dX هزینه ثابت a = Y - bX' },
             { course: 'finance', sub: 'formula', title: 'مدل قیمت‌گذاری دارایی سرمایه‌ای CAPM', text: 'E(Ri) = Rf + Beta * (Rm - Rf) بتای سهم صَرف ریسک بازار SML' },
             { course: 'finance', sub: 'formula', title: 'میانگین موزون هزینه سرمایه WACC', text: 'WACC = (E/V)Ke + (D/V)Kd(1 - T) سپر مالیاتی بدهی هزینه سرمایه' },
-            { course: 'finance', sub: 'formula', title: 'معادله بتای اهرمی همادا (Hamada)', text: 'Beta_L = Beta_U * [1 + (1 - T)(D/E)] ریسک مالی ریسک تجاری' },
             { course: 'or', sub: 'formula', title: 'قیمت سایه و متغیر دوگان (Shadow Price)', text: 'y_i = dZ / db_i متغیر کمکی Slack دوگان سیمپلکس ارزش منبع' },
-            { course: 'or', sub: 'solution', title: 'حل گام‌به‌گام سیمپلکس', text: 'متغیر ورودی منفی‌ترین سطر Z حداقل نسبت آزمون نسبت لولا' },
-            { course: 'stat', sub: 'formula', title: 'کوواریانس و بتای دارایی', text: 'Beta = Cov(Ri, Rm) / Var(Rm) رگرسیون ریسک سیستماتیک شاخص کل' },
-            { course: 'stat', sub: 'solution', title: 'آزمون فرض میانگین با Z', text: 'Z = (X_bar - mu) / (sigma / sqrt(n)) سطح معناداری خطا ۵ درصد' }
+            { course: 'stat', sub: 'formula', title: 'کوواریانس و بتای دارایی', text: 'Beta = Cov(Ri, Rm) / Var(Rm) رگرسیون ریسک سیستماتیک شاخص کل' }
         ];
 
         function handleGlobalSearch() {
-            const query = document.getElementById('global-search').value.toLowerCase().trim();
-            const resultsBox = document.getElementById('search-results-box');
-            const clearBtn = document.getElementById('clear-search-btn');
-
-            if (query.length < 2) {
-                resultsBox.classList.add('hidden');
-                clearBtn.classList.add('hidden');
+            const q = document.getElementById('global-search').value.toLowerCase().trim();
+            const box = document.getElementById('search-results-box');
+            const btn = document.getElementById('clear-search-btn');
+            if (q.length < 2) {
+                box.classList.add('hidden');
+                btn.classList.add('hidden');
                 return;
             }
-
-            clearBtn.classList.remove('hidden');
-            const matches = searchDatabase.filter(item => 
-                item.title.toLowerCase().includes(query) || item.text.toLowerCase().includes(query)
-            );
-
+            btn.classList.remove('hidden');
+            const matches = searchDB.filter(item => item.title.toLowerCase().includes(q) || item.text.toLowerCase().includes(q));
             if (matches.length === 0) {
-                resultsBox.innerHTML = '<div class="text-xs text-slate-500 text-center py-2">موردی یافت نشد.</div>';
-                resultsBox.classList.remove('hidden');
+                box.innerHTML = '<div class="text-xs text-slate-400 p-2 text-center">موردی یافت نشد.</div>';
+                box.classList.remove('hidden');
                 return;
             }
-
-            resultsBox.innerHTML = matches.map(m => `
-                <div onclick="jumpToResult('${m.course}', '${m.sub}')" class="p-2 bento-inner hover:border-sky-500/60 cursor-pointer flex justify-between items-center transition">
+            box.innerHTML = matches.map(m => `
+                <div onclick="jumpTo('${m.course}', '${m.sub}')" class="p-2.5 bento-inner hover:border-blue-400 cursor-pointer flex justify-between items-center transition">
                     <div>
-                        <span class="text-xs font-bold text-white block">${m.title}</span>
-                        <span class="text-[10px] text-slate-400 block">${courseMeta[m.course].title}</span>
+                        <span class="text-xs font-bold text-slate-900 block">${m.title}</span>
+                        <span class="text-[10px] text-slate-500 block">${courseMeta[m.course].title}</span>
                     </div>
-                    <span class="text-sky-400 text-xs">ورود ➔</span>
+                    <span class="text-blue-600 text-xs font-bold">ورود ➔</span>
                 </div>
             `).join('');
-            resultsBox.classList.remove('hidden');
+            box.classList.remove('hidden');
         }
 
         function clearSearch() {
@@ -1562,13 +1664,13 @@
             document.getElementById('clear-search-btn').classList.add('hidden');
         }
 
-        function jumpToResult(course, sub) {
+        function jumpTo(c, s) {
             clearSearch();
-            selectCourse(course);
-            selectSubTab(sub);
+            selectCourse(c);
+            selectSubTab(s);
         }
 
-        // ==================== MASTERY MODAL & TRACKER ====================
+        // Mastery Modal
         const masteryTopics = [
             { id: 'm1', label: 'اقتصاد خرد: تعادل و محاسبه مثلث DWL' },
             { id: 'm2', label: 'اقتصاد خرد: نسبت تسهیم بار مالیاتی با کشش‌ها' },
@@ -1583,45 +1685,37 @@
         ];
 
         function initMastery() {
-            const saved = JSON.parse(localStorage.getItem('bankai_mastery') || '{}');
+            const saved = JSON.parse(localStorage.getItem('bankai_mastery_v6') || '{}');
             const listEl = document.getElementById('mastery-list');
             listEl.innerHTML = masteryTopics.map(t => `
-                <label class="flex items-center gap-2.5 p-2 rounded-lg bento-inner cursor-pointer hover:bg-slate-800/60">
-                    <input type="checkbox" id="chk-${t.id}" ${saved[t.id] ? 'checked' : ''} onchange="toggleMastery('${t.id}')" class="rounded text-sky-500 focus:ring-0">
-                    <span class="text-slate-200 text-xs">${t.label}</span>
+                <label class="flex items-center gap-2.5 p-2 rounded-lg bento-inner cursor-pointer hover:bg-slate-100">
+                    <input type="checkbox" id="chk-${t.id}" ${saved[t.id] ? 'checked' : ''} onchange="toggleMastery('${t.id}')" class="rounded text-blue-600 focus:ring-0">
+                    <span class="text-slate-800 text-xs font-medium">${t.label}</span>
                 </label>
             `).join('');
             updateMasterySummary();
         }
 
         function toggleMastery(id) {
-            triggerHaptic('light');
-            const saved = JSON.parse(localStorage.getItem('bankai_mastery') || '{}');
-            saved[id] = document.getElementById(`chk-${id}`).checked;
-            localStorage.setItem('bankai_mastery', JSON.stringify(saved));
+            const saved = JSON.parse(localStorage.getItem('bankai_mastery_v6') || '{}');
+            saved[id] = document.getElementById('chk-' + id).checked;
+            localStorage.setItem('bankai_mastery_v6', JSON.stringify(saved));
             updateMasterySummary();
         }
 
         function updateMasterySummary() {
-            const saved = JSON.parse(localStorage.getItem('bankai_mastery') || '{}');
+            const saved = JSON.parse(localStorage.getItem('bankai_mastery_v6') || '{}');
             const done = Object.values(saved).filter(Boolean).length;
             const pct = Math.round((done / masteryTopics.length) * 100);
-            document.getElementById('mastery-summary').innerText = `پیشرفت: ${pct}٪`;
-            document.getElementById('mastery-pct').innerText = `پیشرفت کل: ${pct}٪ (${done} از ${masteryTopics.length} مبحث)`;
+            document.getElementById('mastery-summary').innerText = 'ردیاب آمادگی کنکور: ' + pct + '٪';
+            document.getElementById('mastery-pct').innerText = 'پیشرفت کل: ' + pct + '٪ (' + done + ' از ۱۰ مبحث)';
         }
 
-        function openMasteryModal() {
-            triggerHaptic('medium');
-            document.getElementById('mastery-modal').classList.remove('hidden');
-        }
+        function openMasteryModal() { document.getElementById('mastery-modal').classList.remove('hidden'); }
+        function closeMasteryModal() { document.getElementById('mastery-modal').classList.add('hidden'); }
 
-        function closeMasteryModal() {
-            triggerHaptic('light');
-            document.getElementById('mastery-modal').classList.add('hidden');
-        }
-
-        // Global Init
-        window.addEventListener('DOMContentLoaded', () => {
+        // Startup
+        window.addEventListener('load', () => {
             initMastery();
             selectCourse('micro');
             selectSubTab('sim');
