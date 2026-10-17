@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>BANKAI v12.0 | سامانه هوش تحلیلی، بزرگ‌نمایی تریدینگ و تلفیق تکمیلی آمار</title>
+    <title>BANKAI v13.0 | سوئیت جامع شبیه‌ساز کنکور ارشد، تحلیل حساسیت، اولد بلومبرگ و لایتنر</title>
     <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <!-- Typography: Vazirmatn & JetBrains Mono -->
@@ -870,7 +870,438 @@
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
+    
+        /* ========================================================
+           v13.0 BLOOMBERG OLED DARK THEME SYSTEM
+           ======================================================== */
+        body.theme-dark {
+            --bg-body: #07090E;
+            --bg-card: #0F172A;
+            --bg-inner: #1E293B;
+            --border-card: #1E293B;
+            --border-subtle: #0F172A;
+            --border-focus: #38BDF8;
+            --text-title: #F8FAFC;
+            --text-body: #CBD5E1;
+            --text-muted: #94A3B8;
+            --text-dim: #64748B;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+        }
+        body.theme-dark .card {
+            background: #0F172A;
+            border-color: #1E293B;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        body.theme-dark .card:hover {
+            border-color: #334155;
+        }
+        body.theme-dark .subject-btn {
+            background: #0F172A;
+            border-color: #1E293B;
+        }
+        body.theme-dark .subject-btn .s-title { color: #F8FAFC; }
+        body.theme-dark .subject-btn .s-desc { color: #94A3B8; }
+        body.theme-dark .banner-executive {
+            background: #0F172A;
+            border-color: #1E293B;
+        }
+        body.theme-dark .banner-executive h2 { color: #F8FAFC !important; }
+        body.theme-dark .subtab-pill {
+            background: #0F172A;
+            border-color: #334155;
+            color: #CBD5E1;
+        }
+        body.theme-dark .subtab-pill:hover {
+            border-color: #64748B;
+            color: #F8FAFC;
+        }
+        body.theme-dark .canvas-arena {
+            background: #090D16;
+            border-color: #1E293B;
+        }
+        body.theme-dark .btn-chart-tool {
+            background: #1E293B;
+            border-color: #334155;
+            color: #F8FAFC;
+        }
+        body.theme-dark .btn-chart-tool:hover {
+            background: #334155;
+        }
+        body.theme-dark .layer-toggle {
+            background: #1E293B;
+            border-color: #334155;
+            color: #94A3B8;
+        }
+        body.theme-dark .param-card {
+            background: #1E293B;
+            border-color: #334155;
+        }
+        body.theme-dark .param-label { color: #F8FAFC; }
+        body.theme-dark .param-input-box {
+            background: #0F172A;
+            border-color: #334155;
+            color: #38BDF8;
+        }
+        body.theme-dark .kpi-box {
+            background: #1E293B;
+            border-color: #334155;
+        }
+        body.theme-dark .formula-card {
+            background: #0F172A;
+            border-color: #1E293B;
+        }
+        body.theme-dark .formula-card h4 { color: #F8FAFC !important; }
+        body.theme-dark .formula-display {
+            background: #1E293B;
+            border-color: #334155;
+            color: #93C5FD;
+        }
+        body.theme-dark .tier-card.prof-tier {
+            background: #0C1E3C;
+            border-right-color: #3B82F6;
+            color: #BFDBFE;
+        }
+        body.theme-dark .tier-card.bankai-tier {
+            background: #20103A;
+            border-right-color: #A855F7;
+            color: #E9D5FF;
+        }
+        body.theme-dark .tier-card.trap-tier {
+            background: #2D0F19;
+            border-right-color: #F43F5E;
+            color: #FECDD3;
+        }
+        body.theme-dark .tree-branch-card {
+            background: #0F172A;
+            border-color: #1E293B;
+        }
+        body.theme-dark .tree-branch-header {
+            color: #F8FAFC;
+            border-bottom-color: #1E293B;
+        }
+        body.theme-dark .tree-leaf-item {
+            background: #1E293B;
+            border-color: #334155;
+            color: #CBD5E1;
+        }
+        body.theme-dark .algo-step {
+            background: #1E293B;
+            border-right-color: #38BDF8;
+            color: #CBD5E1;
+        }
+        body.theme-dark .notebook-capsule {
+            background: #090D16;
+            border-color: #475569;
+            color: #F8FAFC;
+        }
+        body.theme-dark .scenario-chip {
+            background: #1E293B;
+            border-color: #334155;
+            color: #CBD5E1;
+        }
+        body.theme-dark .fs-modal-card {
+            background: #0F172A;
+            border-color: #334155;
+        }
+        body.theme-dark .fs-header, body.theme-dark .fs-footer {
+            background: #0F172A;
+            border-color: #1E293B;
+        }
+        body.theme-dark .fs-hud-bar {
+            background: #090D16;
+            border-color: #1E293B;
+            color: #94A3B8;
+        }
+
+        /* ========================================================
+           2D SENSITIVITY MATRIX & HEATMAP
+           ======================================================== */
+        .sensitivity-container {
+            margin-top: 14px;
+            overflow-x: auto;
+        }
+        .sensitivity-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'JetBrains Mono', 'Vazirmatn', monospace;
+            font-size: 0.74rem;
+            text-align: center;
+        }
+        .sensitivity-table th, .sensitivity-table td {
+            border: 1px solid #CBD5E1;
+            padding: 8px 6px;
+        }
+        body.theme-dark .sensitivity-table th, body.theme-dark .sensitivity-table td {
+            border-color: #334155;
+        }
+        .sensitivity-table th {
+            background: #F1F5F9;
+            font-weight: 800;
+            color: #0F172A;
+        }
+        body.theme-dark .sensitivity-table th {
+            background: #1E293B;
+            color: #F8FAFC;
+        }
+        .heat-cell {
+            font-weight: 800;
+            transition: all 0.15s ease;
+        }
+        .heat-green { background: rgba(16, 185, 129, 0.15); color: #047857; }
+        .heat-red { background: rgba(239, 68, 68, 0.15); color: #B91C1C; }
+        .heat-neutral { background: rgba(245, 158, 11, 0.12); color: #B45309; }
+        body.theme-dark .heat-green { background: rgba(16, 185, 129, 0.25); color: #34D399; }
+        body.theme-dark .heat-red { background: rgba(239, 68, 68, 0.25); color: #F87171; }
+        body.theme-dark .heat-neutral { background: rgba(245, 158, 11, 0.22); color: #FBBF24; }
+
+        /* ========================================================
+           ADAPTIVE MOCK EXAM (QUIZ) ENGINE
+           ======================================================== */
+        .quiz-arena {
+            padding: 4px;
+        }
+        .quiz-score-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #FFFFFF;
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+        }
+        .quiz-stat-pill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .quiz-stat-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 900;
+        }
+        .quiz-stat-lbl {
+            font-size: 0.68rem;
+            color: #94A3B8;
+        }
+
+        .quiz-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-subtle);
+        }
+        body.theme-dark .quiz-card {
+            background: #0F172A;
+            border-color: #1E293B;
+        }
+
+        .quiz-q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .quiz-q-title {
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #0F172A;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+        body.theme-dark .quiz-q-title {
+            color: #F8FAFC;
+        }
+
+        .quiz-options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .quiz-opt-btn {
+            background: #F8FAFC;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 11px 14px;
+            text-align: right;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+            transition: all 0.15s ease;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        body.theme-dark .quiz-opt-btn {
+            background: #1E293B;
+            border-color: #334155;
+            color: #CBD5E1;
+        }
+        .quiz-opt-btn:hover {
+            border-color: #2563EB;
+        }
+        .quiz-opt-btn.selected {
+            background: #EFF6FF;
+            border-color: #2563EB;
+            color: #1E3A8A;
+            font-weight: 800;
+        }
+        body.theme-dark .quiz-opt-btn.selected {
+            background: #1E3A8A;
+            border-color: #38BDF8;
+            color: #FFFFFF;
+        }
+        .quiz-opt-btn.correct {
+            background: #ECFDF5 !important;
+            border-color: #10B981 !important;
+            color: #065F46 !important;
+        }
+        body.theme-dark .quiz-opt-btn.correct {
+            background: #064E3B !important;
+            border-color: #34D399 !important;
+            color: #A7F3D0 !important;
+        }
+        .quiz-opt-btn.wrong {
+            background: #FFF1F2 !important;
+            border-color: #EF4444 !important;
+            color: #991B1B !important;
+        }
+        body.theme-dark .quiz-opt-btn.wrong {
+            background: #7F1D1D !important;
+            border-color: #F87171 !important;
+            color: #FECDD3 !important;
+        }
+
+        .quiz-expl-box {
+            background: #F8FAFC;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 12px;
+            font-size: 0.78rem;
+            line-height: 1.9;
+            display: none;
+        }
+        body.theme-dark .quiz-expl-box {
+            background: #1E293B;
+            border-color: #334155;
+            color: #CBD5E1;
+        }
+
+        /* ========================================================
+           LEITNER FLASHCARD SYSTEM
+           ======================================================== */
+        .leitner-deck-card {
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+        }
+        body.theme-dark .leitner-deck-card {
+            background: #0F172A;
+            border-color: #1E293B;
+        }
+        .leitner-box-tracker {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .leitner-box-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 800;
+            background: #F1F5F9;
+            color: #64748B;
+            border: 1.5px solid #CBD5E1;
+        }
+        .leitner-box-dot.active {
+            background: #2563EB;
+            color: #FFFFFF;
+            border-color: #2563EB;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+        }
+        body.theme-dark .leitner-box-dot {
+            background: #1E293B;
+            border-color: #334155;
+            color: #94A3B8;
+        }
+
+        /* ========================================================
+           PRINTABLE ONE-PAGE A4 CHEAT-SHEET MODAL
+           ======================================================== */
+        .cheat-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+        }
+        .cheat-modal-content {
+            background: #FFFFFF;
+            width: 100%;
+            max-width: 1000px;
+            height: 94vh;
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .cheat-header {
+            padding: 12px 18px;
+            background: #0F172A;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cheat-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px;
+            background: #FFFFFF;
+            color: #0F172A;
+        }
+        .cheat-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        @media print {
+            body * { visibility: hidden; }
+            #cheat-printable-area, #cheat-printable-area * { visibility: visible; }
+            #cheat-printable-area {
+                position: absolute;
+                left: 0; top: 0;
+                width: 100%;
+                padding: 10px;
+            }
+        }
     </style>
+
 </head>
 <body>
 
@@ -887,7 +1318,7 @@
             <div class="cockpit-title">
                 <h1>
                     <span>BANKAI</span>
-                    <span class="badge badge-pro">QUANTUM v12.0</span>
+                    <span class="badge badge-pro">SUITE v13.0 PRO</span>
                 </h1>
                 <p style="font-size: 0.75rem; color: #64748B; margin-top: 2px;">
                     سامانه هوش تحلیلی، بزرگ‌نمایی تریدینگ و تلفیق تکمیلی آمار و مالی | بهادر
@@ -896,11 +1327,17 @@
         </div>
 
         <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <button id="theme-toggle-btn" class="badge" onclick="toggleTheme()" style="cursor: pointer; padding: 6px 12px; font-weight: 800; background: #0F172A; color: #FFFFFF; border: 1px solid #334155;">
+                🌙 تم اولد بلومبرگ
+            </button>
+            <button onclick="openCheatSheet()" class="badge badge-cost" style="cursor: pointer; padding: 6px 12px; font-weight: 800;">
+                🖨️ برگه فرمول A4
+            </button>
             <button onclick="selectCourse('hub')" class="badge badge-hub" style="cursor: pointer; padding: 6px 12px; font-weight: 800; border: 1px solid #FDBA74;">
-                📚 دانشنامه میانگین‌ها و شاخص‌ها
+                📚 دانشنامه شاخص‌ها
             </button>
             <button onclick="exportFullBrief()" class="badge badge-micro" style="cursor: pointer; padding: 6px 12px; font-weight: 800;">
-                📋 کپی گزارش تحلیلی
+                📋 کپی گزارش
             </button>
         </div>
     </header>
@@ -1005,6 +1442,10 @@
         <button class="subtab-pill" id="pill-tab-traps" onclick="selectTab('traps')">
             <span>⚠️</span>
             <span>تله‌های آزمون و کپسول دفترچه</span>
+        </button>
+        <button class="subtab-pill" id="pill-tab-quiz" onclick="selectTab('quiz')">
+            <span>🎯</span>
+            <span>شبیه‌ساز آزمون کنکور ارشد و CFA</span>
         </button>
     </div>
 
@@ -1125,6 +1566,16 @@
                                 <canvas id="canvasMicro"></canvas>
                                 <div class="chart-tooltip" id="tooltip-micro" style="opacity: 0;"></div>
                             </div>
+                        <!-- 2D Sensitivity Matrix Micro -->
+                        <div class="card" style="margin-top: 14px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <span style="font-size: 0.82rem; font-weight: 800; color: var(--c-micro);">📊 ماتریس تحلیل حساسیت دوطرفه: نرخ مالیات (t) در برابر شیب تقاضا (b)</span>
+                                <span class="badge badge-micro">زیان رفاهی جامعه (DWL)</span>
+                            </div>
+                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 10px;">سنجش تبخیر مازاد رفاهی با تغییر همزمان کشش‌پذیری تقاضا و شدت مالیات دولت</p>
+                            <div class="sensitivity-container" id="micro-sens-table"></div>
+                        </div>
+
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
@@ -1330,6 +1781,12 @@
             </div>
 
             <!-- 1.5 EXAM TRAPS & NOTEBOOK CAPSULE -->
+            
+            <!-- ADAPTIVE MOCK EXAM QUIZ -->
+            <div id="micro-tab-quiz" class="subtab-view" style="display: none;">
+                <div class="quiz-arena" id="micro-quiz-arena"></div>
+            </div>
+
             <div id="micro-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی اقتصاد خرد</h4>
@@ -1465,6 +1922,16 @@
                                 <canvas id="canvasCost"></canvas>
                                 <div class="chart-tooltip" id="tooltip-cost" style="opacity: 0;"></div>
                             </div>
+                        <!-- 2D Sensitivity Matrix Cost -->
+                        <div class="card" style="margin-top: 14px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <span style="font-size: 0.82rem; font-weight: 800; color: var(--c-cost);">📊 ماتریس تحلیل حساسیت دوطرفه: قیمت فروش (P) در برابر بهای متغیر (VC)</span>
+                                <span class="badge badge-cost">تیراژ سر‌به‌سر (BEP Units)</span>
+                            </div>
+                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 10px;">محاسبه آستانه بقا و حداقل تیراژ برای صفر شدن سود با نوسانات نرخ و هزینه</p>
+                            <div class="sensitivity-container" id="cost-sens-table"></div>
+                        </div>
+
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
@@ -1614,6 +2081,12 @@
             </div>
 
             <!-- 2.5 TRAPS & CAPSULE -->
+            
+            <!-- ADAPTIVE MOCK EXAM QUIZ -->
+            <div id="cost-tab-quiz" class="subtab-view" style="display: none;">
+                <div class="quiz-arena" id="cost-quiz-arena"></div>
+            </div>
+
             <div id="cost-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی حسابداری صنعتی</h4>
@@ -1739,6 +2212,16 @@
                                 <canvas id="canvasFinance"></canvas>
                                 <div class="chart-tooltip" id="tooltip-finance" style="opacity: 0;"></div>
                             </div>
+                        <!-- 2D Sensitivity Matrix Finance -->
+                        <div class="card" style="margin-top: 14px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <span style="font-size: 0.82rem; font-weight: 800; color: var(--c-finance);">📊 ماتریس تحلیل حساسیت دوطرفه: ریسک بتا (β) در برابر صرف بازار (MRP)</span>
+                                <span class="badge badge-finance">بازده مورد انتظار E(R)</span>
+                            </div>
+                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 10px;">تغییرات بازده منصفانه دارایی بر اساس نوسان‌پذیری سهم و جذابیت بورس</p>
+                            <div class="sensitivity-container" id="finance-sens-table"></div>
+                        </div>
+
                         </div>
 
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
@@ -1887,6 +2370,12 @@
             </div>
 
             <!-- 3.5 TRAPS & CAPSULE -->
+            
+            <!-- ADAPTIVE MOCK EXAM QUIZ -->
+            <div id="finance-tab-quiz" class="subtab-view" style="display: none;">
+                <div class="quiz-arena" id="finance-quiz-arena"></div>
+            </div>
+
             <div id="finance-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی مدیریت مالی</h4>
@@ -2130,6 +2619,12 @@
             </div>
 
             <!-- 4.5 TRAPS & CAPSULE -->
+            
+            <!-- ADAPTIVE MOCK EXAM QUIZ -->
+            <div id="or-tab-quiz" class="subtab-view" style="display: none;">
+                <div class="quiz-arena" id="or-quiz-arena"></div>
+            </div>
+
             <div id="or-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی تحقیق در عملیات</h4>
@@ -2691,6 +3186,12 @@
             </div>
 
             <!-- 5.5 TRAPS & CAPSULE -->
+            
+            <!-- ADAPTIVE MOCK EXAM QUIZ -->
+            <div id="stat-tab-quiz" class="subtab-view" style="display: none;">
+                <div class="quiz-arena" id="stat-quiz-arena"></div>
+            </div>
+
             <div id="stat-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی آمار کاربردی</h4>
@@ -2739,6 +3240,47 @@
                         تعداد کل: ۴۰ شاخص
                     </span>
                 </div>
+
+                
+            <!-- LEITNER SPACED REPETITION ENGINE -->
+            <div class="card leitner-deck-card" id="hub-leitner-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                    <div>
+                        <span class="badge badge-hub">سیستم یادگیری فعال</span>
+                        <h3 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin-top: 4px;">🧠 فلش‌کارت‌های مرور فاصله‌دار لایتنر (Leitner SRS)</h3>
+                    </div>
+                    <span id="leitner-progress-badge" class="badge badge-dark">کارت ۱ از ۸</span>
+                </div>
+                
+                <div class="leitner-box-tracker">
+                    <div class="leitner-box-dot active" id="lbox-1">۱</div>
+                    <div class="leitner-box-dot" id="lbox-2">۲</div>
+                    <div class="leitner-box-dot" id="lbox-3">۳</div>
+                    <div class="leitner-box-dot" id="lbox-4">۴</div>
+                    <div class="leitner-box-dot" id="lbox-5">۵</div>
+                </div>
+
+                <div class="card" id="flashcard-front" style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 24px; min-height: 140px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <span id="fc-category" class="badge badge-micro" style="margin-bottom: 8px;">مفهوم کلیدی</span>
+                    <h4 id="fc-question" style="font-size: 1.05rem; font-weight: 900; color: #0F172A; text-align: center;">...</h4>
+                </div>
+
+                <div class="card" id="flashcard-back" style="display: none; background: #FAF5FF; border: 1.5px solid #C084FC; padding: 20px; text-align: right; min-height: 140px;">
+                    <div id="fc-answer" style="font-size: 0.85rem; line-height: 1.9; color: #3B0764;">...</div>
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
+                    <button id="btn-fc-flip" class="btn-chart-tool" onclick="flipFlashcard()" style="padding: 8px 18px; font-size: 0.8rem;">
+                        🔄 نمایش پاسخ و کالبدشکافی
+                    </button>
+                    <button id="btn-fc-know" class="btn-chart-tool" onclick="markFlashcard(true)" style="display: none; background: #047857; color: #FFFFFF; border-color: #047857; padding: 8px 18px; font-size: 0.8rem;">
+                        ✅ بلد بودم (انتقال به خانه بعدی)
+                    </button>
+                    <button id="btn-fc-forget" class="btn-chart-tool" onclick="markFlashcard(false)" style="display: none; background: #DC2626; color: #FFFFFF; border-color: #DC2626; padding: 8px 18px; font-size: 0.8rem;">
+                        ❌ مرور مجدد (بازگشت به خانه ۱)
+                    </button>
+                </div>
+            </div>
 
                 <!-- Instant Live Search Input -->
                 <div style="position: relative; margin-bottom: 14px;">
@@ -3474,7 +4016,37 @@
             <span>⚠️</span>
             <span>تله‌ها</span>
         </button>
+        <button class="dock-btn" id="dock-btn-quiz" onclick="selectTab('quiz')">
+            <span>🎯</span>
+            <span>آزمون</span>
+        </button>
     </nav>
+
+    
+    <!-- PRINTABLE ONE-PAGE A4 CHEAT-SHEET MODAL -->
+    <div id="modal-cheat-sheet" class="cheat-modal">
+        <div class="cheat-modal-content">
+            <div class="cheat-header">
+                <div>
+                    <h3 style="font-size: 1.05rem; font-weight: 900;">🖨️ تقلب‌نامه مجاز کنکور و پایان‌ترم (خلاصه A4)</h3>
+                    <p style="font-size: 0.72rem; color: #94A3B8;">شامل ۴۰ رابطه طلایی ۵ درس در چینش ۲ ستونه آماده پرینت و PDF</p>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn-chart-tool" onclick="window.print()" style="background: #2563EB; color: #FFFFFF; border-color: #2563EB;">
+                        🖨️ پرینت / ذخیره PDF
+                    </button>
+                    <button class="btn-close-fs" onclick="closeCheatSheet()">✕ بستن</button>
+                </div>
+            </div>
+            <div class="cheat-body" id="cheat-printable-area">
+                <div style="text-align: center; border-bottom: 2px solid #0F172A; padding-bottom: 8px; margin-bottom: 12px;">
+                    <h2 style="font-size: 1.15rem; font-weight: 900;">اطلس فرمول‌های طلایی بانکای | ترم ۳ کارشناسی مدیریت مالی</h2>
+                    <p style="font-size: 0.7rem; color: #64748B;">اقتصاد خرد، صنعتی ۱، مالی ۱، تحقیق در عملیات ۱، آمار کاربردی ۱ | بهادر</p>
+                </div>
+                <div class="cheat-grid-2col" id="cheat-content-grid"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- TRADING-VIEW FULLSCREEN MODAL OVERLAY -->
     <div id="fullscreen-chart-modal" class="fullscreen-modal" style="display: none;">
@@ -3517,6 +4089,7 @@
 
     <!-- JAVASCRIPT MASTERPIECE ENGINE v12.0 -->
     <script>
+
 
     (function() {
         let tg = null;
@@ -3692,7 +4265,7 @@
         };
 
         function selectTab(tab) {
-
+            if (currentCourse === 'hub') return;
             currentTab = tab;
 
             document.querySelectorAll('.subtab-pill').forEach(b => b.classList.remove('active'));
@@ -3708,12 +4281,14 @@
             const targetView = document.getElementById(targetId);
             if (targetView) targetView.style.display = 'block';
 
+            if (tab === 'quiz') { renderQuiz(currentCourse); }
             if (tab === 'sim') {
                 setTimeout(redrawActiveCourse, 30);
             }
         };
 
         function redrawActiveCourse() {
+            updateAllSensitivities();
             if (activeFsCourse) {
                 drawFullscreen();
             }
@@ -4878,6 +5453,467 @@
         window.filterHubCards = filterHubCards;
         window.exportFullBrief = exportFullBrief;
 
+        
+        // ========================================================
+        // v13.0 BLOOMBERG OLED THEME ENGINE
+        // ========================================================
+        function initTheme() {
+            const saved = localStorage.getItem('bankai_theme');
+            if (saved === 'dark') {
+                document.body.classList.add('theme-dark');
+                const btn = document.getElementById('theme-toggle-btn');
+                if (btn) btn.innerText = '☀️ تم پلاتینیوم روز';
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('theme-dark');
+            localStorage.setItem('bankai_theme', isDark ? 'dark' : 'light');
+            const btn = document.getElementById('theme-toggle-btn');
+            if (btn) {
+                btn.innerText = isDark ? '☀️ تم پلاتینیوم روز' : '🌙 تم اولد بلومبرگ';
+            }
+            redrawActiveCourse();
+            showToast(isDark ? 'تم اولد بلومبرگ فعال شد' : 'تم پلاتینیومی فعال شد');
+        }
+        window.toggleTheme = toggleTheme;
+
+        // ========================================================
+        // 2D SENSITIVITY MATRIX GENERATOR
+        // ========================================================
+        function renderMicroSensitivity() {
+            const el = document.getElementById('micro-sens-table');
+            if (!el) return;
+            const a = parseFloat(document.getElementById('m-a-num').value) || 100;
+            const d = parseFloat(document.getElementById('m-d-num').value) || 4;
+            const tVals = [0, 4, 8, 12, 16];
+            const bVals = [1.0, 1.5, 2.0, 2.5, 3.0];
+
+            let table = '<table class="sensitivity-table"><thead><tr><th>نرخ مالیات (t) \\ شیب تقاضا (b)</th>';
+            bVals.forEach(b => { table += '<th>b = ' + b.toFixed(1) + '</th>'; });
+            table += '</tr></thead><tbody>';
+
+            tVals.forEach(t => {
+                table += '<tr><th>t = ' + t + ' ریال</th>';
+                bVals.forEach(b => {
+                    const dwl = 0.5 * t * ( (b * d) / (b + d) ) * t;
+                    let heatClass = dwl === 0 ? 'heat-green' : (dwl > 30 ? 'heat-red' : 'heat-neutral');
+                    table += '<td class="heat-cell ' + heatClass + '">' + dwl.toFixed(1) + '</td>';
+                });
+                table += '</tr>';
+            });
+            table += '</tbody></table>';
+            el.innerHTML = table;
+        }
+
+        function renderCostSensitivity() {
+            const el = document.getElementById('cost-sens-table');
+            if (!el) return;
+            const FC = parseFloat(document.getElementById('c-fc-num').value) || 120000;
+            const pVals = [40, 50, 60, 70, 80];
+            const vcVals = [15, 20, 25, 30, 35];
+
+            let table = '<table class="sensitivity-table"><thead><tr><th>قیمت فروش (P) \\ بهای متغیر (VC)</th>';
+            vcVals.forEach(vc => { table += '<th>VC = ' + vc + '</th>'; });
+            table += '</tr></thead><tbody>';
+
+            pVals.forEach(p => {
+                table += '<tr><th>P = ' + p + ' تومان</th>';
+                vcVals.forEach(vc => {
+                    const cm = p - vc;
+                    if (cm <= 0) {
+                        table += '<td class="heat-cell heat-red" style="font-size:0.65rem;">زیان حاشیه</td>';
+                    } else {
+                        const bep = Math.round(FC / cm);
+                        let heatClass = bep > 6000 ? 'heat-red' : (bep < 3000 ? 'heat-green' : 'heat-neutral');
+                        table += '<td class="heat-cell ' + heatClass + '">' + bep.toLocaleString() + '</td>';
+                    }
+                });
+                table += '</tr>';
+            });
+            table += '</tbody></table>';
+            el.innerHTML = table;
+        }
+
+        function renderFinanceSensitivity() {
+            const el = document.getElementById('finance-sens-table');
+            if (!el) return;
+            const Rf = parseFloat(document.getElementById('f-rf-num').value) || 22;
+            const betaVals = [0.8, 1.0, 1.2, 1.5, 1.8];
+            const mrpVals = [8, 10, 12, 14, 16];
+
+            let table = '<table class="sensitivity-table"><thead><tr><th>ریسک بتا (β) \\ صرف بازار (MRP)</th>';
+            mrpVals.forEach(mrp => { table += '<th>MRP = ' + mrp + '%</th>'; });
+            table += '</tr></thead><tbody>';
+
+            betaVals.forEach(beta => {
+                table += '<tr><th>β = ' + beta.toFixed(1) + '</th>';
+                mrpVals.forEach(mrp => {
+                    const er = Rf + beta * mrp;
+                    let heatClass = er >= 40 ? 'heat-green' : (er < 32 ? 'heat-neutral' : 'heat-green');
+                    table += '<td class="heat-cell ' + heatClass + '">' + er.toFixed(1) + '%</td>';
+                });
+                table += '</tr>';
+            });
+            table += '</tbody></table>';
+            el.innerHTML = table;
+        }
+
+        function updateAllSensitivities() {
+            renderMicroSensitivity();
+            renderCostSensitivity();
+            renderFinanceSensitivity();
+        }
+
+        // ========================================================
+        // ADAPTIVE MOCK EXAM (QUIZ) ENGINE
+        // ========================================================
+        const quizBank = {
+            micro: [
+                {
+                    q: 'در بازار کالایی با توابع تقاضای Qd = 120 - 2P و عرضه Qs = -30 + 3P، دولت مالیات واحدی t = 10 ریال وضع می‌کند. سهم خریدار از مالیات و زیان رفاهی جامعه (DWL) چقدر است؟',
+                    opts: [
+                        '۱. سهم خریدار ۶ ریال و DWL = ۶۰ ریال',
+                        '۲. سهم خریدار ۶ ریال و DWL = ۳۰ ریال',
+                        '۳. سهم خریدار ۴ ریال و DWL = ۶۰ ریال',
+                        '۴. سهم خریدار ۴ ریال و DWL = ۳۰ ریال'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> شیب تقاضا b = ۲ و شیب عرضه d = ۳ است.<br>• سهم خریدار: t × [d / (b + d)] = ۱۰ × [۳ / ۵] = ۶ ریال.<br>• کاهش تیراژ تعادلی: ΔQ = [b×d / (b+d)] × t = [۶/۵] × ۱۰ = ۱۲ واحد.<br>• زیان رفاهی جامعه: DWL = ۰.۵ × t × ΔQ = ۰.۵ × ۱۰ × ۱۲ = ۶۰ ریال.<br><b>تله کنکور:</b> اشتباه گرفتن ضریب d با b در صورت کسر تسهیم بار مالیاتی.'
+                },
+                {
+                    q: 'اگر قدرمطلق کشش قیمتی تقاضا برای کالایی |Ed| = 0.6 باشد، افزایش ۱۰ درصدی قیمت چه تاثیری بر درآمد کل (TR) فروشنده دارد؟',
+                    opts: [
+                        '۱. درآمد کل ۴٪ افزایش می‌یابد',
+                        '۲. درآمد کل ۴٪ کاهش می‌یابد',
+                        '۳. درآمد کل ۶٪ افزایش می‌یابد',
+                        '۴. درآمد کل تغییری نمی‌کند'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> رابطه تقریب طلایی درآمد کل: %ΔTR ≈ %ΔP × (1 - |Ed|)<br>• درصد تغییر درآمد: %ΔTR = +۱۰٪ × (۱ - ۰.۶) = +۱۰٪ × ۰.۴ = +۴٪.<br>چون تقاضا کم‌کشش (|Ed| < 1) است، افزایش قیمت درآمد کل را بالا می‌برد.'
+                }
+            ],
+            cost: [
+                {
+                    q: 'شرکتی دارای هزینه‌های ثابت ۳۰۰,۰۰۰ ریال، قیمت فروش هر واحد ۵۰ ریال و هزینه متغیر ۲۰ ریال است. با نرخ مالیات ۲۰٪، برای سود پس از مالیات ۶۰,۰۰۰ ریال تیراژ فروش کدام است؟',
+                    opts: [
+                        '۱. ۱۲,۰۰۰ واحد',
+                        '۲. ۱۲,۵۰۰ واحد',
+                        '۳. ۱۰,۰۰۰ واحد',
+                        '۴. ۱۳,۰۰۰ واحد'
+                    ],
+                    correct: 1,
+                    expl: '<b>کالبدشکافی تحلیلی:</b><br>• سود عملیاتی هدف قبل از مالیات: Target EBIT = ۶۰,۰۰۰ / (۱ - ۰.۲۰) = ۷۵,۰۰۰ ریال.<br>• حاشیه فروش هر واحد: CM = ۵۰ - ۲۰ = ۳۰ ریال.<br>• تیراژ هدف: Q = (FC + EBIT) / CM = (۳۰۰,۰۰۰ + ۷۵,۰۰۰) / ۳۰ = ۳۷۵,۰۰۰ / ۳۰ = ۱۲,۵۰۰ واحد.'
+                },
+                {
+                    q: 'اگر نسبت حاشیه امنیت شرکتی MS% = 25% باشد، درجه اهرم عملیاتی (DOL) در همان سطح فروش چقدر است؟',
+                    opts: [
+                        '۱. DOL = 4.0',
+                        '۲. DOL = 2.5',
+                        '۳. DOL = 0.25',
+                        '۴. DOL = 1.25'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> رابطه معکوس بنیادین بین اهرم عملیاتی و حاشیه امنیت: DOL = ۱ / MS% = ۱ / ۰.۲۵ = ۴.۰.'
+                }
+            ],
+            finance: [
+                {
+                    q: 'نرخ بدون ریسک ۲۲٪، بازده بازار ۳۴٪ و بتای سهم ۱.۵ است. اگر تحلیلگر بازده سهم را ۴۲٪ پیش‌بینی کند، آلفای جنسن و وضعیت ارزش‌گذاری کدام است؟',
+                    opts: [
+                        '۱. آلفا ۲٪+ و سهم زیرارزش (فرصت خرید)',
+                        '۲. آلفا ۲٪+ و سهم بیش‌ارزش (گران)',
+                        '۳. آلفا ۲٪- و سهم زیرارزش',
+                        '۴. آلفا ۲٪- و سهم بیش‌ارزش'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b><br>• بازده منصفانه SML: E(R) = ۲۲٪ + ۱.۵ × (۳۴٪ - ۲۲٪) = ۲۲٪ + ۱۸٪ = ۴۰٪.<br>• آلفای جنسن: α = ۴۲٪ - ۴۰٪ = +۲٪.<br>چون بازده واقعی از تعادل بالاتر است، سهم زیر ارزش ذاتی خود معامله می‌شود و سیگنال خرید است.'
+                },
+                {
+                    q: 'شرکت بدون اهرمی دارای بتای ۱.۰ است. با نسبت بدهی به حقوق صاحبان سهام D/E = 0.5 و نرخ مالیات ۲۰٪، بتای اهرمی همادا چقدر است؟',
+                    opts: [
+                        '۱. بتا = ۱.۴۰',
+                        '۲. بتا = ۱.۵۰',
+                        '۳. بتا = ۱.۲۵',
+                        '۴. بتا = ۱.۶۰'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> معادله همادا: β_L = β_U × [۱ + (۱ - T)(D/E)] = ۱.۰ × [۱ + (۱ - ۰.۲۰)(۰.۵)] = ۱.۰ × [۱ + ۰.۴۰] = ۱.۴۰.'
+                }
+            ],
+            or: [
+                {
+                    q: 'در مسئله برنامه‌ریزی خطی حداکثرسازی، اگر در جدول بهینه سیمپلکس متغیر کمکی قید اول s1 = 0 باشد، این قید چه وضعیتی دارد؟',
+                    opts: [
+                        '۱. قید فعال (تنگنا) و منبع به طور کامل مصرف شده است',
+                        '۲. قید غیرفعال است و مازاد منبع داریم',
+                        '۳. قید ناموجه است',
+                        '۴. مسئله جواب بهینه ندارد'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> متغیر کمکی صفر یعنی قید در تساوی کامل قرار گرفته و کل سهمیه منبع مصرف شده است (قید فعال یا Binding). قیمت سایه آن مثبت است.'
+                }
+            ],
+            stat: [
+                {
+                    q: 'سرمایه‌گذاری طی دو سال ۵۰٪ زیان و سپس ۱۰۰٪ سود می‌کند. میانگین حسابی و نرخ رشد مرکب سالانه (CAGR) به ترتیب کدامند؟',
+                    opts: [
+                        '۱. میانگین حسابی ۲۵٪ و CAGR برابر با ۰٪',
+                        '۲. میانگین حسابی ۲۵٪ و CAGR برابر با ۲۵٪',
+                        '۳. میانگین حسابی ۵۰٪ و CAGR برابر با ۰٪',
+                        '۴. میانگین حسابی ۰٪ و CAGR برابر با ۰٪'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b><br>• میانگین حسابی: (-۵۰٪ + ۱۰۰٪) / ۲ = ۲۵٪.<br>• رشد مرکب هندسی: CAGR = √[(۱ - ۰.۵۰) × (۱ + ۱.۰۰)] - ۱ = √(۰.۵۰ × ۲.۰۰) - ۱ = √۱ - ۱ = ۰٪.<br><b>سراب میانگین حسابی:</b> ثروت اولیه فرد بدون تغییر مانده، در حالی که میانگین حسابی توهم ۲۵٪ سود ایجاد می‌کند!'
+                },
+                {
+                    q: 'واریانس نمونه ۵ تایی برابر با ۱۶ است. اگر به همه داده‌ها عدد ۱۰ اضافه شود و سپس همگی در ۳ ضرب شوند، انحراف معیار جدید چقدر است؟',
+                    opts: [
+                        '۱. انحراف معیار = ۱۲',
+                        '۲. انحراف معیار = ۴۸',
+                        '۳. انحراف معیار = ۳۶',
+                        '۴. انحراف معیار = ۱۴'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> انحراف معیار اولیه s = √۱۶ = ۴ است.<br>• جمع داده‌ها با عدد ثابت ۱۰ هیچ تغییری در انحراف معیار نمی‌دهد (s = ۴).<br>• ضرب در ۳، انحراف معیار را در قدرمطلق ۳ ضرب می‌کند: s_new = ۳ × ۴ = ۱۲.'
+                }
+            ]
+        };
+
+        const quizState = {
+            micro: { selected: {}, submitted: {} },
+            cost: { selected: {}, submitted: {} },
+            finance: { selected: {}, submitted: {} },
+            or: { selected: {}, submitted: {} },
+            stat: { selected: {}, submitted: {} }
+        };
+
+        function renderQuiz(course) {
+            const container = document.getElementById(course + '-quiz-arena');
+            if (!container) return;
+            const list = quizBank[course] || [];
+            const st = quizState[course] || { selected: {}, submitted: {} };
+
+            let correctCount = 0, wrongCount = 0;
+            list.forEach((item, idx) => {
+                if (st.submitted[idx]) {
+                    if (st.selected[idx] === item.correct) correctCount++;
+                    else wrongCount++;
+                }
+            });
+
+            const total = list.length;
+            const rawScore = total > 0 ? ((correctCount - (wrongCount / 3)) / total) * 100 : 0;
+
+            let qHtml = '<div class="quiz-score-banner">' +
+                '<div><h3 style="font-size: 1.1rem; font-weight: 900;">🎯 شبیه‌ساز آزمون کنکور ارشد و CFA</h3>' +
+                '<p style="font-size: 0.72rem; color: #94A3B8; margin-top: 2px;">سنجش تسلط تستی با احتساب نمره منفی یک‌سوم و تحلیل گام‌به‌گام</p></div>' +
+                '<div style="display: flex; gap: 16px;">' +
+                '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #34D399;">' + correctCount + '</span><span class="quiz-stat-lbl">صحیح</span></div>' +
+                '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #F87171;">' + wrongCount + '</span><span class="quiz-stat-lbl">غلط</span></div>' +
+                '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #38BDF8;">' + rawScore.toFixed(1) + '%</span><span class="quiz-stat-lbl">درصد تراز</span></div>' +
+                '</div></div>';
+
+            list.forEach((item, qIdx) => {
+                const isSub = st.submitted[qIdx];
+                const sel = st.selected[qIdx];
+
+                qHtml += '<div class="quiz-card"><div class="quiz-q-header">' +
+                    '<span class="badge badge-pro">تست شماره ' + (qIdx + 1) + '</span>' +
+                    '<span style="font-size: 0.7rem; color: #64748B; font-weight: 700;">سراسری ارشد مدیریت مالی</span>' +
+                    '</div><div class="quiz-q-title">' + item.q + '</div>' +
+                    '<div class="quiz-options-list">';
+
+                item.opts.forEach((opt, oIdx) => {
+                    let optClass = 'quiz-opt-btn';
+                    if (sel === oIdx) optClass += ' selected';
+                    if (isSub) {
+                        if (oIdx === item.correct) optClass += ' correct';
+                        else if (sel === oIdx) optClass += ' wrong';
+                    }
+                    qHtml += '<div class="' + optClass + '" onclick="selectQuizOpt(\'' + course + '\', ' + qIdx + ', ' + oIdx + ')">' + opt + '</div>';
+                });
+
+                qHtml += '</div>';
+
+                if (!isSub) {
+                    qHtml += '<button class="btn-chart-tool" onclick="submitQuizAnswer(\'' + course + '\', ' + qIdx + ')" style="background: #2563EB; color: #FFFFFF; border-color: #2563EB; padding: 7px 16px;">ثبت و تحلیل پاسخ</button>';
+                } else {
+                    qHtml += '<div class="quiz-expl-box" style="display: block;">' + item.expl + '</div>';
+                }
+
+                qHtml += '</div>';
+            });
+
+            container.innerHTML = qHtml;
+        }
+
+        function selectQuizOpt(course, qIdx, oIdx) {
+            if (quizState[course].submitted[qIdx]) return;
+            quizState[course].selected[qIdx] = oIdx;
+            renderQuiz(course);
+        }
+        window.selectQuizOpt = selectQuizOpt;
+
+        function submitQuizAnswer(course, qIdx) {
+            if (quizState[course].selected[qIdx] === undefined) {
+                showToast('لطفاً ابتدا یک گزینه را انتخاب کنید');
+                return;
+            }
+            quizState[course].submitted[qIdx] = true;
+            renderQuiz(course);
+        }
+        window.submitQuizAnswer = submitQuizAnswer;
+
+        // ========================================================
+        // LEITNER SPACED REPETITION ENGINE
+        // ========================================================
+        const leitnerCards = [
+            {
+                cat: 'آمار کاربردی ۱',
+                q: 'چرا میانگین حسابی برای رشد ثروت سراب ایجاد می‌کند و میانگین هندسی ارجح است؟',
+                a: '<b>پاسخ نخبگانی:</b> میانگین حسابی اثر معکوس ضربی زیان را نادیده می‌گیرد. ۵۰٪ زیان نیازمند ۱۰۰٪ سود برای جبران است. تقریب درگ نوسان: G ≈ X_bar - 0.5×σ² نشان می‌دهد هرچه نوسان بیشتر باشد، میانگین هندسی از حسابی کمتر شده و بازده واقعی ثروت کاهش می‌یابد.'
+            },
+            {
+                cat: 'آمار کاربردی ۱',
+                q: 'فلسفه مخرج n - 1 در واریانس نمونه (تصحیح بسل) چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> چون میانگین جامعه μ مجهول است، از x̄ استفاده می‌کنیم. انحراف مشاهدات از x̄ کمتر از انحراف از μ واقعی است. تقسیم بر n واریانس را کمتر از واقعیت برآورد می‌کند. کسر ۱ درجه آزادی این کم‌برآوردی را جبران کرده و s² را برآوردگر نااریب می‌سازد: E[s²] = σ².'
+            },
+            {
+                cat: 'مدیریت مالی ۱',
+                q: 'مفهوم آلفای جنسن مثبت (α > 0) روی خط SML چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> یعنی سهم نسبت به ریسک سیستماتیک بتای خود، بازدهی بیشتری نسبت به پیش‌بینی مدل CAPM خلق کرده است. سهم بالای خط SML قرار می‌گیرد، زیرارزش ذاتی (Undervalued) است و سیگنال خرید محسوب می‌شود.'
+            },
+            {
+                cat: 'حسابداری صنعتی ۱',
+                q: 'رابطه ریاضی بین درجه اهرم عملیاتی (DOL) و حاشیه امنیت (MS%) چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> رابطه معکوس کامل: DOL = 1 / MS%. هرچه شرکتی حاشیه امنیت بالاتری داشته باشد، از نقطه سر‌به‌سر دورتر است و اهرم عملیاتی و حساسیت سود آن نسبت به تغییر تیراژ کمتر است.'
+            },
+            {
+                cat: 'اقتصاد خرد',
+                q: 'قانون طلایی تسهیم بار مالیاتی دولت بین خریدار و فروشنده چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> بار مالیاتی معکوس کشش است: Burden_C / Burden_P = Es / |Ed| = d / b. هر طرف که کشش کمتری داشته باشد (انعطاف کمتر برای فرار از بازار)، سهم بیشتری از مالیات را به دوش می‌کشد.'
+            },
+            {
+                cat: 'آمار کاربردی ۱',
+                q: 'سلسله‌مراتب نامساوی طلایی میانگین‌ها و شرط برابری آن‌ها چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> رابطه Min ≤ H ≤ G ≤ X_bar ≤ RMS ≤ Max همواره برقرار است. شرط تساوی H = G = X_bar این است که واریانس صفر باشد و تمام داده‌ها با هم برابر باشند.'
+            },
+            {
+                cat: 'آمار کاربردی ۱',
+                q: 'معیار توکی برای تشخیص داده‌های پرت (Outliers) با دامنه میان‌چارکی چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> هر داده‌ای که خارج از بازه [Q1 - 1.5×IQR , Q3 + 1.5×IQR] قرار گیرد داده پرت ملایم، و خارج از بازه [Q1 - 3×IQR , Q3 + 3×IQR] داده پرت شدید است.'
+            },
+            {
+                cat: 'مدیریت مالی ۱',
+                q: 'معادله بتای اهرمی همادا و اثر صرفه‌جویی مالیاتی بدهی چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> رابطه β_L = β_U × [1 + (1 - T)(D/E)]. سپر مالیاتی بهره (1 - T) ریسک مالی بدهی را تعدیل می‌کند و بتای اهرمی را متناسب با ساختار سرمایه افزایش می‌دهد.'
+            }
+        ];
+
+        let leitnerCurrentIdx = 0;
+        let leitnerState = { box: 1 };
+
+        function initLeitner() {
+            renderLeitnerCard();
+        }
+
+        function renderLeitnerCard() {
+            const card = leitnerCards[leitnerCurrentIdx];
+            const badge = document.getElementById('leitner-progress-badge');
+            if (badge) badge.innerText = 'کارت ' + (leitnerCurrentIdx + 1) + ' از ' + leitnerCards.length;
+
+            const qEl = document.getElementById('fc-question');
+            const catEl = document.getElementById('fc-category');
+            const aEl = document.getElementById('fc-answer');
+            const front = document.getElementById('flashcard-front');
+            const back = document.getElementById('flashcard-back');
+
+            const btnFlip = document.getElementById('btn-fc-flip');
+            const btnKnow = document.getElementById('btn-fc-know');
+            const btnForget = document.getElementById('btn-fc-forget');
+
+            if (qEl) qEl.innerText = card.q;
+            if (catEl) catEl.innerText = card.cat;
+            if (aEl) aEl.innerHTML = card.a;
+
+            if (front) front.style.display = 'flex';
+            if (back) back.style.display = 'none';
+
+            if (btnFlip) btnFlip.style.display = 'inline-flex';
+            if (btnKnow) btnKnow.style.display = 'none';
+            if (btnForget) btnForget.style.display = 'none';
+
+            [1, 2, 3, 4, 5].forEach(i => {
+                const dot = document.getElementById('lbox-' + i);
+                if (dot) {
+                    if (i === leitnerState.box) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                }
+            });
+        }
+
+        function flipFlashcard() {
+            const front = document.getElementById('flashcard-front');
+            const back = document.getElementById('flashcard-back');
+            const btnFlip = document.getElementById('btn-fc-flip');
+            const btnKnow = document.getElementById('btn-fc-know');
+            const btnForget = document.getElementById('btn-fc-forget');
+
+            if (front) front.style.display = 'none';
+            if (back) back.style.display = 'block';
+
+            if (btnFlip) btnFlip.style.display = 'none';
+            if (btnKnow) btnKnow.style.display = 'inline-flex';
+            if (btnForget) btnForget.style.display = 'inline-flex';
+        }
+        window.flipFlashcard = flipFlashcard;
+
+        function markFlashcard(knewIt) {
+            if (knewIt) {
+                leitnerState.box = Math.min(5, leitnerState.box + 1);
+                showToast('آفرین! کارت به خانه ' + leitnerState.box + ' لایتنر منتقل شد');
+            } else {
+                leitnerState.box = 1;
+                showToast('کارت برای مرور مجدد به خانه ۱ بازگشت');
+            }
+            leitnerCurrentIdx = (leitnerCurrentIdx + 1) % leitnerCards.length;
+            renderLeitnerCard();
+        }
+        window.markFlashcard = markFlashcard;
+
+        // ========================================================
+        // PRINTABLE A4 CHEAT-SHEET ENGINE
+        // ========================================================
+        function openCheatSheet() {
+            const modal = document.getElementById('modal-cheat-sheet');
+            const grid = document.getElementById('cheat-content-grid');
+            if (!modal || !grid) return;
+
+            const cards = document.querySelectorAll('.hub-card');
+            let cHtml = '';
+            cards.forEach(c => {
+                const title = c.querySelector('h4') ? c.querySelector('h4').innerText : '';
+                const formula = c.querySelector('.formula-display') ? c.querySelector('.formula-display').innerText : '';
+                const note = c.querySelector('.tier-card') ? c.querySelector('.tier-card').innerText : '';
+                cHtml += '<div style="border: 1px solid #CBD5E1; border-radius: 8px; padding: 8px 10px; break-inside: avoid; background: #F8FAFC;">' +
+                    '<div style="font-size: 0.78rem; font-weight: 900; color: #1E3A8A; margin-bottom: 2px;">' + title + '</div>' +
+                    '<div style="font-family: \'JetBrains Mono\', monospace; font-size: 0.8rem; font-weight: 800; color: #0F172A; margin-bottom: 3px;">' + formula + '</div>' +
+                    '<div style="font-size: 0.65rem; color: #475569; line-height: 1.5;">' + note.slice(0, 140) + '...</div>' +
+                    '</div>';
+            });
+
+            grid.innerHTML = cHtml;
+            modal.style.display = 'flex';
+        }
+        window.openCheatSheet = openCheatSheet;
+
+        function closeCheatSheet() {
+            const modal = document.getElementById('modal-cheat-sheet');
+            if (modal) modal.style.display = 'none';
+        }
+        window.closeCheatSheet = closeCheatSheet;
+
         function initCockpit() {
             bindDual('m-t-slider', 'm-t-num', drawMicro);
             bindDual('m-a-slider', 'm-a-num', drawMicro);
@@ -4909,6 +5945,10 @@
             // Fullscreen Canvas hover
             initCanvasHover('fs', drawFullscreen, 'fullscreenCanvas');
 
+            initTheme();
+            updateAllSensitivities();
+            ['micro', 'cost', 'finance', 'or', 'stat'].forEach(renderQuiz);
+            initLeitner();
             selectCourse('micro');
             selectTab('sim');
         }
@@ -4925,6 +5965,7 @@
             resizeTimer = setTimeout(redrawActiveCourse, 100);
         });
     })();
+    
     
     </script>
 </body>
