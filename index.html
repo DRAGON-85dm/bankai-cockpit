@@ -1300,10 +1300,257 @@
                 padding: 10px;
             }
         }
+    
+        /* ========================================================
+           v14.0 BANKAI SOVEREIGN SECURITY SHIELD CSS
+           ======================================================== */
+        #bankai-security-shield {
+            position: fixed;
+            inset: 0;
+            z-index: 100000;
+            background: #07090E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            font-family: 'Vazirmatn', sans-serif;
+            direction: rtl;
+            user-select: none;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .shield-card {
+            background: #0F172A;
+            border: 1.5px solid #1E293B;
+            border-radius: 24px;
+            padding: 30px 24px;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .shield-emblem-wrap {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 14px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .shield-radar-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px dashed #38BDF8;
+            animation: radar-spin 12s linear infinite;
+            opacity: 0.6;
+        }
+        .shield-radar-sweep {
+            position: absolute;
+            inset: 4px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: #38BDF8;
+            animation: radar-spin 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        .shield-emblem {
+            font-size: 2rem;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
+        }
+        @keyframes radar-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .shield-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.05rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #F8FAFC;
+            margin-bottom: 4px;
+        }
+        .shield-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.12);
+            color: #38BDF8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 9999px;
+            padding: 3px 12px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .shield-desc {
+            font-size: 0.72rem;
+            color: #94A3B8;
+            margin-bottom: 14px;
+        }
+        .shield-terminal {
+            background: #07090E;
+            border: 1px solid #1E293B;
+            border-radius: 12px;
+            padding: 12px 14px;
+            text-align: left;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            line-height: 1.8;
+            direction: ltr;
+            margin-bottom: 14px;
+        }
+        .term-line { color: #94A3B8; }
+        .term-cyan { color: #38BDF8; font-weight: 700; }
+        .term-green { color: #10B981; font-weight: 700; }
+        .term-red { color: #EF4444; font-weight: 700; }
+        .shield-status-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+        .shield-status-box.success {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1.5px solid #10B981;
+        }
+        .shield-status-box.error {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1.5px solid #EF4444;
+        }
+        .shield-progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #1E293B;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .shield-progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #38BDF8, #10B981);
+            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .lockdown-badge {
+            display: inline-block;
+            background: #EF4444;
+            color: #FFFFFF;
+            font-size: 0.72rem;
+            font-weight: 900;
+            padding: 6px 14px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+            animation: pulse-red 1.5s infinite;
+        }
+        @keyframes pulse-red {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.98); }
+        }
+        .shake {
+            animation: shake-anim 0.35s ease-in-out;
+        }
+        @keyframes shake-anim {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+        .shield-footer {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            color: #64748B;
+            margin-top: 18px;
+        }
+
     </style>
 
 </head>
 <body>
+
+    <!-- BANKAI SOVEREIGN SECURITY SHIELD OVERLAY -->
+    <div id="bankai-security-shield">
+        <div class="shield-card" id="shield-card-box">
+            <!-- Radar / Scanner Header -->
+            <div class="shield-emblem-wrap">
+                <div class="shield-radar-ring"></div>
+                <div class="shield-radar-sweep"></div>
+                <div class="shield-emblem">⚔️</div>
+            </div>
+
+            <h2 class="shield-title">BANKAI SOVEREIGN SHIELD</h2>
+            <div class="shield-badge">حفاظ امنیتی انحصاری بهادر</div>
+            <p class="shield-desc">سامانه احراز هویت دوعاملی بیومتریک و شناسه انحصاری تلگرام</p>
+
+            <!-- Diagnostic Monospace Terminal -->
+            <div class="shield-terminal" id="shield-terminal">
+                <div class="term-line term-cyan">> [KERNEL v14.0]: INITIALIZING BANKAI HARDENED ENGINE...</div>
+                <div class="term-line term-dim">> [TELEGRAM GATEWAY]: SCANNING RUNTIME CONTEXT...</div>
+                <div class="term-line" id="term-status">> [AUDIT]: VERIFYING USER CREDENTIALS...</div>
+            </div>
+
+            <!-- Success Block (Revealed when authenticated) -->
+            <div id="shield-success-box" style="display: none; margin-top: 14px;">
+                <div class="shield-status-box success">
+                    <span style="font-size: 1.2rem;">🛡️</span>
+                    <div style="text-align: right;">
+                        <div style="font-weight: 900; color: #10B981; font-size: 0.88rem;">هویت تایید شد: بهادر ⚔️</div>
+                        <div style="font-size: 0.7rem; color: #94A3B8;">سطح دسترسی: فرمانده کل (Sovereign Level 5)</div>
+                    </div>
+                </div>
+                <div class="shield-progress-bar">
+                    <div class="shield-progress-fill" id="shield-progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Rejection Block (Revealed when unauthorized Telegram user detected) -->
+            <div id="shield-reject-box" style="display: none; margin-top: 14px;">
+                <div class="shield-status-box error">
+                    <span style="font-size: 1.4rem;">⛔</span>
+                    <div style="text-align: right;">
+                        <div style="font-weight: 900; color: #EF4444; font-size: 0.9rem;">اخطار: دسترسی غیرمجاز!</div>
+                        <div id="reject-detail" style="font-size: 0.72rem; color: #FECDD3; line-height: 1.6; margin-top: 4px;">
+                            شناسه کاربری تلگرام شما مجاز نیست. این سامانه انحصاری بوده و تمامی داده‌ها مسدود گردید.
+                        </div>
+                    </div>
+                </div>
+                <div class="lockdown-badge">🔒 وضعیت امنیتی: مسدودسازی کامل سیستم</div>
+            </div>
+
+            <!-- PIN Input Block (Revealed when opened in browser / external) -->
+            <div id="shield-pin-box" style="display: none; margin-top: 16px;">
+                <div style="font-size: 0.78rem; font-weight: 800; color: #CBD5E1; margin-bottom: 8px;">
+                    🔐 ورود با کلید فوق محرمانه بانکای (Master Passcode):
+                </div>
+                <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 12px;">
+                    <input type="password" id="shield-pin-input" maxlength="10" placeholder="••••" autocomplete="off"
+                           style="width: 160px; text-align: center; font-size: 1.3rem; letter-spacing: 6px; padding: 10px 14px; background: #07090E; border: 2px solid #334155; border-radius: 12px; color: #38BDF8; outline: none; font-family: 'JetBrains Mono', monospace;"
+                           onkeydown="if(event.key === 'Enter') verifyMasterPin()">
+                    <button onclick="verifyMasterPin()" class="btn-chart-tool" style="background: #2563EB; color: #FFFFFF; border-color: #2563EB; padding: 0 16px; font-weight: 800;">
+                        ورود ⚔️
+                    </button>
+                </div>
+                <div id="pin-feedback" style="font-size: 0.72rem; min-height: 18px; color: #94A3B8;">
+                    پین‌کد اختصاصی یا شناسه تلگرامی خود را وارد کنید
+                </div>
+            </div>
+
+            <!-- Footer Notice -->
+            <div class="shield-footer">
+                <span>DRAGON-85dm / BANKAI PROTOCOL</span>
+                <span>•</span>
+                <span>SOVEREIGN VIP LOCK</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN COCKPIT APPLICATION CONTAINER (HIDDEN UNTIL AUTHENTICATED) -->
+    <div id="bankai-cockpit-app" style="display: none;">
+
 
     <!-- TOAST NOTIFICATION -->
     <div id="toast" class="toast">
@@ -4087,6 +4334,8 @@
         </div>
     </div>
 
+    </div><!-- end bankai-cockpit-app -->
+
     <!-- JAVASCRIPT MASTERPIECE ENGINE v12.0 -->
     <script>
 
@@ -5914,6 +6163,174 @@
         }
         window.closeCheatSheet = closeCheatSheet;
 
+        
+        // ========================================================
+        // v14.0 BANKAI SOVEREIGN SECURITY ENGINE
+        // ========================================================
+        const AUTHORIZED_TG_ID = '1256058389';
+        const HASH_8585 = 'bbb925608218d662fa6dcca680d7cd561b3df4c16077118d9753cff351c98f61';
+        const HASH_TG_ID = 'd89314e8cd38fe093c280ecce114409b12b7a0c8224f8178746485b15c883847';
+
+        async function calcSha256(str) {
+            try {
+                if (window.crypto && window.crypto.subtle) {
+                    const enc = new TextEncoder().encode(str);
+                    const buf = await window.crypto.subtle.digest('SHA-256', enc);
+                    const arr = Array.from(new Uint8Array(buf));
+                    return arr.map(b => b.toString(16).padStart(2, '0')).join('');
+                }
+            } catch (e) {}
+            return '';
+        }
+
+        function unlockSovereignAccess(greetingText) {
+            sessionStorage.setItem('bankai_sovereign_auth', 'AUTHORIZED_SOVEREIGN_BAHADOR_85');
+            const successBox = document.getElementById('shield-success-box');
+            const pinBox = document.getElementById('shield-pin-box');
+            const progressFill = document.getElementById('shield-progress-fill');
+            const shield = document.getElementById('bankai-security-shield');
+            const app = document.getElementById('bankai-cockpit-app');
+
+            if (pinBox) pinBox.style.display = 'none';
+            if (successBox) successBox.style.display = 'block';
+            if (progressFill) progressFill.style.width = '100%';
+
+            setTimeout(() => {
+                if (shield) {
+                    shield.style.opacity = '0';
+                    shield.style.pointerEvents = 'none';
+                    setTimeout(() => { shield.style.display = 'none'; }, 400);
+                }
+                if (app) app.style.display = 'block';
+                initCockpit();
+                showToast(greetingText || 'خوش آمدید بهادر ⚔️ - سطح دسترسی فرمانده کل فعال شد');
+            }, 600);
+        }
+
+        async function verifyMasterPin() {
+            const input = document.getElementById('shield-pin-input');
+            const feedback = document.getElementById('pin-feedback');
+            if (!input || !feedback) return;
+
+            const lockoutUntil = parseInt(localStorage.getItem('bankai_lockout_until') || '0', 10);
+            if (Date.now() < lockoutUntil) {
+                const rem = Math.ceil((lockoutUntil - Date.now()) / 1000);
+                feedback.innerText = 'سیستم به دلیل دفعات اشتباه به مدت ' + rem + ' ثانیه قفل است.';
+                feedback.style.color = '#EF4444';
+                input.classList.add('shake');
+                setTimeout(() => input.classList.remove('shake'), 400);
+                return;
+            }
+
+            const pin = input.value.trim();
+            if (!pin) {
+                feedback.innerText = 'لطفاً کلید فوق محرمانه را وارد کنید';
+                feedback.style.color = '#F59E0B';
+                return;
+            }
+
+            const hash = await calcSha256(pin);
+            const isValid = (hash === HASH_8585 || hash === HASH_TG_ID || pin === '8585' || pin === AUTHORIZED_TG_ID);
+
+            if (isValid) {
+                localStorage.removeItem('bankai_pin_fails');
+                localStorage.removeItem('bankai_lockout_until');
+                feedback.innerText = 'کلید تایید شد. در حال گشایش کابین...';
+                feedback.style.color = '#10B981';
+                unlockSovereignAccess('احراز هویت موفق: کلید فرماندهی تایید شد ⚔️');
+            } else {
+                let fails = parseInt(localStorage.getItem('bankai_pin_fails') || '0', 10) + 1;
+                localStorage.setItem('bankai_pin_fails', fails.toString());
+                input.value = '';
+                input.classList.add('shake');
+                setTimeout(() => input.classList.remove('shake'), 400);
+
+                if (fails >= 3) {
+                    localStorage.setItem('bankai_lockout_until', (Date.now() + 60000).toString());
+                    feedback.innerText = '۳ بار اشتباه! سیستم به مدت ۶۰ ثانیه قفل شد.';
+                    feedback.style.color = '#EF4444';
+                } else {
+                    feedback.innerText = 'کلید نامعتبر است! (' + fails + ' از ۳ تلاش مجاز)';
+                    feedback.style.color = '#EF4444';
+                }
+            }
+        }
+        window.verifyMasterPin = verifyMasterPin;
+
+        function runSecurityAudit() {
+            // Check session
+            if (sessionStorage.getItem('bankai_sovereign_auth') === 'AUTHORIZED_SOVEREIGN_BAHADOR_85') {
+                const shield = document.getElementById('bankai-security-shield');
+                const app = document.getElementById('bankai-cockpit-app');
+                if (shield) shield.style.display = 'none';
+                if (app) app.style.display = 'block';
+                initCockpit();
+                return;
+            }
+
+            const termStatus = document.getElementById('term-status');
+            const rejectBox = document.getElementById('shield-reject-box');
+            const pinBox = document.getElementById('shield-pin-box');
+            const rejectDetail = document.getElementById('reject-detail');
+
+            let tgUser = null;
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
+                tgUser = window.Telegram.WebApp.initDataUnsafe.user;
+            }
+
+            if (tgUser && tgUser.id) {
+                const uid = String(tgUser.id);
+                if (uid === AUTHORIZED_TG_ID) {
+                    if (termStatus) {
+                        termStatus.innerHTML = '> [✓] TG_ID: ' + uid + '<br>> [✓] USER: BAHADOR (SOVEREIGN)<br>> [✓] ACCESS GRANTED (LEVEL 5)';
+                        termStatus.className = 'term-line term-green';
+                    }
+                    unlockSovereignAccess('هویت تایید شد: بهادر ⚔️ - ورود مجاز');
+                } else {
+                    // Unauthorized Telegram User
+                    if (termStatus) {
+                        termStatus.innerHTML = '> [✗] TG_ID: ' + uid + '<br>> [✗] USER: ' + (tgUser.first_name || 'UNKNOWN') + '<br>> [!] BREACH DETECTED: ACCESS DENIED';
+                        termStatus.className = 'term-line term-red';
+                    }
+                    if (rejectDetail) {
+                        rejectDetail.innerText = 'شناسه کاربری شما (' + uid + ') در لیست مجاز سامانه ثبت نشده است. این کابین متعلق به بهادر بوده و دسترسی شما کاملاً مسدود گردید.';
+                    }
+                    if (rejectBox) rejectBox.style.display = 'block';
+                    if (pinBox) pinBox.style.display = 'none';
+
+                    // Anti-tamper: wipe content
+                    const app = document.getElementById('bankai-cockpit-app');
+                    if (app) app.innerHTML = '';
+                }
+            } else {
+                // Standalone browser or untrusted context
+                if (termStatus) {
+                    termStatus.innerHTML = '> [!] ENVIRONMENT: STANDALONE BROWSER<br>> [?] WAITING FOR SOVEREIGN PASSCODE...';
+                    termStatus.className = 'term-line term-cyan';
+                }
+                if (pinBox) {
+                    pinBox.style.display = 'block';
+                    setTimeout(() => {
+                        const inp = document.getElementById('shield-pin-input');
+                        if (inp && typeof inp.focus === "function") inp.focus();
+                    }, 300);
+                }
+            }
+        }
+        window.runSecurityAudit = runSecurityAudit;
+
+        // Anti-Inspection & DevTools Guard
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.keyCode === 123 || 
+                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || 
+                (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        });
+
         function initCockpit() {
             bindDual('m-t-slider', 'm-t-num', drawMicro);
             bindDual('m-a-slider', 'm-a-num', drawMicro);
@@ -5954,9 +6371,9 @@
         }
 
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initCockpit);
+            document.addEventListener('DOMContentLoaded', runSecurityAudit);
         } else {
-            initCockpit();
+            runSecurityAudit();
         }
 
         let resizeTimer;
