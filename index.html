@@ -2744,6 +2744,98 @@
             box-shadow: 0 0 16px rgba(59, 130, 246, 0.4) !important;
             transform: translateY(-2px);
         }
+
+        /* Math Discipline Theme Variables */
+        :root {
+            --c-math: #7C3AED;
+            --c-math-bg: #F5F3FF;
+            --c-math-border: #DDD6FE;
+        }
+        .badge-math {
+            background: var(--c-math-bg);
+            color: var(--c-math);
+            border: 1px solid var(--c-math-border);
+        }
+
+        /* Interactive Math Workout Bench Styling */
+        .math-workout-container {
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 18px;
+            padding: 20px;
+            margin-top: 24px;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.06);
+        }
+        body.theme-dark .math-workout-container {
+            background: #0F172A;
+            border-color: #1E293B;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .workout-nav-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            scrollbar-width: none;
+        }
+        .workout-nav-pills::-webkit-scrollbar { display: none; }
+        .workout-pill {
+            background: #F8FAFC;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 10px;
+            padding: 7px 14px;
+            font-size: 0.76rem;
+            font-weight: 800;
+            color: #475569;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        body.theme-dark .workout-pill {
+            background: #1E293B;
+            border-color: #334155;
+            color: #94A3B8;
+        }
+        .workout-pill.active {
+            background: #7C3AED !important;
+            color: #FFFFFF !important;
+            border-color: #6D28D9 !important;
+            box-shadow: 0 3px 10px rgba(124, 58, 237, 0.35) !important;
+        }
+        .workout-pane {
+            display: none;
+            animation: bankaiFadeTab 0.2s ease;
+        }
+        .workout-pane.active {
+            display: block;
+        }
+        .workout-result-box {
+            background: #F5F3FF;
+            border: 1.5px solid #DDD6FE;
+            border-radius: 14px;
+            padding: 16px;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            color: #1E1B4B;
+        }
+        body.theme-dark .workout-result-box {
+            background: rgba(124, 58, 237, 0.12);
+            border-color: #4C1D95;
+            color: #EDE9FE;
+        }
+        .workout-step {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+        }
+        body.theme-dark .workout-step {
+            background: #090D16;
+            border-color: #1E293B;
+        }
 </style>
 
 </head>
@@ -2909,7 +3001,14 @@
                 <span class="chip-sub">میانگین‌ها، واریانس، MAD و نرمال</span>
             </div>
         </button>
-        <button class="course-chip" id="btn-course-hub" onclick="selectCourse('hub')">
+                <button class="course-chip" id="btn-course-math" onclick="selectCourse('math')">
+            <span class="chip-icon">📐</span>
+            <div class="chip-text">
+                <span class="chip-title">ریاضیات مدیریت</span>
+                <span class="chip-sub">مشتق، بهینه‌سازی، ماتریس و کارگاه تمرین</span>
+            </div>
+        </button>
+<button class="course-chip" id="btn-course-hub" onclick="selectCourse('hub')">
             <span class="chip-icon">📚</span>
             <div class="chip-text">
                 <span class="chip-title">دانشنامه شاخص‌ها</span>
@@ -5864,6 +5963,781 @@
             </div>
         </div>
 
+        
+        <!-- ========================================================
+             6. MATHEMATICAL METHODS & APPLICATIONS IN MANAGEMENT PANE
+             ======================================================== -->
+        <div id="pane-math" class="discipline-pane" style="display: none;">
+            
+            <!-- SUBTAB 1: LIVE SIMULATION & INTERACTIVE FORMULA WORKOUT BENCH -->
+            <div id="math-tab-sim" class="subtab-view">
+                <div class="sim-layout" id="math-layout">
+                    <!-- Controls Column -->
+                    <div class="controls-column card" style="margin-bottom: 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                            <span style="font-size: 0.82rem; font-weight: 900; color: #7C3AED;">📐 مدل تحلیلی مشتق و بهینه‌سازی</span>
+                            <span class="font-mono badge badge-math">f(x) = a x² + b x + c</span>
+                        </div>
+
+                        <!-- Param a (Quadratic coefficient) -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">ضریب درجه دو a (تقعر و تقعر معکوس):</span>
+                                <input type="number" id="mth-a-num" value="-0.05" step="0.01" class="param-input-box" style="color: #7C3AED;">
+                            </div>
+                            <input type="range" id="mth-a-slider" min="-0.2" max="0.2" step="0.01" value="-0.05">
+                        </div>
+
+                        <!-- Param b (Linear slope) -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">ضریب درجه یک b (شیب اولیه تابع):</span>
+                                <input type="number" id="mth-b-num" value="4" step="0.5" class="param-input-box" style="color: #2563EB;">
+                            </div>
+                            <input type="range" id="mth-b-slider" min="0" max="20" step="0.5" value="4">
+                        </div>
+
+                        <!-- Param c (Intercept / Fixed) -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">عرض از مبدا c (مقدار پایه / هزینه ثابت):</span>
+                                <input type="number" id="mth-c-num" value="20" step="5" class="param-input-box" style="color: #047857;">
+                            </div>
+                            <input type="range" id="mth-c-slider" min="0" max="100" step="5" value="20">
+                        </div>
+
+                        <!-- Param x0 (Evaluation point) -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">نقطه ارزیابی x₀ (تیراژ یا سطح فعالیت):</span>
+                                <input type="number" id="mth-x0-num" value="20" step="1" class="param-input-box" style="color: #D97706;">
+                            </div>
+                            <input type="range" id="mth-x0-slider" min="0" max="80" step="1" value="20">
+                        </div>
+
+                        <!-- Model Note -->
+                        <div class="card-inner" style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: #334155; margin-top: 8px;">
+                            <strong style="color: #0F172A; display: block; margin-bottom: 4px;">کالبدشکافی تحلیلی مشتق:</strong>
+                            <div>• معادله تابع: f(x) = a x² + b x + c</div>
+                            <div>• مشتق اول (شیب مماس): f'(x) = 2a x + b</div>
+                            <div>• نقطه اکسترمم (بحرانی): x* = -b / (2a)</div>
+                        </div>
+
+                        <!-- Live KPIs -->
+                        <div class="kpi-row">
+                            <div class="kpi-box" style="background: #F5F3FF; border-color: #DDD6FE;">
+                                <span class="kpi-tag">مقدار تابع f(x₀)</span>
+                                <span class="kpi-number" id="mth-kpi-fx" style="color: #7C3AED;">80.00</span>
+                                <span class="kpi-subtext">درآمد کل یا ارزش کل در x₀</span>
+                            </div>
+                            <div class="kpi-box" style="background: #FEF3C7; border-color: #FDE68A;">
+                                <span class="kpi-tag">مشتق اول f'(x₀) (شیب مماس)</span>
+                                <span class="kpi-number" id="mth-kpi-fprime" style="color: #B45309;">2.00</span>
+                                <span class="kpi-subtext">نرخ تغییر آنی / درآمد نهایی MR</span>
+                            </div>
+                        </div>
+                        <div class="kpi-row" style="margin-top: 8px;">
+                            <div class="kpi-box" style="background: #F1F5F9; border-color: #CBD5E1;">
+                                <span class="kpi-tag">مشتق دوم f''(x₀)</span>
+                                <span class="kpi-number" id="mth-kpi-fdouble" style="color: #475569; font-size: 0.95rem;">-0.10 (ماکزیمم)</span>
+                                <span class="kpi-subtext">آزمون تقعر و جهت انحنا</span>
+                            </div>
+                            <div class="kpi-box" style="background: #ECFDF5; border-color: #A7F3D0;">
+                                <span class="kpi-tag">نقطه اوج بهینه x*</span>
+                                <span class="kpi-number" id="mth-kpi-opt" style="color: #047857; font-size: 0.95rem;">x* = 40.0 , f* = 100.0</span>
+                                <span class="kpi-subtext">شرط لازم مشتق صفر (FOC)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Column -->
+                    <div class="chart-column card" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="canvas-top-bar">
+                                <div>
+                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: #0F172A;">📊 هندسه دیفرانسیل: خط مماس، خط قاطع و اکسترمم</h3>
+                                    <p style="font-size: 0.72rem; color: #64748B;">
+                                        ترسیم رتینای تابع سود، خط مماس در نقطه ارزیابی و حد خطوط قاطع
+                                    </p>
+                                </div>
+                                <div class="canvas-action-buttons">
+                                    <button class="btn-chart-tool" onclick="zoomCanvas('math', 1.25)" title="بزرگ‌نمایی"><span>🔍+</span></button>
+                                    <button class="btn-chart-tool" onclick="zoomCanvas('math', 0.8)" title="کوچک‌نمایی"><span>🔍-</span></button>
+                                    <button class="btn-chart-tool" onclick="resetZoomCanvas('math')" title="ریست مقیاس"><span>⟲</span></button>
+                                    <button class="btn-chart-tool btn-fullscreen-launch" onclick="openFullscreenChart('math')">
+                                        <span>⛶</span> <span>نمای بزرگ ریاضیات</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Layer Toggles -->
+                            <div class="canvas-layer-controls" style="margin-bottom: 10px;">
+                                <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">لایه‌های تحلیلی:</span>
+                                <button class="layer-toggle active" id="math-layer-curve" onclick="toggleLayer('math', 'curve')">منحنی تابع f(x)</button>
+                                <button class="layer-toggle active" id="math-layer-tangent" onclick="toggleLayer('math', 'tangent')">خط مماس f'(x₀)</button>
+                                <button class="layer-toggle active" id="math-layer-secant" onclick="toggleLayer('math', 'secant')">خط قاطع (Δx)</button>
+                                <button class="layer-toggle active" id="math-layer-extrema" onclick="toggleLayer('math', 'extrema')">نقطه اوج x*</button>
+                                <button class="layer-toggle active" id="math-layer-proj" onclick="toggleLayer('math', 'proj')">خطوط تصویر</button>
+                            </div>
+
+                            <!-- Canvas Area -->
+                            <div class="canvas-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; background: #0B0F19;">
+                                <canvas id="canvasMath" width="600" height="340" style="width: 100%; height: auto; display: block;"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Canvas Bottom Legend -->
+                        <div class="canvas-legend" style="margin-top: 10px; display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.72rem; color: #64748B;">
+                            <span style="display: flex; align-items: center; gap: 5px;">
+                                <span style="width: 12px; height: 3px; background: #8B5CF6; display: inline-block; border-radius: 2px;"></span>
+                                منحنی تابع f(x)
+                            </span>
+                            <span style="display: flex; align-items: center; gap: 5px;">
+                                <span style="width: 12px; height: 3px; background: #F59E0B; display: inline-block; border-radius: 2px;"></span>
+                                خط مماس (شیب = مشتق)
+                            </span>
+                            <span style="display: flex; align-items: center; gap: 5px;">
+                                <span style="width: 12px; height: 2px; border-top: 2px dashed #0284C7; display: inline-block;"></span>
+                                خط قاطع (نرخ متوسط)
+                            </span>
+                            <span style="display: flex; align-items: center; gap: 5px;">
+                                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+                                نقطه اکسترمم (مشتق صفر)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     INTERACTIVE MATH FORMULA WORKOUT BENCH & PRACTICE LAB
+                     ======================================================== -->
+                <div class="math-workout-container" id="math-workout-bench">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
+                        <div>
+                            <span class="badge badge-math">بستر اختصاصی تمرین تعاملی</span>
+                            <h3 style="font-size: 1.12rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                                🧮 کارگاه تمرین و آزمایشگاه فرمول‌های ریاضی مدیریت
+                            </h3>
+                            <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
+                                درج مستقیم پارامترها، تمرین گام‌به‌گام و استخراج آنی نتایج محاسباتی با کالبدشکافی ریشه‌ای
+                            </p>
+                        </div>
+                        <span class="badge badge-dark">نسخه ویژه بهادر</span>
+                    </div>
+
+                    <!-- Workout Station Navigation Pills -->
+                    <div class="workout-nav-pills">
+                        <button class="workout-pill active" id="btn-wpill-marginal" onclick="switchMathWorkoutTab('marginal')">
+                            <span>📈</span> توابع نهایی (MR و MC)
+                        </button>
+                        <button class="workout-pill" id="btn-wpill-elasticity" onclick="switchMathWorkoutTab('elasticity')">
+                            <span>⚡</span> کشش نقطه‌ای مشتقی
+                        </button>
+                        <button class="workout-pill" id="btn-wpill-matrix" onclick="switchMathWorkoutTab('matrix')">
+                            <span>🧩</span> دترمینان، معکوس و کرامر
+                        </button>
+                        <button class="workout-pill" id="btn-wpill-lagrange" onclick="switchMathWorkoutTab('lagrange')">
+                            <span>🏔️</span> بهینه‌سازی مقید لاگرانژ
+                        </button>
+                        <button class="workout-pill" id="btn-wpill-challenge" onclick="switchMathWorkoutTab('challenge')">
+                            <span>🎯</span> چالش تمرین سریع تستی
+                        </button>
+                    </div>
+
+                    <!-- STATION 1: MARGINAL ANALYSIS -->
+                    <div class="workout-pane active" id="wpane-marginal">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۱. تمرین درآمد نهایی، هزینه نهایی و تیراژ حداکثرکننده سود:
+                            </strong>
+                            <div style="font-size: 0.76rem; color: #475569; margin-bottom: 10px;">
+                                معادله درآمد کل: TR(Q) = a Q² + b Q &nbsp;|&nbsp; معادله هزینه کل: TC(Q) = c Q² + d Q + e
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">ضریب a در TR:</label>
+                                    <input type="number" id="mrg-a" value="-1" step="0.5" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">ضریب b در TR:</label>
+                                    <input type="number" id="mrg-b" value="60" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">ضریب c در TC:</label>
+                                    <input type="number" id="mrg-c" value="1" step="0.5" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">ضریب d در TC:</label>
+                                    <input type="number" id="mrg-d" value="10" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">هزینه ثابت e:</label>
+                                    <input type="number" id="mrg-e" value="50" step="10" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runMathMarginalTrainer()" style="margin-top: 12px; background: #7C3AED; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> اجرای تمرین و محاسبه گام‌به‌گام سود بهینه
+                            </button>
+                        </div>
+                        <div id="mrg-result" class="workout-result-box">
+                            روی دکمه بالا کلیک کنید تا حل گام‌به‌گام و کالبدشکافی درآمد و هزینه نهایی نمایان شود.
+                        </div>
+                    </div>
+
+                    <!-- STATION 2: ELASTICITY WORKOUT -->
+                    <div class="workout-pane" id="wpane-elasticity">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۲. تمرین کشش نقطه‌ای تقاضا با مشتق (Calculus Price Elasticity):
+                            </strong>
+                            <div style="font-size: 0.76rem; color: #475569; margin-bottom: 10px;">
+                                تابع تقاضا: Q = A - b P &nbsp;|&nbsp; فرمول کشش: E_d = (dQ / dP) × (P / Q)
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">عرض از مبدا تقاضا (A):</label>
+                                    <input type="number" id="ela-A" value="200" step="10" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">حساسیت قیمتی (b):</label>
+                                    <input type="number" id="ela-b" value="4" step="0.5" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قیمت جاری بازار (P):</label>
+                                    <input type="number" id="ela-P" value="30" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runMathElasticityTrainer()" style="margin-top: 12px; background: #2563EB; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> اجرای تمرین و محاسبه مشتق و کشش نقطه‌ای
+                            </button>
+                        </div>
+                        <div id="ela-result" class="workout-result-box">
+                            برای ارزیابی کشش نقطه‌ای و توصیه مالی به مدیر عامل، دکمه بالا را لمس کنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 3: MATRIX & CRAMER -->
+                    <div class="workout-pane" id="wpane-matrix">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۳. کارگاه دترمینان، معکوس ماتریس ۲×۲ و قاعده کرامر (Cramer's Rule):
+                            </strong>
+                            <div style="font-size: 0.76rem; color: #475569; margin-bottom: 10px;">
+                                دستگاه معادلات تعادل: a₁₁ x₁ + a₁₂ x₂ = b₁ &nbsp;|&nbsp; a₂₁ x₁ + a₂₂ x₂ = b₂
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px;">
+                                <div><label style="font-size: 0.7rem; color: #64748B;">a₁₁:</label><input type="number" id="mat-a11" value="4" class="param-input-box" style="width: 100%;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">a₁₂:</label><input type="number" id="mat-a12" value="2" class="param-input-box" style="width: 100%;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">ثابت b₁:</label><input type="number" id="mat-b1" value="20" class="param-input-box" style="width: 100%; border-color: #A855F7;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">a₂₁:</label><input type="number" id="mat-a21" value="1" class="param-input-box" style="width: 100%;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">a₂₂:</label><input type="number" id="mat-a22" value="3" class="param-input-box" style="width: 100%;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">ثابت b₂:</label><input type="number" id="mat-b2" value="15" class="param-input-box" style="width: 100%; border-color: #A855F7;"></div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runMathMatrixTrainer()" style="margin-top: 12px; background: #0E7490; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> محاسبه گام‌به‌گام دترمینان، معکوس و جواب کرامر
+                            </button>
+                        </div>
+                        <div id="mat-result" class="workout-result-box">
+                            برای حل دستگاه جبری و استخراج دترمینان و معکوس ماتریس، دکمه بالا را لمس کنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 4: LAGRANGE MULTIPLIER -->
+                    <div class="workout-pane" id="wpane-lagrange">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۴. بهینه‌سازی مقید به روش ضریب لاگرانژ (Lagrange Multipliers):
+                            </strong>
+                            <div style="font-size: 0.76rem; color: #475569; margin-bottom: 10px;">
+                                تابع مطلوبیت کاب-داگلاس: U(x, y) = x^α · y^β &nbsp;|&nbsp; قید بودجه: P_x · x + P_y · y = I
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px;">
+                                <div><label style="font-size: 0.7rem; color: #64748B;">توان کالای ۱ (α):</label><input type="number" id="lag-alpha" value="0.5" step="0.1" class="param-input-box" style="width: 100%;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">توان کالای ۲ (β):</label><input type="number" id="lag-beta" value="0.5" step="0.1" class="param-input-box" style="width: 100%;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">قیمت کالای ۱ (P_x):</label><input type="number" id="lag-px" value="10" step="2" class="param-input-box" style="width: 100%;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">قیمت کالای ۲ (P_y):</label><input type="number" id="lag-py" value="20" step="2" class="param-input-box" style="width: 100%;"></div>
+                                <div><label style="font-size: 0.7rem; color: #64748B;">کل بودجه (I):</label><input type="number" id="lag-I" value="200" step="20" class="param-input-box" style="width: 100%;"></div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runMathLagrangeTrainer()" style="margin-top: 12px; background: #047857; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> حل دستگاه مشتقات جزئی و سبد بهینه مصرف‌کننده
+                            </button>
+                        </div>
+                        <div id="lag-result" class="workout-result-box">
+                            جهت کالبدشکافی ضرایب لاگرانژ و نقطه مماس منحنی بی‌تفاوتی با خط بودجه، دکمه بالا را بزنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 5: INSTANT FORMULA PRACTICE CHALLENGE -->
+                    <div class="workout-pane" id="wpane-challenge">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px;">
+                            <strong style="font-size: 0.88rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۵. چالش خودسنجی و تمرین سریع فرمول‌های ریاضی مدیریت:
+                            </strong>
+                            <p style="font-size: 0.78rem; color: #475569; margin-bottom: 12px;" id="chall-q">
+                                <b>سوال تمرینی:</b> اگر تابع درآمد کل شرکتی TR = -2Q² + 100Q باشد، درآمد نهایی (MR) در تیراژ Q = 15 واحد چقدر است؟
+                            </p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;" id="chall-options">
+                                <button class="btn-quiz-option" onclick="answerMathChallenge(0)" id="chall-opt-0">الف) ۴۰</button>
+                                <button class="btn-quiz-option" onclick="answerMathChallenge(1)" id="chall-opt-1">ب) ۶۰</button>
+                                <button class="btn-quiz-option" onclick="answerMathChallenge(2)" id="chall-opt-2">ج) ۷۰</button>
+                                <button class="btn-quiz-option" onclick="answerMathChallenge(3)" id="chall-opt-3">د) ۸۵</button>
+                            </div>
+                            <div id="chall-feedback" style="display: none; margin-top: 12px; padding: 12px; border-radius: 10px; font-size: 0.78rem;"></div>
+                            <button class="btn-copy-formula" onclick="loadNextMathChallenge()" style="margin-top: 12px; background: #334155; color: #FFFFFF;">
+                                <span>🔄</span> تمرین مسئله بعدی
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End of Isolated View Boundary Guard -->
+                <div class="view-end-guard">
+                    <span>🔒</span>
+                    <span>پایان بخش چارت زنده و کارگاه تمرین ریاضیات | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
+                </div>
+            </div>
+
+            <!-- SUBTAB 2: KNOWLEDGE TREE -->
+            <div id="math-tab-tree" class="subtab-view">
+                <div class="card" style="border-top: 4px solid #7C3AED;">
+                    <span class="badge badge-math">نقشه مفهومی ۵ ستونه</span>
+                    <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                        🌳 درخت دانش ریاضیات و روش‌های کمی در مدیریت و مالی
+                    </h3>
+                    <p style="font-size: 0.75rem; color: #64748B; margin-bottom: 16px;">
+                        سلسله‌مراتب تقدم و تاخر تولد مفاهیم از صفر تا صد (First Principles Architecture)
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                        <div class="card" style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 14px;">
+                            <strong style="color: #7C3AED; font-size: 0.85rem;">۱. توابع و الگوهای رفتاری</strong>
+                            <div style="font-size: 0.73rem; color: #475569; margin-top: 6px; line-height: 1.7;">
+                                • توابع خطی و تحلیل سر‌به‌سر (CVP)<br>
+                                • توابع درجه دو (سهمی‌های درآمد و سود کل)<br>
+                                • توابع نمایی و لگاریتمی (رشد پیوسته ثروت، ارزش زمانی پول)
+                            </div>
+                        </div>
+
+                        <div class="card" style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 14px;">
+                            <strong style="color: #2563EB; font-size: 0.85rem;">۲. حد و پیوستگی</strong>
+                            <div style="font-size: 0.73rem; color: #475569; margin-top: 6px; line-height: 1.7;">
+                                • شهود فیزیکی میل به صفر (ε و δ لایب‌نیتس)<br>
+                                • روش‌های طلایی رفع ابهام کسری (هوپیتال و هم‌ارزی)<br>
+                                • پیوستگی توابع هزینه، تولید و پایداری تعادل بازار
+                            </div>
+                        </div>
+
+                        <div class="card" style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 14px;">
+                            <strong style="color: #D97706; font-size: 0.85rem;">۳. حسابان و قواعد مشتق‌گیری</strong>
+                            <div style="font-size: 0.73rem; color: #475569; margin-top: 6px; line-height: 1.7;">
+                                • تعریف حدی مشتق (شیب خط مماس بر منحنی)<br>
+                                • قواعد ضرب، تقسیم و توان تعمیم‌یافته<br>
+                                • قاعده زنجیره‌ای (Chain Rule) و مشتق ضمنی توابع چندمتغیره
+                            </div>
+                        </div>
+
+                        <div class="card" style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 14px;">
+                            <strong style="color: #047857; font-size: 0.85rem;">۴. کاربردهای مشتق در مدیریت</strong>
+                            <div style="font-size: 0.73rem; color: #475569; margin-top: 6px; line-height: 1.7;">
+                                • توابع نهایی: درآمد نهایی (MR)، بهای نهایی (MC)<br>
+                                • کشش نقطه‌ای تقاضا و رابطه آموروسو-رابینسون<br>
+                                • بهینه‌سازی مقید لاگرانژ (حداکثرسازی مطلوبیت و سود)
+                            </div>
+                        </div>
+
+                        <div class="card" style="background: #F8FAFC; border: 1.5px solid #E2E8F0; padding: 14px;">
+                            <strong style="color: #0E7490; font-size: 0.85rem;">۵. جبر خطی و ماتریس‌ها</strong>
+                            <div style="font-size: 0.73rem; color: #475569; margin-top: 6px; line-height: 1.7;">
+                                • اعمال ماتریسی، دترمینان ساروس و کهادها<br>
+                                • ماتریس الحاقی و معکوس ماتریس A⁻¹<br>
+                                • حل دستگاه معادلات خطی با قاعده کرامر و ماتریس لئونتیف
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End of Isolated View Boundary Guard -->
+                <div class="view-end-guard">
+                    <span>🔒</span>
+                    <span>پایان درخت دانش ریاضیات | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
+                </div>
+            </div>
+
+            <!-- SUBTAB 3: FORMULAS DECK -->
+            <div id="math-tab-formula" class="subtab-view">
+                <div class="card" style="border-top: 4px solid #7C3AED; margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                            <span class="badge badge-math">فرمول‌نامه عمودی بدون اسکرول افقی</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                                📐 فرمول‌نامه جامع و تفکیکی ریاضیات و روش‌های مقداری در مدیریت
+                            </h3>
+                            <p style="font-size: 0.74rem; color: #64748B; margin-top: 2px;">
+                                طبقه‌بندی چندسطحی: تعریف مفهومی، بسط تحلیلی و کاربرد واقعی در تصمیمات مالی و مدیریت
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-card-grid">
+                    <!-- Math Formula 1: Derivative Definition -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">حسابان ۱</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Derivative Limit</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تعریف حدی مشتق و شیب خط مماس</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('f\'(x) = lim_{h -> 0} [f(x+h) - f(x)] / h', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">تعریف لایب‌نیتس و کوشی:</span>
+                                    <span class="math-sym" style="color: #7C3AED;">f'(x)</span><span class="math-op">=</span><span class="math-sym">lim_{Δx→0}</span><span class="math-frac"><span class="math-num">f(x + Δx) - f(x)</span><span class="math-den">Δx</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">تعبیر فیزیکی و هندسی:</span>
+                                    <span class="math-sym">m_{tan}</span><span class="math-op">=</span><span class="math-sym">dy / dx</span><span class="math-sep">|</span> نرخ تغییر آنی تابع در نقطه
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • کسر تغییرات (Δy / Δx) شیب خط قاطع است؛ با میل کردن فاصله به سمت صفر، خط قاطع به خط مماس تبدیل شده و مشتق متولد می‌شود.
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد در مدیریت مالی:</strong>
+                                نرخ تغییرات آنی سود، هزینه، ریسک و تغییرات قیمت سهام با مشتق لحظه‌ای سنجیده می‌شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('f\'(x) = lim_{h->0} [f(x+h) - f(x)] / h')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 2: Differentiation Rules -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">حسابان ۲</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Calculus Rules</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قواعد بنیادین مشتق‌گیری (ضرب، تقسیم و زنجیره‌ای)</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('(u.v)\' = u\'.v + v\'.u ; (u/v)\' = (u\'.v - v\'.u)/v^2 ; d/dx[f(g(x))] = f\'(g(x)).g\'(x)', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">قاعده ضرب:</span>
+                                    <span class="math-sym">(u · v)'</span><span class="math-op">=</span>u' · v + v' · u
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">قاعده تقسیم:</span>
+                                    <span class="math-sym">(u / v)'</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">u' · v - v' · u</span><span class="math-den">v²</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">قاعده زنجیره‌ای (Chain Rule):</span>
+                                    <span class="math-sym">d/dx [ f(g(x)) ]</span><span class="math-op">=</span>f'(g(x)) · g'(x)
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                در قاعده تقسیم علامت صورت اکیداً منفی است و مشتق صورت زودتر از مشتق مخرج ضرب می‌شود: (u'v - v'u)/v².
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                جا انداختن g'(x) در مشتق توابع توانی مرکب مانند [2x² + 5]³! مشتق ۳ برابر پرانتز نیست، بلکه باید در مشتق درون پرانتز (4x) نیز ضرب شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('(u.v)\' = u\'.v + v\'.u; (u/v)\' = (u\'.v - v\'.u)/v^2; (f(g(x)))\' = f\'(g).g\'')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 3: Marginal Analysis -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">کاربرد مدیریتی ۱</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Marginal Functions</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درآمد نهایی (MR)، هزینه نهایی (MC) و حداکثرسازی سود</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('MR = dTR/dQ ; MC = dTC/dQ ; Max Profit: MR = MC', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">درآمد و هزینه نهایی:</span>
+                                    <span class="math-sym">MR</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dTR</span><span class="math-den">dQ</span></span> <span class="math-sep">|</span> <span class="math-sym">MC</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dTC</span><span class="math-den">dQ</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">شرط طلایی حداکثر سود (FOC & SOC):</span>
+                                    <span class="math-sym">MR = MC</span> <span class="math-sep">|</span> <span class="math-sym">d²π/dQ² &lt; 0</span> (تقعر رو به پایین)
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                مشتق سود کل π = TR - TC برابر است با dπ/dQ = MR - MC. با برابر صفر قرار دادن آن، شرط طلایی MR = MC به دنیا می‌آید.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('MR = dTR/dQ; MC = dTC/dQ; MR = MC')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 4: Elasticity with Calculus -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">کاربرد مدیریتی ۲</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Price Elasticity</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">کشش نقطه‌ای تقاضا و رابطه آموروسو-رابینسون</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('E_d = (dQ/dP) * (P/Q) ; MR = P * [ 1 - 1/|E_d| ]', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">کشش نقطه‌ای با مشتق:</span>
+                                    <span class="math-sym">E_d</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">dQ</span><span class="math-den">dP</span></span> ) × ( <span class="math-frac"><span class="math-num">P</span><span class="math-den">Q</span></span> )
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">رابطه آموروسو-رابینسون:</span>
+                                    <span class="math-sym">MR</span><span class="math-op">=</span>P × [ 1 - <span class="math-frac"><span class="math-num">1</span><span class="math-den">|E_d|</span></span> ]
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                کشش تقاضا بدون واحد است؛ اگر |Ed| > 1 باشد MR مثبت است و کاهش قیمت منجر به افزایش درآمد کل شرکت می‌شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Ed = (dQ/dP)*(P/Q); MR = P*(1 - 1/|Ed|)')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 5: Implicit Differentiation -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">چندمتغیره ۱</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Implicit Derivative</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مشتق ضمنی و شیب منحنی‌های تراز (MRS و MRTS)</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('dy/dx = - (∂F/∂x) / (∂F/∂y) ; MRS = MU_x / MU_y', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">قضیه تابع ضمنی (F(x, y) = c):</span>
+                                    <span class="math-sym">dy / dx</span><span class="math-op">=</span>- <span class="math-frac"><span class="math-num">F_x</span><span class="math-den">F_y</span></span><span class="math-op">=</span>- <span class="math-frac"><span class="math-num">∂F/∂x</span><span class="math-den">∂F/∂y</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">نرخ نهایی جانشینی (MRS):</span>
+                                    <span class="math-sym">MRS</span><span class="math-op">=</span>- <span class="math-frac"><span class="math-num">dy</span><span class="math-den">dx</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MU_x</span><span class="math-den">MU_y</span></span>
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                دیفرانسیل کل تابع ثابت صفر است: dF = F_x dx + F_y dy = 0. با مرتب کردن، dy/dx = -F_x / F_y متولد می‌شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('dy/dx = - (dF/dx) / (dF/dy); MRS = MUx / MUy')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 6: Lagrange Multipliers -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">بهینه‌سازی مقید</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Lagrange Multiplier</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">بهینه‌سازی مقید به روش ضریب لاگرانژ (Lagrange Multipliers)</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('L(x, y, λ) = f(x, y) - λ [ g(x, y) - c ] ; ∇f = λ ∇g', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">معادله تابع لاگرانژ:</span>
+                                    <span class="math-sym">ℒ(x, y, λ)</span><span class="math-op">=</span>f(x, y) - λ [ g(x, y) - c ]
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">شرایط مرتبه اول (FOC):</span>
+                                    <span class="math-sym">ℒ_x = 0</span> <span class="math-sep">|</span> <span class="math-sym">ℒ_y = 0</span> <span class="math-sep">|</span> <span class="math-sym">ℒ_λ = 0</span> (ارضای قید)
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                پارامتر λ (ضریب لاگرانژ) همان قیمت سایه منبع است و نشان می‌دهد با افزایش ۱ واحد در کران قید (c)، تابع هدف چقدر افزایش می‌یابد: ∂f*/∂c = λ*.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('L = f(x, y) - lambda * [g(x, y) - c]; dL/dx = 0; dL/dy = 0; dL/dlambda = 0')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 7: Matrix Determinant & Inverse -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">جبر خطی ۱</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Determinant & Inverse</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دترمینان، ماتریس الحاقی و معکوس ماتریس (A⁻¹)</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('|A| = ad - bc ; A^-1 = (1 / |A|) * [ d, -b ; -c, a ]', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">دترمینان ماتریس ۲×۲:</span>
+                                    <span class="math-sym">|A|</span><span class="math-op">=</span><span class="math-sym">det(A)</span><span class="math-op">=</span>a₁₁ a₂₂ - a₁₂ a₂₁
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">ماتریس معکوس (شرط |A| ≠ 0):</span>
+                                    <span class="math-sym">A⁻¹</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">|A|</span></span> × adj(A)
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                اگر |A| = 0 باشد، ماتریس منفرد (Singular) است، بردارها وابسته خطی هستند و معکوس ماتریس وجود ندارد.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('det(A) = a*d - b*c; A_inv = (1 / det(A)) * adj(A)')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 8: Financial Integral & Present Value -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">انتگرال مالی</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Continuous PV</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">انتگرال معین و ارزش فعلی جریان پیوسته نقدی</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('PV = integral_0^T CF(t) * e^(-rt) dt = (CF / r) * [ 1 - e^(-rT) ]', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">ارزش فعلی جریان پیوسته:</span>
+                                    <span class="math-sym">PV</span><span class="math-op">=</span>∫₀ᵀ CF(t) · e^(-rt) dt
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">جریان نقدی ثابت (CF = const):</span>
+                                    <span class="math-sym">PV</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">CF</span><span class="math-den">r</span></span> × [ 1 - e^(-rT) ]
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                انتگرال پیوسته حد مجموع ریمان است؛ زمانی که دوره‌های ترکیب بهره به سمت بی‌نهایت میل کند (ترکیب پیوسته e⁻ʳᵗ).
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('PV = int_0^T CF * e^(-rt) dt = (CF / r) * [1 - e^(-rT)]')"><span>📋</span> کپی فرمول</button>
+                    </div>
+                </div>
+
+                <!-- End of Isolated View Boundary Guard -->
+                <div class="view-end-guard">
+                    <span>🔒</span>
+                    <span>پایان فرمول‌نامه ریاضیات | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
+                </div>
+            </div>
+
+            <!-- SUBTAB 4: CANONICAL SOLUTIONS -->
+            <div id="math-tab-solution" class="subtab-view">
+                <div class="card" style="border-top: 4px solid #7C3AED; margin-bottom: 16px;">
+                    <span class="badge badge-math">آزمایشگاه حل تشریحی مسائل</span>
+                    <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                        🛠️ حل گام‌به‌گام و استاندارد مسائل کنکور ارشد در ریاضیات مدیریت
+                    </h3>
+                    <p style="font-size: 0.74rem; color: #64748B;">
+                        اثبات صفر تا صد مسائل دانشگاهی و آزمون ارشد مدیریت مالی بر مبنای تفکر تحلیلی
+                    </p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <!-- Solution 1 -->
+                    <div class="card" style="border-right: 4px solid #7C3AED;">
+                        <span class="badge badge-math">مسئله تیپ ۱ کنکور ارشد</span>
+                        <h4 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin: 6px 0;">حداکثرسازی سود انحصارگر با توابع درجه دو</h4>
+                        <div style="font-size: 0.76rem; color: #334155; line-height: 1.8;">
+                            <strong>صورت مسئله:</strong> اگر تابع تقاضای کالایی P = 100 - 2Q و تابع هزینه کل TC = Q² + 10Q + 50 باشد، تیراژ تولید بهینه و حداکثر سود شرکت را تعیین کنید.<br>
+                            <strong>گام ۱ (تشکیل درآمد کل):</strong> TR = P × Q = (100 - 2Q)Q = 100Q - 2Q².<br>
+                            <strong>گام ۲ (مشتق‌گیری درآمد و هزینه نهایی):</strong><br>
+                            • MR = dTR/dQ = 100 - 4Q<br>
+                            • MC = dTC/dQ = 2Q + 10<br>
+                            <strong>گام ۳ (شرط طلایی MR = MC):</strong><br>
+                            100 - 4Q = 2Q + 10 &rArr; 6Q = 90 &rArr; Q* = 15 واحد.<br>
+                            <strong>گام ۴ (تعیین قیمت و سود کل):</strong><br>
+                            • قیمت تعادلی: P* = 100 - 2(15) = 70 تومان.<br>
+                            • درآمد کل: TR = 70 × 15 = 1,050.<br>
+                            • هزینه کل: TC = (15)² + 10(15) + 50 = 225 + 150 + 50 = 425.<br>
+                            • سود حداکثر: π* = 1,050 - 425 = 625 تومان.
+                        </div>
+                    </div>
+
+                    <!-- Solution 2 -->
+                    <div class="card" style="border-right: 4px solid #2563EB;">
+                        <span class="badge badge-math">مسئله تیپ ۲ کنکور ارشد</span>
+                        <h4 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin: 6px 0;">حل دستگاه تعادل بازار با قاعده کرامر</h4>
+                        <div style="font-size: 0.76rem; color: #334155; line-height: 1.8;">
+                            <strong>صورت مسئله:</strong> دستگاه معادلات 3x₁ + 2x₂ = 18 و x₁ + 4x₂ = 16 را به روش ماتریسی کرامر حل کنید.<br>
+                            <strong>گام ۱ (محاسبه دترمینان ضرایب |A|):</strong><br>
+                            |A| = (3)(4) - (2)(1) = 12 - 2 = 10 &ne; 0 (دستگاه جواب یکتا دارد).<br>
+                            <strong>گام ۲ (دترمینان ماتریس |A₁| با جایگذاری بردار ثابت):</strong><br>
+                            |A₁| = (18)(4) - (2)(16) = 72 - 32 = 40.<br>
+                            <strong>گام ۳ (دترمینان ماتریس |A₂|):</strong><br>
+                            |A₂| = (3)(16) - (18)(1) = 48 - 18 = 30.<br>
+                            <strong>گام ۴ (استخراج متغیرها):</strong><br>
+                            • x₁* = |A₁| / |A| = 40 / 10 = 4.<br>
+                            • x₂* = |A₂| / |A| = 30 / 10 = 3.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End of Isolated View Boundary Guard -->
+                <div class="view-end-guard">
+                    <span>🔒</span>
+                    <span>پایان آزمایشگاه حل مسئله ریاضیات | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
+                </div>
+            </div>
+
+            <!-- SUBTAB 5: EXAM TRAPS -->
+            <div id="math-tab-traps" class="subtab-view">
+                <div class="card" style="border-top: 4px solid #EF4444; margin-bottom: 16px;">
+                    <span class="badge" style="background: #FEE2E2; color: #DC2626; border: 1px solid #FCA5A5;">کپسول تله‌های کنکور ارشد</span>
+                    <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                        ⚠️ تله‌های مرگبار طراحان کنکور ارشد در ریاضیات مدیریت
+                    </h3>
+                    <p style="font-size: 0.74rem; color: #64748B;">
+                        مرور خطاهای رایج محاسباتی که داوطلبان ارشد را به گزینه‌های انحرافی می‌کشاند
+                    </p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div class="card" style="border-left: 4px solid #EF4444; background: #FFF5F5;">
+                        <strong style="color: #DC2626; font-size: 0.86rem;">🚨 تله ۱: فراموش کردن قاعده زنجیره‌ای در مشتق کسرها و توان‌ها</strong>
+                        <p style="font-size: 0.76rem; color: #334155; margin-top: 4px; line-height: 1.7;">
+                            اگر تابعی به صورت y = (3x² - 1)⁴ داده شود، طراح گزینه ۴(3x² - 1)³ را در گزینه‌ها قرار می‌دهد! پاسخ صحیح حاصل‌ضرب در مشتق داخل پرانتز یعنی 6x است: y' = 24x(3x² - 1)³.
+                        </p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #EF4444; background: #FFF5F5;">
+                        <strong style="color: #DC2626; font-size: 0.86rem;">🚨 تله ۲: اشتباه گرفتن شرط ماکزیمم با مینیمم</strong>
+                        <p style="font-size: 0.76rem; color: #334155; margin-top: 4px; line-height: 1.7;">
+                            شرط لازم FOC مشتق اول صفر است (f' = 0)، اما این به تنهایی نوع اکسترمم را مشخص نمی‌کند. حتماً مشتق دوم (SOC) بررسی شود: f'' &lt; 0 ماکزیمم، f'' &gt; 0 مینیمم، و f'' = 0 نقطه عطف یا آزمون نامعین است.
+                        </p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #EF4444; background: #FFF5F5;">
+                        <strong style="color: #DC2626; font-size: 0.86rem;">🚨 تله ۳: علامت منفی در شیب منحنی‌های بی‌تفاوتی (MRS)</strong>
+                        <p style="font-size: 0.76rem; color: #334155; margin-top: 4px; line-height: 1.7;">
+                            شیب منحنی بی‌تفاوتی برابر dy/dx = -MUx / MUy منفی است؛ اما نرخ نهایی جانشینی (MRS) به عنوان یک قدر مطلق مثبت تعریف می‌شود: MRS = -dy/dx = MUx / MUy.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- End of Isolated View Boundary Guard -->
+                <div class="view-end-guard">
+                    <span>🔒</span>
+                    <span>پایان بخش تله‌های ریاضیات | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
+                </div>
+            </div>
+
+            <!-- SUBTAB 6: ADAPTIVE MOCK EXAM -->
+            <div id="math-tab-quiz" class="subtab-view">
+                <div class="card" style="border-top: 4px solid #7C3AED; margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                        <div>
+                            <span class="badge badge-math">شبیه‌ساز کارشناسی ارشد</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                                🎯 کارزار تستی ریاضیات و کاربرد آن در مدیریت
+                            </h3>
+                            <p style="font-size: 0.74rem; color: #64748B;">
+                                سنجش درک ریاضی، مشتق، ماتریس و بهینه‌سازی مطابق کنکور کارشناسی ارشد مدیریت و مالی
+                            </p>
+                        </div>
+                        <div id="math-quiz-score-badge" class="badge badge-pro">نمره: --</div>
+                    </div>
+                </div>
+
+                <div id="math-quiz-arena">
+                    <!-- Loaded dynamically via renderQuiz('math') -->
+                </div>
+
+                <!-- End of Isolated View Boundary Guard -->
+                <div class="view-end-guard">
+                    <span>🔒</span>
+                    <span>پایان آزمون ریاضیات | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
+                </div>
+            </div>
+        </div>
+
         <!-- ========================================================
              6. MASTER ENCYCLOPEDIA HUB: ALL MEANS & INDICES
              ======================================================== -->
@@ -6816,6 +7690,7 @@
             finance: 1.0,
             or: 1.0,
             stat: 1.0,
+            math: 1.0,
             fs: 1.0
         };
 
@@ -6824,7 +7699,8 @@
             cost: { zones: true, fc: true, target: true, proj: true },
             finance: { sml: true, market: true, rf: true, proj: true },
             or: { poly: true, isoprofit: true, vertices: true, proj: true },
-            stat: { tail: true, ci: true, sigmas: true, proj: true }
+            stat: { tail: true, ci: true, sigmas: true, proj: true },
+            math: { curve: true, tangent: true, secant: true, extrema: true, proj: true }
         };
 
         const hoverState = {
@@ -6833,6 +7709,7 @@
             finance: { active: false, x: 0, y: 0 },
             or: { active: false, x: 0, y: 0 },
             stat: { active: false, x: 0, y: 0 },
+            math: { active: false, x: 0, y: 0 },
             fs: { active: false, x: 0, y: 0 }
         };
 
@@ -6890,6 +7767,17 @@
                     { label: '📊 صندوق سهامی پرنوسان', vals: { mu: 28, sig: 7.5, x: 15.6 } },
                     { label: '🏦 صندوق درآمد ثابت مطمئن', vals: { mu: 22.5, sig: 1.2, x: 20.5 } },
                     { label: '⚡ سهم بازار پایه پرریسک', vals: { mu: 35, sig: 14, x: 12 } }
+                ]
+            },
+                        math: {
+                title: 'جبهه ششم: ریاضیات و کاربرد آن در مدیریت (Mathematical Methods for Management)',
+                desc: 'کالبدشکافی مشتق، شیب مماس، دیفرانسیل جزئی، بهینه‌سازی لاگرانژ، جبر ماتریس و کارگاه تعاملی تمرین فرمول‌ها',
+                color: '#7C3AED',
+                badgeClass: 'badge-math',
+                scenarios: [
+                    { label: '📈 درآمد و هزینه نهایی (MR = MC)', vals: { a: -0.05, b: 4, c: 20, x0: 20 } },
+                    { label: '⚡ اکسترمم مطلق و قله سود', vals: { a: -0.1, b: 6, c: 10, x0: 30 } },
+                    { label: '🏔️ بازده صعودی و تقعر معکوس', vals: { a: 0.05, b: 2, c: 15, x0: 25 } }
                 ]
             },
             hub: {
@@ -7026,6 +7914,7 @@
             finance: 'مدیریت مالی ۱',
             or: 'تحقیق در عملیات ۱',
             stat: 'آمار کاربردی ۱',
+            math: 'ریاضیات مدیریت',
             hub: 'دانشنامه شاخص‌ها'
         };
 
@@ -7101,6 +7990,7 @@
             else if (currentCourse === 'finance') drawFinance();
             else if (currentCourse === 'or') drawOR();
             else if (currentCourse === 'stat') drawStat();
+            else if (currentCourse === 'math') drawMath();
         }
 
         // TradingView-Style Zoom Controls
@@ -7179,6 +8069,7 @@
             else if (activeFsCourse === 'finance') drawFinance('fullscreenCanvas', true);
             else if (activeFsCourse === 'or') drawOR('fullscreenCanvas', true);
             else if (activeFsCourse === 'stat') drawStat('fullscreenCanvas', true);
+            else if (activeFsCourse === 'math') drawMath('fullscreenCanvas', true);
         }
 
         // Layer Toggle
@@ -8461,6 +9352,32 @@
                     expl: '<b>کالبدشکافی تحلیلی:</b> متغیر کمکی صفر یعنی قید در تساوی کامل قرار گرفته و کل سهمیه منبع مصرف شده است (قید فعال یا Binding). قیمت سایه آن مثبت است.'
                 }
             ],
+                        math: [
+                {
+                    q: 'اگر تابع تقاضای کالایی P = 120 - 3Q و تابع هزینه کل TC = Q² + 20Q + 40 باشد، تیراژ حداکثرکننده سود کدام است؟',
+                    opts: ['الف) ۱۰ واحد', 'ب) ۱۲.۵ واحد', 'ج) ۱۵ واحد', 'د) ۱۸ واحد'],
+                    correct: 1,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> درآمد کل TR = 120Q - 3Q² &rArr; MR = 120 - 6Q. هزینه نهایی MC = 2Q + 20.<br>• شرط تعادل MR = MC: 120 - 6Q = 2Q + 20 &rArr; 8Q = 100 &rArr; Q* = 12.5 واحد.'
+                },
+                {
+                    q: 'در تابع تولید کاب-داگلاس Q = 10 K^0.4 L^0.6، نرخ نهایی جانشینی فنی (MRTS_LK) برابر کدام گزینه است؟',
+                    opts: ['الف) (0.6 / 0.4) × (K / L)', 'ب) (0.4 / 0.6) × (L / K)', 'ج) 1.5 × (L / K)', 'د) 0.67 × (L / K)'],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> MRTS_LK = MP_L / MP_K = [0.6 Q / L] / [0.4 Q / K] = (0.6 / 0.4) × (K / L) = 1.5 (K / L).'
+                },
+                {
+                    q: 'دترمینان ماتریس A = [ 2, -1 ; 4, 3 ] برابر کدام است و آیا ماتریس معکوس‌پذیر است؟',
+                    opts: ['الف) ۱۰ و معکوس‌پذیر', 'ب) ۲ و معکوس‌پذیر', 'ج) صفر و منفرد', 'د) -۲ و نامعکوس‌پذیر'],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> det(A) = (2)(3) - (-1)(4) = 6 - (-4) = 10 &ne; 0. چون دترمینان ناصفر است، ماتریس غیرمنفرد و معکوس‌پذیر است.'
+                },
+                {
+                    q: 'در روش بهینه‌سازی مقید لاگرانژ، ضریب لاگرانژ (λ*) بیانگر کدام مفهوم اقتصادی و مدیریتی است؟',
+                    opts: ['الف) قیمت سایه منبع (ارزش نهایی ۱ واحد افزایش در قید)', 'ب) نرخ استهلاک سرمایه', 'ج) ضریب ریسک سیستماتیک دارایی', 'د) سود ناخالص هر واحد تولید'],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> ضریب لاگرانژ λ* نرخ تغییر مقدار بهینه تابع هدف نسبت به تغییر در کران قید را نشان می‌دهد: ∂f*/∂c = λ* (قیمت سایه منبع محدود).'
+                }
+            ],
             stat: [
                 {
                     q: 'سرمایه‌گذاری طی دو سال ۵۰٪ زیان و سپس ۱۰۰٪ سود می‌کند. میانگین حسابی و نرخ رشد مرکب سالانه (CAGR) به ترتیب کدامند؟',
@@ -8492,7 +9409,8 @@
             cost: { selected: {}, submitted: {} },
             finance: { selected: {}, submitted: {} },
             or: { selected: {}, submitted: {} },
-            stat: { selected: {}, submitted: {} }
+            stat: { selected: {}, submitted: {} },
+            math: { selected: {}, submitted: {} }
         };
 
         function renderQuiz(course) {
@@ -8578,6 +9496,22 @@
         // LEITNER SPACED REPETITION ENGINE
         // ========================================================
         const leitnerCards = [
+            {
+                cat: 'ریاضیات مدیریت',
+                q: 'رابطه درآمد نهایی، قیمت و کشش تقاضا (آموروسو-رابینسون) چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> رابطه MR = P × [1 - 1/|Ed|]. اگر تقاضا باکشش (|Ed| > 1) باشد MR مثبت است و کاهش قیمت درآمد کل را زیاد می‌کند. اگر کشش یکه باشد MR = 0 و درآمد کل ماکزیمم است.'
+            },
+            {
+                cat: 'ریاضیات مدیریت',
+                q: 'تفاوت شرط مرتبه اول (FOC) و دوم (SOC) در تشخیص اکسترمم‌های تابع سود چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> شرط لازم FOC مشتق اول صفر است: f\'(x) = 0. اما شرط کافی SOC مشتق دوم است: f\"(x) < 0 نشان‌دهنده ماکزیمم (تقعر رو به پایین) و f\"(x) > 0 نشان‌دهنده مینیمم است.'
+            },
+            {
+                cat: 'ریاضیات مدیریت',
+                q: 'قضیه تابع ضمنی برای محاسبه شیب منحنی‌های تراز (dy/dx) چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> اگر F(x, y) = c باشد، از دیفرانسیل کل dF = F_x dx + F_y dy = 0 نتیجه می‌شود: dy/dx = - (∂F/∂x) / (∂F/∂y). علامت منفی به دلیل شیب نزولی منحنی‌های تراز است.'
+            },
+
             
             {
                 cat: 'حسابداری صنعتی ۱',
@@ -9576,6 +10510,23 @@
             ['micro', 'cost', 'finance', 'or', 'stat'].forEach(renderQuiz);
             initLeitner();
             runStatCalculation();
+            
+            // Math parameter sliders and numeric inputs
+            ['mth-a', 'mth-b', 'mth-c', 'mth-x0'].forEach(id => {
+                const s = document.getElementById(id + '-slider');
+                const n = document.getElementById(id + '-num');
+                if (s && n) {
+                    s.addEventListener('input', () => {
+                        n.value = s.value;
+                        if (currentCourse === 'math') drawMath();
+                    });
+                    n.addEventListener('input', () => {
+                        s.value = n.value;
+                        if (currentCourse === 'math') drawMath();
+                    });
+                }
+            });
+
             selectCourse('micro');
             selectTab('sim');
         }
@@ -9591,9 +10542,524 @@
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(redrawActiveCourse, 100);
         });
+    
+
+// ========================================================
+        // 6. DRAW MATHEMATICS & CALCULUS (TANGENT & OPTIMIZATION)
+        // ========================================================
+        function drawMath(canvasId = 'canvasMath', isFs = false) {
+            const setup = setupCanvas(canvasId);
+            if (!setup) return;
+            const { ctx, W, H } = setup;
+
+            const a = parseFloat(document.getElementById('mth-a-num').value) || -0.05;
+            const b = parseFloat(document.getElementById('mth-b-num').value) || 4;
+            const c = parseFloat(document.getElementById('mth-c-num').value) || 20;
+            const x0 = parseFloat(document.getElementById('mth-x0-num').value) || 20;
+
+            // Math KPIs
+            const fx0 = a * x0 * x0 + b * x0 + c;
+            const fprime0 = 2 * a * x0 + b;
+            const fdouble0 = 2 * a;
+            const xStar = a !== 0 ? (-b / (2 * a)) : 0;
+            const fStar = a * xStar * xStar + b * xStar + c;
+
+            // Update DOM KPIs
+            const elFx = document.getElementById('mth-kpi-fx');
+            const elFp = document.getElementById('mth-kpi-fprime');
+            const elFd = document.getElementById('mth-kpi-fdouble');
+            const elOpt = document.getElementById('mth-kpi-opt');
+
+            if (elFx) elFx.innerText = fx0.toFixed(2);
+            if (elFp) elFp.innerText = fprime0.toFixed(2);
+            if (elFd) elFd.innerText = fdouble0.toFixed(2) + (a < 0 ? ' (ماکزیمم)' : (a > 0 ? ' (مینیمم)' : ' (خطی)'));
+            if (elOpt) elOpt.innerText = 'x* = ' + xStar.toFixed(1) + ' , f* = ' + fStar.toFixed(1);
+
+            // Chart coordinates system
+            const padX = 55;
+            const padY = 40;
+            const drawW = W - padX - 30;
+            const drawH = H - padY - 30;
+
+            // Domain: x from 0 to 80, y from 0 to max(120, fStar * 1.2)
+            const maxX = 80;
+            const maxY = Math.max(120, Math.max(fx0, fStar) * 1.25);
+
+            function toScreenX(xVal) {
+                return padX + (xVal / maxX) * drawW;
+            }
+            function toScreenY(yVal) {
+                return H - padY - (Math.max(0, yVal) / maxY) * drawH;
+            }
+
+            // Draw Background Grid
+            ctx.strokeStyle = '#1E293B';
+            ctx.lineWidth = 0.8;
+            for (let gx = 0; gx <= maxX; gx += 20) {
+                const sx = toScreenX(gx);
+                ctx.beginPath();
+                ctx.moveTo(sx, padY);
+                ctx.lineTo(sx, H - padY);
+                ctx.stroke();
+
+                ctx.fillStyle = '#64748B';
+                ctx.font = '10px "JetBrains Mono"';
+                ctx.textAlign = 'center';
+                ctx.fillText(gx, sx, H - padY + 16);
+            }
+            for (let gy = 0; gy <= maxY; gy += 30) {
+                const sy = toScreenY(gy);
+                ctx.beginPath();
+                ctx.moveTo(padX, sy);
+                ctx.lineTo(W - 30, sy);
+                ctx.stroke();
+
+                ctx.fillStyle = '#64748B';
+                ctx.font = '10px "JetBrains Mono"';
+                ctx.textAlign = 'right';
+                ctx.fillText(gy, padX - 8, sy + 3);
+            }
+
+            // Axes
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(padX, padY);
+            ctx.lineTo(padX, H - padY);
+            ctx.lineTo(W - 30, H - padY);
+            ctx.stroke();
+
+            // Axis labels
+            ctx.fillStyle = '#94A3B8';
+            ctx.font = '800 11px "Vazirmatn", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('سطح فعالیت / تیراژ (x)', padX + drawW / 2, H - 8);
+            ctx.textAlign = 'right';
+            ctx.fillText('ارزش تابع f(x) / درآمد و سود', padX + 130, padY - 14);
+
+            const mthLayers = layers.math || { curve: true, tangent: true, secant: true, extrema: true, proj: true };
+
+            // 1. Draw Function Curve f(x) = a x^2 + b x + c
+            if (mthLayers.curve) {
+                ctx.strokeStyle = '#8B5CF6';
+                ctx.lineWidth = 3.5;
+                ctx.beginPath();
+                let started = false;
+                for (let x = 0; x <= maxX; x += 0.5) {
+                    const y = a * x * x + b * x + c;
+                    const sx = toScreenX(x);
+                    const sy = toScreenY(y);
+                    if (!started) {
+                        ctx.moveTo(sx, sy);
+                        started = true;
+                    } else {
+                        ctx.lineTo(sx, sy);
+                    }
+                }
+                ctx.stroke();
+            }
+
+            // 2. Draw Secant Line (Delta x = 12)
+            if (mthLayers.secant) {
+                const dx = 12;
+                const x1 = Math.min(maxX, x0 + dx);
+                const fx1 = a * x1 * x1 + b * x1 + c;
+                const sx0 = toScreenX(x0);
+                const sy0 = toScreenY(fx0);
+                const sx1 = toScreenX(x1);
+                const sy1 = toScreenY(fx1);
+
+                ctx.strokeStyle = '#0284C7';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 5]);
+                ctx.beginPath();
+                // Extend secant
+                const mSec = (fx1 - fx0) / dx;
+                const secY0 = fx0 - mSec * (x0 - 0);
+                const secYMax = fx0 + mSec * (maxX - x0);
+                ctx.moveTo(toScreenX(0), toScreenY(secY0));
+                ctx.lineTo(toScreenX(maxX), toScreenY(secYMax));
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Secant point (x0 + dx, f(x0 + dx))
+                ctx.fillStyle = '#0284C7';
+                ctx.beginPath();
+                ctx.arc(sx1, sy1, 4.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // 3. Draw Tangent Line at x0: y - fx0 = fprime0 * (x - x0)
+            if (mthLayers.tangent) {
+                const tanY0 = fx0 - fprime0 * x0;
+                const tanYMax = fx0 + fprime0 * (maxX - x0);
+
+                ctx.strokeStyle = '#F59E0B';
+                ctx.lineWidth = 2.5;
+                ctx.beginPath();
+                ctx.moveTo(toScreenX(0), toScreenY(tanY0));
+                ctx.lineTo(toScreenX(maxX), toScreenY(tanYMax));
+                ctx.stroke();
+
+                // Tangent label
+                const tagX = Math.min(maxX - 10, x0 + 10);
+                const tagY = fx0 + fprime0 * 10;
+                ctx.fillStyle = '#FBBF24';
+                ctx.font = '800 11px "JetBrains Mono"';
+                ctx.textAlign = 'left';
+                ctx.fillText('مماس: m = ' + fprime0.toFixed(2), toScreenX(tagX), toScreenY(tagY) - 8);
+            }
+
+            // 4. Draw Extrema Point x*
+            if (mthLayers.extrema && xStar >= 0 && xStar <= maxX) {
+                const sEx = toScreenX(xStar);
+                const sEy = toScreenY(fStar);
+
+                // Dashed vertical line to x*
+                ctx.strokeStyle = '#10B981';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath();
+                ctx.moveTo(sEx, H - padY);
+                ctx.lineTo(sEx, sEy);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                ctx.fillStyle = '#10B981';
+                ctx.beginPath();
+                ctx.arc(sEx, sEy, 6, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.fillStyle = '#34D399';
+                ctx.font = '900 11px "Vazirmatn", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('قله بهینه (x*=' + xStar.toFixed(1) + ')', sEx, sEy - 10);
+            }
+
+            // 5. Draw Tangency Point (x0, f(x0)) & Projections
+            const sX0 = toScreenX(x0);
+            const sY0 = toScreenY(fx0);
+
+            if (mthLayers.proj) {
+                ctx.strokeStyle = '#64748B';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath();
+                ctx.moveTo(sX0, H - padY);
+                ctx.lineTo(sX0, sY0);
+                ctx.lineTo(padX, sY0);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
+            // Point dot
+            ctx.fillStyle = '#EC4899';
+            ctx.beginPath();
+            ctx.arc(sX0, sY0, 6.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            ctx.fillStyle = '#F472B6';
+            ctx.font = '800 11px "JetBrains Mono"';
+            ctx.textAlign = 'left';
+            ctx.fillText('(' + x0.toFixed(1) + ' , ' + fx0.toFixed(1) + ')', sX0 + 8, sY0 - 6);
+        }
+
+        // ========================================================
+        // INTERACTIVE MATH FORMULA WORKOUT BENCH ENGINE
+        // ========================================================
+        function switchMathWorkoutTab(tabKey) {
+            hapticTap('light');
+            document.querySelectorAll('.workout-pill').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.workout-pane').forEach(p => p.classList.remove('active'));
+
+            const pill = document.getElementById('btn-wpill-' + tabKey);
+            const pane = document.getElementById('wpane-' + tabKey);
+            if (pill) pill.classList.add('active');
+            if (pane) pane.classList.add('active');
+        }
+
+        function runMathMarginalTrainer() {
+            hapticTap('medium');
+            const a = parseFloat(document.getElementById('mrg-a').value) || -1;
+            const b = parseFloat(document.getElementById('mrg-b').value) || 60;
+            const c = parseFloat(document.getElementById('mrg-c').value) || 1;
+            const d = parseFloat(document.getElementById('mrg-d').value) || 10;
+            const e = parseFloat(document.getElementById('mrg-e').value) || 50;
+
+            // MR = 2a Q + b
+            // MC = 2c Q + d
+            // 2a Q + b = 2c Q + d  =>  2(c - a) Q = b - d  =>  Q* = (b - d) / (2(c - a))
+            const denom = 2 * (c - a);
+            const qStar = denom !== 0 ? (b - d) / denom : 0;
+            const trStar = a * qStar * qStar + b * qStar;
+            const tcStar = c * qStar * qStar + d * qStar + e;
+            const piStar = trStar - tcStar;
+            const mrStar = 2 * a * qStar + b;
+
+            const resEl = document.getElementById('mrg-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #7C3AED; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج کالبدشکافی تحلیلی درآمد نهایی و هزینه نهایی:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (مشتق‌گیری درآمد نهایی):</strong><br>
+                        MR(Q) = dTR/dQ = 2(${a})Q + ${b} = <b>${(2*a).toFixed(1)}Q + ${b}</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (مشتق‌گیری هزینه نهایی):</strong><br>
+                        MC(Q) = dTC/dQ = 2(${c})Q + ${d} = <b>${(2*c).toFixed(1)}Q + ${d}</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۳ (شرط طلایی برابری نهایی‌ها MR = MC):</strong><br>
+                        ${(2*a).toFixed(1)}Q + ${b} = ${(2*c).toFixed(1)}Q + ${d} &nbsp;&rArr;&nbsp;
+                        <b>تیراژ بهینه: Q* = ${qStar.toFixed(2)} واحد</b> (درآمد نهایی تعادل: MR = MC = ${mrStar.toFixed(2)})
+                    </div>
+                    <div class="workout-step" style="background: #ECFDF5; border-color: #A7F3D0; color: #065F46;">
+                        <strong>گام ۴ (حداکثر سود عملیاتی):</strong><br>
+                        • درآمد کل: TR* = ${trStar.toFixed(2)} تومان<br>
+                        • هزینه کل: TC* = ${tcStar.toFixed(2)} تومان<br>
+                        • <b>حداکثر سود خالص: π* = TR* - TC* = ${piStar.toFixed(2)} تومان</b>
+                    </div>
+                `;
+            }
+        }
+
+        function runMathElasticityTrainer() {
+            hapticTap('medium');
+            const A = parseFloat(document.getElementById('ela-A').value) || 200;
+            const b = parseFloat(document.getElementById('ela-b').value) || 4;
+            const P = parseFloat(document.getElementById('ela-P').value) || 30;
+
+            const Q = A - b * P;
+            if (Q <= 0) {
+                document.getElementById('ela-result').innerHTML = '<div style="color: #DC2626; font-weight: 800;">خطا: در این قیمت تقاضا صفر یا منفی است! قیمت را کاهش دهید.</div>';
+                return;
+            }
+
+            const dQdP = -b;
+            const Ed = dQdP * (P / Q);
+            const absEd = Math.abs(Ed);
+
+            let typeLabel = '';
+            let strategy = '';
+            if (absEd > 1.05) {
+                typeLabel = 'باکشش (Elastic: |Ed| > 1)';
+                strategy = '💡 توصیه استراتژیک: تقاضا حساس است؛ کاهش قیمت منجر به جهش تیراژ و افزایش درآمد کل (TR) می‌شود.';
+            } else if (absEd < 0.95) {
+                typeLabel = 'بی‌کشش (Inelastic: |Ed| < 1)';
+                strategy = '💡 توصیه استراتژیک: تقاضا غیرحساس است؛ افزایش قیمت باعث افت اندک تقاضا و افزایش درآمد کل (TR) می‌شود.';
+            } else {
+                typeLabel = 'کشش یکه (Unitary: |Ed| ≈ 1)';
+                strategy = '💡 توصیه استراتژیک: نقطه حداکثر درآمد کل (MR = 0)؛ هرگونه تغییر در قیمت درآمد کل را کم می‌کند.';
+            }
+
+            const resEl = document.getElementById('ela-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #2563EB; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 ارزیابی کشش نقطه‌ای تقاضا با مشتق:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (مشتق تقاضا نسبت به قیمت):</strong> dQ/dP = <b>${dQdP.toFixed(2)}</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (تیراژ تقاضا در قیمت P = ${P}):</strong> Q = ${A} - ${b}(${P}) = <b>${Q.toFixed(1)} واحد</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۳ (فرمول کشش نقطه‌ای):</strong><br>
+                        E_d = (dQ/dP) × (P / Q) = (${dQdP}) × (${P} / ${Q.toFixed(1)}) = <b>${Ed.toFixed(3)}</b><br>
+                        قدر مطلق کشش: <b>|E_d| = ${absEd.toFixed(3)}</b> &nbsp;&rarr;&nbsp; <span style="font-weight: 800; color: #2563EB;">${typeLabel}</span>
+                    </div>
+                    <div class="workout-step" style="background: #EFF6FF; border-color: #BFDBFE; color: #1E40AF;">
+                        ${strategy}
+                    </div>
+                `;
+            }
+        }
+
+        function runMathMatrixTrainer() {
+            hapticTap('medium');
+            const a11 = parseFloat(document.getElementById('mat-a11').value) || 4;
+            const a12 = parseFloat(document.getElementById('mat-a12').value) || 2;
+            const b1 = parseFloat(document.getElementById('mat-b1').value) || 20;
+            const a21 = parseFloat(document.getElementById('mat-a21').value) || 1;
+            const a22 = parseFloat(document.getElementById('mat-a22').value) || 3;
+            const b2 = parseFloat(document.getElementById('mat-b2').value) || 15;
+
+            // det(A) = a11 * a22 - a12 * a21
+            const detA = a11 * a22 - a12 * a21;
+
+            const resEl = document.getElementById('mat-result');
+            if (Math.abs(detA) < 1e-6) {
+                resEl.innerHTML = '<div style="color: #DC2626; font-weight: 800;">هشدار: دترمینان ماتریس صفر شد (|A| = 0)! ماتریس منفرد (Singular) است و معکوس‌پذیر نیست (معادلات وابسته خطی هستند).</div>';
+                return;
+            }
+
+            // Inverse A^-1 = (1 / detA) * [ a22, -a12 ; -a21, a11 ]
+            const inv11 = a22 / detA;
+            const inv12 = -a12 / detA;
+            const inv21 = -a21 / detA;
+            const inv22 = a11 / detA;
+
+            // Cramer's rule
+            // A1 replaces col 1 with B: [ b1, a12 ; b2, a22 ]
+            const detA1 = b1 * a22 - a12 * b2;
+            const x1 = detA1 / detA;
+
+            // A2 replaces col 2 with B: [ a11, b1 ; a21, b2 ]
+            const detA2 = a11 * b2 - b1 * a21;
+            const x2 = detA2 / detA;
+
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #0E7490; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج ماتریسی و حل کرامر:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (دترمینان ماتریس ضرایب):</strong><br>
+                        |A| = (${a11} × ${a22}) - (${a12} × ${a21}) = ${a11 * a22} - ${a12 * a21} = <b>${detA.toFixed(2)}</b>
+                        <span style="color: #047857; font-weight: 800;"> (غیرمنفرد &rArr; جواب یکتا دارد)</span>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (ماتریس معکوس A⁻¹):</strong><br>
+                        A⁻¹ = (1 / ${detA.toFixed(1)}) × [ ${a22}, ${-a12} ; ${-a21}, ${a11} ] = 
+                        <b>[ ${inv11.toFixed(3)}, ${inv12.toFixed(3)} ; ${inv21.toFixed(3)}, ${inv22.toFixed(3)} ]</b>
+                    </div>
+                    <div class="workout-step" style="background: #ECFEFF; border-color: #A5F3FC; color: #0E7490;">
+                        <strong>گام ۳ (جواب‌های تعادل با قاعده کرامر):</strong><br>
+                        • |A₁| = (${b1} × ${a22}) - (${a12} × ${b2}) = ${detA1.toFixed(1)} &nbsp;&rArr;&nbsp; <b>x₁* = ${detA1.toFixed(1)} / ${detA.toFixed(1)} = ${x1.toFixed(3)}</b><br>
+                        • |A₂| = (${a11} × ${b2}) - (${b1} × ${a21}) = ${detA2.toFixed(1)} &nbsp;&rArr;&nbsp; <b>x₂* = ${detA2.toFixed(1)} / ${detA.toFixed(1)} = ${x2.toFixed(3)}</b>
+                    </div>
+                `;
+            }
+        }
+
+        function runMathLagrangeTrainer() {
+            hapticTap('medium');
+            const alpha = parseFloat(document.getElementById('lag-alpha').value) || 0.5;
+            const beta = parseFloat(document.getElementById('lag-beta').value) || 0.5;
+            const Px = parseFloat(document.getElementById('lag-px').value) || 10;
+            const Py = parseFloat(document.getElementById('lag-py').value) || 20;
+            const I = parseFloat(document.getElementById('lag-I').value) || 200;
+
+            // Cobb-Douglas U = x^alpha * y^beta
+            // Px*x + Py*y = I
+            // MRS = (alpha * y) / (beta * x) = Px / Py
+            // => Py * y = (beta / alpha) * Px * x
+            // Px*x + (beta / alpha) Px*x = I => Px*x * (alpha + beta) / alpha = I
+            // x* = (alpha / (alpha + beta)) * (I / Px)
+            // y* = (beta / (alpha + beta)) * (I / Py)
+            const sumAB = alpha + beta;
+            const xStar = (alpha / sumAB) * (I / Px);
+            const yStar = (beta / sumAB) * (I / Py);
+            const maxU = Math.pow(xStar, alpha) * Math.pow(yStar, beta);
+            const lambdaStar = (alpha * Math.pow(xStar, alpha - 1) * Math.pow(yStar, beta)) / Px;
+
+            const resEl = document.getElementById('lag-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #047857; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج بهینه‌سازی مقید لاگرانژ:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (نرخ نهایی جانشینی MRS):</strong><br>
+                        MU_x = ∂U/∂x = ${alpha} x^${(alpha-1).toFixed(1)} y^${beta} &nbsp;|&nbsp; 
+                        MU_y = ∂U/∂y = ${beta} x^${alpha} y^${(beta-1).toFixed(1)}<br>
+                        <b>MRS = MU_x / MU_y = (${alpha} · y) / (${beta} · x)</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (شرط تساوی شیب‌ها در نقطه مماس MRS = P_x / P_y):</strong><br>
+                        (${alpha} · y) / (${beta} · x) = ${Px} / ${Py} &nbsp;&rArr;&nbsp; 
+                        سهم هزینه هر کالا متناسب با توان آن در تابع مطلوبیت است.
+                    </div>
+                    <div class="workout-step" style="background: #ECFDF5; border-color: #A7F3D0; color: #065F46;">
+                        <strong>گام ۳ (سبد بهینه مصرف‌کننده و ضریب لاگرانژ):</strong><br>
+                        • <b>مصرف بهینه کالای ۱: x* = ${xStar.toFixed(2)} واحد</b> (هزینه: ${(xStar * Px).toFixed(1)} تومان)<br>
+                        • <b>مصرف بهینه کالای ۲: y* = ${yStar.toFixed(2)} واحد</b> (هزینه: ${(yStar * Py).toFixed(1)} تومان)<br>
+                        • حداکثر مطلوبیت کل: <b>U* = ${maxU.toFixed(2)}</b><br>
+                        • <b>ضریب لاگرانژ λ* = ${lambdaStar.toFixed(4)}</b> (ارزش سایه ۱ ریال افزایش بودجه!)
+                    </div>
+                `;
+            }
+        }
+
+        // Instant Challenge Quiz Data
+        const mathChallenges = [
+            {
+                q: 'اگر تابع درآمد کل TR = -2Q² + 100Q باشد، درآمد نهایی (MR) در تیراژ Q = 15 واحد چقدر است؟',
+                opts: ['الف) ۴۰ تومان', 'ب) ۶۰ تومان', 'ج) ۷۰ تومان', 'د) ۸۵ تومان'],
+                ans: 0,
+                exp: 'MR = dTR/dQ = -4Q + 100. در Q = 15: MR = -4(15) + 100 = -60 + 100 = 40 تومان.'
+            },
+            {
+                q: 'اگر تابع تقاضا Q = 80 - 4P باشد، کشش نقطه‌ای تقاضا در قیمت P = 10 تومان کدام است؟',
+                opts: ['الف) -0.5 (بی‌کشش)', 'ب) -1.0 (کشش یکه)', 'ج) -1.5 (باکشش)', 'د) -2.0 (باکشش)'],
+                ans: 1,
+                exp: 'در P = 10 داریم Q = 80 - 4(10) = 40. کشش Ed = (dQ/dP) × (P/Q) = (-4) × (10 / 40) = -1.0.'
+            },
+            {
+                q: 'دترمینان ماتریس ضرایب A = [ 5, 2 ; 3, 4 ] چقدر است؟',
+                opts: ['الف) ۱۴', 'ب) ۲۶', 'ج) ۱۰', 'د) ۲۰'],
+                ans: 0,
+                exp: 'det(A) = (5)(4) - (2)(3) = 20 - 6 = 14.'
+            }
+        ];
+        let currentMathChallIdx = 0;
+
+        function answerMathChallenge(optIdx) {
+            hapticTap('light');
+            const ch = mathChallenges[currentMathChallIdx];
+            const fb = document.getElementById('chall-feedback');
+            if (!fb) return;
+
+            fb.style.display = 'block';
+            if (optIdx === ch.ans) {
+                fb.style.background = '#ECFDF5';
+                fb.style.color = '#065F46';
+                fb.style.border = '1px solid #A7F3D0';
+                fb.innerHTML = '✅ <b>آفرین بهادر! کاملاً درسته.</b><br>' + ch.exp;
+            } else {
+                fb.style.background = '#FEF2F2';
+                fb.style.color = '#991B1B';
+                fb.style.border = '1px solid #FECACA';
+                fb.innerHTML = '❌ <b>نادرست؛ تحلیل گام‌به‌گام:</b><br>' + ch.exp;
+            }
+        }
+
+        function loadNextMathChallenge() {
+            hapticTap('light');
+            currentMathChallIdx = (currentMathChallIdx + 1) % mathChallenges.length;
+            const ch = mathChallenges[currentMathChallIdx];
+            const qEl = document.getElementById('chall-q');
+            if (qEl) qEl.innerHTML = '<b>سوال تمرینی:</b> ' + ch.q;
+            for (let i = 0; i < 4; i++) {
+                const optEl = document.getElementById('chall-opt-' + i);
+                if (optEl) optEl.innerText = ch.opts[i];
+            }
+            const fb = document.getElementById('chall-feedback');
+            if (fb) fb.style.display = 'none';
+        }
+
+        window.drawMath = drawMath;
+        window.switchMathWorkoutTab = switchMathWorkoutTab;
+        window.runMathMarginalTrainer = runMathMarginalTrainer;
+        window.runMathElasticityTrainer = runMathElasticityTrainer;
+        window.runMathMatrixTrainer = runMathMatrixTrainer;
+        window.runMathLagrangeTrainer = runMathLagrangeTrainer;
+        window.answerMathChallenge = answerMathChallenge;
+        window.loadNextMathChallenge = loadNextMathChallenge;
+
     })();
     
     
-    </script>
+    
+        </script>
 </body>
 </html>
