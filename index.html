@@ -7,7 +7,7 @@
     <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <!-- Typography: Vazirmatn & JetBrains Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- System Font Stack (Offline & Instant) -->
     <style>
         /* ==========================================================================
            BANKAI QUANTUM MASTERPIECE DESIGN SYSTEM (PRO EXECUTIVE EDITION v12.0)
@@ -3517,6 +3517,7 @@
 
     <!-- JAVASCRIPT MASTERPIECE ENGINE v12.0 -->
     <script>
+
     (function() {
         let tg = null;
         if (window.Telegram && window.Telegram.WebApp) {
@@ -3621,7 +3622,8 @@
             }
         };
 
-        window.showToast = function(msg) {
+        function showToast(msg) {
+
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
             toastMsg.innerText = msg;
@@ -3629,7 +3631,8 @@
             setTimeout(() => toast.classList.remove('show'), 2600);
         };
 
-        window.copyFormula = function(formulaText) {
+        function copyFormula(formulaText) {
+
             navigator.clipboard.writeText(formulaText).then(() => {
                 showToast('رابطه در کلیپ‌بورد کپی شد: ' + formulaText);
             }).catch(() => {
@@ -3638,7 +3641,8 @@
         };
 
         // Course Switching
-        window.selectCourse = function(course) {
+        function selectCourse(course) {
+
             currentCourse = course;
             
             document.querySelectorAll('.subject-btn').forEach(btn => btn.classList.remove('active'));
@@ -3687,7 +3691,8 @@
             }
         };
 
-        window.selectTab = function(tab) {
+        function selectTab(tab) {
+
             currentTab = tab;
 
             document.querySelectorAll('.subtab-pill').forEach(b => b.classList.remove('active'));
@@ -3720,20 +3725,23 @@
         }
 
         // TradingView-Style Zoom Controls
-        window.zoomCanvas = function(course, factor) {
+        function zoomCanvas(course, factor) {
+
             zoomLevels[course] = Math.max(0.6, Math.min(3.5, zoomLevels[course] * factor));
             redrawActiveCourse();
             showToast('بزرگ‌نمایی چارت: ' + Math.round(zoomLevels[course] * 100) + '٪');
         };
 
-        window.resetZoomCanvas = function(course) {
+        function resetZoomCanvas(course) {
+
             zoomLevels[course] = 1.0;
             redrawActiveCourse();
             showToast('مقیاس چارت ریست شد (۱۰۰٪)');
         };
 
         // Fullscreen Trading Modal Controls
-        window.openFullscreenChart = function(course) {
+        function openFullscreenChart(course) {
+
             activeFsCourse = course;
             zoomLevels.fs = zoomLevels[course] || 1.0;
 
@@ -3764,19 +3772,22 @@
             setTimeout(drawFullscreen, 40);
         };
 
-        window.closeFullscreenChart = function() {
+        function closeFullscreenChart() {
+
             activeFsCourse = null;
             document.getElementById('fullscreen-chart-modal').style.display = 'none';
             redrawActiveCourse();
         };
 
-        window.fsZoom = function(factor) {
+        function fsZoom(factor) {
+
             zoomLevels.fs = Math.max(0.6, Math.min(4.0, zoomLevels.fs * factor));
             drawFullscreen();
             showToast('بزرگ‌نمایی چارت: ' + Math.round(zoomLevels.fs * 100) + '٪');
         };
 
-        window.fsResetZoom = function() {
+        function fsResetZoom() {
+
             zoomLevels.fs = 1.0;
             drawFullscreen();
             showToast('مقیاس چارت ریست شد (۱۰۰٪)');
@@ -3792,7 +3803,8 @@
         }
 
         // Layer Toggle
-        window.toggleLayer = function(course, layer) {
+        function toggleLayer(course, layer) {
+
             layers[course][layer] = !layers[course][layer];
             const prefix = course === 'or' ? 'or' : (course === 'micro' ? 'm' : (course === 'cost' ? 'c' : (course === 'finance' ? 'f' : 's')));
             const btnId = prefix + '-layer-' + layer;
@@ -3876,10 +3888,12 @@
             const canvas = document.getElementById(canvasId);
             if (!canvas) return null;
             const rect = canvas.getBoundingClientRect();
+            const width = rect.width || canvas.clientWidth || 600;
+            const height = rect.height || canvas.clientHeight || 450;
             const dpr = Math.max(window.devicePixelRatio || 1, 2);
             
-            canvas.width = rect.width * dpr;
-            canvas.height = rect.height * dpr;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
             
             const ctx = canvas.getContext('2d');
             ctx.scale(dpr, dpr);
@@ -3889,7 +3903,7 @@
         function initCanvasHover(course, redrawFn, customCanvasId = null) {
             const canvasId = customCanvasId || (course === 'or' ? 'canvasOR' : ('canvas' + course.charAt(0).toUpperCase() + course.slice(1)));
             const canvas = document.getElementById(canvasId);
-            const tooltip = document.getElementById('tooltip-' + course);
+            const tooltip = (course === 'fs') ? null : document.getElementById('tooltip-' + course);
             if (!canvas) return;
 
             function handleMove(e) {
@@ -4764,7 +4778,8 @@
         // ========================================================
         // 6. MASTER ENCYCLOPEDIA HUB FILTER & SEARCH
         // ========================================================
-        window.setHubCategory = function(cat, btn) {
+        function setHubCategory(cat, btn) {
+
             hubActiveCategory = cat;
             document.querySelectorAll('#hub-filter-chips .scenario-chip').forEach(c => {
                 c.classList.remove('active');
@@ -4777,7 +4792,8 @@
             filterHubCards();
         };
 
-        window.filterHubCards = function() {
+        function filterHubCards() {
+
             const query = (document.getElementById('hub-search-input').value || '').trim().toLowerCase();
             const cards = document.querySelectorAll('.hub-card');
             let visibleCount = 0;
@@ -4802,63 +4818,43 @@
         };
 
         // Export Full Brief
-        window.exportFullBrief = function() {
-            let brief = '=== گزارش تحلیلی سامانه BANKAI v12.0 ===
-';
-            brief += 'تاریخ گزارش: 2026-10-17 | تحلیلگر: بهادر
+        function exportFullBrief() {
 
-';
+            const lines = [
+                '=== گزارش تحلیلی سامانه BANKAI v12.0 ===',
+                'تاریخ گزارش: 2026-10-17 | تحلیلگر: بهادر',
+                ''
+            ];
             if (currentCourse === 'micro') {
-                brief += 'جبهه: اقتصاد خرد
-';
-                brief += 'قیمت خریدار Pc: ' + document.getElementById('m-kpi-pc').innerText + '
-';
-                brief += 'عایدی فروشنده Pp: ' + document.getElementById('m-kpi-pp').innerText + '
-';
-                brief += 'تیراژ تعادلی Qt: ' + document.getElementById('m-kpi-qt').innerText + '
-';
-                brief += 'زیان رفاهی DWL: ' + document.getElementById('m-kpi-dwl').innerText + '
-';
+                lines.push('جبهه: اقتصاد خرد');
+                lines.push('قیمت خریدار Pc: ' + (document.getElementById('m-kpi-pc') ? document.getElementById('m-kpi-pc').innerText : ''));
+                lines.push('عایدی فروشنده Pp: ' + (document.getElementById('m-kpi-pp') ? document.getElementById('m-kpi-pp').innerText : ''));
+                lines.push('تیراژ تعادلی Qt: ' + (document.getElementById('m-kpi-qt') ? document.getElementById('m-kpi-qt').innerText : ''));
+                lines.push('زیان رفاهی DWL: ' + (document.getElementById('m-kpi-dwl') ? document.getElementById('m-kpi-dwl').innerText : ''));
             } else if (currentCourse === 'cost') {
-                brief += 'جبهه: حسابداری صنعتی ۱
-';
-                brief += 'تیراژ سر‌به‌سر BEP: ' + document.getElementById('c-kpi-qbep').innerText + '
-';
-                brief += 'تیراژ سود هدف: ' + document.getElementById('c-kpi-qtarget').innerText + '
-';
-                brief += 'حاشیه فروش CM: ' + document.getElementById('c-kpi-cm').innerText + '
-';
-                brief += 'نسبت حاشیه فروش: ' + document.getElementById('c-kpi-cmratio').innerText + '
-';
+                lines.push('جبهه: حسابداری صنعتی ۱');
+                lines.push('تیراژ سر‌به‌سر BEP: ' + (document.getElementById('c-kpi-qbep') ? document.getElementById('c-kpi-qbep').innerText : ''));
+                lines.push('تیراژ سود هدف: ' + (document.getElementById('c-kpi-qtarget') ? document.getElementById('c-kpi-qtarget').innerText : ''));
+                lines.push('حاشیه فروش CM: ' + (document.getElementById('c-kpi-cm') ? document.getElementById('c-kpi-cm').innerText : ''));
+                lines.push('نسبت حاشیه فروش: ' + (document.getElementById('c-kpi-cmratio') ? document.getElementById('c-kpi-cmratio').innerText : ''));
             } else if (currentCourse === 'finance') {
-                brief += 'جبهه: مدیریت مالی ۱
-';
-                brief += 'بازده مورد انتظار E(R): ' + document.getElementById('f-kpi-er').innerText + '
-';
-                brief += 'صرف ریسک بازار MRP: ' + document.getElementById('f-kpi-mrp').innerText + '
-';
+                lines.push('جبهه: مدیریت مالی ۱');
+                lines.push('بازده مورد انتظار E(R): ' + (document.getElementById('f-kpi-er') ? document.getElementById('f-kpi-er').innerText : ''));
+                lines.push('صرف ریسک بازار MRP: ' + (document.getElementById('f-kpi-mrp') ? document.getElementById('f-kpi-mrp').innerText : ''));
             } else if (currentCourse === 'or') {
-                brief += 'جبهه: تحقیق در عملیات ۱
-';
-                brief += 'نقطه بهینه: ' + document.getElementById('or-kpi-opt').innerText + '
-';
-                brief += 'بیشینه سود: ' + document.getElementById('or-kpi-z').innerText + '
-';
+                lines.push('جبهه: تحقیق در عملیات ۱');
+                lines.push('نقطه بهینه: ' + (document.getElementById('or-kpi-opt') ? document.getElementById('or-kpi-opt').innerText : ''));
+                lines.push('بیشینه سود: ' + (document.getElementById('or-kpi-z') ? document.getElementById('or-kpi-z').innerText : ''));
             } else if (currentCourse === 'stat') {
-                brief += 'جبهه: آمار کاربردی ۱
-';
-                brief += 'نمره استاندارد Z: ' + document.getElementById('s-kpi-z').innerText + '
-';
-                brief += 'ریسک دم چپ VaR: ' + document.getElementById('s-kpi-prob').innerText + '
-';
-                brief += 'بازه اطمینان ۹۵٪: ' + document.getElementById('s-kpi-ci').innerText + '
-';
-                brief += 'ضریب تغییرات CV: ' + document.getElementById('s-kpi-cv').innerText + '
-';
+                lines.push('جبهه: آمار کاربردی ۱');
+                lines.push('نمره استاندارد Z: ' + (document.getElementById('s-kpi-z') ? document.getElementById('s-kpi-z').innerText : ''));
+                lines.push('ریسک دم چپ VaR: ' + (document.getElementById('s-kpi-prob') ? document.getElementById('s-kpi-prob').innerText : ''));
+                lines.push('بازه اطمینان ۹۵٪: ' + (document.getElementById('s-kpi-ci') ? document.getElementById('s-kpi-ci').innerText : ''));
+                lines.push('ضریب تغییرات CV: ' + (document.getElementById('s-kpi-cv') ? document.getElementById('s-kpi-cv').innerText : ''));
             }
-            brief += '
-تولیدشده در BANKAI Quantum Masterpiece v12.0';
-
+            lines.push('');
+            lines.push('تولیدشده در BANKAI Quantum Masterpiece v12.0');
+            const brief = lines.join('\n');
             navigator.clipboard.writeText(brief).then(() => {
                 showToast('خلاصه گزارش تحلیلی در کلیپ‌بورد کپی شد');
             }).catch(() => {
@@ -4867,7 +4863,22 @@
         };
 
         // Window Init
-        window.addEventListener('DOMContentLoaded', () => {
+                window.showToast = showToast;
+        window.copyFormula = copyFormula;
+        window.selectCourse = selectCourse;
+        window.selectTab = selectTab;
+        window.zoomCanvas = zoomCanvas;
+        window.resetZoomCanvas = resetZoomCanvas;
+        window.openFullscreenChart = openFullscreenChart;
+        window.closeFullscreenChart = closeFullscreenChart;
+        window.fsZoom = fsZoom;
+        window.fsResetZoom = fsResetZoom;
+        window.toggleLayer = toggleLayer;
+        window.setHubCategory = setHubCategory;
+        window.filterHubCards = filterHubCards;
+        window.exportFullBrief = exportFullBrief;
+
+        function initCockpit() {
             bindDual('m-t-slider', 'm-t-num', drawMicro);
             bindDual('m-a-slider', 'm-a-num', drawMicro);
             bindDual('m-b-slider', 'm-b-num', drawMicro);
@@ -4900,7 +4911,13 @@
 
             selectCourse('micro');
             selectTab('sim');
-        });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCockpit);
+        } else {
+            initCockpit();
+        }
 
         let resizeTimer;
         window.addEventListener('resize', () => {
@@ -4908,6 +4925,7 @@
             resizeTimer = setTimeout(redrawActiveCourse, 100);
         });
     })();
+    
     </script>
 </body>
 </html>
