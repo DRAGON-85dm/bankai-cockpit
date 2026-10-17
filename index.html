@@ -1652,6 +1652,434 @@
             box-shadow: 0 8px 25px rgba(56, 189, 248, 0.15) !important;
         }
 
+    
+        /* ========================================================
+           v16.0 STATISTICAL COMPUTATION LAB & FLASHBACK ENGINE CSS
+           ======================================================== */
+        .stat-lab-container {
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-card);
+        }
+        body.theme-dark .stat-lab-container {
+            background: #0F172A;
+            border-color: #1E293B;
+        }
+
+        .stat-lab-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+            border-bottom: 1.5px solid #E2E8F0;
+            padding-bottom: 12px;
+        }
+        body.theme-dark .stat-lab-header {
+            border-bottom-color: #1E293B;
+        }
+
+        .stat-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .stat-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #CBD5E1;
+            border-radius: 14px;
+            font-family: 'JetBrains Mono', 'Vazirmatn', monospace;
+            font-size: 0.95rem;
+            outline: none;
+            background: #F8FAFC;
+            color: #0F172A;
+            direction: ltr;
+            text-align: left;
+            transition: all 0.2s;
+            resize: vertical;
+            min-height: 48px;
+        }
+        body.theme-dark .stat-textarea {
+            background: #090D16;
+            border-color: #334155;
+            color: #38BDF8;
+        }
+        .stat-textarea:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        body.theme-dark .stat-textarea:focus {
+            border-color: #38BDF8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .stat-preset-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .stat-preset-btn {
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            border-radius: 9999px;
+            padding: 5px 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        body.theme-dark .stat-preset-btn {
+            background: #1E293B;
+            border-color: #334155;
+            color: #CBD5E1;
+        }
+        .stat-preset-btn:hover {
+            background: #2563EB;
+            color: #FFFFFF;
+            border-color: #2563EB;
+        }
+
+        /* 9 Key Metrics Bento Grid */
+        .stat-kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stat-kpi-card {
+            background: #F8FAFC;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s;
+        }
+        body.theme-dark .stat-kpi-card {
+            background: #090D16;
+            border-color: #1E293B;
+        }
+        .stat-kpi-card:hover {
+            transform: translateY(-2px);
+            border-color: #38BDF8;
+            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.1);
+        }
+
+        .stat-kpi-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .stat-kpi-title {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #64748B;
+        }
+        body.theme-dark .stat-kpi-title {
+            color: #94A3B8;
+        }
+        .stat-kpi-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: #E2E8F0;
+            color: #0F172A;
+            font-weight: 800;
+        }
+        body.theme-dark .stat-kpi-badge {
+            background: #1E293B;
+            color: #38BDF8;
+        }
+
+        .stat-kpi-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0F172A;
+            margin: 4px 0;
+            direction: ltr;
+            text-align: right;
+        }
+        body.theme-dark .stat-kpi-val {
+            color: #F8FAFC;
+        }
+
+        .stat-kpi-formula {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: #2563EB;
+            direction: ltr;
+            text-align: right;
+        }
+        body.theme-dark .stat-kpi-formula {
+            color: #38BDF8;
+        }
+
+        /* Statistical Step-by-Step Table */
+        .stat-table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid #CBD5E1;
+            margin-top: 14px;
+        }
+        body.theme-dark .stat-table-wrapper {
+            border-color: #334155;
+        }
+        .stat-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'JetBrains Mono', 'Vazirmatn', monospace;
+            font-size: 0.78rem;
+            text-align: center;
+        }
+        .stat-table th, .stat-table td {
+            padding: 9px 12px;
+            border: 1px solid #CBD5E1;
+        }
+        body.theme-dark .stat-table th, body.theme-dark .stat-table td {
+            border-color: #334155;
+        }
+        .stat-table th {
+            background: #F1F5F9;
+            color: #0F172A;
+            font-weight: 900;
+        }
+        body.theme-dark .stat-table th {
+            background: #1E293B;
+            color: #F8FAFC;
+        }
+        .stat-table tr:hover td {
+            background: rgba(56, 189, 248, 0.05);
+        }
+        .stat-table tfoot td {
+            background: #EFF6FF;
+            font-weight: 900;
+            color: #1E3A8A;
+        }
+        body.theme-dark .stat-table tfoot td {
+            background: #1E293B;
+            color: #38BDF8;
+        }
+
+        /* ========================================================
+           FLASHBACK MODAL & PREREQUISITE CHAIN ENGINE CSS
+           ======================================================== */
+        .flashback-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(12px);
+            z-index: 6000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            direction: rtl;
+        }
+        .flashback-modal-content {
+            background: #FFFFFF;
+            width: 100%;
+            max-width: 900px;
+            height: 92vh;
+            border-radius: 22px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            border: 2px solid #4338CA;
+        }
+        body.theme-dark .flashback-modal-content {
+            background: #0F172A;
+            border-color: #6366F1;
+        }
+
+        .flashback-header {
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
+            color: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .flashback-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .flashback-chains-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+            border-bottom: 1.5px solid #E2E8F0;
+        }
+        body.theme-dark .flashback-chains-nav {
+            border-bottom-color: #1E293B;
+        }
+
+        .flashback-chain-btn {
+            background: #F1F5F9;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 8px 16px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #334155;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        body.theme-dark .flashback-chain-btn {
+            background: #1E293B;
+            border-color: #334155;
+            color: #CBD5E1;
+        }
+        .flashback-chain-btn.active {
+            background: #4338CA;
+            border-color: #4338CA;
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(67, 56, 202, 0.35);
+        }
+        body.theme-dark .flashback-chain-btn.active {
+            background: #6366F1;
+            border-color: #6366F1;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Timeline Step Cards */
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            padding-right: 28px;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            bottom: 14px;
+            right: 12px;
+            width: 3px;
+            background: linear-gradient(180deg, #4338CA, #38BDF8, #10B981);
+            border-radius: 2px;
+        }
+
+        .timeline-step-node {
+            position: relative;
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 16px 18px;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s;
+        }
+        body.theme-dark .timeline-step-node {
+            background: #090D16;
+            border-color: #1E293B;
+        }
+        .timeline-step-node:hover {
+            border-color: #4338CA;
+            transform: translateX(-4px);
+        }
+        body.theme-dark .timeline-step-node:hover {
+            border-color: #6366F1;
+        }
+
+        .timeline-step-pin {
+            position: absolute;
+            right: -24px;
+            top: 18px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #4338CA;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 0 10px rgba(67, 56, 202, 0.6);
+        }
+        body.theme-dark .timeline-step-pin {
+            border-color: #0F172A;
+            background: #6366F1;
+        }
+
+        .timeline-step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .timeline-step-title {
+            font-size: 0.95rem;
+            font-weight: 900;
+            color: #0F172A;
+        }
+        body.theme-dark .timeline-step-title {
+            color: #F8FAFC;
+        }
+
+        .timeline-formula-box {
+            background: #F8FAFC;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin: 10px 0;
+            direction: ltr;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            color: #1E3A8A;
+        }
+        body.theme-dark .timeline-formula-box {
+            background: #1E293B;
+            border-color: #334155;
+            color: #93C5FD;
+        }
+
+        .timeline-desc {
+            font-size: 0.8rem;
+            line-height: 1.85;
+            color: #334155;
+        }
+        body.theme-dark .timeline-desc {
+            color: #CBD5E1;
+        }
+
+        .timeline-trap-box {
+            background: #FFF1F2;
+            border-right: 4px solid #EF4444;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 10px;
+            font-size: 0.74rem;
+            line-height: 1.8;
+            color: #991B1B;
+        }
+        body.theme-dark .timeline-trap-box {
+            background: #2D0F19;
+            border-right-color: #F43F5E;
+            color: #FECDD3;
+        }
+
     </style>
 
 </head>
@@ -1759,6 +2187,10 @@
         </div>
 
         <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            
+            <button onclick="openFlashbackModal('variance')" class="badge" style="cursor: pointer; padding: 6px 12px; font-weight: 800; background: linear-gradient(135deg, #4338CA 0%, #6366F1 100%); color: #FFFFFF; border: 1px solid #818CF8; box-shadow: 0 2px 8px rgba(99, 102, 241, 0.35);">
+                ⚡ فلش‌بک به گذشته (زنجیره پیش‌نیازها)
+            </button>
             <button id="theme-toggle-btn" class="badge" onclick="toggleTheme()" style="cursor: pointer; padding: 6px 12px; font-weight: 800; background: #0F172A; color: #FFFFFF; border: 1px solid #334155;">
                 🌙 تم اولد بلومبرگ
             </button>
@@ -3197,40 +3629,119 @@
             </div>
 
             <!-- 5.2 TREE DIAGRAM -->
+            
+            <!-- 5.2 TREE DIAGRAM: UPGRADED 5-PILLAR KNOWLEDGE ROADMAP -->
             <div id="stat-tab-tree" class="subtab-view" style="display: none;">
                 <div class="card">
-                    <div class="tree-trunk" style="background: #4338CA;">
-                        <span>🌳</span>
-                        <span>درخت دانش آمار کاربردی و تحلیل داده‌ها (Applied Statistics Mind-Map)</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;">
+                        <div>
+                            <span class="badge badge-stat">نقشه جامع مفهومی 🌳</span>
+                            <h3 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                                درخت دانش آمار و کاربرد آن در مدیریت (از داده خام تا استنتاج و تصمیم‌گیری)
+                            </h3>
+                        </div>
+                        <button class="btn-chart-tool" onclick="openFlashbackModal('variance')" style="background: #4338CA; color: #FFFFFF; border-color: #4338CA;">
+                            ⚡ مشاهده زنجیره پیش‌نیازهای آمار
+                        </button>
                     </div>
 
-                    <div class="tree-grid">
+                    <div class="tree-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                        <!-- Pillar 1: Data Taxonomy -->
+                        <div class="tree-branch-card" style="border-top: 4px solid #0284C7;">
+                            <div class="tree-branch-header">
+                                <span class="badge badge-micro">رکن اول</span>
+                                <span>گونه‌شناسی داده‌ها و مقیاس‌های ۴‌گانه</span>
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #0284C7;">داده‌های کمی در برابر کیفی</strong>
+                                • <b>کمی (عددی):</b> پیوسته (با اندازه‌گیری؛ مانند وزن و بازده) و گسسته (با شمارش؛ مانند تعداد سهام).<br>
+                                • <b>کیفی (توصیفی):</b> ویژگی‌های غیرعددی (مانند صنعت، جنسیت، رتبه اعتباری).
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #0284C7;">سلسله‌مراتب مقیاس‌های استیونز</strong>
+                                ۱. <b>اسمی (Nominal):</b> فقط برچسب‌گذاری (مجاز: فقط مد).<br>
+                                ۲. <b>رتبه‌ای (Ordinal):</b> دارای ترتیب اما فاصله نامشخص (مجاز: مد و میانه).<br>
+                                ۳. <b>فاصله‌ای (Interval):</b> صفر قراردادی (مانند دما؛ میانگین حسابی مجاز).<br>
+                                ۴. <b>نسبی (Ratio):</b> صفر مطلق حقیقی (مانند سود و قیمت؛ تمامی میانگین‌ها و واریانس مجاز).
+                            </div>
+                        </div>
+
+                        <!-- Pillar 2: Central Tendency -->
                         <div class="tree-branch-card" style="border-top: 4px solid #4338CA;">
-                            <div class="tree-branch-header"><span class="badge badge-stat">رکن ۱</span><span>شاخص‌های گرایش به مرکز</span></div>
-                            <div class="tree-leaf-item"><strong style="color: #4338CA;">میانگین‌های اصلی</strong>حسابی (AM)، وزنی (WM)، هندسی (GM) و هارمونیک (HM). رابطه نامساوی AM ≥ GM ≥ HM.</div>
-                            <div class="tree-leaf-item"><strong style="color: #4338CA;">میانه و مد</strong>میانه نقطه ۵۰٪ داده‌ها (مقاوم در برابر داده پرت)؛ مد بیشترین فراوانی. رابطه پیرسون: Mean - Mode ≈ 3(Mean - Median).</div>
-                            <div class="tree-leaf-item"><strong style="color: #4338CA;">میانگین‌های مقاوم</strong>پیراسته (Trimmed) با حذف α٪ از دو طرف؛ وینزوری با جایگزینی مقادیر مرزی.</div>
+                            <div class="tree-branch-header">
+                                <span class="badge badge-stat">رکن دوم</span>
+                                <span>شاخص‌های گرایش به مرکز و تعادل</span>
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #4338CA;">مرکز ثقل و میانگین‌های سه‌گانه</strong>
+                                • <b>حسابی (AM):</b> مرکز ثقل ترازوی داده‌ها؛ مجموع انحرافات صفر است.<br>
+                                • <b>هندسی (GM):</b> ریشه ضرب داده‌ها؛ سنجش رشد مرکب واقعی در بازار سرمایه.<br>
+                                • <b>هارمونیک (HM):</b> معکوس میانگین معکوس‌ها؛ خرید پله‌ای و نرخ‌های مسافت.<br>
+                                • <b>نامساوی طلایی:</b> Min ≤ H ≤ G ≤ X_bar ≤ Max (تساوی فقط در واریانس صفر).
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #4338CA;">میانه و مد (شاخص‌های مقاوم)</strong>
+                                • <b>میانه (Med):</b> نقطه مرزی ۵۰٪؛ ۱۰۰٪ مقاوم در برابر داده‌های پرت.<br>
+                                • <b>مد (Mode):</b> مشاهده دارای بیشترین فراوانی و قله توزیع.<br>
+                                • <b>تقریب پیرسون:</b> Mean - Mode ≈ 3(Mean - Median).
+                            </div>
                         </div>
 
+                        <!-- Pillar 3: Dispersion -->
                         <div class="tree-branch-card" style="border-top: 4px solid #DC2626;">
-                            <div class="tree-branch-header"><span class="badge badge-dark">رکن ۲</span><span>شاخص‌های پراکندگی و شکل توزیع</span></div>
-                            <div class="tree-leaf-item"><strong style="color: #DC2626;">پراکندگی داده‌ها</strong>دامنه (Range)، انحراف چارکی (QD)، واریانس (s² با تصحیح بسل n-1) و انحراف معیار.</div>
-                            <div class="tree-leaf-item"><strong style="color: #DC2626;">ضریب تغییرات (CV)</strong>CV = (σ/μ) × 100؛ شاخص مقایسه ریسک نسبی دارایی‌ها با مقیاس‌های متفاوت.</div>
-                            <div class="tree-leaf-item"><strong style="color: #DC2626;">چولگی و کشیدگی</strong>چولگی راست (Mean &gt; Med &gt; Mode)، چولگی چپ (Mode &gt; Med &gt; Mean)؛ کشیدگی بیش از ۳ (دم‌کلفت).</div>
+                            <div class="tree-branch-header">
+                                <span class="badge badge-dark">رکن سوم</span>
+                                <span>شاخص‌های پراکندگی مطلق و نسبی</span>
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #DC2626;">پراکندگی و فیلتر داده‌های پرت</strong>
+                                • <b>دامنه (Range):</b> Max - Min؛ سریع‌ترین اما به شدت حساس به ناهنجاری.<br>
+                                • <b>چارک‌ها و IQR:</b> دامنه میان‌چارکی IQR = Q3 - Q1 (محدوده امن ۵۰٪ مرکزی).<br>
+                                • <b>انحراف چارکی (QD):</b> QD = IQR / 2 (نیمه دامنه میان‌چارکی).
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #DC2626;">واریانس، انحراف معیار و ضریب تغییرات</strong>
+                                • <b>واریانس (s²):</b> میانگین مجذور انحرافات با مخرج n - 1 (تصحیح بسل نااریب).<br>
+                                • <b>انحراف معیار (s):</b> جذر واریانس جهت بازگشت به مقیاس ریالی متغیر.<br>
+                                • <b>ضریب تغییرات (CV):</b> CV = (s / X_bar) × 100؛ تنها معیار مقایسه ریسک در دو مقیاس متفاوت.
+                            </div>
                         </div>
 
+                        <!-- Pillar 4: Shape -->
+                        <div class="tree-branch-card" style="border-top: 4px solid #D97706;">
+                            <div class="tree-branch-header">
+                                <span class="badge badge-cost">رکن چهارم</span>
+                                <span>شکل هندسی توزیع، چولگی و کشیدگی</span>
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #D97706;">چولگی (Skewness)</strong>
+                                • <b>متقارن:</b> Skew = 0 و Mean = Med = Mode.<br>
+                                • <b>چولگی راست (مثبت):</b> دم دراز در سمت راست؛ Mean > Med > Mode.<br>
+                                • <b>چولگی چپ (منفی):</b> دم دراز در سمت چپ؛ Mode > Med > Mean.
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #D97706;">کشیدگی (Kurtosis) و حصارهای توکی</strong>
+                                • <b>لپتوکورتیک (Kurtosis > 3):</b> قله تیز و دم‌های کلفت؛ ریسک بحران‌های مالی.<br>
+                                • <b>حصارهای توکی:</b> هر داده فراتر از Q3 + 1.5 IQR داده پرت است.
+                            </div>
+                        </div>
+
+                        <!-- Pillar 5: Inference -->
                         <div class="tree-branch-card" style="border-top: 4px solid #047857;">
-                            <div class="tree-branch-header"><span class="badge badge-cost">رکن ۳</span><span>توزیع‌های احتمال و قضیه حد مرکزی</span></div>
-                            <div class="tree-leaf-item"><strong style="color: #047857;">توزیع نرمال استاندارد</strong>متغیر پیوسته با μ = 0 و σ = 1؛ قانون تجربی ۶۸-۹۵-۹۹.۷.</div>
-                            <div class="tree-leaf-item"><strong style="color: #047857;">قضیه حد مرکزی (CLT)</strong>با افزایش حجم نمونه (n ≥ 30)، توزیع میانگین نمونه‌ها به سمت نرمال میل می‌کند.</div>
-                            <div class="tree-leaf-item"><strong style="color: #047857;">نمره استاندارد Z</strong>Z = (X - μ) / σ؛ تبدیل هر توزیع نرمال به نرمال استاندارد جهت محاسبه احتمال.</div>
-                        </div>
-
-                        <div class="tree-branch-card" style="border-top: 4px solid #1D4ED8;">
-                            <div class="tree-branch-header"><span class="badge badge-micro">رکن ۴</span><span>همبستگی و رگرسیون مالی</span></div>
-                            <div class="tree-leaf-item"><strong style="color: #1D4ED8;">ضریب همبستگی پیرسون</strong>r بین ۱- و ۱+؛ سنجش شدت و جهت رابطه خطی دو متغیر.</div>
-                            <div class="tree-leaf-item"><strong style="color: #1D4ED8;">ضریب تعیین (R²)</strong>R² = r²؛ درصد تغییرات متغیر وابسته توضیح‌داده‌شده توسط رگرسیون.</div>
-                            <div class="tree-leaf-item"><strong style="color: #1D4ED8;">شیب رگرسیون و بتا</strong>Beta = Cov(X,Y) / Var(X) = r × (σ_Y / σ_X).</div>
+                            <div class="tree-branch-header">
+                                <span class="badge badge-finance">رکن پنجم</span>
+                                <span>توزیع نرمال و استنتاج آماری</span>
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #047857;">توزیع نرمال استاندارد و نمره Z</strong>
+                                • <b>نمره استاندارد:</b> Z = (X - μ) / σ (خنثی‌کننده مقیاس و واحد).<br>
+                                • <b>قانون تجربی:</b> ۶۸٪ در μ ± 1σ؛ ۹۵٪ در μ ± 2σ؛ ۹۹.۷٪ در μ ± 3σ.<br>
+                                • <b>نامساوی چبیشف:</b> برای هر توزیعی حداقل 1 - (1/k²) داده‌ها در μ ± kσ هستند.
+                            </div>
+                            <div class="tree-leaf-item">
+                                <strong style="color: #047857;">قضیه حد مرکزی (CLT)</strong>
+                                با بزرگ شدن اندازه نمونه (n ≥ 30)، میانگین نمونه‌ها مستقل از شکل توزیع جامعه، به سمت نرمال میل می‌کند.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3581,7 +4092,172 @@
 
                 </div>
             </div>
-<div id="stat-tab-solution" class="subtab-view" style="display: none;">
+
+            <!-- 5.4 CANONICAL SOLUTION & LIVE STATISTICAL COMPUTATION LAB -->
+            <div id="stat-tab-solution" class="subtab-view" style="display: none;">
+                <!-- INTERACTIVE STATISTICAL COMPUTATION LAB -->
+                <div class="stat-lab-container" id="stat-calculator-lab">
+                    <div class="stat-lab-header">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span class="badge badge-stat">آزمایشگاه محاسباتی زنده ⚡</span>
+                                <h3 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0;">ماشین حساب تحلیلی شاخص‌های آمار و کاربرد در مدیریت</h3>
+                            </div>
+                            <p style="font-size: 0.74rem; color: #64748B; margin-top: 4px;">
+                                محاسبه خودکار و کالبدشکافی ۹ شاخص گرایش به مرکز و پراکندگی (میانگین‌ها، چارک‌ها، واریانس، انحراف معیار و CV) به همراه جدول انحرافات
+                            </p>
+                        </div>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <select id="stat-calc-mode" onchange="runStatCalculation()" style="padding: 6px 12px; border-radius: 8px; border: 1.5px solid #CBD5E1; font-family: 'Vazirmatn'; font-size: 0.76rem; background: #F8FAFC; color: #0F172A; font-weight: 800; outline: none;">
+                                <option value="sample">داده‌های نمونه (مخرج n - 1 با تصحیح بسل)</option>
+                                <option value="pop">داده‌های جامعه (مخرج N بزرگ)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Data Input -->
+                    <div class="stat-input-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="font-size: 0.78rem; font-weight: 800; color: #334155;">🔢 مقادیر داده‌ها (اعداد را با کاما یا فاصله جدا کنید):</label>
+                            <span id="stat-count-badge" class="badge badge-dark">تعداد داده‌ها: ۵</span>
+                        </div>
+                        <textarea id="stat-calc-input" class="stat-textarea" oninput="runStatCalculation()" placeholder="مثال: 2, 4, 8, 16, 32">2, 4, 8, 16, 32</textarea>
+                    </div>
+
+                    <!-- Quick Presets -->
+                    <div class="stat-preset-chips">
+                        <span style="font-size: 0.72rem; font-weight: 800; color: #64748B;">⚡ مجموعه‌داده‌های آماده:</span>
+                        <button class="stat-preset-btn" onclick="loadStatPreset('portfolio')">📈 بازدهی پورتفو (2, 4, 8, 16, 32)</button>
+                        <button class="stat-preset-btn" onclick="loadStatPreset('factory')">🏭 تیراژ تولید کارخانه (120, 140, 155, 170, 190, 225, 260)</button>
+                        <button class="stat-preset-btn" onclick="loadStatPreset('stock')">💰 قیمت سهام بورس (45, 52, 58, 63, 70, 85, 92, 110)</button>
+                        <button class="stat-preset-btn" onclick="loadStatPreset('exam')">🎯 نمرات آزمون مالی (11, 13, 14, 15, 15, 16, 17, 18, 20)</button>
+                        <button class="stat-preset-btn" onclick="clearStatData()" style="color: #DC2626;">🧹 پاکسازی</button>
+                    </div>
+
+                    <!-- 9 Bento Metric Cards -->
+                    <div class="stat-kpi-grid">
+                        <!-- 1. Arithmetic Mean -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #2563EB;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">میانگین حسابی</span>
+                                <span class="stat-kpi-badge">X_bar</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-am" style="color: #2563EB;">12.40</div>
+                            <div class="stat-kpi-formula">∑ x_i / n</div>
+                        </div>
+
+                        <!-- 2. Geometric Mean -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #047857;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">میانگین هندسی</span>
+                                <span class="stat-kpi-badge">G (GM)</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-gm" style="color: #047857;">8.00</div>
+                            <div class="stat-kpi-formula">(∏ x_i)^(1/n)</div>
+                        </div>
+
+                        <!-- 3. Harmonic Mean -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #D97706;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">میانگین هارمونیک</span>
+                                <span class="stat-kpi-badge">H (HM)</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-hm" style="color: #D97706;">5.16</div>
+                            <div class="stat-kpi-formula">n / ∑(1/x_i)</div>
+                        </div>
+
+                        <!-- 4. Range -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #6366F1;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">دامنه تغییرات</span>
+                                <span class="stat-kpi-badge">Range</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-range" style="color: #6366F1;">30.00</div>
+                            <div class="stat-kpi-formula">Max - Min</div>
+                        </div>
+
+                        <!-- 5. Quartiles (Q1, Median, Q3) -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #8B5CF6;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">چارک‌ها (Q1, Q2, Q3)</span>
+                                <span class="stat-kpi-badge">Quartiles</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-quartiles" style="font-size: 1.05rem; color: #8B5CF6;">4.0 | 8.0 | 16.0</div>
+                            <div class="stat-kpi-formula">Q1 (25%) | Med | Q3 (75%)</div>
+                        </div>
+
+                        <!-- 6. Interquartile Range (IQR) -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #EC4899;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">دامنه میان‌چارکی</span>
+                                <span class="stat-kpi-badge">IQR</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-iqr" style="color: #EC4899;">12.00</div>
+                            <div class="stat-kpi-formula">Q3 - Q1</div>
+                        </div>
+
+                        <!-- 7. Quartile Deviation (QD) -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #F43F5E;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">انحراف چارکی (نیمه دامنه)</span>
+                                <span class="stat-kpi-badge">QD</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-qd" style="color: #F43F5E;">6.00</div>
+                            <div class="stat-kpi-formula">(Q3 - Q1) / 2</div>
+                        </div>
+
+                        <!-- 8. Variance & StdDev -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #DC2626;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">واریانس و انحراف معیار</span>
+                                <span class="stat-kpi-badge">s² | s</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-var-sd" style="font-size: 1.05rem; color: #DC2626;">148.80 | 12.20</div>
+                            <div class="stat-kpi-formula" id="stat-kpi-var-formula">∑(x - x̄)² / (n - 1)</div>
+                        </div>
+
+                        <!-- 9. Coefficient of Variation (CV) -->
+                        <div class="stat-kpi-card" style="border-top: 3px solid #0EA5E9;">
+                            <div class="stat-kpi-header">
+                                <span class="stat-kpi-title">ضریب پراکندگی (تغییرات)</span>
+                                <span class="stat-kpi-badge">CV%</span>
+                            </div>
+                            <div class="stat-kpi-val" id="stat-kpi-cv" style="color: #0EA5E9;">98.37%</div>
+                            <div class="stat-kpi-formula">(s / X_bar) × 100</div>
+                        </div>
+                    </div>
+
+                    <!-- Golden Inequality & Comparison Alert -->
+                    <div id="stat-inequality-alert" style="background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 12px; padding: 12px 16px; margin-bottom: 14px; font-size: 0.78rem; line-height: 1.8; color: #1E3A8A;">
+                        <strong>🌟 ارزیابی نامساوی طلایی میانگین‌ها:</strong>
+                        <span id="stat-inequality-text">Min (2.0) ≤ H (5.16) ≤ G (8.00) ≤ X_bar (12.40) ≤ Max (32.0) برقرار است.</span>
+                    </div>
+
+                    <!-- Step-by-Step Table -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <span style="font-size: 0.8rem; font-weight: 800; color: #0F172A;">📋 جدول کالبدشکافی گام‌به‌گام انحرافات و محاسبات:</span>
+                        <button class="btn-chart-tool" onclick="openFlashbackModal('variance')" style="font-size: 0.72rem; padding: 4px 10px;">⚡ فلش‌بک به فرمول واریانس</button>
+                    </div>
+                    <div class="stat-table-wrapper">
+                        <table class="stat-table" id="stat-dissection-table">
+                            <thead>
+                                <tr>
+                                    <th>ردیف (i)</th>
+                                    <th>داده مرتب (x_i)</th>
+                                    <th>انحراف از میانگین (x_i - x̄)</th>
+                                    <th>مجذور انحراف (x_i - x̄)²</th>
+                                    <th>معکوس داده (1 / x_i)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stat-table-body">
+                            </tbody>
+                            <tfoot id="stat-table-foot">
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- CANONICAL SOLVED PROBLEM -->
                 <div class="card">
                     <span class="badge badge-stat" style="margin-bottom: 8px;">مسئله جامع محاسبه میانگین‌ها، واریانس و ضریب تغییرات</span>
                     <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
@@ -4455,6 +5131,33 @@
     </nav>
 
     
+    
+    <!-- FOUNDATIONAL FLASHBACK & PREREQUISITE CHAIN MODAL -->
+    <div id="modal-flashback" class="flashback-modal">
+        <div class="flashback-modal-content">
+            <div class="flashback-header">
+                <div>
+                    <h3 style="font-size: 1.05rem; font-weight: 900; margin: 0;">⚡ فلش‌بک شناختی: ریشه‌یابی از صفر تا صد و زنجیره پیش‌نیازها</h3>
+                    <p style="font-size: 0.72rem; color: #C7D2FE; margin: 3px 0 0 0;">کالبدشکافی تقدم و تاخر تولد فرمول‌ها و چرایی هر مخرج و کسر</p>
+                </div>
+                <button class="btn-close-fs" onclick="closeFlashbackModal()">✕ بستن</button>
+            </div>
+            <div class="flashback-body">
+                <!-- Chain Selector Chips -->
+                <div class="flashback-chains-nav" id="fb-chains-nav">
+                    <button class="flashback-chain-btn active" id="fb-btn-variance" onclick="selectFlashbackChain('variance')">📊 آمار: واریانس و CV</button>
+                    <button class="flashback-chain-btn" id="fb-btn-derivative" onclick="selectFlashbackChain('derivative')">📐 ریاضیات: مشتق و بهینه‌سازی</button>
+                    <button class="flashback-chain-btn" id="fb-btn-means" onclick="selectFlashbackChain('means')">📈 میانگین‌ها: حسابی، هندسی و پورتفو</button>
+                    <button class="flashback-chain-btn" id="fb-btn-quartiles" onclick="selectFlashbackChain('quartiles')">📦 چارک‌ها: IQR و داده‌های پرت</button>
+                    <button class="flashback-chain-btn" id="fb-btn-hamada" onclick="selectFlashbackChain('hamada')">💼 مدیریت مالی: بتای اهرمی همادا</button>
+                </div>
+
+                <!-- Active Chain Content -->
+                <div id="fb-chain-content"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- PRINTABLE ONE-PAGE A4 CHEAT-SHEET MODAL -->
     <div id="modal-cheat-sheet" class="cheat-modal">
         <div class="cheat-modal-content">
@@ -4691,13 +5394,13 @@
             const dock = document.querySelector('.executive-dock');
 
             if (course === 'hub') {
-                scRow.style.display = 'none';
-                subtabsBar.style.display = 'none';
-                dock.style.display = 'none';
+                if (scRow) scRow.style.display = 'none';
+                if (subtabsBar) subtabsBar.style.display = 'none';
+                if (dock) dock.style.display = 'none';
             } else {
-                scRow.style.display = 'flex';
-                subtabsBar.style.display = 'flex';
-                dock.style.display = 'flex';
+                if (scRow) scRow.style.display = 'flex';
+                if (subtabsBar) subtabsBar.style.display = 'flex';
+                if (dock) dock.style.display = 'flex';
                 
                 scContainer.innerHTML = '';
                 meta.scenarios.forEach(sc => {
@@ -6540,6 +7243,441 @@
             }
         });
 
+        
+        // ========================================================
+        // v16.0 STATISTICAL COMPUTATION LAB & FLASHBACK ENGINE
+        // ========================================================
+        const STAT_PRESETS = {
+            portfolio: [2, 4, 8, 16, 32],
+            factory: [120, 140, 155, 170, 190, 225, 260],
+            stock: [45, 52, 58, 63, 70, 85, 92, 110],
+            exam: [11, 13, 14, 15, 15, 16, 17, 18, 20]
+        };
+
+        function parseInputData(rawStr) {
+            if (!rawStr) return [];
+            return rawStr
+                .replace(/[,;\n\t]/g, ' ')
+                .split(' ')
+                .map(s => s.trim())
+                .filter(s => s.length > 0 && !isNaN(Number(s)))
+                .map(s => Number(s));
+        }
+
+        function runStatCalculation() {
+            const inputEl = document.getElementById('stat-calc-input');
+            if (!inputEl) return;
+            const data = parseInputData(inputEl.value);
+            const countBadge = document.getElementById('stat-count-badge');
+            if (countBadge) countBadge.innerText = 'تعداد داده‌ها: ' + data.length;
+
+            if (data.length === 0) {
+                const fields = ['stat-kpi-am', 'stat-kpi-gm', 'stat-kpi-hm', 'stat-kpi-range', 'stat-kpi-quartiles', 'stat-kpi-iqr', 'stat-kpi-qd', 'stat-kpi-var-sd', 'stat-kpi-cv'];
+                fields.forEach(f => {
+                    const el = document.getElementById(f);
+                    if (el) el.innerText = '—';
+                });
+                const body = document.getElementById('stat-table-body');
+                if (body) body.innerHTML = '<tr><td colspan="5" style="padding: 16px; color: #94A3B8;">داده‌ای برای محاسبه وارد نشده است.</td></tr>';
+                const foot = document.getElementById('stat-table-foot');
+                if (foot) foot.innerHTML = '';
+                return;
+            }
+
+            const modeSelect = document.getElementById('stat-calc-mode');
+            const isSample = modeSelect ? modeSelect.value === 'sample' : true;
+            const sorted = [...data].sort((a, b) => a - b);
+            const n = sorted.length;
+
+            // 1. AM
+            const sum = sorted.reduce((a, b) => a + b, 0);
+            const mean = sum / n;
+
+            // 2. GM
+            const allPositive = sorted.every(x => x > 0);
+            let gm = null;
+            if (allPositive) {
+                const logSum = sorted.reduce((acc, x) => acc + Math.log(x), 0);
+                gm = Math.exp(logSum / n);
+            }
+
+            // 3. HM
+            let hm = null;
+            if (allPositive) {
+                const invSum = sorted.reduce((acc, x) => acc + (1 / x), 0);
+                hm = n / invSum;
+            }
+
+            // 4. Range
+            const min = sorted[0];
+            const max = sorted[n - 1];
+            const range = max - min;
+
+            // 5. Quartiles (Linear interpolation)
+            function getPercentile(p) {
+                if (n === 1) return sorted[0];
+                const index = p * (n - 1);
+                const lower = Math.floor(index);
+                const upper = Math.ceil(index);
+                const weight = index - lower;
+                return sorted[lower] * (1 - weight) + sorted[upper] * weight;
+            }
+            const q1 = getPercentile(0.25);
+            const q2 = getPercentile(0.50);
+            const q3 = getPercentile(0.75);
+
+            // 6. IQR & QD
+            const iqr = q3 - q1;
+            const qd = iqr / 2;
+
+            // 7. Variance & StdDev
+            const sqDiffSum = sorted.reduce((acc, x) => acc + Math.pow(x - mean, 2), 0);
+            const denom = isSample ? (n > 1 ? n - 1 : 1) : n;
+            const variance = sqDiffSum / denom;
+            const stdDev = Math.sqrt(variance);
+
+            // 8. CV
+            const cv = mean !== 0 ? (stdDev / Math.abs(mean)) * 100 : 0;
+
+            // Update DOM Elements
+            const elAm = document.getElementById('stat-kpi-am');
+            if (elAm) elAm.innerText = mean.toFixed(2);
+
+            const elGm = document.getElementById('stat-kpi-gm');
+            if (elGm) elGm.innerText = gm !== null ? gm.toFixed(2) : 'تعریف‌نشده (داده منفی/صفر)';
+
+            const elHm = document.getElementById('stat-kpi-hm');
+            if (elHm) elHm.innerText = hm !== null ? hm.toFixed(2) : 'تعریف‌نشده';
+
+            const elRange = document.getElementById('stat-kpi-range');
+            if (elRange) elRange.innerText = range.toFixed(2);
+
+            const elQ = document.getElementById('stat-kpi-quartiles');
+            if (elQ) elQ.innerText = q1.toFixed(2) + ' | ' + q2.toFixed(2) + ' | ' + q3.toFixed(2);
+
+            const elIqr = document.getElementById('stat-kpi-iqr');
+            if (elIqr) elIqr.innerText = iqr.toFixed(2);
+
+            const elQd = document.getElementById('stat-kpi-qd');
+            if (elQd) elQd.innerText = qd.toFixed(2);
+
+            const elVarSd = document.getElementById('stat-kpi-var-sd');
+            if (elVarSd) elVarSd.innerText = variance.toFixed(2) + ' | ' + stdDev.toFixed(2);
+
+            const elVarForm = document.getElementById('stat-kpi-var-formula');
+            if (elVarForm) elVarForm.innerText = isSample ? '∑(x - x̄)² / (n - 1) [بسل]' : '∑(x - μ)² / N [جامعه]';
+
+            const elCv = document.getElementById('stat-kpi-cv');
+            if (elCv) elCv.innerText = cv.toFixed(2) + '%';
+
+            // Golden Inequality Check
+            const ineqEl = document.getElementById('stat-inequality-text');
+            if (ineqEl) {
+                if (allPositive && gm !== null && hm !== null) {
+                    const holds = (min <= hm + 0.001) && (hm <= gm + 0.001) && (gm <= mean + 0.001) && (mean <= max + 0.001);
+                    ineqEl.innerHTML = 'رابطه طلایی: ' +
+                        'Min (' + min.toFixed(2) + ') ≤ ' +
+                        'H (' + hm.toFixed(2) + ') ≤ ' +
+                        'G (' + gm.toFixed(2) + ') ≤ ' +
+                        'x̄ (' + mean.toFixed(2) + ') ≤ ' +
+                        'Max (' + max.toFixed(2) + ') ' +
+                        (holds ? '✅ <b>برقرار و تایید شد</b>' : '⚠️');
+                } else {
+                    ineqEl.innerHTML = 'داده‌ها شامل صفر یا اعداد منفی هستند؛ میانگین هندسی و هارمونیک تنها برای مقادیر مثبت حقیقی معنادارند.';
+                }
+            }
+
+            // Render Dissection Table
+            const tbody = document.getElementById('stat-table-body');
+            if (tbody) {
+                let htmlRows = '';
+                sorted.forEach((x, idx) => {
+                    const diff = x - mean;
+                    const sqDiff = Math.pow(diff, 2);
+                    const inv = x !== 0 ? (1 / x) : 0;
+                    htmlRows += '<tr>' +
+                        '<td>' + (idx + 1) + '</td>' +
+                        '<td><b>' + x.toFixed(2) + '</b></td>' +
+                        '<td style="direction: ltr; text-align: center; color: ' + (diff >= 0 ? '#047857' : '#DC2626') + ';">' + (diff >= 0 ? '+' : '') + diff.toFixed(2) + '</td>' +
+                        '<td style="direction: ltr; text-align: center;">' + sqDiff.toFixed(2) + '</td>' +
+                        '<td style="direction: ltr; text-align: center;">' + (x !== 0 ? inv.toFixed(4) : '—') + '</td>' +
+                        '</tr>';
+                });
+                tbody.innerHTML = htmlRows;
+            }
+
+            const tfoot = document.getElementById('stat-table-foot');
+            if (tfoot) {
+                const totalInv = sorted.reduce((acc, x) => acc + (x !== 0 ? 1 / x : 0), 0);
+                tfoot.innerHTML = '<tr>' +
+                    '<td><b>مجموع (∑)</b></td>' +
+                    '<td><b>' + sum.toFixed(2) + '</b></td>' +
+                    '<td style="color: #2563EB;"><b>0.00 (اثبات ترازوی مرکز ثقل)</b></td>' +
+                    '<td><b>' + sqDiffSum.toFixed(2) + '</b></td>' +
+                    '<td><b>' + totalInv.toFixed(4) + '</b></td>' +
+                    '</tr>';
+            }
+        }
+
+        function loadStatPreset(presetKey) {
+            if (typeof hapticTap === 'function') hapticTap('light');
+            const data = STAT_PRESETS[presetKey];
+            if (!data) return;
+            const inputEl = document.getElementById('stat-calc-input');
+            if (inputEl) {
+                inputEl.value = data.join(', ');
+                runStatCalculation();
+                showToast('مجموعه‌داده بارگذاری و تحلیل شد ✅');
+            }
+        }
+
+        function clearStatData() {
+            if (typeof hapticTap === 'function') hapticTap('light');
+            const inputEl = document.getElementById('stat-calc-input');
+            if (inputEl) {
+                inputEl.value = '';
+                runStatCalculation();
+            }
+        }
+
+        // ========================================================
+        // FLASHBACK MODAL & PREREQUISITE CHAIN LOGIC
+        // ========================================================
+        const FLASHBACK_CHAINS = {
+            variance: {
+                title: 'آمار کاربردی: از داده‌های خام تا واریانس، انحراف معیار و ضریب تغییرات (CV)',
+                nodes: [
+                    {
+                        step: 'گام ۰ (نقطه تولد در گذشته)',
+                        title: 'چرا اول باید میانگین حسابی (مرکز ثقل) محاسبه شود؟',
+                        formula: 'x̄ = ∑ x_i / n',
+                        desc: 'داده‌های خام در بازار سرمایه یا تولید به خودی خود نامنظم‌اند. پیش از سنجش ' +
+                              'پراکندگی یا ریسک، ابتدا باید بدانیم مشاهدات حول چه محوری دور می‌زنند. ' +
+                              'میانگین حسابی نقطه تعادل فیزیکی و مرکز ثقل داده‌هاست.',
+                        trap: 'تله طراحان تست: بدون مشخص بودن میانگین، مفهوم انحراف کاملاً بی‌معنی است. گام صفر تمام مسائل ریسک، یافتن میانگین است.'
+                    },
+                    {
+                        step: 'گام ۱ (بن‌بست ریاضی انحرافات)',
+                        title: 'چرا جمع جبری انحرافات همیشه صفر است؟',
+                        formula: '∑ (x_i - x̄) = ∑ x_i - n x̄ = n x̄ - n x̄ = 0',
+                        desc: 'اگر انحراف هر مشاهده از میانگین (x_i - x̄) را مستقیماً جمع کنیم، خطاهای مثبت و منفی دقیقاً یکدیگر را خنثی می‌کنند و مجموع همواره صفر می‌شود! بنابراین با میانگین‌گیری ساده از انحرافات، به بن‌بست می‌رسیم.',
+                        trap: 'تله کنکور: اگر مجموع انحرافات N مشاهده از عدد C مساوی صفر باشد، آن عدد C قطعاً و انحصاراً همان میانگین حسابی است.'
+                    },
+                    {
+                        step: 'گام ۲ (تولد واریانس و تصحیح بسل)',
+                        title: 'چرا توان ۲ و چرا مخرج n - 1 به جای n؟',
+                        formula: 's² = ∑ (x_i - x̄)² / (n - 1)',
+                        desc: 'برای نابودی علامت منفی، انحرافات به توان ۲ می‌رسند. چرا تقسیم بر n - 1؟ چون در نمونه‌گیری، میانگین واقعی جامعه (μ) مجهول است و از x̄ استفاده شده است. انحراف مشاهدات حول x̄ کمتر از انحراف حول میانگین واقعی است! کسر ۱ درجه آزادی در مخرج (n - 1) این کم‌برآوردی را خنثی کرده و واریانس را نااریب می‌سازد.',
+                        trap: 'تله مرگبار آزمون: برای جامعه آماری مخرج N و برای نمونه تصادفی مخرج n - 1 است.'
+                    },
+                    {
+                        step: 'گام ۳ (تولد انحراف معیار)',
+                        title: 'چرا جذر می‌گیریم؟ بازگشت به مقیاس واقعی',
+                        formula: 's = √s²',
+                        desc: 'واحد واریانس مربع واحد داده است (تومان به توان ۲ یا کیلوگرم به توان ۲ که در دنیای واقعی مفهومی ندارد!). با جذر گرفتن، به مقیاس واقعی ریال و درصد بازمی‌گردیم.',
+                        trap: 'نکته طلایی: جمع داده‌ها با عدد ثابت واریانس و انحراف معیار را تغییر نمی‌دهد، اما ضرب در عدد ثابت C انحراف معیار را در |C| ضرب می‌کند.'
+                    },
+                    {
+                        step: 'گام ۴ (تولد ضریب تغییرات CV)',
+                        title: 'چرا انحراف معیار به میانگین تقسیم می‌شود؟ سنجش ریسک نسبی',
+                        formula: 'CV = (s / x̄) × 100%',
+                        desc: 'انحراف معیار ۵ تومان برای سهم ۱۰ تومانی ۵۰٪ نوسان است، اما برای سهم ۱۰۰۰ تومانی ناچیز است. با تقسیم انحراف معیار بر میانگین، مقیاس خنثی شده و مقایسه عادلانه ریسک امکان‌پذیر می‌شود.',
+                        trap: 'تله ارشد: انحراف معیار کمتر لزوماً به معنی ریسک کمتر نیست؛ دارایی با CV کمتر ارجحیت دارد.'
+                    }
+                ]
+            },
+            derivative: {
+                title: 'ریاضیات و بهینه‌سازی: از شیب خط قاطع تا مشتق و تعادل سود MR = MC',
+                nodes: [
+                    {
+                        step: 'گام ۰ (نقطه تولد در گذشته)',
+                        title: 'شیب خط مستقیم در هندسه',
+                        formula: 'm = Δy / Δx = (y2 - y1) / (x2 - x1)',
+                        desc: 'در خطوط راست، شیب همواره ثابت بود و نسبت جابه‌جایی عمودی به افقی نرخ تغییرات را نشان می‌داد.',
+                        trap: 'محدودیت خط راست: توابع درآمد و هزینه در دنیای واقعی منحنی‌های غیرخطی هستند.'
+                    },
+                    {
+                        step: 'گام ۱ (خط قاطع روی منحنی)',
+                        title: 'تقریب میانگین تغییرات با فاصله Δx',
+                        formula: 'm_secant = [ f(x + Δx) - f(x) ] / Δx',
+                        desc: 'شیب خط قاطع تنها میانگین تغییرات در یک بازه را نشان می‌دهد، اما تغییرات لحظه‌ای در یک تیراژ خاص را نشان نمی‌دهد.',
+                        trap: 'نکته مفهومی: خط قاطع منحنی را در دو نقطه قطع می‌کند.'
+                    },
+                    {
+                        step: 'گام ۲ (جهش نیوتن و لایبنیتس)',
+                        title: 'میل فاصله به سمت صفر و تولد مشتق',
+                        formula: 'f\'(x) = dy / dx = lim_{Δx → 0} [ f(x + Δx) - f(x) ] / Δx',
+                        desc: 'با میل کردن Δx به صفر، خط قاطع به خط مماس بر یک نقطه تبدیل می‌شود؛ شیب خط مماس همان نرخ تغییرات آنی است!',
+                        trap: 'قاعده توان: مشتق x^n برابر n x^{n-1} است. عدد ثابت تنها مشتقش صفر است، اما ضریب ضرب‌شده در مشتق حفظ می‌شود.'
+                    },
+                    {
+                        step: 'گام ۳ (تزریق به اقتصاد و مالی)',
+                        title: 'تولد درآمد نهایی MR و هزینه نهایی MC',
+                        formula: 'MR = dTR / dQ   |   MC = dTC / dQ',
+                        desc: 'مشتق درآمد کل درآمد آخرین واحد، و مشتق هزینه کل بهای تمام‌شده ساخت آخرین واحد را می‌دهد.',
+                        trap: 'در انحصار کامل شیب تابع MR دو برابر شیب منحنی تقاضاست.'
+                    },
+                    {
+                        step: 'گام ۴ (قله سود و شرط تعادل)',
+                        title: 'چرا در ماکزیمم سود باید MR = MC باشد؟',
+                        formula: 'dπ / dQ = d(TR - TC) / dQ = MR - MC = 0  ==>  MR = MC',
+                        desc: 'سود زمانی به اوج می‌رسد که شیب مماس بر تابع سود افقی (صفر) شود. تلاقی MR = MC نقطه بهینه تولید است.',
+                        trap: 'شرط مرتبه دوم (SOC): شیب MC باید در نقطه تلاقی از شیب MR بزرگتر باشد.'
+                    }
+                ]
+            },
+            means: {
+                title: 'میانگین‌های سه‌گانه: حسابی، هندسی و هارمونیک در برابر رشد ثروت',
+                nodes: [
+                    {
+                        step: 'گام ۰ (نقطه تولد در گذشته)',
+                        title: 'میانگین حسابی و فرض مستقل بودن جمع',
+                        formula: 'X_bar = ∑ x_i / n',
+                        desc: 'میانگین حسابی فرض می‌کند متغیرها در طول زمان با هم جمع می‌شوند.',
+                        trap: 'تله کشنده در بازار سرمایه: بازدهی سرمایه‌گذاری جمع نمی‌شود، بلکه در هم ضرب می‌شود!'
+                    },
+                    {
+                        step: 'گام ۱ (کالبدشکافی اثر معکوس زیان)',
+                        title: 'چرا ۵۰٪ زیان نیازمند ۱۰۰٪ سود برای جبران است؟',
+                        formula: 'سرمایه ۱۰۰ تومانی: ۱۰۰ × (۱ - ۰.۵۰) = ۵۰  ==>  ۵۰ × (۱ + ۱.۰۰) = ۱۰۰ تومان',
+                        desc: 'زیان از پایه بزرگتر کم می‌شود، اما سود از پایه کوچک‌شده رشد می‌کند. میانگین حسابی (-50% + 100%)/2 = +25% توهم سود ایجاد می‌کند در حالی که پول اولیه بدون تغییر است!',
+                        trap: 'میانگین حسابی همواره بازده واقعی سرمایه‌گذاری را بیش از حد برآورد می‌کند.'
+                    },
+                    {
+                        step: 'گام ۲ (تولد میانگین هندسی و CAGR)',
+                        title: 'محاسبه دقیق رشد مرکب ثروت با ضرب ریشه‌ای',
+                        formula: 'G = [ ∏ (1 + R_t) ]^(1/n) - 1',
+                        desc: 'میانگین هندسی نرخ بازده مرکب واقعی سالانه را حساب کرده و اثر ضربی نوسانات را در نظر می‌گیرد.',
+                        trap: 'تقریب درگ نوسان شانون-مارکوویتز: G ≈ X_bar - 0.5 σ². نوسان بالاتر یعنی فرسایش بیشتر ثروت.'
+                    },
+                    {
+                        step: 'گام ۳ (تولد میانگین هارمونیک)',
+                        title: 'نرخ‌های ثابت و استراتژی خرید پله‌ای سهام',
+                        formula: 'H = n / ∑ (1 / x_i)',
+                        desc: 'وقتی با بودجه ریالی ثابت در قیمت‌های گوناگون سهام می‌خرید، میانگین موزون قیمت خرید برابر میانگین هارمونیک قیمت‌هاست.',
+                        trap: 'نامساوی طلایی: Min ≤ H ≤ G ≤ X_bar ≤ Max همواره برقرار است مگر در واریانس صفر.'
+                    }
+                ]
+            },
+            quartiles: {
+                title: 'چارک‌ها، دامنه میان‌چارکی و نمودار جعبه‌ای: پالایش داده‌های پرت',
+                nodes: [
+                    {
+                        step: 'گام ۰ (نقطه تولد در گذشته)',
+                        title: 'ضعف بزرگ میانگین در برابر ارقام نجومی',
+                        formula: 'حساسیت مطلق میانگین به داده‌های پرت (Outliers)',
+                        desc: 'یک مشاهده غیرعادی بسیار بزرگ یا کوچک، میانگین حسابی را به شدت جابه‌جا می‌کند.',
+                        trap: 'میانه و چارک‌ها در برابر داده‌های پرت کاملاً مقاوم (Robust) هستند.'
+                    },
+                    {
+                        step: 'گام ۱ (مرتب‌سازی و تولد میانه)',
+                        title: 'میانه نقطه مرزی ۵۰٪ مشاهدات',
+                        formula: 'Q2 = Median = مقدار داده وسط در آرایه مرتب‌شده',
+                        desc: 'داده‌ها به ترتیب صعودی چیده شده و نقطه وسط نصف داده‌ها را در چپ و نصف را در راست نگه می‌دارد.',
+                        trap: 'در تعداد زوج مشاهدات، میانه میانگین حسابی دو داده وسط است.'
+                    },
+                    {
+                        step: 'گام ۲ (تولد چارک اول و سوم)',
+                        title: 'نقاط ۲۵٪ و ۷۵٪ توزیع',
+                        formula: 'Q1 = نقطه ۲۵٪   |   Q3 = نقطه ۷۵٪',
+                        desc: 'چارک اول میانه نیمه اول داده‌ها و چارک سوم میانه نیمه دوم داده‌هاست.',
+                        trap: 'روش‌های درون‌یابی خطی در آزمون‌های ارشد مورد تاکید است.'
+                    },
+                    {
+                        step: 'گام ۳ (تولد دامنه میان‌چارکی IQR)',
+                        title: 'محدوده ۵۰٪ مرکزی قلب توزیع',
+                        formula: 'IQR = Q3 - Q1   |   QD = IQR / 2',
+                        desc: 'دامنه میان‌چارکی پراکندگی ۵۰٪ داده‌های مرکزی را می‌سنجد و داده‌های پرت را کاملاً فیلتر می‌کند.',
+                        trap: 'معیار توکی: هر داده خارج از [Q1 - 1.5 IQR, Q3 + 1.5 IQR] داده پرت قطعی است.'
+                    }
+                ]
+            },
+            hamada: {
+                title: 'مدیریت مالی: از ریسک عملیاتی شرکت تا بتای اهرمی همادا',
+                nodes: [
+                    {
+                        step: 'گام ۰ (نقطه تولد در گذشته)',
+                        title: 'بتای دارایی یا بدون اهرم (ریسک بیزینس)',
+                        formula: 'β_U = ریسک ذاتی صنعت و دارایی‌های شرکت بدون بدهی',
+                        desc: 'شرکتی که هیچ وامی نگرفته، فقط با ریسک عملیاتی بازار سنجیده می‌شود.',
+                        trap: 'تغییر نسبت بدهی اثری بر بتای بدون اهرم β_U ندارد.'
+                    },
+                    {
+                        step: 'گام ۱ (ورود استقراض و ریسک مالی)',
+                        title: 'نسبت اهرم مالی بدهی به حقوق صاحبان سهام (D / E)',
+                        formula: 'Financial Leverage = D / E',
+                        desc: 'با ورود بدهی، ریسک ورشکستگی به سهامداران منتقل شده و بتای سهام شرکت باید افزایش یابد.',
+                        trap: 'افزایش بدهی به معنای رشد قطعی ریسک سیستماتیک سهام است.'
+                    },
+                    {
+                        step: 'گام ۲ (سپر مالیاتی بهره و معادله همادا)',
+                        title: 'تعدیل ریسک مالی با صرفه‌جویی مالیاتی',
+                        formula: 'β_L = β_U × [ 1 + (1 - T) × (D / E) ]',
+                        desc: 'سپر مالیاتی بهره (1 - T) هزینه استقراض را کاهش داده و اثر اهرم را تلطیف می‌کند.',
+                        trap: 'اگر مالیات صفر باشد (T=0)، معادله به β_L = β_U × (1 + D/E) ساده می‌شود.'
+                    }
+                ]
+            }
+        };
+
+        function openFlashbackModal(chainKey) {
+            if (typeof hapticTap === 'function') hapticTap('medium');
+            const modal = document.getElementById('modal-flashback');
+            if (modal) {
+                modal.style.display = 'flex';
+                selectFlashbackChain(chainKey || 'variance');
+            }
+        }
+
+        function closeFlashbackModal() {
+            if (typeof hapticTap === 'function') hapticTap('light');
+            const modal = document.getElementById('modal-flashback');
+            if (modal) modal.style.display = 'none';
+        }
+
+        function selectFlashbackChain(chainKey) {
+            if (typeof hapticTap === 'function') hapticTap('light');
+            const nav = document.getElementById('fb-chains-nav');
+            if (nav) {
+                nav.querySelectorAll('.flashback-chain-btn').forEach(btn => btn.classList.remove('active'));
+                const activeBtn = document.getElementById('fb-btn-' + chainKey);
+                if (activeBtn) activeBtn.classList.add('active');
+            }
+
+            const chain = FLASHBACK_CHAINS[chainKey];
+            const content = document.getElementById('fb-chain-content');
+            if (!chain || !content) return;
+
+            let html = '<div style="margin-bottom: 16px;">' +
+                '<h4 style="font-size: 1.05rem; font-weight: 900; color: #4338CA; margin: 0;">' + chain.title + '</h4>' +
+                '<p style="font-size: 0.72rem; color: #64748B; margin-top: 4px;">کالبدشکافی توالی زایش فرمول‌ها از نقطه صفر در گذشته تا کاربرد نهایی در آزمون</p>' +
+                '</div>';
+
+            html += '<div class="timeline-container">';
+            chain.nodes.forEach(node => {
+                html += '<div class="timeline-step-node">' +
+                    '<div class="timeline-step-pin"></div>' +
+                    '<div class="timeline-step-header">' +
+                    '<span class="badge badge-stat" style="font-size: 0.68rem;">' + node.step + '</span>' +
+                    '<span class="timeline-step-title">' + node.title + '</span>' +
+                    '</div>' +
+                    '<div class="timeline-formula-box">' + node.formula + '</div>' +
+                    '<div class="timeline-desc">' + node.desc + '</div>' +
+                    '<div class="timeline-trap-box"><b>⚠️ نکته و تله امتحانی:</b> ' + node.trap + '</div>' +
+                    '</div>';
+            });
+            html += '</div>';
+
+            content.innerHTML = html;
+        }
+
+        window.runStatCalculation = runStatCalculation;
+        window.loadStatPreset = loadStatPreset;
+        window.clearStatData = clearStatData;
+        window.openFlashbackModal = openFlashbackModal;
+        window.closeFlashbackModal = closeFlashbackModal;
+        window.selectFlashbackChain = selectFlashbackChain;
+
         function initCockpit() {
             bindDual('m-t-slider', 'm-t-num', drawMicro);
             bindDual('m-a-slider', 'm-a-num', drawMicro);
@@ -6575,6 +7713,7 @@
             updateAllSensitivities();
             ['micro', 'cost', 'finance', 'or', 'stat'].forEach(renderQuiz);
             initLeitner();
+            runStatCalculation();
             selectCourse('micro');
             selectTab('sim');
         }
