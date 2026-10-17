@@ -4610,7 +4610,56 @@
                         </button>
                     </div>
 
-                </div>
+                
+                    <!-- Stat Formula 11: Semi-variance & Downside Risk -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">ریسک نامطلوب ۱۱</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Semi-variance & Sortino</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نیمه‌واریانس، نیمه‌انحراف معیار و نسبت سورتینو</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('SV = (1 / n) * ∑ [ min(0, x_i - x̄) ]² ; Semi-SD = √SV ; Sortino = [ E(R) - Rf ] / Semi-SD', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">نیمه‌واریانس نسبت به میانگین (SV):</span>
+                                    <span class="math-sym">SV</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">n</span></span> ∑<span class="math-sup">x_i &lt; x̄</span> ( x_i - x̄ )²
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">نیمه‌واریانس نسبت به تارگت بازده B:</span>
+                                    <span class="math-sym">SV_B</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">n</span></span> ∑<span class="math-sup">x_i &lt; B</span> ( x_i - B )²
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">نیمه‌انحراف معیار و نسبت سورتینو:</span>
+                                    <span class="math-sym">Semi-SD</span><span class="math-op">=</span>√SV <span class="math-sep">|</span> <span class="math-sym">Sortino</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E(R) - R_f</span><span class="math-den">Semi-SD</span></span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی و ریشه‌یابی از صفر تا صد:</strong>
+                                • <b>نقص ذاتی واریانس:</b> واریانس کل نوسانات صعودی (سودهای رویایی) را دقیقاً مشابه نوسانات نزولی (زیان و تبخیر سرمایه) مجازات می‌کند!<br>
+                                • <b>فلسفه نیمه‌واریانس هری مارکوویتز:</b> فقط نوساناتی را که کمتر از میانگین (یا زیر بازده هدف B) افتاده‌اند وزن‌دهی و مجذور می‌کند.<br>
+                                • <b>شرط ریاضی فیلتر:</b> اگر داده بالاتر از میانگین باشد، انحراف آن صفر در نظر گرفته می‌شود: min(0, x_i - x̄).
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (CFA و وال‌استریت):</strong>
+                                • <b>دوئل سورتینو در برابر شارپ:</b> در نسبت شارپ، مخرج کل انحراف معیار (σ) است؛ اما در نسبت سورتینو (Sortino Ratio)، مخرج فقط نیمه‌انحراف معیار نامطلوب (Semi-SD) است.<br>
+                                • <b>قاعده تقارن توزیع نرمال:</b> در یک توزیع کاملاً متقارن (چولگی صفر)، نیمه‌واریانس دقیقاً برابر با نصف واریانس کل است: SV = 0.5 × s².<br>
+                                • <b>برتری در بورس تهران:</b> در سهام با چولگی مثبت (پتانسیل جامپ صعودی)، شارپ سهام را پرریسک نشان می‌دهد ولی سورتینو عیار واقعی سودآوری آن را آشکار می‌سازد.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                اشتباه در تعداد مشاهدات مخرج n! در فرمول استاندارد آکادمیک، کل تعداد مشاهدات (n) در مخرج قرار می‌گیرد، نه فقط تعداد داده‌های منفی! همچنین در محاسبه مجذور انحراف، فقط اعداد منفی به توان ۲ می‌رسند.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('SV = (1/n) * sum(min(0, x_i - x_bar)^2); Semi_SD = sqrt(SV); Sortino = (E_R - Rf) / Semi_SD')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+</div>
             </div>
 
             <!-- 5.4 CANONICAL SOLUTION & LIVE STATISTICAL COMPUTATION LAB -->
