@@ -2533,6 +2533,74 @@
             font-weight: 700 !important;
         }
 
+    
+        /* ========================================================
+           v21.0 VERTICAL MULTI-LINE FORMULA STACK & ERGONOMIC MATH
+           ======================================================== */
+        .formula-stack {
+            direction: ltr !important;
+            text-align: left !important;
+            unicode-bidi: isolate !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+            padding: 14px 16px !important;
+            background: #F8FAFC !important;
+            border: 1.5px solid #CBD5E1 !important;
+            border-radius: 14px !important;
+            box-sizing: border-box !important;
+            width: 100% !important;
+            margin: 10px 0 !important;
+        }
+        body.theme-dark .formula-stack {
+            background: linear-gradient(135deg, #090D16 0%, #0F172A 100%) !important;
+            border-color: #334155 !important;
+        }
+        .formula-line {
+            display: flex !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            gap: 8px !important;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
+            padding: 6px 0 !important;
+            border-bottom: 1px dashed rgba(203, 213, 225, 0.6) !important;
+        }
+        .formula-line:last-child {
+            border-bottom: none !important;
+        }
+        .math-badge {
+            font-family: 'Vazirmatn', sans-serif !important;
+            font-size: 0.7rem !important;
+            font-weight: 800 !important;
+            padding: 2px 8px !important;
+            border-radius: 6px !important;
+            direction: rtl !important;
+            display: inline-block !important;
+            flex-shrink: 0 !important;
+        }
+        .math-badge.pop {
+            background: #EEF2FF !important;
+            color: #4338CA !important;
+            border: 1px solid #C7D2FE !important;
+        }
+        .math-badge.samp {
+            background: #ECFDF5 !important;
+            color: #047857 !important;
+            border: 1px solid #A7F3D0 !important;
+        }
+        .math-badge.app {
+            background: #F0F9FF !important;
+            color: #0284C7 !important;
+            border: 1px solid #BAE6FD !important;
+        }
+        .math-badge.comp {
+            background: #FEF2F2 !important;
+            color: #DC2626 !important;
+            border: 1px solid #FECACA !important;
+        }
+
     </style>
 
 </head>
@@ -4188,7 +4256,16 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Arithmetic Mean (μ vs x̄)</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین حسابی جامعه و نمونه (مو و ایکس‌بار)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('μ_x = ∑ x_i / N   |   x̄ = ∑ x_i / n', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">μ_x</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">N</span></span><span class="math-sep">|</span><span class="math-sym">x̄</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">n</span></span></div></div>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('μ_x = ∑ x_i / N ; x̄ = ∑ x_i / n', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">پارامتر جامعه (مو x):</span>
+                                    <span class="math-sym" style="color: #4338CA;">μ_x</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">N</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">آماره نمونه (ایکس‌بار):</span>
+                                    <span class="math-sym" style="color: #047857;">x̄</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">n</span></span>
+                                </div>
+                            </div></div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
@@ -4325,10 +4402,15 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">AM-GM-HM Golden Chain</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #1E1B4B; margin-top: 6px;">نامساوی طلایی و سلسله‌مراتب میانگین‌ها</h4>
-                            <div class="formula-display" dir="ltr" style="background: #FFFFFF; color: #4338CA;"><div class="formula-display" dir="ltr" onclick="copyFormula('Min ≤ μ_h ≤ μ_g ≤ μ_x ≤ μ_q ≤ Max   |   Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max', this)" title="برای کپی فرمول کلیک کنید">
-                                <span style="font-weight: 800; color: #4338CA;">جامعه:</span> Min ≤ <span class="math-sym">μ_h</span> ≤ <span class="math-sym">μ_g</span> ≤ <span class="math-sym">μ_x</span> ≤ <span class="math-sym">μ_q</span> ≤ Max
-                                <span class="math-sep">|</span>
-                                <span style="font-weight: 800; color: #047857;">نمونه:</span> Min ≤ <span class="math-sym">H</span> ≤ <span class="math-sym">G</span> ≤ <span class="math-sym">x̄</span> ≤ <span class="math-sym">RMS</span> ≤ Max
+                            <div class="formula-display" dir="ltr" style="background: #FFFFFF; color: #4338CA;"><div class="formula-stack" dir="ltr" onclick="copyFormula('Min ≤ μ_h ≤ μ_g ≤ μ_x ≤ μ_q ≤ Max ; Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">سلسله‌مراتب جامعه:</span>
+                                    Min ≤ <span class="math-sym" style="color: #4338CA;">μ_h</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_g</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_x</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_q</span> ≤ Max
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">سلسله‌مراتب نمونه:</span>
+                                    Min ≤ <span class="math-sym" style="color: #047857;">H</span> ≤ <span class="math-sym" style="color: #047857;">G</span> ≤ <span class="math-sym" style="color: #047857;">x̄</span> ≤ <span class="math-sym" style="color: #047857;">RMS</span> ≤ Max
+                                </div>
                             </div></div>
                             
                             <div class="tier-card prof-tier">
@@ -4394,13 +4476,26 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Mode & Pearson</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مد (نما)، دلتاها و رابطه تجربی پیرسون</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('Mode = L + [ Δ1 / (Δ1 + Δ2) ] × c', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Mode</span><span class="math-op">=</span>L + [ <span class="math-frac"><span class="math-num">Δ1</span><span class="math-den">Δ1 + Δ2</span></span> ] × c</div> ] × c<span class="math-sep">|</span>x̄ - Mode ≈ 3(x̄ - Median)</div>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Mode = L + [ Δ1 / (Δ1 + Δ2) ] × c ; x̄ - Mode ≈ 3(x̄ - Median) ; Range = Max - Min', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">مد داده‌های طبقه‌بندی (تفاضل دلتاها):</span>
+                                    <span class="math-sym">Mode</span><span class="math-op">=</span>L + [ <span class="math-frac"><span class="math-num">Δ1</span><span class="math-den">Δ1 + Δ2</span></span> ] × c
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">رابطه تجربی پیرسون:</span>
+                                    <span class="math-sym">x̄ - Mode</span> <span class="math-op">≈</span> 3 × ( <span class="math-sym">x̄ - Median</span> )
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge comp">⚠️ تفاصل Max و Min (دامنه تغییرات، نه مد):</span>
+                                    <span class="math-sym" style="color: #DC2626;">Range (R)</span><span class="math-op">=</span>Max - Min
+                                </div>
+                            </div>
                             
                             <div class="tier-card prof-tier">
-                                <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
-                                • مد مشاهده‌ای است که بیشترین فراوانی و تکرار را دارد.<br>
-                                • فرمول جدول: Δ1 تفاضل فراوانی طبقه مد از طبقه قبل (f_mod - f_mod-1) و Δ2 تفاضل از طبقه بعد (f_mod - f_mod+1).<br>
-                                • رابطه پیرسون: فاصله میانگین از مد سه برابر فاصله میانگین از میانه است.
+                                <strong>🎓 کالبدشکافی تحلیلی استاد: تفکیک ریشه‌ای «مد» از «دامنه تغییرات»:</strong>
+                                • <b>دامنه تغییرات (Range: R = Max - Min):</b> تفاصل بزرگ‌ترین مشاهده از کوچک‌ترین مشاهده است و یک شاخص <u>پراکندگی</u> است نه مرکزی.<br>
+                                • <b>مد (Mode یا نما):</b> مشاهده‌ای است که دارای <u>بیشترین تکرار و فراوانی</u> است (شاخص مرکزی).<br>
+                                • <b>تفاضل‌های دلتا در فرمول مد:</b> در جدول فراوانی، Δ1 تفاضل فراوانی طبقه مد از طبقه قبل (f_mod - f_before) و Δ2 تفاضل فراوانی طبقه مد از طبقه بعد (f_mod - f_after) است.
                             </div>
 
                             <div class="tier-card bankai-tier">
@@ -5845,25 +5940,33 @@
 
         
         // Course Switching (v18.0 Quantum Precision)
+        let lastActiveCourse = 'stat';
+
         function selectCourse(course) {
-            if (typeof hapticTap === 'function') hapticTap('light');
+            if (typeof hapticTap === 'function') hapticTap('medium');
+            if (course !== 'hub') {
+                lastActiveCourse = course;
+            }
             currentCourse = course;
 
-            // Remove active from all course chips
-            document.querySelectorAll('.course-chip').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.getElementById('btn-course-' + course);
-            if (activeBtn) activeBtn.classList.add('active');
+            // Update course chips in Bento Grid
+            document.querySelectorAll('.course-chip').forEach(c => c.classList.remove('active'));
+            const activeChip = document.getElementById('btn-course-' + course);
+            if (activeChip) activeChip.classList.add('active');
 
+            // Update Executive Banner
             const meta = courseData[course];
             if (meta) {
-                const bannerTitle = document.getElementById('banner-title');
-                const bannerDesc = document.getElementById('banner-desc');
-                const bannerCard = document.getElementById('banner-card');
-                const bannerInd = document.getElementById('banner-indicator');
+                const bTitle = document.getElementById('banner-discipline-title');
+                const bDesc = document.getElementById('banner-discipline-desc');
+                const bCard = document.getElementById('banner-card');
+                const bannerInd = document.getElementById('banner-status-indicator');
 
-                if (bannerTitle) bannerTitle.innerText = meta.title;
-                if (bannerDesc) bannerDesc.innerText = meta.desc;
-                if (bannerCard) bannerCard.style.borderRightColor = meta.color;
+                if (bTitle) bTitle.innerText = meta.title;
+                if (bDesc) bDesc.innerText = meta.desc;
+                if (bCard) {
+                    bCard.className = 'banner-executive ' + meta.borderClass;
+                }
                 if (bannerInd) {
                     bannerInd.className = 'badge ' + meta.badgeClass;
                     bannerInd.innerText = course === 'hub' ? 'مرکز مرجع' : 'تحلیل فعال';
@@ -5871,21 +5974,18 @@
 
                 const scRow = document.getElementById('scenario-row');
                 const scContainer = document.getElementById('scenario-chips-container');
-                const subtabsBar = document.getElementById('subtabs-bar-container');
                 const dock = document.querySelector('.executive-dock');
 
                 if (course === 'hub') {
                     if (scRow) scRow.style.display = 'none';
-                    if (subtabsBar) subtabsBar.style.display = 'none';
-                    if (dock) dock.style.display = 'none';
+                    if (dock) dock.style.display = 'flex'; // Keep dock visible so user can switch tabs!
                 } else {
                     if (scRow) scRow.style.display = 'flex';
-                    if (subtabsBar) subtabsBar.style.display = 'flex';
                     if (dock) dock.style.display = 'flex';
                     if (scContainer && meta.scenarios) {
                         scContainer.innerHTML = '';
                         meta.scenarios.forEach(sc => {
-                            const chip = document.createElement('div');
+                            const chip = document.createElement('button');
                             chip.className = 'scenario-chip';
                             chip.innerText = sc.label;
                             chip.onclick = () => applyScenario(course, sc.vals);
@@ -5902,25 +6002,22 @@
 
             if (course !== 'hub') {
                 selectTab(currentTab || 'sim');
-            }
-
-            // Smooth scroll to anchor
-            const anchor = document.getElementById('active-course-content-anchor') || document.getElementById('banner-card');
-            if (anchor && typeof anchor.scrollIntoView === 'function') {
-                try { anchor.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e) {}
+            } else {
+                // Scroll directly to hub content
+                if (targetPane && typeof targetPane.scrollIntoView === 'function') {
+                    targetPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         }
 
-        // Tab Switching (Synchronized between Top Pills and Floating Dock)
         function selectTab(tab) {
             if (typeof hapticTap === 'function') hapticTap('light');
-            if (currentCourse === 'hub') return;
+            
+            // If user was on Hub and taps a dock tab, switch back to academic course!
+            if (currentCourse === 'hub') {
+                selectCourse(lastActiveCourse || 'stat');
+            }
             currentTab = tab;
-
-            // Sync top pill buttons
-            document.querySelectorAll('.subtab-pill').forEach(b => b.classList.remove('active'));
-            const pBtn = document.getElementById('pill-tab-' + tab);
-            if (pBtn) pBtn.classList.add('active');
 
             // Sync floating dock buttons
             document.querySelectorAll('.dock-btn').forEach(b => b.classList.remove('active'));
@@ -5940,6 +6037,10 @@
             const targetView = document.getElementById(targetId);
             if (targetView) {
                 targetView.style.display = 'block';
+                // INSTANT VIEWPORT FRAMING: Scroll directly to this exact tab!
+                try {
+                    targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } catch(e) {}
             }
 
             if (tab === 'quiz') {
@@ -5947,12 +6048,6 @@
             }
             if (tab === 'sim') {
                 setTimeout(redrawActiveCourse, 30);
-            }
-
-            // Smooth scroll to content
-            const anchor = document.getElementById('active-course-content-anchor') || document.getElementById('banner-card');
-            if (anchor && typeof anchor.scrollIntoView === 'function') {
-                try { anchor.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e) {}
             }
         }
 
