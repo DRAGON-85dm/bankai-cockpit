@@ -1467,6 +1467,191 @@
             margin-top: 18px;
         }
 
+    
+        /* ========================================================
+           v15.0 COGNITIVE MATHEMATICS & MODERN ATMOSPHERE ENGINE
+           ======================================================== */
+        .formula-display {
+            direction: ltr !important;
+            unicode-bidi: isolate !important;
+            text-align: center !important;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
+            font-size: 1.05rem !important;
+            font-weight: 900 !important;
+            color: #0284C7 !important;
+            margin: 12px 0 !important;
+            padding: 14px 18px !important;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.98) 100%) !important;
+            border: 1.5px solid #CBD5E1 !important;
+            border-radius: 14px !important;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02), 0 3px 10px rgba(0, 0, 0, 0.04) !important;
+            white-space: nowrap !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: thin;
+            scrollbar-color: #94A3B8 transparent;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 7px !important;
+            line-height: 1.25 !important;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            cursor: pointer;
+            user-select: all;
+        }
+        body.theme-dark .formula-display {
+            background: linear-gradient(135deg, #090D16 0%, #0F172A 100%) !important;
+            border-color: #334155 !important;
+            color: #38BDF8 !important;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 3px 14px rgba(56, 189, 248, 0.08) !important;
+            scrollbar-color: #334155 transparent;
+        }
+        .formula-display:hover {
+            border-color: #38BDF8 !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(56, 189, 248, 0.18) !important;
+        }
+        .formula-display.copied {
+            border-color: #10B981 !important;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.45) !important;
+            background: rgba(16, 185, 129, 0.08) !important;
+        }
+        .formula-display::-webkit-scrollbar {
+            height: 4px;
+        }
+        .formula-display::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .formula-display::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        body.theme-dark .formula-display::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+
+        /* Stacked Real Mathematical Fractions */
+        .math-frac {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            padding: 0 4px;
+            font-size: 0.9em;
+            line-height: 1.15;
+        }
+        .math-num {
+            border-bottom: 2px solid currentColor;
+            padding-bottom: 3px;
+            display: block;
+            text-align: center;
+            font-weight: 800;
+        }
+        .math-den {
+            padding-top: 3px;
+            display: block;
+            text-align: center;
+            font-weight: 800;
+        }
+        .math-op {
+            margin: 0 6px;
+            font-weight: 900;
+            color: #64748B;
+            font-size: 1.05em;
+        }
+        body.theme-dark .math-op {
+            color: #94A3B8;
+        }
+        .math-sym {
+            font-weight: 900;
+            color: #0369A1;
+        }
+        body.theme-dark .math-sym {
+            color: #38BDF8;
+        }
+        .math-sep {
+            margin: 0 10px;
+            color: #CBD5E1;
+            font-weight: 300;
+        }
+        body.theme-dark .math-sep {
+            color: #475569;
+        }
+
+        /* Modern Variable Anatomy Chips */
+        .var-chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 0.72rem;
+            padding: 1px 7px;
+            border-radius: 6px;
+            background: rgba(2, 132, 199, 0.1);
+            color: #0284C7;
+            border: 1px solid rgba(2, 132, 199, 0.25);
+            display: inline-block;
+            margin-left: 4px;
+        }
+        body.theme-dark .var-chip {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38BDF8;
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        /* Modern Atmospheric Banner */
+        .live-motto-banner {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(239, 246, 255, 0.9) 100%);
+            border: 1.5px solid #BFDBFE;
+            border-radius: 16px;
+            padding: 12px 18px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.05);
+        }
+        body.theme-dark .live-motto-banner {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            border-color: #1E3A8A;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .live-pulse-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #10B981;
+            box-shadow: 0 0 10px #10B981;
+            animation: pulse-green 1.8s infinite;
+            margin-left: 6px;
+        }
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 8px #10B981; }
+            50% { transform: scale(1.3); opacity: 0.7; box-shadow: 0 0 16px #10B981; }
+        }
+        .motto-text {
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #1E3A8A;
+        }
+        body.theme-dark .motto-text {
+            color: #93C5FD;
+        }
+
+        /* Micro Card Elevation Glows */
+        .formula-card {
+            border-right: 4px solid #2563EB;
+        }
+        .formula-card:hover {
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.12) !important;
+            transform: translateY(-2px);
+        }
+        body.theme-dark .formula-card:hover {
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.15) !important;
+        }
+
     </style>
 
 </head>
@@ -1933,7 +2118,7 @@
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۱</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
-                            <div class="formula-display">Burden_C / Burden_P = Es / |Ed| = d / b</div>
+                            <div class="formula-display" onclick="copyFormula('Burden_C / Burden_P = Es / |Ed| = d / b', this)" title="برای کپی فرمول کلیک کنید"><div class="math-frac"><span class="math-num">Burden_C</span><span class="math-den">Burden_P</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">E_s</span><span class="math-den">|E_d|</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>کالبدشکافی متغیرها:</strong>
                                 <p>• <b>Burden_C:</b> سهم افزایش قیمت پرداختی مصرف‌کننده (Pc - P*).</p>
@@ -1950,7 +2135,7 @@
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۲</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">زیان بار مرده جامعه (Deadweight Loss)</h4>
-                            <div class="formula-display">DWL = 0.5 × t × (Q0 - Qt)</div>
+                            <div class="formula-display" onclick="copyFormula('DWL = 0.5 × t × (Q0 - Qt)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DWL</span><span class="math-op">=</span>0.5 × t × (Q_0 - Q_t)</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>کالبدشکافی متغیرها:</strong>
                                 <p>• <b>0.5:</b> ضریب مساحت هندسی مثلث.</p>
@@ -1967,7 +2152,7 @@
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۳</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص درجه انحصار لرنر (Lerner Index)</h4>
-                            <div class="formula-display">L = (P - MC) / P = 1 / |Ed|</div>
+                            <div class="formula-display" onclick="copyFormula('L = (P - MC) / P = 1 / |Ed|', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">L</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">P - MC</span><span class="math-den">P</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">1</span><span class="math-den">|E_d|</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>مفهوم استراتژیک:</strong>
                                 <p>نشان‌دهنده توانایی انحصارگر در قیمت‌گذاری بالاتر از هزینه نهایی است. در رقابت کامل L = 0 و در انحصار تا ۱ میل می‌کند.</p>
@@ -1982,7 +2167,7 @@
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۴</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص تمرکز بازار هرفیندال-هیرشمن (HHI)</h4>
-                            <div class="formula-display">HHI = ∑ (s_i)^2</div>
+                            <div class="formula-display" onclick="copyFormula('HHI = ∑ (s_i)^2', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">HHI</span><span class="math-op">=</span>∑ (s_i)²</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>سنجش انحصار صنعت:</strong>
                                 <p>مجموع مربعات سهم بازار بنگاه‌ها (بر حسب درصد). کمتر از ۱۵۰۰ رقابتی، بین ۱۵۰۰ تا ۲۵۰۰ تمرکز متوسط، و بالای ۲۵۰۰ بازار شدیداً متمرکز است.</p>
@@ -2240,7 +2425,7 @@
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۱</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ نقطه سر‌به‌سر (BEP)</h4>
-                            <div class="formula-display">Q_bep = FC / (P - VC) = FC / CM</div>
+                            <div class="formula-display" onclick="copyFormula('Q_bep = FC / (P - VC) = FC / CM', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_{bep}</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">FC</span><span class="math-den">P - VC</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">FC</span><span class="math-den">CM</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>منطق صورت و مخرج:</strong>
                                 <p>هزینه‌های ثابت کل (FC) در صورت قرار دارد؛ هر واحد محصول فروخته‌شده مبلغ حاشیه فروش (CM) را از هزینه ثابت کسر می‌کند تا به صفر برسد.</p>
@@ -2255,7 +2440,7 @@
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۲</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درجه اهرم عملیاتی (DOL)</h4>
-                            <div class="formula-display">DOL = Total CM / EBIT = (Q × CM) / (Q × CM - FC)</div>
+                            <div class="formula-display" onclick="copyFormula('DOL = Total CM / EBIT = (Q × CM) / (Q × CM - FC)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DOL</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">Total CM</span><span class="math-den">EBIT</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">Q × CM</span><span class="math-den">Q × CM - FC</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>تحلیل حساسیت:</strong>
                                 <p>نشان می‌دهد به ازای ۱٪ تغییر در تیراژ فروش، سود عملیاتی شرکت چند درصد جهش می‌کند. با نزدیک شدن به BEP، اهرم به بی‌نهایت میل می‌کند.</p>
@@ -2270,7 +2455,7 @@
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۳</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نسبت حاشیه امنیت (Margin of Safety)</h4>
-                            <div class="formula-display">MS% = (Sales - BEP_Sales) / Sales = 1 / DOL</div>
+                            <div class="formula-display" onclick="copyFormula('MS% = (Sales - BEP_Sales) / Sales = 1 / DOL', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">MS%</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">Sales - BEP_{Sales}</span><span class="math-den">Sales</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">1</span><span class="math-den">DOL</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>سپر محافظ شرکت:</strong>
                                 <p>درصدی که فروش شرکت می‌تواند کاهش یابد قبل از اینکه شرکت وارد منطقه زیان‌دهی شود. جالب اینجاست که معکوس درجه اهرم عملیاتی است!</p>
@@ -2285,7 +2470,7 @@
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۴</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ سود هدف با مالیات شرکتی</h4>
-                            <div class="formula-display">Q_target = [ FC + Target_Profit / (1 - T) ] / CM</div>
+                            <div class="formula-display" onclick="copyFormula('Q_target = [ FC + Target_Profit / (1 - T) ] / CM', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_{target}</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">FC + [ Target\_Profit / (1 - T) ]</span><span class="math-den">CM</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>سپر مالیاتی:</strong>
                                 <p>چون هزینه‌ها قبل از مالیات پرداخت می‌شوند، سود خالص هدف باید بر (1 - T) تقسیم شود تا سود قبل از مالیات لازم به دست آید.</p>
@@ -2530,7 +2715,7 @@
                         <div>
                             <span class="badge badge-finance">فرمول طلایی ۱</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل قیمت‌گذاری دارایی سرمایه‌ای (CAPM)</h4>
-                            <div class="formula-display">E(R) = Rf + Beta × [ Rm - Rf ]</div>
+                            <div class="formula-display" onclick="copyFormula('E(R) = Rf + Beta × [ Rm - Rf ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E(R_i)</span><span class="math-op">=</span>R_f + β_i × [ E(R_m) - R_f ]</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>منطق وال‌استریت:</strong>
                                 <p>تنها ریسک سیستماتیک (Beta) قیمت‌گذاری می‌شود؛ ریسک خاص با تنوع‌بخشی حذف می‌گردد.</p>
@@ -2545,7 +2730,7 @@
                         <div>
                             <span class="badge badge-finance">فرمول طلایی ۲</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص شارپ (Sharpe Ratio)</h4>
-                            <div class="formula-display">Sharpe = (Rp - Rf) / σ_p</div>
+                            <div class="formula-display" onclick="copyFormula('Sharpe = (Rp - Rf) / σ_p', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Sharpe</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">R_p - R_f</span><span class="math-den">σ_p</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>ارزیابی عملکرد پرتفوی:</strong>
                                 <p>پاداش مازاد بازده به ازای هر واحد انحراف معیار کل ریسک. معیار طلایی رتبه‌بندی صندوق‌های سرمایه‌گذاری.</p>
@@ -2560,7 +2745,7 @@
                         <div>
                             <span class="badge badge-finance">فرمول طلایی ۳</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص ترینور (Treynor Ratio)</h4>
-                            <div class="formula-display">Treynor = (Rp - Rf) / β_p</div>
+                            <div class="formula-display" onclick="copyFormula('Treynor = (Rp - Rf) / β_p', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Treynor</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">R_p - R_f</span><span class="math-den">β_p</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>پاداش ریسک سیستماتیک:</strong>
                                 <p>مازاد بازده به ازای هر واحد بتای بازار. برای سبدهایی مناسب است که کاملاً تنوع‌بخشی شده‌اند.</p>
@@ -2575,7 +2760,7 @@
                         <div>
                             <span class="badge badge-finance">فرمول طلایی ۴</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">آلفای جنسن (Jensen's Alpha)</h4>
-                            <div class="formula-display">Alpha = Rp - [ Rf + β_p × (Rm - Rf) ]</div>
+                            <div class="formula-display" onclick="copyFormula('Alpha = Rp - [ Rf + β_p × (Rm - Rf) ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">α_p</span><span class="math-op">=</span>R_p - [ R_f + β_p × (R_m - R_f) ]</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>مهارت مدیر سرمایه‌گذاری:</strong>
                                 <p>تفاضل بازده واقعی سبد از بازده منصفانه تئوریک مدل CAPM؛ آلفای مثبت نشان‌دهنده هنر انتخاب سهم مدیر است.</p>
@@ -2795,7 +2980,7 @@
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۱</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قیمت سایه و ارزش منبع محدودکننده</h4>
-                            <div class="formula-display">y_i* = ∂Z* / ∂b_i</div>
+                            <div class="formula-display" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i*</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∂Z*</span><span class="math-den">∂b_i</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>مفهوم کاربردی:</strong>
                                 <p>حداکثر قیمتی که مدیر حاضر است برای خرید یک واحد منبع اضافی iام پرداخت کند تا سود شرکت افزایش یابد.</p>
@@ -2810,7 +2995,7 @@
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۲</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قضیه مکمل فزونی (Complementary Slackness)</h4>
-                            <div class="formula-display">s_i × y_i = 0  و  x_j × e_j = 0</div>
+                            <div class="formula-display" onclick="copyFormula('s_i × y_i = 0  و  x_j × e_j = 0', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">(s_i × y_i = 0)</span><span class="math-op">&amp;</span><span class="math-sym">(x_j × e_j = 0)</span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>قاعده طلایی:</strong>
                                 <p>اگر منبعی اضافه بیاید (Slack &gt; 0)، ارزش سایه آن منبع صفر مطلق است؛ برای منبع مازاد پولی نباید پرداخت شود.</p>
@@ -2825,7 +3010,7 @@
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۳</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">آزمون حداقل نسبت سیمپلکس</h4>
-                            <div class="formula-display">θ = min { b_i / a_ik  |  a_ik > 0 }</div>
+                            <div class="formula-display" onclick="copyFormula('θ = min { b_i / a_ik  |  a_ik > 0 }', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">θ</span><span class="math-op">=</span>min { <div class="math-frac"><span class="math-num">b_i</span><span class="math-den">a_{ik}</span></div>  |  a_{ik} &gt; 0 }</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>شرط موجه ماندن:</strong>
                                 <p>ستون لولایی k را تعیین کرده و مقادیر مثبت سمت راست را تقسیم می‌کنیم؛ کمترین نسبت مثبت متغیر خروجی را مشخص می‌کند.</p>
@@ -3075,7 +3260,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Arithmetic Mean (μ vs x̄)</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین حسابی جامعه و نمونه (مو و ایکس‌بار)</h4>
-                            <div class="formula-display">μ_x = ∑_{i=1}^N x_i / N   |   x̄ = ∑_{i=1}^n x_i / n</div>
+                            <div class="formula-display" onclick="copyFormula('μ_x = ∑_{i=1}^N x_i / N   |   x̄ = ∑_{i=1}^n x_i / n', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">μ_x</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">N</span></div><span class="math-sep">|</span><span class="math-sym">x̄</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">n</span></div></div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3109,7 +3294,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Grouped Data Mean</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین داده‌های طبقه‌بندی شده (جدول فراوانی)</h4>
-                            <div class="formula-display">x̄ = ∑ (f_i × x_i) / ∑ f_i = ∑ (f_i × x_i) / n</div>
+                            <div class="formula-display" onclick="copyFormula('x̄ = ∑ (f_i × x_i) / ∑ f_i = ∑ (f_i × x_i) / n', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">x̄</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ (f_i × x_i)</span><span class="math-den">∑ f_i</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ (f_i × x_i)</span><span class="math-den">n</span></div></div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3142,7 +3327,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Geometric Mean & CAGR</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی، بازده مرکب و توان‌های کسری</h4>
-                            <div class="formula-display">G = ( ∏ x_i )^(1/n)   |   CAGR = [ ∏ (1 + R_t) ]^(1/n) - 1</div>
+                            <div class="formula-display" onclick="copyFormula('G = ( ∏ x_i )^(1/n)   |   CAGR = [ ∏ (1 + R_t) ]^(1/n) - 1', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">G</span><span class="math-op">=</span>( ∏ x_i )^{1/n}<span class="math-sep">|</span><span class="math-sym">CAGR</span><span class="math-op">=</span>[ ∏ (1 + R_t) ]^{1/n} - 1</div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3176,7 +3361,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Harmonic Mean & DCA</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هارمونیک (همساز) و خرید پله‌ای ارز/سهام</h4>
-                            <div class="formula-display">H = n / ∑ ( 1 / x_i )   |   ∑ f_i / ∑ ( f_i / x_i )</div>
+                            <div class="formula-display" onclick="copyFormula('H = n / ∑ ( 1 / x_i )   |   ∑ f_i / ∑ ( f_i / x_i )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">H</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">n</span><span class="math-den">∑ (1 / x_i)</span></div><span class="math-sep">|</span><div class="math-frac"><span class="math-num">∑ f_i</span><span class="math-den">∑ (f_i / x_i)</span></div></div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3240,7 +3425,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Median & Interpolation</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانه داده‌ها و فرمول درون‌یابی طبقه میانه</h4>
-                            <div class="formula-display">Median = L + [ ( n/2 - F_{c-1} ) / f_med ] × c</div>
+                            <div class="formula-display" onclick="copyFormula('Median = L + [ ( n/2 - F_{c-1} ) / f_med ] × c', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Median</span><span class="math-op">=</span>L + [ <div class="math-frac"><span class="math-num">n/2 - F_{c-1}</span><span class="math-den">f_{med}</span></div> ] × c</div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3273,7 +3458,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Mode & Pearson</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مد (نما)، دلتاها و رابطه تجربی پیرسون</h4>
-                            <div class="formula-display">Mode = L + [ Δ1 / (Δ1 + Δ2) ] × c   |   Mean - Mode ≈ 3(Mean - Median)</div>
+                            <div class="formula-display" onclick="copyFormula('Mode = L + [ Δ1 / (Δ1 + Δ2) ] × c   |   Mean - Mode ≈ 3(Mean - Median)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Mode</span><span class="math-op">=</span>L + [ <div class="math-frac"><span class="math-num">Δ1</span><span class="math-den">Δ1 + Δ2</span></div> ] × c<span class="math-sep">|</span>x̄ - Mode ≈ 3(x̄ - Median)</div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3308,7 +3493,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sample Variance (Bessel)</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">واریانس نمونه و راز تقسیم بر n - 1 (تصحیح بسل)</h4>
-                            <div class="formula-display">s² = ∑ ( x_i - x̄ )² / ( n - 1 )   |   s = √s²</div>
+                            <div class="formula-display" onclick="copyFormula('s² = ∑ ( x_i - x̄ )² / ( n - 1 )   |   s = √s²', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">s²</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ (x_i - x̄)²</span><span class="math-den">n - 1</span></div><span class="math-sep">|</span><span class="math-sym">s</span><span class="math-op">=</span>√s²</div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3340,7 +3525,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Coefficient of Variation</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب تغییرات (CV) - ترازوی سنجش ریسک نسبی</h4>
-                            <div class="formula-display">CV = ( s / x̄ ) × 100   |   ( σ / μ ) × 100</div>
+                            <div class="formula-display" onclick="copyFormula('CV = ( s / x̄ ) × 100   |   ( σ / μ ) × 100', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">CV</span><span class="math-op">=</span>[ <div class="math-frac"><span class="math-num">s</span><span class="math-den">x̄</span></div> ] × 100%<span class="math-sep">|</span>[ <div class="math-frac"><span class="math-num">σ</span><span class="math-den">μ</span></div> ] × 100%</div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3371,7 +3556,7 @@
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Quartiles, IQR & Outliers</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">چارک‌ها، دامنه میان‌چارکی و مرز داده‌های پرت توکی</h4>
-                            <div class="formula-display">IQR = Q3 - Q1   |   Fences: [ Q1 - 1.5×IQR  ,  Q3 + 1.5×IQR ]</div>
+                            <div class="formula-display" onclick="copyFormula('IQR = Q3 - Q1   |   Fences: [ Q1 - 1.5×IQR  ,  Q3 + 1.5×IQR ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">IQR</span><span class="math-op">=</span>Q_3 - Q_1<span class="math-sep">|</span>[ Q_1 - 1.5×IQR , Q_3 + 1.5×IQR ]</div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
@@ -3558,7 +3743,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Arithmetic Mean</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین حسابی ساده و موزون</h4>
-                        <div class="formula-display">X_bar = ∑ x_i / n  |  ∑ (f_i x_i) / ∑ f_i</div>
+                        <div class="formula-display" onclick="copyFormula('X_bar = ∑ x_i / n  |  ∑ (f_i x_i) / ∑ f_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">x̄</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">n</span></div><span class="math-sep">|</span><div class="math-frac"><span class="math-num">∑ (f_i x_i)</span><span class="math-den">∑ f_i</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>خواص بنیادین:</strong>
                             <p>• مرکز ثقل داده‌ها؛ مجموع انحرافات از میانگین صفر است: ∑(x_i - X_bar) = 0.</p>
@@ -3576,7 +3761,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Weighted Mean</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین وزنی (موزون) بازدهی سبد سهام</h4>
-                        <div class="formula-display">E(R_p) = ∑ (w_i × R_i) / ∑ w_i</div>
+                        <div class="formula-display" onclick="copyFormula('E(R_p) = ∑ (w_i × R_i) / ∑ w_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E(R_p)</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ (w_i × R_i)</span><span class="math-den">∑ w_i</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>کاربرد مالی:</strong>
                             <p>• w_i سهم سرمایه‌گذاری در هر دارایی است (∑ w_i = 1).</p>
@@ -3594,7 +3779,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Geometric Mean & CAGR</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی و نرخ رشد مرکب سالانه</h4>
-                        <div class="formula-display">G = ( ∏ x_i )^(1/n)  |  CAGR = [ ∏ (1+R_t) ]^(1/n) - 1</div>
+                        <div class="formula-display" onclick="copyFormula('G = ( ∏ x_i )^(1/n)  |  CAGR = [ ∏ (1+R_t) ]^(1/n) - 1', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">G</span><span class="math-op">=</span>( ∏ x_i )^{1/n}<span class="math-sep">|</span><span class="math-sym">CAGR</span><span class="math-op">=</span>[ ∏ (1+R_t) ]^{1/n} - 1</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>کالبدشکافی رشد ثروت:</strong>
                             <p>• تقریب نوسان و درگ نوسان: G ≈ X_bar - 0.5 × σ².</p>
@@ -3612,7 +3797,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Harmonic Mean</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هارمونیک (همساز) و خرید پله‌ای DCA</h4>
-                        <div class="formula-display">H = n / ∑ ( 1 / x_i )</div>
+                        <div class="formula-display" onclick="copyFormula('H = n / ∑ ( 1 / x_i )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">H</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">n</span><span class="math-den">∑ (1 / x_i)</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>کاربرد استراتژیک:</strong>
                             <p>• مناسب برای میانگین‌گیری از نسبت‌ها و نرخ‌ها (مانند نسبت P/E یا سرعت کیلومتر بر ساعت).</p>
@@ -3630,7 +3815,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Trimmed Mean</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین پیراسته (α% Trimmed)</h4>
-                        <div class="formula-display">X_trim = ∑ x_filtered / ( n × (1 - 2α) )</div>
+                        <div class="formula-display" onclick="copyFormula('X_trim = ∑ x_filtered / ( n × (1 - 2α) )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">x̄_{trim}</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ x_{filtered}</span><span class="math-den">n × (1 - 2α)</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>مقاومت در برابر آلودگی:</strong>
                             <p>حذف α٪ از بزرگ‌ترین و α٪ از کوچک‌ترین داده‌ها جهت خنثی‌سازی اثر شدید شوک‌های پرت.</p>
@@ -3647,7 +3832,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Winsorized Mean</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین وینزوری</h4>
-                        <div class="formula-display">X_win: داده‌های پرت با مقادیر مرزی صدک‌ها جایگزین می‌شوند</div>
+                        <div class="formula-display" onclick="copyFormula('X_win: داده‌های پرت با مقادیر مرزی صدک‌ها جایگزین می‌شوند', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">x_i^{win}</span><span class="math-op">=</span>clamp(x_i , P_{α} , P_{1-α})</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>حفظ حجم نمونه:</strong>
                             <p>بر خلاف پیراسته که تعداد داده‌ها کم می‌شود، در وینزوری حجم نمونه n ثابت می‌ماند.</p>
@@ -3664,7 +3849,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Quadratic Mean (RMS)</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین مربعی یا ریشه میانگین مربعات (RMS)</h4>
-                        <div class="formula-display">RMS = √[ (1/n) × ∑ (x_i)^2 ]</div>
+                        <div class="formula-display" onclick="copyFormula('RMS = √[ (1/n) × ∑ (x_i)^2 ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">RMS</span><span class="math-op">=</span>√[ <div class="math-frac"><span class="math-num">1</span><span class="math-den">n</span></div> × ∑ (x_i)² ]</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>مبنای مهندسی مالی:</strong>
                             <p>بزرگ‌ترین میانگین جبری در میانگین‌های کلاسیک؛ اساس محاسبه انحراف معیار و خطای رگرسیون.</p>
@@ -3681,7 +3866,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">AM-GM-HM Inequality</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نامساوی بنیادین میانگین‌ها</h4>
-                        <div class="formula-display">Min ≤ H ≤ G ≤ X_bar ≤ RMS ≤ Max</div>
+                        <div class="formula-display" onclick="copyFormula('Min ≤ H ≤ G ≤ X_bar ≤ RMS ≤ Max', this)" title="برای کپی فرمول کلیک کنید">Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>شرط تساوی کامل:</strong>
                             <p>H = G = X_bar فقط و فقط در صورتی رخ می‌دهد که تمام داده‌ها دقیقاً با هم برابر باشند.</p>
@@ -3698,7 +3883,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Median</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانه داده‌ها و فرمول درون‌یابی جدول پیوسته</h4>
-                        <div class="formula-display">Median = L + [ (n/2 - F_{c-1}) / f_med ] × c</div>
+                        <div class="formula-display" onclick="copyFormula('Median = L + [ (n/2 - F_{c-1}) / f_med ] × c', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Median</span><span class="math-op">=</span>L + [ <div class="math-frac"><span class="math-num">n/2 - F_{c-1}</span><span class="math-den">f_{med}</span></div> ] × c</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>ویژگی کلیدی:</strong>
                             <p>مقاوم‌ترین شاخص گرایش به مرکز در برابر داده‌های پرت. نقطه ۵۰ درصدی جامعه.</p>
@@ -3715,7 +3900,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Mode & Pearson Relation</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مد و رابطه تجربی پیرسون</h4>
-                        <div class="formula-display">X_bar - Mode ≈ 3 × ( X_bar - Median )</div>
+                        <div class="formula-display" onclick="copyFormula('X_bar - Mode ≈ 3 × ( X_bar - Median )', this)" title="برای کپی فرمول کلیک کنید">x̄ - Mode ≈ 3 × ( x̄ - Median )</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>حل سریع تستی:</strong>
                             <p>Mode = 3 × Median - 2 × X_bar. در توزیع متقارن نرمال Mean = Median = Mode است.</p>
@@ -3732,7 +3917,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">IQR & Outliers</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دامنه میان‌چارکی و تشخیص داده‌های پرت توکی</h4>
-                        <div class="formula-display">IQR = Q3 - Q1  |  Fences = Q1 - 1.5×IQR , Q3 + 1.5×IQR</div>
+                        <div class="formula-display" onclick="copyFormula('IQR = Q3 - Q1  |  Fences = Q1 - 1.5×IQR , Q3 + 1.5×IQR', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">IQR</span><span class="math-op">=</span>Q_3 - Q_1<span class="math-sep">|</span>[ Q_1 - 1.5×IQR , Q_3 + 1.5×IQR ]</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>نمودار جعبه‌ای:</strong>
                             <p>۵۰ درصد میانی داده‌ها درون جعبه IQR قرار می‌گیرند؛ فراتر از ۱.۵ برابر IQR داده پرت است.</p>
@@ -3749,7 +3934,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Range & QD</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دامنه تغییرات و انحراف چارکی (QD)</h4>
-                        <div class="formula-display">Range = Max - Min  |  QD = (Q3 - Q1) / 2</div>
+                        <div class="formula-display" onclick="copyFormula('Range = Max - Min  |  QD = (Q3 - Q1) / 2', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">R</span><span class="math-op">=</span>Max - Min<span class="math-sep">|</span><span class="math-sym">QD</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">Q_3 - Q_1</span><span class="math-den">2</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>تعریف پراکندگی:</strong>
                             <p>دامنه تغییرات ساده‌ترین و حساس‌ترین معیار پراکندگی است؛ انحراف چارکی نسخه مقاوم آن است.</p>
@@ -3766,7 +3951,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sample Variance</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">واریانس و انحراف معیار نمونه</h4>
-                        <div class="formula-display">s² = ∑ (x_i - X_bar)² / (n - 1)  |  s = √s²</div>
+                        <div class="formula-display" onclick="copyFormula('s² = ∑ (x_i - X_bar)² / (n - 1)  |  s = √s²', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">s²</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∑ (x_i - x̄)²</span><span class="math-den">n - 1</span></div><span class="math-sep">|</span><span class="math-sym">s</span><span class="math-op">=</span>√s²</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>تصحیح بسل:</strong>
                             <p>تقسیم بر n - 1 موجب نااریب شدن برآوردگر واریانس جامعه می‌شود.</p>
@@ -3783,7 +3968,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Coefficient of Variation</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب تغییرات (CV) - معیار ریسک نسبی</h4>
-                        <div class="formula-display">CV = ( σ / μ ) × 100  |  ( s / X_bar ) × 100</div>
+                        <div class="formula-display" onclick="copyFormula('CV = ( σ / μ ) × 100  |  ( s / X_bar ) × 100', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">CV</span><span class="math-op">=</span>[ <div class="math-frac"><span class="math-num">σ</span><span class="math-den">μ</span></div> ] × 100%<span class="math-sep">|</span>[ <div class="math-frac"><span class="math-num">s</span><span class="math-den">x̄</span></div> ] × 100%</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>مقایسه دارایی‌ها:</strong>
                             <p>بدون واحد؛ میزان ریسک به ازای ۱ واحد بازدهی. بهترین ابزار مقایسه دو سهم با قیمت‌های نامتقارن.</p>
@@ -3800,7 +3985,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Skewness</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب چولگی پیرسون و فیشر</h4>
-                        <div class="formula-display">Sk = 3(X_bar - Median) / s  |  α3 = E[(X-μ)³] / σ³</div>
+                        <div class="formula-display" onclick="copyFormula('Sk = 3(X_bar - Median) / s  |  α3 = E[(X-μ)³] / σ³', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Sk</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">3(x̄ - Median)</span><span class="math-den">s</span></div><span class="math-sep">|</span><span class="math-sym">α_3</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">E[(X-μ)³]</span><span class="math-den">σ³</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>جهت دم توزیع:</strong>
                             <p>چولگی مثبت = دم راست کشیده (Mean &gt; Med &gt; Mode). چولگی منفی = دم چپ کشیده.</p>
@@ -3817,7 +4002,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Kurtosis</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب کشیدگی (Kurtosis)</h4>
-                        <div class="formula-display">Kurtosis = E[(X-μ)⁴] / σ⁴  |  Excess = Kurtosis - 3</div>
+                        <div class="formula-display" onclick="copyFormula('Kurtosis = E[(X-μ)⁴] / σ⁴  |  Excess = Kurtosis - 3', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Kurtosis</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">E[(X-μ)⁴]</span><span class="math-den">σ⁴</span></div><span class="math-sep">|</span>Excess = Kurtosis - 3</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>ریسک دم کلفت (Fat Tails):</strong>
                             <p>کشیدگی بیش از ۳ نشان‌دهنده احتمال بسیار بالاتر سقوط‌های سنگین بازار نسبت به توزیع نرمال است.</p>
@@ -3834,7 +4019,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Z-Score</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نمره استاندارد گاوسی (Z-Score)</h4>
-                        <div class="formula-display">Z = ( X - μ ) / σ</div>
+                        <div class="formula-display" onclick="copyFormula('Z = ( X - μ ) / σ', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Z</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">X - μ</span><span class="math-den">σ</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>تفسیر فاصله:</strong>
                             <p>تعداد انحراف معیارهایی که داده X از میانگین فاصله دارد؛ امکان تبدیل به توزیع نرمال استاندارد Z ~ N(0, 1).</p>
@@ -3851,7 +4036,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Beta Coefficient</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب بتای سیستماتیک سهم</h4>
-                        <div class="formula-display">β_i = Cov(R_i, R_m) / Var(R_m) = r_{i,m} × (σ_i / σ_m)</div>
+                        <div class="formula-display" onclick="copyFormula('β_i = Cov(R_i, R_m) / Var(R_m) = r_{i,m} × (σ_i / σ_m)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">β_i</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">Cov(R_i, R_m)</span><span class="math-den">Var(R_m)</span></div><span class="math-op">=</span>r_{i,m} × <div class="math-frac"><span class="math-num">σ_i</span><span class="math-den">σ_m</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>حساسیت به شاخص:</strong>
                             <p>بتا بزرگتر از ۱ تهاجمی (Aggressive)؛ بتا کمتر از ۱ تدافعی (Defensive).</p>
@@ -3868,7 +4053,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">CAPM & SML</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل قیمت‌گذاری دارایی سرمایه‌ای (CAPM)</h4>
-                        <div class="formula-display">E(R_i) = R_f + β_i × [ E(R_m) - R_f ]</div>
+                        <div class="formula-display" onclick="copyFormula('E(R_i) = R_f + β_i × [ E(R_m) - R_f ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E(R_i)</span><span class="math-op">=</span>R_f + β_i × [ E(R_m) - R_f ]</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>معادله خط SML:</strong>
                             <p>نرخ تنزیل عادلانه طرح‌ها و سهام بر پایه میزان ریسک سیستماتیک تحمل‌شده.</p>
@@ -3885,7 +4070,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sharpe Ratio</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص شارپ (Sharpe Ratio)</h4>
-                        <div class="formula-display">Sharpe = ( R_p - R_f ) / σ_p</div>
+                        <div class="formula-display" onclick="copyFormula('Sharpe = ( R_p - R_f ) / σ_p', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Sharpe</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">R_p - R_f</span><span class="math-den">σ_p</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>پاداش ریسک کل:</strong>
                             <p>مازاد بازدهی به ازای هر واحد انحراف معیار کل؛ مناسب‌ترین معیار برای پرتفوی منفرد سرمایه‌گذار.</p>
@@ -3902,7 +4087,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Treynor Ratio</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص ترینور (Treynor Ratio)</h4>
-                        <div class="formula-display">Treynor = ( R_p - R_f ) / β_p</div>
+                        <div class="formula-display" onclick="copyFormula('Treynor = ( R_p - R_f ) / β_p', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Treynor</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">R_p - R_f</span><span class="math-den">β_p</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>پاداش ریسک سیستماتیک:</strong>
                             <p>مازاد بازدهی به ازای هر واحد بتا؛ برای ارزیابی سبدهایی که خود بخشی از یک پرتفوی بزرگ‌ترند.</p>
@@ -3919,7 +4104,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Jensen's Alpha</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص آلفای جنسن (Jensen's Alpha)</h4>
-                        <div class="formula-display">Alpha = R_p - [ R_f + β_p × (R_m - R_f) ]</div>
+                        <div class="formula-display" onclick="copyFormula('Alpha = R_p - [ R_f + β_p × (R_m - R_f) ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">α_p</span><span class="math-op">=</span>R_p - [ R_f + β_p × (R_m - R_f) ]</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>سنجش ارزش افزوده مدیر:</strong>
                             <p>اگر آلفا مثبت باشد، مدیر توانسته بازدهی بالاتری از نرخ تعادلی تئوریک بازار خلق کند.</p>
@@ -3936,7 +4121,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Profitability Index</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص سودآوری (Profitability Index - PI)</h4>
-                        <div class="formula-display">PI = PV / CF_0 = 1 + ( NPV / CF_0 )</div>
+                        <div class="formula-display" onclick="copyFormula('PI = PV / CF_0 = 1 + ( NPV / CF_0 )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">PI</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">PV</span><span class="math-den">CF_0</span></div><span class="math-op">=</span>1 + <div class="math-frac"><span class="math-num">NPV</span><span class="math-den">CF_0</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>سهمیه‌بندی سرمایه:</strong>
                             <p>ارزش فعلی خلق‌شده به ازای هر ریال سرمایه‌گذاری اولیه؛ رتبه‌بندی پروژه‌ها در زمان کمبود بودجه.</p>
@@ -3953,7 +4138,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">WACC</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین موزون هزینه سرمایه (WACC)</h4>
-                        <div class="formula-display">WACC = (E/V) × K_e + (D/V) × K_d × (1 - T)</div>
+                        <div class="formula-display" onclick="copyFormula('WACC = (E/V) × K_e + (D/V) × K_d × (1 - T)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">WACC</span><span class="math-op">=</span>[ <div class="math-frac"><span class="math-num">E</span><span class="math-den">V</span></div> ] × K_e + [ <div class="math-frac"><span class="math-num">D</span><span class="math-den">V</span></div> ] × K_d × (1 - T)</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>سپر مالیاتی بهره:</strong>
                             <p>کاهش هزینه واقعی بدهی به دلیل کسر هزینه بهره از درآمد مشمول مالیات شرکت.</p>
@@ -3970,7 +4155,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Hamada Equation</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">معادله بتای اهرمی همادا (Hamada)</h4>
-                        <div class="formula-display">β_L = β_U × [ 1 + (1 - T) × (D / E) ]</div>
+                        <div class="formula-display" onclick="copyFormula('β_L = β_U × [ 1 + (1 - T) × (D / E) ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">β_L</span><span class="math-op">=</span>β_U × [ 1 + (1 - T) × <div class="math-frac"><span class="math-num">D</span><span class="math-den">E</span></div> ]</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>تفکیک ریسک بدهی:</strong>
                             <p>تبدیل بتای بی اهرم (ریسک کسب‌وکار محض) به بتای با اهرم در اثر اضافه شدن بدهی به ترازنامه.</p>
@@ -3987,7 +4172,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">DuPont ROE Analysis</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تجزیه ۳ مرحله‌ای دوپونت (DuPont ROE)</h4>
-                        <div class="formula-display">ROE = (NI / Sales) × (Sales / Assets) × (Assets / Equity)</div>
+                        <div class="formula-display" onclick="copyFormula('ROE = (NI / Sales) × (Sales / Assets) × (Assets / Equity)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">ROE</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">NI</span><span class="math-den">Sales</span></div> × <div class="math-frac"><span class="math-num">Sales</span><span class="math-den">Assets</span></div> × <div class="math-frac"><span class="math-num">Assets</span><span class="math-den">Equity</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>موتورهای سه‌گانه سود:</strong>
                             <p>ROE = حاشیه سود خالص (سودآوری) × گردش دارایی‌ها (کارایی) × اهرم بدهی (ساختار مالی).</p>
@@ -4004,7 +4189,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Price Elasticity of Demand</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص کشش قیمتی تقاضا (Ed)</h4>
-                        <div class="formula-display">E_d = ( dQ / dP ) × ( P / Q )</div>
+                        <div class="formula-display" onclick="copyFormula('E_d = ( dQ / dP ) × ( P / Q )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E_d</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">dQ</span><span class="math-den">dP</span></div> × <div class="math-frac"><span class="math-num">P</span><span class="math-den">Q</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>رفتار مصرف‌کننده:</strong>
                             <p>|Ed| &gt; 1 باکشش (کاهش قیمت = افزایش درآمد کل TR)؛ |Ed| &lt; 1 بی‌کشش (افزایش قیمت = افزایش TR).</p>
@@ -4021,7 +4206,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Tax Incidence Ratio</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نسبت تسهیم بار مالیاتی دولت</h4>
-                        <div class="formula-display">Burden_C / Burden_P = E_s / |E_d| = d / b</div>
+                        <div class="formula-display" onclick="copyFormula('Burden_C / Burden_P = E_s / |E_d| = d / b', this)" title="برای کپی فرمول کلیک کنید"><div class="math-frac"><span class="math-num">Burden_C</span><span class="math-den">Burden_P</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">E_s</span><span class="math-den">|E_d|</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>قانون بی‌کشش‌ها:</strong>
                             <p>هر سمتی از بازار که بی‌کشش‌تر باشد و وابستگی بیشتری داشته باشد، سهم بیشتری از مالیات را می‌پردازد.</p>
@@ -4038,7 +4223,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Deadweight Loss</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص زیان بار مرده جامعه (DWL)</h4>
-                        <div class="formula-display">DWL = 0.5 × t × ( Q_0 - Q_t )</div>
+                        <div class="formula-display" onclick="copyFormula('DWL = 0.5 × t × ( Q_0 - Q_t )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DWL</span><span class="math-op">=</span>0.5 × t × ( Q_0 - Q_t )</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>تبخیر ثروت:</strong>
                             <p>مساحت مثلثی از رفاه که نه به جیب دولت می‌رود و نه خریدار و فروشنده، بلکه به کلی از بین می‌رود.</p>
@@ -4055,7 +4240,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Lerner Index</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص درجه انحصار لرنر (Lerner Index)</h4>
-                        <div class="formula-display">L = ( P - MC ) / P = 1 / |E_d|</div>
+                        <div class="formula-display" onclick="copyFormula('L = ( P - MC ) / P = 1 / |E_d|', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">L</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">P - MC</span><span class="math-den">P</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">1</span><span class="math-den">|E_d|</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>قدرت بازار:</strong>
                             <p>در رقابت کامل L = 0 است؛ هرچه تقاضا بی‌کشش‌تر باشد توانایی انحصارگر برای گران‌فروشی بالاتر است.</p>
@@ -4072,7 +4257,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Herfindahl-Hirschman (HHI)</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص تمرکز بازار هرفیندال-هیرشمن</h4>
-                        <div class="formula-display">HHI = ∑ (s_i)^2</div>
+                        <div class="formula-display" onclick="copyFormula('HHI = ∑ (s_i)^2', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">HHI</span><span class="math-op">=</span>∑ (s_i)²</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>سنجش ادغام شرکت‌ها:</strong>
                             <p>مجموع مربعات سهم بازار شرکت‌ها؛ مقادیر بالاتر از ۲۵۰۰ نشان‌دهنده انحصار شدید و خطر کارتل است.</p>
@@ -4089,7 +4274,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Income & Cross Elasticity</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">کشش درآمدی (Ey) و کشش متقاطع (Exy)</h4>
-                        <div class="formula-display">E_y = (dQ/dI)×(I/Q)  |  E_xy = (dQa/dPb)×(Pb/Qa)</div>
+                        <div class="formula-display" onclick="copyFormula('E_y = (dQ/dI)×(I/Q)  |  E_xy = (dQa/dPb)×(Pb/Qa)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E_y</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">dQ</span><span class="math-den">dI</span></div> × <div class="math-frac"><span class="math-num">I</span><span class="math-den">Q</span></div><span class="math-sep">|</span><span class="math-sym">E_{xy}</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">dQ_a</span><span class="math-den">dP_b</span></div> × <div class="math-frac"><span class="math-num">P_b</span><span class="math-den">Q_a</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>طبقه‌بندی کالاها:</strong>
                             <p>• Ey &gt; 1: لوکس | Ey بین 0 و 1: ضروری عادی | Ey &lt; 0: کالای پست.</p>
@@ -4107,7 +4292,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Break-Even Point</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نقطه سر‌به‌سر تیراژی و ریالی (BEP)</h4>
-                        <div class="formula-display">Q_bep = FC / CM  |  Sales_bep = FC / CMR</div>
+                        <div class="formula-display" onclick="copyFormula('Q_bep = FC / CM  |  Sales_bep = FC / CMR', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_{bep}</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">FC</span><span class="math-den">CM</span></div><span class="math-sep">|</span><span class="math-sym">Sales_{bep}</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">FC</span><span class="math-den">CMR</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>پوشش هزینه ثابت:</strong>
                             <p>تیراژی که در آن سود عملیاتی دقیقاً صفر است (EBIT = 0). CM = P - VC حاشیه فروش هر واحد است.</p>
@@ -4124,7 +4309,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Operating Leverage (DOL)</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درجه اهرم عملیاتی (DOL)</h4>
-                        <div class="formula-display">DOL = Total CM / EBIT = Q(P - VC) / [ Q(P - VC) - FC ]</div>
+                        <div class="formula-display" onclick="copyFormula('DOL = Total CM / EBIT = Q(P - VC) / [ Q(P - VC) - FC ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DOL</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">Total CM</span><span class="math-den">EBIT</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">Q(P - VC)</span><span class="math-den">Q(P - VC) - FC</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>حساسیت سود به فروش:</strong>
                             <p>به ازای ۱٪ تغییر در فروش، سود عملیاتی چند درصد جهش می‌کند. با نزدیک شدن به BEP، اهرم به بی‌نهایت میل می‌کند.</p>
@@ -4141,7 +4326,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Margin of Safety</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نسبت حاشیه امنیت (Margin of Safety)</h4>
-                        <div class="formula-display">MS% = ( Sales - BEP_Sales ) / Sales = 1 / DOL</div>
+                        <div class="formula-display" onclick="copyFormula('MS% = ( Sales - BEP_Sales ) / Sales = 1 / DOL', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">MS%</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">Sales - BEP_{Sales}</span><span class="math-den">Sales</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">1</span><span class="math-den">DOL</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>سپر در برابر بحران:</strong>
                             <p>درصدی که فروش شرکت می‌تواند سقوط کند قبل از اینکه شرکت وارد زیان شود. معکوس درجه اهرم عملیاتی است!</p>
@@ -4158,7 +4343,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Target Profit with Tax</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ سود هدف با احتساب مالیات شرکت</h4>
-                        <div class="formula-display">Q_target = [ FC + Target_Profit / (1 - T) ] / CM</div>
+                        <div class="formula-display" onclick="copyFormula('Q_target = [ FC + Target_Profit / (1 - T) ] / CM', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_{target}</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">FC + [ Target\_Profit / (1 - T) ]</span><span class="math-den">CM</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>تعدیل مالیاتی:</strong>
                             <p>تقسیم سود خالص بر (1 - T) جهت تبدیل به سود ناخالص عملیاتی مورد نیاز خط تولید.</p>
@@ -4175,7 +4360,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Shadow Price</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قیمت سایه منبع محدودکننده (Shadow Price)</h4>
-                        <div class="formula-display">y_i* = ∂Z* / ∂b_i</div>
+                        <div class="formula-display" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i*</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">∂Z*</span><span class="math-den">∂b_i</span></div></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>ارزش نهایی منبع:</strong>
                             <p>میزان افزایش مقدار تابع هدف سود به ازای افزودن ۱ واحد به سمت راست قید iام (ظرفیت منبع).</p>
@@ -4192,7 +4377,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Pearson Correlation</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب همبستگی خطی پیرسون (r)</h4>
-                        <div class="formula-display">r = Cov(X, Y) / ( s_X × s_Y )  |  -1 ≤ r ≤ +1</div>
+                        <div class="formula-display" onclick="copyFormula('r = Cov(X, Y) / ( s_X × s_Y )  |  -1 ≤ r ≤ +1', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">r</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">Cov(X, Y)</span><span class="math-den">s_X × s_Y</span></div><span class="math-sep">|</span>-1 ≤ r ≤ +1</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>همبستگی دو متغیر:</strong>
                             <p>سنجش شدت و جهت همبستگی خطی؛ r² همان ضریب تعیین رگرسیون (R-Squared) است.</p>
@@ -4209,7 +4394,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">DFL & DCL</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درجه اهرم مالی (DFL) و اهرم کل (DCL)</h4>
-                        <div class="formula-display">DFL = EBIT / (EBIT - I)  |  DCL = DOL × DFL</div>
+                        <div class="formula-display" onclick="copyFormula('DFL = EBIT / (EBIT - I)  |  DCL = DOL × DFL', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DFL</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">EBIT</span><span class="math-den">EBIT - I</span></div><span class="math-sep">|</span>DCL = DOL × DFL</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>تقویت سود و ریسک:</strong>
                             <p>اهرم مالی ناشی از هزینه بهره وام (I) است؛ حاصل‌ضرب اهرم عملیاتی و مالی، درجه اهرم کل شرکت را می‌سازد.</p>
@@ -4226,7 +4411,7 @@
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">High-Low Method</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">روش نقطه بالا-پایین تفکیک هزینه‌ها</h4>
-                        <div class="formula-display">b = ( Y_high - Y_low ) / ( X_high - X_low )  |  a = Y - bX</div>
+                        <div class="formula-display" onclick="copyFormula('b = ( Y_high - Y_low ) / ( X_high - X_low )  |  a = Y - bX', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">b</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">Y_{high} - Y_{low}</span><span class="math-den">X_{high} - X_{low}</span></div><span class="math-sep">|</span>a = Y - bX</div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>تفکیک سریع هزینه:</strong>
                             <p>b نرخ متغیر هر واحد فعالیت؛ a کل هزینه ثابت دوره در دامنه مربوطه تولید.</p>
@@ -4444,6 +4629,21 @@
             }
         };
 
+        
+        // Haptic Feedback Integration for Telegram WebApp
+        function hapticTap(type = 'light') {
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+                try {
+                    if (type === 'light' || type === 'medium' || type === 'heavy') {
+                        window.Telegram.WebApp.HapticFeedback.impactOccurred(type);
+                    } else if (type === 'success' || type === 'error' || type === 'warning') {
+                        window.Telegram.WebApp.HapticFeedback.notificationOccurred(type);
+                    }
+                } catch(e) {}
+            }
+        }
+        window.hapticTap = hapticTap;
+
         function showToast(msg) {
 
             const toast = document.getElementById('toast');
@@ -4453,7 +4653,12 @@
             setTimeout(() => toast.classList.remove('show'), 2600);
         };
 
-        function copyFormula(formulaText) {
+        function copyFormula(formulaText, el) {
+            hapticTap('success');
+            if (el && el.classList) {
+                el.classList.add('copied');
+                setTimeout(() => el.classList.remove('copied'), 1200);
+            }
 
             navigator.clipboard.writeText(formulaText).then(() => {
                 showToast('رابطه در کلیپ‌بورد کپی شد: ' + formulaText);
@@ -4514,6 +4719,7 @@
         };
 
         function selectTab(tab) {
+            hapticTap('light');
             if (currentCourse === 'hub') return;
             currentTab = tab;
 
@@ -6005,6 +6211,7 @@
         window.selectQuizOpt = selectQuizOpt;
 
         function submitQuizAnswer(course, qIdx) {
+            hapticTap('medium');
             if (quizState[course].selected[qIdx] === undefined) {
                 showToast('لطفاً ابتدا یک گزینه را انتخاب کنید');
                 return;
@@ -6103,6 +6310,7 @@
         }
 
         function flipFlashcard() {
+            hapticTap('medium');
             const front = document.getElementById('flashcard-front');
             const back = document.getElementById('flashcard-back');
             const btnFlip = document.getElementById('btn-fc-flip');
@@ -6119,6 +6327,7 @@
         window.flipFlashcard = flipFlashcard;
 
         function markFlashcard(knewIt) {
+            hapticTap(knewIt ? 'success' : 'warning');
             if (knewIt) {
                 leitnerState.box = Math.min(5, leitnerState.box + 1);
                 showToast('آفرین! کارت به خانه ' + leitnerState.box + ' لایتنر منتقل شد');
