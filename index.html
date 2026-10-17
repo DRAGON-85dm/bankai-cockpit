@@ -2082,7 +2082,7 @@
 
     
         /* ========================================================
-           v17.0 THEMATIC COURSE BAR, ENHANCED DOCK & MATH TYPOGRAPHY
+           v18.0 QUANTUM PRECISION: THEMATIC RAIL, UNIFIED DOCK & MATH
            ======================================================== */
         .thematic-course-bar {
             display: flex;
@@ -2119,14 +2119,14 @@
             border-color: #94A3B8;
         }
         .course-chip.active {
-            background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%);
-            border-color: #4338CA;
-            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.35);
+            background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%) !important;
+            border-color: #4338CA !important;
+            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.35) !important;
         }
         body.theme-dark .course-chip.active {
-            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-            border-color: #38BDF8;
-            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%) !important;
+            border-color: #38BDF8 !important;
+            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25) !important;
         }
         .course-chip .chip-icon {
             font-size: 1.25rem;
@@ -2138,7 +2138,7 @@
             display: block;
         }
         .course-chip.active .chip-title {
-            color: #FFFFFF;
+            color: #FFFFFF !important;
         }
         body.theme-dark .course-chip .chip-title {
             color: #F8FAFC;
@@ -2150,10 +2150,10 @@
             margin-top: 1px;
         }
         .course-chip.active .chip-sub {
-            color: #C7D2FE;
+            color: #C7D2FE !important;
         }
         body.theme-dark .course-chip.active .chip-sub {
-            color: #38BDF8;
+            color: #38BDF8 !important;
         }
 
         /* Enhanced Floating Executive Dock */
@@ -2208,13 +2208,13 @@
         body:not(.theme-dark) .dock-btn:hover { color: #0F172A; }
         .dock-btn.active {
             color: #FFFFFF;
-            background: rgba(99, 102, 241, 0.35);
+            background: rgba(99, 102, 241, 0.35) !important;
             font-weight: 800;
             box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
         }
         body:not(.theme-dark) .dock-btn.active {
             color: #1E1B4B;
-            background: #EEF2FF;
+            background: #EEF2FF !important;
             border: 1px solid #C7D2FE;
             box-shadow: 0 2px 8px rgba(67, 56, 202, 0.15);
         }
@@ -2257,7 +2257,7 @@
             border-color: #6366F1;
         }
 
-        /* Mathematical Typography Enhancements */
+        /* Clean Mathematical Typography */
         .formula-display {
             display: flex !important;
             align-items: center !important;
@@ -2417,8 +2417,9 @@
         </div>
     </header>
 
+    <!-- 6 MAIN DISCIPLINE CARDS -->
     
-    <!-- THEMATIC COURSE SELECTOR BAR (v17.0 COMPACT HIGH-RETENTION RAIL) -->
+    <!-- THEMATIC COURSE SELECTOR BAR (v18.0 COMPACT HIGH-RETENTION RAIL) -->
     <nav class="thematic-course-bar" id="thematic-course-bar">
         <button class="course-chip active" id="btn-course-micro" onclick="selectCourse('micro')">
             <span class="chip-icon">📈</span>
@@ -2484,7 +2485,118 @@
         </div>
     </section>
 
-    <!-- STATIC SUBTABS REMOVED: FLOATING DOCK IS THE SOLE NAVIGATION -->
+    <!-- 5 TOP MODULE SUBTABS -->
+    <div class="subtabs-bar" id="subtabs-bar-container">
+        <button class="subtab-pill active" id="pill-tab-sim" onclick="selectTab('sim')">
+            <span>📊</span>
+            <span>رسم چارت زنده تریدینگ و بزرگ‌نمایی</span>
+        </button>
+
+        <button class="subtab-pill" id="pill-tab-tree" onclick="selectTab('tree')">
+            <span>🌳</span>
+            <span>نمودار درختی و نقشه مفهومی</span>
+        </button>
+
+        <button class="subtab-pill" id="pill-tab-formula" onclick="selectTab('formula')">
+            <span>📐</span>
+            <span>فرمول‌نامه و تلفیق تکمیلی استاد و CFA</span>
+        </button>
+
+        <button class="subtab-pill" id="pill-tab-solution" onclick="selectTab('solution')">
+            <span>🛠️</span>
+            <span>مسئله تیپ دانشگاهی و حل الگوریتمی</span>
+        </button>
+
+        <button class="subtab-pill" id="pill-tab-traps" onclick="selectTab('traps')">
+            <span>⚠️</span>
+            <span>تله‌های آزمون و کپسول دفترچه</span>
+        </button>
+        <button class="subtab-pill" id="pill-tab-quiz" onclick="selectTab('quiz')">
+            <span>🎯</span>
+            <span>شبیه‌ساز آزمون کنکور ارشد و CFA</span>
+        </button>
+    </div>
+
+    <!-- MAIN DYNAMIC CONTENT CONTAINER -->
+    <main id="main-content">
+<div id="pane-micro" class="discipline-pane">
+            <div id="micro-tab-sim" class="subtab-view">
+                <div class="sim-layout" id="m-layout">
+                    <!-- Controls Column -->
+                    <div class="controls-column card" style="margin-bottom: 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                            <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-micro);">⚙️ متغیرهای تعادل و مالیات واحدی</span>
+                            <span class="font-mono badge badge-micro">Xd = a - bP | Xs = c + dP</span>
+                        </div>
+
+                        <!-- Param 1: Tax t -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">نرخ مالیات واحدی دولت (t):</span>
+                                <input type="number" id="m-t-num" value="6" step="0.5" class="param-input-box" style="color: #DC2626;">
+                            </div>
+                            <input type="range" id="m-t-slider" min="0" max="30" step="0.5" value="6">
+                        </div>
+
+                        <!-- Param 2: a -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">تقاضای خودکفا در قیمت صفر (a):</span>
+                                <input type="number" id="m-a-num" value="100" step="5" class="param-input-box" style="color: #1D4ED8;">
+                            </div>
+                            <input type="range" id="m-a-slider" min="40" max="250" step="5" value="100">
+                        </div>
+
+                        <!-- Param 3: b -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">شیب تابع تقاضا (b):</span>
+                                <input type="number" id="m-b-num" value="2" step="0.5" class="param-input-box" style="color: #1D4ED8;">
+                            </div>
+                            <input type="range" id="m-b-slider" min="0.5" max="6" step="0.5" value="2">
+                        </div>
+
+                        <!-- Param 4: d -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">شیب تابع عرضه (d):</span>
+                                <input type="number" id="m-d-num" value="4" step="0.5" class="param-input-box" style="color: #047857;">
+                            </div>
+                            <input type="range" id="m-d-slider" min="0.5" max="8" step="0.5" value="4">
+                        </div>
+
+                        <!-- Param 5: c -->
+                        <div class="param-card">
+                            <div class="param-top">
+                                <span class="param-label">عرض از مبدا عرضه (c):</span>
+                                <input type="number" id="m-c-num" value="-20" step="5" class="param-input-box" style="color: #475569;">
+                            </div>
+                            <input type="range" id="m-c-slider" min="-60" max="20" step="5" value="-20">
+                        </div>
+
+                        <!-- Live KPIs -->
+                        <div class="kpi-row">
+                            <div class="kpi-box" style="background: #FEF2F2; border-color: #FECACA;">
+                                <span class="kpi-tag">قیمت خریدار (Pc)</span>
+                                <span class="kpi-number" id="m-kpi-pc" style="color: #DC2626;">24.0 ریال</span>
+                                <span class="kpi-subtext" id="m-kpi-pcdiff">+4.0 ریال گرانی</span>
+                            </div>
+                            <div class="kpi-box" style="background: #FFFBEB; border-color: #FDE68A;">
+                                <span class="kpi-tag">عایدی فروشنده (Pp)</span>
+                                <span class="kpi-number" id="m-kpi-pp" style="color: #D97706;">18.0 ریال</span>
+                                <span class="kpi-subtext" id="m-kpi-ppdiff">-2.0 ریال افت</span>
+                            </div>
+                            <div class="kpi-box" style="background: #EFF6FF; border-color: #BFDBFE;">
+                                <span class="kpi-tag">تیراژ تعادلی بازار (Qt)</span>
+                                <span class="kpi-number" id="m-kpi-qt" style="color: #1D4ED8;">52 واحد</span>
+                                <span class="kpi-subtext" id="m-kpi-qinit">قبل از مالیات: ۶۰</span>
+                            </div>
+                            <div class="kpi-box" style="background: #FAF5FF; border-color: #E9D5FF;">
+                                <span class="kpi-tag">زیان بار مرده (DWL)</span>
+                                <span class="kpi-number" id="m-kpi-dwl" style="color: #6D28D9;">24.0 ریال</span>
+                                <span class="kpi-subtext">اتلاف خالص جامعه</span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Chart Column -->
@@ -2641,7 +2753,7 @@
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۱</span>
-                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک مستقیم: کشش و بار مالیاتی</button>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: کشش و بار مالیاتی</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
                             <div class="formula-display" onclick="copyFormula('Burden_C / Burden_P = Es / |Ed| = d / b', this)" title="برای کپی فرمول کلیک کنید"><div class="math-frac"><span class="math-num">Burden_C</span><span class="math-den">Burden_P</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">E_s</span><span class="math-den">|E_d|</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
@@ -2676,7 +2788,7 @@
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۳</span>
-                            <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک مستقیم: مشتق و بهینه‌سازی MR = MC</button>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک: مشتق و تعادل سود MR = MC</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص درجه انحصار لرنر (Lerner Index)</h4>
                             <div class="formula-display" onclick="copyFormula('L = (P - MC) / P = 1 / |Ed|', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">L</span><span class="math-op">=</span><div class="math-frac"><span class="math-num">P - MC</span><span class="math-den">P</span></div><span class="math-op">=</span><div class="math-frac"><span class="math-num">1</span><span class="math-den">|E_d|</span></div></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
@@ -5488,85 +5600,119 @@
             });
         };
 
-        // Course Switching
+        
+        // Course Switching (v18.0 Quantum Precision)
         function selectCourse(course) {
-
+            if (typeof hapticTap === 'function') hapticTap('light');
             currentCourse = course;
-            
-            document.querySelectorAll('.subject-btn').forEach(btn => btn.classList.remove('active'));
+
+            // Remove active from all course chips
+            document.querySelectorAll('.course-chip').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById('btn-course-' + course);
             if (activeBtn) activeBtn.classList.add('active');
 
             const meta = courseData[course];
-            document.getElementById('banner-title').innerText = meta.title;
-            document.getElementById('banner-desc').innerText = meta.desc;
-            document.getElementById('banner-card').style.borderRightColor = meta.color;
-            
-            const ind = document.getElementById('banner-indicator');
-            ind.className = 'badge ' + meta.badgeClass;
-            ind.innerText = course === 'hub' ? 'مرکز مرجع' : 'تحلیل فعال';
+            if (meta) {
+                const bannerTitle = document.getElementById('banner-title');
+                const bannerDesc = document.getElementById('banner-desc');
+                const bannerCard = document.getElementById('banner-card');
+                const bannerInd = document.getElementById('banner-indicator');
 
-            const scRow = document.getElementById('scenario-row');
-            const scContainer = document.getElementById('scenario-chips-container');
-            const subtabsBar = document.getElementById('subtabs-bar-container');
-            const dock = document.querySelector('.executive-dock');
+                if (bannerTitle) bannerTitle.innerText = meta.title;
+                if (bannerDesc) bannerDesc.innerText = meta.desc;
+                if (bannerCard) bannerCard.style.borderRightColor = meta.color;
+                if (bannerInd) {
+                    bannerInd.className = 'badge ' + meta.badgeClass;
+                    bannerInd.innerText = course === 'hub' ? 'مرکز مرجع' : 'تحلیل فعال';
+                }
 
-            if (course === 'hub') {
-                if (scRow) scRow.style.display = 'none';
-                if (subtabsBar) subtabsBar.style.display = 'none';
-                if (dock) dock.style.display = 'none';
-            } else {
-                if (scRow) scRow.style.display = 'flex';
-                if (subtabsBar) subtabsBar.style.display = 'flex';
-                if (dock) dock.style.display = 'flex';
-                
-                scContainer.innerHTML = '';
-                meta.scenarios.forEach(sc => {
-                    const chip = document.createElement('div');
-                    chip.className = 'scenario-chip';
-                    chip.innerText = sc.label;
-                    chip.onclick = () => applyScenario(course, sc.vals);
-                    scContainer.appendChild(chip);
-                });
+                const scRow = document.getElementById('scenario-row');
+                const scContainer = document.getElementById('scenario-chips-container');
+                const subtabsBar = document.getElementById('subtabs-bar-container');
+                const dock = document.querySelector('.executive-dock');
+
+                if (course === 'hub') {
+                    if (scRow) scRow.style.display = 'none';
+                    if (subtabsBar) subtabsBar.style.display = 'none';
+                    if (dock) dock.style.display = 'none';
+                } else {
+                    if (scRow) scRow.style.display = 'flex';
+                    if (subtabsBar) subtabsBar.style.display = 'flex';
+                    if (dock) dock.style.display = 'flex';
+                    if (scContainer && meta.scenarios) {
+                        scContainer.innerHTML = '';
+                        meta.scenarios.forEach(sc => {
+                            const chip = document.createElement('div');
+                            chip.className = 'scenario-chip';
+                            chip.innerText = sc.label;
+                            chip.onclick = () => applyScenario(course, sc.vals);
+                            scContainer.appendChild(chip);
+                        });
+                    }
+                }
             }
 
+            // Hide all discipline panes
             document.querySelectorAll('.discipline-pane').forEach(p => p.style.display = 'none');
             const targetPane = document.getElementById('pane-' + course);
             if (targetPane) targetPane.style.display = 'block';
 
             if (course !== 'hub') {
-                selectTab(currentTab);
+                selectTab(currentTab || 'sim');
             }
-        };
 
-        function selectTab(tab) {
-            
-            hapticTap('light');
-            if (currentCourse === 'hub') return;
-            currentTab = tab;
+            // Smooth scroll to anchor
             const anchor = document.getElementById('active-course-content-anchor') || document.getElementById('banner-card');
             if (anchor && typeof anchor.scrollIntoView === 'function') {
                 try { anchor.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e) {}
             }
+        }
 
+        // Tab Switching (Synchronized between Top Pills and Floating Dock)
+        function selectTab(tab) {
+            if (typeof hapticTap === 'function') hapticTap('light');
+            if (currentCourse === 'hub') return;
+            currentTab = tab;
+
+            // Sync top pill buttons
             document.querySelectorAll('.subtab-pill').forEach(b => b.classList.remove('active'));
             const pBtn = document.getElementById('pill-tab-' + tab);
             if (pBtn) pBtn.classList.add('active');
 
+            // Sync floating dock buttons
             document.querySelectorAll('.dock-btn').forEach(b => b.classList.remove('active'));
             const dBtn = document.getElementById('dock-btn-' + tab);
             if (dBtn) dBtn.classList.add('active');
 
-            const targetId = currentCourse + '-tab-' + tab;
-            document.querySelectorAll('#pane-' + currentCourse + ' .subtab-view').forEach(v => v.style.display = 'none');
-            const targetView = document.getElementById(targetId);
-            if (targetView) targetView.style.display = 'block';
+            // STRICT HIDING: Hide all subtab views within current course pane
+            const currentPane = document.getElementById('pane-' + currentCourse);
+            if (currentPane) {
+                currentPane.querySelectorAll('.subtab-view').forEach(v => {
+                    v.style.display = 'none';
+                });
+            }
 
-            if (tab === 'quiz') { renderQuiz(currentCourse); }
+            // SHOW ONLY THE TARGET VIEW
+            const targetId = currentCourse + '-tab-' + tab;
+            const targetView = document.getElementById(targetId);
+            if (targetView) {
+                targetView.style.display = 'block';
+            }
+
+            if (tab === 'quiz') {
+                renderQuiz(currentCourse);
+            }
             if (tab === 'sim') {
                 setTimeout(redrawActiveCourse, 30);
             }
-        };
+
+            // Smooth scroll to content
+            const anchor = document.getElementById('active-course-content-anchor') || document.getElementById('banner-card');
+            if (anchor && typeof anchor.scrollIntoView === 'function') {
+                try { anchor.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e) {}
+            }
+        }
+
 
         function redrawActiveCourse() {
             updateAllSensitivities();
@@ -5795,9 +5941,9 @@
             const { ctx, W, H } = setup;
 
             const t = parseFloat(document.getElementById('m-t-num').value) || 0;
-            const a = parseFloat(document.getElementById('m-a-num').value) || 100;
+            const aEl = document.getElementById('m-a-num'); const a = (aEl && aEl.value) ? parseFloat(aEl.value) : 100;
             const b = parseFloat(document.getElementById('m-b-num').value) || 2;
-            const d = parseFloat(document.getElementById('m-d-num').value) || 4;
+            const dEl = document.getElementById('m-d-num'); const d = (dEl && dEl.value) ? parseFloat(dEl.value) : 4;
             const c = parseFloat(document.getElementById('m-c-num').value) || -20;
 
             const P0 = (a - c) / (b + d);
@@ -6306,10 +6452,8 @@
             if (!setup) return;
             const { ctx, W, H } = setup;
 
-            const c1El = document.getElementById('or-c1-num');
-            const c2El = document.getElementById('or-c2-num');
-            const c1 = (c1El && c1El.value) ? parseFloat(c1El.value) : 40;
-            const c2 = (c2El && c2El.value) ? parseFloat(c2El.value) : 30;
+            const c1El = document.getElementById('or-c1-num'); const c1 = (c1El && c1El.value) ? parseFloat(c1El.value) : 40;
+            const c2El = document.getElementById('or-c2-num'); const c2 = (c2El && c2El.value) ? parseFloat(c2El.value) : 30;
 
             const vertices = [
                 { x1: 0, x2: 0, z: 0, label: 'O(0,0)' },
@@ -6468,10 +6612,8 @@
             if (!setup) return;
             const { ctx, W, H } = setup;
 
-            const muEl = document.getElementById('s-mu-num');
-            const sigEl = document.getElementById('s-sig-num');
-            const mu = (muEl && muEl.value) ? parseFloat(muEl.value) : 25;
-            const sig = (sigEl && sigEl.value) ? parseFloat(sigEl.value) : 5;
+            const muEl = document.getElementById('s-mu-num'); const mu = (muEl && muEl.value) ? parseFloat(muEl.value) : 25;
+            const sigEl = document.getElementById('s-sig-num'); const sig = (sigEl && sigEl.value) ? parseFloat(sigEl.value) : 5;
             const xVal = parseFloat(document.getElementById('s-x-num').value) || 16.77;
 
             const z = (xVal - mu) / sig;
@@ -6737,6 +6879,7 @@
         window.setHubCategory = setHubCategory;
         window.filterHubCards = filterHubCards;
         window.exportFullBrief = exportFullBrief;
+        window.redrawActiveCourse = redrawActiveCourse;
 
         
         // ========================================================
@@ -6769,10 +6912,8 @@
         function renderMicroSensitivity() {
             const el = document.getElementById('micro-sens-table');
             if (!el) return;
-            const aEl = document.getElementById('m-a-num');
-            const dEl = document.getElementById('m-d-num');
-            const a = (aEl && aEl.value) ? parseFloat(aEl.value) : 100;
-            const d = (dEl && dEl.value) ? parseFloat(dEl.value) : 4;
+            const aEl = document.getElementById('m-a-num'); const a = (aEl && aEl.value) ? parseFloat(aEl.value) : 100;
+            const dEl = document.getElementById('m-d-num'); const d = (dEl && dEl.value) ? parseFloat(dEl.value) : 4;
             const tVals = [0, 4, 8, 12, 16];
             const bVals = [1.0, 1.5, 2.0, 2.5, 3.0];
 
@@ -7583,310 +7724,297 @@
         // ========================================================
         // FLASHBACK MODAL & PREREQUISITE CHAIN LOGIC
         // ========================================================
-        const chains = {
-    mad: {
-        title: "انحراف متوسط از میانگین (MAD): دوئل تاریخی قدرمطلق در برابر توان ۲",
-        badge: "آمار و پیش‌بینی تقاضا",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "محاسبه مرکز ثقل (x̄) و کشف بن‌بست جمع انحرافات",
-                formula: "∑ (x_i - x̄) = 0",
-                desc: "پیش از سنجش پراکندگی، ابتدا میانگین حسابی x̄ محاسبه می‌شود. اما با جمع زدن ساده انحرافات، انحرافات مثبت و منفی هم را خنثی کرده و همواره حاصل صفر می‌شود. برای رهایی از این بن‌بست، ریاضی‌دانان دو راه ابداع کردند.",
-                trap: "تله امتحانی: مجموع انحرافات همواره صفر است؛ بنابراین نمی‌توان از خود انحرافات میانگین گرفت."
+        
+        const FLASHBACK_CHAINS = {
+            mad: {
+                title: "انحراف متوسط از میانگین (MAD): دوئل تاریخی قدرمطلق در برابر توان ۲",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "محاسبه مرکز ثقل (x̄) و کشف بن‌بست جمع انحرافات",
+                        formula: "∑ (x_i - x̄) = 0",
+                        desc: "پیش از سنجش پراکندگی، ابتدا میانگین حسابی x̄ محاسبه می‌شود. اما با جمع زدن ساده انحرافات، انحرافات مثبت و منفی هم را خنثی کرده و همواره حاصل صفر می‌شود. برای رهایی از این بن‌بست، ریاضی‌دانان دو راه ابداع کردند.",
+                        trap: "تله امتحانی: مجموع انحرافات همواره صفر است؛ بنابراین نمی‌توان از خود انحرافات میانگین گرفت."
+                    },
+                    {
+                        step: "گام ۱ (مسیر اول: نابودی منفی با قدرمطلق)",
+                        title: "تولد انحراف متوسط از میانگین (MAD)",
+                        formula: "MAD = ∑ |x_i - x̄| ÷ n",
+                        desc: "در این روش، با انداختن قدرمطلق روی انحرافات (|x_i - x̄|)، علامت منفی خنثی شده و میانگین قدرمطلق فاصله‌ها از مرکز ثقل به دست می‌آید. این شاخص معیاری شهودی و بسیار ملموس از پراکندگی به همان واحد داده است.",
+                        trap: "تله محاسباتی: در مخرج MAD همواره حجم کل n قرار می‌گیرد (نه n - 1)."
+                    },
+                    {
+                        step: "گام ۲ (چرا آمار کلاسیک به سراغ توان ۲ و واریانس رفت؟)",
+                        title: "ضعف تحلیلی قدرمطلق در ریاضیات پیشرفته",
+                        formula: "تابع |x| در نقطه صفر مشتق‌پذیر نیست!",
+                        desc: "تابع قدرمطلق در نقطه عطف گوشه تیز دارد و مشتق‌پذیر نیست؛ بنابراین گاوس و فیشر برای روش کمترین مربعات و رگرسیون، توان دو را انتخاب کردند. اما امروزه در مدیریت زنجیره تامین، پیش‌بینی خطای فروش و ریسک مالی، MAD بسیار محبوب‌تر و مقاوم‌تر است.",
+                        trap: "رابطه تجربی در توزیع نرمال: MAD ≈ 0.8 × σ  |  σ ≈ 1.25 × MAD."
+                    }
+                ]
             },
-            {
-                step: "گام ۱ (مسیر اول: نابودی منفی با قدرمطلق)",
-                title: "تولد انحراف متوسط از میانگین (MAD)",
-                formula: "MAD = ∑ |x_i - x̄| ÷ n",
-                desc: "در این روش، با انداختن قدرمطلق روی انحرافات (|x_i - x̄|)، علامت منفی خنثی شده و میانگین قدرمطلق فاصله‌ها از مرکز ثقل به دست می‌آید. این شاخص معیاری شهودی و بسیار ملموس از پراکندگی به همان واحد داده است.",
-                trap: "تله محاسباتی: در مخرج MAD همواره حجم کل n قرار می‌گیرد (نه n - 1)."
+            variance: {
+                title: "واریانس، انحراف معیار و تصحیح بسل (n - 1)",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "مرکز ثقل داده‌ها (میانگین حسابی)",
+                        formula: "x̄ = ∑ x_i ÷ n",
+                        desc: "میانگین حسابی نقطه تعادل داده‌هاست. بدون مشخص بودن میانگین، مفهوم انحراف بی‌معنی است.",
+                        trap: "نکته کلیدی: گام صفر در تمام مسائل واریانس، محاسبه x̄ است."
+                    },
+                    {
+                        step: "گام ۱ (مسیر دوم: توان ۲ انحرافات)",
+                        title: "مجذور کردن انحرافات جهت مشتق‌پذیری آسان",
+                        formula: "SS = ∑ (x_i - x̄)²",
+                        desc: "توان ۲ علاوه بر نابودی علامت منفی، فواصل بزرگتر را با شدت بیشتری جریمه می‌کند و تابعی کاملاً هموار و مشتق‌پذیر می‌سازد.",
+                        trap: "قضیه کمترین مربعات: مجموع مجذور انحرافات از میانگین کمترین مقدار ممکن را در کل محور اعداد دارد."
+                    },
+                    {
+                        step: "گام ۲ (تولد تصحیح بسل)",
+                        title: "چرا تقسیم بر n - 1 به جای n؟",
+                        formula: "s² = ∑ (x_i - x̄)² ÷ (n - 1)",
+                        desc: "چون میانگین جامعه مجهول است و از میانگین نمونه استفاده می‌کنیم، ۱ درجه آزادی از دست می‌رود. تقسیم بر n واریانس را کمتر از واقعیت برآورد می‌کند؛ کسر ۱ از مخرج این کم‌برآوردی را خنثی و برآوردگر را نااریب می‌سازد.",
+                        trap: "تله آزمون: برای جامعه مخرج N و برای نمونه تصادفی مخرج n - 1 است."
+                    },
+                    {
+                        step: "گام ۳ (تولد انحراف معیار)",
+                        title: "جذر گرفتن برای بازگشت به مقیاس متغیر اصلی",
+                        formula: "s = √s²",
+                        desc: "واحد واریانس مربع واحد داده است (تومان به توان ۲!). با جذر گرفتن به مقیاس واقعی تومان و درصد بازمی‌گردیم.",
+                        trap: "جمع داده‌ها با ثابت انحراف معیار را تغییر نمی‌دهد، اما ضرب در ثابت c انحراف معیار را در |c| ضرب می‌کند."
+                    }
+                ]
             },
-            {
-                step: "گام ۲ (چرا آمار کلاسیک به سراغ توان ۲ و واریانس رفت؟)",
-                title: "ضعف تحلیلی قدرمطلق در ریاضیات پیشرفته",
-                formula: "تابع |x| در نقطه صفر مشتق‌پذیر نیست!",
-                desc: "تابع قدرمطلق در نقطه عطف گوشه تیز دارد و مشتق‌پذیر نیست؛ بنابراین گاوس و فیشر برای روش کمترین مربعات و رگرسیون، توان دو را انتخاب کردند. اما امروزه در مدیریت زنجیره تامین، پیش‌بینی خطای فروش و ریسک مالی، MAD بسیار محبوب‌تر و مقاوم‌تر است.",
-                trap: "رابطه تجربی در توزیع نرمال: MAD ≈ 0.8 × σ  |  σ ≈ 1.25 × MAD."
+            cv: {
+                title: "ضریب تغییرات (CV): استانداردسازی و مقایسه ریسک نسبی",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "وابستگی شدید انحراف معیار به مقیاس سنجش",
+                        formula: "انحراف معیار با واحد داده بیان می‌شود (ریال، دلار، کیلوگرم)",
+                        desc: "انحراف معیار شاخصی مطلق است و نمی‌تواند دارایی‌هایی با قیمت‌های نامتجانس را مقایسه کند.",
+                        trap: "تله ذهنی: دارایی با انحراف معیار کمتر لزوماً کم‌ریسک‌تر نیست!"
+                    },
+                    {
+                        step: "گام ۱ (خنثی‌سازی مقیاس با سرشکن کردن)",
+                        title: "تقسیم انحراف معیار بر میانگین",
+                        formula: "CV = ( s ÷ x̄ ) × 100%",
+                        desc: "انحراف معیار ۵ تومان برای سهم ۱۰ تومانی فاجعه است (۵۰٪ نوسان)، اما برای سهم ۵۰۰۰ تومانی ناچیز (۰.۱٪ نوسان). با تقسیم بر میانگین، مقیاس خنثی می‌شود.",
+                        trap: "تله ارشد: ضریب تغییرات تنها زمانی معنادار است که متغیر دارای مقیاس نسبی (Ratio) و میانگین مثبت باشد."
+                    }
+                ]
+            },
+            derivative: {
+                title: "ریاضیات و بهینه‌سازی: از شیب خط قاطع تا مشتق و تعادل سود MR = MC",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "شیب خط مستقیم در هندسه دبیرستان",
+                        formula: "m = Δy ÷ Δx = (y2 - y1) ÷ (x2 - x1)",
+                        desc: "در خطوط راست، شیب همواره ثابت بود و نسبت جابه‌جایی عمودی به افقی نرخ تغییرات را نشان می‌داد.",
+                        trap: "محدودیت خط راست: توابع درآمد و هزینه در دنیای واقعی منحنی‌های غیرخطی هستند."
+                    },
+                    {
+                        step: "گام ۱ (خط قاطع روی منحنی)",
+                        title: "تقریب میانگین تغییرات با فاصله Δx",
+                        formula: "m_secant = [ f(x + Δx) - f(x) ] ÷ Δx",
+                        desc: "شیب خط قاطع تنها میانگین تغییرات در یک بازه را نشان می‌دهد، اما تغییرات لحظه‌ای در یک تیراژ خاص را نشان نمی‌دهد.",
+                        trap: "نکته مفهومی: خط قاطع منحنی را در دو نقطه قطع می‌کند."
+                    },
+                    {
+                        step: "گام ۲ (جهش نیوتن و لایبنیتس)",
+                        title: "میل فاصله به سمت صفر و تولد مشتق",
+                        formula: "f'(x) = dy ÷ dx = lim_{Δx → 0} [ f(x + Δx) - f(x) ] ÷ Δx",
+                        desc: "با میل کردن Δx به صفر، خط قاطع به خط مماس بر یک نقطه تبدیل می‌شود؛ شیب خط مماس همان نرخ تغییرات آنی است!",
+                        trap: "قاعده توان: مشتق x^n برابر n x^{n-1} است. عدد ثابت تنها مشتقش صفر است، اما ضریب ضرب‌شده در مشتق حفظ می‌شود."
+                    },
+                    {
+                        step: "گام ۳ (تزریق به اقتصاد و مالی)",
+                        title: "تولد درآمد نهایی MR و هزینه نهایی MC",
+                        formula: "MR = dTR ÷ dQ   |   MC = dTC ÷ dQ",
+                        desc: "مشتق درآمد کل درآمد آخرین واحد، و مشتق هزینه کل بهای تمام‌شده ساخت آخرین واحد را می‌دهد.",
+                        trap: "در انحصار کامل شیب تابع MR دو برابر شیب منحنی تقاضاست."
+                    },
+                    {
+                        step: "گام ۴ (قله سود و شرط تعادل)",
+                        title: "چرا در ماکزیمم سود باید MR = MC باشد؟",
+                        formula: "dπ ÷ dQ = d(TR - TC) ÷ dQ = MR - MC = 0  ==>  MR = MC",
+                        desc: "سود زمانی به اوج می‌رسد که شیب مماس بر تابع سود افقی (صفر) شود. تلاقی MR = MC نقطه بهینه تولید است.",
+                        trap: "شرط مرتبه دوم (SOC): شیب MC باید در نقطه تلاقی از شیب MR بزرگتر باشد."
+                    }
+                ]
+            },
+            elasticity: {
+                title: "اقتصاد خرد: کشش قیمتی تقاضا، درآمد نهایی و تسهیم بار مالیاتی",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "نقص شیب منحنی تقاضا (وابستگی به واحد)",
+                        formula: "Slope = ΔP ÷ ΔQ (وابسته به ریال و کیلوگرم)",
+                        desc: "اگر قیمت را از ریال به تومان تبدیل کنیم، شیب منحنی تغییر می‌کند! برای مقایسه حساسیت کالاها، باید شاخصی بدون واحد داشته باشیم.",
+                        trap: "شیب و کشش معکوس یکدیگرند: کشش = (1 ÷ شیب) × (P ÷ Q)."
+                    },
+                    {
+                        step: "گام ۱ (تولد کشش قیمتی تقاضا)",
+                        title: "درصد تغییرات تقاضا به درصد تغییرات قیمت",
+                        formula: "E_d = ( dQ ÷ dP ) × ( P ÷ Q )",
+                        desc: "کشش قیمتی متغیری بدون بعد است که نشان می‌دهد با ۱٪ افزایش قیمت، مقدار تقاضا چند درصد کاهش می‌یابد.",
+                        trap: "رابطه آموروسو-رابینسون: MR = P × [ 1 - 1 ÷ |E_d| ]. اگر کشش برابر ۱ باشد درآمد نهایی صفر است!"
+                    },
+                    {
+                        step: "گام ۲ (تسهیم بار مالیاتی دولت)",
+                        title: "کشش کمتر یعنی پرداخت سهم بیشتر مالیات",
+                        formula: "Burden_C ÷ Burden_P = E_s ÷ |E_d|",
+                        desc: "هر طرفی که کشش کمتری داشته باشد، انعطاف‌پذیری کمتری در بازار دارد و سهم بیشتری از مالیات را به دوش می‌کشد.",
+                        trap: "اگر تقاضا کاملاً بی‌کشش باشد (|Ed| = 0)، ۱۰۰٪ بار مالیات بر دوش مصرف‌کننده می‌افتد."
+                    }
+                ]
+            },
+            bep: {
+                title: "حسابداری بهای تمام‌شده: از تفکیک رفتار هزینه تا نقطه سر‌به‌سر (BEP)",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "تفکیک هزینه‌ها به ثابت (FC) و متغیر (VC)",
+                        formula: "TC = FC + VC × Q",
+                        desc: "هزینه ثابت (اجاره، استهلاک) مستقل از تیراژ است؛ هزینه متغیر (مواد، دستمزد مستقیم) با تیراژ تغییر می‌کند.",
+                        trap: "در کوتاه‌مدت هزینه ثابت تغییر نمی‌کند اما هزینه ثابت به ازای هر واحد با افزایش تیراژ کاهش می‌یابد."
+                    },
+                    {
+                        step: "گام ۱ (تولد حاشیه فروش واحد)",
+                        title: "پوشش هزینه‌های ثابت با سهم سود ناخالص",
+                        formula: "CM = P - VC",
+                        desc: "هر واحد کالایی که می‌فروشیم، بعد از پرداخت هزینه متغیر خودش، مبلغ CM ریال برای کمک به بازپرداخت هزینه‌های ثابت کنار می‌گذارد.",
+                        trap: "نسبت حاشیه فروش: CMR = CM ÷ P. در تحلیل CVP ریالی، مخرج CMR است."
+                    },
+                    {
+                        step: "گام ۲ (تولد نقطه سر‌به‌سر)",
+                        title: "تیراژ لازم برای صفر شدن سود و زیان",
+                        formula: "Q_{bep} = FC ÷ ( P - VC ) = FC ÷ CM",
+                        desc: "با تقسیم کل هزینه ثابت بر حاشیه فروش هر واحد، دقیقاً مشخص می‌شود شرکت باید چند واحد بفروشد تا سودش صفر شود.",
+                        trap: "اهرم عملیاتی (DOL): DOL = ( Q × CM ) ÷ ( Q × CM - FC ). هرچه به سر‌به‌سر نزدیکتر باشیم، اهرم عملیاتی بزرگتر و ریسک شرکت بیشتر است."
+                    }
+                ]
+            },
+            means: {
+                title: "میانگین‌های سه‌گانه: حسابی، هندسی و هارمونیک در برابر رشد ثروت",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "میانگین حسابی و فرض مستقل بودن جمع",
+                        formula: "x̄ = ∑ x_i ÷ n",
+                        desc: "میانگین حسابی فرض می‌کند متغیرها در طول زمان با هم جمع می‌شوند.",
+                        trap: "تله کشنده در بازار سرمایه: بازدهی سرمایه‌گذاری جمع نمی‌شود، بلکه در هم ضرب می‌شود!"
+                    },
+                    {
+                        step: "گام ۱ (کالبدشکافی اثر معکوس زیان)",
+                        title: "چرا ۵۰٪ زیان نیازمند ۱۰۰٪ سود برای جبران است؟",
+                        formula: "سرمایه ۱۰۰ تومانی: ۱۰۰ × (۱ - ۰.۵۰) = ۵۰  ==>  ۵۰ × (۱ + ۱.۰۰) = ۱۰۰ تومان",
+                        desc: "زیان از پایه بزرگتر کم می‌شود، اما سود از پایه کوچک‌شده رشد می‌کند. میانگین حسابی (-50% + 100%)/2 = +25% توهم سود ایجاد می‌کند در حالی که پول اولیه بدون تغییر است!",
+                        trap: "میانگین حسابی همواره بازده واقعی سرمایه‌گذاری را بیش از حد برآورد می‌کند."
+                    },
+                    {
+                        step: "گام ۲ (تولد میانگین هندسی و CAGR)",
+                        title: "محاسبه دقیق رشد مرکب ثروت با ضرب ریشه‌ای",
+                        formula: "G = [ ∏ (1 + R_t) ]^(1/n) - 1",
+                        desc: "میانگین هندسی نرخ بازده مرکب واقعی سالانه را حساب کرده و اثر ضربی نوسانات را در نظر می‌گیرد.",
+                        trap: "تقریب درگ نوسان شانون-مارکوویتز: G ≈ x̄ - 0.5 σ². نوسان بالاتر یعنی فرسایش بیشتر ثروت."
+                    },
+                    {
+                        step: "گام ۳ (تولد میانگین هارمونیک)",
+                        title: "نرخ‌های ثابت و استراتژی خرید پله‌ای سهام",
+                        formula: "H = n ÷ ∑ (1 ÷ x_i)",
+                        desc: "وقتی با بودجه ریالی ثابت در قیمت‌های گوناگون سهام می‌خرید، میانگین موزون قیمت خرید برابر میانگین هارمونیک قیمت‌هاست.",
+                        trap: "نامساوی طلایی: Min ≤ H ≤ G ≤ x̄ ≤ Max همواره برقرار است مگر در واریانس صفر."
+                    }
+                ]
+            },
+            quartiles: {
+                title: "چارک‌ها، دامنه میان‌چارکی و نمودار جعبه‌ای: پالایش داده‌های پرت",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "ضعف بزرگ میانگین در برابر ارقام نجومی",
+                        formula: "حساسیت مطلق میانگین به داده‌های پرت (Outliers)",
+                        desc: "یک مشاهده غیرعادی بسیار بزرگ یا کوچک، میانگین حسابی را به شدت جابه‌جا می‌کند.",
+                        trap: "میانه و چارک‌ها در برابر داده‌های پرت کاملاً مقاوم (Robust) هستند."
+                    },
+                    {
+                        step: "گام ۱ (مرتب‌سازی و تولد میانه)",
+                        title: "میانه نقطه مرزی ۵۰٪ مشاهدات",
+                        formula: "Q2 = Median = مقدار داده وسط در آرایه مرتب‌شده",
+                        desc: "داده‌ها به ترتیب صعودی چیده شده و نقطه وسط نصف داده‌ها را در چپ و نصف را در راست نگه می‌دارد.",
+                        trap: "در تعداد زوج مشاهدات، میانه میانگین حسابی دو داده وسط است."
+                    },
+                    {
+                        step: "گام ۲ (تولد چارک اول و سوم)",
+                        title: "نقاط ۲۵٪ و ۷۵٪ توزیع",
+                        formula: "Q1 = نقطه ۲۵٪   |   Q3 = نقطه ۷۵٪",
+                        desc: "چارک اول میانه نیمه اول داده‌ها و چارک سوم میانه نیمه دوم داده‌هاست.",
+                        trap: "روش‌های درون‌یابی خطی در آزمون‌های ارشد مورد تاکید است."
+                    },
+                    {
+                        step: "گام ۳ (تولد دامنه میان‌چارکی IQR)",
+                        title: "محدوده ۵۰٪ مرکزی قلب توزیع",
+                        formula: "IQR = Q3 - Q1   |   QD = IQR ÷ 2",
+                        desc: "دامنه میان‌چارکی پراکندگی ۵۰٪ داده‌های مرکزی را می‌سنجد و داده‌های پرت را کاملاً فیلتر می‌کند.",
+                        trap: "معیار توکی: هر داده خارج از [Q1 - 1.5 IQR, Q3 + 1.5 IQR] داده پرت قطعی است."
+                    }
+                ]
+            },
+            hamada: {
+                title: "مدیریت مالی: از ریسک عملیاتی شرکت تا بتای اهرمی همادا",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "بتای دارایی یا بدون اهرم (ریسک بیزینس)",
+                        formula: "β_U = ریسک ذاتی صنعت و دارایی‌های شرکت بدون بدهی",
+                        desc: "شرکتی که هیچ وامی نگرفته، فقط با ریسک عملیاتی بازار سنجیده می‌شود.",
+                        trap: "تغییر نسبت بدهی اثری بر بتای بدون اهرم β_U ندارد."
+                    },
+                    {
+                        step: "گام ۱ (ورود استقراض و ریسک مالی)",
+                        title: "نسبت اهرم مالی بدهی به حقوق صاحبان سهام (D ÷ E)",
+                        formula: "Financial Risk = D ÷ E",
+                        desc: "با ورود بدهی، ریسک ورشکستگی به سهامداران منتقل شده و بتای سهام شرکت باید افزایش یابد.",
+                        trap: "افزایش بدهی به معنای رشد قطعی ریسک سیستماتیک سهام است."
+                    },
+                    {
+                        step: "گام ۲ (سپر مالیاتی بهره و معادله همادا)",
+                        title: "تعدیل ریسک مالی با صرفه‌جویی مالیاتی",
+                        formula: "β_L = β_U × [ 1 + (1 - T) × (D ÷ E) ]",
+                        desc: "سپر مالیاتی بهره (1 - T) هزینه استقراض را کاهش داده و اثر اهرم را تلطیف می‌کند.",
+                        trap: "اگر مالیات صفر باشد (T=0)، معادله به β_L = β_U × (1 + D/E) ساده می‌شود."
+                    }
+                ]
+            },
+            or_dual: {
+                title: "تحقیق در عملیات: دوگانگی سیمپلکس و کشف قیمت‌های سایه (Shadow Prices)",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "مسئله اولیه (Primal) تخصیص منابع",
+                        formula: "Max Z = c^T x   s.t.  Ax ≤ b, x ≥ 0",
+                        desc: "شرکت می‌خواهد با محدودیت مواد اولیه و ساعت کار ماشین‌آلات (b)، سود را ماکزیمم کند.",
+                        trap: "هر محدودیت در مسئله اولیه، به یک متغیر در مسئله دوگان تبدیل می‌شود."
+                    },
+                    {
+                        step: "گام ۱ (نگاه از زاویه ارزش‌گذاری منابع)",
+                        title: "مسئله دوگان (Dual) و حداقل‌سازی ارزش منابع",
+                        formula: "Min W = b^T y   s.t.  A^T y ≥ c, y ≥ 0",
+                        desc: "اگر خریداری بخواهد کارخانه و منابع شما را اجاره کند، حاضر به پرداخت چه قیمتی به ازای هر واحد منبع است تا شما تولید را متوقف کنید؟ این قیمت y قیمت سایه نام دارد.",
+                        trap: "قضیه دوگانگی قوی: در نقطه بهینه، سود ماکزیمم اولیه دقیقاً برابر هزینه مینیمم دوگان است: Max Z* = Min W*."
+                    },
+                    {
+                        step: "گام ۲ (قضیه تعامد و مکمل بودن)",
+                        title: "چرا منبع دارای مازاد (Slack) قیمت سایه‌اش صفر است؟",
+                        formula: "y_i × s_i = 0",
+                        desc: "اگر ظرفیت تراشکاری اضافه آمده باشد و خط بیکار بماند (s_i > 0)، ارزش اقتصادی یک ساعت اضافه دیگر از آن منبع دقیقاً صفر است (y_i = 0)!",
+                        trap: "تله کنکور ارشد: متغیر کمکی اولیه صفر است یعنی منبع به طور کامل مصرف شده و گلوگاه است، پس قیمت سایه مثبت دارد."
+                    }
+                ]
             }
-        ]
-    },
-    variance: {
-        title: "واریانس، انحراف معیار و تصحیح بسل (n - 1)",
-        badge: "آمار و کاربرد در مدیریت",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "مرکز ثقل داده‌ها (میانگین حسابی)",
-                formula: "x̄ = ∑ x_i ÷ n",
-                desc: "میانگین حسابی نقطه تعادل داده‌هاست. بدون مشخص بودن میانگین، مفهوم انحراف بی‌معنی است.",
-                trap: "نکته کلیدی: گام صفر در تمام مسائل واریانس، محاسبه x̄ است."
-            },
-            {
-                step: "گام ۱ (مسیر دوم: توان ۲ انحرافات)",
-                title: "مجذور کردن انحرافات جهت مشتق‌پذیری آسان",
-                formula: "SS = ∑ (x_i - x̄)²",
-                desc: "توان ۲ علاوه بر نابودی علامت منفی، فواصل بزرگتر را با شدت بیشتری جریمه می‌کند و تابعی کاملاً هموار و مشتق‌پذیر می‌سازد.",
-                trap: "قضیه کمترین مربعات: مجموع مجذور انحرافات از میانگین کمترین مقدار ممکن را در کل محور اعداد دارد."
-            },
-            {
-                step: "گام ۲ (تولد تصحیح بسل)",
-                title: "چرا تقسیم بر n - 1 به جای n؟",
-                formula: "s² = ∑ (x_i - x̄)² ÷ (n - 1)",
-                desc: "چون میانگین جامعه مجهول است و از میانگین نمونه استفاده می‌کنیم، ۱ درجه آزادی از دست می‌رود. تقسیم بر n واریانس را کمتر از واقعیت برآورد می‌کند؛ کسر ۱ از مخرج این کم‌برآوردی را خنثی و برآوردگر را نااریب می‌سازد.",
-                trap: "تله آزمون: برای جامعه مخرج N و برای نمونه تصادفی مخرج n - 1 است."
-            },
-            {
-                step: "گام ۳ (تولد انحراف معیار)",
-                title: "جذر گرفتن برای بازگشت به مقیاس متغیر اصلی",
-                formula: "s = √s²",
-                desc: "واحد واریانس مربع واحد داده است (تومان به توان ۲!). با جذر گرفتن به مقیاس واقعی تومان و درصد بازمی‌گردیم.",
-                trap: "جمع داده‌ها با ثابت انحراف معیار را تغییر نمی‌دهد، اما ضرب در ثابت c انحراف معیار را در |c| ضرب می‌کند."
-            }
-        ]
-    },
-    cv: {
-        title: "ضریب تغییرات (CV): استانداردسازی و مقایسه ریسک نسبی",
-        badge: "مدیریت ریسک و مالی",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "وابستگی شدید انحراف معیار به مقیاس سنجش",
-                formula: "انحراف معیار با واحد داده بیان می‌شود (ریال، دلار، کیلوگرم)",
-                desc: "انحراف معیار شاخصی مطلق است و نمی‌تواند دارایی‌هایی با قیمت‌های نامتجانس را مقایسه کند.",
-                trap: "تله ذهنی: دارایی با انحراف معیار کمتر لزوماً کم‌ریسک‌تر نیست!"
-            },
-            {
-                step: "گام ۱ (خنثی‌سازی مقیاس با سرشکن کردن)",
-                title: "تقسیم انحراف معیار بر میانگین",
-                formula: "CV = ( s ÷ x̄ ) × 100%",
-                desc: "انحراف معیار ۵ تومان برای سهم ۱۰ تومانی فاجعه است (۵۰٪ نوسان)، اما برای سهم ۵۰۰۰ تومانی ناچیز (۰.۱٪ نوسان). با تقسیم بر میانگین، مقیاس خنثی می‌شود.",
-                trap: "تله ارشد: ضریب تغییرات تنها زمانی معنادار است که متغیر دارای مقیاس نسبی (Ratio) و میانگین مثبت باشد."
-            }
-        ]
-    },
-    derivative: {
-        title: "ریاضیات و بهینه‌سازی: از شیب خط قاطع تا مشتق و تعادل سود MR = MC",
-        badge: "ریاضیات مالی و اقتصاد",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "شیب خط مستقیم در هندسه دبیرستان",
-                formula: "m = Δy ÷ Δx = (y2 - y1) ÷ (x2 - x1)",
-                desc: "در خطوط راست، شیب همواره ثابت بود و نسبت جابه‌جایی عمودی به افقی نرخ تغییرات را نشان می‌داد.",
-                trap: "محدودیت خط راست: توابع درآمد و هزینه در دنیای واقعی منحنی‌های غیرخطی هستند."
-            },
-            {
-                step: "گام ۱ (خط قاطع روی منحنی)",
-                title: "تقریب میانگین تغییرات با فاصله Δx",
-                formula: "m_secant = [ f(x + Δx) - f(x) ] ÷ Δx",
-                desc: "شیب خط قاطع تنها میانگین تغییرات در یک بازه را نشان می‌دهد، اما تغییرات لحظه‌ای در یک تیراژ خاص را نشان نمی‌دهد.",
-                trap: "نکته مفهومی: خط قاطع منحنی را در دو نقطه قطع می‌کند."
-            },
-            {
-                step: "گام ۲ (جهش نیوتن و لایبنیتس)",
-                title: "میل فاصله به سمت صفر و تولد مشتق",
-                formula: "f'(x) = dy ÷ dx = lim_{Δx → 0} [ f(x + Δx) - f(x) ] ÷ Δx",
-                desc: "با میل کردن Δx به صفر، خط قاطع به خط مماس بر یک نقطه تبدیل می‌شود؛ شیب خط مماس همان نرخ تغییرات آنی است!",
-                trap: "قاعده توان: مشتق x^n برابر n x^{n-1} است. عدد ثابت تنها مشتقش صفر است، اما ضریب ضرب‌شده در مشتق حفظ می‌شود."
-            },
-            {
-                step: "گام ۳ (تزریق به اقتصاد و مالی)",
-                title: "تولد درآمد نهایی MR و هزینه نهایی MC",
-                formula: "MR = dTR ÷ dQ   |   MC = dTC ÷ dQ",
-                desc: "مشتق درآمد کل درآمد آخرین واحد، و مشتق هزینه کل بهای تمام‌شده ساخت آخرین واحد را می‌دهد.",
-                trap: "در انحصار کامل شیب تابع MR دو برابر شیب منحنی تقاضاست."
-            },
-            {
-                step: "گام ۴ (قله سود و شرط تعادل)",
-                title: "چرا در ماکزیمم سود باید MR = MC باشد؟",
-                formula: "dπ ÷ dQ = d(TR - TC) ÷ dQ = MR - MC = 0  ==>  MR = MC",
-                desc: "سود زمانی به اوج می‌رسد که شیب مماس بر تابع سود افقی (صفر) شود. تلاقی MR = MC نقطه بهینه تولید است.",
-                trap: "شرط مرتبه دوم (SOC): شیب MC باید در نقطه تلاقی از شیب MR بزرگتر باشد."
-            }
-        ]
-    },
-    elasticity: {
-        title: "اقتصاد خرد: کشش قیمتی تقاضا، درآمد نهایی و تسهیم بار مالیاتی",
-        badge: "اقتصاد خرد و بازار",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "نقص شیب منحنی تقاضا (وابستگی به واحد)",
-                formula: "Slope = ΔP ÷ ΔQ (وابسته به ریال و کیلوگرم)",
-                desc: "اگر قیمت را از ریال به تومان تبدیل کنیم، شیب منحنی تغییر می‌کند! برای مقایسه حساسیت کالاها، باید شاخصی بدون واحد داشته باشیم.",
-                trap: "شیب و کشش معکوس یکدیگرند: کشش = (1 ÷ شیب) × (P ÷ Q)."
-            },
-            {
-                step: "گام ۱ (تولد کشش قیمتی تقاضا)",
-                title: "درصد تغییرات تقاضا به درصد تغییرات قیمت",
-                formula: "E_d = ( dQ ÷ dP ) × ( P ÷ Q )",
-                desc: "کشش قیمتی متغیری بدون بعد است که نشان می‌دهد با ۱٪ افزایش قیمت، مقدار تقاضا چند درصد کاهش می‌یابد.",
-                trap: "رابطه آموروسو-رابینسون: MR = P × [ 1 - 1 ÷ |E_d| ]. اگر کشش برابر ۱ باشد درآمد نهایی صفر است!"
-            },
-            {
-                step: "گام ۲ (تسهیم بار مالیاتی دولت)",
-                title: "کشش کمتر یعنی پرداخت سهم بیشتر مالیات",
-                formula: "Burden_C ÷ Burden_P = E_s ÷ |E_d|",
-                desc: "هر طرفی که کشش کمتری داشته باشد، انعطاف‌پذیری کمتری در بازار دارد و سهم بیشتری از مالیات را به دوش می‌کشد.",
-                trap: "اگر تقاضا کاملاً بی‌کشش باشد (|Ed| = 0)، ۱۰۰٪ بار مالیات بر دوش مصرف‌کننده می‌افتد."
-            }
-        ]
-    },
-    bep: {
-        title: "حسابداری بهای تمام‌شده: از تفکیک رفتار هزینه تا نقطه سر‌به‌سر (BEP)",
-        badge: "حسابداری مدیریت و بهایابی",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "تفکیک هزینه‌ها به ثابت (FC) و متغیر (VC)",
-                formula: "TC = FC + VC × Q",
-                desc: "هزینه ثابت (اجاره، استهلاک) مستقل از تیراژ است؛ هزینه متغیر (مواد، دستمزد مستقیم) با تیراژ تغییر می‌کند.",
-                trap: "در کوتاه‌مدت هزینه ثابت تغییر نمی‌کند اما هزینه ثابت به ازای هر واحد با افزایش تیراژ کاهش می‌یابد."
-            },
-            {
-                step: "گام ۱ (تولد حاشیه فروش واحد)",
-                title: "پوشش هزینه‌های ثابت با سهم سود ناخالص",
-                formula: "CM = P - VC",
-                desc: "هر واحد کالایی که می‌فروشیم، بعد از پرداخت هزینه متغیر خودش، مبلغ CM ریال برای کمک به بازپرداخت هزینه‌های ثابت کنار می‌گذارد.",
-                trap: "نسبت حاشیه فروش: CMR = CM ÷ P. در تحلیل CVP ریالی، مخرج CMR است."
-            },
-            {
-                step: "گام ۲ (تولد نقطه سر‌به‌سر)",
-                title: "تیراژ لازم برای صفر شدن سود و زیان",
-                formula: "Q_{bep} = FC ÷ ( P - VC ) = FC ÷ CM",
-                desc: "با تقسیم کل هزینه ثابت بر حاشیه فروش هر واحد، دقیقاً مشخص می‌شود شرکت باید چند واحد بفروشد تا سودش صفر شود.",
-                trap: "اهرم عملیاتی (DOL): DOL = ( Q × CM ) ÷ ( Q × CM - FC ). هرچه به سر‌به‌سر نزدیکتر باشیم، اهرم عملیاتی بزرگتر و ریسک شرکت بیشتر است."
-            }
-        ]
-    },
-    means: {
-        title: "میانگین‌های سه‌گانه: حسابی، هندسی و هارمونیک در برابر رشد ثروت",
-        badge: "آمار و پورتفوی مالی",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "میانگین حسابی و فرض مستقل بودن جمع",
-                formula: "x̄ = ∑ x_i ÷ n",
-                desc: "میانگین حسابی فرض می‌کند متغیرها در طول زمان با هم جمع می‌شوند.",
-                trap: "تله کشنده در بازار سرمایه: بازدهی سرمایه‌گذاری جمع نمی‌شود، بلکه در هم ضرب می‌شود!"
-            },
-            {
-                step: "گام ۱ (کالبدشکافی اثر معکوس زیان)",
-                title: "چرا ۵۰٪ زیان نیازمند ۱۰۰٪ سود برای جبران است؟",
-                formula: "سرمایه ۱۰۰ تومانی: ۱۰۰ × (۱ - ۰.۵۰) = ۵۰  ==>  ۵۰ × (۱ + ۱.۰۰) = ۱۰۰ تومان",
-                desc: "زیان از پایه بزرگتر کم می‌شود، اما سود از پایه کوچک‌شده رشد می‌کند. میانگین حسابی (-50% + 100%)/2 = +25% توهم سود ایجاد می‌کند در حالی که پول اولیه بدون تغییر است!",
-                trap: "میانگین حسابی همواره بازده واقعی سرمایه‌گذاری را بیش از حد برآورد می‌کند."
-            },
-            {
-                step: "گام ۲ (تولد میانگین هندسی و CAGR)",
-                title: "محاسبه دقیق رشد مرکب ثروت با ضرب ریشه‌ای",
-                formula: "G = [ ∏ (1 + R_t) ]^(1/n) - 1",
-                desc: "میانگین هندسی نرخ بازده مرکب واقعی سالانه را حساب کرده و اثر ضربی نوسانات را در نظر می‌گیرد.",
-                trap: "تقریب درگ نوسان شانون-مارکوویتز: G ≈ x̄ - 0.5 σ². نوسان بالاتر یعنی فرسایش بیشتر ثروت."
-            },
-            {
-                step: "گام ۳ (تولد میانگین هارمونیک)",
-                title: "نرخ‌های ثابت و استراتژی خرید پله‌ای سهام",
-                formula: "H = n ÷ ∑ (1 ÷ x_i)",
-                desc: "وقتی با بودجه ریالی ثابت در قیمت‌های گوناگون سهام می‌خرید، میانگین موزون قیمت خرید برابر میانگین هارمونیک قیمت‌هاست.",
-                trap: "نامساوی طلایی: Min ≤ H ≤ G ≤ x̄ ≤ Max همواره برقرار است مگر در واریانس صفر."
-            }
-        ]
-    },
-    quartiles: {
-        title: "چارک‌ها، دامنه میان‌چارکی و نمودار جعبه‌ای: پالایش داده‌های پرت",
-        badge: "تحلیل اکتشافی داده‌ها (EDA)",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "ضعف بزرگ میانگین در برابر ارقام نجومی",
-                formula: "حساسیت مطلق میانگین به داده‌های پرت (Outliers)",
-                desc: "یک مشاهده غیرعادی بسیار بزرگ یا کوچک، میانگین حسابی را به شدت جابه‌جا می‌کند.",
-                trap: "میانه و چارک‌ها در برابر داده‌های پرت کاملاً مقاوم (Robust) هستند."
-            },
-            {
-                step: "گام ۱ (مرتب‌سازی و تولد میانه)",
-                title: "میانه نقطه مرزی ۵۰٪ مشاهدات",
-                formula: "Q2 = Median = مقدار داده وسط در آرایه مرتب‌شده",
-                desc: "داده‌ها به ترتیب صعودی چیده شده و نقطه وسط نصف داده‌ها را در چپ و نصف را در راست نگه می‌دارد.",
-                trap: "در تعداد زوج مشاهدات، میانه میانگین حسابی دو داده وسط است."
-            },
-            {
-                step: "گام ۲ (تولد چارک اول و سوم)",
-                title: "نقاط ۲۵٪ و ۷۵٪ توزیع",
-                formula: "Q1 = نقطه ۲۵٪   |   Q3 = نقطه ۷۵٪",
-                desc: "چارک اول میانه نیمه اول داده‌ها و چارک سوم میانه نیمه دوم داده‌هاست.",
-                trap: "روش‌های درون‌یابی خطی در آزمون‌های ارشد مورد تاکید است."
-            },
-            {
-                step: "گام ۳ (تولد دامنه میان‌چارکی IQR)",
-                title: "محدوده ۵۰٪ مرکزی قلب توزیع",
-                formula: "IQR = Q3 - Q1   |   QD = IQR ÷ 2",
-                desc: "دامنه میان‌چارکی پراکندگی ۵۰٪ داده‌های مرکزی را می‌سنجد و داده‌های پرت را کاملاً فیلتر می‌کند.",
-                trap: "معیار توکی: هر داده خارج از [Q1 - 1.5 IQR, Q3 + 1.5 IQR] داده پرت قطعی است."
-            }
-        ]
-    },
-    hamada: {
-        title: "مدیریت مالی: از ریسک عملیاتی شرکت تا بتای اهرمی همادا",
-        badge: "مدیریت مالی و ساختار سرمایه",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "بتای دارایی یا بدون اهرم (ریسک بیزینس)",
-                formula: "β_U = ریسک ذاتی صنعت و دارایی‌های شرکت بدون بدهی",
-                desc: "شرکتی که هیچ وامی نگرفته، فقط با ریسک عملیاتی بازار سنجیده می‌شود.",
-                trap: "تغییر نسبت بدهی اثری بر بتای بدون اهرم β_U ندارد."
-            },
-            {
-                step: "گام ۱ (ورود استقراض و ریسک مالی)",
-                title: "نسبت اهرم مالی بدهی به حقوق صاحبان سهام (D ÷ E)",
-                formula: "Financial Risk = D ÷ E",
-                desc: "با ورود بدهی، ریسک ورشکستگی به سهامداران منتقل شده و بتای سهام شرکت باید افزایش یابد.",
-                trap: "افزایش بدهی به معنای رشد قطعی ریسک سیستماتیک سهام است."
-            },
-            {
-                step: "گام ۲ (سپر مالیاتی بهره و معادله همادا)",
-                title: "تعدیل ریسک مالی با صرفه‌جویی مالیاتی",
-                formula: "β_L = β_U × [ 1 + (1 - T) × (D ÷ E) ]",
-                desc: "سپر مالیاتی بهره (1 - T) هزینه استقراض را کاهش داده و اثر اهرم را تلطیف می‌کند.",
-                trap: "اگر مالیات صفر باشد (T=0)، معادله به β_L = β_U × (1 + D/E) ساده می‌شود."
-            }
-        ]
-    },
-    or_dual: {
-        title: "تحقیق در عملیات: دوگانگی سیمپلکس و کشف قیمت‌های سایه (Shadow Prices)",
-        badge: "تحقیق در عملیات ۱ و بهینه‌سازی",
-        nodes: [
-            {
-                step: "گام ۰ (نقطه تولد در گذشته)",
-                title: "مسئله اولیه (Primal) تخصیص منابع",
-                formula: "Max Z = c^T x   s.t.  Ax ≤ b, x ≥ 0",
-                desc: "شرکت می‌خواهد با محدودیت مواد اولیه و ساعت کار ماشین‌آلات (b)، سود را ماکزیمم کند.",
-                trap: "هر محدودیت در مسئله اولیه، به یک متغیر در مسئله دوگان تبدیل می‌شود."
-            },
-            {
-                step: "گام ۱ (نگاه از زاویه ارزش‌گذاری منابع)",
-                title: "مسئله دوگان (Dual) و حداقل‌سازی ارزش منابع",
-                formula: "Min W = b^T y   s.t.  A^T y ≥ c, y ≥ 0",
-                desc: "اگر خریداری بخواهد کارخانه و منابع شما را اجاره کند، حاضر به پرداخت چه قیمتی به ازای هر واحد منبع است تا شما تولید را متوقف کنید؟ این قیمت y قیمت سایه نام دارد.",
-                trap: "قضیه دوگانگی قوی: در نقطه بهینه، سود ماکزیمم اولیه دقیقاً برابر هزینه مینیمم دوگان است: Max Z* = Min W*."
-            },
-            {
-                step: "گام ۲ (قضیه تعامد و مکمل بودن)",
-                title: "چرا منبع دارای مازاد (Slack) قیمت سایه‌اش صفر است؟",
-                formula: "y_i × s_i = 0",
-                desc: "اگر ظرفیت تراشکاری اضافه آمده باشد و خط بیکار بماند (s_i > 0)، ارزش اقتصادی یک ساعت اضافه دیگر از آن منبع دقیقاً صفر است (y_i = 0)!",
-                trap: "تله کنکور ارشد: متغیر کمکی اولیه صفر است یعنی منبع به طور کامل مصرف شده و گلوگاه است، پس قیمت سایه مثبت دارد."
-            }
-        ]
-    }
-};
-
-console.log("Total chains defined:", Object.keys(chains).length);
-
-        const FLASHBACK_CHAINS = chains;
+        };
 
         function openDirectFlashback(chainKey) {
             if (typeof hapticTap === 'function') hapticTap('medium');
