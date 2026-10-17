@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>BANKAI v11.0 | سامانه جامع هوش تحلیلی، نمودارهای رتینا و دانشنامه شاخص‌ها</title>
+    <title>BANKAI v12.0 | سامانه هوش تحلیلی، بزرگ‌نمایی تریدینگ و تلفیق تکمیلی آمار</title>
     <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <!-- Typography: Vazirmatn & JetBrains Mono -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* ==========================================================================
-           BANKAI ULTRA MASTERPIECE DESIGN SYSTEM (PRO EXECUTIVE EDITION v11.0)
+           BANKAI QUANTUM MASTERPIECE DESIGN SYSTEM (PRO EXECUTIVE EDITION v12.0)
            Engineered for Bahador | Benchmark: Sharif, UT & CFA Institute
            ========================================================================== */
         :root {
@@ -290,7 +290,7 @@
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
         }
 
-        /* Simulator Responsive Layout with Panorama Mode Support */
+        /* Simulator Layout */
         .sim-layout {
             display: grid;
             grid-template-columns: 1fr;
@@ -298,21 +298,9 @@
             transition: all 0.3s ease;
         }
         @media (min-width: 1024px) {
-            .sim-layout:not(.panorama-mode) {
+            .sim-layout {
                 grid-template-columns: 4.2fr 7.8fr;
             }
-        }
-        .sim-layout.panorama-mode {
-            grid-template-columns: 1fr !important;
-        }
-        .sim-layout.panorama-mode .controls-column {
-            order: 2;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 12px;
-        }
-        .sim-layout.panorama-mode .chart-column {
-            order: 1;
         }
 
         /* Parameter Numeric & Slider Row */
@@ -387,7 +375,7 @@
         .kpi-number { font-size: 1.2rem; font-family: 'JetBrains Mono', monospace; font-weight: 900; margin-top: 2px; display: block; }
         .kpi-subtext { font-size: 0.68rem; color: #64748B; margin-top: 2px; display: block; }
 
-        /* Canvas Arena & Controls */
+        /* Canvas Arena & Trading Controls */
         .canvas-arena-wrapper {
             position: relative;
             width: 100%;
@@ -400,6 +388,42 @@
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 10px;
+        }
+
+        .canvas-action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .btn-chart-tool {
+            background: #FFFFFF;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 8px;
+            padding: 5px 9px;
+            font-size: 0.74rem;
+            font-weight: 800;
+            color: #0F172A;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.15s;
+            user-select: none;
+        }
+        .btn-chart-tool:hover {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+        .btn-fullscreen-launch {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+        .btn-fullscreen-launch:hover {
+            background: #1E293B;
         }
 
         .canvas-layer-controls {
@@ -425,25 +449,6 @@
             background: #0F172A;
             color: #FFFFFF;
             border-color: #0F172A;
-        }
-
-        .btn-panorama-toggle {
-            background: #FFFFFF;
-            border: 1.5px solid #CBD5E1;
-            border-radius: 8px;
-            padding: 4px 10px;
-            font-size: 0.72rem;
-            font-weight: 800;
-            color: #0F172A;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.15s;
-        }
-        .btn-panorama-toggle:hover {
-            background: #0F172A;
-            color: #FFFFFF;
         }
 
         .canvas-arena {
@@ -486,6 +491,212 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             transition: opacity 0.15s ease;
             z-index: 50;
+        }
+
+        /* TRADING-VIEW FULLSCREEN MODAL OVERLAY */
+        .fullscreen-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 3000;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.25s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .fs-modal-card {
+            background: #FFFFFF;
+            width: 100%;
+            max-width: 1360px;
+            height: 94vh;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .fs-header {
+            padding: 12px 18px;
+            border-bottom: 1px solid #E2E8F0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: #FFFFFF;
+        }
+
+        .fs-title-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .fs-emblem {
+            font-size: 1.5rem;
+        }
+
+        .fs-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-close-fs {
+            background: #DC2626;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            padding: 7px 14px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-close-fs:hover {
+            background: #B91C1C;
+        }
+
+        .fs-hud-bar {
+            background: #F8FAFC;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 8px 18px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Vazirmatn', monospace;
+            font-size: 0.76rem;
+            color: #334155;
+            white-space: nowrap;
+        }
+
+        .fs-canvas-container {
+            flex: 1;
+            position: relative;
+            background: #FFFFFF;
+            cursor: crosshair;
+            min-height: 400px;
+        }
+
+        .fs-footer {
+            padding: 10px 18px;
+            border-top: 1px solid #E2E8F0;
+            background: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* 3-TIER COGNITIVE FORMULA CARDS */
+        .formula-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 16px;
+        }
+        .formula-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: var(--shadow-subtle);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+        .formula-card:hover {
+            border-color: #94A3B8;
+            box-shadow: var(--shadow-float);
+        }
+
+        .formula-display {
+            background: #F8FAFC;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: #1E3A8A;
+            margin: 10px 0;
+            letter-spacing: 0.02em;
+        }
+
+        /* The 3 Cognitive Pillars Inside Each Card */
+        .tier-card {
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: 0.74rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .prof-tier {
+            background: #EFF6FF;
+            border-right: 4px solid #2563EB;
+            color: #1E3A8A;
+        }
+        .prof-tier strong {
+            color: #1D4ED8;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .bankai-tier {
+            background: #FAF5FF;
+            border-right: 4px solid #8B5CF6;
+            color: #581C87;
+        }
+        .bankai-tier strong {
+            color: #6D28D9;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .trap-tier {
+            background: #FFF1F2;
+            border-right: 4px solid #EF4444;
+            color: #881337;
+        }
+        .trap-tier strong {
+            color: #BE123C;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .btn-copy-formula {
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 0.74rem;
+            font-weight: 800;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            width: fit-content;
+            margin-top: 10px;
+        }
+        .btn-copy-formula:hover {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
         }
 
         /* Tree Diagrams: Luxury Hierarchical Mind Map */
@@ -541,64 +752,6 @@
         .tree-leaf-item strong {
             display: block;
             margin-bottom: 2px;
-        }
-
-        /* Formulas & Encyclopedia Cards */
-        .formula-card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 14px;
-        }
-        .formula-card {
-            background: #FFFFFF;
-            border: 1.5px solid #E2E8F0;
-            border-radius: 14px;
-            padding: 16px;
-            box-shadow: var(--shadow-subtle);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.2s ease;
-        }
-        .formula-card:hover {
-            border-color: #94A3B8;
-            box-shadow: var(--shadow-float);
-        }
-
-        .formula-display {
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.05rem;
-            font-weight: 900;
-            color: #1E3A8A;
-            margin: 8px 0;
-            letter-spacing: 0.02em;
-        }
-
-        .btn-copy-formula {
-            background: #F1F5F9;
-            border: 1px solid #CBD5E1;
-            border-radius: 8px;
-            padding: 5px 12px;
-            font-size: 0.72rem;
-            font-weight: 800;
-            color: #334155;
-            cursor: pointer;
-            transition: all 0.15s;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            width: fit-content;
-            margin-top: 10px;
-        }
-        .btn-copy-formula:hover {
-            background: #0F172A;
-            color: #FFFFFF;
-            border-color: #0F172A;
         }
 
         /* Step by Step Algorithm Cards */
@@ -709,7 +862,7 @@
             font-weight: 800;
             box-shadow: 0 10px 25px rgba(0,0,0,0.25);
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 2000;
+            z-index: 4000;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -734,10 +887,10 @@
             <div class="cockpit-title">
                 <h1>
                     <span>BANKAI</span>
-                    <span class="badge badge-pro">ULTRA MASTERPIECE v11.0</span>
+                    <span class="badge badge-pro">QUANTUM v12.0</span>
                 </h1>
                 <p style="font-size: 0.75rem; color: #64748B; margin-top: 2px;">
-                    سامانه هوش تحلیلی، نمودارهای رتینا و دانشنامه جامع شاخص‌ها و میانگین‌ها | بهادر
+                    سامانه هوش تحلیلی، بزرگ‌نمایی تریدینگ و تلفیق تکمیلی آمار و مالی | بهادر
                 </p>
             </div>
         </div>
@@ -752,7 +905,7 @@
         </div>
     </header>
 
-    <!-- 6 MAIN DISCIPLINE CARDS (5 COURSES + 1 MASTER HUB) -->
+    <!-- 6 MAIN DISCIPLINE CARDS -->
     <nav class="subject-grid">
         <div class="subject-btn active" id="btn-course-micro" onclick="selectCourse('micro')">
             <div class="s-header">
@@ -796,7 +949,7 @@
                 <span class="badge badge-stat s-badge">جبهه پنجم</span>
             </div>
             <div class="s-title">آمار کاربردی ۱</div>
-            <div class="s-desc">میانگین‌ها، شاخص‌ها، نرمال و بتا</div>
+            <div class="s-desc">تلفیق تکمیلی کلاس استاد، CFA و نرمال</div>
         </div>
 
         <div class="subject-btn" id="btn-course-hub" onclick="selectCourse('hub')">
@@ -827,11 +980,11 @@
         </div>
     </section>
 
-    <!-- 5 TOP MODULE SUBTABS (HIDDEN ON HUB MODE) -->
+    <!-- 5 TOP MODULE SUBTABS -->
     <div class="subtabs-bar" id="subtabs-bar-container">
         <button class="subtab-pill active" id="pill-tab-sim" onclick="selectTab('sim')">
             <span>📊</span>
-            <span>رسم نمودار زنده با دقت رتینا HD</span>
+            <span>رسم چارت زنده تریدینگ و بزرگ‌نمایی</span>
         </button>
 
         <button class="subtab-pill" id="pill-tab-tree" onclick="selectTab('tree')">
@@ -841,7 +994,7 @@
 
         <button class="subtab-pill" id="pill-tab-formula" onclick="selectTab('formula')">
             <span>📐</span>
-            <span>فرمول‌نامه و کالبدشکافی روابط</span>
+            <span>فرمول‌نامه و تلفیق تکمیلی استاد و CFA</span>
         </button>
 
         <button class="subtab-pill" id="pill-tab-solution" onclick="selectTab('solution')">
@@ -857,11 +1010,7 @@
 
     <!-- MAIN DYNAMIC CONTENT CONTAINER -->
     <main id="main-content">
-
-        <!-- ========================================================
-             1. MICROECONOMICS PANE
-             ======================================================== -->
-        <div id="pane-micro" class="discipline-pane">
+<div id="pane-micro" class="discipline-pane">
             <div id="micro-tab-sim" class="subtab-view">
                 <div class="sim-layout" id="m-layout">
                     <!-- Controls Column -->
@@ -951,10 +1100,14 @@
                                         بوم عریض رتینا با تیک‌های عددی روی محورها و خطوط پروجکشن نقاط تعادل
                                     </p>
                                 </div>
-                                <button class="btn-panorama-toggle" onclick="togglePanorama('micro')">
-                                    <span>🖥️</span>
-                                    <span id="m-pano-text">نمای عریض پانوراما</span>
-                                </button>
+                                <div class="canvas-action-buttons">
+            <button class="btn-chart-tool" onclick="zoomCanvas('micro', 1.25)" title="بزرگ‌نمایی"><span>🔍+</span></button>
+            <button class="btn-chart-tool" onclick="zoomCanvas('micro', 0.8)" title="کوچک‌نمایی"><span>🔍-</span></button>
+            <button class="btn-chart-tool" onclick="resetZoomCanvas('micro')" title="ریست مقیاس"><span>⟲</span></button>
+            <button class="btn-chart-tool btn-fullscreen-launch" onclick="openFullscreenChart('micro')">
+                <span>⛶</span> <span>بزرگ‌نمایی چارت و نمای تریدینگ</span>
+            </button>
+        </div>
                             </div>
 
                             <!-- Interactive Layer Toggles -->
@@ -1287,10 +1440,14 @@
                                         نمودار باز و شفاف صنعتی با پروجکشن دقیق تیراژ سر‌به‌سر بر محورها
                                     </p>
                                 </div>
-                                <button class="btn-panorama-toggle" onclick="togglePanorama('cost')">
-                                    <span>🖥️</span>
-                                    <span id="c-pano-text">نمای عریض پانوراما</span>
-                                </button>
+                                <div class="canvas-action-buttons">
+            <button class="btn-chart-tool" onclick="zoomCanvas('cost', 1.25)" title="بزرگ‌نمایی"><span>🔍+</span></button>
+            <button class="btn-chart-tool" onclick="zoomCanvas('cost', 0.8)" title="کوچک‌نمایی"><span>🔍-</span></button>
+            <button class="btn-chart-tool" onclick="resetZoomCanvas('cost')" title="ریست مقیاس"><span>⟲</span></button>
+            <button class="btn-chart-tool btn-fullscreen-launch" onclick="openFullscreenChart('cost')">
+                <span>⛶</span> <span>بزرگ‌نمایی چارت و نمای تریدینگ</span>
+            </button>
+        </div>
                             </div>
 
                             <!-- Interactive Layer Toggles -->
@@ -1557,10 +1714,14 @@
                                         ترسیم دقیق خط مرزی تعادل ریسک و بازده با پروجکشن بتا و بازده سهم بهادر
                                     </p>
                                 </div>
-                                <button class="btn-panorama-toggle" onclick="togglePanorama('finance')">
-                                    <span>🖥️</span>
-                                    <span id="f-pano-text">نمای عریض پانوراما</span>
-                                </button>
+                                <div class="canvas-action-buttons">
+            <button class="btn-chart-tool" onclick="zoomCanvas('finance', 1.25)" title="بزرگ‌نمایی"><span>🔍+</span></button>
+            <button class="btn-chart-tool" onclick="zoomCanvas('finance', 0.8)" title="کوچک‌نمایی"><span>🔍-</span></button>
+            <button class="btn-chart-tool" onclick="resetZoomCanvas('finance')" title="ریست مقیاس"><span>⟲</span></button>
+            <button class="btn-chart-tool btn-fullscreen-launch" onclick="openFullscreenChart('finance')">
+                <span>⛶</span> <span>بزرگ‌نمایی چارت و نمای تریدینگ</span>
+            </button>
+        </div>
                             </div>
 
                             <!-- Interactive Layer Toggles -->
@@ -1812,10 +1973,14 @@
                                         ترسیم چندضلعی محدب با وضوح رتینا و خطوط تراز ایزوسود
                                     </p>
                                 </div>
-                                <button class="btn-panorama-toggle" onclick="togglePanorama('or')">
-                                    <span>🖥️</span>
-                                    <span id="or-pano-text">نمای عریض پانوراما</span>
-                                </button>
+                                <div class="canvas-action-buttons">
+            <button class="btn-chart-tool" onclick="zoomCanvas('or', 1.25)" title="بزرگ‌نمایی"><span>🔍+</span></button>
+            <button class="btn-chart-tool" onclick="zoomCanvas('or', 0.8)" title="کوچک‌نمایی"><span>🔍-</span></button>
+            <button class="btn-chart-tool" onclick="resetZoomCanvas('or')" title="ریست مقیاس"><span>⟲</span></button>
+            <button class="btn-chart-tool btn-fullscreen-launch" onclick="openFullscreenChart('or')">
+                <span>⛶</span> <span>بزرگ‌نمایی چارت و نمای تریدینگ</span>
+            </button>
+        </div>
                             </div>
 
                             <!-- Interactive Layer Toggles -->
@@ -2065,10 +2230,14 @@
                                         بوم عریض رتینا، خط تقارن میانگین و پروجکشن نقاط انحراف معیار بر محور
                                     </p>
                                 </div>
-                                <button class="btn-panorama-toggle" onclick="togglePanorama('stat')">
-                                    <span>🖥️</span>
-                                    <span id="s-pano-text">نمای عریض پانوراما</span>
-                                </button>
+                                <div class="canvas-action-buttons">
+            <button class="btn-chart-tool" onclick="zoomCanvas('stat', 1.25)" title="بزرگ‌نمایی"><span>🔍+</span></button>
+            <button class="btn-chart-tool" onclick="zoomCanvas('stat', 0.8)" title="کوچک‌نمایی"><span>🔍-</span></button>
+            <button class="btn-chart-tool" onclick="resetZoomCanvas('stat')" title="ریست مقیاس"><span>⟲</span></button>
+            <button class="btn-chart-tool btn-fullscreen-launch" onclick="openFullscreenChart('stat')">
+                <span>⛶</span> <span>بزرگ‌نمایی چارت و نمای تریدینگ</span>
+            </button>
+        </div>
                             </div>
 
                             <!-- Interactive Layer Toggles -->
@@ -2141,77 +2310,147 @@
             </div>
 
             <!-- 5.3 FORMULAS & ANATOMY (THE MASTER REPOSITORY OF ALL MEANS AND INDICES) -->
+            
+            <!-- 5.3 FORMULAS & ANATOMY: 3-TIER COGNITIVE REPOSITORY (PROFESSOR + BANKAI/CFA SYNTHESIS) -->
             <div id="stat-tab-formula" class="subtab-view" style="display: none;">
                 <div style="margin-bottom: 14px;">
-                    <h3 style="font-size: 1.05rem; font-weight: 900; color: #0F172A;">📚 گنجینه تمامی میانگین‌ها و شاخص‌های آماری</h3>
-                    <p style="font-size: 0.74rem; color: #64748B;">کالبدشکافی ریشه‌ای از صفر تا صد، نمادهای چپ به راست، و دکمه کپی فوری</p>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="badge badge-pro">تلفیق تکمیلی 🔥</span>
+                        <h3 style="font-size: 1.08rem; font-weight: 900; color: #0F172A;">گنجینه فرمول‌نامه آمار: سنتز کلاس استاد و استانداردهای جهانی CFA</h3>
+                    </div>
+                    <p style="font-size: 0.74rem; color: #64748B; margin-top: 3px;">
+                        ترکیب مو به موی یادداشت‌های کلاس درس استاد با کالبدشکافی ریشه‌ای (First Principles) و پوشش مباحث ناگفته
+                    </p>
                 </div>
 
                 <div class="formula-card-grid">
-                    <!-- Mean 1: Arithmetic -->
+
+                    <!-- Stat Formula 1: Arithmetic Mean (Population vs Sample) -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-stat">میانگین ۱</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین حسابی (Arithmetic Mean)</h4>
-                            <div class="formula-display">X_bar = ∑ x_i / n  |  ∑ (f_i × x_i) / ∑ f_i</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>کالبدشکافی ریشه‌ای:</strong>
-                                <p>• <b>مرکز ثقل داده‌ها:</b> نقطه‌ای است که مجموع انحرافات از آن دقیقاً صفر می‌شود: ∑ (x_i - X_bar) = 0.</p>
-                                <p>• <b>کمترین مربعات:</b> مجموع مربعات انحرافات داده‌ها از میانگین حسابی کمینه است.</p>
-                                <p>• <b>حساسیت شدید:</b> نسبت به داده‌های پرت (Outliers) شدیداً آسیب‌پذیر است.</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">میانگین بنیادین ۱</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Arithmetic Mean (μ vs x̄)</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین حسابی جامعه و نمونه (مو و ایکس‌بار)</h4>
+                            <div class="formula-display">μ_x = ∑_{i=1}^N x_i / N   |   x̄ = ∑_{i=1}^n x_i / n</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • استاد فرمول را پای تخته با نماد «مو ایکس» نوشت: «مو مساوی سیگما آی از ۱ تا N بزرگ، ایکس آی به روی N بزرگ».<br>
+                                • تعریف استاد: «معدل مجموعه‌ای از مشاهدات را میانگین حسابی می‌گویند. اگر x1, x2, x3 مشاهده باشند، معدل آن‌ها تقسیم حاصل‌جمع بر ۳ است».<br>
+                                • تأکید استاد بر سرشکن کردن عادلانه مجموع کل میان اعضا.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>تفاوت فلسفی مو و ایکس‌بار:</b> پارامتر مو (μ) ویژگی کل جامعه است (ثابت، حقیقی اما معمولاً نامعلوم). آماره ایکس‌بار (x̄) از نمونه گرفته می‌شود (متغیر تصادفی و معلوم).<br>
+                                • <b>مرکز ثقل فیزیکی:</b> تنها نقطه‌ای که مجموع انحرافات از آن صفر است: ∑(x_i - x̄) = 0.<br>
+                                • <b>اصل کمترین مربعات (OLS):</b> مجموع مربعات فواصل حول میانگین کمینه است: ∑(x_i - A)² در A = x̄ مینیمم می‌شود.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                جفت کردن اشتباه نمادها! پارامتر μ فقط با N بزرگ و آماره x̄ فقط با n کوچک جفت می‌شود. نوشتن μ با مخرج n کوچک خطای علمی فاحش است.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('X_bar = sum(x_i) / n')">
+                        <button class="btn-copy-formula" onclick="copyFormula('mu = sum(x_i)/N; x_bar = sum(x_i)/n')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
 
-                    <!-- Mean 2: Weighted -->
+                    <!-- Stat Formula 2: Grouped Frequency Table Mean -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-stat">میانگین ۲</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین وزنی یا موزون (Weighted Mean)</h4>
-                            <div class="formula-display">X_w = ∑ (w_i × x_i) / ∑ w_i</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>کالبدشکافی وال‌استریت:</strong>
-                                <p>• <b>w_i:</b> وزن یا درجه اهمیت متغیر (مانند درصد سرمایه‌گذاری در سهم iام یا تعداد واحد درس).</p>
-                                <p>• <b>کاربرد پرتفوی:</b> بازدهی مورد انتظار پرتفوی دقیقاً میانگین وزنی بازده تک‌تک دارایی‌ها است: E(R_p) = ∑ w_i E(R_i).</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">میانگین جدول ۲</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Grouped Data Mean</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین داده‌های طبقه‌بندی شده (جدول فراوانی)</h4>
+                            <div class="formula-display">x̄ = ∑ (f_i × x_i) / ∑ f_i = ∑ (f_i × x_i) / n</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • در جدول فراوانی، به جای تک‌تک داده‌ها، «مرکز دسته» (x_i یا m_i) را در «فراوانی مطلق» (f_i) ضرب می‌کنیم.<br>
+                                • فرمول مرکز دسته: میانگین کران پایین (L) و کران بالا (U): x_i = (L + U) / 2.<br>
+                                • مجموع فراوانی‌ها (∑ f_i) برابر با حجم کل مشاهدات (n) است.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>معامله بزرگ آمار (Trade-off):</b> اگر داده‌ها زیر ۲۰ عدد باشند (n ≤ 20) مستقیماً آرایه آماری تحلیل می‌شود. اگر بالای ۲۰ باشند جدول فراوانی کشیده می‌شود؛ کمی خطای تقریب مرکز دسته را می‌پذیریم تا شلوغی مهار شود.<br>
+                                • <b>فرمول استورجز برای تعداد طبقات:</b> k = 1 + 3.322 log(n) و طول طبقه c = Range / k.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                اشتباه گرفتن «مرکز دسته» با «طول طبقه c»! در ضرب صورت کسر باید حتماً مرکز دسته (وسط طبقه) در فراوانی ضرب شود نه طول طبقه.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('X_w = sum(w_i * x_i) / sum(w_i)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('x_bar = sum(f_i * x_i) / sum(f_i)')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
 
-                    <!-- Mean 3: Geometric -->
+                    <!-- Stat Formula 3: Geometric Mean & CAGR -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-stat">میانگین ۳</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی (Geometric Mean & CAGR)</h4>
-                            <div class="formula-display">G = ( x1 × x2 × ... × xn )^(1/n)</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>کالبدشکافی رشد و ثروت:</strong>
-                                <p>• <b>فرمول لگاریتمی:</b> ln G = (1/n) ∑ ln(x_i).</p>
-                                <p>• <b>نرخ رشد مرکب سالانه (CAGR):</b> CAGR = [ ∏ (1 + R_t) ]^(1/n) - 1.</p>
-                                <p>• <b>درگ نوسان (Volatility Drag):</b> تقریب مشهور مالی: G ≈ X_bar - 0.5 × σ².</p>
-                                <p>• میانگین هندسی رشد واقعی دارایی است و همواره کوچکتر یا مساوی میانگین حسابی است.</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">میانگین رشد ۳</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Geometric Mean & CAGR</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی، بازده مرکب و توان‌های کسری</h4>
+                            <div class="formula-display">G = ( ∏ x_i )^(1/n)   |   CAGR = [ ∏ (1 + R_t) ]^(1/n) - 1</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • میانگین هندسی از ریشه nام حاصل‌ضرب داده‌ها به دست می‌آید.<br>
+                                • کاربرد در پدیده‌هایی که ماهیت ضربی و رشد دارند (مثل رشد جمعیت و بازدهی سرمایه‌گذاری).<br>
+                                • توان‌های کسری (¹/ᴺ) همان ریشه nام هستند.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>شهود مساحت:</b> تبدیل مستطیل داده‌ها (مثلاً ۴ × ۳۶ = ۱۴۴) به مربع هم‌مساحت (۱۲ × ۱۲ = ۱۴۴)؛ ضلع مربع همان G = ۱۲ است.<br>
+                                • <b>سراب میانگین حسابی:</b> اگر بازده سال اول ۵۰٪- و سال دوم ۱۰۰٪+ باشد، میانگین حسابی ۲۵٪+ را نشان می‌دهد در حالی که پول اولیه بدون تغییر مانده (CAGR = 0%).<br>
+                                • <b>درگ نوسان (Volatility Drag):</b> تقریب مشهور تقلیل بازده ناشی از نوسان: G ≈ x̄ - 0.5 × σ².
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                ضرب مستقیم درصدهای منفی و مثبت! در بازدهی‌های مالی، بازده‌ها ابتدا باید با ۱ جمع شوند: ∏(1 + R_t)، سپس ریشه nام گرفته شود و در انتها عدد ۱ کسر گردد.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('G = (prod(x_i))^(1/n)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('G = (prod(x_i))^(1/n); CAGR = [prod(1 + R_t)]^(1/n) - 1')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
 
-                    <!-- Mean 4: Harmonic -->
+                    <!-- Stat Formula 4: Harmonic Mean & DCA -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-stat">میانگین ۴</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هارمونیک یا همساز (Harmonic Mean)</h4>
-                            <div class="formula-display">H = n / ∑ (1 / x_i)  |  ∑ f_i / ∑ (f_i / x_i)</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>کالبدشکافی نرخ‌ها و خرید پله‌ای:</strong>
-                                <p>• معکوسِ میانگینِ حسابیِ معکوسِ داده‌ها!</p>
-                                <p>• <b>کاربرد مالی طلایی:</b> استراتژی خرید پله‌ای ارز یا سهام با مبالغ ریالی ثابت (Dollar-Cost Averaging). قیمت میانگین خرید پله‌ای دقیقاً میانگین هارمونیک قیمت‌هاست نه حسابی!</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">میانگین نرخ‌ها ۴</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Harmonic Mean & DCA</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هارمونیک (همساز) و خرید پله‌ای ارز/سهام</h4>
+                            <div class="formula-display">H = n / ∑ ( 1 / x_i )   |   ∑ f_i / ∑ ( f_i / x_i )</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • میانگین همساز یعنی معکوسِ میانگینِ معکوسِ مقادیر.<br>
+                                • کاربرد در محاسبه سرعت متوسط رفت و برگشت و میانگین نسبت‌ها (مانند نسبت‌های مالی P/E).
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>استراتژی خرید پله‌ای (Dollar-Cost Averaging):</b> اگر سرمایه‌گذار در چند مرحله با مبالغ ریالی مساوی اقدام به خرید سهم کند، قیمت میانگین خرید هر سهم دقیقاً میانگین هارمونیک قیمت‌هاست نه حسابی!<br>
+                                • چون با مبلغ ثابت در قیمت‌های پایین تعداد سهم بیشتری خریداری می‌شود، میانگین موزون به سمت قیمت‌های پایین‌تر کشیده می‌شود (دقیقاً تعریف H).
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                اگر در تستی گفتند «شخصی ۵۰۰ هزار تومان سهم در قیمت ۲۰ و ۵۰۰ هزار تومان در قیمت ۳۰ خرید»، داوطلب نباید میانگین ۲۵ بگیرد! جواب دقیق: H = 2 / (1/20 + 1/30) = 24 تومان است!
                             </div>
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('H = n / sum(1 / x_i)')">
@@ -2219,66 +2458,64 @@
                         </button>
                     </div>
 
-                    <!-- Mean 5 & 6: Trimmed & Winsorized -->
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-stat">میانگین ۵ و ۶</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین‌های مقاوم (Trimmed & Winsorized)</h4>
-                            <div class="formula-display">Trimmed: حذف α% از دو طرف | Winsorized: جایگزینی با مرز</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>تصفیه داده‌های پرت (Robust Statistics):</strong>
-                                <p>• <b>میانگین پیراسته (Trimmed):</b> مثلاً ۱۰٪ از کوچک‌ترین و ۱۰٪ از بزرگ‌ترین داده‌ها حذف و از ۸۰٪ باقیمانده میانگین حسابی گرفته می‌شود.</p>
-                                <p>• <b>میانگین وینزوری:</b> داده‌های دورافتاده حذف نمی‌شوند، بلکه با بزرگ‌ترین و کوچک‌ترین مقادیر مجاز جایگزین می‌گردند.</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Trimmed_Mean = sum(x_filtered) / n_filtered')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <!-- Mean 7: Quadratic RMS -->
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-stat">میانگین ۷</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین مربعی یا جذر میانگین مربعات (RMS)</h4>
-                            <div class="formula-display">RMS = √[ (1/n) × ∑ (x_i)^2 ]</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>پایه و اساس انحراف معیار:</strong>
-                                <p>ابتدا داده‌ها به توان ۲ می‌رسند تا علائم منفی از بین بروند، سپس میانگین‌گیری و جذر گرفته می‌شود. مبنای ریاضی محاسبه خطای جذر میانگین مربعات (RMSE).</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('RMS = sqrt( (1/n) * sum(x_i^2) )')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <!-- Mean 8: Fundamental Inequality -->
+                    <!-- Stat Formula 5: Fundamental Inequality of Means -->
                     <div class="formula-card" style="border: 2px solid #4338CA; background: #EEF2FF;">
                         <div>
-                            <span class="badge badge-stat">نامساوی طلایی</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #1E1B4B; margin-top: 6px;">نامساوی بنیادین میانگین‌ها (AM-GM-HM)</h4>
-                            <div class="formula-display" style="color: #4338CA; background: #FFFFFF;">Min ≤ H ≤ G ≤ X_bar ≤ RMS ≤ Max</div>
-                            <div class="card-inner" style="font-size: 0.74rem; background: #FFFFFF;">
-                                <strong>قانون تساوی نهایی:</strong>
-                                <p>همواره هارمونیک کوچک‌ترین، سپس هندسی، سپس حسابی و در نهایت مربعی بزرگ‌ترین است. تساوی H = G = X_bar = RMS فقط و فقط زمانی برقرار است که تمام داده‌ها برابر باشند: x1 = x2 = ... = xn.</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">نامساوی شاهکار</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">AM-GM-HM Golden Chain</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #1E1B4B; margin-top: 6px;">نامساوی طلایی و سلسله‌مراتب میانگین‌ها</h4>
+                            <div class="formula-display" style="background: #FFFFFF; color: #4338CA;">Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • میانگین هارمونیک همیشه کوچکتر یا مساوی هندسی، و هندسی کوچکتر یا مساوی حسابی است: H ≤ G ≤ x̄.<br>
+                                • شرط برابری: تمام داده‌ها با هم برابر باشند (x1 = x2 = ... = xn).
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>اضافه شدن میانگین مربعی (RMS):</b> ریشه میانگین توان دوم داده‌ها (RMS = √[∑x_i²/n]) همواره بزرگتر از میانگین حسابی است و زنجیره را کامل می‌کند.<br>
+                                • هرچه پراکندگی و واریانس داده‌ها بیشتر شود، شکاف بین H و G و x̄ عمیق‌تر می‌شود.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                طراح سوال می‌نویسد: «اگر H = x̄ باشد، کدام گزینه صحیح است؟»؛ پاسخ قطعی: واریانس داده‌ها صفر است و تمام مشاهدات یکسانند!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Min <= H <= G <= X_bar <= RMS <= Max')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Min <= H <= G <= x_bar <= RMS <= Max')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
 
-                    <!-- Index 1: Median -->
+                    <!-- Stat Formula 6: Median and Interpolation -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-stat">شاخص گرایش ۱</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانه (Median) و فرمول درون‌یابی جدول</h4>
-                            <div class="formula-display">Median = L + [ (n/2 - F_{c-1}) / f_med ] × c</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>کالبدشکافی در جدول طبقه‌بندی شده:</strong>
-                                <p>• <b>L:</b> کران پایین طبقه میانه.</p>
-                                <p>• <b>F_{c-1}:</b> فراوانی تجمعی طبقه قبل از میانه.</p>
-                                <p>• <b>f_med:</b> فراوانی مطلق خود طبقه میانه | <b>c:</b> طول طبقه.</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">شاخص مرکزی ۲</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Median & Interpolation</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانه داده‌ها و فرمول درون‌یابی طبقه میانه</h4>
+                            <div class="formula-display">Median = L + [ ( n/2 - F_{c-1} ) / f_med ] × c</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • میانه مقداری است که ۵۰٪ داده‌ها قبل از آن و ۵۰٪ بعد از آن هستند.<br>
+                                • در داده‌های مرتب انفرادی: اگر n فرد باشد داده وسط؛ اگر n زوج باشد میانگین دو داده وسط.<br>
+                                • در جدول پیوسته: ابتدا طبقه میانه با n/2 روی ستون فراوانی تجمعی (F) پیدا می‌شود، سپس از کران پایین (L) درون‌یابی می‌کنیم.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>مقاومت آماری خارق‌العاده:</b> میانه نسبت به داده‌های پرت (Outliers) و شوک‌های جهشی کاملاً مصون است؛ در صورت وجود ناهنجاری قیمت، میانه قیمت بسیار قابل‌اعتمادتر از میانگین است.<br>
+                                • کالبدشکافی کسر: n/2 رتبه هدف، F_{c-1} سهم انباشته طبقات قبلی، f_med ظرفیت طبقه میانه، و c طول گام طبقه است.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                اشتباه در برداشتن F_{c-1}! باید فراوانی تجمعی طبقه قبل از میانه کسر شود، نه خود طبقه میانه.
                             </div>
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('Median = L + [ (n/2 - F_{c-1}) / f_med ] * c')">
@@ -2286,32 +2523,128 @@
                         </button>
                     </div>
 
-                    <!-- Index 2: Mode & Pearson -->
+                    <!-- Stat Formula 7: Mode & Pearson Empirical -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-stat">شاخص گرایش ۲</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مد و رابطه تجربی پیرسون</h4>
-                            <div class="formula-display">X_bar - Mode ≈ 3 × ( X_bar - Median )</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>کلید طلایی کنکور:</strong>
-                                <p>اگر میانگین و میانه مشخص باشند، مد بلافاصله با این رابطه استخراج می‌شود: Mode ≈ 3(Median) - 2(X_bar). در توزیع نرمال متقارن هر سه بر هم منطبق‌اند: Mean = Med = Mode.</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">شاخص مرکزی ۳</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Mode & Pearson</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مد (نما)، دلتاها و رابطه تجربی پیرسون</h4>
+                            <div class="formula-display">Mode = L + [ Δ1 / (Δ1 + Δ2) ] × c   |   Mean - Mode ≈ 3(Mean - Median)</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • مد مشاهده‌ای است که بیشترین فراوانی و تکرار را دارد.<br>
+                                • فرمول جدول: Δ1 تفاضل فراوانی طبقه مد از طبقه قبل (f_mod - f_mod-1) و Δ2 تفاضل از طبقه بعد (f_mod - f_mod+1).<br>
+                                • رابطه پیرسون: فاصله میانگین از مد سه برابر فاصله میانگین از میانه است.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>رمزگشایی چولگی با جایگاه ۳ شاخص:</b><br>
+                                  * توزیع متقارن: Mean = Median = Mode.<br>
+                                  * چولگی مثبت (راست): Mean &gt; Median &gt; Mode (دم به سمت راست کشیده شده).<br>
+                                  * چولگی منفی (چپ): Mode &gt; Median &gt; Mean (دم به سمت چپ کشیده شده).
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                استفاده از فرمول پیرسون: Mode ≈ 3×Median - 2×Mean. در تست‌ها دو مقدار را می‌دهند و سومی را می‌خواهند؛ جابه‌جا نوشتن ضرایب ۲ و ۳ تله کلاسیک است.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Mean - Mode = 3 * (Mean - Median)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Mode = L + [ D1 / (D1 + D2) ] * c; Mode = 3*Median - 2*Mean')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
 
-                    <!-- Index 3: IQR & Outliers -->
+                    <!-- Stat Formula 8: Sample Variance & Bessel's Correction -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-stat">شاخص موقعیت</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دامنه میان‌چارکی و تشخیص داده‌های پرت توکی</h4>
-                            <div class="formula-display">IQR = Q3 - Q1  |  [ Q1 - 1.5×IQR , Q3 + 1.5×IQR ]</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>معیار استاندارد نمودار جعبه‌ای:</strong>
-                                <p>• <b>Q1:</b> چارک اول (صدک ۲۵) | <b>Q3:</b> چارک سوم (صدک ۷۵).</p>
-                                <p>• هر داده‌ای بیرون از بازه [Q1 - 1.5*IQR , Q3 + 1.5*IQR] رسماً یک داده پرت (Outlier) شناخته می‌شود.</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">شاخص پراکندگی ۱</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sample Variance (Bessel)</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">واریانس نمونه و راز تقسیم بر n - 1 (تصحیح بسل)</h4>
+                            <div class="formula-display">s² = ∑ ( x_i - x̄ )² / ( n - 1 )   |   s = √s²</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • برای جامعه مخرج N بزرگ است: σ² = ∑(x_i - μ)² / N.<br>
+                                • برای نمونه مخرج n - 1 کوچک است و به آن «درجات آزادی» می‌گویند.<br>
+                                • انحراف معیار جذر واریانس است تا هم‌واحد با متغیر اصلی شود.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>چرا n - 1؟ (اثبات فلسفی):</b> چون میانگین جامعه (μ) معلوم نیست، مجبوریم از x̄ نمونه استفاده کنیم. داده‌های نمونه به x̄ خودشان نزدیک‌ترند تا به μ واقعی جامعه! بنابراین تقسیم بر n باعث کم‌برآوردی واریانس می‌شود. تقسیم بر n - 1 این کمبود را جبران کرده و واریانس نمونه را یک <b>برآوردگر نااریب (Unbiased Estimator)</b> می‌سازد: E[s²] = σ².
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                اگر در صورت مسئله کلمه «نمونه ۵ تایی» آمد و داوطلب مخرج را ۵ بگذارد، نمره را از دست می‌دهد! مخرج حتماً باید ۵ - ۱ = ۴ باشد.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('s^2 = sum((x_i - x_bar)^2) / (n - 1)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Stat Formula 9: Coefficient of Variation CV -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">شاخص پراکندگی نسبی</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Coefficient of Variation</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب تغییرات (CV) - ترازوی سنجش ریسک نسبی</h4>
+                            <div class="formula-display">CV = ( s / x̄ ) × 100   |   ( σ / μ ) × 100</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • ضریب تغییرات از تقسیم انحراف معیار بر میانگین به دست می‌آید.<br>
+                                • شاخصی بدون واحد (درصدی) است که برای مقایسه دو یا چند جامعه با میانگین‌ها و واحدهای متفاوت به کار می‌رود.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>معیار انتخاب دارایی در بورس:</b> نشان می‌دهد به ازای هر ۱ درصد بازدهی، سرمایه‌گذار چقدر ریسک تحمل می‌کند. اگر سهم A بازدهی ۲۰٪ با انحراف معیار ۴٪ داشته باشد (CV = 20%)، و سهم B بازدهی ۱۰٪ با انحراف معیار ۳٪ داشته باشد (CV = 30%)، سهم A با وجود انحراف معیار بالاتر، ریسک نسبی کمتری دارد و ارجح است.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                CV فقط برای متغیرهایی با مقیاس نسبی (با صفر مطلق) معنادار است؛ هرگز برای داده‌هایی که میانگین آن‌ها صفر یا منفی است نباید محاسبه شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('CV = (s / x_bar) * 100')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Stat Formula 10: Quartiles, IQR & Outliers -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">شاخص موقعیت</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Quartiles, IQR & Outliers</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">چارک‌ها، دامنه میان‌چارکی و مرز داده‌های پرت توکی</h4>
+                            <div class="formula-display">IQR = Q3 - Q1   |   Fences: [ Q1 - 1.5×IQR  ,  Q3 + 1.5×IQR ]</div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎙️ در کلاس درس استاد (آنچه سر کلاس گفتند):</strong>
+                                • چارک‌ها داده‌ها را به ۴ قسمت مساوی ۲۵ درصدی تقسیم می‌کنند: Q1 (چارک اول)، Q2 (میانه)، Q3 (چارک سوم).<br>
+                                • دامنه میان‌چارکی (IQR) فاصله بین چارک سوم و اول است: IQR = Q3 - Q1.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
+                                • <b>قانون ۱.۵ برابر توکی (Tukey's Fences):</b> استاندارد طلایی رسم نمودار جعبه‌ای (Boxplot) در تحلیل داده‌های مالی؛ هر مشاهده‌ای که کوچکتر از Q1 - 1.5×IQR یا بزرگتر از Q3 + 1.5×IQR باشد، رسماً داده پرت (Outlier) تلقی شده و از محاسبات حساس کنار گذاشته می‌شود.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                اشتباه گرفتن دامنه میان‌چارکی (IQR) با «انحراف چارکی» (QD)! انحراف چارکی نصف IQR است: QD = (Q3 - Q1) / 2.
                             </div>
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('IQR = Q3 - Q1; Lower = Q1 - 1.5*IQR; Upper = Q3 + 1.5*IQR')">
@@ -2319,60 +2652,9 @@
                         </button>
                     </div>
 
-                    <!-- Index 4: Variance & Std Dev -->
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-stat">شاخص پراکندگی</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">واریانس و انحراف معیار نمونه (Bessel Correction)</h4>
-                            <div class="formula-display">s² = ∑ (x_i - X_bar)² / (n - 1)  |  s = √s²</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>چرا مخرج n - 1 است؟</strong>
-                                <p>یک درجه آزادی صرف برآورد میانگین حسابی شده است؛ تقسیم بر n واریانس را کمتر از مقدار واقعی جامعه برآورد می‌کند (برآوردگر تورش‌دار). n - 1 برآوردگر را نااریب (Unbiased) می‌سازد.</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('s^2 = sum((x_i - X_bar)^2) / (n - 1)')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <!-- Index 5: Coefficient of Variation CV -->
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-stat">شاخص پراکندگی نسبی</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب تغییرات (Coefficient of Variation)</h4>
-                            <div class="formula-display">CV = ( σ / μ ) × 100  |  ( s / X_bar ) × 100</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>معیار مقایسه ریسک دو دارایی:</strong>
-                                <p>شاخصی بدون واحد؛ نشان می‌دهد به ازای هر ۱ درصد بازدهی، سرمایه‌گذار چقدر ریسک تحمل می‌کند. دارایی با CV کمتر ارجحیت دارد.</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('CV = (sigma / mu) * 100')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <!-- Index 6: Skewness & Kurtosis -->
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-stat">شاخص شکل توزیع</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب چولگی و کشیدگی (Skewness & Kurtosis)</h4>
-                            <div class="formula-display">Sk = 3(X_bar - Median)/s  |  Kurtosis = E[(X-μ)⁴]/σ⁴</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>تفسیر شکل:</strong>
-                                <p>• <b>Sk &gt; 0:</b> چولگی به راست (دم کشیده در سمت راست، Mean &gt; Med &gt; Mode).</p>
-                                <p>• <b>Sk &lt; 0:</b> چولگی به چپ (دم کشیده در سمت چپ، Mode &gt; Med &gt; Mean).</p>
-                                <p>• <b>Kurtosis &gt; 3:</b> لپتوکورتیک (نوک‌تیز با دم‌های کلفت و احتمال بالای رخدادهای بحرانی بازار سیاه قوی سیاه).</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Sk = 3 * (Mean - Median) / s')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
                 </div>
             </div>
-
-            <!-- 5.4 STEP-BY-STEP SOLUTION -->
-            <div id="stat-tab-solution" class="subtab-view" style="display: none;">
+<div id="stat-tab-solution" class="subtab-view" style="display: none;">
                 <div class="card">
                     <span class="badge badge-stat" style="margin-bottom: 8px;">مسئله جامع محاسبه میانگین‌ها، واریانس و ضریب تغییرات</span>
                     <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
@@ -3169,10 +3451,12 @@
     </main>
 
     <!-- FLOATING BOTTOM EXECUTIVE DOCK -->
-    <div class="executive-dock">
+    
+    <!-- FLOATING BOTTOM EXECUTIVE DOCK -->
+    <nav class="executive-dock">
         <button class="dock-btn active" id="dock-btn-sim" onclick="selectTab('sim')">
             <span>📊</span>
-            <span>نمودار رتینا</span>
+            <span>چارت زنده</span>
         </button>
         <button class="dock-btn" id="dock-btn-tree" onclick="selectTab('tree')">
             <span>🌳</span>
@@ -3188,27 +3472,72 @@
         </button>
         <button class="dock-btn" id="dock-btn-traps" onclick="selectTab('traps')">
             <span>⚠️</span>
-            <span>تله و کپسول</span>
+            <span>تله‌ها</span>
         </button>
+    </nav>
+
+    <!-- TRADING-VIEW FULLSCREEN MODAL OVERLAY -->
+    <div id="fullscreen-chart-modal" class="fullscreen-modal" style="display: none;">
+        <div class="fs-modal-card">
+            <div class="fs-header">
+                <div class="fs-title-box">
+                    <span class="fs-emblem">📈</span>
+                    <div>
+                        <h3 id="fs-course-title" style="font-size: 1.05rem; font-weight: 900; color: #0F172A;">نمای تریدینگ و بزرگ‌نمایی چارت</h3>
+                        <p id="fs-course-desc" style="font-size: 0.72rem; color: #64748B;">تحلیل با دقت رتینا HD و خطوط متقاطع زنده</p>
+                    </div>
+                </div>
+                <div class="fs-actions">
+                    <button class="btn-chart-tool" onclick="fsZoom(1.25)" title="بزرگ‌نمایی"><span>🔍+</span></button>
+                    <button class="btn-chart-tool" onclick="fsZoom(0.8)" title="کوچک‌نمایی"><span>🔍-</span></button>
+                    <button class="btn-chart-tool" onclick="fsResetZoom()" title="ریست مقیاس"><span>⟲</span></button>
+                    <button class="btn-close-fs" onclick="closeFullscreenChart()"><span>✕ خروج از تمام‌صفحه</span></button>
+                </div>
+            </div>
+
+            <!-- Real-time HUD Ticker Bar -->
+            <div class="fs-hud-bar" id="fs-hud-bar">
+                <span>مقادیر زنده چارت</span>
+            </div>
+
+            <div class="fs-canvas-container" id="fs-canvas-container">
+                <canvas id="fullscreenCanvas"></canvas>
+            </div>
+
+            <div class="fs-footer">
+                <div class="canvas-layer-controls" id="fs-layers-row">
+                    <!-- Dynamic Layer buttons -->
+                </div>
+                <div style="font-size: 0.72rem; color: #64748B; font-weight: 700;">
+                    💡 لمس یا حرکت ماوس روی چارت: فعال‌سازی کراس‌هیر و نمایش داده‌ها در نوار بالا
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- JAVASCRIPT MASTERPIECE ENGINE -->
+    <!-- JAVASCRIPT MASTERPIECE ENGINE v12.0 -->
     <script>
     (function() {
-        // 1. Initialize Telegram WebApp
         let tg = null;
         if (window.Telegram && window.Telegram.WebApp) {
             tg = window.Telegram.WebApp;
-            try {
-                tg.ready();
-                tg.expand();
-            } catch(e) { console.log(e); }
+            try { tg.ready(); tg.expand(); } catch(e) { console.log(e); }
         }
 
-        // State Tracking
         let currentCourse = 'micro';
         let currentTab = 'sim';
         let hubActiveCategory = 'all';
+        let activeFsCourse = null;
+
+        // Zoom Levels (1.0 = 100% normal view, >1.0 = zoomed in)
+        const zoomLevels = {
+            micro: 1.0,
+            cost: 1.0,
+            finance: 1.0,
+            or: 1.0,
+            stat: 1.0,
+            fs: 1.0
+        };
 
         const layers = {
             micro: { dwl: true, cs: true, tax: true, proj: true },
@@ -3223,10 +3552,10 @@
             cost: { active: false, x: 0, y: 0 },
             finance: { active: false, x: 0, y: 0 },
             or: { active: false, x: 0, y: 0 },
-            stat: { active: false, x: 0, y: 0 }
+            stat: { active: false, x: 0, y: 0 },
+            fs: { active: false, x: 0, y: 0 }
         };
 
-        // Course Metadata
         const courseData = {
             micro: {
                 title: 'جبهه اول: اقتصاد خرد (Microeconomics)',
@@ -3273,7 +3602,7 @@
                 ]
             },
             stat: {
-                title: 'جبهه پنجم: آمار کاربردی ۱ (Applied Statistics)',
+                title: 'جبهه پنجم: آمار کاربردی ۱ (تلفیق تکمیلی کلاس استاد و CFA)',
                 desc: 'توزیع نرمال گاوسی، محاسبه نمره Z، سطوح احتمال ریسک دم چپ (VaR) و بازه‌های اطمینان',
                 color: '#4338CA',
                 badgeClass: 'badge-stat',
@@ -3292,7 +3621,6 @@
             }
         };
 
-        // UI Notification
         window.showToast = function(msg) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
@@ -3313,12 +3641,10 @@
         window.selectCourse = function(course) {
             currentCourse = course;
             
-            // Update Course Buttons
             document.querySelectorAll('.subject-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById('btn-course-' + course);
             if (activeBtn) activeBtn.classList.add('active');
 
-            // Update Banner
             const meta = courseData[course];
             document.getElementById('banner-title').innerText = meta.title;
             document.getElementById('banner-desc').innerText = meta.desc;
@@ -3328,7 +3654,6 @@
             ind.className = 'badge ' + meta.badgeClass;
             ind.innerText = course === 'hub' ? 'مرکز مرجع' : 'تحلیل فعال';
 
-            // Scenarios
             const scRow = document.getElementById('scenario-row');
             const scContainer = document.getElementById('scenario-chips-container');
             const subtabsBar = document.getElementById('subtabs-bar-container');
@@ -3353,44 +3678,40 @@
                 });
             }
 
-            // Show Selected Pane
             document.querySelectorAll('.discipline-pane').forEach(p => p.style.display = 'none');
             const targetPane = document.getElementById('pane-' + course);
             if (targetPane) targetPane.style.display = 'block';
 
-            // Redraw if in sim
             if (course !== 'hub') {
                 selectTab(currentTab);
             }
         };
 
-        // Subtab Switching
         window.selectTab = function(tab) {
             currentTab = tab;
 
-            // Update subtabs buttons
             document.querySelectorAll('.subtab-pill').forEach(b => b.classList.remove('active'));
             const pBtn = document.getElementById('pill-tab-' + tab);
             if (pBtn) pBtn.classList.add('active');
 
-            // Update dock buttons
             document.querySelectorAll('.dock-btn').forEach(b => b.classList.remove('active'));
             const dBtn = document.getElementById('dock-btn-' + tab);
             if (dBtn) dBtn.classList.add('active');
 
-            // Show subtab view for current course
             const targetId = currentCourse + '-tab-' + tab;
             document.querySelectorAll('#pane-' + currentCourse + ' .subtab-view').forEach(v => v.style.display = 'none');
             const targetView = document.getElementById(targetId);
             if (targetView) targetView.style.display = 'block';
 
-            // Redraw if canvas tab
             if (tab === 'sim') {
                 setTimeout(redrawActiveCourse, 30);
             }
         };
 
         function redrawActiveCourse() {
+            if (activeFsCourse) {
+                drawFullscreen();
+            }
             if (currentCourse === 'micro') drawMicro();
             else if (currentCourse === 'cost') drawCost();
             else if (currentCourse === 'finance') drawFinance();
@@ -3398,21 +3719,77 @@
             else if (currentCourse === 'stat') drawStat();
         }
 
-        // Panorama Toggle
-        window.togglePanorama = function(course) {
-            const layoutId = course === 'or' ? 'or-layout' : (course[0] + '-layout');
-            const layout = document.getElementById(layoutId);
-            const btnText = document.getElementById(course === 'or' ? 'or-pano-text' : (course[0] + '-pano-text'));
-            
-            if (layout.classList.contains('panorama-mode')) {
-                layout.classList.remove('panorama-mode');
-                btnText.innerText = 'نمای عریض پانوراما';
-            } else {
-                layout.classList.add('panorama-mode');
-                btnText.innerText = 'نمای استاندارد دوتکه';
-            }
-            setTimeout(redrawActiveCourse, 50);
+        // TradingView-Style Zoom Controls
+        window.zoomCanvas = function(course, factor) {
+            zoomLevels[course] = Math.max(0.6, Math.min(3.5, zoomLevels[course] * factor));
+            redrawActiveCourse();
+            showToast('بزرگ‌نمایی چارت: ' + Math.round(zoomLevels[course] * 100) + '٪');
         };
+
+        window.resetZoomCanvas = function(course) {
+            zoomLevels[course] = 1.0;
+            redrawActiveCourse();
+            showToast('مقیاس چارت ریست شد (۱۰۰٪)');
+        };
+
+        // Fullscreen Trading Modal Controls
+        window.openFullscreenChart = function(course) {
+            activeFsCourse = course;
+            zoomLevels.fs = zoomLevels[course] || 1.0;
+
+            const modal = document.getElementById('fullscreen-chart-modal');
+            const titleEl = document.getElementById('fs-course-title');
+            const descEl = document.getElementById('fs-course-desc');
+            const layersRow = document.getElementById('fs-layers-row');
+
+            const meta = courseData[course];
+            titleEl.innerText = meta.title + ' [نمای بزرگ‌نمایی تریدینگ]';
+            descEl.innerText = meta.desc;
+
+            // Replicate layer toggles
+            layersRow.innerHTML = '<span style="font-size:0.72rem;font-weight:800;color:#64748B;">لایه‌های تحلیلی:</span>';
+            const courseLayers = layers[course];
+            for (let l in courseLayers) {
+                const b = document.createElement('button');
+                b.className = 'layer-toggle' + (courseLayers[l] ? ' active' : '');
+                b.innerText = l.toUpperCase();
+                b.onclick = () => {
+                    toggleLayer(course, l);
+                    b.className = 'layer-toggle' + (courseLayers[l] ? ' active' : '');
+                };
+                layersRow.appendChild(b);
+            }
+
+            modal.style.display = 'flex';
+            setTimeout(drawFullscreen, 40);
+        };
+
+        window.closeFullscreenChart = function() {
+            activeFsCourse = null;
+            document.getElementById('fullscreen-chart-modal').style.display = 'none';
+            redrawActiveCourse();
+        };
+
+        window.fsZoom = function(factor) {
+            zoomLevels.fs = Math.max(0.6, Math.min(4.0, zoomLevels.fs * factor));
+            drawFullscreen();
+            showToast('بزرگ‌نمایی چارت: ' + Math.round(zoomLevels.fs * 100) + '٪');
+        };
+
+        window.fsResetZoom = function() {
+            zoomLevels.fs = 1.0;
+            drawFullscreen();
+            showToast('مقیاس چارت ریست شد (۱۰۰٪)');
+        };
+
+        function drawFullscreen() {
+            if (!activeFsCourse) return;
+            if (activeFsCourse === 'micro') drawMicro('fullscreenCanvas', true);
+            else if (activeFsCourse === 'cost') drawCost('fullscreenCanvas', true);
+            else if (activeFsCourse === 'finance') drawFinance('fullscreenCanvas', true);
+            else if (activeFsCourse === 'or') drawOR('fullscreenCanvas', true);
+            else if (activeFsCourse === 'stat') drawStat('fullscreenCanvas', true);
+        }
 
         // Layer Toggle
         window.toggleLayer = function(course, layer) {
@@ -3443,7 +3820,6 @@
             });
         }
 
-        // Apply Scenarios
         function applyScenario(course, vals) {
             if (course === 'micro') {
                 document.getElementById('m-t-num').value = vals.t; document.getElementById('m-t-slider').value = vals.t;
@@ -3476,7 +3852,6 @@
             showToast('سناریو با موفقیت تزریق شد');
         }
 
-        // Ticks Calculation Helper
         function getNiceTicks(min, max, count = 5) {
             const span = max - min;
             if (span <= 0) return [min];
@@ -3497,7 +3872,6 @@
             return ticks;
         }
 
-        // High-DPI Canvas Helper
         function setupCanvas(canvasId) {
             const canvas = document.getElementById(canvasId);
             if (!canvas) return null;
@@ -3512,25 +3886,26 @@
             return { ctx, W: rect.width, H: rect.height };
         }
 
-        // Hover Event Listener Setup
-        function initCanvasHover(course, redrawFn) {
-            const arena = document.getElementById('arena-' + course);
-            const canvas = document.getElementById(course === 'or' ? 'canvasOR' : ('canvas' + course.charAt(0).toUpperCase() + course.slice(1)));
+        function initCanvasHover(course, redrawFn, customCanvasId = null) {
+            const canvasId = customCanvasId || (course === 'or' ? 'canvasOR' : ('canvas' + course.charAt(0).toUpperCase() + course.slice(1)));
+            const canvas = document.getElementById(canvasId);
             const tooltip = document.getElementById('tooltip-' + course);
-            if (!arena || !canvas) return;
+            if (!canvas) return;
 
             function handleMove(e) {
                 const rect = canvas.getBoundingClientRect();
                 const clientX = e.touches ? e.touches[0].clientX : e.clientX;
                 const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-                hoverState[course].active = true;
-                hoverState[course].x = clientX - rect.left;
-                hoverState[course].y = clientY - rect.top;
+                const targetState = customCanvasId === 'fullscreenCanvas' ? hoverState.fs : hoverState[course];
+                targetState.active = true;
+                targetState.x = clientX - rect.left;
+                targetState.y = clientY - rect.top;
                 redrawFn();
             }
 
             function handleLeave() {
-                hoverState[course].active = false;
+                const targetState = customCanvasId === 'fullscreenCanvas' ? hoverState.fs : hoverState[course];
+                targetState.active = false;
                 if (tooltip) tooltip.style.opacity = 0;
                 redrawFn();
             }
@@ -3542,10 +3917,10 @@
         }
 
         // ========================================================
-        // 1. DRAW MICROECONOMICS CANVAS
+        // 1. DRAW MICROECONOMICS
         // ========================================================
-        function drawMicro() {
-            const setup = setupCanvas('canvasMicro');
+        function drawMicro(canvasId = 'canvasMicro', isFs = false) {
+            const setup = setupCanvas(canvasId);
             if (!setup) return;
             const { ctx, W, H } = setup;
 
@@ -3555,7 +3930,6 @@
             const d = parseFloat(document.getElementById('m-d-num').value) || 4;
             const c = parseFloat(document.getElementById('m-c-num').value) || -20;
 
-            // Equilibrium math
             const P0 = (a - c) / (b + d);
             const Q0 = a - b * P0;
             const Pc = (a - c + d * t) / (b + d);
@@ -3563,7 +3937,6 @@
             const Qt = Math.max(0, a - b * Pc);
             const DWL = 0.5 * t * (Q0 - Qt);
 
-            // Update KPIs
             document.getElementById('m-kpi-pc').innerText = Pc.toFixed(1) + ' ریال';
             document.getElementById('m-kpi-pcdiff').innerText = '+' + (Pc - P0).toFixed(1) + ' ریال گرانی';
             document.getElementById('m-kpi-pp').innerText = Pp.toFixed(1) + ' ریال';
@@ -3575,10 +3948,10 @@
             const P_choke = a / b;
             document.getElementById('m-choke-badge').innerText = 'قیمت خفگی تقاضا: ' + P_choke.toFixed(1);
 
-            // Canvas coordinate mapping
+            const z = isFs ? zoomLevels.fs : zoomLevels.micro;
             const padL = 72, padR = 40, padT = 38, padB = 48;
-            const maxQ = Math.max(120, Q0 * 1.5, Qt * 1.5);
-            const maxP = Math.max(60, P_choke * 1.15, Pc * 1.35);
+            const maxQ = Math.max(120, Q0 * 1.5, Qt * 1.5) / z;
+            const maxP = Math.max(60, P_choke * 1.15, Pc * 1.35) / z;
 
             function toX(q) { return padL + (q / maxQ) * (W - padL - padR); }
             function toY(p) { return H - padB - (p / maxP) * (H - padT - padB); }
@@ -3587,198 +3960,117 @@
 
             ctx.clearRect(0, 0, W, H);
 
-            // Draw Background Grid & Axis Numeric Ticks
             const qTicks = getNiceTicks(0, maxQ, 6);
             const pTicks = getNiceTicks(0, maxP, 5);
 
-            ctx.strokeStyle = '#F1F5F9';
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#F1F5F9'; ctx.lineWidth = 1;
             qTicks.forEach(q => {
                 const x = toX(q);
-                ctx.beginPath();
-                ctx.moveTo(x, padT);
-                ctx.lineTo(x, H - padB);
-                ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, H - padB); ctx.stroke();
             });
             pTicks.forEach(p => {
                 const y = toY(p);
-                ctx.beginPath();
-                ctx.moveTo(padL, y);
-                ctx.lineTo(W - padR, y);
-                ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR, y); ctx.stroke();
             });
 
-            // Axes
-            ctx.strokeStyle = '#64748B';
-            ctx.lineWidth = 1.8;
+            ctx.strokeStyle = '#64748B'; ctx.lineWidth = 1.8;
             ctx.beginPath();
-            ctx.moveTo(padL, padT);
-            ctx.lineTo(padL, H - padB);
-            ctx.lineTo(W - padR, H - padB);
+            ctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);
             ctx.stroke();
 
-            // Axis Tick Marks and Numbers
-            ctx.fillStyle = '#64748B';
-            ctx.font = '600 11px "JetBrains Mono", monospace';
+            ctx.fillStyle = '#64748B'; ctx.font = '600 11px "JetBrains Mono", monospace';
             ctx.textAlign = 'center';
             qTicks.forEach(q => {
                 const x = toX(q);
-                ctx.beginPath();
-                ctx.moveTo(x, H - padB);
-                ctx.lineTo(x, H - padB + 5);
-                ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(x, H - padB); ctx.lineTo(x, H - padB + 5); ctx.stroke();
                 ctx.fillText(q, x, H - padB + 18);
             });
 
             ctx.textAlign = 'right';
             pTicks.forEach(p => {
                 const y = toY(p);
-                ctx.beginPath();
-                ctx.moveTo(padL, y);
-                ctx.lineTo(padL - 5, y);
-                ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL - 5, y); ctx.stroke();
                 ctx.fillText(p, padL - 8, y + 4);
             });
 
-            // Axis Titles
-            ctx.font = '700 12px "Vazirmatn", sans-serif';
-            ctx.fillStyle = '#0F172A';
-            ctx.textAlign = 'center';
+            ctx.font = '700 12px "Vazirmatn", sans-serif'; ctx.fillStyle = '#0F172A'; ctx.textAlign = 'center';
             ctx.fillText('مقدار مبادله بازار (Q)', padL + (W - padL - padR) / 2, H - 8);
 
             ctx.save();
-            ctx.translate(18, padT + (H - padT - padB) / 2);
-            ctx.rotate(-Math.PI / 2);
+            ctx.translate(18, padT + (H - padT - padB) / 2); ctx.rotate(-Math.PI / 2);
             ctx.fillText('قیمت بازار (P)', 0, 0);
             ctx.restore();
 
-            // Layer: CS & PS
             if (layers.micro.cs && Qt > 0) {
-                // CS Area
                 ctx.fillStyle = 'rgba(59, 130, 246, 0.12)';
                 ctx.beginPath();
-                ctx.moveTo(toX(0), toY(P_choke));
-                ctx.lineTo(toX(Qt), toY(Pc));
-                ctx.lineTo(toX(0), toY(Pc));
-                ctx.closePath();
-                ctx.fill();
+                ctx.moveTo(toX(0), toY(P_choke)); ctx.lineTo(toX(Qt), toY(Pc)); ctx.lineTo(toX(0), toY(Pc));
+                ctx.closePath(); ctx.fill();
 
-                // PS Area
                 const P_supp_min = Math.max(0, -c / d);
                 ctx.fillStyle = 'rgba(16, 185, 129, 0.12)';
                 ctx.beginPath();
-                ctx.moveTo(toX(0), toY(P_supp_min));
-                ctx.lineTo(toX(Qt), toY(Pp));
-                ctx.lineTo(toX(0), toY(Pp));
-                ctx.closePath();
-                ctx.fill();
+                ctx.moveTo(toX(0), toY(P_supp_min)); ctx.lineTo(toX(Qt), toY(Pp)); ctx.lineTo(toX(0), toY(Pp));
+                ctx.closePath(); ctx.fill();
             }
 
-            // Layer: Tax Revenue Box
             if (layers.micro.tax && t > 0 && Qt > 0) {
                 ctx.fillStyle = 'rgba(217, 119, 6, 0.14)';
-                ctx.strokeStyle = '#D97706';
-                ctx.lineWidth = 1.2;
+                ctx.strokeStyle = '#D97706'; ctx.lineWidth = 1.2;
                 ctx.beginPath();
                 ctx.rect(toX(0), toY(Pc), toX(Qt) - toX(0), toY(Pp) - toY(Pc));
-                ctx.fill();
-                ctx.stroke();
-
-                ctx.fillStyle = '#92400E';
-                ctx.font = '700 10.5px "Vazirmatn", sans-serif';
-                ctx.textAlign = 'center';
+                ctx.fill(); ctx.stroke();
+                ctx.fillStyle = '#92400E'; ctx.font = '700 10.5px "Vazirmatn"'; ctx.textAlign = 'center';
                 ctx.fillText('درآمد دولت T = ' + (t * Qt).toFixed(0), toX(Qt / 2), (toY(Pc) + toY(Pp)) / 2 + 3);
             }
 
-            // Layer: DWL Triangle
             if (layers.micro.dwl && t > 0 && Qt < Q0) {
                 ctx.fillStyle = 'rgba(239, 68, 68, 0.28)';
-                ctx.strokeStyle = '#DC2626';
-                ctx.lineWidth = 1.5;
+                ctx.strokeStyle = '#DC2626'; ctx.lineWidth = 1.5;
                 ctx.beginPath();
-                ctx.moveTo(toX(Qt), toY(Pc));
-                ctx.lineTo(toX(Q0), toY(P0));
-                ctx.lineTo(toX(Qt), toY(Pp));
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-
-                ctx.fillStyle = '#991B1B';
-                ctx.font = '800 11px "JetBrains Mono", monospace';
-                ctx.textAlign = 'center';
+                ctx.moveTo(toX(Qt), toY(Pc)); ctx.lineTo(toX(Q0), toY(P0)); ctx.lineTo(toX(Qt), toY(Pp));
+                ctx.closePath(); ctx.fill(); ctx.stroke();
+                ctx.fillStyle = '#991B1B'; ctx.font = '800 11px "JetBrains Mono"'; ctx.textAlign = 'center';
                 ctx.fillText('DWL: ' + DWL.toFixed(1), toX(Qt + (Q0 - Qt) * 0.4), toY(P0) + 4);
             }
 
             // Demand Curve
-            ctx.strokeStyle = '#1D4ED8';
-            ctx.lineWidth = 2.8;
-            ctx.beginPath();
-            ctx.moveTo(toX(0), toY(P_choke));
-            ctx.lineTo(toX(a), toY(0));
-            ctx.stroke();
+            ctx.strokeStyle = '#1D4ED8'; ctx.lineWidth = 2.8;
+            ctx.beginPath(); ctx.moveTo(toX(0), toY(P_choke)); ctx.lineTo(toX(a), toY(0)); ctx.stroke();
 
             // Supply Curve (Initial)
-            ctx.strokeStyle = '#047857';
-            ctx.lineWidth = 2.2;
-            ctx.setLineDash([5, 4]);
-            ctx.beginPath();
-            ctx.moveTo(toX(Math.max(0, c)), toY(Math.max(0, -c / d)));
-            ctx.lineTo(toX(maxQ), toY((maxQ - c) / d));
-            ctx.stroke();
+            ctx.strokeStyle = '#047857'; ctx.lineWidth = 2.2; ctx.setLineDash([5, 4]);
+            ctx.beginPath(); ctx.moveTo(toX(Math.max(0, c)), toY(Math.max(0, -c / d))); ctx.lineTo(toX(maxQ), toY((maxQ - c) / d)); ctx.stroke();
             ctx.setLineDash([]);
 
             // Supply Curve (With Tax)
             if (t > 0) {
-                ctx.strokeStyle = '#DC2626';
-                ctx.lineWidth = 2.5;
-                ctx.beginPath();
-                ctx.moveTo(toX(Math.max(0, c)), toY(Math.max(0, -c / d) + t));
-                ctx.lineTo(toX(maxQ), toY((maxQ - c) / d + t));
-                ctx.stroke();
+                ctx.strokeStyle = '#DC2626'; ctx.lineWidth = 2.5;
+                ctx.beginPath(); ctx.moveTo(toX(Math.max(0, c)), toY(Math.max(0, -c / d) + t)); ctx.lineTo(toX(maxQ), toY((maxQ - c) / d + t)); ctx.stroke();
             }
 
-            // Layer: Projection Lines to Axes
             if (layers.micro.proj) {
-                ctx.strokeStyle = '#94A3B8';
-                ctx.lineWidth = 1.2;
-                ctx.setLineDash([3, 3]);
-
-                // From E0 to axes
+                ctx.strokeStyle = '#94A3B8'; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]);
                 ctx.beginPath();
-                ctx.moveTo(toX(Q0), toY(P0));
-                ctx.lineTo(toX(Q0), H - padB);
-                ctx.moveTo(toX(Q0), toY(P0));
-                ctx.lineTo(padL, toY(P0));
+                ctx.moveTo(toX(Q0), toY(P0)); ctx.lineTo(toX(Q0), H - padB);
+                ctx.moveTo(toX(Q0), toY(P0)); ctx.lineTo(padL, toY(P0));
                 ctx.stroke();
 
-                // From Pc and Pp to axes
                 if (t > 0) {
                     ctx.beginPath();
-                    ctx.moveTo(toX(Qt), toY(Pc));
-                    ctx.lineTo(toX(Qt), H - padB);
-                    ctx.moveTo(toX(Qt), toY(Pc));
-                    ctx.lineTo(padL, toY(Pc));
-                    ctx.moveTo(toX(Qt), toY(Pp));
-                    ctx.lineTo(padL, toY(Pp));
+                    ctx.moveTo(toX(Qt), toY(Pc)); ctx.lineTo(toX(Qt), H - padB);
+                    ctx.moveTo(toX(Qt), toY(Pc)); ctx.lineTo(padL, toY(Pc));
+                    ctx.moveTo(toX(Qt), toY(Pp)); ctx.lineTo(padL, toY(Pp));
                     ctx.stroke();
                 }
                 ctx.setLineDash([]);
             }
 
-            // Equilibrium Points Halo & Dots
             function drawPoint(x, y, color, label) {
                 ctx.fillStyle = color;
-                ctx.beginPath();
-                ctx.arc(x, y, 5, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.strokeStyle = '#FFFFFF';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-
-                ctx.fillStyle = '#0F172A';
-                ctx.font = '800 10.5px "JetBrains Mono", sans-serif';
-                ctx.textAlign = 'left';
+                ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
+                ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+                ctx.fillStyle = '#0F172A'; ctx.font = '800 10.5px "JetBrains Mono"'; ctx.textAlign = 'left';
                 ctx.fillText(label, x + 8, y - 4);
             }
 
@@ -3788,18 +4080,13 @@
                 drawPoint(toX(Qt), toY(Pp), '#D97706', 'Pp=' + Pp.toFixed(1));
             }
 
-            // Live Crosshair & Tooltip HUD
-            if (hoverState.micro.active) {
-                const hx = hoverState.micro.x;
-                const hy = hoverState.micro.y;
+            const currentHover = isFs ? hoverState.fs : hoverState.micro;
+            if (currentHover.active) {
+                const hx = currentHover.x;
+                const hy = currentHover.y;
                 if (hx >= padL && hx <= W - padR && hy >= padT && hy <= H - padB) {
-                    ctx.strokeStyle = '#0F172A';
-                    ctx.lineWidth = 1;
-                    ctx.setLineDash([4, 4]);
-                    ctx.beginPath();
-                    ctx.moveTo(hx, padT); ctx.lineTo(hx, H - padB);
-                    ctx.moveTo(padL, hy); ctx.lineTo(W - padR, hy);
-                    ctx.stroke();
+                    ctx.strokeStyle = '#0F172A'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
+                    ctx.beginPath(); ctx.moveTo(hx, padT); ctx.lineTo(hx, H - padB); ctx.moveTo(padL, hy); ctx.lineTo(W - padR, hy); ctx.stroke();
                     ctx.setLineDash([]);
 
                     const curQ = fromX(hx);
@@ -3807,21 +4094,30 @@
                     const pDemand = Math.max(0, (a - curQ) / b);
                     const pSupply = Math.max(0, (curQ - c) / d);
 
-                    const tooltip = document.getElementById('tooltip-micro');
-                    tooltip.style.opacity = 1;
-                    tooltip.innerHTML = `<div><strong>مختصات نشانگر:</strong></div>
-                        <div>Q: ${curQ.toFixed(1)} واحد | P: ${curP.toFixed(1)} ریال</div>
-                        <div>قیمت روی تقاضا: ${pDemand.toFixed(1)}</div>
-                        <div>قیمت روی عرضه اولیه: ${pSupply.toFixed(1)}</div>`;
+                    if (isFs) {
+                        const hud = document.getElementById('fs-hud-bar');
+                        hud.innerHTML = `<span><strong>Q:</strong> ${curQ.toFixed(1)} واحد</span>
+                            <span><strong>P:</strong> ${curP.toFixed(1)} ریال</span>
+                            <span><strong>تقاضا:</strong> ${pDemand.toFixed(1)}</span>
+                            <span><strong>عرضه اولیه:</strong> ${pSupply.toFixed(1)}</span>
+                            <span><strong>بزرگ‌نمایی:</strong> ${Math.round(z * 100)}%</span>`;
+                    } else {
+                        const tooltip = document.getElementById('tooltip-micro');
+                        tooltip.style.opacity = 1;
+                        tooltip.innerHTML = `<div><strong>مختصات نشانگر:</strong></div>
+                            <div>Q: ${curQ.toFixed(1)} واحد | P: ${curP.toFixed(1)} ریال</div>
+                            <div>قیمت روی تقاضا: ${pDemand.toFixed(1)}</div>
+                            <div>قیمت روی عرضه اولیه: ${pSupply.toFixed(1)}</div>`;
+                    }
                 }
             }
         }
 
         // ========================================================
-        // 2. DRAW COST ACCOUNTING CANVAS
+        // 2. DRAW COST ACCOUNTING
         // ========================================================
-        function drawCost() {
-            const setup = setupCanvas('canvasCost');
+        function drawCost(canvasId = 'canvasCost', isFs = false) {
+            const setup = setupCanvas(canvasId);
             if (!setup) return;
             const { ctx, W, H } = setup;
 
@@ -3842,8 +4138,9 @@
             document.getElementById('c-kpi-cmratio').innerText = (CMR * 100).toFixed(1) + '%';
             document.getElementById('c-bep-badge').innerText = 'فروش سر‌به‌سر: ' + Math.round(Sales_bep).toLocaleString() + ' ریال';
 
+            const z = isFs ? zoomLevels.fs : zoomLevels.cost;
             const padL = 72, padR = 40, padT = 38, padB = 48;
-            const maxQ = Math.max(10000, Qbep * 2, Qtarget * 1.4);
+            const maxQ = (Math.max(10000, Qbep * 2, Qtarget * 1.4)) / z;
             const maxRev = maxQ * P;
 
             function toX(q) { return padL + (q / maxQ) * (W - padL - padR); }
@@ -3853,12 +4150,10 @@
 
             ctx.clearRect(0, 0, W, H);
 
-            // Ticks & Grid
             const qTicks = getNiceTicks(0, maxQ, 5);
             const rTicks = getNiceTicks(0, maxRev, 5);
 
-            ctx.strokeStyle = '#F1F5F9';
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#F1F5F9'; ctx.lineWidth = 1;
             qTicks.forEach(q => {
                 const x = toX(q);
                 ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, H - padB); ctx.stroke();
@@ -3868,13 +4163,11 @@
                 ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR, y); ctx.stroke();
             });
 
-            // Axes
             ctx.strokeStyle = '#64748B'; ctx.lineWidth = 1.8;
             ctx.beginPath();
             ctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);
             ctx.stroke();
 
-            // Ticks numbers
             ctx.fillStyle = '#64748B'; ctx.font = '600 11px "JetBrains Mono", monospace';
             ctx.textAlign = 'center';
             qTicks.forEach(q => {
@@ -3890,7 +4183,6 @@
                 ctx.fillText((r / 1000).toFixed(0) + 'k', padL - 8, y + 4);
             });
 
-            // Axis Titles
             ctx.font = '700 12px "Vazirmatn", sans-serif'; ctx.fillStyle = '#0F172A'; ctx.textAlign = 'center';
             ctx.fillText('تیراژ تولید و فروش (Q)', padL + (W - padL - padR) / 2, H - 8);
 
@@ -3899,28 +4191,18 @@
             ctx.fillText('درآمد و بهای تمام‌شده (ریال)', 0, 0);
             ctx.restore();
 
-            // Layer: Profit & Loss Zones
             if (layers.cost.zones && Qbep > 0 && Qbep < maxQ) {
-                // Loss Zone
                 ctx.fillStyle = 'rgba(239, 68, 68, 0.15)';
                 ctx.beginPath();
-                ctx.moveTo(toX(0), toY(FC));
-                ctx.lineTo(toX(Qbep), toY(Sales_bep));
-                ctx.lineTo(toX(0), toY(0));
-                ctx.closePath();
-                ctx.fill();
+                ctx.moveTo(toX(0), toY(FC)); ctx.lineTo(toX(Qbep), toY(Sales_bep)); ctx.lineTo(toX(0), toY(0));
+                ctx.closePath(); ctx.fill();
 
-                // Profit Zone
                 ctx.fillStyle = 'rgba(16, 185, 129, 0.15)';
                 ctx.beginPath();
-                ctx.moveTo(toX(Qbep), toY(Sales_bep));
-                ctx.lineTo(toX(maxQ), toY(maxRev));
-                ctx.lineTo(toX(maxQ), toY(FC + VC * maxQ));
-                ctx.closePath();
-                ctx.fill();
+                ctx.moveTo(toX(Qbep), toY(Sales_bep)); ctx.lineTo(toX(maxQ), toY(maxRev)); ctx.lineTo(toX(maxQ), toY(FC + VC * maxQ));
+                ctx.closePath(); ctx.fill();
             }
 
-            // Layer: FC Line
             if (layers.cost.fc) {
                 ctx.strokeStyle = '#94A3B8'; ctx.lineWidth = 1.8; ctx.setLineDash([5, 4]);
                 ctx.beginPath(); ctx.moveTo(toX(0), toY(FC)); ctx.lineTo(toX(maxQ), toY(FC)); ctx.stroke();
@@ -3929,15 +4211,12 @@
                 ctx.fillText('هزینه ثابت FC: ' + (FC / 1000) + 'k', toX(100), toY(FC) - 6);
             }
 
-            // TR Line
             ctx.strokeStyle = '#047857'; ctx.lineWidth = 2.8;
             ctx.beginPath(); ctx.moveTo(toX(0), toY(0)); ctx.lineTo(toX(maxQ), toY(maxRev)); ctx.stroke();
 
-            // TC Line
             ctx.strokeStyle = '#DC2626'; ctx.lineWidth = 2.8;
             ctx.beginPath(); ctx.moveTo(toX(0), toY(FC)); ctx.lineTo(toX(maxQ), toY(FC + VC * maxQ)); ctx.stroke();
 
-            // Layer: Target Profit
             if (layers.cost.target && Qtarget > 0 && Qtarget <= maxQ) {
                 ctx.strokeStyle = '#6D28D9'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 4]);
                 ctx.beginPath(); ctx.moveTo(toX(Qtarget), padT); ctx.lineTo(toX(Qtarget), H - padB); ctx.stroke();
@@ -3946,7 +4225,6 @@
                 ctx.fillText('سود هدف: ' + Math.round(Qtarget), toX(Qtarget), padT + 14);
             }
 
-            // Layer: Projection Lines
             if (layers.cost.proj && Qbep > 0) {
                 ctx.strokeStyle = '#64748B'; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]);
                 ctx.beginPath();
@@ -3956,7 +4234,6 @@
                 ctx.setLineDash([]);
             }
 
-            // BEP Point Halo & Dot
             if (Qbep > 0 && Qbep <= maxQ) {
                 ctx.fillStyle = '#D97706';
                 ctx.beginPath(); ctx.arc(toX(Qbep), toY(Sales_bep), 6, 0, Math.PI * 2); ctx.fill();
@@ -3965,10 +4242,10 @@
                 ctx.fillText('BEP (' + Math.round(Qbep) + ' واحد)', toX(Qbep) + 9, toY(Sales_bep) - 5);
             }
 
-            // Hover HUD
-            if (hoverState.cost.active) {
-                const hx = hoverState.cost.x;
-                const hy = hoverState.cost.y;
+            const currentHover = isFs ? hoverState.fs : hoverState.cost;
+            if (currentHover.active) {
+                const hx = currentHover.x;
+                const hy = currentHover.y;
                 if (hx >= padL && hx <= W - padR && hy >= padT && hy <= H - padB) {
                     ctx.strokeStyle = '#0F172A'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
                     ctx.beginPath(); ctx.moveTo(hx, padT); ctx.lineTo(hx, H - padB); ctx.moveTo(padL, hy); ctx.lineTo(W - padR, hy); ctx.stroke();
@@ -3979,21 +4256,30 @@
                     const curTC = FC + curQ * VC;
                     const profit = curTR - curTC;
 
-                    const tooltip = document.getElementById('tooltip-cost');
-                    tooltip.style.opacity = 1;
-                    tooltip.innerHTML = `<div><strong>مختصات تیراژ: ${Math.round(curQ).toLocaleString()} واحد</strong></div>
-                        <div>درآمد کل: ${(curTR / 1000).toFixed(0)}k ریال</div>
-                        <div>بهای تمام‌شده: ${(curTC / 1000).toFixed(0)}k ریال</div>
-                        <div style="color: ${profit >= 0 ? '#34D399' : '#F87171'}"><strong>سود/زیان: ${(profit / 1000).toFixed(0)}k ریال</strong></div>`;
+                    if (isFs) {
+                        const hud = document.getElementById('fs-hud-bar');
+                        hud.innerHTML = `<span><strong>تیراژ:</strong> ${Math.round(curQ).toLocaleString()} واحد</span>
+                            <span><strong>درآمد TR:</strong> ${(curTR / 1000).toFixed(0)}k ریال</span>
+                            <span><strong>هزینه TC:</strong> ${(curTC / 1000).toFixed(0)}k ریال</span>
+                            <span style="color: ${profit >= 0 ? '#34D399' : '#F87171'}"><strong>سود: ${(profit / 1000).toFixed(0)}k</strong></span>
+                            <span><strong>بزرگ‌نمایی:</strong> ${Math.round(z * 100)}%</span>`;
+                    } else {
+                        const tooltip = document.getElementById('tooltip-cost');
+                        tooltip.style.opacity = 1;
+                        tooltip.innerHTML = `<div><strong>مختصات تیراژ: ${Math.round(curQ).toLocaleString()} واحد</strong></div>
+                            <div>درآمد کل: ${(curTR / 1000).toFixed(0)}k ریال</div>
+                            <div>بهای تمام‌شده: ${(curTC / 1000).toFixed(0)}k ریال</div>
+                            <div style="color: ${profit >= 0 ? '#34D399' : '#F87171'}"><strong>سود/زیان: ${(profit / 1000).toFixed(0)}k ریال</strong></div>`;
+                    }
                 }
             }
         }
 
         // ========================================================
-        // 3. DRAW FINANCIAL MANAGEMENT CANVAS (SML)
+        // 3. DRAW FINANCIAL MANAGEMENT (SML)
         // ========================================================
-        function drawFinance() {
-            const setup = setupCanvas('canvasFinance');
+        function drawFinance(canvasId = 'canvasFinance', isFs = false) {
+            const setup = setupCanvas(canvasId);
             if (!setup) return;
             const { ctx, W, H } = setup;
 
@@ -4023,9 +4309,10 @@
                 desc.innerText = 'نوسان‌پذیری ' + ((1 - beta) * 100).toFixed(0) + '٪ کمتر از ریسک سیستماتیک بازار.';
             }
 
+            const z = isFs ? zoomLevels.fs : zoomLevels.finance;
             const padL = 72, padR = 40, padT = 38, padB = 48;
-            const maxBeta = Math.max(2.5, beta * 1.3);
-            const maxR = Math.max(60, ER * 1.25, Rm * 1.4);
+            const maxBeta = (Math.max(2.5, beta * 1.3)) / z;
+            const maxR = (Math.max(60, ER * 1.25, Rm * 1.4)) / z;
 
             function toX(b) { return padL + (b / maxBeta) * (W - padL - padR); }
             function toY(r) { return H - padB - (r / maxR) * (H - padT - padB); }
@@ -4034,7 +4321,6 @@
 
             ctx.clearRect(0, 0, W, H);
 
-            // Ticks & Grid
             const bTicks = getNiceTicks(0, maxBeta, 5);
             const rTicks = getNiceTicks(0, maxR, 5);
 
@@ -4048,13 +4334,11 @@
                 ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR, y); ctx.stroke();
             });
 
-            // Axes
             ctx.strokeStyle = '#64748B'; ctx.lineWidth = 1.8;
             ctx.beginPath();
             ctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);
             ctx.stroke();
 
-            // Ticks numbers
             ctx.fillStyle = '#64748B'; ctx.font = '600 11px "JetBrains Mono", monospace';
             ctx.textAlign = 'center';
             bTicks.forEach(b => {
@@ -4070,7 +4354,6 @@
                 ctx.fillText(r.toFixed(0) + '%', padL - 8, y + 4);
             });
 
-            // Axis Titles
             ctx.font = '700 12px "Vazirmatn", sans-serif'; ctx.fillStyle = '#0F172A'; ctx.textAlign = 'center';
             ctx.fillText('ریسک سیستماتیک سهم (ضریب بتا β)', padL + (W - padL - padR) / 2, H - 8);
 
@@ -4079,7 +4362,6 @@
             ctx.fillText('بازده مورد انتظار E(R)', 0, 0);
             ctx.restore();
 
-            // Layer: Rf Line
             if (layers.finance.rf) {
                 ctx.strokeStyle = '#1D4ED8'; ctx.lineWidth = 1.6; ctx.setLineDash([5, 4]);
                 ctx.beginPath(); ctx.moveTo(toX(0), toY(Rf)); ctx.lineTo(toX(maxBeta), toY(Rf)); ctx.stroke();
@@ -4088,13 +4370,11 @@
                 ctx.fillText('نرخ بدون ریسک Rf = ' + Rf + '%', toX(0.05), toY(Rf) - 6);
             }
 
-            // SML Curve
             if (layers.finance.sml) {
                 ctx.strokeStyle = '#6D28D9'; ctx.lineWidth = 3.0;
                 ctx.beginPath(); ctx.moveTo(toX(0), toY(Rf)); ctx.lineTo(toX(maxBeta), toY(Rf + maxBeta * MRP)); ctx.stroke();
             }
 
-            // Layer: Market Portfolio M
             if (layers.finance.market && maxBeta >= 1) {
                 ctx.fillStyle = '#047857';
                 ctx.beginPath(); ctx.arc(toX(1.0), toY(Rm), 6, 0, Math.PI * 2); ctx.fill();
@@ -4103,7 +4383,6 @@
                 ctx.fillText('پرتفوی بازار M (β=1.0 , Rm=' + Rm + '%)', toX(1.0) + 9, toY(Rm) - 5);
             }
 
-            // Layer: Projections
             if (layers.finance.proj) {
                 ctx.strokeStyle = '#94A3B8'; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]);
                 ctx.beginPath();
@@ -4113,17 +4392,16 @@
                 ctx.setLineDash([]);
             }
 
-            // Chosen Asset Point
             ctx.fillStyle = '#D97706';
             ctx.beginPath(); ctx.arc(toX(beta), toY(ER), 7, 0, Math.PI * 2); ctx.fill();
             ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2.5; ctx.stroke();
             ctx.fillStyle = '#0F172A'; ctx.font = '900 11.5px "JetBrains Mono"'; ctx.textAlign = 'left';
             ctx.fillText('سهم انتخابی بهادر: ' + ER.toFixed(1) + '%', toX(beta) + 9, toY(ER) - 6);
 
-            // Hover HUD
-            if (hoverState.finance.active) {
-                const hx = hoverState.finance.x;
-                const hy = hoverState.finance.y;
+            const currentHover = isFs ? hoverState.fs : hoverState.finance;
+            if (currentHover.active) {
+                const hx = currentHover.x;
+                const hy = currentHover.y;
                 if (hx >= padL && hx <= W - padR && hy >= padT && hy <= H - padB) {
                     ctx.strokeStyle = '#0F172A'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
                     ctx.beginPath(); ctx.moveTo(hx, padT); ctx.lineTo(hx, H - padB); ctx.moveTo(padL, hy); ctx.lineTo(W - padR, hy); ctx.stroke();
@@ -4133,30 +4411,34 @@
                     const curR = fromY(hy);
                     const smlR = Rf + curBeta * MRP;
 
-                    const tooltip = document.getElementById('tooltip-finance');
-                    tooltip.style.opacity = 1;
-                    tooltip.innerHTML = `<div><strong>مختصات بتا: ${curBeta.toFixed(2)}</strong></div>
-                        <div>بازده روی خط SML: ${smlR.toFixed(2)}%</div>
-                        <div>صرف ریسک سهم: ${(curBeta * MRP).toFixed(2)}%</div>`;
+                    if (isFs) {
+                        const hud = document.getElementById('fs-hud-bar');
+                        hud.innerHTML = `<span><strong>بتا β:</strong> ${curBeta.toFixed(2)}</span>
+                            <span><strong>بازده SML:</strong> ${smlR.toFixed(2)}%</span>
+                            <span><strong>صرف ریسک:</strong> ${(curBeta * MRP).toFixed(2)}%</span>
+                            <span><strong>بزرگ‌نمایی:</strong> ${Math.round(z * 100)}%</span>`;
+                    } else {
+                        const tooltip = document.getElementById('tooltip-finance');
+                        tooltip.style.opacity = 1;
+                        tooltip.innerHTML = `<div><strong>مختصات بتا: ${curBeta.toFixed(2)}</strong></div>
+                            <div>بازده روی خط SML: ${smlR.toFixed(2)}%</div>
+                            <div>صرف ریسک سهم: ${(curBeta * MRP).toFixed(2)}%</div>`;
+                    }
                 }
             }
         }
 
         // ========================================================
-        // 4. DRAW OPERATIONS RESEARCH CANVAS
+        // 4. DRAW OPERATIONS RESEARCH
         // ========================================================
-        function drawOR() {
-            const setup = setupCanvas('canvasOR');
+        function drawOR(canvasId = 'canvasOR', isFs = false) {
+            const setup = setupCanvas(canvasId);
             if (!setup) return;
             const { ctx, W, H } = setup;
 
             const c1 = parseFloat(document.getElementById('or-c1-num').value) || 40;
             const c2 = parseFloat(document.getElementById('or-c2-num').value) || 30;
 
-            // Problem:
-            // 2 x1 + 1 x2 <= 100
-            // 1 x1 + 2 x2 <= 80
-            // Vertices: (0,0), (50,0), (40,20), (0,40)
             const vertices = [
                 { x1: 0, x2: 0, z: 0, label: 'O(0,0)' },
                 { x1: 50, x2: 0, z: c1 * 50, label: 'A(50,0)' },
@@ -4170,9 +4452,10 @@
             document.getElementById('or-kpi-opt').innerText = 'x1* = ' + best.x1 + ' , x2* = ' + best.x2;
             document.getElementById('or-kpi-z').innerText = 'Max Z = ' + best.z.toLocaleString();
 
+            const z = isFs ? zoomLevels.fs : zoomLevels.or;
             const padL = 72, padR = 40, padT = 38, padB = 48;
-            const maxX1 = 80;
-            const maxX2 = 80;
+            const maxX1 = 80 / z;
+            const maxX2 = 80 / z;
 
             function toX(x1) { return padL + (x1 / maxX1) * (W - padL - padR); }
             function toY(x2) { return H - padB - (x2 / maxX2) * (H - padT - padB); }
@@ -4181,7 +4464,6 @@
 
             ctx.clearRect(0, 0, W, H);
 
-            // Ticks & Grid
             const x1Ticks = getNiceTicks(0, maxX1, 5);
             const x2Ticks = getNiceTicks(0, maxX2, 5);
 
@@ -4195,13 +4477,11 @@
                 ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR, y); ctx.stroke();
             });
 
-            // Axes
             ctx.strokeStyle = '#64748B'; ctx.lineWidth = 1.8;
             ctx.beginPath();
             ctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);
             ctx.stroke();
 
-            // Ticks numbers
             ctx.fillStyle = '#64748B'; ctx.font = '600 11px "JetBrains Mono", monospace';
             ctx.textAlign = 'center';
             x1Ticks.forEach(t => {
@@ -4217,7 +4497,6 @@
                 ctx.fillText(t, padL - 8, y + 4);
             });
 
-            // Axis Titles
             ctx.font = '700 12px "Vazirmatn", sans-serif'; ctx.fillStyle = '#0F172A'; ctx.textAlign = 'center';
             ctx.fillText('تولید محصول یک (x1)', padL + (W - padL - padR) / 2, H - 8);
 
@@ -4226,7 +4505,6 @@
             ctx.fillText('تولید محصول دو (x2)', 0, 0);
             ctx.restore();
 
-            // Layer: Feasible Polygon
             if (layers.or.poly) {
                 ctx.fillStyle = 'rgba(14, 116, 144, 0.16)';
                 ctx.beginPath();
@@ -4238,25 +4516,20 @@
                 ctx.fill();
             }
 
-            // Constraint 1: 2x1 + x2 = 100 (x1=50, x2=100)
             ctx.strokeStyle = '#0284C7'; ctx.lineWidth = 2.4;
             ctx.beginPath(); ctx.moveTo(toX(0), toY(100)); ctx.lineTo(toX(50), toY(0)); ctx.stroke();
 
-            // Constraint 2: x1 + 2x2 = 80 (x1=80, x2=40)
             ctx.strokeStyle = '#047857'; ctx.lineWidth = 2.4;
             ctx.beginPath(); ctx.moveTo(toX(0), toY(40)); ctx.lineTo(toX(80), toY(0)); ctx.stroke();
 
-            // Layer: Isoprofit line through optimum
             if (layers.or.isoprofit) {
                 ctx.strokeStyle = '#D97706'; ctx.lineWidth = 1.8; ctx.setLineDash([5, 4]);
-                // c1 x1 + c2 x2 = best.z
                 const p1x = 0, p1y = best.z / c2;
                 const p2x = best.z / c1, p2y = 0;
                 ctx.beginPath(); ctx.moveTo(toX(p1x), toY(p1y)); ctx.lineTo(toX(p2x), toY(p2y)); ctx.stroke();
                 ctx.setLineDash([]);
             }
 
-            // Layer: Projections
             if (layers.or.proj) {
                 ctx.strokeStyle = '#64748B'; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]);
                 ctx.beginPath();
@@ -4266,7 +4539,6 @@
                 ctx.setLineDash([]);
             }
 
-            // Layer: Vertices & Optimum
             if (layers.or.vertices) {
                 vertices.forEach(v => {
                     const isOpt = (v === best);
@@ -4280,10 +4552,10 @@
                 });
             }
 
-            // Hover HUD
-            if (hoverState.or.active) {
-                const hx = hoverState.or.x;
-                const hy = hoverState.or.y;
+            const currentHover = isFs ? hoverState.fs : hoverState.or;
+            if (currentHover.active) {
+                const hx = currentHover.x;
+                const hy = currentHover.y;
                 if (hx >= padL && hx <= W - padR && hy >= padT && hy <= H - padB) {
                     ctx.strokeStyle = '#0F172A'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
                     ctx.beginPath(); ctx.moveTo(hx, padT); ctx.lineTo(hx, H - padB); ctx.moveTo(padL, hy); ctx.lineTo(W - padR, hy); ctx.stroke();
@@ -4296,22 +4568,31 @@
                     const c2Val = cx1 + 2 * cx2;
                     const isFeasible = (c1Val <= 100.1 && c2Val <= 80.1);
 
-                    const tooltip = document.getElementById('tooltip-or');
-                    tooltip.style.opacity = 1;
-                    tooltip.innerHTML = `<div><strong>نقطه: (${cx1.toFixed(1)}, ${cx2.toFixed(1)})</strong></div>
-                        <div>سود Z: ${cz.toFixed(0)} ریال</div>
-                        <div>قید ۱: ${c1Val.toFixed(1)} / 100</div>
-                        <div>قید ۲: ${c2Val.toFixed(1)} / 80</div>
-                        <div style="color: ${isFeasible ? '#34D399' : '#F87171'}"><strong>${isFeasible ? '✓ نقطه موجه' : '✗ ناموجه (غیرقابل تولید)'}</strong></div>`;
+                    if (isFs) {
+                        const hud = document.getElementById('fs-hud-bar');
+                        hud.innerHTML = `<span><strong>x1:</strong> ${cx1.toFixed(1)}</span>
+                            <span><strong>x2:</strong> ${cx2.toFixed(1)}</span>
+                            <span><strong>سود Z:</strong> ${cz.toFixed(0)}</span>
+                            <span style="color: ${isFeasible ? '#34D399' : '#F87171'}"><strong>${isFeasible ? '✓ موجه' : '✗ ناموجه'}</strong></span>
+                            <span><strong>بزرگ‌نمایی:</strong> ${Math.round(z * 100)}%</span>`;
+                    } else {
+                        const tooltip = document.getElementById('tooltip-or');
+                        tooltip.style.opacity = 1;
+                        tooltip.innerHTML = `<div><strong>نقطه: (${cx1.toFixed(1)}, ${cx2.toFixed(1)})</strong></div>
+                            <div>سود Z: ${cz.toFixed(0)} ریال</div>
+                            <div>قید ۱: ${c1Val.toFixed(1)} / 100</div>
+                            <div>قید ۲: ${c2Val.toFixed(1)} / 80</div>
+                            <div style="color: ${isFeasible ? '#34D399' : '#F87171'}"><strong>${isFeasible ? '✓ نقطه موجه' : '✗ ناموجه (غیرقابل تولید)'}</strong></div>`;
+                    }
                 }
             }
         }
 
         // ========================================================
-        // 5. DRAW APPLIED STATISTICS CANVAS (GAUSSIAN NORMAL)
+        // 5. DRAW APPLIED STATISTICS (GAUSSIAN NORMAL)
         // ========================================================
-        function drawStat() {
-            const setup = setupCanvas('canvasStat');
+        function drawStat(canvasId = 'canvasStat', isFs = false) {
+            const setup = setupCanvas(canvasId);
             if (!setup) return;
             const { ctx, W, H } = setup;
 
@@ -4320,7 +4601,6 @@
             const xVal = parseFloat(document.getElementById('s-x-num').value) || 16.77;
 
             const z = (xVal - mu) / sig;
-            // Standard Normal CDF approximation (erf based)
             function cdf(zScore) {
                 const t = 1.0 / (1.0 + 0.2316419 * Math.abs(zScore));
                 const d = 0.3989423 * Math.exp(-zScore * zScore / 2);
@@ -4336,10 +4616,12 @@
             document.getElementById('s-kpi-ci').innerText = '[' + (mu - 1.96 * sig).toFixed(1) + ', ' + (mu + 1.96 * sig).toFixed(1) + ']';
             document.getElementById('s-kpi-cv').innerText = cv.toFixed(1) + '%';
 
+            const zoomFactor = isFs ? zoomLevels.fs : zoomLevels.stat;
             const padL = 72, padR = 40, padT = 38, padB = 48;
-            const minX = Math.max(0, mu - 4 * sig);
-            const maxX = mu + 4 * sig;
-            const maxDensity = 1.0 / (sig * Math.sqrt(2 * Math.PI)) * 1.25;
+            const spanX = (4 * sig) / zoomFactor;
+            const minX = Math.max(0, mu - spanX);
+            const maxX = mu + spanX;
+            const maxDensity = (1.0 / (sig * Math.sqrt(2 * Math.PI)) * 1.25);
 
             function toX(x) { return padL + ((x - minX) / (maxX - minX)) * (W - padL - padR); }
             function toY(dens) { return H - padB - (dens / maxDensity) * (H - padT - padB); }
@@ -4351,7 +4633,6 @@
 
             ctx.clearRect(0, 0, W, H);
 
-            // Ticks & Grid
             const xTicks = getNiceTicks(minX, maxX, 6);
             ctx.strokeStyle = '#F1F5F9'; ctx.lineWidth = 1;
             xTicks.forEach(t => {
@@ -4359,13 +4640,11 @@
                 ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, H - padB); ctx.stroke();
             });
 
-            // Axes
             ctx.strokeStyle = '#64748B'; ctx.lineWidth = 1.8;
             ctx.beginPath();
             ctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);
             ctx.stroke();
 
-            // Ticks numbers
             ctx.fillStyle = '#64748B'; ctx.font = '600 11px "JetBrains Mono", monospace';
             ctx.textAlign = 'center';
             xTicks.forEach(t => {
@@ -4374,7 +4653,6 @@
                 ctx.fillText(t, x, H - padB + 18);
             });
 
-            // Axis Titles
             ctx.font = '700 12px "Vazirmatn", sans-serif'; ctx.fillStyle = '#0F172A'; ctx.textAlign = 'center';
             ctx.fillText('بازدهی و مقادیر متغیر تصادفی (X)', padL + (W - padL - padR) / 2, H - 8);
 
@@ -4383,7 +4661,6 @@
             ctx.fillText('چگالی احتمال f(X)', 0, 0);
             ctx.restore();
 
-            // Layer: 95% Confidence Interval Area
             if (layers.stat.ci) {
                 const ciLow = mu - 1.96 * sig;
                 const ciHigh = mu + 1.96 * sig;
@@ -4398,7 +4675,6 @@
                 ctx.fill();
             }
 
-            // Layer: Shaded Tail Risk Area
             if (layers.stat.tail && xVal > minX) {
                 ctx.fillStyle = 'rgba(239, 68, 68, 0.28)';
                 ctx.beginPath();
@@ -4412,7 +4688,6 @@
                 ctx.fill();
             }
 
-            // Bell Curve Line
             ctx.strokeStyle = '#4338CA'; ctx.lineWidth = 3.0;
             ctx.beginPath();
             let first = true;
@@ -4424,14 +4699,12 @@
             }
             ctx.stroke();
 
-            // Center Mean Line
             ctx.strokeStyle = '#4338CA'; ctx.lineWidth = 1.8; ctx.setLineDash([4, 4]);
             ctx.beginPath(); ctx.moveTo(toX(mu), toY(0)); ctx.lineTo(toX(mu), toY(pdf(mu))); ctx.stroke();
             ctx.setLineDash([]);
             ctx.fillStyle = '#4338CA'; ctx.font = '800 11px "JetBrains Mono"'; ctx.textAlign = 'center';
             ctx.fillText('μ = ' + mu, toX(mu), toY(pdf(mu)) - 8);
 
-            // Layer: Sigmas Lines
             if (layers.stat.sigmas) {
                 ctx.strokeStyle = '#94A3B8'; ctx.lineWidth = 1; ctx.setLineDash([2, 3]);
                 [-2, -1, 1, 2].forEach(k => {
@@ -4443,12 +4716,10 @@
                 ctx.setLineDash([]);
             }
 
-            // Layer: Projection from Threshold X
             if (layers.stat.proj && xVal >= minX && xVal <= maxX) {
                 ctx.strokeStyle = '#DC2626'; ctx.lineWidth = 2.0; ctx.setLineDash([3, 3]);
                 ctx.beginPath();
-                ctx.moveTo(toX(xVal), toY(0));
-                ctx.lineTo(toX(xVal), toY(pdf(xVal)));
+                ctx.moveTo(toX(xVal), toY(0)); ctx.lineTo(toX(xVal), toY(pdf(xVal)));
                 ctx.stroke();
                 ctx.setLineDash([]);
 
@@ -4460,10 +4731,10 @@
                 ctx.fillText('X = ' + xVal.toFixed(1) + ' (Z=' + z.toFixed(2) + ')', toX(xVal), toY(pdf(xVal)) - 9);
             }
 
-            // Hover HUD
-            if (hoverState.stat.active) {
-                const hx = hoverState.stat.x;
-                const hy = hoverState.stat.y;
+            const currentHover = isFs ? hoverState.fs : hoverState.stat;
+            if (currentHover.active) {
+                const hx = currentHover.x;
+                const hy = currentHover.y;
                 if (hx >= padL && hx <= W - padR && hy >= padT && hy <= H - padB) {
                     ctx.strokeStyle = '#0F172A'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
                     ctx.beginPath(); ctx.moveTo(hx, padT); ctx.lineTo(hx, H - padB); ctx.moveTo(padL, hy); ctx.lineTo(W - padR, hy); ctx.stroke();
@@ -4473,11 +4744,19 @@
                     const curZ = (curX - mu) / sig;
                     const curP = cdf(curZ);
 
-                    const tooltip = document.getElementById('tooltip-stat');
-                    tooltip.style.opacity = 1;
-                    tooltip.innerHTML = `<div><strong>مقدار X: ${curX.toFixed(2)}</strong></div>
-                        <div>نمره Z: ${curZ.toFixed(3)}</div>
-                        <div>احتمال تجمعی P(X &lt; x): ${(curP * 100).toFixed(2)}%</div>`;
+                    if (isFs) {
+                        const hud = document.getElementById('fs-hud-bar');
+                        hud.innerHTML = `<span><strong>مقدار X:</strong> ${curX.toFixed(2)}</span>
+                            <span><strong>نمره Z:</strong> ${curZ.toFixed(3)}</span>
+                            <span><strong>احتمال P(X &lt; x):</strong> ${(curP * 100).toFixed(2)}%</span>
+                            <span><strong>بزرگ‌نمایی:</strong> ${Math.round(zoomFactor * 100)}%</span>`;
+                    } else {
+                        const tooltip = document.getElementById('tooltip-stat');
+                        tooltip.style.opacity = 1;
+                        tooltip.innerHTML = `<div><strong>مقدار X: ${curX.toFixed(2)}</strong></div>
+                            <div>نمره Z: ${curZ.toFixed(3)}</div>
+                            <div>احتمال تجمعی P(X &lt; x): ${(curP * 100).toFixed(2)}%</div>`;
+                    }
                 }
             }
         }
@@ -4524,36 +4803,61 @@
 
         // Export Full Brief
         window.exportFullBrief = function() {
-            let brief = '=== گزارش تحلیلی سامانه BANKAI v11.0 ===\n';
-            brief += 'تاریخ گزارش: 2026-10-17 | تحلیلگر: بهادر\n\n';
+            let brief = '=== گزارش تحلیلی سامانه BANKAI v12.0 ===
+';
+            brief += 'تاریخ گزارش: 2026-10-17 | تحلیلگر: بهادر
+
+';
             if (currentCourse === 'micro') {
-                brief += 'جبهه: اقتصاد خرد\n';
-                brief += 'قیمت خریدار Pc: ' + document.getElementById('m-kpi-pc').innerText + '\n';
-                brief += 'عایدی فروشنده Pp: ' + document.getElementById('m-kpi-pp').innerText + '\n';
-                brief += 'تیراژ تعادلی Qt: ' + document.getElementById('m-kpi-qt').innerText + '\n';
-                brief += 'زیان رفاهی DWL: ' + document.getElementById('m-kpi-dwl').innerText + '\n';
+                brief += 'جبهه: اقتصاد خرد
+';
+                brief += 'قیمت خریدار Pc: ' + document.getElementById('m-kpi-pc').innerText + '
+';
+                brief += 'عایدی فروشنده Pp: ' + document.getElementById('m-kpi-pp').innerText + '
+';
+                brief += 'تیراژ تعادلی Qt: ' + document.getElementById('m-kpi-qt').innerText + '
+';
+                brief += 'زیان رفاهی DWL: ' + document.getElementById('m-kpi-dwl').innerText + '
+';
             } else if (currentCourse === 'cost') {
-                brief += 'جبهه: حسابداری صنعتی ۱\n';
-                brief += 'تیراژ سر‌به‌سر BEP: ' + document.getElementById('c-kpi-qbep').innerText + '\n';
-                brief += 'تیراژ سود هدف: ' + document.getElementById('c-kpi-qtarget').innerText + '\n';
-                brief += 'حاشیه فروش CM: ' + document.getElementById('c-kpi-cm').innerText + '\n';
-                brief += 'نسبت حاشیه فروش: ' + document.getElementById('c-kpi-cmratio').innerText + '\n';
+                brief += 'جبهه: حسابداری صنعتی ۱
+';
+                brief += 'تیراژ سر‌به‌سر BEP: ' + document.getElementById('c-kpi-qbep').innerText + '
+';
+                brief += 'تیراژ سود هدف: ' + document.getElementById('c-kpi-qtarget').innerText + '
+';
+                brief += 'حاشیه فروش CM: ' + document.getElementById('c-kpi-cm').innerText + '
+';
+                brief += 'نسبت حاشیه فروش: ' + document.getElementById('c-kpi-cmratio').innerText + '
+';
             } else if (currentCourse === 'finance') {
-                brief += 'جبهه: مدیریت مالی ۱\n';
-                brief += 'بازده مورد انتظار E(R): ' + document.getElementById('f-kpi-er').innerText + '\n';
-                brief += 'صرف ریسک بازار MRP: ' + document.getElementById('f-kpi-mrp').innerText + '\n';
+                brief += 'جبهه: مدیریت مالی ۱
+';
+                brief += 'بازده مورد انتظار E(R): ' + document.getElementById('f-kpi-er').innerText + '
+';
+                brief += 'صرف ریسک بازار MRP: ' + document.getElementById('f-kpi-mrp').innerText + '
+';
             } else if (currentCourse === 'or') {
-                brief += 'جبهه: تحقیق در عملیات ۱\n';
-                brief += 'نقطه بهینه: ' + document.getElementById('or-kpi-opt').innerText + '\n';
-                brief += 'بیشینه سود: ' + document.getElementById('or-kpi-z').innerText + '\n';
+                brief += 'جبهه: تحقیق در عملیات ۱
+';
+                brief += 'نقطه بهینه: ' + document.getElementById('or-kpi-opt').innerText + '
+';
+                brief += 'بیشینه سود: ' + document.getElementById('or-kpi-z').innerText + '
+';
             } else if (currentCourse === 'stat') {
-                brief += 'جبهه: آمار کاربردی ۱\n';
-                brief += 'نمره استاندارد Z: ' + document.getElementById('s-kpi-z').innerText + '\n';
-                brief += 'ریسک دم چپ VaR: ' + document.getElementById('s-kpi-prob').innerText + '\n';
-                brief += 'بازه اطمینان ۹۵٪: ' + document.getElementById('s-kpi-ci').innerText + '\n';
-                brief += 'ضریب تغییرات CV: ' + document.getElementById('s-kpi-cv').innerText + '\n';
+                brief += 'جبهه: آمار کاربردی ۱
+';
+                brief += 'نمره استاندارد Z: ' + document.getElementById('s-kpi-z').innerText + '
+';
+                brief += 'ریسک دم چپ VaR: ' + document.getElementById('s-kpi-prob').innerText + '
+';
+                brief += 'بازه اطمینان ۹۵٪: ' + document.getElementById('s-kpi-ci').innerText + '
+';
+                brief += 'ضریب تغییرات CV: ' + document.getElementById('s-kpi-cv').innerText + '
+';
             }
-            brief += '\nتولیدشده در BANKAI Pro Masterpiece';
+            brief += '
+تولیدشده در BANKAI Quantum Masterpiece v12.0';
 
             navigator.clipboard.writeText(brief).then(() => {
                 showToast('خلاصه گزارش تحلیلی در کلیپ‌بورد کپی شد');
@@ -4564,7 +4868,6 @@
 
         // Window Init
         window.addEventListener('DOMContentLoaded', () => {
-            // Bind sliders and inputs
             bindDual('m-t-slider', 'm-t-num', drawMicro);
             bindDual('m-a-slider', 'm-a-num', drawMicro);
             bindDual('m-b-slider', 'm-b-num', drawMicro);
@@ -4592,12 +4895,13 @@
             bindDual('s-x-slider', 's-x-num', drawStat);
             initCanvasHover('stat', drawStat);
 
-            // Initial render
+            // Fullscreen Canvas hover
+            initCanvasHover('fs', drawFullscreen, 'fullscreenCanvas');
+
             selectCourse('micro');
             selectTab('sim');
         });
 
-        // Window Resize
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
