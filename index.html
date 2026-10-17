@@ -3093,7 +3093,122 @@
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
-                </div>
+                
+                    <!-- Micro Formula 5: Consumer Surplus, Producer Surplus & Welfare Delta -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۵</span>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: مازاد رفاه</button>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مازاد رفاه مصرف‌کننده (CS)، تولیدکننده (PS) و تغییر رفاه (ΔCS)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('CS = 0.5 × (α - P*) × Q* ; PS = 0.5 × (P* - P_res) × Q* ; ΔCS = (P1 - P2)×Q1 + 0.5×(P1 - P2)×(Q2 - Q1)', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">مازاد رفاه مصرف‌کننده (CS):</span>
+                                    <span class="math-sym">CS</span><span class="math-op">=</span>0.5 × ( α - P* ) × Q*
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">مازاد رفاه تولیدکننده (PS):</span>
+                                    <span class="math-sym">PS</span><span class="math-op">=</span>0.5 × ( P* - P_{res} ) × Q*
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">تغییر رفاه با کاهش قیمت (ΔCS):</span>
+                                    <span class="math-sym">ΔCS</span><span class="math-op">=</span>( P_1 - P_2 ) × Q_1 + 0.5 × ( P_1 - P_2 ) × ( Q_2 - Q_1 )
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>مازاد مصرف‌کننده (CS):</b> مساحت زیر منحنی تقاضا و بالای خط قیمت تعادلی بازار؛ تفاوت بین حداکثر تمایل به پرداخت (WTP) و مبلغ پرداختی واقعی.<br>
+                                • <b>تغییر رفاه (ΔCS):</b> هنگام کاهش قیمت، مازاد مصرف‌کننده از دو جزء افزایش می‌یابد: ۱. سود مستطیلی خریداران قبلی: (P1 - P2) × Q1 ؛ ۲. سود مثلثی خریداران جدید واردشده به بازار: 0.5 × (P1 - P2) × (Q2 - Q1).
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد بازار سرمایه و تحلیل کالا:</strong>
+                                در قیمت‌گذاری دستوری شورای رقابت در بورس کالا، تثبیت قیمت زیر تعادل منجر به تبخیر PS تولیدکننده و ایجاد رانت واسطه‌گری به جای افزایش پایدار رفاه عمومی می‌شود.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                اشتباه گرفتن مازاد تولیدکننده با «سود خالص حسابداری»! مازاد تولیدکننده برابر است با حاشیه فروش (TR - TVC)؛ زیرا هزینه‌های ثابت (FC) هنوز کسر نشده است!
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('CS = 0.5 * (alpha - P*) * Q*; PS = 0.5 * (P* - Pres) * Q*; Delta_CS = (P1 - P2)*Q1 + 0.5*(P1 - P2)*(Q2 - Q1)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Micro Formula 6: Elasticity, Total Revenue & Amoroso-Robinson -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۶</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">کشش قیمتی تقاضا، آزمون درآمد کل و رابطه آموروسو-رابینسون</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Ed = (dQ / dP) × (P / Q) ; MR = P × [ 1 - (1 / |Ed|) ] ; TR_max at |Ed| = 1', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">فرمول نقطه ای کشش قیمتی:</span>
+                                    <span class="math-sym">E_d</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">dQ</span><span class="math-den">dP</span></span> ) × ( <span class="math-frac"><span class="math-num">P</span><span class="math-den">Q</span></span> )
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">پل درامد نهایی اموروسو-رابینسون:</span>
+                                    <span class="math-sym">MR</span><span class="math-op">=</span>P × [ 1 - <span class="math-frac"><span class="math-num">1</span><span class="math-den">|E_d|</span></span> ]
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">حداکثر درامد کل (TR_max):</span>
+                                    |E_d| = 1 <span class="math-op">==&gt;</span> <span class="math-sym">MR</span><span class="math-op">=</span>0
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • در ناحیه باکشش (|Ed| > 1): کاهش قیمت باعث افزایش درآمد کل می‌شود (اثر افزایش مقدار غالب است).<br>
+                                • در ناحیه بی‌کشش (|Ed| < 1): افزایش قیمت درآمد کل را بالا می‌برد (مانند بنزین و دارو).<br>
+                                • بنگاه انحصاری عاقل هرگز در ناحیه بی‌کشش (|Ed| < 1) تولید نمی‌کند؛ زیرا MR در این ناحیه منفی است.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اشتباه گرفتن شیب منحنی تقاضا با کشش! در تابع خطی تقاضا Q = a - bP شیب جبری (b) ثابت است، اما کشش از بینهایت در قیمت بالا تا صفر در قیمت صفر پیوسته تغییر می‌کند.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Ed = (dQ/dP) * (P/Q); MR = P * (1 - 1/abs(Ed))')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Micro Formula 7: Consumer Equilibrium & MRS -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۷</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تعادل رفتار مصرف‌کننده و نرخ نهایی جانشینی (MRS)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('MRS_xy = - (dy / dx) = MUx / MUy ; Equilibrium: MRS_xy = Px / Py <=> MUx / Px = MUy / Py', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">نرخ نهایی جانشینی (شیب منحنی بی‌تفاوتی):</span>
+                                    <span class="math-sym">MRS_{xy}</span><span class="math-op">=</span>- ( <span class="math-frac"><span class="math-num">dy</span><span class="math-den">dx</span></span> )<span class="math-op">=</span><span class="math-frac"><span class="math-num">MU_x</span><span class="math-den">MU_y</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">شرط طلایی تعادل مصرف‌کننده:</span>
+                                    <span class="math-sym">MRS_{xy}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">P_x</span><span class="math-den">P_y</span></span> <span class="math-op">&lt;=&gt;</span> <span class="math-frac"><span class="math-num">MU_x</span><span class="math-den">P_x</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MU_y</span><span class="math-den">P_y</span></span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • نقطه تماس خط بودجه با بالاترین منحنی بی‌تفاوتی ممکن، تعادل مصرف‌کننده است.<br>
+                                • شرط تعادل یعنی «مطلوبیت نهایی حاصل از آخرین ریال خرج‌شده روی هر کالا با هم برابر باشد».
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                در جواب‌های گوشه‌ای (کالاهای جانشین کامل)، تساوی MRS با نسبت قیمت‌ها برقرار نمی‌شود و مصرف‌کننده ۱۰۰٪ درآمد را روی کالای با بازده مطلوبیت ریالی بالاتر خرج می‌کند!
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('MRS_xy = MUx / MUy = Px / Py; MUx / Px = MUy / Py')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+</div>
             </div>
 
             <!-- 1.4 CANONICAL STEP-BY-STEP SOLUTION -->
@@ -3396,7 +3511,119 @@
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
-                </div>
+                
+                    <!-- Cost Formula 5: Prime Cost, Conversion Cost & Firm Taxonomy -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-cost">فرمول طلایی ۵</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">بهای اولیه (Prime Cost)، بهای تبدیل (Conversion Cost) و ساختار تولید</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Prime Cost = DM + DL ; Conversion Cost = DL + MOH ; Total Manufacturing Cost = DM + DL + MOH', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">بهای اولیه (عوامل مستقیم ساخت):</span>
+                                    <span class="math-sym">Prime Cost</span><span class="math-op">=</span>مواد مستقیم (DM) + دستمزد مستقیم (DL)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">بهای تبدیل (هزینه تغییر فرم مواد):</span>
+                                    <span class="math-sym">Conversion Cost</span><span class="math-op">=</span>دستمزد مستقیم (DL) + سربار ساخت (MOH)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">بهای کل تولید کارخانه:</span>
+                                    <span class="math-sym">Total Cost</span><span class="math-op">=</span>Prime Cost + MOH <span class="math-op">=</span>DM + Conversion Cost
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>دستمزد مستقیم (DL):</b> تنها عاملی است که همزمان در «بهای اولیه» و «بهای تبدیل» حضور دارد.<br>
+                                • <b>دسته‌بندی مؤسسات:</b> ۱. خدماتی (بدون انبار محصول)؛ ۲. بازرگانی (یک حساب موجودی کالا)؛ ۳. تولیدی (۳ انبار: مواد خام، کالای در جریان ساخت، کالای ساخته‌شده).
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                جمع بستن مستقیم بهای اولیه با بهای تبدیل برای رسیدن به بهای کل! چون دستمزد مستقیم دو بار شمرده می‌شود: Prime + Conversion = DM + 2×DL + MOH (غلط است!). فرمول صحیح: بهای کل = بهای اولیه + سربار ساخت.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Prime_Cost = DM + DL; Conversion_Cost = DL + MOH; Total_Prod_Cost = DM + DL + MOH')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Cost Formula 6: High-Low Method for Mixed Costs -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-cost">فرمول طلایی ۶</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تفکیک هزینه‌های مختلط به روش حد بالا و پایین (High-Low Method)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('b = (Y_max - Y_min) / (X_max - X_min) ; a = Y_max - b × X_max ; Y = a + bX', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">نرخ متغیر هر واحد فعالیت (شیب b):</span>
+                                    <span class="math-sym">b</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Y_{max} - Y_{min}</span><span class="math-den">X_{max} - X_{min}</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">جزء ثابت هزینه (عرض از مبدأ a):</span>
+                                    <span class="math-sym">a</span><span class="math-op">=</span>Y_{max} - ( b × X_{max} ) <span class="math-op">=</span>Y_{min} - ( b × X_{min} )
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">معادله رفتار هزینه در دامنه مربوط:</span>
+                                    <span class="math-sym">Y</span><span class="math-op">=</span>a + b × X
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>هزینه مختلط / نیمه‌متغیر (Y):</b> ترکیبی از هزینه ثابت پایه (a) و هزینه متغیر متناسب با تیراژ (bX).<br>
+                                • <b>معیار انتخاب نقاط:</b> نقاط حداکثر و حداقل همواره بر اساس «سطح فعالیت (ساعت کارکرد یا تیراژ X)» انتخاب می‌شوند، نه بر اساس مبلغ هزینه (Y)!
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                انتخاب ماهی که بالاترین هزینه ریالی را دارد به جای ماهی که بالاترین سطح فعالیت (X) را دارد! اگر سطح فعالیت با هزینه هم‌جهت نباشد، انتخاب بر اساس Y پاسخ را کاملاً نادرست می‌کند.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('b = (Y_max - Y_min) / (X_max - X_min); a = Y_max - b * X_max; Y = a + b * X')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Cost Formula 7: Contribution Margin Income Statement -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-cost">فرمول طلایی ۷</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">صورت سود و زیان بر مبنای حاشیه فروش (Contribution Margin Format)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Total CM = Revenues - TVC ; EBIT = Total CM - TFC ; CMR = CM / P = Total CM / Sales', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">حاشیه فروش کل (Total CM):</span>
+                                    <span class="math-sym">Total CM</span><span class="math-op">=</span>درآمد فروش (TR) - کل هزینه‌های متغیر (TVC)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">سود عملیاتی (EBIT):</span>
+                                    <span class="math-sym">EBIT</span><span class="math-op">=</span>Total CM - کل هزینه‌های ثابت (TFC)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">نسبت حاشیه فروش (CMR):</span>
+                                    <span class="math-sym">CMR</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">CM</span><span class="math-den">P</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Total CM</span><span class="math-den">Total Sales</span></span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • تفکیک هزینه‌های محصول (Product Costs: مواد، دستمزد، سربار کارخانه) از هزینه‌های دوره (Period Costs: توزیع، فروش، اداری و مالی).<br>
+                                • صورت سود و زیان مدیریتی حاشیه فروش برای تصمیم‌گیری درون‌سازمانی، قیمت‌گذاری و سفارشات خاص به کار می‌رود.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                تفکیک نکردن هزینه‌های متغیر اداری-فروش از بهای متغیر ساخت در محاسبه سود ناخالص سنتی! در روش جذب، هزینه‌های متغیر اداری-فروش زیر سود ناخالص می‌آیند اما در روش حاشیه فروش، قبل از CM کسر می‌شوند.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Total_CM = Revenues - TVC; EBIT = Total_CM - TFC; CMR = CM / P')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+</div>
             </div>
 
             <!-- 2.4 STEP-BY-STEP SOLUTION -->
@@ -3686,7 +3913,115 @@
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
-                </div>
+                
+                    <!-- Finance Formula 5: Time Value of Money & Annuities -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-finance">فرمول طلایی ۵</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ارزش زمانی پول (TVM)، اقساط مساوی و اقساط دائمی (Perpetuity)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('PV = FV / (1 + r)^n ; PVA = PMT × [ (1 - (1+r)^-n) / r ] ; PV_perp = PMT / r ; PV_gordon = PMT1 / (r - g)', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">ارزش فعلی یکجا:</span>
+                                    <span class="math-sym">PV</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FV</span><span class="math-den">( 1 + r )<span class="math-sup">n</span></span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">ارزش فعلی اقساط مساوی (PVA):</span>
+                                    <span class="math-sym">PVA</span><span class="math-op">=</span>PMT × [ <span class="math-frac"><span class="math-num">1 - ( 1 + r )<span class="math-sup">-n</span></span><span class="math-den">r</span></span> ]
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">اقساط دائمی ساده و با رشد (Perpetuity):</span>
+                                    <span class="math-sym">PV_{perp}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">PMT</span><span class="math-den">r</span></span> <span class="math-sep">|</span> <span class="math-sym">PV_{gordon}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">PMT_1</span><span class="math-den">r - g</span></span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>ارزش زمانی پول:</b> یک ریال امروز باارزش‌تر از یک ریال فرداست (هزینه فرصت، ریسک، تورم).<br>
+                                • <b>اقساط دائمی (Perpetuity):</b> جریان‌های نامحدود با دوره بی‌نهایت؛ کاربرد در ارزش‌گذاری سهام ممتاز و مدل تنزیل سود نقدی (DDM).
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اشتباه در زمان‌بندی اقساط عادی (Ordinary Annuity: پایان دوره) با اقساط معوق/پیش‌پرداخت (Annuity Due: ابتدای دوره)! در اقساط ابتدای دوره، کل رابطه در (1 + r) ضرب می‌شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('PV = FV / (1 + r)^n; PVA = PMT * (1 - (1+r)^-n) / r; PV_perp = PMT / r')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Finance Formula 6: Capital Budgeting Criteria (NPV, IRR, PI) -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-finance">فرمول طلایی ۶</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">معیارهای بودجه‌بندی سرمایه‌ای (NPV, IRR, PI)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('NPV = ∑ [ CF_t / (1 + r)^t ] - CF_0 ; PI = PV_inflows / CF_0 = 1 + (NPV / CF_0) ; IRR at NPV = 0', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">ارزش فعلی خالص (NPV):</span>
+                                    <span class="math-sym">NPV</span><span class="math-op">=</span>∑<span class="math-sup">t=1..n</span> [ <span class="math-frac"><span class="math-num">CF_t</span><span class="math-den">( 1 + r )<span class="math-sup">t</span></span></span> ] - CF_0
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">شاخص سودآوری (Profitability Index):</span>
+                                    <span class="math-sym">PI</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">PV of Inflows</span><span class="math-den">CF_0</span></span><span class="math-op">=</span>1 + <span class="math-frac"><span class="math-num">NPV</span><span class="math-den">CF_0</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">نرخ بازده داخلی (IRR):</span>
+                                    NPV(IRR) = 0 <span class="math-op">==&gt;</span> پذیرش اگر <span class="math-sym">IRR</span> &gt; WACC
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>NPV استاندارد طلایی است:</b> ارزش ثروت افزوده سهامداران را اندازه می‌گیرد.<br>
+                                • <b>تضاد NPV و IRR:</b> در پروژه‌های متقابل مانعه‌الجمع (Mutually Exclusive) با مقیاس یا زمان‌بندی متفاوت، همواره تصمیم بر اساس NPV اولویت قطعی دارد.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                فرض نرخ بازسرمایه‌گذاری مجدد جریان‌های نقد! NPV فرض می‌کند وجوه با نرخ هزینه سرمایه (WACC) بازسرمایه‌گذاری می‌شوند که فرضی کاملاً واقع‌بینانه است؛ در حالی که IRR خوش‌بینانه فرض می‌کند با نرخ بالای IRR بازسرمایه‌گذاری می‌شوند!
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('NPV = sum(CF_t / (1 + r)^t) - CF_0; PI = 1 + NPV / CF_0; NPV(IRR) = 0')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Finance Formula 7: WACC & Capital Structure -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-finance">فرمول طلایی ۷</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین موزون هزینه سرمایه (WACC) و سپر مالیاتی بدهی</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('WACC = [ (D/V) × rd × (1 - T) ] + [ (E/V) × re ] ; Tax Shield = T × rd × D', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">میانگین موزون هزینه سرمایه (WACC):</span>
+                                    <span class="math-sym">WACC</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">D</span><span class="math-den">V</span></span> ) × r_d × ( 1 - T ) + ( <span class="math-frac"><span class="math-num">E</span><span class="math-den">V</span></span> ) × r_e
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">سپر مالیاتی سالانه بهره بدهی:</span>
+                                    <span class="math-sym">Tax Shield</span><span class="math-op">=</span>T × r_d × D
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>V:</b> ارزش کل شرکت برابر D (ارزش بازار بدهی) + E (ارزش بازار حقوق صاحبان سهام).<br>
+                                • <b>(1 - T):</b> اثر صرفه‌جویی مالیاتی؛ چون هزینه بهره از درآمد مشمول مالیات کسر می‌شود، هزینه واقعی بدهی پس از مالیات r_d × (1 - T) است.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اعمال ضریب (1 - T) روی هزینه سهام (r_e)! سود تقسیمی سهام مشمول کسر مالیاتی برای شرکت نیست، بنابراین فقط و فقط نرخ بهره بدهی (r_d) در (1 - T) ضرب می‌شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('WACC = (D/V) * rd * (1 - T) + (E/V) * re; Tax_Shield = T * rd * D')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+</div>
             </div>
 
             <!-- 3.4 STEP-BY-STEP SOLUTION -->
@@ -3936,7 +4271,124 @@
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
-                </div>
+                
+                    <!-- OR Formula 4: Standard LP Form & Slacks/Surplus -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۴</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شکل استاندارد برنامه‌ریزی خطی (متغیرهای اسلک و مازاد)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Constraint (<=): ∑ a_ij x_j + S_i = b_i (S_i >= 0) ; Constraint (>=): ∑ a_ij x_j - e_i = b_i (e_i >= 0)', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">قید کوچکتر-مساوی (اضافه کردن کمکی S_i):</span>
+                                    ∑ a_{ij} x_j + <span class="math-sym">S_i</span><span class="math-op">=</span>b_i <span class="math-sep">|</span> S_i ≥ 0 (ظرفیت بلااستفاده)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">قید بزرگتر-مساوی (کسر کردن مازاد e_i):</span>
+                                    ∑ a_{ij} x_j - <span class="math-sym">e_i</span><span class="math-op">=</span>b_i <span class="math-sep">|</span> e_i ≥ 0 (تولید بیش از حداقل)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">فرم ماتریسی سیمپلکس:</span>
+                                    Max Z = C<span class="math-sup">T</span> X  تحت قید  A X = b  و  X ≥ 0
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • جدول سیمپلکس تنها بر روی معادلات تساوی و متغیرهای نامنفی کار می‌کند.<br>
+                                • شرط استاندارد بودن: تمام مقادیر سمت راست (RHS: b_i) باید غیرمنفی (b_i ≥ 0) باشند. در صورت منفی بودن، قید ابتدا در منفی ۱ ضرب می‌شود.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                فراموش کردن تغییر جهت نامساوی هنگام ضرب در منفی ۱! اگر قید x1 - 2x2 ≤ -4 باشد، باید به شکل -x1 + 2x2 ≥ 4 تبدیل شود و سپس متغیر مازاد e_i از آن کسر گردد.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Constraint_LE: sum(a_ij * x_j) + S_i = b_i; Constraint_GE: sum(a_ij * x_j) - e_i = b_i')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- OR Formula 5: Primal-to-Dual Canonical Transformation -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۵</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قواعد تبدیل متقارن دوگان (Primal to Dual Mapping)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Primal: Max Z = C^T X, AX <= b, X >= 0 <=> Dual: Min W = b^T Y, A^T Y >= C, Y >= 0 ; Strong Duality: Max Z* = Min W*', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">مدل اولیه (Primal):</span>
+                                    <span class="math-sym">Max Z</span><span class="math-op">=</span>C<span class="math-sup">T</span> X  تحت  A X ≤ b  و  X ≥ 0
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">مدل دوگان متناظر (Dual):</span>
+                                    <span class="math-sym">Min W</span><span class="math-op">=</span>b<span class="math-sup">T</span> Y  تحت  A<span class="math-sup">T</span> Y ≥ C  و  Y ≥ 0
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">قضیه دوگانی قوی (Strong Duality):</span>
+                                    <span class="math-sym">Max Z*</span><span class="math-op">=</span><span class="math-sym">Min W*</span>  (سود اولیه = ارزش منابع دوگان)
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • هر قید در اولیه متناظر با یک متغیر تصمیم (y_i) در دوگان است.<br>
+                                • هر متغیر تصمیم (x_j) در اولیه متناظر با یک قید در دوگان است.<br>
+                                • متغیرهای بهینه دوگان (Y*) همان قیمت‌های سایه (Shadow Prices) منابع محدودکننده اولیه هستند.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اشتباه در تعیین علامت متغیر دوگان! اگر قید اولیه به صورت تساوی (=) باشد، متغیر دوگان متناظر با آن آزاد در علامت (URS: Unrestricted in Sign) خواهد بود!
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Primal: Max Z = C^T X, AX <= b <=> Dual: Min W = b^T Y, A^T Y >= C; Max Z* = Min W*')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- OR Formula 6: Four Special Cases in Linear Programming -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۶</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">چهار حالت خاص در برنامه‌ریزی خطی (Special Cases)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Alternative Optima: zj - cj = 0 for non-basic ; Infeasibility: Artificial var > 0 ; Unboundedness: all y_ik <= 0 in entering col ; Degeneracy: RHS_i = 0 for basic', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">۱. چندجوابی بهینه:</span>
+                                    z_j - c_j = 0 برای متغیر غیرپایه در جدول بهینه (خط تراز موازی قید)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">۲. ناموجهی (Infeasibility):</span>
+                                    باقی ماندن متغیر مصنوعی (Artificial R_i &gt; 0) در پایه نهایی سیمپلکس
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">۳. بی‌کرانگی (Unboundedness):</span>
+                                    تمام ضرایب ستون لولا غیرمثبت باشند (y_{ik} ≤ 0) ==> آزمون نسبت ناممکن
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge comp">۴. تباهیدگی (Degeneracy):</span>
+                                    صفر شدن متغیر پایه در ستون RHS (تقاطع بیش از ۲ خط در یک رأس)
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>تباهیدگی:</b> می‌تواند منجر به پدیده چرخش (Cycling) در سیمپلکس شود.<br>
+                                • <b>بی‌کرانگی:</b> نشان‌دهنده خطای مدل‌سازی در تعریف قیود واقع‌بینانه ظرفیت است.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اشتباه گرفتن ناحیه موجه بی‌کران با تابع هدف بی‌کران! ممکن است ناحیه موجه از یک سمت باز باشد اما خط تراز در جهت مخالف محدود شده و مسئله جواب بهینه متناهی و یکتا داشته باشد!
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Alternative: non-basic zj - cj = 0; Infeasible: Artificial > 0; Unbounded: y_ik <= 0; Degenerate: RHS = 0')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+</div>
             </div>
 
             <!-- 4.4 STEP-BY-STEP SOLUTION -->
@@ -4659,6 +5111,168 @@
                         </button>
                     </div>
 
+
+                    <!-- Stat Formula 12: Weighted Geometric & Arithmetic Mean -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">میانگین وزنی ۱۲</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Weighted GM & AM</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی وزنی (WGM) و میانگین حسابی وزنی (WAM)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('X̄_gw = [ ∏ (X_i^w_i) ]^(1 / ∑ w_i) ; ln(X̄_gw) = [ ∑ w_i ln(X_i) ] / ∑ w_i ; X̄_w = [ ∑ w_i X_i ] / ∑ w_i', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">میانگین هندسی وزنی (فضای ضربی و رشد):</span>
+                                    <span class="math-sym">X̄_{gw}</span><span class="math-op">=</span>[ ∏ ( X_i<span class="math-sup">w_i</span> ) ]<span class="math-sup">1 / ∑ w_i</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">زایش لگاریتمی میانگین هندسی وزنی:</span>
+                                    <span class="math-sym">ln(X̄_{gw})</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ [ w_i × ln(X_i) ]</span><span class="math-den">∑ w_i</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">میانگین حسابی وزنی (فضای جمع‌پذیر):</span>
+                                    <span class="math-sym">X̄_w</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ ( w_i × X_i )</span><span class="math-den">∑ w_i</span></span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • چرا در هندسی وزن‌ها به توان می‌رسند؟ چون در فضای هندسی تجمیع داده از جنس ضرب است؛ تکرار داده به تعداد w بار یعنی رساندن آن به توان w.<br>
+                                • کاربرد در بازار سرمایه: محاسبه نرخ بازده مرکب سالانه پورتفولیو با افق‌های زمانی و اوزان ماندگاری متفاوت.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                وارد کردن بازدهی‌های منفی در میانگین هندسی وزنی! بازده‌ها ابتدا باید با ۱ جمع شوند: Xi = 1 + Ri.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('X_gw = (prod(X_i^w_i))^(1/sum(w_i)); X_w = sum(w_i * X_i) / sum(w_i)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Stat Formula 13: Algebraic Properties of Mean -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">قضایای بنیادین ۱۳</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Algebraic Properties</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ویژگی‌های جبری و قضایای بنیادین میانگین حسابی</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Theorem 1: ∑ (x_i - x̄) = 0 ; Theorem 2: min_c ∑ (x_i - c)^2 <=> c = x̄ ; Combined: x̄_c = [ ∑ n_j x̄_j ] / ∑ n_j', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">قضیه ۱ (صفر شدن مجموع انحرافات):</span>
+                                    <span class="math-sym">∑ ( x_i - x̄ )</span><span class="math-op">=</span>0
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">قضیه ۲ (کمینه‌سازی مجموع مجذورات OLS):</span>
+                                    min_c ∑ ( x_i - c )² <span class="math-op">&lt;=&gt;</span> <span class="math-sym">c = x̄</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">قضیه ۳ (میانگین کل جوامع ادغام‌شده):</span>
+                                    <span class="math-sym">x̄_c</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ ( n_j × x̄_j )</span><span class="math-den">∑ n_j</span></span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد و اثبات:</strong>
+                                • اثبات قضیه ۱: ∑ (xi - x̄) = ∑ xi - ∑ x̄ = n×x̄ - n×x̄ = 0.<br>
+                                • مفهوم فیزیکی: میانگین حسابی مرکز ثقل ترازوی مشاهدات است؛ گشتاورهای چپ و راست دقیقاً هم را خنثی می‌کنند.<br>
+                                • قضیه ۲ پایه روش حداقل مربعات معمولی (OLS) در اقتصادسنجی و رگرسیون مالی است.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                فریب میانگینِ میانگین‌ها! اگر کلاسی ۲۰ نفره میانگین ۱۸ و کلاسی ۱۰ نفره میانگین ۱۴ داشته باشد، میانگین کل (۱۸+۱۴)/۲ = ۱۶ نیست! باید وزنی حساب شود: [ (20×18) + (10×14) ] / 30 = 16.67.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('sum(x_i - x_bar) = 0; min sum((x_i - c)^2) => c = x_bar; x_combined = sum(n_j * x_j) / sum(n_j)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Stat Formula 14: Linear Transformation Stability -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">پایداری مقیاس ۱۴</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Linear Transformations</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">پایداری و رفتار شاخص‌ها در تبدیلات خطی (y = ax + b)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Center: ȳ = a × x̄ + b ; Disp: s_y = |a| × s_x ; Var: s²_y = a² × s²_x ; Range: R_y = |a| × R_x', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">شاخص‌های مرکزی (میانگین، میانه، مد):</span>
+                                    <span class="math-sym">ȳ</span><span class="math-op">=</span>a × x̄ + b <span class="math-sep">|</span> <span class="math-sym">Med_y</span><span class="math-op">=</span>a × Med_x + b
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">شاخص‌های پراکندگی (انحراف معیار، دامنه R، MAD، IQR):</span>
+                                    <span class="math-sym">s_y</span><span class="math-op">=</span>|a| × s_x <span class="math-sep">|</span> <span class="math-sym">R_y</span><span class="math-op">=</span>|a| × R_x
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">واریانس داده‌های تبدیل‌شده:</span>
+                                    <span class="math-sym">s²_y</span><span class="math-op">=</span>a² × s²_x
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • عدد ثابت b تمام داده‌ها را روی محور جابه‌جا می‌کند اما فاصله بین آن‌ها را تغییر نمی‌دهد؛ به همین دلیل در تمام شاخص‌های پراکندگی b کاملاً بی‌اثر است (حذف می‌شود).<br>
+                                • ضریب ضرب‌کننده a فاصله را مقیاس‌بندی می‌کند و با قدرمطلق |a| در انحراف معیار و با توان ۲ (a²) در واریانس ظاهر می‌شود.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اگر a منفی باشد (مثلاً y = -2x + 10)، انحراف معیار منفی نمی‌شود! انحراف معیار در قدرمطلق |-2| = +2 ضرب می‌گردد: s_y = 2 × s_x.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('y_bar = a * x_bar + b; s_y = abs(a) * s_x; s2_y = a^2 * s2_x; R_y = abs(a) * R_x')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- Stat Formula 15: Sampling Techniques & Step-Size -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">تئوری نمونه‌گیری ۱۵</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sampling Methods</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تکنیک‌های نمونه‌گیری، شانس انتخاب و فاصله منظم سیستماتیک</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('SRS Prob: P = n / N ; Systematic: k = N / n, items: r, r+k, r+2k ; Stratified: n_h = n × (N_h / N)', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">شانس انتخاب در تصادفی ساده (SRS):</span>
+                                    <span class="math-sym">P(انتخاب هر عضو)</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">n</span><span class="math-den">N</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">نمونه‌گیری سیستماتیک (منظم):</span>
+                                    فاصله گام <span class="math-sym">k</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">N</span><span class="math-den">n</span></span> <span class="math-sep">|</span> اعضا: r , r + k , r + 2k , ...
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">نمونه‌گیری طبقه‌ای با تخصیص متناسب:</span>
+                                    <span class="math-sym">n_h</span><span class="math-op">=</span>n × ( <span class="math-frac"><span class="math-num">N_h</span><span class="math-den">N</span></span> )
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>طبقه‌ای (Stratified):</b> جامعه به طبقاتی همگن از درون و ناهمگن از بیرون تقسیم می‌شود (مانند رشته‌های تحصیلی).<br>
+                                • <b>خوشه‌ای (Cluster):</b> جامعه به خوشه‌هایی ناهمگن از درون و همگن از بیرون تقسیم می‌شود و چند خوشه به صورت تصادفی کامل سرشماری می‌شوند (مانند مناطق شهرداری).
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                پدیده تناوب چرخه‌ای (Periodicity) در نمونه‌گیری سیستماتیک! اگر در لیست جامعه دوره‌ای پنهان با گام مضرب k وجود داشته باشد (مثلاً بررسی فروش فروشگاه‌ها در هر ۷ روز هفته با k = 7)، نمونه به شدت اریب می‌شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('P_srs = n / N; k_systematic = N / n; n_strata = n * (N_h / N)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
 </div>
             </div>
 
@@ -4929,7 +5543,7 @@
                         </p>
                     </div>
                     <span class="badge badge-hub font-mono" id="hub-count-badge" style="font-size: 0.8rem; padding: 5px 12px;">
-                        تعداد کل: ۴۰ شاخص
+                        تعداد کل: ۵۵ شاخص
                     </span>
                 </div>
 
@@ -7267,6 +7881,8 @@
         window.filterHubCards = filterHubCards;
         window.exportFullBrief = exportFullBrief;
         window.redrawActiveCourse = redrawActiveCourse;
+        window.initLeitner = initLeitner;
+        window.renderQuiz = renderQuiz;
 
         
         // ========================================================
@@ -7586,6 +8202,38 @@
         // LEITNER SPACED REPETITION ENGINE
         // ========================================================
         const leitnerCards = [
+            
+            {
+                cat: 'حسابداری صنعتی ۱',
+                q: 'تفاوت بنیادین بهای اولیه (Prime Cost) و بهای تبدیل (Conversion Cost) چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> بهای اولیه مجموع مواد مستقیم و دستمزد مستقیم است (عوامل فیزیکی ساخت). بهای تبدیل مجموع دستمزد مستقیم و سربار ساخت است (هزینه تبدیل مواد به محصول نهایی). دستمزد مستقیم تنها عنصری است که در هر دو مشترک است.'
+            },
+            {
+                cat: 'اقتصاد خرد',
+                q: 'آزمون درآمد کل (TR Test) و ارتباط آن با کشش تقاضا چگونه است؟',
+                a: '<b>پاسخ نخبگانی:</b> در ناحیه باکشش (|Ed| > 1) کاهش قیمت درآمد کل را بالا می‌برد. در ناحیه بی‌کشش (|Ed| < 1) افزایش قیمت درآمد را افزایش می‌دهد. در کشش واحد (|Ed| = 1) درآمد کل بیشینه و درآمد نهایی صفر است (MR = 0).'
+            },
+            {
+                cat: 'مدیریت مالی ۱',
+                q: 'چرا معیار NPV در بودجه‌بندی سرمایه‌ای نسبت به IRR برتری مطلق دارد؟',
+                a: '<b>پاسخ نخبگانی:</b> زیرا NPV ثروت واقعی افزوده سهامداران را اندازه می‌گیرد و فرض واقع‌بینانه‌ای دارد که جریان‌های نقدی با نرخ هزینه سرمایه شرکت (WACC) بازسرمایه‌گذاری می‌شوند؛ در حالی که IRR فرض نامعقول بازسرمایه‌گذاری با نرخ بالای IRR را دارد.'
+            },
+            {
+                cat: 'تحقیق در عملیات ۱',
+                q: 'تفاوت متغیر کمکی اسلک (Slack) با متغیر مازاد (Surplus) در سیمپلکس چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> متغیر اسلک (+S_i) به قیود کوچکتر-مساوی اضافه می‌شود و نشان‌دهنده ظرفیت بلااستفاده منبع است. متغیر مازاد (-e_i) از قیود بزرگتر-مساوی کسر می‌شود و نشان‌دهنده تولید مازاد بر حداقل نیاز است.'
+            },
+            {
+                cat: 'آمار کاربردی ۱',
+                q: 'اثر تبدیل خطی y = ax + b بر میانگین، واریانس و انحراف معیار چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> میانگین تابع خطی کامل می‌گیرد: ȳ = a×x̄ + b. اما در شاخص‌های پراکندگی عدد ثابت b بی‌اثر است؛ بنابراین انحراف معیار s_y = |a| × s_x و واریانس s²_y = a² × s²_x می‌شود.'
+            },
+            {
+                cat: 'آمار کاربردی ۱',
+                q: 'قضیه صفر شدن مجموع انحرافات از میانگین حسابی و اثبات آن چیست؟',
+                a: '<b>پاسخ نخبگانی:</b> همواره ∑ (xi - x̄) = 0 است؛ زیرا ∑ (xi - x̄) = ∑ xi - n×x̄ = n×x̄ - n×x̄ = 0. میانگین حسابی مرکز ثقل توزیع داده‌هاست.'
+            },
+
             {
                 cat: 'آمار کاربردی ۱',
                 q: 'چرا میانگین حسابی برای رشد ثروت سراب ایجاد می‌کند و میانگین هندسی ارجح است؟',
