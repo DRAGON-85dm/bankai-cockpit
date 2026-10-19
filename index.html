@@ -801,52 +801,152 @@
             white-space: pre-wrap;
         }
 
-        /* Floating Bottom Executive Dock */
-        .executive-dock {
-            position: fixed;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 24px);
-            max-width: 680px;
-            background: rgba(15, 23, 42, 0.94);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 6px 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-            z-index: 1000;
-        }
+        /* ========================================================
+   v24.0 QUANTUM MASTERPIECE: GLASSMORPHIC EXECUTIVE DOCK
+   Apple iOS 18 / VisionOS Floating Island & High-Contrast Typography
+   ======================================================== */
+.executive-dock {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 20px);
+    max-width: 660px;
+    background: rgba(13, 19, 33, 0.90) !important;
+    backdrop-filter: blur(24px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-radius: 24px;
+    padding: 6px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+    z-index: 1000;
+    user-select: none;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .dock-btn {
-            background: transparent;
-            border: none;
-            color: #94A3B8;
-            padding: 7px 8px;
-            border-radius: 14px;
-            cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-            transition: all 0.15s ease;
-            user-select: none;
-            flex: 1;
-        }
-        .dock-btn span:first-child { font-size: 1.15rem; }
-        .dock-btn:hover { color: #FFFFFF; }
-        .dock-btn.active {
-            color: #FFFFFF;
-            background: rgba(255, 255, 255, 0.14);
-            font-weight: 800;
-        }
+body:not(.theme-dark) .executive-dock {
+    background: rgba(255, 255, 255, 0.94) !important;
+    border: 1px solid rgba(203, 213, 225, 0.9) !important;
+    box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+.dock-btn {
+    background: transparent;
+    border: 1.5px solid transparent;
+    color: #94A3B8 !important;
+    padding: 7px 4px 6px 4px;
+    border-radius: 18px;
+    cursor: pointer;
+    font-family: 'Vazirmatn', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    user-select: none;
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    outline: none;
+}
+
+body:not(.theme-dark) .dock-btn {
+    color: #64748B !important;
+}
+
+.dock-btn span:first-child {
+    font-size: 1.22rem;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dock-btn span:last-child {
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: inherit;
+    display: inline-block;
+    transition: color 0.2s ease, font-weight 0.2s ease, transform 0.2s ease;
+}
+
+.dock-btn:hover {
+    color: #FFFFFF !important;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body:not(.theme-dark) .dock-btn:hover {
+    color: #0F172A !important;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* --- ACTIVE BUTTON STATE: ZERO FADE, MAXIMUM CLARITY --- */
+.dock-btn.active {
+    color: #FFFFFF !important;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.45) 0%, rgba(79, 70, 229, 0.65) 100%) !important;
+    border: 1.5px solid rgba(165, 180, 252, 0.75) !important;
+    box-shadow: 0 4px 18px rgba(99, 102, 241, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px);
+}
+
+.dock-btn.active span:first-child {
+    transform: scale(1.15);
+    filter: drop-shadow(0 2px 8px rgba(165, 180, 252, 0.7));
+}
+
+.dock-btn.active span:last-child {
+    color: #FFFFFF !important;
+    font-weight: 900 !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Dynamic Neon Bottom Indicator Pill for Dark Mode */
+.dock-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    width: 16px;
+    height: 3px;
+    border-radius: 999px;
+    background: #818CF8;
+    box-shadow: 0 0 8px #818CF8;
+}
+
+/* LIGHT MODE ACTIVE OVERRIDE: CRISP DEEP INDIGO WITH HIGH CONTRAST */
+body:not(.theme-dark) .dock-btn.active {
+    color: #1E1B4B !important;
+    background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%) !important;
+    border: 1.5px solid #4F46E5 !important;
+    box-shadow: 0 4px 16px rgba(79, 70, 229, 0.28), inset 0 1px 0 #FFFFFF !important;
+    transform: translateY(-2px);
+}
+
+body:not(.theme-dark) .dock-btn.active span:first-child {
+    transform: scale(1.15);
+    filter: drop-shadow(0 2px 4px rgba(79, 70, 229, 0.3));
+}
+
+body:not(.theme-dark) .dock-btn.active span:last-child {
+    color: #1E1B4B !important;
+    font-weight: 900 !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+body:not(.theme-dark) .dock-btn.active::after {
+    background: #4F46E5;
+    box-shadow: 0 0 6px rgba(79, 70, 229, 0.5);
+}
 
         /* Toast Notification */
         .toast {
@@ -2156,68 +2256,7 @@
             color: #38BDF8 !important;
         }
 
-        /* Enhanced Floating Executive Dock */
-        .executive-dock {
-            position: fixed;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 24px);
-            max-width: 640px;
-            background: rgba(15, 23, 42, 0.94);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(255, 255, 255, 0.18);
-            border-radius: 22px;
-            padding: 6px 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-            z-index: 1000;
-        }
-        body:not(.theme-dark) .executive-dock {
-            background: rgba(255, 255, 255, 0.94);
-            border-color: rgba(203, 213, 225, 0.8);
-            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18);
-        }
-
-        .dock-btn {
-            background: transparent;
-            border: none;
-            color: #94A3B8;
-            padding: 6px 6px;
-            border-radius: 14px;
-            cursor: pointer;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            user-select: none;
-            flex: 1;
-        }
-        body:not(.theme-dark) .dock-btn {
-            color: #64748B;
-        }
-        .dock-btn span:first-child { font-size: 1.15rem; }
-        .dock-btn:hover { color: #FFFFFF; }
-        body:not(.theme-dark) .dock-btn:hover { color: #0F172A; }
-        .dock-btn.active {
-            color: #FFFFFF;
-            background: rgba(99, 102, 241, 0.35) !important;
-            font-weight: 800;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
-        }
-        body:not(.theme-dark) .dock-btn.active {
-            color: #1E1B4B;
-            background: #EEF2FF !important;
-            border: 1px solid #C7D2FE;
-            box-shadow: 0 2px 8px rgba(67, 56, 202, 0.15);
-        }
+        /* Dock rules consolidated in master block */
 
         /* Direct Contextual Flashback Button */
         .btn-direct-flashback {
@@ -2726,24 +2765,7 @@
             color: #94A3B8;
         }
 
-        /* Dock High-Contrast Glow */
-        .executive-dock {
-            background: rgba(15, 23, 42, 0.88) !important;
-            backdrop-filter: blur(20px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
-        }
-        .dock-btn {
-            color: #94A3B8 !important;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        }
-        .dock-btn.active {
-            color: #FFFFFF !important;
-            background: rgba(255, 255, 255, 0.12) !important;
-            border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
-            box-shadow: 0 0 16px rgba(59, 130, 246, 0.4) !important;
-            transform: translateY(-2px);
-        }
+        /* Dock High-Contrast Master Rules Consolidated */
 
         /* Math Discipline Theme Variables */
         :root {
@@ -2836,7 +2858,47 @@
             background: #090D16;
             border-color: #1E293B;
         }
-</style>
+
+        /* Multi-Discipline Workout Benches & Modern Floating Pill Styles */
+        .workout-container {
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+        }
+        body.theme-dark .workout-container {
+            background: #0F172A;
+            border-color: #1E293B;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        }
+        .workout-pill.micro-pill.active {
+            background: #2563EB !important;
+            color: #FFFFFF !important;
+            border-color: #1D4ED8 !important;
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35) !important;
+        }
+        .workout-pill.cost-pill.active {
+            background: #059669 !important;
+            color: #FFFFFF !important;
+            border-color: #047857 !important;
+            box-shadow: 0 3px 10px rgba(5, 150, 105, 0.35) !important;
+        }
+        .workout-pill.finance-pill.active {
+            background: #7C3AED !important;
+            color: #FFFFFF !important;
+            border-color: #6D28D9 !important;
+            box-shadow: 0 3px 10px rgba(124, 58, 237, 0.35) !important;
+        }
+        .workout-pill.or-pill.active {
+            background: #0E7490 !important;
+            color: #FFFFFF !important;
+            border-color: #0891B2 !important;
+            box-shadow: 0 3px 10px rgba(14, 116, 144, 0.35) !important;
+        }
+
+    </style>
 
 </head>
 <body>
@@ -3489,6 +3551,103 @@
 
             <!-- 1.4 CANONICAL STEP-BY-STEP SOLUTION -->
             <div id="micro-tab-solution" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     INTERACTIVE MICROECONOMICS WORKOUT BENCH & PRACTICE LAB
+                     ======================================================== -->
+                <div class="workout-container" id="micro-workout-bench">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
+                        <div>
+                            <span class="badge badge-micro">بستر اختصاصی محاسبات و آزمایشگاه تعاملی</span>
+                            <h3 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                                📉 کارگاه تعاملی کشش، بار مالیاتی و رفاه مصرف‌کننده
+                            </h3>
+                            <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
+                                تحلیل آنی تسهیم مالیات بر مبنای کشش‌ها، مثلث زیان رفاهی (DWL) و شاخص درجه انحصار لرنر
+                            </p>
+                        </div>
+                        <span class="badge badge-dark">نسخه ویژه بهادر</span>
+                    </div>
+
+                    <!-- Workout Navigation Pills -->
+                    <div class="workout-nav-pills">
+                        <button class="workout-pill micro-pill active" id="btn-mpill-tax" onclick="switchMicroWorkoutTab('tax')">
+                            <span>📉</span> تسهیم بار مالیاتی و زیان رفاهی (DWL)
+                        </button>
+                        <button class="workout-pill micro-pill" id="btn-mpill-lerner" onclick="switchMicroWorkoutTab('lerner')">
+                            <span>🏰</span> انحصار، شاخص لرنر و کشش تقاضا
+                        </button>
+                    </div>
+
+                    <!-- STATION 1: TAX INCIDENCE & DWL -->
+                    <div class="workout-pane active" id="mpane-tax">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۱. محاسبه تسهیم بار مالیاتی با کشش‌ها و زیان بار مرده جامعه:
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                فرمول سهم خریدار: ΔP_b = [ E_s / (E_s + |E_d|) ] × t &nbsp;|&nbsp; زیان رفاهی: DWL = 0.5 × t × ΔQ
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">کشش عرضه (E_s):</label>
+                                    <input type="number" id="mic-es" value="2.0" step="0.2" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قدرمطلق کشش تقاضا (|E_d|):</label>
+                                    <input type="number" id="mic-ed" value="1.0" step="0.2" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">مالیات واحدی (t):</label>
+                                    <input type="number" id="mic-tax" value="6" step="1" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قیمت تعادل اولیه (P₀):</label>
+                                    <input type="number" id="mic-p0" value="20" step="1" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">تیراژ تعادل اولیه (Q₀):</label>
+                                    <input type="number" id="mic-q0" value="60" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runMicroTaxTrainer()" style="margin-top: 12px; background: #2563EB; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> محاسبه تسهیم مالیات، قیمت‌های جدید و DWL
+                            </button>
+                        </div>
+                        <div id="mic-tax-result" class="workout-result-box">
+                            برای مشاهده کالبدشکافی تسهیم مالیات و زیان رفاهی جامعه، روی دکمه بالا کلیک کنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 2: LERNER & MONOPOLY -->
+                    <div class="workout-pane" id="mpane-lerner">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۲. محاسبه شاخص درجه انحصار لرنر و نشخوار قیمتی (Markup):
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                شاخص لرنر: L = (P - MC) / P &nbsp;|&nbsp; کشش تقاضا: |E_d| = 1 / L &nbsp;|&nbsp; رابطه آموروسو: MR = P(1 - 1/|E_d|)
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قیمت فروش محصول (P):</label>
+                                    <input type="number" id="mic-p" value="100" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">هزینه نهایی تولید (MC):</label>
+                                    <input type="number" id="mic-mc" value="60" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runMicroLernerTrainer()" style="margin-top: 12px; background: #1D4ED8; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> استخراج شاخص لرنر و کشش تقاضای بازار
+                            </button>
+                        </div>
+                        <div id="mic-lerner-result" class="workout-result-box">
+                            برای ارزیابی درجه انحصار و نشخوار قیمتی انحصارگر، دکمه بالا را بزنید.
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <span class="badge badge-micro" style="margin-bottom: 8px;">مسئله تیپ کنکور کارشناسی ارشد تهران و شریف</span>
                     <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
@@ -3940,6 +4099,142 @@
 
             <!-- 2.4 STEP-BY-STEP SOLUTION -->
             <div id="cost-tab-solution" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     INTERACTIVE COST ACCOUNTING WORKOUT BENCH & PRACTICE LAB
+                     ======================================================== -->
+                <div class="workout-container" id="cost-workout-bench">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
+                        <div>
+                            <span class="badge badge-cost">بستر اختصاصی بهای تمام‌شده و CVP</span>
+                            <h3 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                                🏭 کارگاه تعاملی بهای تمام‌شده، تحلیل CVP و اهرم‌ها
+                            </h3>
+                            <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
+                                شبیه‌سازی تیراژ سر‌به‌سر، سود هدف با مالیات، حاشیه امنیت و تفکیک هزینه نیمه‌متغیر (High-Low)
+                            </p>
+                        </div>
+                        <span class="badge badge-dark">نسخه ویژه بهادر</span>
+                    </div>
+
+                    <!-- Workout Navigation Pills -->
+                    <div class="workout-nav-pills">
+                        <button class="workout-pill cost-pill active" id="btn-cpill-cvp" onclick="switchCostWorkoutTab('cvp')">
+                            <span>🎯</span> نقطه سر‌به‌سر و سود هدف
+                        </button>
+                        <button class="workout-pill cost-pill" id="btn-cpill-dol" onclick="switchCostWorkoutTab('dol')">
+                            <span>⚖️</span> اهرم عملیاتی (DOL) و حاشیه امنیت
+                        </button>
+                        <button class="workout-pill cost-pill" id="btn-cpill-highlow" onclick="switchCostWorkoutTab('highlow')">
+                            <span>📐</span> تفکیک هزینه نیمه‌متغیر (High-Low)
+                        </button>
+                    </div>
+
+                    <!-- STATION 1: CVP & TARGET PROFIT -->
+                    <div class="workout-pane active" id="cpane-cvp">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۱. محاسبه تیراژ سر‌به‌سر، نسبت حاشیه فروش و سود هدف با مالیات:
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                CM = P - V &nbsp;|&nbsp; Q_BEP = FC / CM &nbsp;|&nbsp; Q* = [ FC + (Target / (1 - T)) ] / CM
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قیمت فروش واحد (P):</label>
+                                    <input type="number" id="cst-price" value="50000" step="5000" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بهای متغیر واحد (V):</label>
+                                    <input type="number" id="cst-vc" value="30000" step="5000" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">کل بهای ثابت (FC):</label>
+                                    <input type="number" id="cst-fc" value="60000000" step="5000000" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">سود هدف بعد از مالیات:</label>
+                                    <input type="number" id="cst-target" value="15000000" step="1000000" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">نرخ مالیات شرکت (T%):</label>
+                                    <input type="number" id="cst-tax" value="25" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runCostCVPTrainer()" style="margin-top: 12px; background: #059669; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> محاسبه سر‌به‌سر، CMR و تیراژ سود هدف
+                            </button>
+                        </div>
+                        <div id="cst-cvp-result" class="workout-result-box">
+                            برای استخراج حل گام‌به‌گام نقطه سر‌به‌سر و سود هدف، روی دکمه بالا بزنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 2: DOL & MARGIN OF SAFETY -->
+                    <div class="workout-pane" id="cpane-dol">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۲. محاسبه درجه اهرم عملیاتی (DOL) و نسبت حاشیه امنیت (MS%):
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                MS% = (Q_actual - Q_BEP) / Q_actual &nbsp;|&nbsp; DOL = 1 / MS%
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">تیراژ فروش واقعی (Q_actual):</label>
+                                    <input type="number" id="cst-actual-q" value="4000" step="200" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">تیراژ سر‌به‌سر (Q_BEP):</label>
+                                    <input type="number" id="cst-bep-q" value="3000" step="200" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runCostDOLTrainer()" style="margin-top: 12px; background: #047857; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> ارزیابی اهرم عملیاتی و نسبت حاشیه امنیت
+                            </button>
+                        </div>
+                        <div id="cst-dol-result" class="workout-result-box">
+                            برای کالبدشکافی ریسک عملیاتی و حاشیه امنیت، دکمه بالا را کلیک کنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 3: HIGH-LOW METHOD -->
+                    <div class="workout-pane" id="cpane-highlow">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۳. تفکیک هزینه‌های مختلط به روش حد بالا و پایین (High-Low Method):
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                نرخ متغیر: b = (Y_H - Y_L) / (X_H - X_L) &nbsp;|&nbsp; بهای ثابت: a = Y_H - b × X_H
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">فعالیت بالا (X_H):</label>
+                                    <input type="number" id="cst-xh" value="10000" step="500" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بهای کل در بالا (Y_H):</label>
+                                    <input type="number" id="cst-yh" value="500000" step="10000" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">فعالیت پایین (X_L):</label>
+                                    <input type="number" id="cst-xl" value="4000" step="500" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بهای کل در پایین (Y_L):</label>
+                                    <input type="number" id="cst-yl" value="260000" step="10000" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runCostHighLowTrainer()" style="margin-top: 12px; background: #065F46; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> استخراج معادله خط هزینه و تفکیک نرخ ثابت و متغیر
+                            </button>
+                        </div>
+                        <div id="cst-highlow-result" class="workout-result-box">
+                            جهت مشاهده معادله خطی هزینه Y = a + bX دکمه بالا را لمس کنید.
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <span class="badge badge-cost" style="margin-bottom: 8px;">مسئله تفکیک هزینه‌های نیمه‌متغیر (روش High-Low)</span>
                     <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
@@ -4374,6 +4669,150 @@
 
             <!-- 3.4 STEP-BY-STEP SOLUTION -->
             <div id="finance-tab-solution" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     INTERACTIVE FINANCIAL MANAGEMENT WORKOUT BENCH
+                     ======================================================== -->
+                <div class="workout-container" id="finance-workout-bench">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
+                        <div>
+                            <span class="badge badge-finance">کاکپیت محاسباتی مدیریت مالی ۱</span>
+                            <h3 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                                💰 کارگاه تعاملی مدل قیمت‌گذاری دارایی سرمایه‌ای، ارزش‌گذاری و WACC
+                            </h3>
+                            <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
+                                حل گام‌به‌گام خط بازار اوراق بهادار (SML)، آلفای جنسن، مدل رشد گوردون و بتای اهرمی همادا
+                            </p>
+                        </div>
+                        <span class="badge badge-dark">نسخه ویژه بهادر</span>
+                    </div>
+
+                    <!-- Workout Navigation Pills -->
+                    <div class="workout-nav-pills">
+                        <button class="workout-pill finance-pill active" id="btn-fpill-capm" onclick="switchFinanceWorkoutTab('capm')">
+                            <span>📈</span> خط SML و آلفای جنسن
+                        </button>
+                        <button class="workout-pill finance-pill" id="btn-fpill-gordon" onclick="switchFinanceWorkoutTab('gordon')">
+                            <span>💰</span> ارزش‌گذاری رشد گوردون
+                        </button>
+                        <button class="workout-pill finance-pill" id="btn-fpill-wacc" onclick="switchFinanceWorkoutTab('wacc')">
+                            <span>🏛️</span> WACC و بتای اهرمی همادا
+                        </button>
+                    </div>
+
+                    <!-- STATION 1: CAPM & SML -->
+                    <div class="workout-pane active" id="fpane-capm">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۱. محاسبه بازده مورد انتظار CAPM و آلفای جنسن (ارزیابی عملکرد):
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                SML: E(R_i) = R_f + β_i × [ E(R_m) - R_f ] &nbsp;|&nbsp; Alpha: α_i = R_actual - E(R_i)
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">نرخ بدون ریسک (R_f%):</label>
+                                    <input type="number" id="fin-rf" value="22" step="1" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بازده بازار (E(R_m)%):</label>
+                                    <input type="number" id="fin-rm" value="34" step="1" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بتای سیستماتیک سهم (β):</label>
+                                    <input type="number" id="fin-beta" value="1.5" step="0.1" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بازده واقعی ثبت‌شده سهم (R%):</label>
+                                    <input type="number" id="fin-ract" value="42" step="2" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runFinanceCAPMTrainer()" style="margin-top: 12px; background: #7C3AED; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> ارزیابی خط SML و استخراج آلفای جنسن
+                            </button>
+                        </div>
+                        <div id="fin-capm-result" class="workout-result-box">
+                            برای مشاهده تحلیل موقعیت سهم روی خط SML و آلفای جنسن، دکمه بالا را لمس کنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 2: GORDON GROWTH MODEL -->
+                    <div class="workout-pane" id="fpane-gordon">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۲. ارزش‌گذاری سهام عادی با مدل رشد گوردون (Gordon Dividend Growth):
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                D₁ = D₀ × (1 + g) &nbsp;|&nbsp; P₀ = D₁ / (k_e - g) &nbsp;|&nbsp; بازده نقدی: DY = D₁ / P₀
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">آخرین DPS نقدی (D₀):</label>
+                                    <input type="number" id="fin-d0" value="1000" step="100" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">نرخ رشد سالانه سود (g%):</label>
+                                    <input type="number" id="fin-g" value="15" step="1" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بازده مورد انتظار سهامدار (k_e%):</label>
+                                    <input type="number" id="fin-ke" value="25" step="1" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runFinanceGordonTrainer()" style="margin-top: 12px; background: #6D28D9; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> محاسبه ارزش ذاتی سهم و نسبت‌های بازده نقدی
+                            </button>
+                        </div>
+                        <div id="fin-gordon-result" class="workout-result-box">
+                            جهت محاسبه ارزش ذاتی سهم عادی و تفکیک بازده نقدی و سرمایه‌ای، دکمه بالا را بزنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 3: WACC & HAMADA -->
+                    <div class="workout-pane" id="fpane-wacc">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۳. محاسبه میانگین موزون هزینه سرمایه (WACC) و بتای اهرمی همادا:
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                WACC = W_e × k_e + W_d × k_d × (1 - T) &nbsp;|&nbsp; β_L = β_U × [ 1 + (1 - T)(D/E) ]
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">ارزش بدهی (D):</label>
+                                    <input type="number" id="fin-debt" value="400" step="50" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">ارزش سهام (E):</label>
+                                    <input type="number" id="fin-eq" value="600" step="50" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">هزینه بدهی (k_d%):</label>
+                                    <input type="number" id="fin-kd" value="20" step="1" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">هزینه سهام (k_e%):</label>
+                                    <input type="number" id="fin-cost-ke" value="28" step="1" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">نرخ مالیات (T%):</label>
+                                    <input type="number" id="fin-tax" value="25" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">بتای بدون اهرم (β_U):</label>
+                                    <input type="number" id="fin-bu" value="1.1" step="0.1" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runFinanceWACCTrainer()" style="margin-top: 12px; background: #5B21B6; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> محاسبه WACC، سپر مالیاتی بدهی و بتای همادا
+                            </button>
+                        </div>
+                        <div id="fin-wacc-result" class="workout-result-box">
+                            جهت مشاهده سپر مالیاتی، بهای موزون سرمایه و اهرم همادا روی دکمه بالا بزنید.
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <span class="badge badge-finance" style="margin-bottom: 8px;">مسئله بودجه‌بندی سرمایه‌ای و تنزیل جریان‌های نقدی</span>
                     <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
@@ -4777,6 +5216,112 @@
 
             <!-- 4.4 STEP-BY-STEP SOLUTION -->
             <div id="or-tab-solution" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     INTERACTIVE OPERATIONS RESEARCH WORKOUT BENCH
+                     ======================================================== -->
+                <div class="workout-container" id="or-workout-bench">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
+                        <div>
+                            <span class="badge badge-or">کاکپیت تحقیق در عملیات ۱</span>
+                            <h3 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                                ⚙️ کارگاه تعاملی دوگان، قیمت سایه و آزمون حداقل نسبت
+                            </h3>
+                            <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
+                                تحلیل حساسیت منابع، ارزش متغیرهای دوگان و آزمون حداقل نسبت سیمپلکس برای تعیین متغیر خارج‌شونده
+                            </p>
+                        </div>
+                        <span class="badge badge-dark">نسخه ویژه بهادر</span>
+                    </div>
+
+                    <!-- Workout Navigation Pills -->
+                    <div class="workout-nav-pills">
+                        <button class="workout-pill or-pill active" id="btn-opill-shadow" onclick="switchORWorkoutTab('shadow')">
+                            <span>💡</span> قیمت سایه و ارزش منبع
+                        </button>
+                        <button class="workout-pill or-pill" id="btn-opill-minratio" onclick="switchORWorkoutTab('minratio')">
+                            <span>🚪</span> آزمون حداقل نسبت سیمپلکس
+                        </button>
+                    </div>
+
+                    <!-- STATION 1: SHADOW PRICE & DUAL -->
+                    <div class="workout-pane active" id="opane-shadow">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۱. تحلیل اقتصادی قیمت سایه و ارزش‌گذاری ظرفیت منابع:
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                قیمت سایه: y_i* = ∂Z* / ∂b_i &nbsp;|&nbsp; افزایش سود: ΔZ* = y_i* × Δb_i
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">ظرفیت فعلی منبع (b_i):</label>
+                                    <input type="number" id="or-b" value="100" step="10" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قیمت سایه منبع (y_i*):</label>
+                                    <input type="number" id="or-shadow" value="25" step="2" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">افزایش ظرفیت پیشنهادی (Δb_i):</label>
+                                    <input type="number" id="or-delta-b" value="20" step="5" class="param-input-box" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قیمت بازار هر واحد منبع:</label>
+                                    <input type="number" id="or-market-price" value="18" step="2" class="param-input-box" style="width: 100%;">
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runORShadowTrainer()" style="margin-top: 12px; background: #0E7490; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> ارزیابی توجیه خرید منبع و تغییر حداکثر سود
+                            </button>
+                        </div>
+                        <div id="or-shadow-result" class="workout-result-box">
+                            جهت مشاهده تحلیل اقتصادی قیمت سایه و سودآوری خرید منبع، دکمه بالا را بزنید.
+                        </div>
+                    </div>
+
+                    <!-- STATION 2: SIMPLEX MIN RATIO TEST -->
+                    <div class="workout-pane" id="opane-minratio">
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
+                                ۲. آزمون حداقل نسبت سیمپلکس برای تعیین متغیر خارج‌شونده از پایه:
+                            </strong>
+                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
+                                شرط آزمون: θ_i = b_i / a_ik (فقط برای a_ik > 0) &nbsp;|&nbsp; متغیر خارج‌شونده: Min { θ_i }
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۱: b₁ | a₁_k:</label>
+                                    <div style="display: flex; gap: 4px;">
+                                        <input type="number" id="or-b1" value="40" class="param-input-box" style="width: 50%;">
+                                        <input type="number" id="or-a1" value="2" class="param-input-box" style="width: 50%;">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۲: b₂ | a₂_k:</label>
+                                    <div style="display: flex; gap: 4px;">
+                                        <input type="number" id="or-b2" value="60" class="param-input-box" style="width: 50%;">
+                                        <input type="number" id="or-a2" value="5" class="param-input-box" style="width: 50%;">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۳: b₃ | a₃_k:</label>
+                                    <div style="display: flex; gap: 4px;">
+                                        <input type="number" id="or-b3" value="50" class="param-input-box" style="width: 50%;">
+                                        <input type="number" id="or-a3" value="-3" class="param-input-box" style="width: 50%;">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-copy-formula" onclick="runORMinRatioTrainer()" style="margin-top: 12px; background: #0891B2; color: #FFFFFF; font-weight: 900;">
+                                <span>⚡</span> اجرای آزمون حداقل نسبت و تشخیص لولا
+                            </button>
+                        </div>
+                        <div id="or-minratio-result" class="workout-result-box">
+                            جهت تعیین سطر لولا و متغیر خارج‌شونده، دکمه بالا را کلیک کنید.
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <span class="badge badge-or" style="margin-bottom: 8px;">الگوریتم حل جدول سیمپلکس با آزمون حداقل نسبت</span>
                     <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
@@ -9658,6 +10203,72 @@
                     ],
                     correct: 0,
                     expl: '<b>کالبدشکافی تحلیلی:</b> انحراف معیار اولیه s = √۱۶ = ۴ است.<br>• جمع داده‌ها با عدد ثابت ۱۰ هیچ تغییری در انحراف معیار نمی‌دهد (s = ۴).<br>• ضرب در ۳، انحراف معیار را در قدرمطلق ۳ ضرب می‌کند: s_new = ۳ × ۴ = ۱۲.'
+                },
+                {
+                    q: 'چرا در محاسبه انحراف متوسط از میانگین (MAD) نمونه، مجموع انحرافات به جای n - 1 بر n تقسیم می‌شود؟',
+                    opts: [
+                        '۱. چون تصحیح بسل (n - 1) منحصراً متعلق به میانگین مجذورات انحرافات (واریانس) است و برای مخرج قدرمطلق توجیه ریاضی ندارد',
+                        '۲. چون مجموع قدرمطلق‌ها همواره صفر است',
+                        '۳. چون MAD پارامتر جامعه است نه آماره نمونه',
+                        '۴. تقسیم بر n یک فرض دلخواه است و استاندارد رسمی ندارد'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی استاد:</b> تصحیح بسل (Bessel Correction) ناشی از مصرف ۱ درجه آزادی در تخمین میانگین جامعه توسط x̄ و نااریب‌سازی واریانس نمونه است: E[s²] = σ². در حالی که در انحراف متوسط (MAD) تابعیت توانی درجه دو وجود ندارد و مخرج در هر دو حالت جامعه و نمونه به صورت رسمی حجم کل مشاهدات (N و n) است.'
+                },
+                {
+                    q: 'اگر داده‌های یک متغیر مالی همگی با عدد ثابت ۱۰ جمع و سپس در ۵ ضرب شوند، ضریب تغییرات جدید (CV) چه تغییری می‌کند؟',
+                    opts: [
+                        '۱. ضریب تغییرات کاهش می‌یابد',
+                        '۲. ضریب تغییرات ۵ برابر می‌شود',
+                        '۳. ضریب تغییرات ثابت و بدون تغییر می‌ماند',
+                        '۴. ضریب تغییرات ۱۰ برابر می‌شود'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی و تله کنکور ارشد:</b><br>• با تبدیل y = ax + b داریم: میانگین جدید ȳ = ax̄ + b و انحراف معیار جدید s_y = |a| s_x.<br>• ضریب تغییرات جدید: CV_y = (a s_x) / (a x̄ + b) = s_x / (x̄ + b/a).<br>• چون مخرج با عدد مثبت b/a بزرگتر شده، مقدار CV اکیداً کاهش می‌یابد! (CV تنها زمانی بی‌تغییر می‌ماند که فقط عمل ضرب انجام شود: b = 0).'
+                },
+                {
+                    q: 'در توزیع داده‌های پیوسته طبقه‌بندی شده، رابطه درون‌یابی خطی برای استخراج میانه کدام است؟',
+                    opts: [
+                        '۱. Med = L + [ (N/2 - F_cum) / f_med ] × c',
+                        '۲. Med = L + [ (N - F_cum) / f_med ] × c',
+                        '۳. Med = L + [ (F_cum - N/2) / f_med ] × c',
+                        '۴. Med = L + [ (N/2) / f_med ] × c'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> L حد پایین طبقه میانه، N/2 رتبه رخداد میانه در جامعه، F_cum فراوانی تجمعی طبقه قبل از میانه، f_med فراوانی مطلق طبقه میانه و c طول فاصله طبقه است. این فرمول هندسه‌ درون‌یابی خطی در منحنی فراوانی تجمعی (اوجایو) است.'
+                },
+                {
+                    q: 'طبق رابطه تجربی پیرسون، در توزیع‌های با چولگی ملایم، فاصله میانگین از مد تقریباً چند برابر فاصله میانگین از میانه است؟',
+                    opts: [
+                        '۱. دقیقاً ۳ برابر (Mean - Mode ≈ 3 × [Mean - Median])',
+                        '۲. دقیقاً ۲ برابر',
+                        '۳. دقیقاً ۰.۵ برابر',
+                        '۴. این رابطه فقط در توزیع کاملاً متقارن صادق است'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی استاد:</b> رابطه تجربی پیرسون (Mean - Mode ≈ 3 × [Mean - Median]) نشان می‌دهد میانه همواره بین میانگین و مد قرار دارد و انحراف میانگین از مد ۳ برابر انحراف آن از میانه است.'
+                },
+                {
+                    q: 'بر مبنای آزمون جعبه‌ای توکی (Tukey Fences)، مرز بالایی برای شناسایی داده‌های پرت کدام است؟',
+                    opts: [
+                        '۱. Q₃ + 1.5 × IQR',
+                        '۲. Q₃ + 3.0 × IQR',
+                        '۳. Median + 1.5 × IQR',
+                        '۴. Q₁ + 1.5 × IQR'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> توکی دامنه میان‌چارکی (IQR = Q₃ - Q₁) را معیار پراکندگی مقاوم انتخاب کرد. مرزهای مجاز داده‌ها عبارتند از: مرز پایین Q₁ - 1.5×IQR و مرز بالا Q₃ + 1.5×IQR. هر مشاهده‌ای خارج از این محدوده، داده پرت (Outlier) تلقی می‌گردد.'
+                },
+                {
+                    q: 'طبق نامساوی چبیشف، صرف‌نظر از شکل توزیع جامعه، حداقل چه درصدی از مشاهدات در فاصله k = 2 انحراف معیار از میانگین قرار می‌گیرند؟',
+                    opts: [
+                        '۱. حداقل ۷۵٪ (طبق 1 - 1/k²)',
+                        '۲. دقیقاً ۹۵٪',
+                        '۳. حداقل ۹۰٪',
+                        '۴. حداقل ۵۰٪'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی و تله ارشد:</b> نامساوی چبیشف برای هر توزیعی (حتی چوله و نامتقارن) تضمین می‌کند که حداقل 1 - 1/k² از داده‌ها در فاصله k انحراف معیار قرار دارند. به ازای k = 2: 1 - 1/4 = 0.75 یعنی حداقل ۷۵٪ داده‌ها. دقت کنید ۹۵٪ متعلق به قانون تجربی توزیع زنگوله‌ای نرمال است نه چبیشف!'
                 }
             ]
         };
@@ -11347,6 +11958,483 @@
         window.runMathLagrangeTrainer = runMathLagrangeTrainer;
         window.answerMathChallenge = answerMathChallenge;
         window.loadNextMathChallenge = loadNextMathChallenge;
+
+        // ========================================================
+        // v24.0 MULTI-DISCIPLINE INTERACTIVE WORKBENCH ENGINES
+        // ========================================================
+
+        // 1. MICROECONOMICS WORKBENCH ENGINE
+        function switchMicroWorkoutTab(tab) {
+            hapticTap('light');
+            document.querySelectorAll('.micro-pill').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById('btn-mpill-' + tab);
+            if (btn) btn.classList.add('active');
+
+            const pTax = document.getElementById('mpane-tax');
+            const pLerner = document.getElementById('mpane-lerner');
+            if (pTax) pTax.classList.remove('active');
+            if (pLerner) pLerner.classList.remove('active');
+
+            const target = document.getElementById('mpane-' + tab);
+            if (target) target.classList.add('active');
+        }
+
+        function runMicroTaxTrainer() {
+            hapticTap('success');
+            const es = parseFloat(document.getElementById('mic-es').value) || 2.0;
+            const ed = Math.abs(parseFloat(document.getElementById('mic-ed').value)) || 1.0;
+            const t = parseFloat(document.getElementById('mic-tax').value) || 6.0;
+            const p0 = parseFloat(document.getElementById('mic-p0').value) || 20.0;
+            const q0 = parseFloat(document.getElementById('mic-q0').value) || 60.0;
+
+            const buyerShare = (es / (es + ed)) * t;
+            const sellerShare = (ed / (es + ed)) * t;
+            const buyerPct = (es / (es + ed)) * 100;
+            const sellerPct = (ed / (es + ed)) * 100;
+            const pb = p0 + buyerShare;
+            const ps = p0 - sellerShare;
+            const deltaQ = q0 * ((es * ed) / (es + ed)) * (t / p0);
+            const qNew = Math.max(0, q0 - deltaQ);
+            const dwl = 0.5 * t * deltaQ;
+            const taxRev = t * qNew;
+
+            const resEl = document.getElementById('mic-tax-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #2563EB; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج کالبدشکافی تحلیلی تسهیم مالیات و زیان رفاهی (DWL):
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (نسبت تسهیم بار مالیاتی):</strong><br>
+                        • سهم خریدار: ΔP_b = [ ${es.toFixed(1)} / (${es.toFixed(1)} + ${ed.toFixed(1)}) ] × ${t} = <b>${buyerShare.toFixed(2)} ریال (${buyerPct.toFixed(1)}%)</b><br>
+                        • سهم فروشنده: ΔP_s = [ ${ed.toFixed(1)} / (${es.toFixed(1)} + ${ed.toFixed(1)}) ] × ${t} = <b>${sellerShare.toFixed(2)} ریال (${sellerPct.toFixed(1)}%)</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (قیمت‌های جدید در تعادل ثانویه):</strong><br>
+                        • قیمت پرداختی خریدار: P_b = ${p0} + ${buyerShare.toFixed(2)} = <b>${pb.toFixed(2)} ریال</b><br>
+                        • قیمت خالص فروشنده: P_s = ${p0} - ${sellerShare.toFixed(2)} = <b>${ps.toFixed(2)} ریال</b><br>
+                        <span style="font-size: 0.72rem; color: #64748B;">شکاف مالیاتی (Tax Wedge): P_b - P_s = ${(pb - ps).toFixed(2)} = t (${t} ریال).</span>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۳ (کاهش تیراژ تعادلی و درآمد مالیاتی دولت):</strong><br>
+                        • افت تیراژ تعادلی: ΔQ = <b>${deltaQ.toFixed(2)} واحد</b> &rArr; تیراژ جدید: Q_new = <b>${qNew.toFixed(2)} واحد</b><br>
+                        • درآمد خزانه دولت: Tax Revenue = ${t} × ${qNew.toFixed(2)} = <b>${taxRev.toFixed(2)} ریال</b>
+                    </div>
+                    <div class="workout-step" style="background: #FEF2F2; border-color: #FECACA; color: #991B1B;">
+                        <strong>گام ۴ (زیان بار مرده جامعه - Deadweight Loss):</strong><br>
+                        DWL = 0.5 × t × ΔQ = 0.5 × ${t} × ${deltaQ.toFixed(2)} = <b>${dwl.toFixed(2)} ریال رفاه از دست‌رفته جامعه</b><br>
+                        <span style="font-size: 0.72rem;">💡 این زیان رفاهی نه نصیب خریدار می‌شود، نه فروشنده و نه دولت؛ این نابودی خالص مازاد رفاه است.</span>
+                    </div>
+                `;
+            }
+        }
+
+        function runMicroLernerTrainer() {
+            hapticTap('success');
+            const p = parseFloat(document.getElementById('mic-p').value) || 100;
+            const mc = parseFloat(document.getElementById('mic-mc').value) || 60;
+
+            const lerner = (p - mc) / p;
+            const impliedEd = lerner > 0 ? (1 / lerner) : Infinity;
+            const markup = ((p - mc) / mc) * 100;
+
+            const resEl = document.getElementById('mic-lerner-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #1D4ED8; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج شاخص لرنر، درجه انحصار و نشخوار قیمتی:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (شاخص درجه انحصار لرنر - Lerner Index):</strong><br>
+                        L = (P - MC) / P = (${p} - ${mc}) / ${p} = <b>${lerner.toFixed(3)} (${(lerner * 100).toFixed(1)}%)</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (کشش قیمتی ضمنی تقاضا طبق رابطه آموروسو-رابینسون):</strong><br>
+                        چون در تعادل انحصارگر MR = MC و MR = P(1 - 1/|E_d|)، بنابراین:<br>
+                        |E_d| = 1 / L = 1 / ${lerner.toFixed(3)} = <b>${impliedEd.toFixed(2)}</b><br>
+                        <span style="color: #047857; font-weight: 800;">✓ تایید اصل کنکور ارشد: انحصارگر در ناحیه باکشش (|E_d| = ${impliedEd.toFixed(2)} > 1) عمل می‌کند.</span>
+                    </div>
+                    <div class="workout-step" style="background: #EFF6FF; border-color: #BFDBFE; color: #1E40AF;">
+                        <strong>گام ۳ (نشخوار قیمتی روی بهای نهایی - Markup):</strong><br>
+                        Markup = (P - MC) / MC = (${p} - ${mc}) / ${mc} = <b>${markup.toFixed(1)}% حاشیه نشخوار روی بهای نهایی</b>
+                    </div>
+                `;
+            }
+        }
+
+        // 2. COST ACCOUNTING WORKBENCH ENGINE
+        function switchCostWorkoutTab(tab) {
+            hapticTap('light');
+            document.querySelectorAll('.cost-pill').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById('btn-cpill-' + tab);
+            if (btn) btn.classList.add('active');
+
+            ['cvp', 'dol', 'highlow'].forEach(t => {
+                const p = document.getElementById('cpane-' + t);
+                if (p) p.classList.remove('active');
+            });
+            const target = document.getElementById('cpane-' + tab);
+            if (target) target.classList.add('active');
+        }
+
+        function runCostCVPTrainer() {
+            hapticTap('success');
+            const p = parseFloat(document.getElementById('cst-price').value) || 50000;
+            const v = parseFloat(document.getElementById('cst-vc').value) || 30000;
+            const fc = parseFloat(document.getElementById('cst-fc').value) || 60000000;
+            const target = parseFloat(document.getElementById('cst-target').value) || 15000000;
+            const tax = (parseFloat(document.getElementById('cst-tax').value) || 25) / 100;
+
+            const cm = p - v;
+            const cmr = (cm / p) * 100;
+            const qBep = cm > 0 ? (fc / cm) : 0;
+            const sBep = cmr > 0 ? (fc / (cmr / 100)) : 0;
+            const pretaxTarget = tax < 1 ? (target / (1 - tax)) : target;
+            const qTarget = cm > 0 ? ((fc + pretaxTarget) / cm) : 0;
+            const sTarget = qTarget * p;
+
+            const resEl = document.getElementById('cst-cvp-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #059669; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج تحلیل حجم، بهای تمام‌شده، نقطه سر‌به‌سر و سود هدف:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (حاشیه فروش واحد و نسبت حاشیه فروش):</strong><br>
+                        • CM واحد = P - V = ${p.toLocaleString()} - ${v.toLocaleString()} = <b>${cm.toLocaleString()} ریال</b><br>
+                        • نسبت حاشیه فروش: CMR = CM / P = <b>${cmr.toFixed(1)}%</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (نقطه سر‌به‌سر تعدادی و ریالی - BEP):</strong><br>
+                        • تیراژ سر‌به‌سر: Q_BEP = FC / CM = ${fc.toLocaleString()} / ${cm.toLocaleString()} = <b>${Math.ceil(qBep).toLocaleString()} واحد</b><br>
+                        • فروش ریالی سر‌به‌سر: S_BEP = Q_BEP × P = <b>${Math.ceil(sBep).toLocaleString()} ریال</b>
+                    </div>
+                    <div class="workout-step" style="background: #ECFDF5; border-color: #A7F3D0; color: #065F46;">
+                        <strong>گام ۳ (تحقق سود هدف خالص با اثر مالیات):</strong><br>
+                        • سود قبل از مالیات هدف: Pretax = Target / (1 - T) = ${target.toLocaleString()} / (1 - ${tax}) = <b>${Math.round(pretaxTarget).toLocaleString()} ریال</b><br>
+                        • تیراژ لازم برای سود هدف: Q* = (FC + Pretax) / CM = <b>${Math.ceil(qTarget).toLocaleString()} واحد</b><br>
+                        • درآمد فروش لازم: S* = Q* × P = <b>${Math.ceil(sTarget).toLocaleString()} ریال</b>
+                    </div>
+                `;
+            }
+        }
+
+        function runCostDOLTrainer() {
+            hapticTap('success');
+            const qAct = parseFloat(document.getElementById('cst-actual-q').value) || 4000;
+            const qBep = parseFloat(document.getElementById('cst-bep-q').value) || 3000;
+
+            const msUnits = qAct - qBep;
+            const msPct = qAct > 0 ? (msUnits / qAct) * 100 : 0;
+            const dol = msPct > 0 ? (100 / msPct) : Infinity;
+
+            const resEl = document.getElementById('cst-dol-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #047857; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 ارزیابی نسبت حاشیه امنیت و درجه اهرم عملیاتی (DOL):
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (حاشیه امنیت مقداری و درصدی - Margin of Safety):</strong><br>
+                        • حاشیه امنیت مقداری: MS = Q_actual - Q_BEP = ${qAct.toLocaleString()} - ${qBep.toLocaleString()} = <b>${msUnits.toLocaleString()} واحد حاشیه اطمینان</b><br>
+                        • نسبت حاشیه امنیت: MS% = (${msUnits} / ${qAct}) × 100 = <b>${msPct.toFixed(2)}%</b>
+                    </div>
+                    <div class="workout-step" style="background: #F0FDF4; border-color: #BBF7D0; color: #166534;">
+                        <strong>گام ۲ (درجه اهرم عملیاتی - Degree of Operating Leverage):</strong><br>
+                        DOL = 1 / MS% = 1 / ${(msPct/100).toFixed(4)} = <b>${dol.toFixed(2)}</b><br>
+                        <span style="font-size: 0.74rem; font-weight: 800;">💡 تفسیر مدیریتی در بورس تهران: اگر فروش شرکت ۱۰٪ رشد کند، سود عملیاتی (EBIT) به میزان ${(dol * 10).toFixed(1)}٪ جهش خواهد کرد!</span>
+                    </div>
+                `;
+            }
+        }
+
+        function runCostHighLowTrainer() {
+            hapticTap('success');
+            const xh = parseFloat(document.getElementById('cst-xh').value) || 10000;
+            const yh = parseFloat(document.getElementById('cst-yh').value) || 500000;
+            const xl = parseFloat(document.getElementById('cst-xl').value) || 4000;
+            const yl = parseFloat(document.getElementById('cst-yl').value) || 260000;
+
+            const deltaX = xh - xl;
+            const deltaY = yh - yl;
+            const b = deltaX !== 0 ? (deltaY / deltaX) : 0;
+            const a = yh - b * xh;
+
+            const resEl = document.getElementById('cst-highlow-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #065F46; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 تفکیک هزینه‌های مختلط به روش حد بالا و پایین (High-Low):
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (استخراج نرخ متغیر هر واحد فعالیت b):</strong><br>
+                        b = (Y_H - Y_L) / (X_H - X_L) = (${yh.toLocaleString()} - ${yl.toLocaleString()}) / (${xh.toLocaleString()} - ${xl.toLocaleString()})<br>
+                        b = ${deltaY.toLocaleString()} / ${deltaX.toLocaleString()} = <b>${b.toFixed(2)} ریال به ازای هر واحد فعالیت</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (استخراج کل هزینه ثابت دوره a):</strong><br>
+                        a = Y_H - b × X_H = ${yh.toLocaleString()} - (${b.toFixed(2)} × ${xh.toLocaleString()}) = <b>${Math.round(a).toLocaleString()} ریال هزینه ثابت</b>
+                    </div>
+                    <div class="workout-step" style="background: #ECFDF5; border-color: #A7F3D0; color: #065F46;">
+                        <strong>گام ۳ (معادله خطی برآورد بهای تمام‌شده دوره):</strong><br>
+                        <b>Y = ${Math.round(a).toLocaleString()} + ${b.toFixed(2)} X</b>
+                    </div>
+                `;
+            }
+        }
+
+        // 3. FINANCIAL MANAGEMENT WORKBENCH ENGINE
+        function switchFinanceWorkoutTab(tab) {
+            hapticTap('light');
+            document.querySelectorAll('.finance-pill').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById('btn-fpill-' + tab);
+            if (btn) btn.classList.add('active');
+
+            ['capm', 'gordon', 'wacc'].forEach(t => {
+                const p = document.getElementById('fpane-' + t);
+                if (p) p.classList.remove('active');
+            });
+            const target = document.getElementById('fpane-' + tab);
+            if (target) target.classList.add('active');
+        }
+
+        function runFinanceCAPMTrainer() {
+            hapticTap('success');
+            const rf = parseFloat(document.getElementById('fin-rf').value) || 22;
+            const rm = parseFloat(document.getElementById('fin-rm').value) || 34;
+            const beta = parseFloat(document.getElementById('fin-beta').value) || 1.5;
+            const rAct = parseFloat(document.getElementById('fin-ract').value) || 42;
+
+            const mrp = rm - rf;
+            const reqReturn = rf + beta * mrp;
+            const alpha = rAct - reqReturn;
+            const statusText = alpha > 0 ? '🟢 سهم بالای خط SML قرار دارد (عملکرد برتر / ارزش‌گذاری پایین‌تر از واقع Undervalued &rArr; توصیه خرید)' : (alpha < 0 ? '🔴 سهم زیر خط SML قرار دارد (عملکرد ضعیف / گران‌تر از ارزش Overvalued &rArr; توصیه فروش)' : '⚪ سهم دقیقاً روی خط SML قیمت‌گذاری شده است (منصفانه Fair Value)');
+
+            const resEl = document.getElementById('fin-capm-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #7C3AED; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج کالبدشکافی خط بازار اوراق بهادار (SML) و آلفای جنسن:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (صرف ریسک بازار - Market Risk Premium):</strong><br>
+                        MRP = E(R_m) - R_f = ${rm}% - ${rf}% = <b>${mrp.toFixed(1)}%</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (بازده مورد انتظار طبق خط SML):</strong><br>
+                        E(R_i) = R_f + β_i × MRP = ${rf}% + (${beta} × ${mrp.toFixed(1)}%) = <b>${reqReturn.toFixed(2)}%</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۳ (محاسبه آلفای جنسن - Jensen's Alpha):</strong><br>
+                        α_i = R_actual - E(R_i) = ${rAct}% - ${reqReturn.toFixed(2)}% = <b>${alpha >= 0 ? '+' : ''}${alpha.toFixed(2)}%</b>
+                    </div>
+                    <div class="workout-step" style="background: #FAF5FF; border-color: #E9D5FF; color: #581C87;">
+                        <strong>گام ۴ (ارزیابی استراتژیک موقعیت سهم در بازار):</strong><br>
+                        ${statusText}
+                    </div>
+                `;
+            }
+        }
+
+        function runFinanceGordonTrainer() {
+            hapticTap('success');
+            const d0 = parseFloat(document.getElementById('fin-d0').value) || 1000;
+            const g = (parseFloat(document.getElementById('fin-g').value) || 15) / 100;
+            const ke = (parseFloat(document.getElementById('fin-ke').value) || 25) / 100;
+
+            const d1 = d0 * (1 + g);
+            const p0 = ke > g ? (d1 / (ke - g)) : Infinity;
+            const dy = p0 !== Infinity && p0 > 0 ? (d1 / p0) * 100 : 0;
+            const cgy = g * 100;
+
+            const resEl = document.getElementById('fin-gordon-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #6D28D9; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج ارزش‌گذاری سهام عادی با مدل رشد پایدار گوردون:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (سود تقسیمی نقدی سال آتی D₁):</strong><br>
+                        D₁ = D₀ × (1 + g) = ${d0.toLocaleString()} × (1 + ${(g).toFixed(2)}) = <b>${d1.toFixed(1)} ریال</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (ارزش ذاتی هر سهم P₀):</strong><br>
+                        P₀ = D₁ / (k_e - g) = ${d1.toFixed(1)} / (${(ke).toFixed(2)} - ${(g).toFixed(2)}) = <b>${Math.round(p0).toLocaleString()} ریال</b>
+                    </div>
+                    <div class="workout-step" style="background: #F5F3FF; border-color: #DDD6FE; color: #4C1D95;">
+                        <strong>گام ۳ (تفکیک اجزای بازده کل):</strong><br>
+                        • بازده نقدی سهام (Dividend Yield): DY = D₁ / P₀ = <b>${dy.toFixed(1)}%</b><br>
+                        • بازده سود سرمایه‌ای (Capital Gains Yield): CGY = g = <b>${cgy.toFixed(1)}%</b><br>
+                        • کل بازده مورد انتظار: k_e = DY + CGY = <b>${(dy + cgy).toFixed(1)}%</b>
+                    </div>
+                `;
+            }
+        }
+
+        function runFinanceWACCTrainer() {
+            hapticTap('success');
+            const d = parseFloat(document.getElementById('fin-debt').value) || 400;
+            const e = parseFloat(document.getElementById('fin-eq').value) || 600;
+            const kd = parseFloat(document.getElementById('fin-kd').value) || 20;
+            const ke = parseFloat(document.getElementById('fin-cost-ke').value) || 28;
+            const tax = (parseFloat(document.getElementById('fin-tax').value) || 25) / 100;
+            const bu = parseFloat(document.getElementById('fin-bu').value) || 1.1;
+
+            const vTotal = d + e;
+            const wd = d / vTotal;
+            const we = e / vTotal;
+            const afterTaxKd = kd * (1 - tax);
+            const wacc = we * ke + wd * afterTaxKd;
+            const deRatio = e > 0 ? (d / e) : 0;
+            const betaL = bu * (1 + (1 - tax) * deRatio);
+
+            const resEl = document.getElementById('fin-wacc-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #5B21B6; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج میانگین موزون هزینه سرمایه (WACC) و معادله همادا:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (ساختار سرمایه و وزن‌ها):</strong><br>
+                        • کل ارزش بنگاه: V = D + E = ${vTotal.toLocaleString()} ریال<br>
+                        • وزن بدهی: W_d = ${(wd * 100).toFixed(1)}% &nbsp;|&nbsp; وزن سهام: W_e = ${(we * 100).toFixed(1)}%
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (هزینه بدهی پس از سپر مالیاتی):</strong><br>
+                        k_d × (1 - T) = ${kd}% × (1 - ${tax}) = <b>${afterTaxKd.toFixed(2)}%</b>
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۳ (میانگین موزون هزینه سرمایه WACC):</strong><br>
+                        WACC = [ ${(we).toFixed(2)} × ${ke}% ] + [ ${(wd).toFixed(2)} × ${afterTaxKd.toFixed(2)}% ] = <b>${wacc.toFixed(2)}%</b>
+                    </div>
+                    <div class="workout-step" style="background: #F3E8FF; border-color: #D8B4FE; color: #581C87;">
+                        <strong>گام ۴ (بتای اهرمی سهام طبق معادله همادا):</strong><br>
+                        β_L = β_U × [ 1 + (1 - T)(D/E) ] = ${bu} × [ 1 + (1 - ${tax})(${deRatio.toFixed(2)}) ] = <b>${betaL.toFixed(3)}</b><br>
+                        <span style="font-size: 0.72rem;">💡 ریسک مالی ناشی از اهرم: ${(betaL - bu).toFixed(3)} واحد بتای اضافه به دلیل وجود بدهی در ساختار مالی.</span>
+                    </div>
+                `;
+            }
+        }
+
+        // 4. OPERATIONS RESEARCH WORKBENCH ENGINE
+        function switchORWorkoutTab(tab) {
+            hapticTap('light');
+            document.querySelectorAll('.or-pill').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById('btn-opill-' + tab);
+            if (btn) btn.classList.add('active');
+
+            ['shadow', 'minratio'].forEach(t => {
+                const p = document.getElementById('opane-' + t);
+                if (p) p.classList.remove('active');
+            });
+            const target = document.getElementById('opane-' + tab);
+            if (target) target.classList.add('active');
+        }
+
+        function runORShadowTrainer() {
+            hapticTap('success');
+            const b = parseFloat(document.getElementById('or-b').value) || 100;
+            const yStar = parseFloat(document.getElementById('or-shadow').value) || 25;
+            const deltaB = parseFloat(document.getElementById('or-delta-b').value) || 20;
+            const mktPrice = parseFloat(document.getElementById('or-market-price').value) || 18;
+
+            const deltaZ = yStar * deltaB;
+            const profitFromPurchase = (yStar - mktPrice) * deltaB;
+            const isWorth = mktPrice < yStar;
+
+            const resEl = document.getElementById('or-shadow-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #0E7490; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 تحلیل اقتصادی قیمت سایه و متغیر دوگان:
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۱ (ارزش نهایی منبع):</strong><br>
+                        قیمت سایه y_i* = ${yStar} ریال به ازای هر واحد منبع اضافه است.
+                    </div>
+                    <div class="workout-step">
+                        <strong>گام ۲ (تغییر در حداکثر سود بهینه):</strong><br>
+                        ΔZ* = y_i* × Δb_i = ${yStar} × ${deltaB} = <b>+${deltaZ.toLocaleString()} ریال افزایش سود ناخالص</b>
+                    </div>
+                    <div class="workout-step" style="background: ${isWorth ? '#ECFEFF' : '#FEF2F2'}; border-color: ${isWorth ? '#A5F3FC' : '#FECACA'}; color: ${isWorth ? '#0E7490' : '#991B1B'};">
+                        <strong>گام ۳ (تصمیم‌گیری خرید منبع اضافی از بازار):</strong><br>
+                        • حداکثر قیمت مجاز خرید: <b>${yStar} ریال</b><br>
+                        • قیمت پیشنهادی بازار: <b>${mktPrice} ریال</b><br>
+                        • سود خالص حاصل از خرید: (${yStar} - ${mktPrice}) × ${deltaB} = <b>${profitFromPurchase >= 0 ? '+' : ''}${profitFromPurchase.toLocaleString()} ریال</b><br>
+                        • <b>حکم نهایی:</b> ${isWorth ? '🟢 خرید منبع توجیه کامل اقتصادی دارد چون قیمت بازار کمتر از قیمت سایه است.' : '🔴 خرید منبع غیر اقتصادی است؛ زیان به بار می‌آورد!'}
+                    </div>
+                `;
+            }
+        }
+
+        function runORMinRatioTrainer() {
+            hapticTap('success');
+            const b1 = parseFloat(document.getElementById('or-b1').value) || 40;
+            const a1 = parseFloat(document.getElementById('or-a1').value) || 2;
+            const b2 = parseFloat(document.getElementById('or-b2').value) || 60;
+            const a2 = parseFloat(document.getElementById('or-a2').value) || 5;
+            const b3 = parseFloat(document.getElementById('or-b3').value) || 50;
+            const a3 = parseFloat(document.getElementById('or-a3').value) || -3;
+
+            const rows = [
+                { row: 1, b: b1, a: a1 },
+                { row: 2, b: b2, a: a2 },
+                { row: 3, b: b3, a: a3 }
+            ];
+
+            let candidates = [];
+            let htmlSteps = '';
+
+            rows.forEach(r => {
+                if (r.a > 0) {
+                    const theta = r.b / r.a;
+                    candidates.push({ row: r.row, theta: theta, b: r.b, a: r.a });
+                    htmlSteps += `• سطر ${r.row}: θ_${r.row} = ${r.b} / ${r.a} = <b>${theta.toFixed(2)}</b> (کاندید خروج)<br>`;
+                } else if (r.a <= 0) {
+                    htmlSteps += `• سطر ${r.row}: ضریب ستون لولا a = ${r.a} &le; 0 &rArr; <b>از آزمون حداقل نسبت حذف می‌شود!</b> (تله کنکور ارشد)<br>`;
+                }
+            });
+
+            let best = null;
+            if (candidates.length > 0) {
+                candidates.sort((x, y) => x.theta - y.theta);
+                best = candidates[0];
+            }
+
+            const resEl = document.getElementById('or-minratio-result');
+            if (resEl) {
+                resEl.innerHTML = `
+                    <div style="font-weight: 900; color: #0891B2; font-size: 0.95rem; margin-bottom: 8px;">
+                        🎯 نتایج آزمون حداقل نسبت سیمپلکس:
+                    </div>
+                    <div class="workout-step">
+                        <strong>محاسبه نسبت‌ها (منحصراً برای ضرایب اکیداً مثبت):</strong><br>
+                        ${htmlSteps}
+                    </div>
+                    <div class="workout-step" style="background: #ECFEFF; border-color: #A5F3FC; color: #0E7490;">
+                        <strong>تشخیص سطر لولا و متغیر خارج‌شونده:</strong><br>
+                        ${best ? `سطر <b>${best.row}</b> با کمترین نسبت <b>θ = ${best.theta.toFixed(2)}</b> سطر لولا است و متغیر اساسی این سطر از پایه <b>خارج</b> می‌شود.` : 'هیچ ضریب مثبتی در ستون لولا یافت نشد &rArr; مسئله نامحدود (Unbounded) است!'}
+                    </div>
+                `;
+            }
+        }
+
+
+        window.switchMicroWorkoutTab = switchMicroWorkoutTab;
+        window.runMicroTaxTrainer = runMicroTaxTrainer;
+        window.runMicroLernerTrainer = runMicroLernerTrainer;
+        window.switchCostWorkoutTab = switchCostWorkoutTab;
+        window.runCostCVPTrainer = runCostCVPTrainer;
+        window.runCostDOLTrainer = runCostDOLTrainer;
+        window.runCostHighLowTrainer = runCostHighLowTrainer;
+        window.switchFinanceWorkoutTab = switchFinanceWorkoutTab;
+        window.runFinanceCAPMTrainer = runFinanceCAPMTrainer;
+        window.runFinanceGordonTrainer = runFinanceGordonTrainer;
+        window.runFinanceWACCTrainer = runFinanceWACCTrainer;
+        window.switchORWorkoutTab = switchORWorkoutTab;
+        window.runORShadowTrainer = runORShadowTrainer;
+        window.runORMinRatioTrainer = runORMinRatioTrainer;
+
 
     })();
     
