@@ -5692,6 +5692,48 @@
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
+
+                    <!-- Stat Formula 16: Mean Absolute Deviation (MAD) & Dispersion Duel -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-stat">شاخص پراکندگی ۱۶</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">MAD vs Variance</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">انحراف متوسط از میانگین (MAD) و دوئل تاریخی با واریانس</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('MAD = (1 / n) * ∑ | x_i - x̄ |   |   MAD_pop = (1 / N) * ∑ | x_i - μ |', this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">انحراف متوسط از میانگین (نمونه):</span>
+                                    <span class="math-sym">MAD</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ | x_i - x̄ |</span><span class="math-den">n</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">انحراف متوسط از میانگین (جامعه):</span>
+                                    <span class="math-sym">MAD</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ | x_i - μ |</span><span class="math-den">N</span></span>
+                                </div>
+                            </div>
+                            
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
+                                • <b>تولد از بن‌بست جبری:</b> چون مجموع انحرافات ساده همواره صفر است (∑(x_i - x̄) = 0)، اولین تلاش تاریخ آمار برای خنثی‌سازی علامت منفی، کشیدن قدرمطلق دور انحرافات بود.<br>
+                                • مخرج MAD همواره حجم کل مشاهدات (n در نمونه و N در جامعه) است و برخلاف واریانس، کسر ۱ درجه آزادی ندارد.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی بانکای (CFA & Market Risk):</strong>
+                                • <b>مقاومت در برابر خطاهای پیش‌بینی:</b> در مدیریت زنجیره تامین و خطای پیش‌بینی تقاضا در بورس، MAD به دلیل عدم وزن‌دهی افراطی به داده‌های پرت، بسیار پایدارتر از انحراف معیار عمل می‌کند.<br>
+                                • رابطه تقریب تجربی با انحراف معیار در توزیع زنگوله‌ای نرمال: MAD ≈ 0.8 × σ (یا σ ≈ 1.25 × MAD).
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                داوطلبان به اشتباه مخرج MAD نمونه را n - 1 در نظر می‌گیرند؛ تصحیح بسل (n - 1) منحصراً متعلق به واریانس توان دوم است و در MAD مخرج اکیداً n است!
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('MAD = sum(|x_i - x_bar|) / n')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -5733,6 +5775,7 @@
                         <button class="stat-preset-btn" onclick="loadStatPreset('factory')">🏭 تیراژ تولید کارخانه (120, 140, 155, 170, 190, 225, 260)</button>
                         <button class="stat-preset-btn" onclick="loadStatPreset('stock')">💰 قیمت سهام بورس (45, 52, 58, 63, 70, 85, 92, 110)</button>
                         <button class="stat-preset-btn" onclick="loadStatPreset('exam')">🎯 نمرات آزمون مالی (11, 13, 14, 15, 15, 16, 17, 18, 20)</button>
+                        <button class="stat-preset-btn" onclick="loadStatPreset('gov_managers')" style="background: #ECFDF5; border-color: #10B981; color: #065F46;">🏛️ مهارت مدیران (40, 45, 50, 60, 65, 80, 85)</button>
                         <button class="stat-preset-btn" onclick="clearStatData()" style="color: #DC2626;">🧹 پاکسازی</button>
                     </div>
 
@@ -6599,6 +6642,196 @@
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('PV = int_0^T CF * e^(-rt) dt = (CF / r) * [1 - e^(-rT)]')"><span>📋</span> کپی فرمول</button>
                     </div>
+
+                    <!-- Math Formula 9: Total Differential & Linear Approximation -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">چندمتغیره ۲</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Total Differential</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دیفرانسیل کل، خطایابی و تقریب خطی سیستم‌ها</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('dz = (∂z/∂x) dx + (∂z/∂y) dy ; du = (∂u/∂x) dx + (∂u/∂y) dy + (∂u/∂z) dz', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">دیفرانسیل کامل تابع دومتغیره:</span>
+                                    <span class="math-sym">dz</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">∂z</span><span class="math-den">∂x</span></span> ) · dx + ( <span class="math-frac"><span class="math-num">∂z</span><span class="math-den">∂y</span></span> ) · dy
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">بسط لایب‌نیتس و ژاکوبی تابع سه‌متغیره:</span>
+                                    <span class="math-sym">du</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">∂u</span><span class="math-den">∂x</span></span> ) · dx + ( <span class="math-frac"><span class="math-num">∂u</span><span class="math-den">∂y</span></span> ) · dy + ( <span class="math-frac"><span class="math-num">∂u</span><span class="math-den">∂z</span></span> ) · dz
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • نماد «رُند (∂)» (Ronde فرانسوی به معنای گرد): هشدار تحلیلی مبنی بر اینکه حین سنجش اثر یک متغیر، سایر متغیرها سر کلاس منجمد فرض شده‌اند.<br>
+                                • تقریب نمو با دیفرانسیل: Δu ≈ du؛ تغییر کل خروجی برابر جمع وزنی تغییرات تک‌تک ورودی‌ها در مشتق جزئی همان متغیر است.
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد در مدیریت مالی و صنعتی:</strong>
+                                ارزیابی حساسیت سود یا ارزش فعلی پروژه نسبت به شوک‌های هم‌زمان نرخ بهره، بهای تمام‌شده و تیراژ فروش (تحلیل سناریوی پیوسته).
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اشتباه گرفتن ضابطه تابع با دیفرانسیل کل! U = f(x, y, z) معادله مادر است، نه فرمول دیفرانسیل کل. دیفرانسیل کل حتماً باید دارای نمادهای dx و dy و dz باشد.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('dz = (dz/dx)*dx + (dz/dy)*dy; du = (du/dx)*dx + (du/dy)*dy + (du/dz)*dz')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 10: Multivariable Extrema & Hessian Determinant -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">بهینه‌سازی ۳D</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Hessian Determinant</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">اکسترمم‌های سه‌بعدی، نقطه زینی و دترمینان هسیان</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Δ = f_xx * f_yy - (f_xy)² ; Max: Δ > 0 & f_xx < 0 ; Min: Δ > 0 & f_xx > 0 ; Saddle: Δ < 0', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">شاخص دترمینان هسیان (Hessian):</span>
+                                    <span class="math-sym">Δ</span><span class="math-op">=</span>f_xx · f_yy - ( f_xy )²
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">حالات چهارگانه آزمون مشتق دوم:</span>
+                                    <span class="math-sym">Δ &gt; 0 , f_xx &lt; 0 ──► Max</span> <span class="math-sep">|</span> <span class="math-sym">Δ &gt; 0 , f_xx &gt; 0 ──► Min</span> <span class="math-sep">|</span> <span class="math-sym">Δ &lt; 0 ──► Saddle</span>
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • گام اول: حل دستگاه نقاط بحرانی ∂f/∂x = 0 و ∂f/∂y = 0 جهت استخراج مختصات (x*, y*).<br>
+                                • گام دوم: محاسبه مشتقات مرتبه دوم f_xx و f_yy و f_xy و تشکیل دترمینان هسیان Δ.<br>
+                                • اگر Δ &lt; 0 شود، بدون نیاز به علامت f_xx، نقطه قطعاً «نقطه زینی (Saddle Point)» است (در یک راستا قله و در راستای عمود دره).
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 تلفیق تکمیلی نخبگان (CFA & Advanced):</strong>
+                                اگر Δ = 0 باشد، آزمون مشتق دوم نارسا و نامعین است و باید از بسط تیلور مراتب بالاتر یا تحلیل هندسی تراز استفاده شود.
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                داوطلبان به اشتباه فکر می‌کنند اگر Δ &gt; 0 و f_xx &lt; 0 باشد، مینیمم است چون منفی است! منفی بودن f_xx یعنی تقعر رو به پایین (کاسه واژگون) که نشانه ماکزیمم مطلق/نسبی است.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Delta = f_xx * f_yy - (f_xy)^2; Max: Delta > 0, f_xx < 0; Min: Delta > 0, f_xx > 0; Saddle: Delta < 0')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 11: Homogeneous Functions & Euler Theorem -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">تئوری تولید</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Euler's Theorem</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">توابع همگن، بازدهی به مقیاس و قضیه اویلر</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('f(λx, λy) = λ^n * f(x, y) ; x*(∂f/∂x) + y*(∂f/∂y) = n * f(x, y)', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">آزمون همگنی مقیاس:</span>
+                                    <span class="math-sym">f(λx, λy)</span><span class="math-op">=</span>λⁿ · f(x, y)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">قضیه اویلر (Euler's Theorem):</span>
+                                    <span class="math-sym">x · ( ∂f / ∂x ) + y · ( ∂f / ∂y )</span><span class="math-op">=</span>n · f(x, y)
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • توان n بیانگر درجه همگنی است؛ در توابع تولید کاب-داگلاس Q = A K^α L^β، درجه همگنی برابر α + β است.<br>
+                                • بازدهی به مقیاس: n = 1 بازده ثابت (CRS)، n &gt; 1 بازده صعودی (IRS)، n &lt; 1 بازده نزولی (DRS).<br>
+                                • قضیه اویلر اثبات می‌کند اگر هر عامل تولید به اندازه بهره‌وری نهایی خود دستمزد بگیرد، کل محصول نهایی تسویه می‌شود (قضیه ته‌نشینی محصول).
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                حضور عدد ثابت جمع‌شونده در کنار متغیرها تابع را ناهمگن می‌کند! تابع f = x² + y² + 2 همگن نیست چون عدد ۲ از درجه صفر بوده ولی توان‌ها از درجه ۲ هستند.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('f(lambda*x, lambda*y) = lambda^n * f(x, y); x*(df/dx) + y*(df/dy) = n*f(x, y)')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 12: Multivariable Chain Rule & Total Derivative -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">حسابان پیشرفته</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Total Chain Rule</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مشتق کامل زمانی و قاعده زنجیره‌ای چندمتغیره</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('du/dt = (∂u/∂x)(dx/dt) + (∂u/∂y)(dy/dt) + (∂u/∂z)(dz/dt)', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">فرمول مشتق کامل زمانی (u = F(x, y, z) با x(t), y(t), z(t)):</span>
+                                    <span class="math-sym">du / dt</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">∂u</span><span class="math-den">∂x</span></span> ) · <span class="math-frac"><span class="math-num">dx</span><span class="math-den">dt</span></span> + ( <span class="math-frac"><span class="math-num">∂u</span><span class="math-den">∂y</span></span> ) · <span class="math-frac"><span class="math-num">dy</span><span class="math-den">dt</span></span> + ( <span class="math-frac"><span class="math-num">∂u</span><span class="math-den">∂z</span></span> ) · <span class="math-frac"><span class="math-num">dz</span><span class="math-den">dt</span></span>
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                هرگاه متغیرهای ورودی خود تابعی از زمان t باشند، مشتق کل u نسبت به t از مسیر اثر مستقیم روی تک‌تک متغیرها و سپس اثر آن متغیرها روی t حاصل‌جمع می‌شود.
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد در پویایی‌های مالی:</strong>
+                                محاسبه رشد ثروت سبد دارایی وقتی قیمت‌های تک‌تک سهام و نرخ ارز در طول زمان نوسان می‌کنند.
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                تفکیک دقیق علامت‌های d (مشتق معمولی یک‌متغیره) از ∂ (مشتق جزئی). در فرمول، dx/dt مشتق معمولی است چون x فقط به t وابسته است، اما ∂u/∂x مشتق جزئی است چون u به چندین عامل متکی است.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('du/dt = (du/dx)*(dx/dt) + (du/dy)*(dy/dt) + (du/dz)*(dz/dt)')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 13: Clairaut Schwartz Theorem -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">هندسه دیفرانسیل</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Clairaut's Theorem</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تقارن مشتقات متقاطع مرتبه دوم (قضیه کلرو - شوارتز)</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('∂²z / ∂x∂y = ∂²z / ∂y∂x   |   f_xy = f_yx', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">تساوی مشتقات متقاطع (تقارن هسیان):</span>
+                                    <span class="math-sym">f_xy</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂²z</span><span class="math-den">∂y ∂x</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂²z</span><span class="math-den">∂x ∂y</span></span><span class="math-op">=</span><span class="math-sym">f_yx</span>
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                به شرط پیوستگی مشتقات جزئی مرتبه دوم در یک همسایگی، تقدم و تاخر متغیرها در مشتق‌گیری تاثیری در خروجی ندارد: ابتدا نسبت به x و سپس نسبت به y مشتق بگیریم یا برعکس، نتیجه یکسان است.
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                شرط بقای قضیه شوارتز «پیوستگی مشتقات دوم» است. در توابع چندضابطه‌ای ناپیوسته در مبدأ، ممکن است f_xy ≠ f_yx شود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('d2z/(dx dy) = d2z/(dy dx); f_xy = f_yx')"><span>📋</span> کپی فرمول</button>
+                    </div>
+
+                    <!-- Math Formula 14: Domain & Range in 3D -->
+                    <div class="formula-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-math">دامنه و برد ۳D</span>
+                                <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Domain & Range</span>
+                            </div>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تحلیل دامنه و برد رویه‌های فضایی و رادیکال‌ها</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('z = √(R² - x² - y²) ; Domain: x² + y² ≤ R² ; Range: [0, R]', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">دامنه تابع رادیکالی نیم‌کره:</span>
+                                    <span class="math-sym">D_z</span><span class="math-op">=</span>{ (x, y) ∈ ℝ² | x² + y² ≤ R² } (دیسک بسته دایره‌ای)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">برد تابع رویه:</span>
+                                    <span class="math-sym">R_z</span><span class="math-op">=</span>[ 0 , R ] (پاره‌خط عمودی روی محور z)
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • برای z = √(9 - x² - y²)، شرط فرجه زوج 9 - x² - y² ≥ 0 منجر به قرص دایره به شعاع ۳ می‌شود.<br>
+                                • کمترین مقدار زیر رادیکال صفر (روی مرز دایره) و بیشترین مقدار ۹ (در مبدأ x=0, y=0) است؛ بنابراین برد دقیقاً [0, 3] است.
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اشتباه گرفتن بازه باز و بسته! چون رادیکال در صورت کسر است، مرز دایره یعنی x² + y² = 9 مجاز بوده و بازه بسته [0, 3] است؛ اما اگر رادیکال در مخرج بود، مرز حذف و بازه نیمه‌باز می‌شد.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('z = sqrt(R^2 - x^2 - y^2); Domain: x^2 + y^2 <= R^2; Range: [0, R]')"><span>📋</span> کپی فرمول</button>
+                    </div>
                 </div>
 
                 <!-- End of Isolated View Boundary Guard -->
@@ -6658,6 +6891,24 @@
                             • x₂* = |A₂| / |A| = 30 / 10 = 3.
                         </div>
                     </div>
+
+                    <!-- Solution 3: Total Differential Cylinder Problem -->
+                    <div class="card" style="border-right: 4px solid #10B981;">
+                        <span class="badge badge-math">مسئله کاربردی تقریب دیفرانسیل کل</span>
+                        <h4 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin: 6px 0;">تحلیل تغییرات حجم استوانه با دیفرانسیل کامل</h4>
+                        <div style="font-size: 0.76rem; color: #334155; line-height: 1.8;">
+                            <strong>صورت مسئله:</strong> استوانه‌ای به شعاع r = 3 cm و ارتفاع h = 4 cm مفروض است. اگر شعاع به 2.9 cm کاهش و ارتفاع به 4.2 cm افزایش یابد، تغییرات تقریبی حجم استوانه (V = π r² h) چقدر است؟<br>
+                            <strong>گام ۱ (استخراج نمو متغیرها):</strong><br>
+                            • dr = 2.9 - 3 = -0.1 cm<br>
+                            • dh = 4.2 - 4 = +0.2 cm<br>
+                            <strong>گام ۲ (مشتقات جزئی تابع حجم):</strong><br>
+                            • ∂V/∂r = 2π r h = 2π(3)(4) = 24π<br>
+                            • ∂V/∂h = π r² = π(3)² = 9π<br>
+                            <strong>گام ۳ (محاسبه دیفرانسیل کامل dV):</strong><br>
+                            dV = (∂V/∂r) dr + (∂V/∂h) dh = (24π)(-0.1) + (9π)(+0.2) = -2.4π + 1.8π = <strong>-0.6π cm³</strong>.<br>
+                            <strong>نتیجه و تفسیر:</strong> حجم استوانه تقریبی به میزان ۰.۶π سانتی‌متر مکعب (حدود ۱.۸۸-) <strong>کاهش</strong> می‌یابد.
+                        </div>
+                    </div>
                 </div>
 
                 <!-- End of Isolated View Boundary Guard -->
@@ -6698,6 +6949,13 @@
                         <strong style="color: #DC2626; font-size: 0.86rem;">🚨 تله ۳: علامت منفی در شیب منحنی‌های بی‌تفاوتی (MRS)</strong>
                         <p style="font-size: 0.76rem; color: #334155; margin-top: 4px; line-height: 1.7;">
                             شیب منحنی بی‌تفاوتی برابر dy/dx = -MUx / MUy منفی است؛ اما نرخ نهایی جانشینی (MRS) به عنوان یک قدر مطلق مثبت تعریف می‌شود: MRS = -dy/dx = MUx / MUy.
+                        </p>
+                    </div>
+
+                    <div class="card" style="border-left: 4px solid #EF4444; background: #FFF5F5;">
+                        <strong style="color: #DC2626; font-size: 0.86rem;">🚨 تله ۴: خطای فاحش در تعیین نوع اکسترمم سه‌بعدی با شاخص هسیان (Δ)</strong>
+                        <p style="font-size: 0.76rem; color: #334155; margin-top: 4px; line-height: 1.7;">
+                            اگر دترمینان هسیان Δ &gt; 0 و f_xx &lt; 0 باشد، داوطلب چون منفی می‌بیند فکر می‌کند مینیمم است! در حالی که مشتق دوم منفی یعنی تقعر رو به پایین (سقف گنبدی) و نشانه <b>ماکزیمم نسبی</b> است. همچنین اگر Δ &lt; 0 شود، بدون معطلی و بدون نیاز به نگاه کردن به f_xx، نقطه <b>زینی (Saddle)</b> است.
                         </p>
                     </div>
                 </div>
@@ -9867,7 +10125,8 @@
             portfolio: [2, 4, 8, 16, 32],
             factory: [120, 140, 155, 170, 190, 225, 260],
             stock: [45, 52, 58, 63, 70, 85, 92, 110],
-            exam: [11, 13, 14, 15, 15, 16, 17, 18, 20]
+            exam: [11, 13, 14, 15, 15, 16, 17, 18, 20],
+            gov_managers: [40, 45, 50, 60, 65, 80, 85]
         };
 
         function parseInputData(rawStr) {
@@ -10331,6 +10590,39 @@
                         formula: "β_L = β_U × [ 1 + (1 - T) × (D ÷ E) ]",
                         desc: "سپر مالیاتی بهره (1 - T) هزینه استقراض را کاهش داده و اثر اهرم را تلطیف می‌کند.",
                         trap: "اگر مالیات صفر باشد (T=0)، معادله به β_L = β_U × (1 + D/E) ساده می‌شود."
+                    }
+                ]
+            },
+            total_diff: {
+                title: "ریاضیات و روش‌های مقداری: از نمو متغیرها تا تولد دیفرانسیل کامل و مشتق زنجیره‌ای",
+                nodes: [
+                    {
+                        step: "گام ۰ (نقطه تولد در گذشته)",
+                        title: "تغییرات گسسته و نمو محسوس (Δx و Δy)",
+                        formula: "Δy = f(x + Δx) - f(x)",
+                        desc: "در دنیای واقعی تغییرات متغیرها به صورت پرش‌های عددی Δx رخ می‌دهد. اما محاسبه مستقیم اثرات چندمتغیره نیازمند بسط‌های طاقت‌فرسای جبری است.",
+                        trap: "تله شناختی: دلتا (Δx) تغییر محسوس عددی است، اما دیفرانسیل (dx) تغییر بی‌نهایت کوچک است."
+                    },
+                    {
+                        step: "گام ۱ (جهش لایب‌نیتس و نماد رُند)",
+                        title: "تولد مشتقات جزئی و انجماد متغیرهای جانبی",
+                        formula: "∂u / ∂x = lim_{Δx → 0} [ f(x+Δx, y, z) - f(x, y, z) ] ÷ Δx",
+                        desc: "نماد گرد رُند (∂) به ما یادآوری می‌کند هنگام سنجش تغییرات ناشی از x، متغیرهای y و z در کلاس درس مثل عدد ثابت منجمد شده‌اند.",
+                        trap: "تفکیک d از ∂: d برای توابع تک‌متغیره آزاد و ∂ برای توابع چندمتغیره مقید به انجماد سایرین است."
+                    },
+                    {
+                        step: "گام ۲ (تولد دیفرانسیل کل)",
+                        title: "سنتز اثرات هم‌زمان تمام متغیرهای ورودی",
+                        formula: "du = (∂u/∂x) dx + (∂u/∂y) dy + (∂u/∂z) dz",
+                        desc: "تغییر کل سیستم برابر جمع وزنی تغییرات تک‌تک ورودی‌ها در نرخ تغییرات موضعی (مشتقات جزئی) آنهاست.",
+                        trap: "تله امتحانی: U = f(x, y, z) تابع مادر است؛ دیفرانسیل کامل حتماً با حرف du و نمادهای dx, dy آغاز می‌شود."
+                    },
+                    {
+                        step: "گام ۳ (کاربرد در تقریب خطی)",
+                        title: "برآورد خطای سیستم بدون حل معادلات پیچیده",
+                        formula: "Δu ≈ du",
+                        desc: "در تحلیل حساسیت خطوط تولید، پیش‌بینی نوسان سود و سنجش تغییرات حجم، تقریب دیفرانسیل کامل با خطای نزدیک به صفر کار می‌کند.",
+                        trap: "علامت dr منفی برای کاهش و مثبت برای افزایش است؛ دقت در ضرب علامت‌ها حیاتی است."
                     }
                 ]
             },
