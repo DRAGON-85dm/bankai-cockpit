@@ -2898,6 +2898,115 @@ body:not(.theme-dark) .dock-btn.active::after {
             box-shadow: 0 3px 10px rgba(14, 116, 144, 0.35) !important;
         }
 
+    
+        /* ========================================================
+           v25.0 ANDROID ULTRA-STABLE VIEWPORT & ZERO HORIZONTAL WOBBLE
+           ======================================================== */
+        html, body {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            position: relative !important;
+            box-sizing: border-box !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box !important;
+        }
+
+        main, #bankai-cockpit-app, .discipline-pane, .subtab-view {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .card, .stat-lab-container, .workout-container, .flashback-modal-content {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .formula-card-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important;
+            gap: 16px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .tree-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
+            gap: 14px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        /* All Chart Canvases: Crisp Pure White Background Protocol */
+        .canvas-arena,
+        .canvas-wrapper,
+        .fs-canvas-container,
+        canvas,
+        #canvasMicro,
+        #canvasCost,
+        #canvasFinance,
+        #canvasOR,
+        #canvasStat,
+        #canvasMath,
+        #fullscreenCanvas {
+            background: #FFFFFF !important;
+            background-color: #FFFFFF !important;
+        }
+
+        body.theme-dark .canvas-arena,
+        body.theme-dark .canvas-wrapper,
+        body.theme-dark .fs-canvas-container {
+            background: #FFFFFF !important;
+            background-color: #FFFFFF !important;
+            border-color: #CBD5E1 !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+        }
+
+        /* Mobile & Android Viewport Fine-Tuning (<= 520px) */
+        @media (max-width: 520px) {
+            body {
+                padding: 8px 8px 110px 8px !important;
+            }
+            .card {
+                padding: 14px 12px !important;
+                border-radius: 16px !important;
+            }
+            .workout-container {
+                padding: 14px 10px !important;
+                border-radius: 16px !important;
+            }
+            .formula-card-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .tree-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .canvas-arena {
+                height: 350px !important;
+            }
+            .executive-dock {
+                width: calc(100% - 12px) !important;
+                bottom: 8px !important;
+                padding: 5px 3px !important;
+                border-radius: 20px !important;
+            }
+            .dock-btn {
+                padding: 5px 2px 4px 2px !important;
+            }
+            .dock-btn span:first-child {
+                font-size: 1.15rem !important;
+            }
+            .dock-btn span:last-child {
+                font-size: 0.68rem !important;
+            }
+        }
+
     </style>
 
 </head>
@@ -3436,11 +3545,11 @@ body:not(.theme-dark) .dock-btn.active::after {
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('CS = 0.5 × (α - P*) × Q* ; PS = 0.5 × (P* - P_res) × Q* ; ΔCS = (P1 - P2)×Q1 + 0.5×(P1 - P2)×(Q2 - Q1)', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">مازاد رفاه مصرف‌کننده (CS):</span>
-                                    <span class="math-sym">CS</span><span class="math-op">=</span>0.5 × ( α - P* ) × Q*
+                                    <span class="math-sym">CS</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> × ( P_{max} - P_{eq} ) × Q_{eq}
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">مازاد رفاه تولیدکننده (PS):</span>
-                                    <span class="math-sym">PS</span><span class="math-op">=</span>0.5 × ( P* - P_{res} ) × Q*
+                                    <span class="math-sym">PS</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> × ( P_{eq} - P_{min} ) × Q_{eq}
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">تغییر رفاه با کاهش قیمت (ΔCS):</span>
@@ -5048,7 +5157,7 @@ body:not(.theme-dark) .dock-btn.active::after {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۱</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قیمت سایه و ارزش منبع محدودکننده</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i*</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Z*</span><span class="math-den">∂b_i</span></span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Z_{max}</span><span class="math-den">∂b_i</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>مفهوم کاربردی:</strong>
                                 <p>حداکثر قیمتی که مدیر حاضر است برای خرید یک واحد منبع اضافی iام پرداخت کند تا سود شرکت افزایش یابد.</p>
@@ -5143,7 +5252,7 @@ body:not(.theme-dark) .dock-btn.active::after {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">قضیه دوگانی قوی (Strong Duality):</span>
-                                    <span class="math-sym">Max Z*</span><span class="math-op">=</span><span class="math-sym">Min W*</span>  (سود اولیه = ارزش منابع دوگان)
+                                    <span class="math-sym">Max Z_{opt}</span><span class="math-op">=</span><span class="math-sym">Min W_{opt}</span>  (سود اولیه = ارزش منابع دوگان)
                                 </div>
                             </div>
 
@@ -5749,6 +5858,12 @@ body:not(.theme-dark) .dock-btn.active::after {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Geometric Mean & CAGR</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی، بازده مرکب و توان‌های کسری</h4>
+                            <div class="card-inner" style="margin: 10px 0; font-size: 0.74rem; background: #F8FAFC; border: 1.5px solid #C7D2FE; border-radius: 12px; line-height: 1.8;">
+                                <strong style="color: #4338CA;">💡 کالبدشکافی علائم ریاضی: حاصل‌ضرب پی (∏) و توان کسری (1/N):</strong><br>
+                                • <b>نماد ∏ (حرف پی بزرگ یونانی):</b> این نماد نشان‌دهنده <b>«حاصل‌ضرب زنجیره‌ای»</b> تمام داده‌ها است (دقیقاً همان‌طور که نماد ∑ نشان‌دهنده حاصل‌جمع است): ∏ x_i = x₁ × x₂ × ... × x_N.<br>
+                                • <b>توان کسری 1/N:</b> رساندن حاصل‌ضرب به توان ۱/N دقیقاً همان گرفتن <b>ریشه N-ام</b> از ضرب کل اعداد است: ( ∏ x_i )^(1/N) = √(N-ام) از ضرب کل مشاهدات.<br>
+                                • <b>رفع ابهام ستاره (*):</b> علامت ستاره (*) در اقتصاد و تحقیق در عملیات نماد نقطه «تعادل و بهینگی» (Optimal / Equilibrium) است و هرگز علامت ضرب نیست!
+                            </div>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('μ_g = ( ∏ x_i )^(1/N)   |   G = x̄_g = ( ∏ x_i )^(1/n)   |   CAGR = [ ∏ (1 + R_t) ]^(1/n) - 1', this)" title="برای کپی فرمول کلیک کنید">
                                 <span class="math-sym" style="color: #4338CA;">μ_g</span><span class="math-op">=</span>( ∏ x_i )<span class="math-sup">1/N</span><span class="math-sep">|</span><span class="math-sym" style="color: #047857;">G = x̄_g</span><span class="math-op">=</span>( ∏ x_i )<span class="math-sup">1/n</span><span class="math-sep">|</span><span class="math-sym" style="color: #0284C7;">CAGR</span><span class="math-op">=</span>[ ∏ (1 + R_t) ]<span class="math-sup">1/n</span> - 1
                             </div>
@@ -6669,7 +6784,7 @@ body:not(.theme-dark) .dock-btn.active::after {
                             </div>
 
                             <!-- Canvas Area -->
-                            <div class="canvas-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; background: #0B0F19;">
+                            <div class="canvas-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; background: #FFFFFF;">
                                 <canvas id="canvasMath" width="600" height="340" style="width: 100%; height: auto; display: block;"></canvas>
                             </div>
                         </div>
@@ -8262,7 +8377,7 @@ body:not(.theme-dark) .dock-btn.active::after {
                             <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Shadow Price</span>
                         </div>
                         <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قیمت سایه منبع محدودکننده (Shadow Price)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i*</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Z*</span><span class="math-den">∂b_i</span></span></div>
+                        <div class="formula-display" dir="ltr" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Z_{max}</span><span class="math-den">∂b_i</span></span></div>
                         <div class="card-inner" style="font-size: 0.74rem;">
                             <strong>ارزش نهایی منبع:</strong>
                             <p>میزان افزایش مقدار تابع هدف سود به ازای افزودن ۱ واحد به سمت راست قید iام (ظرفیت منبع).</p>
@@ -8970,6 +9085,11 @@ body:not(.theme-dark) .dock-btn.active::after {
             
             const ctx = canvas.getContext('2d');
             ctx.scale(dpr, dpr);
+            
+            // GUARANTEE 100% CRISP PURE WHITE CANVAS BACKGROUND
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, width, height);
+
             return { ctx, W: rect.width, H: rect.height };
         }
 
@@ -9161,7 +9281,7 @@ body:not(.theme-dark) .dock-btn.active::after {
                 ctx.fillText(label, x + 8, y - 4);
             }
 
-            drawPoint(toX(Q0), toY(P0), '#047857', 'E1(Q*=' + Q0.toFixed(0) + ', P*=' + P0.toFixed(1) + ')');
+            drawPoint(toX(Q0), toY(P0), '#047857', 'E1: تعادل (Q=' + Q0.toFixed(0) + ', P=' + P0.toFixed(1) + ')');
             if (t > 0 && Qt > 0) {
                 drawPoint(toX(Qt), toY(Pc), '#DC2626', 'E2: Pc=' + Pc.toFixed(1));
                 drawPoint(toX(Qt), toY(Pp), '#D97706', 'Pp=' + Pp.toFixed(1));
@@ -9635,7 +9755,7 @@ body:not(.theme-dark) .dock-btn.active::after {
 
                     ctx.fillStyle = '#0F172A'; ctx.font = (isOpt ? '900 11.5px' : '700 10px') + ' "JetBrains Mono"';
                     ctx.textAlign = 'left';
-                    ctx.fillText(v.label + (isOpt ? ' ★ Z*=' + v.z : ''), toX(v.x1) + 8, toY(v.x2) - 5);
+                    ctx.fillText(v.label + (isOpt ? ' (بهینه Z=' + v.z + ')' : ''), toX(v.x1) + 8, toY(v.x2) - 5);
                 });
             }
 
@@ -11476,7 +11596,7 @@ body:not(.theme-dark) .dock-btn.active::after {
             if (elFx) elFx.innerText = fx0.toFixed(2);
             if (elFp) elFp.innerText = fprime0.toFixed(2);
             if (elFd) elFd.innerText = fdouble0.toFixed(2) + (a < 0 ? ' (ماکزیمم)' : (a > 0 ? ' (مینیمم)' : ' (خطی)'));
-            if (elOpt) elOpt.innerText = 'x* = ' + xStar.toFixed(1) + ' , f* = ' + fStar.toFixed(1);
+            if (elOpt) elOpt.innerText = 'نقطه اکسترمم: x = ' + xStar.toFixed(1) + ' , y = ' + fStar.toFixed(1);
 
             // Chart coordinates system
             const padX = 55;
@@ -11496,7 +11616,7 @@ body:not(.theme-dark) .dock-btn.active::after {
             }
 
             // Draw Background Grid
-            ctx.strokeStyle = '#1E293B';
+            ctx.strokeStyle = '#E2E8F0';
             ctx.lineWidth = 0.8;
             for (let gx = 0; gx <= maxX; gx += 20) {
                 const sx = toScreenX(gx);
@@ -11639,7 +11759,7 @@ body:not(.theme-dark) .dock-btn.active::after {
                 ctx.fillStyle = '#34D399';
                 ctx.font = '900 11px "Vazirmatn", sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText('قله بهینه (x*=' + xStar.toFixed(1) + ')', sEx, sEy - 10);
+                ctx.fillText('قله بهینه تابع: x = ' + xStar.toFixed(1) + ' (مشتق صفر)', sEx, sEy - 10);
             }
 
             // 5. Draw Tangency Point (x0, f(x0)) & Projections
