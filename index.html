@@ -3476,6 +3476,267 @@ body.theme-dark .formula-card {
     border-color: #334155 !important;
 }
 
+
+/* ========================================================
+   v21.0 OMNI-SEARCH SPOTLIGHT AND MISTAKE VAULT DESIGN SYSTEM
+   ======================================================== */
+.thematic-course-bar {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 8px !important;
+  padding: 4px 0 14px 0 !important;
+  margin-bottom: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 860px) {
+  .thematic-course-bar {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media (max-width: 520px) {
+  .thematic-course-bar {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .thematic-course-bar button:last-child {
+    grid-column: span 2 !important;
+  }
+}
+
+/* OMNI-SEARCH SPOTLIGHT OVERLAY */
+.omni-search-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 14px 14px 14px;
+  box-sizing: border-box;
+}
+.omni-search-backdrop {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.omni-search-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  animation: omniDrop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+body.theme-dark .omni-search-dialog {
+  background: #0F172A;
+  border-color: #334155;
+}
+@keyframes omniDrop {
+  from { opacity: 0; transform: translateY(-16px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.omni-search-input-box {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1.5px solid #E2E8F0;
+  gap: 12px;
+}
+body.theme-dark .omni-search-input-box {
+  border-color: #1E293B;
+}
+.omni-search-icon {
+  font-size: 1.25rem;
+  opacity: 0.8;
+}
+#omni-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0F172A;
+  font-family: inherit;
+}
+body.theme-dark #omni-search-input {
+  color: #F8FAFC;
+}
+.omni-search-close-btn {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #64748B;
+  cursor: pointer;
+}
+body.theme-dark .omni-search-close-btn {
+  background: #1E293B;
+  border-color: #334155;
+  color: #94A3B8;
+}
+
+.omni-search-tags {
+  display: flex;
+  gap: 6px;
+  padding: 10px 16px;
+  overflow-x: auto;
+  border-bottom: 1px solid #F1F5F9;
+  scrollbar-width: none;
+}
+body.theme-dark .omni-search-tags {
+  border-color: #1E293B;
+}
+.omni-search-tags::-webkit-scrollbar { display: none; }
+.omni-tag {
+  background: #F1F5F9;
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+body.theme-dark .omni-tag {
+  background: #1E293B;
+  color: #94A3B8;
+}
+.omni-tag.active, .omni-tag:hover {
+  background: #4F46E5;
+  color: #FFFFFF;
+}
+
+.omni-search-results-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+.omni-result-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+body.theme-dark .omni-result-item {
+  background: #1E293B;
+  border-color: #334155;
+}
+.omni-result-item:hover, .omni-result-item.selected {
+  background: #EEF2FF;
+  border-color: #6366F1;
+  transform: translateX(-3px);
+}
+body.theme-dark .omni-result-item:hover {
+  background: #2D3748;
+  border-color: #818CF8;
+}
+.omni-result-badge {
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.omni-result-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 2px;
+}
+body.theme-dark .omni-result-title {
+  color: #F8FAFC;
+}
+.omni-result-snippet {
+  font-size: 0.75rem;
+  color: #64748B;
+  line-height: 1.35;
+}
+body.theme-dark .omni-result-snippet {
+  color: #94A3B8;
+}
+.omni-search-footer {
+  padding: 10px 16px;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  font-size: 0.72rem;
+  color: #64748B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body.theme-dark .omni-search-footer {
+  background: #090D16;
+  border-color: #1E293B;
+  color: #94A3B8;
+}
+
+/* PULSE GLOW FOR JUMPED FORMULA */
+@keyframes searchPulseGlow {
+  0% { box-shadow: 0 0 0 rgba(79, 70, 229, 0); border-color: #4F46E5; }
+  50% { box-shadow: 0 0 28px rgba(79, 70, 229, 0.75); border-color: #6366F1; }
+  100% { box-shadow: 0 0 0 rgba(79, 70, 229, 0); }
+}
+.search-highlight {
+  animation: searchPulseGlow 1.8s ease-in-out 2 !important;
+  border-color: #4F46E5 !important;
+}
+
+/* MISTAKE VAULT CARD STYLING */
+.mistake-card {
+  background: #FFFFFF;
+  border: 1.5px solid #FECACA;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.05);
+}
+body.theme-dark .mistake-card {
+  background: #1E293B;
+  border-color: #7F1D1D;
+}
+.mistake-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.mistake-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+body.theme-dark .mistake-tag {
+  background: #991B1B;
+  color: #FEE2E2;
+}
+
 </style>
 
 </head>
@@ -3593,9 +3854,9 @@ body.theme-dark .formula-card {
             <button onclick="openCheatSheet()" class="badge badge-cost" style="cursor: pointer; padding: 6px 12px; font-weight: 800;">
                 🖨️ برگه فرمول A4
             </button>
-            <button onclick="selectCourse('hub')" class="badge badge-hub" style="cursor: pointer; padding: 6px 12px; font-weight: 800; border: 1px solid #FDBA74;">
-                📚 دانشنامه شاخص‌ها
-            </button>
+            <button onclick="openOmniSearch()" class="badge badge-pro" id="btn-header-omni" style="cursor: pointer; padding: 6px 14px; font-weight: 800; background: linear-gradient(135deg, #4F46E5, #6366F1); color: #FFFFFF; border: none; box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);">
+🔍 پالت جستجوی هوشمند (Ctrl+K)
+</button>
             <button onclick="exportFullBrief()" class="badge badge-micro" style="cursor: pointer; padding: 6px 12px; font-weight: 800;">
                 📋 کپی گزارش
             </button>
@@ -3620,13 +3881,7 @@ body.theme-dark .formula-card {
                 <span class="chip-sub">CVP، بهای تمام‌شده و BEP</span>
             </div>
         </button>
-        <button class="course-chip" id="btn-course-finance" onclick="selectCourse('finance')">
-            <span class="chip-icon">💰</span>
-            <div class="chip-text">
-                <span class="chip-title">مدیریت مالی ۱</span>
-                <span class="chip-sub">CAPM، خط SML و همادا</span>
-            </div>
-        </button>
+        
         <button class="course-chip" id="btn-course-or" onclick="selectCourse('or')">
             <span class="chip-icon">⚙️</span>
             <div class="chip-text">
@@ -3648,13 +3903,7 @@ body.theme-dark .formula-card {
                 <span class="chip-sub">مشتق، بهینه‌سازی، ماتریس و کارگاه تمرین</span>
             </div>
         </button>
-<button class="course-chip" id="btn-course-hub" onclick="selectCourse('hub')">
-            <span class="chip-icon">📚</span>
-            <div class="chip-text">
-                <span class="chip-title">دانشنامه شاخص‌ها</span>
-                <span class="chip-sub">گنجینه روابط و فرمول‌ها</span>
-            </div>
-        </button>
+
     </nav>
     <div id="active-course-content-anchor" style="scroll-margin-top: 14px;">
 
@@ -5181,721 +5430,7 @@ body.theme-dark .formula-card {
         <!-- ========================================================
              3. FINANCIAL MANAGEMENT PANE
              ======================================================== -->
-        <div id="pane-finance" class="discipline-pane" style="display: none;">
-            <div id="finance-tab-sim" class="subtab-view">
-                <div class="sim-layout" id="f-layout">
-                    <div class="controls-column card" style="margin-bottom: 0;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
-                            <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-finance);">💎 متغیرهای ارزش‌گذاری CAPM و SML</span>
-                            <span class="font-mono badge badge-finance">E(R) = Rf + β(Rm - Rf)</span>
-                        </div>
-
-                        <!-- Rf -->
-                        <div class="param-card">
-                            <div class="param-top">
-                                <span class="param-label">نرخ بازده بدون ریسک (Rf):</span>
-                                <input type="number" id="f-rf-num" value="22" step="1" class="param-input-box" style="color: #1D4ED8;">
-                            </div>
-                            <input type="range" id="f-rf-slider" min="10" max="40" step="1" value="22">
-                        </div>
-
-                        <!-- Rm -->
-                        <div class="param-card">
-                            <div class="param-top">
-                                <span class="param-label">بازده مورد انتظار بازار (Rm):</span>
-                                <input type="number" id="f-rm-num" value="35" step="1" class="param-input-box" style="color: #047857;">
-                            </div>
-                            <input type="range" id="f-rm-slider" min="15" max="60" step="1" value="35">
-                        </div>
-
-                        <!-- Beta -->
-                        <div class="param-card">
-                            <div class="param-top">
-                                <span class="param-label">ضریب بتای سیستماتیک سهم (Beta):</span>
-                                <input type="number" id="f-beta-num" value="1.35" step="0.05" class="param-input-box" style="color: #D97706;">
-                            </div>
-                            <input type="range" id="f-beta-slider" min="0" max="3.0" step="0.05" value="1.35">
-                        </div>
-
-                        <!-- Live KPIs -->
-                        <div class="kpi-row">
-                            <div class="kpi-box" style="background: #FAF5FF; border-color: #E9D5FF;">
-                                <span class="kpi-tag">بازده مورد انتظار E(R)</span>
-                                <span class="kpi-number" id="f-kpi-er" style="color: #6D28D9;">39.55%</span>
-                                <span class="kpi-subtext">هزینه حقوق صاحبان سهام Ke</span>
-                            </div>
-                            <div class="kpi-box" style="background: #EFF6FF; border-color: #BFDBFE;">
-                                <span class="kpi-tag">صَرف ریسک بازار (MRP)</span>
-                                <span class="kpi-number" id="f-kpi-mrp" style="color: #1D4ED8;">13.00%</span>
-                                <span class="kpi-subtext">Rm - Rf</span>
-                            </div>
-                            <div class="kpi-box" style="grid-column: span 2; background: #FFFBEB; border-color: #FDE68A;">
-                                <div style="display: flex; justify-content: space-between; align-items: center;">
-                                    <span style="font-size: 0.72rem; font-weight: 800; color: #475569;">کالبدشکافی ریسک سهم:</span>
-                                    <span class="badge badge-dark" id="f-kpi-badge">سهم تهاجمی (Aggressive)</span>
-                                </div>
-                                <p style="font-size: 0.7rem; color: #64748B; margin-top: 4px;" id="f-kpi-desc">
-                                    بتای ۱.۳۵ نشان‌دهنده نوسان‌پذیری ۳۵٪ بالاتر نسبت به شاخص کل بورس تهران است.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Chart Column -->
-                    <div class="chart-column card" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <div class="canvas-top-bar">
-                                <div>
-                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: #0F172A;">📊 خط بازار اوراق بهادار (Security Market Line - SML)</h3>
-                                    <p style="font-size: 0.72rem; color: #64748B;">
-                                        ترسیم دقیق خط مرزی تعادل ریسک و بازده با پروجکشن بتا و بازده سهم بهادر
-                                    </p>
-                                </div>
-                                <div class="canvas-action-buttons">
-            <button class="btn-chart-tool" onclick="zoomCanvas('finance', 1.25)" title="بزرگ‌نمایی"><span>🔍+</span></button>
-            <button class="btn-chart-tool" onclick="zoomCanvas('finance', 0.8)" title="کوچک‌نمایی"><span>🔍-</span></button>
-            <button class="btn-chart-tool" onclick="resetZoomCanvas('finance')" title="ریست مقیاس"><span>⟲</span></button>
-            <button class="btn-chart-tool btn-fullscreen-launch" onclick="openFullscreenChart('finance')">
-                <span>⛶</span> <span>بزرگ‌نمایی چارت و نمای تریدینگ</span>
-            </button>
-        </div>
-                            </div>
-
-                            <!-- Interactive Layer Toggles -->
-                            <div class="canvas-layer-controls" style="margin-bottom: 10px;">
-                                <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">لایه‌های تحلیلی:</span>
-                                <button class="layer-toggle active" id="f-layer-sml" onclick="toggleLayer('finance', 'sml')">خط تعادل SML</button>
-                                <button class="layer-toggle active" id="f-layer-market" onclick="toggleLayer('finance', 'market')">پرتفوی بازار M</button>
-                                <button class="layer-toggle active" id="f-layer-rf" onclick="toggleLayer('finance', 'rf')">نرخ تنزیل Rf</button>
-                                <button class="layer-toggle active" id="f-layer-proj" onclick="toggleLayer('finance', 'proj')">خطوط تصویر بر محورها</button>
-                            </div>
-                        </div>
-
-                        <div class="canvas-arena-wrapper">
-                            <div class="canvas-arena" id="arena-finance">
-                                <canvas id="canvasFinance"></canvas>
-                                <div class="chart-tooltip" id="tooltip-finance" style="opacity: 0;"></div>
-                            </div>
-                        <!-- 2D Sensitivity Matrix Finance -->
-                        <div class="card" style="margin-top: 14px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                <span style="font-size: 0.82rem; font-weight: 800; color: var(--c-finance);">📊 ماتریس تحلیل حساسیت دوطرفه: ریسک بتا (β) در برابر صرف بازار (MRP)</span>
-                                <span class="badge badge-finance">بازده مورد انتظار E(R)</span>
-                            </div>
-                            <p style="font-size: 0.72rem; color: #64748B; margin-bottom: 10px;">تغییرات بازده منصفانه دارایی بر اساس نوسان‌پذیری سهم و جذابیت بورس</p>
-                            <div class="sensitivity-container" id="finance-sens-table"></div>
-                        </div>
-
-                        </div>
-
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 12px; font-size: 0.74rem; color: #64748B;">
-                            <div style="display: flex; gap: 12px; align-items: center;">
-                                <span><strong style="color: #6D28D9;">—</strong> خط SML</span>
-                                <span><strong style="color: #D97706;">●</strong> سهم انتخابی بهادر</span>
-                                <span><strong style="color: #1D4ED8;">┄┄</strong> بازده بدون ریسک Rf</span>
-                            </div>
-                            <span style="font-weight: 800; color: #0F172A;">شیب خط: MRP</span>
-                        </div>
-                    </div>
-                
-                <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
-                    <span>🔒</span>
-                    <span>پایان بخش چارت زنده و شبیه‌ساز | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
-                </div>
-</div>
-            </div>
-
-            <!-- 3.2 TREE DIAGRAM -->
-            <div id="finance-tab-tree" class="subtab-view" style="display: none;">
-                <div class="card">
-                    <div class="tree-trunk" style="background: #6D28D9;">
-                        <span>🌳</span>
-                        <span>درخت دانش مدیریت مالی و ارزش‌گذاری (Corporate Finance Mind-Map)</span>
-                    </div>
-
-                    <div class="tree-grid">
-                        <div class="tree-branch-card" style="border-top: 4px solid #6D28D9;">
-                            <div class="tree-branch-header"><span class="badge badge-finance">رکن ۱</span><span>ارزش زمانی پول (TVM)</span></div>
-                            <div class="tree-leaf-item"><strong style="color: #6D28D9;">جریان تک نقدی</strong>PV = FV / (1 + r)^n | نرخ بهره موثر سالانه EAR.</div>
-                            <div class="tree-leaf-item"><strong style="color: #6D28D9;">اقساط مساوی (Annuities)</strong>اقساط عادی، اقساط معوقه و جدول استهلاک وام‌ها.</div>
-                            <div class="tree-leaf-item"><strong style="color: #6D28D9;">اقساط ابدی و رشد گوردون</strong>PV = PMT / r | مدل رشد گوردون: P0 = D1 / (Ke - g).</div>
-                        </div>
-
-                        <div class="tree-branch-card" style="border-top: 4px solid #1D4ED8;">
-                            <div class="tree-branch-header"><span class="badge badge-micro">رکن ۲</span><span>بودجه‌بندی سرمایه‌ای (Capital Budgeting)</span></div>
-                            <div class="tree-leaf-item"><strong style="color: #1D4ED8;">ارزش فعلی خالص (NPV)</strong>تنزیل جریان‌های نقدی با نرخ WACC؛ معیار طلایی بیشینه‌سازی ثروت سهامداران.</div>
-                            <div class="tree-leaf-item"><strong style="color: #1D4ED8;">نرخ بازده داخلی (IRR)</strong>نرخی که NPV را صفر می‌کند؛ تله طرح‌های مانعه‌الجمع.</div>
-                            <div class="tree-leaf-item"><strong style="color: #1D4ED8;">شاخص سودآوری (PI)</strong>PI = PV / CF0؛ بهترین معیار در شرایط سهمیه‌بندی سرمایه.</div>
-                        </div>
-
-                        <div class="tree-branch-card" style="border-top: 4px solid #D97706;">
-                            <div class="tree-branch-header"><span class="badge badge-dark">رکن ۳</span><span>ریسک، بازده و مدل قیمت‌گذاری CAPM</span></div>
-                            <div class="tree-leaf-item"><strong style="color: #D97706;">تنوع‌بخشی مارکوویتز</strong>حذف ریسک غیرسیستماتیک؛ بقای ریسک سیستماتیک بازار.</div>
-                            <div class="tree-leaf-item"><strong style="color: #D97706;">ضریب بتا (Beta)</strong>Beta = Cov(Ri, Rm) / Var(Rm)؛ حساسیت بازده سهم به شاخص کل.</div>
-                            <div class="tree-leaf-item"><strong style="color: #D97706;">خط بازار اوراق (SML)</strong>E(R) = Rf + Beta × (Rm - Rf)؛ کشف نرخ تنزیل عادلانه طرح‌ها.</div>
-                        </div>
-
-                        <div class="tree-branch-card" style="border-top: 4px solid #047857;">
-                            <div class="tree-branch-header"><span class="badge badge-cost">رکن ۴</span><span>هزینه سرمایه و ساختار مالی</span></div>
-                            <div class="tree-leaf-item"><strong style="color: #047857;">میانگین موزون (WACC)</strong>WACC = (E/V)Ke + (D/V)Kd(1 - T)؛ سپر مالیاتی بهره وام.</div>
-                            <div class="tree-leaf-item"><strong style="color: #047857;">رابطه همادا (Hamada)</strong>Beta_L = Beta_U × [1 + (1 - T)(D/E)]؛ تفکیک ریسک مالی از عملیاتی.</div>
-                            <div class="tree-leaf-item"><strong style="color: #047857;">تجزیه دوپونت ROE</strong>ROE = حاشیه سود خالص × گردش دارایی‌ها × اهرم مالی بدهی.</div>
-                        </div>
-                    </div>
-                
-                <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
-                    <span>🔒</span>
-                    <span>پایان بخش درخت دانش و نقشه مفهومی | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
-                </div>
-</div>
-            </div>
-
-            <!-- 3.3 FORMULAS & ANATOMY -->
-            <div id="finance-tab-formula" class="subtab-view" style="display: none;">
-
-                <!-- ========================================================
-                     BANKAI FORMULA WORKOUT & STUDIO LAB (FINANCE)
-                     ======================================================== -->
-                <!-- ========================================================
-                     BANKAI FORMULA WORKOUT & STUDIO LAB (FINANCE)
-                     ======================================================== -->
-                <div class="formula-lab-box" id="finance-formula-lab">
-                    <div class="lab-header">
-                        <div class="lab-title-group">
-                            <span class="badge badge-finance">کارگاه اختصاصی فرمول مدیریت مالی ۱</span>
-                            <h3>💎 استودیوی فرمول و یادسپاری فعال بانکای</h3>
-                            <p>بستر تعاملی تمرین، بازنویسی، سنجش یادسپاری و ثبت فرمول‌های شخصی و دانشگاهی</p>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <span class="badge badge-dark" id="finance-mastery-badge">🏆 تسلط فرمولی: ۰%</span>
-                        </div>
-                    </div>
-
-                    <!-- Modern Segmented 3-Tab Bar (Zero Overflow) -->
-                    <div class="lab-mode-pills">
-                        <button type="button" class="lab-mode-pill active" id="finance-pill-recall" onclick="switchLabMode('finance', 'recall')">
-                            <span>🧠</span> <span>یادسپاری</span>
-                        </button>
-                        <button type="button" class="lab-mode-pill" id="finance-pill-custom" onclick="switchLabMode('finance', 'custom')">
-                            <span>✍️</span> <span>ثبت فرمول</span>
-                        </button>
-                        <button type="button" class="lab-mode-pill" id="finance-pill-scratchpad" onclick="switchLabMode('finance', 'scratchpad')">
-                            <span>🔬</span> <span>پیش‌نمایش</span>
-                        </button>
-                    </div>
-
-                    <!-- Panel 1: Active Recall Workout -->
-                    <div class="lab-panel active-panel" id="finance-panel-recall">
-                        <div class="lab-prompt-card">
-                            <div class="lab-prompt-title">
-                                <span id="finance-drill-title">🎯 بارگذاری چالش فرمول...</span>
-                                <span class="badge badge-or" style="font-size: 0.65rem;">یادآوری فعال</span>
-                            </div>
-                            <p class="lab-prompt-text" id="finance-drill-text">در حال بارگذاری صورت مسئله...</p>
-                        </div>
-
-                        <div class="lab-input-wrapper">
-                            <input type="text" id="finance-drill-input" class="lab-formula-input" placeholder="ضابطه جبری فرمول را اینجا تایپ یا از پالت نمادها درج کنید..." onkeydown="if(event.key==='Enter') checkCurrentFormulaDrill('finance')">
-                        </div>
-
-                        <!-- Symbol Palette for Quick Math Entry (Multi-Row Bento) -->
-                        <div style="font-size: 0.72rem; color: #64748B; margin-bottom: 4px; font-weight: 700;">
-                            ⌨️ پالت سریع درج نمادهای ریاضی و عملگرها با یک لمس:
-                        </div>
-                        <div class="lab-symbol-palette">
-                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∑')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∏')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∂')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'Δ')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '√')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'μ')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'σ')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'β')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'θ')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'λ')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'π')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'x̄')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≤')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≥')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≠')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '÷')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '×')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '^')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '²')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '³')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '_')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '(')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ')')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '[')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ']')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '+')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '-')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '=')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '/')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '·')">·</button>
-                        </div>
-
-                        <!-- Action Toolbar -->
-                        <div class="lab-actions-row">
-                            <button type="button" class="lab-btn-primary" onclick="checkCurrentFormulaDrill('finance')">
-                                <span>⚡</span> بررسی صحت فرمول
-                            </button>
-                            <button type="button" class="lab-btn-secondary" onclick="showFormulaDrillHint('finance')">
-                                <span>💡</span> راهنمایی مفهومی
-                            </button>
-                            <button type="button" class="lab-btn-secondary" onclick="revealFormulaDrillAnswer('finance')">
-                                <span>👁️</span> مشاهده پاسخ مرجع
-                            </button>
-                            <button type="button" class="lab-btn-secondary" onclick="nextFormulaDrill('finance')">
-                                <span>🎲</span> فرمول بعدی
-                            </button>
-                        </div>
-
-                        <!-- Dynamic Feedback Alert -->
-                        <div class="lab-feedback-box" id="finance-drill-feedback"></div>
-                    </div>
-
-                    <!-- Panel 2: Bahador's Custom Formula Vault -->
-                    <div class="lab-panel" id="finance-panel-custom">
-                        <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-sizing: border-box;">
-                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
-                                ✍️ افزودن فرمول اختصاصی جدید به درس مدیریت مالی ۱
-                            </h4>
-                            <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
-                                فرمول‌ها یا نکات جدید کلاسی را ثبت کن تا در حافظه دستگاه ذخیره و بلافاصله به بانک یادسپاری اضافه شوند.
-                            </p>
-                            <div class="custom-formula-form">
-                                <div class="custom-formula-field">
-                                    <label>عنوان فرمول یا رابطه:</label>
-                                    <input type="text" id="finance-custom-title" placeholder="مثال: شرط تعادل پتانسیل در مسیرهای بحرانی">
-                                </div>
-                                <div class="custom-formula-field">
-                                    <label>ضابطه ریاضی فرمول (به همراه نمادها):</label>
-                                    <input type="text" id="finance-custom-formula" class="ltr-input" placeholder="مثال: u_i + v_j = c_ij">
-                                </div>
-                                <div class="lab-symbol-palette" style="margin-top: -2px;">
-                                    <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∑', 'finance-custom-formula')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∏', 'finance-custom-formula')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∂', 'finance-custom-formula')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'Δ', 'finance-custom-formula')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '√', 'finance-custom-formula')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'μ', 'finance-custom-formula')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'σ', 'finance-custom-formula')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'β', 'finance-custom-formula')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'θ', 'finance-custom-formula')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'λ', 'finance-custom-formula')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'π', 'finance-custom-formula')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'x̄', 'finance-custom-formula')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≤', 'finance-custom-formula')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≥', 'finance-custom-formula')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≠', 'finance-custom-formula')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '÷', 'finance-custom-formula')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '×', 'finance-custom-formula')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '^', 'finance-custom-formula')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '²', 'finance-custom-formula')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '³', 'finance-custom-formula')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '_', 'finance-custom-formula')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '(', 'finance-custom-formula')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ')', 'finance-custom-formula')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '[', 'finance-custom-formula')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ']', 'finance-custom-formula')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '+', 'finance-custom-formula')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '-', 'finance-custom-formula')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '=', 'finance-custom-formula')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '/', 'finance-custom-formula')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '·', 'finance-custom-formula')">·</button>
-                                </div>
-                                <div class="custom-formula-field">
-                                    <label>مفهوم تحلیلی و یادداشت سر کلاس:</label>
-                                    <textarea id="finance-custom-note" rows="2" placeholder="توضیح تحلیلی یا کاربرد فرمول..."></textarea>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-                                    <div class="custom-formula-field" style="margin: 0; min-width: 140px;">
-                                        <select id="finance-custom-tag">
-                                            <option value="نکته طلایی">⭐ نکته طلایی</option>
-                                            <option value="فرمول کلاسی">🎓 تدریس استاد</option>
-                                            <option value="تله کنکور">🚨 تله کنکور ارشد</option>
-                                            <option value="CFA استاندارد">💎 استاندارد CFA</option>
-                                        </select>
-                                    </div>
-                                    <button type="button" class="lab-btn-primary" onclick="saveCustomFormula('finance')">
-                                        <span>💾</span> ذخیره فرمول در بانکای
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Saved Formulas Archive -->
-                        <div style="font-size: 0.82rem; font-weight: 800; color: #0F172A; margin-bottom: 8px;">
-                            📋 فرمول‌های اختصاصی ثبت‌شده بهادر در این درس:
-                        </div>
-                        <div class="custom-formulas-list" id="finance-custom-formulas-list"></div>
-                    </div>
-
-                    <!-- Panel 3: Live Scratchpad & Symbol Workbench -->
-                    <div class="lab-panel" id="finance-panel-scratchpad">
-                        <div style="font-size: 0.82rem; color: #475569; margin-bottom: 8px;">
-                            ورودی آزاد فرمول‌نویسی: هر فرمولی را بنویسید تا پیش‌نمایش ریاضی تمیز آن را بلادرنگ ببینید:
-                        </div>
-                        <div class="lab-input-wrapper">
-                            <input type="text" id="finance-scratchpad-input" class="lab-formula-input" placeholder="اینجا آزادانه فرمول بنویسید..." oninput="updateScratchpadPreview('finance')">
-                        </div>
-                        <div class="lab-symbol-palette">
-                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∑', 'finance-scratchpad-input')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∏', 'finance-scratchpad-input')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∂', 'finance-scratchpad-input')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'Δ', 'finance-scratchpad-input')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '√', 'finance-scratchpad-input')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'μ', 'finance-scratchpad-input')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'σ', 'finance-scratchpad-input')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'β', 'finance-scratchpad-input')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'θ', 'finance-scratchpad-input')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'λ', 'finance-scratchpad-input')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'π', 'finance-scratchpad-input')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'x̄', 'finance-scratchpad-input')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≤', 'finance-scratchpad-input')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≥', 'finance-scratchpad-input')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≠', 'finance-scratchpad-input')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '÷', 'finance-scratchpad-input')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '×', 'finance-scratchpad-input')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '^', 'finance-scratchpad-input')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '²', 'finance-scratchpad-input')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '³', 'finance-scratchpad-input')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '_', 'finance-scratchpad-input')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '(', 'finance-scratchpad-input')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ')', 'finance-scratchpad-input')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '[', 'finance-scratchpad-input')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ']', 'finance-scratchpad-input')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '+', 'finance-scratchpad-input')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '-', 'finance-scratchpad-input')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '=', 'finance-scratchpad-input')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '/', 'finance-scratchpad-input')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '·', 'finance-scratchpad-input')">·</button>
-                        </div>
-                        <div style="font-size: 0.74rem; font-weight: 700; color: #64748B; margin-top: 8px;">
-                            پیش‌نمایش زنده ریاضی:
-                        </div>
-                        <div class="scratchpad-preview-box" id="finance-scratchpad-preview">
-                            <span style="color: #94A3B8; font-size: 0.82rem;">پیش‌نمایش زنده فرمول اینجا نمایش داده می‌شود...</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="formula-card-grid">
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-finance">فرمول طلایی ۱</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل قیمت‌گذاری دارایی سرمایه‌ای (CAPM)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('E(R) = Rf + Beta × [ Rm - Rf ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E(R_i)</span><span class="math-op">=</span>R_f + β_i × [ E(R_m) - R_f ]</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>منطق وال‌استریت:</strong>
-                                <p>تنها ریسک سیستماتیک (Beta) قیمت‌گذاری می‌شود؛ ریسک خاص با تنوع‌بخشی حذف می‌گردد.</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('E(R) = Rf + Beta * [Rm - Rf]')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-finance">فرمول طلایی ۲</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص شارپ (Sharpe Ratio)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('Sharpe = (R_p - R_f) / σ_p', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Sharpe</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">R_p - R_f</span><span class="math-den">σ_p</span></span></div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>ارزیابی عملکرد پرتفوی:</strong>
-                                <p>پاداش مازاد بازده به ازای هر واحد انحراف معیار کل ریسک. معیار طلایی رتبه‌بندی صندوق‌های سرمایه‌گذاری.</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Sharpe = (Rp - Rf) / sigma_p')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-finance">فرمول طلایی ۳</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص ترینور (Treynor Ratio)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('Treynor = (R_p - R_f) / β_p', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Treynor</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">R_p - R_f</span><span class="math-den">β_p</span></span></div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>پاداش ریسک سیستماتیک:</strong>
-                                <p>مازاد بازده به ازای هر واحد بتای بازار. برای سبدهایی مناسب است که کاملاً تنوع‌بخشی شده‌اند.</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Treynor = (Rp - Rf) / beta_p')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-finance">فرمول طلایی ۴</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">آلفای جنسن (Jensen's Alpha)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('Alpha = Rp - [ Rf + β_p × (Rm - Rf) ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">α_p</span><span class="math-op">=</span>R_p - [ R_f + β_p × (R_m - R_f) ]</div>
-                            <div class="card-inner" style="font-size: 0.74rem;">
-                                <strong>مهارت مدیر سرمایه‌گذاری:</strong>
-                                <p>تفاضل بازده واقعی سبد از بازده منصفانه تئوریک مدل CAPM؛ آلفای مثبت نشان‌دهنده هنر انتخاب سهم مدیر است.</p>
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Alpha = Rp - [Rf + beta_p * (Rm - Rf)]')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-                
-                    <!-- Finance Formula 5: Time Value of Money & Annuities -->
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-finance">فرمول طلایی ۵</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ارزش زمانی پول (TVM)، اقساط مساوی و اقساط دائمی (Perpetuity)</h4>
-                            
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('PV = FV / (1 + r)^n ; PVA = PMT × [ (1 - (1+r)^-n) / r ] ; PV_perp = PMT / r ; PV_gordon = PMT1 / (r - g)', this)" title="برای کپی فرمول کلیک کنید">
-                                <div class="formula-line">
-                                    <span class="math-badge pop">ارزش فعلی یکجا:</span>
-                                    <span class="math-sym">PV</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FV</span><span class="math-den">( 1 + r )<span class="math-sup">n</span></span></span>
-                                </div>
-                                <div class="formula-line">
-                                    <span class="math-badge samp">ارزش فعلی اقساط مساوی (PVA):</span>
-                                    <span class="math-sym">PVA</span><span class="math-op">=</span>PMT × [ <span class="math-frac"><span class="math-num">1 - ( 1 + r )<span class="math-sup">-n</span></span><span class="math-den">r</span></span> ]
-                                </div>
-                                <div class="formula-line">
-                                    <span class="math-badge app">اقساط دائمی ساده و با رشد (Perpetuity):</span>
-                                    <span class="math-sym">PV_{perp}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">PMT</span><span class="math-den">r</span></span> <span class="math-sep">|</span> <span class="math-sym">PV_{gordon}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">PMT_1</span><span class="math-den">r - g</span></span>
-                                </div>
-                            </div>
-
-                            <div class="tier-card prof-tier">
-                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                • <b>ارزش زمانی پول:</b> یک ریال امروز باارزش‌تر از یک ریال فرداست (هزینه فرصت، ریسک، تورم).<br>
-                                • <b>اقساط دائمی (Perpetuity):</b> جریان‌های نامحدود با دوره بی‌نهایت؛ کاربرد در ارزش‌گذاری سهام ممتاز و مدل تنزیل سود نقدی (DDM).
-                            </div>
-
-                            <div class="tier-card trap-tier">
-                                <strong>🚨 تله کنکور ارشد:</strong>
-                                اشتباه در زمان‌بندی اقساط عادی (Ordinary Annuity: پایان دوره) با اقساط معوق/پیش‌پرداخت (Annuity Due: ابتدای دوره)! در اقساط ابتدای دوره، کل رابطه در (1 + r) ضرب می‌شود.
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('PV = FV / (1 + r)^n; PVA = PMT * (1 - (1+r)^-n) / r; PV_perp = PMT / r')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <!-- Finance Formula 6: Capital Budgeting Criteria (NPV, IRR, PI) -->
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-finance">فرمول طلایی ۶</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">معیارهای بودجه‌بندی سرمایه‌ای (NPV, IRR, PI)</h4>
-                            
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('NPV = ∑ [ CF_t / (1 + r)^t ] - CF_0 ; PI = PV_inflows / CF_0 = 1 + (NPV / CF_0) ; IRR at NPV = 0', this)" title="برای کپی فرمول کلیک کنید">
-                                <div class="formula-line">
-                                    <span class="math-badge pop">ارزش فعلی خالص (NPV):</span>
-                                    <span class="math-sym">NPV</span><span class="math-op">=</span>∑<span class="math-sup">t=1..n</span> [ <span class="math-frac"><span class="math-num">CF_t</span><span class="math-den">( 1 + r )<span class="math-sup">t</span></span></span> ] - CF_0
-                                </div>
-                                <div class="formula-line">
-                                    <span class="math-badge samp">شاخص سودآوری (Profitability Index):</span>
-                                    <span class="math-sym">PI</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">PV of Inflows</span><span class="math-den">CF_0</span></span><span class="math-op">=</span>1 + <span class="math-frac"><span class="math-num">NPV</span><span class="math-den">CF_0</span></span>
-                                </div>
-                                <div class="formula-line">
-                                    <span class="math-badge app">نرخ بازده داخلی (IRR):</span>
-                                    NPV(IRR) = 0 <span class="math-op">==&gt;</span> پذیرش اگر <span class="math-sym">IRR</span> &gt; WACC
-                                </div>
-                            </div>
-
-                            <div class="tier-card prof-tier">
-                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                • <b>NPV استاندارد طلایی است:</b> ارزش ثروت افزوده سهامداران را اندازه می‌گیرد.<br>
-                                • <b>تضاد NPV و IRR:</b> در پروژه‌های متقابل مانعه‌الجمع (Mutually Exclusive) با مقیاس یا زمان‌بندی متفاوت، همواره تصمیم بر اساس NPV اولویت قطعی دارد.
-                            </div>
-
-                            <div class="tier-card trap-tier">
-                                <strong>🚨 تله کنکور ارشد:</strong>
-                                فرض نرخ بازسرمایه‌گذاری مجدد جریان‌های نقد! NPV فرض می‌کند وجوه با نرخ هزینه سرمایه (WACC) بازسرمایه‌گذاری می‌شوند که فرضی کاملاً واقع‌بینانه است؛ در حالی که IRR خوش‌بینانه فرض می‌کند با نرخ بالای IRR بازسرمایه‌گذاری می‌شوند!
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('NPV = sum(CF_t / (1 + r)^t) - CF_0; PI = 1 + NPV / CF_0; NPV(IRR) = 0')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-                    <!-- Finance Formula 7: WACC & Capital Structure -->
-                    <div class="formula-card">
-                        <div>
-                            <span class="badge badge-finance">فرمول طلایی ۷</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین موزون هزینه سرمایه (WACC) و سپر مالیاتی بدهی</h4>
-                            
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('WACC = [ (D/V) × rd × (1 - T) ] + [ (E/V) × re ] ; Tax Shield = T × rd × D', this)" title="برای کپی فرمول کلیک کنید">
-                                <div class="formula-line">
-                                    <span class="math-badge pop">میانگین موزون هزینه سرمایه (WACC):</span>
-                                    <span class="math-sym">WACC</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">D</span><span class="math-den">V</span></span> ) × r_d × ( 1 - T ) + ( <span class="math-frac"><span class="math-num">E</span><span class="math-den">V</span></span> ) × r_e
-                                </div>
-                                <div class="formula-line">
-                                    <span class="math-badge samp">سپر مالیاتی سالانه بهره بدهی:</span>
-                                    <span class="math-sym">Tax Shield</span><span class="math-op">=</span>T × r_d × D
-                                </div>
-                            </div>
-
-                            <div class="tier-card prof-tier">
-                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                • <b>V:</b> ارزش کل شرکت برابر D (ارزش بازار بدهی) + E (ارزش بازار حقوق صاحبان سهام).<br>
-                                • <b>(1 - T):</b> اثر صرفه‌جویی مالیاتی؛ چون هزینه بهره از درآمد مشمول مالیات کسر می‌شود، هزینه واقعی بدهی پس از مالیات r_d × (1 - T) است.
-                            </div>
-
-                            <div class="tier-card trap-tier">
-                                <strong>🚨 تله کنکور ارشد:</strong>
-                                اعمال ضریب (1 - T) روی هزینه سهام (r_e)! سود تقسیمی سهام مشمول کسر مالیاتی برای شرکت نیست، بنابراین فقط و فقط نرخ بهره بدهی (r_d) در (1 - T) ضرب می‌شود.
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('WACC = (D/V) * rd * (1 - T) + (E/V) * re; Tax_Shield = T * rd * D')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
-
-
-                <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
-                    <span>🔒</span>
-                    <span>پایان بخش فرمول‌نامه جامع و تفکیکی | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
-                </div>
-</div>
-            </div>
-
-            <!-- 3.4 STEP-BY-STEP SOLUTION -->
-            <div id="finance-tab-solution" class="subtab-view" style="display: none;">
-
-                <!-- ========================================================
-                     INTERACTIVE FINANCIAL MANAGEMENT WORKOUT BENCH
-                     ======================================================== -->
-                <div class="workout-container" id="finance-workout-bench">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
-                        <div>
-                            <span class="badge badge-finance">کاکپیت محاسباتی مدیریت مالی ۱</span>
-                            <h3 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
-                                💰 کارگاه تعاملی مدل قیمت‌گذاری دارایی سرمایه‌ای، ارزش‌گذاری و WACC
-                            </h3>
-                            <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
-                                حل گام‌به‌گام خط بازار اوراق بهادار (SML)، آلفای جنسن، مدل رشد گوردون و بتای اهرمی همادا
-                            </p>
-                        </div>
-                        <span class="badge badge-dark">نسخه ویژه بهادر</span>
-                    </div>
-
-                    <!-- Workout Navigation Pills -->
-                    <div class="workout-nav-pills">
-                        <button class="workout-pill finance-pill active" id="btn-fpill-capm" onclick="switchFinanceWorkoutTab('capm')">
-                            <span>📈</span> خط SML و آلفای جنسن
-                        </button>
-                        <button class="workout-pill finance-pill" id="btn-fpill-gordon" onclick="switchFinanceWorkoutTab('gordon')">
-                            <span>💰</span> ارزش‌گذاری رشد گوردون
-                        </button>
-                        <button class="workout-pill finance-pill" id="btn-fpill-wacc" onclick="switchFinanceWorkoutTab('wacc')">
-                            <span>🏛️</span> WACC و بتای اهرمی همادا
-                        </button>
-                    </div>
-
-                    <!-- STATION 1: CAPM & SML -->
-                    <div class="workout-pane active" id="fpane-capm">
-                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
-                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
-                                ۱. محاسبه بازده مورد انتظار CAPM و آلفای جنسن (ارزیابی عملکرد):
-                            </strong>
-                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                SML: E(R_i) = R_f + β_i × [ E(R_m) - R_f ] &nbsp;|&nbsp; Alpha: α_i = R_actual - E(R_i)
-                            </div>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
-                                <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">نرخ بدون ریسک (R_f%):</label>
-                                    <input type="number" id="fin-rf" value="22" step="1" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بازده بازار (E(R_m)%):</label>
-                                    <input type="number" id="fin-rm" value="34" step="1" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بتای سیستماتیک سهم (β):</label>
-                                    <input type="number" id="fin-beta" value="1.5" step="0.1" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بازده واقعی ثبت‌شده سهم (R%):</label>
-                                    <input type="number" id="fin-ract" value="42" step="2" class="param-input-box" style="width: 100%;">
-                                </div>
-                            </div>
-                            <button class="btn-copy-formula" onclick="runFinanceCAPMTrainer()" style="margin-top: 12px; background: #7C3AED; color: #FFFFFF; font-weight: 900;">
-                                <span>⚡</span> ارزیابی خط SML و استخراج آلفای جنسن
-                            </button>
-                        </div>
-                        <div id="fin-capm-result" class="workout-result-box">
-                            برای مشاهده تحلیل موقعیت سهم روی خط SML و آلفای جنسن، دکمه بالا را لمس کنید.
-                        </div>
-                    </div>
-
-                    <!-- STATION 2: GORDON GROWTH MODEL -->
-                    <div class="workout-pane" id="fpane-gordon">
-                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
-                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
-                                ۲. ارزش‌گذاری سهام عادی با مدل رشد گوردون (Gordon Dividend Growth):
-                            </strong>
-                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                D₁ = D₀ × (1 + g) &nbsp;|&nbsp; P₀ = D₁ / (k_e - g) &nbsp;|&nbsp; بازده نقدی: DY = D₁ / P₀
-                            </div>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
-                                <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">آخرین DPS نقدی (D₀):</label>
-                                    <input type="number" id="fin-d0" value="1000" step="100" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">نرخ رشد سالانه سود (g%):</label>
-                                    <input type="number" id="fin-g" value="15" step="1" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بازده مورد انتظار سهامدار (k_e%):</label>
-                                    <input type="number" id="fin-ke" value="25" step="1" class="param-input-box" style="width: 100%;">
-                                </div>
-                            </div>
-                            <button class="btn-copy-formula" onclick="runFinanceGordonTrainer()" style="margin-top: 12px; background: #6D28D9; color: #FFFFFF; font-weight: 900;">
-                                <span>⚡</span> محاسبه ارزش ذاتی سهم و نسبت‌های بازده نقدی
-                            </button>
-                        </div>
-                        <div id="fin-gordon-result" class="workout-result-box">
-                            جهت محاسبه ارزش ذاتی سهم عادی و تفکیک بازده نقدی و سرمایه‌ای، دکمه بالا را بزنید.
-                        </div>
-                    </div>
-
-                    <!-- STATION 3: WACC & HAMADA -->
-                    <div class="workout-pane" id="fpane-wacc">
-                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px;">
-                            <strong style="font-size: 0.85rem; color: #1E293B; display: block; margin-bottom: 6px;">
-                                ۳. محاسبه میانگین موزون هزینه سرمایه (WACC) و بتای اهرمی همادا:
-                            </strong>
-                            <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                WACC = W_e × k_e + W_d × k_d × (1 - T) &nbsp;|&nbsp; β_L = β_U × [ 1 + (1 - T)(D/E) ]
-                            </div>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
-                                <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">ارزش بدهی (D):</label>
-                                    <input type="number" id="fin-debt" value="400" step="50" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">ارزش سهام (E):</label>
-                                    <input type="number" id="fin-eq" value="600" step="50" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">هزینه بدهی (k_d%):</label>
-                                    <input type="number" id="fin-kd" value="20" step="1" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">هزینه سهام (k_e%):</label>
-                                    <input type="number" id="fin-cost-ke" value="28" step="1" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">نرخ مالیات (T%):</label>
-                                    <input type="number" id="fin-tax" value="25" step="5" class="param-input-box" style="width: 100%;">
-                                </div>
-                                <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">بتای بدون اهرم (β_U):</label>
-                                    <input type="number" id="fin-bu" value="1.1" step="0.1" class="param-input-box" style="width: 100%;">
-                                </div>
-                            </div>
-                            <button class="btn-copy-formula" onclick="runFinanceWACCTrainer()" style="margin-top: 12px; background: #5B21B6; color: #FFFFFF; font-weight: 900;">
-                                <span>⚡</span> محاسبه WACC، سپر مالیاتی بدهی و بتای همادا
-                            </button>
-                        </div>
-                        <div id="fin-wacc-result" class="workout-result-box">
-                            جهت مشاهده سپر مالیاتی، بهای موزون سرمایه و اهرم همادا روی دکمه بالا بزنید.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <span class="badge badge-finance" style="margin-bottom: 8px;">مسئله بودجه‌بندی سرمایه‌ای و تنزیل جریان‌های نقدی</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
-                        صورت مسئله: پروژه‌ای به سرمایه اولیه ۱۰۰ میلیون تومان نیاز دارد و در ۳ سال آتی جریان‌های ۴۰، ۵۰ و ۶۰ میلیون تولید می‌کند. با هزینه سرمایه ۲۰٪ آیا طرح توجیه دارد؟
-                    </h3>
-
-                    <div class="algo-step" style="border-right-color: #6D28D9;">
-                        <span class="algo-step-title">گام اول: تنزیل جریان‌های نقدی با نرخ r = 20%</span>
-                        ارزش فعلی سال ۱: 40 ÷ 1.20 = 33.33 میلیون تومان.<br>
-                        ارزش فعلی سال ۲: 50 ÷ (1.20)² = 34.72 میلیون تومان.<br>
-                        ارزش فعلی سال ۳: 60 ÷ (1.20)³ = 34.72 میلیون تومان.
-                    </div>
-
-                    <div class="algo-step" style="border-right-color: #047857;">
-                        <span class="algo-step-title">گام دوم: مجموع ارزش فعلی جریان‌های ورودی (PV)</span>
-                        PV کل = 33.33 + 34.72 + 34.72 = 102.77 میلیون تومان.
-                    </div>
-
-                    <div class="algo-step" style="border-right-color: #D97706;">
-                        <span class="algo-step-title">گام سوم: محاسبه NPV و تصمیم‌گیری نهایی</span>
-                        NPV = 102.77 - 100 = +2.77 میلیون تومان.<br>
-                        تصمیم نهایی: چون ارزش فعلی خالص مثبت است، پروژه ثروت سهامداران را افزایش می‌دهد و باید تصویب شود.
-                    </div>
-                
-                <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
-                    <span>🔒</span>
-                    <span>پایان بخش حل تشریحی مسئله و آزمایشگاه | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
-                </div>
-</div>
-            </div>
-
-            <!-- 3.5 TRAPS & CAPSULE -->
-            
-            <!-- ADAPTIVE MOCK EXAM QUIZ -->
-            <div id="finance-tab-quiz" class="subtab-view" style="display: none;">
-                <div class="quiz-arena" id="finance-quiz-arena">
-                <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
-                    <span>🔒</span>
-                    <span>پایان بخش آزمون شبیه‌ساز کارشناسی ارشد | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
-                </div>
-</div>
-            </div>
-
-            <div id="finance-tab-traps" class="subtab-view" style="display: none;">
-                <div class="card">
-                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #9F1239; margin-bottom: 10px;">⚠️ تله‌های مرگبار امتحانی مدیریت مالی</h4>
-                    <div class="trap-box">
-                        <div class="trap-header"><span>🚨</span> دام تستی ۱: پرمیوم بازار در برابر بازده بازار</div>
-                        اگر سوال بگوید: «صرف ریسک بازار ۱۰٪ است»، مستقیماً Beta × 10 می‌شود. اما اگر بگوید «بازده بازار ۳۰٪ و نرخ بدون ریسک ۲۰٪ است»، ابتدا باید تفاضل گرفته شود!
-                    </div>
-
-                    <div class="trap-box">
-                        <div class="trap-header"><span>🚨</span> دام تستی ۲: تضاد رتبه‌بندی NPV و IRR در طرح‌های مانعه‌الجمع</div>
-                        در پروژه‌های با مقیاس متفاوت، ممکن است پروژه‌ای IRR بالاتری داشته باشد اما NPV کمتری خلق کند. اولویت مطلق همیشه با NPV است.
-                    </div>
-                
-                <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
-                    <span>🔒</span>
-                    <span>پایان بخش تله‌های تستی و کپسول دفترچه | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
-                </div>
-</div>
-
-                <div class="card">
-                    <h4 style="font-size: 0.9rem; font-weight: 900; color: #6D28D9; margin-bottom: 10px;">📝 کپسول دست‌نویس دفترچه بهادر (مدیریت مالی ۱)</h4>
-                    <div class="notebook-capsule">
-1. E(R) = Rf + Beta * [Rm - Rf]  [مدل قیمت‌گذاری CAPM]
-2. WACC = (E/V)*Ke + (D/V)*Kd*(1 - T)  [میانگین موزون هزینه سرمایه]
-3. NPV = sum[ CF_t / (1 + r)^t ] - CF_0  [ارزش فعلی خالص]
-4. Beta_L = Beta_U * [ 1 + (1 - T)*(D/E) ]  [معادله همادا]
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- ========================================================
              4. OPERATIONS RESEARCH PANE
@@ -5934,7 +5469,20 @@ body.theme-dark .formula-card {
                             <div>• x1, x2 ≥ 0</div>
                         </div>
 
-                        <!-- Live KPIs -->
+                        <!-- Interactive Simplex Pivot Stepper -->
+<div style="margin: 10px 0; background: #F0FDFA; border: 1.5px solid #99F6E4; border-radius: 12px; padding: 10px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+    <span style="font-size: 0.78rem; font-weight: 800; color: #0F766E;">🧭 گام‌شمار لولا (الگوریتم سیمپلکس):</span>
+    <span class="badge badge-or" id="or-step-badge" style="font-size: 0.68rem;">گام ۰: مبدأ O(0,0) | Z = 0</span>
+  </div>
+  <div style="display: flex; gap: 6px;">
+    <button type="button" onclick="stepORSimplex(-1)" class="badge" style="flex: 1; padding: 6px; cursor: pointer; background: #FFFFFF; border: 1px solid #CBD5E1; font-weight: 700; color: #334155;">⏮️ گام قبل</button>
+    <button type="button" onclick="stepORSimplex(1)" class="badge" style="flex: 1; padding: 6px; cursor: pointer; background: #0E7490; color: #FFFFFF; border: none; font-weight: 800;">⏭️ گام بعد (لولا)</button>
+    <button type="button" onclick="resetORSimplex()" class="badge" style="padding: 6px 10px; cursor: pointer; background: #F1F5F9; border: 1px solid #CBD5E1; color: #475569;" title="شروع مجدد">🔄</button>
+  </div>
+</div>
+
+<!-- Live KPIs -->
                         <div class="kpi-row">
                             <div class="kpi-box" style="grid-column: span 2; background: #ECFEFF; border-color: #A5F3FC;">
                                 <span class="kpi-tag">نقطه بهینه سیمپلکس (Optimal Extreme Point)</span>
@@ -9234,786 +8782,59 @@ body.theme-dark .formula-card {
         <!-- ========================================================
              6. MASTER ENCYCLOPEDIA HUB: ALL MEANS & INDICES
              ======================================================== -->
-        <div id="pane-hub" class="discipline-pane" style="display: none;">
-            <!-- Hub Controls Card -->
-            <div class="card" style="border-top: 4px solid #C2410C;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
-                    <div>
-                        <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; display: flex; align-items: center; gap: 8px;">
-                            <span>📚</span>
-                            <span>دانشنامه جامع و مرجع سریع تمامی میانگین‌ها و شاخص‌ها</span>
-                        </h3>
-                        <p style="font-size: 0.74rem; color: #64748B; margin-top: 2px;">
-                            پوشش کامل تمام مفاهیم خوانده‌شده در ۵ جبهه درسی، فرمول‌های استاندارد، کالبدشکافی متغیرها و کپی با ۱ لمس
-                        </p>
-                    </div>
-                    <span class="badge badge-hub font-mono" id="hub-count-badge" style="font-size: 0.8rem; padding: 5px 12px;">
-                        تعداد کل: ۵۵ شاخص
-                    </span>
-                </div>
+        
 
-                
-            <!-- LEITNER SPACED REPETITION ENGINE -->
-            <div class="card leitner-deck-card" id="hub-leitner-card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-                    <div>
-                        <span class="badge badge-hub">سیستم یادگیری فعال</span>
-                        <h3 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin-top: 4px;">🧠 فلش‌کارت‌های مرور فاصله‌دار لایتنر (Leitner SRS)</h3>
-                    </div>
-                    <span id="leitner-progress-badge" class="badge badge-dark">کارت ۱ از ۸</span>
-                </div>
-                
-                <div class="leitner-box-tracker">
-                    <div class="leitner-box-dot active" id="lbox-1">۱</div>
-                    <div class="leitner-box-dot" id="lbox-2">۲</div>
-                    <div class="leitner-box-dot" id="lbox-3">۳</div>
-                    <div class="leitner-box-dot" id="lbox-4">۴</div>
-                    <div class="leitner-box-dot" id="lbox-5">۵</div>
-                </div>
+<!-- OMNI-SEARCH SPOTLIGHT MODAL -->
+<div id="modal-omni-search" class="omni-search-modal" style="display: none;">
+  <div class="omni-search-backdrop" onclick="closeOmniSearch()"></div>
+  <div class="omni-search-dialog" role="dialog" aria-label="Omni Search">
+    <div class="omni-search-input-box">
+      <span class="omni-search-icon">🔍</span>
+      <input 
+        id="omni-search-input" 
+        type="search" 
+        placeholder="جستجو در تمام فرمول‌ها، تله‌ها و تعاریف ۵ درس (مثال: سیمپلکس، کشش، بسل، واریانس، مشتق)..." 
+        autocomplete="off" 
+        autocorrect="off" 
+        spellcheck="false" 
+        dir="auto" 
+        oninput="handleOmniSearchInput(this.value)"
+      />
+      <button class="omni-search-close-btn" onclick="closeOmniSearch()">ESC ✕</button>
+    </div>
+    <div class="omni-search-tags">
+      <span class="omni-tag active" data-filter="all" onclick="filterOmniByTag('all', this)">همه ۵ درس</span>
+      <span class="omni-tag" data-filter="micro" onclick="filterOmniByTag('micro', this)">📈 اقتصاد خرد</span>
+      <span class="omni-tag" data-filter="cost" onclick="filterOmniByTag('cost', this)">🏭 حسابداری صنعتی ۱</span>
+      <span class="omni-tag" data-filter="or" onclick="filterOmniByTag('or', this)">⚙️ تحقیق در عملیات ۱</span>
+      <span class="omni-tag" data-filter="stat" onclick="filterOmniByTag('stat', this)">📊 آمار کاربردی ۱</span>
+      <span class="omni-tag" data-filter="math" onclick="filterOmniByTag('math', this)">📐 ریاضیات مدیریت</span>
+    </div>
+    <div id="omni-search-results" class="omni-search-results-list">
+      <!-- Populated dynamically -->
+    </div>
+    <div class="omni-search-footer">
+      <span>💡 با کلیک روی هر نتیجه، فوراً به کارت فرمول منتقل می‌شوید. (کلید میانبر: / یا Ctrl+K)</span>
+    </div>
+  </div>
+</div>
 
-                <div class="card" id="flashcard-front" style="background: #F8FAFC; border: 1.5px solid #CBD5E1; padding: 24px; min-height: 140px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <span id="fc-category" class="badge badge-micro" style="margin-bottom: 8px;">مفهوم کلیدی</span>
-                    <h4 id="fc-question" style="font-size: 1.05rem; font-weight: 900; color: #0F172A; text-align: center;">...</h4>
-                </div>
+<!-- MISTAKE VAULT MODAL (جعبه اشتباهات شخصی) -->
+<div id="modal-mistake-vault" class="flashback-modal" style="display: none;">
+  <div class="flashback-modal-content" style="max-width: 720px;">
+    <div class="flashback-header" style="background: linear-gradient(135deg, #DC2626, #B91C1C);">
+      <div>
+        <h3 style="font-size: 1.05rem; font-weight: 900; margin: 0; color: #FFFFFF;">⚠️ جعبه اشتباهات من (Personal Mistake Vault)</h3>
+        <p style="font-size: 0.72rem; color: #FECACA; margin: 3px 0 0 0;">آرشیو هوشمند تست‌های اشتباه پاسخ‌داده‌شده با طبقه‌بندی خطاهای مفهومی، محاسباتی و تله‌های کنکور</p>
+      </div>
+      <button class="btn-close-fs" onclick="closeMistakeVault()">✕ بستن</button>
+    </div>
+    <div class="flashback-body" id="mistake-vault-body" style="padding: 16px;">
+      <!-- Populated dynamically -->
+    </div>
+  </div>
+</div>
 
-                <div class="card" id="flashcard-back" style="display: none; background: #FAF5FF; border: 1.5px solid #C084FC; padding: 20px; text-align: right; min-height: 140px;">
-                    <div id="fc-answer" style="font-size: 0.85rem; line-height: 1.9; color: #3B0764;">...</div>
-                </div>
-
-                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
-                    
-                    <button id="btn-fc-restart" class="btn-chart-tool" onclick="resetLeitnerDeck()" style="padding: 8px 14px; font-size: 0.8rem; background: rgba(239, 68, 68, 0.1); border-color: #EF4444; color: #DC2626;">
-                        🔄 مرور مجدد از کارت ۱
-                    </button>
-
-                    <button id="btn-fc-flip" class="btn-chart-tool" onclick="flipFlashcard()" style="padding: 8px 18px; font-size: 0.8rem;">
-                        🔄 نمایش پاسخ و کالبدشکافی
-                    </button>
-                    <button id="btn-fc-know" class="btn-chart-tool" onclick="markFlashcard(true)" style="display: none; background: #047857; color: #FFFFFF; border-color: #047857; padding: 8px 18px; font-size: 0.8rem;">
-                        ✅ بلد بودم (انتقال به خانه بعدی)
-                    </button>
-                    <button id="btn-fc-forget" class="btn-chart-tool" onclick="markFlashcard(false)" style="display: none; background: #DC2626; color: #FFFFFF; border-color: #DC2626; padding: 8px 18px; font-size: 0.8rem;">
-                        ❌ مرور مجدد (بازگشت به خانه ۱)
-                    </button>
-                </div>
-            </div>
-
-                <!-- Instant Live Search Input -->
-                <div style="position: relative; margin-bottom: 14px;">
-                    <input type="text" id="hub-search-input" oninput="filterHubCards()"
-                           placeholder="🔍 جستجوی آنی میانگین‌ها، شاخص‌ها، فرمول‌ها یا نمادها (مثلاً: هندسی، شارپ، کشش، بتا، BEP، واریانس)..."
-                           style="width: 100%; padding: 12px 16px; border: 2px solid #CBD5E1; border-radius: 12px; font-family: 'Vazirmatn', sans-serif; font-size: 0.86rem; outline: none; background: #F8FAFC; transition: all 0.2s;">
-                </div>
-
-                <!-- Category Filter Chips -->
-                <div style="display: flex; gap: 7px; flex-wrap: wrap;" id="hub-filter-chips">
-                    <button class="scenario-chip active" onclick="setHubCategory('all', this)" style="background: #0F172A; color: #FFFFFF;">همه (۴۰ مورد)</button>
-                    <button class="scenario-chip" onclick="setHubCategory('means', this)">تمامی میانگین‌ها (۹ مورد)</button>
-                    <button class="scenario-chip" onclick="setHubCategory('stat', this)">شاخص‌های آماری و پراکندگی (۱۲ مورد)</button>
-                    <button class="scenario-chip" onclick="setHubCategory('finance', this)">شاخص‌های مالی و ارزیابی (۹ مورد)</button>
-                    <button class="scenario-chip" onclick="setHubCategory('micro', this)">شاخص‌های اقتصاد و کشش (۶ مورد)</button>
-                    <button class="scenario-chip" onclick="setHubCategory('cost', this)">شاخص‌های بهایابی و CVP (۴ مورد)</button>
-                </div>
-            </div>
-
-            <!-- Hub Cards Grid -->
-            <div class="formula-card-grid" id="hub-cards-container">
-
-                <!-- 1. AM -->
-                <div class="formula-card hub-card" data-category="means" data-keywords="میانگین حسابی arithmetic mean xbar مرکز ثقل انحرافات">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">میانگین</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Arithmetic Mean</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین حسابی ساده و موزون</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('X_bar = ∑ x_i / n  |  ∑ (f_i x_i) / ∑ f_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">x̄</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">n</span></span><span class="math-sep">|</span><span class="math-frac"><span class="math-num">∑ (f_i x_i)</span><span class="math-den">∑ f_i</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>خواص بنیادین:</strong>
-                            <p>• مرکز ثقل داده‌ها؛ مجموع انحرافات از میانگین صفر است: ∑(x_i - X_bar) = 0.</p>
-                            <p>• مجموع مربعات انحرافات حول میانگین کمینه است (اصل OLS).</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('X_bar = sum(x_i) / n')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 2. Weighted Mean -->
-                <div class="formula-card hub-card" data-category="means finance" data-keywords="میانگین وزنی موزون weighted mean پرتفوی نمرات">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">میانگین</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Weighted Mean</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین وزنی (موزون) بازدهی سبد سهام</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('E(R_p) = ∑ (w_i × R_i) / ∑ w_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E(R_p)</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ (w_i × R_i)</span><span class="math-den">∑ w_i</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>کاربرد مالی:</strong>
-                            <p>• w_i سهم سرمایه‌گذاری در هر دارایی است (∑ w_i = 1).</p>
-                            <p>• بازدهی مورد انتظار پرتفوی دقیقاً میانگین وزنی بازده تک‌تک دارایی‌ها است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('E(R_p) = sum(w_i * R_i)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 3. GM -->
-                <div class="formula-card hub-card" data-category="means finance" data-keywords="میانگین هندسی geometric mean cagr رشد مرکب ثروت">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">میانگین</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Geometric Mean & CAGR</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی و نرخ رشد مرکب سالانه</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('μ_g = ( ∏ x_i )^(1/N)   |   G = x̄_g = ( ∏ x_i )^(1/n)   |   CAGR = [ ∏ (1 + R_t) ]^(1/n) - 1', this)" title="برای کپی فرمول کلیک کنید">
-                        <span class="math-sym" style="color: #4338CA;">μ_g</span><span class="math-op">=</span>( ∏ x_i )<span class="math-sup">1/N</span><span class="math-sep">|</span><span class="math-sym" style="color: #047857;">G = x̄_g</span><span class="math-op">=</span>( ∏ x_i )<span class="math-sup">1/n</span><span class="math-sep">|</span><span class="math-sym" style="color: #0284C7;">CAGR</span><span class="math-op">=</span>[ ∏ (1 + R_t) ]<span class="math-sup">1/n</span> - 1
-                    </div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>کالبدشکافی رشد ثروت:</strong>
-                            <p>• تقریب نوسان و درگ نوسان: G ≈ X_bar - 0.5 × σ².</p>
-                            <p>• تنها میانگین صحیح برای بازدهی چند دوره‌ای سرمایه‌گذاری و پس‌انداز.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('G = (prod(x_i))^(1/n); CAGR = [prod(1+R_t)]^(1/n) - 1')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 4. HM -->
-                <div class="formula-card hub-card" data-category="means finance" data-keywords="میانگین هارمونیک همساز harmonic mean dca خرید پله ای سرعت">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">میانگین</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Harmonic Mean</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هارمونیک (همساز) و خرید پله‌ای DCA</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('μ_h = N / ∑ (1 / x_i)   |   H = x̄_h = n / ∑ (1 / x_i)', this)" title="برای کپی فرمول کلیک کنید">
-                        <span class="math-sym" style="color: #4338CA;">μ_h</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">N</span><span class="math-den">∑ (1 / x_i)</span></span><span class="math-sep">|</span><span class="math-sym" style="color: #047857;">H = x̄_h</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">n</span><span class="math-den">∑ (1 / x_i)</span></span>
-                    </div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>کاربرد استراتژیک:</strong>
-                            <p>• مناسب برای میانگین‌گیری از نسبت‌ها و نرخ‌ها (مانند نسبت P/E یا سرعت کیلومتر بر ساعت).</p>
-                            <p>• در خرید پله‌ای ارز یا سهام با مبالغ مساوی، میانگین قیمت خرید دقیقاً برابر H است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('H = n / sum(1 / x_i)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 5. Trimmed Mean -->
-                <div class="formula-card hub-card" data-category="means stat" data-keywords="میانگین پیراسته trimmed mean داده پرت آلفا">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">میانگین</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Trimmed Mean</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین پیراسته (α% Trimmed)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('X_trim = ∑ x_filtered / ( n × (1 - 2α) )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">x̄_{trim}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ x_{filtered}</span><span class="math-den">n × (1 - 2α)</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>مقاومت در برابر آلودگی:</strong>
-                            <p>حذف α٪ از بزرگ‌ترین و α٪ از کوچک‌ترین داده‌ها جهت خنثی‌سازی اثر شدید شوک‌های پرت.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('X_trim = sum(x_filtered) / n_filtered')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 6. Winsorized Mean -->
-                <div class="formula-card hub-card" data-category="means stat" data-keywords="میانگین وینزوری winsorized mean جایگزینی صدک">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">میانگین</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Winsorized Mean</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین وینزوری</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('X_win: داده‌های پرت با مقادیر مرزی صدک‌ها جایگزین می‌شوند', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">x_i^{win}</span><span class="math-op">=</span>clamp(x_i , P_{α} , P_{1-α})</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>حفظ حجم نمونه:</strong>
-                            <p>بر خلاف پیراسته که تعداد داده‌ها کم می‌شود، در وینزوری حجم نمونه n ثابت می‌ماند.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Winsorized_Mean = sum(x_winsorized) / n')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 7. RMS -->
-                <div class="formula-card hub-card" data-category="means stat" data-keywords="میانگین مربعی جذر مربعات quadratic mean rms">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">میانگین</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Quadratic Mean (RMS)</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین مربعی یا ریشه میانگین مربعات (RMS)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('RMS = √[ (1/n) × ∑ (x_i)^2 ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">RMS</span><span class="math-op">=</span>√[ <span class="math-frac"><span class="math-num">1</span><span class="math-den">n</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>مبنای مهندسی مالی:</strong>
-                            <p>بزرگ‌ترین میانگین جبری در میانگین‌های کلاسیک؛ اساس محاسبه انحراف معیار و خطای رگرسیون.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('RMS = sqrt( (1/n) * sum(x_i^2) )')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 8. Mean Inequality -->
-                <div class="formula-card hub-card" data-category="means stat" data-keywords="نامساوی میانگین ها am gm hm inequality تساوی">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-pro">نامساوی طلایی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">AM-GM-HM Inequality</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نامساوی بنیادین میانگین‌ها</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Min ≤ H ≤ G ≤ X_bar ≤ RMS ≤ Max', this)" title="برای کپی فرمول کلیک کنید"><div class="formula-display" dir="ltr" onclick="copyFormula('Min ≤ μ_h ≤ μ_g ≤ μ_x ≤ μ_q ≤ Max   |   Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max', this)" title="برای کپی فرمول کلیک کنید">
-                                <span style="font-weight: 800; color: #4338CA;">جامعه:</span> Min ≤ <span class="math-sym">μ_h</span> ≤ <span class="math-sym">μ_g</span> ≤ <span class="math-sym">μ_x</span> ≤ <span class="math-sym">μ_q</span> ≤ Max
-                                <span class="math-sep">|</span>
-                                <span style="font-weight: 800; color: #047857;">نمونه:</span> Min ≤ <span class="math-sym">H</span> ≤ <span class="math-sym">G</span> ≤ <span class="math-sym">x̄</span> ≤ <span class="math-sym">RMS</span> ≤ Max
-                            </div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>شرط تساوی کامل:</strong>
-                            <p>H = G = X_bar فقط و فقط در صورتی رخ می‌دهد که تمام داده‌ها دقیقاً با هم برابر باشند.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Min <= H <= G <= X_bar <= RMS <= Max')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 9. Median -->
-                <div class="formula-card hub-card" data-category="stat" data-keywords="میانه median درون یابی جدول چارک دوم">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص آماری</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Median</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانه داده‌ها و فرمول درون‌یابی جدول پیوسته</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Median = L + [ (n/2 - F_{c-1}) / f_med ] × c', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Median</span><span class="math-op">=</span>L + [ <span class="math-frac"><span class="math-num">n/2 - F_{c-1}</span><span class="math-den">f_{med}</span></span> ] × c</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>ویژگی کلیدی:</strong>
-                            <p>مقاوم‌ترین شاخص گرایش به مرکز در برابر داده‌های پرت. نقطه ۵۰ درصدی جامعه.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Median = L + [ (n/2 - F_{c-1}) / f_med ] * c')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 10. Mode & Pearson -->
-                <div class="formula-card hub-card" data-category="stat" data-keywords="مد نما mode رابطه پیرسون mean median mode">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص آماری</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Mode & Pearson Relation</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مد و رابطه تجربی پیرسون</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('X_bar - Mode ≈ 3 × ( X_bar - Median )', this)" title="برای کپی فرمول کلیک کنید">x̄ - Mode ≈ 3 × ( x̄ - Median )</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>حل سریع تستی:</strong>
-                            <p>Mode = 3 × Median - 2 × X_bar. در توزیع متقارن نرمال Mean = Median = Mode است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Mode = 3*Median - 2*X_bar')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 11. Quartiles & IQR -->
-                <div class="formula-card hub-card" data-category="stat" data-keywords="چارک ها دامنه میان چارکی iqr quartiles boxplot">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص موقعیت</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">IQR & Outliers</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دامنه میان‌چارکی و تشخیص داده‌های پرت توکی</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('IQR = Q3 - Q1  |  Fences = Q1 - 1.5×IQR , Q3 + 1.5×IQR', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">IQR</span><span class="math-op">=</span>Q_3 - Q_1<span class="math-sep">|</span>[ Q_1 - 1.5×IQR , Q_3 + 1.5×IQR ]</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>نمودار جعبه‌ای:</strong>
-                            <p>۵۰ درصد میانی داده‌ها درون جعبه IQR قرار می‌گیرند؛ فراتر از ۱.۵ برابر IQR داده پرت است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('IQR = Q3 - Q1; Fences = [Q1 - 1.5*IQR, Q3 + 1.5*IQR]')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 12. Range & QD -->
-                <div class="formula-card hub-card" data-category="stat" data-keywords="دامنه تغییرات range انحراف چارکی qd mad">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص پراکندگی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Range & QD</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دامنه تغییرات و انحراف چارکی (QD)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Range = Max - Min  |  QD = (Q3 - Q1) / 2', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">R</span><span class="math-op">=</span>Max - Min<span class="math-sep">|</span><span class="math-sym">QD</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Q_3 - Q_1</span><span class="math-den">2</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تعریف پراکندگی:</strong>
-                            <p>دامنه تغییرات ساده‌ترین و حساس‌ترین معیار پراکندگی است؛ انحراف چارکی نسخه مقاوم آن است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Range = Max - Min; QD = (Q3 - Q1) / 2')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 13. Variance -->
-                <div class="formula-card hub-card" data-category="stat" data-keywords="واریانس انحراف معیار variance bessel تصحیح بسل">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص پراکندگی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sample Variance</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">واریانس و انحراف معیار نمونه</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('s² = ∑ (x_i - x̄)² / (n - 1)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">s²</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ (x_i - x̄)²</span><span class="math-den">n - 1</span></span><span class="math-sep">|</span><span class="math-sym">s</span><span class="math-op">=</span>√s²</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تصحیح بسل:</strong>
-                            <p>تقسیم بر n - 1 موجب نااریب شدن برآوردگر واریانس جامعه می‌شود.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('s^2 = sum((x_i - X_bar)^2) / (n - 1)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 14. CV -->
-                <div class="formula-card hub-card" data-category="stat finance" data-keywords="ضریب تغییرات cv coefficient of variation ریسک نسبی">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص نسبی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Coefficient of Variation</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب تغییرات (CV) - معیار ریسک نسبی</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('CV = (s / x̄) × 100%', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">CV</span><span class="math-op">=</span>[ <span class="math-frac"><span class="math-num">s</span><span class="math-den">x̄</span></span> ] × 100%</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>مقایسه دارایی‌ها:</strong>
-                            <p>بدون واحد؛ میزان ریسک به ازای ۱ واحد بازدهی. بهترین ابزار مقایسه دو سهم با قیمت‌های نامتقارن.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('CV = (sigma / mu) * 100')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 15. Skewness -->
-                <div class="formula-card hub-card" data-category="stat" data-keywords="چولگی skewness پیرسون متقارن راست چپ">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص شکل</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Skewness</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب چولگی پیرسون و فیشر</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Sk = 3(X_bar - Median) / s  |  α3 = E[(X-μ)³] / σ³', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Sk</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">3(x̄ - Median)</span><span class="math-den">s</span></span><span class="math-sep">|</span><span class="math-sym">α_3</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E[(X-μ)³]</span><span class="math-den">σ³</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>جهت دم توزیع:</strong>
-                            <p>چولگی مثبت = دم راست کشیده (Mean &gt; Med &gt; Mode). چولگی منفی = دم چپ کشیده.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Sk = 3 * (X_bar - Median) / s')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 16. Kurtosis -->
-                <div class="formula-card hub-card" data-category="stat" data-keywords="کشیدگی kurtosis لپتوکورتیک دم کلفت قوی سیاه">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص شکل</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Kurtosis</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب کشیدگی (Kurtosis)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Kurtosis = E[(X-μ)⁴] / σ⁴  |  Excess = Kurtosis - 3', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Kurtosis</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E[(X-μ)⁴]</span><span class="math-den">σ⁴</span></span><span class="math-sep">|</span>Excess = Kurtosis - 3</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>ریسک دم کلفت (Fat Tails):</strong>
-                            <p>کشیدگی بیش از ۳ نشان‌دهنده احتمال بسیار بالاتر سقوط‌های سنگین بازار نسبت به توزیع نرمال است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Kurtosis = E[(X-mu)^4] / sigma^4')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 17. Z-Score -->
-                <div class="formula-card hub-card" data-category="stat" data-keywords="نمره z zscore نمره استاندارد نرمال">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص استاندارد</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Z-Score</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نمره استاندارد گاوسی (Z-Score)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Z = ( X - μ ) / σ', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Z</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">X - μ</span><span class="math-den">σ</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تفسیر فاصله:</strong>
-                            <p>تعداد انحراف معیارهایی که داده X از میانگین فاصله دارد؛ امکان تبدیل به توزیع نرمال استاندارد Z ~ N(0, 1).</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Z = (X - mu) / sigma')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 18. Beta -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="بتا beta ضریب سیستماتیک بازار کوواریانس">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">شاخص مالی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Beta Coefficient</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب بتای سیستماتیک سهم</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('β_i = Cov(R_i, R_m) / Var(R_m) = r_{i,m} × (σ_i / σ_m)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">β_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Cov(R_i, R_m)</span><span class="math-den">Var(R_m)</span></span><span class="math-op">=</span>r_{i,m} × <span class="math-frac"><span class="math-num">σ_i</span><span class="math-den">σ_m</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>حساسیت به شاخص:</strong>
-                            <p>بتا بزرگتر از ۱ تهاجمی (Aggressive)؛ بتا کمتر از ۱ تدافعی (Defensive).</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Beta = Cov(Ri, Rm) / Var(Rm)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 19. CAPM -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="capm sml خط بازار اوراق نرخ بازده منصفانه">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">مدل مالی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">CAPM & SML</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل قیمت‌گذاری دارایی سرمایه‌ای (CAPM)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('E(R_i) = R_f + β_i × [ E(R_m) - R_f ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E(R_i)</span><span class="math-op">=</span>R_f + β_i × [ E(R_m) - R_f ]</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>معادله خط SML:</strong>
-                            <p>نرخ تنزیل عادلانه طرح‌ها و سهام بر پایه میزان ریسک سیستماتیک تحمل‌شده.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('E(R) = Rf + Beta * [Rm - Rf]')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 20. Sharpe -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="شارپ sharpe نسبت شارپ عملکرد پرتفوی صندوق">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">شاخص عملکرد</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sharpe Ratio</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص شارپ (Sharpe Ratio)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Sharpe = (R_p - R_f) / σ_p', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Sharpe</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">R_p - R_f</span><span class="math-den">σ_p</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>پاداش ریسک کل:</strong>
-                            <p>مازاد بازدهی به ازای هر واحد انحراف معیار کل؛ مناسب‌ترین معیار برای پرتفوی منفرد سرمایه‌گذار.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Sharpe = (Rp - Rf) / sigma_p')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 21. Treynor -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="ترینور treynor نسبت ترینور بتا ریسک سیستماتیک">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">شاخص عملکرد</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Treynor Ratio</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص ترینور (Treynor Ratio)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Treynor = (R_p - R_f) / β_p', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Treynor</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">R_p - R_f</span><span class="math-den">β_p</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>پاداش ریسک سیستماتیک:</strong>
-                            <p>مازاد بازدهی به ازای هر واحد بتا؛ برای ارزیابی سبدهایی که خود بخشی از یک پرتفوی بزرگ‌ترند.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Treynor = (Rp - Rf) / beta_p')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 22. Jensen Alpha -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="آلفا جنسن jensen alpha مهارت مدیر صندوق">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">شاخص مهارت</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Jensen's Alpha</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص آلفای جنسن (Jensen's Alpha)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Alpha = R_p - [ R_f + β_p × (R_m - R_f) ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">α_p</span><span class="math-op">=</span>R_p - [ R_f + β_p × (R_m - R_f) ]</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>سنجش ارزش افزوده مدیر:</strong>
-                            <p>اگر آلفا مثبت باشد، مدیر توانسته بازدهی بالاتری از نرخ تعادلی تئوریک بازار خلق کند.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Alpha = Rp - [Rf + beta_p * (Rm - Rf)]')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 23. Profitability Index PI -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="شاخص سودآوری pi profitability index بودجه بندی سرمایه ای">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">شاخص بودجه‌بندی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Profitability Index</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص سودآوری (Profitability Index - PI)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('PI = PV / CF_0 = 1 + ( NPV / CF_0 )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">PI</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">PV</span><span class="math-den">CF_0</span></span><span class="math-op">=</span>1 + <span class="math-frac"><span class="math-num">NPV</span><span class="math-den">CF_0</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>سهمیه‌بندی سرمایه:</strong>
-                            <p>ارزش فعلی خلق‌شده به ازای هر ریال سرمایه‌گذاری اولیه؛ رتبه‌بندی پروژه‌ها در زمان کمبود بودجه.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('PI = PV / CF0 = 1 + (NPV / CF0)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 24. WACC -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="wacc هزینه سرمایه میانگین موزون سپر مالیاتی">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">شاخص ساختار مالی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">WACC</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین موزون هزینه سرمایه (WACC)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('WACC = (E/V) × K_e + (D/V) × K_d × (1 - T)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">WACC</span><span class="math-op">=</span>[ <span class="math-frac"><span class="math-num">E</span><span class="math-den">V</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>سپر مالیاتی بهره:</strong>
-                            <p>کاهش هزینه واقعی بدهی به دلیل کسر هزینه بهره از درآمد مشمول مالیات شرکت.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('WACC = (E/V)*Ke + (D/V)*Kd*(1 - T)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 25. Hamada Equation -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="همادا hamada بتا اهرمی ساختار سرمایه">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">شاخص اهرمی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Hamada Equation</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">معادله بتای اهرمی همادا (Hamada)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('β_L = β_U × [ 1 + (1 - T)(D / E) ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">β_L</span><span class="math-op">=</span>β_U × [ 1 + (1 - T) × <span class="math-frac"><span class="math-num">D</span><span class="math-den">E</span></span> ]</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تفکیک ریسک بدهی:</strong>
-                            <p>تبدیل بتای بی اهرم (ریسک کسب‌وکار محض) به بتای با اهرم در اثر اضافه شدن بدهی به ترازنامه.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Beta_L = Beta_U * [1 + (1 - T)*(D/E)]')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 26. DuPont ROE -->
-                <div class="formula-card hub-card" data-category="finance" data-keywords="دوپونت dupont roe بازده حقوق صاحبان سهام ترازنامه">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">مدل تحلیلی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">DuPont ROE Analysis</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تجزیه ۳ مرحله‌ای دوپونت (DuPont ROE)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('ROE = (NI / Sales) × (Sales / Assets) × (Assets / Equity)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">ROE</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">NI</span><span class="math-den">Sales</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>موتورهای سه‌گانه سود:</strong>
-                            <p>ROE = حاشیه سود خالص (سودآوری) × گردش دارایی‌ها (کارایی) × اهرم بدهی (ساختار مالی).</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('ROE = (NI/Sales) * (Sales/Assets) * (Assets/Equity)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 27. Ed -->
-                <div class="formula-card hub-card" data-category="micro" data-keywords="کشش قیمتی تقاضا ed elasticity نقطه ای قوسی">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-micro">شاخص اقتصادی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Price Elasticity of Demand</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص کشش قیمتی تقاضا (Ed)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('E_d = ( dQ / dP ) × ( P / Q )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E_d</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dQ</span><span class="math-den">dP</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>رفتار مصرف‌کننده:</strong>
-                            <p>|Ed| &gt; 1 باکشش (کاهش قیمت = افزایش درآمد کل TR)؛ |Ed| &lt; 1 بی‌کشش (افزایش قیمت = افزایش TR).</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Ed = (dQ/dP) * (P/Q)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 28. Tax Incidence -->
-                <div class="formula-card hub-card" data-category="micro" data-keywords="تسهیم بار مالیاتی tax incidence نسبت کشش ها دولت">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-micro">شاخص رفاهی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Tax Incidence Ratio</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نسبت تسهیم بار مالیاتی دولت</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Burden_C / Burden_P = Es / |Ed| = d / b', this)" title="برای کپی فرمول کلیک کنید"><span class="math-frac"><span class="math-num">Burden_C</span><span class="math-den">Burden_P</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E_s</span><span class="math-den">|E_d|</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>قانون بی‌کشش‌ها:</strong>
-                            <p>هر سمتی از بازار که بی‌کشش‌تر باشد و وابستگی بیشتری داشته باشد، سهم بیشتری از مالیات را می‌پردازد.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Burden_C / Burden_P = Es / |Ed| = d / b')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 29. DWL -->
-                <div class="formula-card hub-card" data-category="micro" data-keywords="زیان بار مرده dwl deadweight loss رفاه جامعه">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-micro">شاخص رفاهی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Deadweight Loss</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص زیان بار مرده جامعه (DWL)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('DWL = 0.5 × t × ( Q_0 - Q_t )', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DWL</span><span class="math-op">=</span>0.5 × t × ( Q_0 - Q_t )</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تبخیر ثروت:</strong>
-                            <p>مساحت مثلثی از رفاه که نه به جیب دولت می‌رود و نه خریدار و فروشنده، بلکه به کلی از بین می‌رود.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('DWL = 0.5 * t * (Q0 - Qt)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 30. Lerner -->
-                <div class="formula-card hub-card" data-category="micro" data-keywords="لرنر lerner شاخص انحصار قدرت قیمت گذاری">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-micro">شاخص انحصار</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Lerner Index</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص درجه انحصار لرنر (Lerner Index)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('L = (P - MC) / P = 1 / |Ed|', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">L</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">P - MC</span><span class="math-den">P</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">|E_d|</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>قدرت بازار:</strong>
-                            <p>در رقابت کامل L = 0 است؛ هرچه تقاضا بی‌کشش‌تر باشد توانایی انحصارگر برای گران‌فروشی بالاتر است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('L = (P - MC) / P = 1 / |Ed|')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 31. HHI -->
-                <div class="formula-card hub-card" data-category="micro" data-keywords="هرفیندال هیرشمن hhi تمرکز بازار انحصار صنعت">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-micro">شاخص تمرکز</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Herfindahl-Hirschman (HHI)</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص تمرکز بازار هرفیندال-هیرشمن</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('HHI = ∑ (s_i)^2', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">HHI</span><span class="math-op">=</span>∑ (s_i)²</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>سنجش ادغام شرکت‌ها:</strong>
-                            <p>مجموع مربعات سهم بازار شرکت‌ها؛ مقادیر بالاتر از ۲۵۰۰ نشان‌دهنده انحصار شدید و خطر کارتل است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('HHI = sum(s_i^2)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 32. Elasticity Income & Cross -->
-                <div class="formula-card hub-card" data-category="micro" data-keywords="کشش درآمدی متقاطع ey exy کالای لوکس عادی پست جانشین مکمل">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-micro">شاخص کشش</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Income & Cross Elasticity</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">کشش درآمدی (Ey) و کشش متقاطع (Exy)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('E_y = (dQ/dI)×(I/Q)  |  E_xy = (dQa/dPb)×(Pb/Qa)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">E_y</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dQ</span><span class="math-den">dI</span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>طبقه‌بندی کالاها:</strong>
-                            <p>• Ey &gt; 1: لوکس | Ey بین 0 و 1: ضروری عادی | Ey &lt; 0: کالای پست.</p>
-                            <p>• Exy &gt; 0: دو کالای جانشین | Exy &lt; 0: دو کالای مکمل.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Ey = (dQ/dI)*(I/Q); Exy = (dQa/dPb)*(Pb/Qa)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 33. BEP -->
-                <div class="formula-card hub-card" data-category="cost" data-keywords="سر به سر bep breakeven نقطه سر به سر حاشیه فروش">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-cost">شاخص صنعتی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Break-Even Point</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نقطه سر‌به‌سر تیراژی و ریالی (BEP)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Q_bep = FC / (P - VC) = FC / CM', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_{bep}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC</span><span class="math-den">P - VC</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC</span><span class="math-den">CM</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>پوشش هزینه ثابت:</strong>
-                            <p>تیراژی که در آن سود عملیاتی دقیقاً صفر است (EBIT = 0). CM = P - VC حاشیه فروش هر واحد است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Q_bep = FC / (P - VC); Sales_bep = FC / CMR')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 34. DOL -->
-                <div class="formula-card hub-card" data-category="cost finance" data-keywords="اهرم عملیاتی dol degree of operating leverage ریسک تجاری">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-cost">شاخص ریسک</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Operating Leverage (DOL)</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درجه اهرم عملیاتی (DOL)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('DOL = Total CM / EBIT', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DOL</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Total CM</span><span class="math-den">EBIT</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Q(P - VC)</span><span class="math-den">Q(P - VC) - FC</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>حساسیت سود به فروش:</strong>
-                            <p>به ازای ۱٪ تغییر در فروش، سود عملیاتی چند درصد جهش می‌کند. با نزدیک شدن به BEP، اهرم به بی‌نهایت میل می‌کند.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('DOL = Total_CM / EBIT')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 35. Margin of Safety -->
-                <div class="formula-card hub-card" data-category="cost" data-keywords="حاشیه امنیت margin of safety ms درصد امنیت">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-cost">شاخص ایمنی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Margin of Safety</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نسبت حاشیه امنیت (Margin of Safety)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('MS% = (Sales - BEP_Sales) / Sales = 1 / DOL', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">MS%</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Sales - BEP_{Sales}</span><span class="math-den">Sales</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">DOL</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>سپر در برابر بحران:</strong>
-                            <p>درصدی که فروش شرکت می‌تواند سقوط کند قبل از اینکه شرکت وارد زیان شود. معکوس درجه اهرم عملیاتی است!</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('MS% = (Sales - BEP_Sales) / Sales = 1 / DOL')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 36. Target Profit -->
-                <div class="formula-card hub-card" data-category="cost" data-keywords="سود هدف مالیات شرکتی target profit cvp">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-cost">شاخص سودآوری</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Target Profit with Tax</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ سود هدف با احتساب مالیات شرکت</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('Q_target = (FC + Target_Profit / (1 - T)) / CM', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_{target}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC + [ Target\_Profit ÷ (1 - T) ]</span><span class="math-den">CM</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تعدیل مالیاتی:</strong>
-                            <p>تقسیم سود خالص بر (1 - T) جهت تبدیل به سود ناخالص عملیاتی مورد نیاز خط تولید.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('Q_target = [FC + Target_Profit / (1 - T)] / CM')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 37. Shadow Price -->
-                <div class="formula-card hub-card" data-category="or" data-keywords="قیمت سایه shadow price دوگان سیمپلکس محدودیت منابع">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-or">شاخص تحقیق در عملیات</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Shadow Price</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قیمت سایه منبع محدودکننده (Shadow Price)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Z_{max}</span><span class="math-den">∂b_i</span></span></div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>ارزش نهایی منبع:</strong>
-                            <p>میزان افزایش مقدار تابع هدف سود به ازای افزودن ۱ واحد به سمت راست قید iام (ظرفیت منبع).</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('y_i = dZ / db_i')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 38. Pearson Correlation r -->
-                <div class="formula-card hub-card" data-category="stat finance" data-keywords="همبستگی پیرسون correlation r رگرسیون کوواریانس">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-stat">شاخص رابطه</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Pearson Correlation</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب همبستگی خطی پیرسون (r)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('r = Cov(X, Y) / ( s_X × s_Y )  |  -1 ≤ r ≤ +1', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">r</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Cov(X, Y)</span><span class="math-den">s_X × s_Y</span></span><span class="math-sep">|</span>-1 ≤ r ≤ +1</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>همبستگی دو متغیر:</strong>
-                            <p>سنجش شدت و جهت همبستگی خطی؛ r² همان ضریب تعیین رگرسیون (R-Squared) است.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('r = Cov(X, Y) / (s_X * s_Y)')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 39. DFL & DCL -->
-                <div class="formula-card hub-card" data-category="finance cost" data-keywords="اهرم مالی dfl اهرم کل dcl ریسک مالی ریسک کل">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-finance">شاخص اهرمی</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">DFL & DCL</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درجه اهرم مالی (DFL) و اهرم کل (DCL)</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('DFL = EBIT / (EBIT - I)  |  DCL = DOL × DFL', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DFL</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">EBIT</span><span class="math-den">EBIT - I</span></span><span class="math-sep">|</span>DCL = DOL × DFL</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تقویت سود و ریسک:</strong>
-                            <p>اهرم مالی ناشی از هزینه بهره وام (I) است؛ حاصل‌ضرب اهرم عملیاتی و مالی، درجه اهرم کل شرکت را می‌سازد.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('DFL = EBIT / (EBIT - I); DCL = DOL * DFL')"><span>📋</span> کپی فرمول</button>
-                </div>
-
-                <!-- 40. High-Low Cost Estimation -->
-                <div class="formula-card hub-card" data-category="cost" data-keywords="روش نقطه بالا پایین high low تفکیک هزینه متغیر ثابت">
-                    <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="badge badge-cost">روش برآورد</span>
-                            <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">High-Low Method</span>
-                        </div>
-                        <h4 style="font-size: 0.9rem; font-weight: 900; color: #0F172A; margin-top: 6px;">روش نقطه بالا-پایین تفکیک هزینه‌ها</h4>
-                        <div class="formula-display" dir="ltr" onclick="copyFormula('b = ( Y_high - Y_low ) / ( X_high - X_low )  |  a = Y - bX', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">b</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Y_{high} - Y_{low}</span><span class="math-den">X_{high} - X_{low}</span></span><span class="math-sep">|</span>a = Y - bX</div>
-                        <div class="card-inner" style="font-size: 0.74rem;">
-                            <strong>تفکیک سریع هزینه:</strong>
-                            <p>b نرخ متغیر هر واحد فعالیت؛ a کل هزینه ثابت دوره در دامنه مربوطه تولید.</p>
-                        </div>
-                    </div>
-                    <button class="btn-copy-formula" onclick="copyFormula('b = (Y_high - Y_low) / (X_high - X_low); a = Y - b*X')"><span>📋</span> کپی فرمول</button>
-                </div>
-            </div>
-        </div>
-        </div>
 </main>
 
     <!-- FLOATING BOTTOM EXECUTIVE DOCK -->
@@ -10229,17 +9050,7 @@ body.theme-dark .formula-card {
                     { label: '📦 سفارش خاص با ظرفیت خالی', vals: { fc: 80000, p: 35, vc: 15, tp: 30000 } }
                 ]
             },
-            finance: {
-                title: 'جبهه سوم: مدیریت مالی ۱ (Corporate Finance)',
-                desc: 'مدل قیمت‌گذاری دارایی سرمایه‌ای CAPM، خط SML، بودجه‌بندی سرمایه‌ای و ساختار مالی',
-                color: '#6D28D9',
-                badgeClass: 'badge-finance',
-                scenarios: [
-                    { label: '🚀 سهم تهاجمی پرریسک (فولاد/خودرو)', vals: { rf: 22, rm: 35, beta: 1.6 } },
-                    { label: '🛡️ اوراق اخزا و سپرده بانکی', vals: { rf: 22, rm: 35, beta: 0.1 } },
-                    { label: '📈 صندوق شاخصی کل بورس', vals: { rf: 22, rm: 35, beta: 1.0 } }
-                ]
-            },
+            
             or: {
                 title: 'جبهه چهارم: تحقیق در عملیات ۱ (Operations Research)',
                 desc: 'برنامه‌ریزی خطی، حل هندسی چندضلعی محدب، الگوریتم سیمپلکس و قیمت سایه منابع',
@@ -10273,13 +9084,7 @@ body.theme-dark .formula-card {
                     { label: '🏔️ بازده صعودی و تقعر معکوس', vals: { a: 0.05, b: 2, c: 15, x0: 25 } }
                 ]
             },
-            hub: {
-                title: 'مرکز مرجع: دانشنامه جامع میانگین‌ها و شاخص‌ها',
-                desc: 'گنجینه تمامی فرمول‌ها، میانگین‌ها و نسبت‌های ۵ درس با امکان سرچ آنی و کپی با ۱ لمس',
-                color: '#C2410C',
-                badgeClass: 'badge-hub',
-                scenarios: []
-            }
+            
         };
 
         
@@ -10325,106 +9130,97 @@ body.theme-dark .formula-card {
         let lastActiveCourse = 'stat';
 
         function selectCourse(course) {
-            if (typeof hapticTap === 'function') hapticTap('light');
-            lastActiveCourse = currentCourse;
-            currentCourse = course;
+  const validCourses = ['micro', 'cost', 'or', 'stat', 'math'];
+  if (!validCourses.includes(course)) course = 'micro';
 
-            // Sync course selector chips
-            document.querySelectorAll('.course-chip').forEach(c => c.classList.remove('active'));
-            const cBtn = document.getElementById('btn-course-' + course);
-            if (cBtn) cBtn.classList.add('active');
+  if (typeof hapticTap === 'function') hapticTap('light');
+  lastActiveCourse = currentCourse;
+  currentCourse = course;
 
-            const meta = courseData[course] || {};
-            const bTitle = document.getElementById('banner-title');
-            const bDesc = document.getElementById('banner-desc');
-            const bBadge = document.getElementById('banner-indicator');
-            const bCard = document.getElementById('banner-card');
+  // Sync course selector chips
+  document.querySelectorAll('.course-chip').forEach(c => c.classList.remove('active'));
+  const cBtn = document.getElementById('btn-course-' + course);
+  if (cBtn) cBtn.classList.add('active');
 
-            if (bTitle && meta.title) bTitle.innerText = meta.title;
-            if (bDesc && meta.desc) bDesc.innerText = meta.desc;
-            if (bBadge && meta.badgeClass) {
-                bBadge.className = 'badge ' + meta.badgeClass;
-                bBadge.innerText = 'تحلیل فعال';
-            }
-            if (bCard && meta.color) {
-                bCard.style.borderTopColor = meta.color;
-            }
+  const meta = courseData[course] || {};
+  const bTitle = document.getElementById('banner-title');
+  const bDesc = document.getElementById('banner-desc');
+  const bBadge = document.getElementById('banner-indicator');
+  const bCard = document.getElementById('banner-card');
 
-            const scRow = document.getElementById('scenario-row');
-            const scContainer = document.getElementById('scenario-chips-container');
-            const dock = document.querySelector('.executive-dock');
+  if (bTitle && meta.title) bTitle.innerText = meta.title;
+  if (bDesc && meta.desc) bDesc.innerText = meta.desc;
+  if (bBadge && meta.badgeClass) {
+    bBadge.className = 'badge ' + meta.badgeClass;
+    bBadge.innerText = 'تحلیل فعال';
+  }
+  if (bCard && meta.color) {
+    bCard.style.borderTopColor = meta.color;
+  }
 
-            if (course === 'hub') {
-                if (scRow) scRow.style.display = 'none';
-                if (dock) dock.style.display = 'flex';
-            } else {
-                if (scRow) scRow.style.display = 'flex';
-                if (dock) dock.style.display = 'flex';
-                if (scContainer && meta.scenarios) {
-                    scContainer.innerHTML = '';
-                    meta.scenarios.forEach(sc => {
-                        const chip = document.createElement('button');
-                        chip.className = 'scenario-chip';
-                        chip.innerText = sc.label;
-                        chip.onclick = () => applyScenario(course, sc.vals);
-                        scContainer.appendChild(chip);
-                    });
-                }
-            }
+  const scRow = document.getElementById('scenario-row');
+  const scContainer = document.getElementById('scenario-chips-container');
+  const dock = document.querySelector('.executive-dock');
 
-            // HIDE ALL DISCIPLINE PANES STRICTLY
-            document.querySelectorAll('.discipline-pane').forEach(p => {
-                p.classList.remove('active-pane');
-                p.style.display = 'none';
-            });
-            const targetPane = document.getElementById('pane-' + course);
-            if (targetPane) {
-                targetPane.classList.add('active-pane');
-                targetPane.style.display = 'block';
-            }
+  if (scRow) scRow.style.display = 'flex';
+  if (dock) dock.style.display = 'flex';
+  if (scContainer && meta.scenarios) {
+    scContainer.innerHTML = '';
+    meta.scenarios.forEach(sc => {
+      const chip = document.createElement('button');
+      chip.className = 'scenario-chip';
+      chip.innerText = sc.label;
+      chip.onclick = () => applyScenario(course, sc.vals);
+      scContainer.appendChild(chip);
+    });
+  }
 
-            if (course !== 'hub') {
-                selectTab(currentTab || 'sim');
-            } else {
-                updateActiveTabHUD('hub');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
+  // HIDE ALL DISCIPLINE PANES STRICTLY
+  document.querySelectorAll('.discipline-pane').forEach(p => {
+    p.classList.remove('active-pane');
+    p.style.display = 'none';
+  });
+  const targetPane = document.getElementById('pane-' + course);
+  if (targetPane) {
+    targetPane.classList.add('active-pane');
+    targetPane.style.display = 'block';
+  }
 
-        const tabMeta = {
-            sim: { name: 'چارت زنده و شبیه‌ساز', icon: '📊' },
-            tree: { name: 'درخت دانش و نقشه مفهومی', icon: '🌳' },
-            formula: { name: 'فرمول‌نامه جامع و تفکیکی', icon: '📐' },
-            solution: { name: 'حل مسئله و آزمایشگاه محاسباتی', icon: '🛠️' },
-            traps: { name: 'تله‌های تستی و کپسول کنکور', icon: '⚠️' },
-            quiz: { name: 'آزمون شبیه‌ساز کارشناسی ارشد', icon: '🎯' },
-            hub: { name: 'دانشنامه شاخص‌ها و میانگین‌ها', icon: '📚' }
-        };
+  selectTab(currentTab || 'sim');
+}
 
-        const courseNames = {
-            micro: 'اقتصاد خرد',
-            cost: 'حسابداری صنعتی ۱',
-            finance: 'مدیریت مالی ۱',
-            or: 'تحقیق در عملیات ۱',
-            stat: 'آمار کاربردی ۱',
-            math: 'ریاضیات مدیریت',
-            hub: 'دانشنامه شاخص‌ها'
-        };
 
-        function updateActiveTabHUD(tab) {
-            const courseEl = document.getElementById('hud-course-name');
-            const iconEl = document.getElementById('hud-tab-icon');
-            const textEl = document.getElementById('hud-tab-text');
-            const pillEl = document.getElementById('hud-view-pill');
+const courseNames = {
+  micro: 'اقتصاد خرد',
+  cost: 'حسابداری صنعتی ۱',
+  or: 'تحقیق در عملیات ۱',
+  stat: 'آمار کاربردی ۱',
+  math: 'ریاضیات مدیریت'
+};
 
-            if (courseEl) courseEl.innerText = courseNames[currentCourse] || currentCourse;
-            const tInfo = tabMeta[tab] || { name: tab, icon: '📌' };
-            if (iconEl) iconEl.innerText = tInfo.icon;
-            if (textEl) textEl.innerText = tInfo.name;
-            if (pillEl) pillEl.innerText = '🔒 نمای ایزوله: ' + tInfo.icon;
-        }
+const tabMeta = {
+  sim: { name: 'چارت زنده و شبیه‌ساز', icon: '📊' },
+  tree: { name: 'درخت دانش و نقشه مفهومی', icon: '🌳' },
+  formula: { name: 'گنجینه فرمول‌نامه جامع', icon: '📐' },
+  solution: { name: 'حل گام‌به‌گام مسائل', icon: '🛠️' },
+  traps: { name: 'تله‌های مرگبار امتحانی', icon: '⚠️' },
+  quiz: { name: 'شبیه‌ساز آزمون کنکور ارشد', icon: '🎯' }
+};
 
-        function selectTab(tab) {
+function updateActiveTabHUD(tab) {
+  const courseEl = document.getElementById('hud-course-name');
+  const iconEl = document.getElementById('hud-tab-icon');
+  const textEl = document.getElementById('hud-tab-text');
+  const pillEl = document.getElementById('hud-view-pill');
+
+  if (courseEl) courseEl.innerText = courseNames[currentCourse] || currentCourse;
+  const tInfo = tabMeta[tab] || { name: tab, icon: '📌' };
+  if (iconEl) iconEl.innerText = tInfo.icon;
+  if (textEl) textEl.innerText = tInfo.name;
+  if (pillEl) pillEl.innerText = '🔒 نمای ایزوله: ' + tInfo.icon;
+}
+
+function selectTab(tab) {
             if (typeof hapticTap === 'function') hapticTap('medium');
             
             // If user was on Hub and taps a dock tab, switch back to academic course!
@@ -10480,7 +9276,7 @@ body.theme-dark .formula-card {
             }
             if (currentCourse === 'micro') drawMicro();
             else if (currentCourse === 'cost') drawCost();
-            else if (currentCourse === 'finance') drawFinance();
+            
             else if (currentCourse === 'or') drawOR();
             else if (currentCourse === 'stat') drawStat();
             else if (currentCourse === 'math') drawMath();
@@ -10559,7 +9355,7 @@ body.theme-dark .formula-card {
             if (!activeFsCourse) return;
             if (activeFsCourse === 'micro') drawMicro('fullscreenCanvas', true);
             else if (activeFsCourse === 'cost') drawCost('fullscreenCanvas', true);
-            else if (activeFsCourse === 'finance') drawFinance('fullscreenCanvas', true);
+            
             else if (activeFsCourse === 'or') drawOR('fullscreenCanvas', true);
             else if (activeFsCourse === 'stat') drawStat('fullscreenCanvas', true);
             else if (activeFsCourse === 'math') drawMath('fullscreenCanvas', true);
@@ -11060,160 +9856,32 @@ body.theme-dark .formula-card {
         // ========================================================
         // 3. DRAW FINANCIAL MANAGEMENT (SML)
         // ========================================================
-        function drawFinance(canvasId = 'canvasFinance', isFs = false) {
-            const setup = setupCanvas(canvasId);
-            if (!setup) return;
-            const { ctx, W, H } = setup;
+        
+let orSimplexStep = 0;
 
-            const Rf = parseFloat(document.getElementById('f-rf-num').value) || 22;
-            const Rm = parseFloat(document.getElementById('f-rm-num').value) || 35;
-            const beta = parseFloat(document.getElementById('f-beta-num').value) || 1.35;
+function stepORSimplex(dir = 1) {
+  orSimplexStep = (orSimplexStep + dir + 4) % 4;
+  const badge = document.getElementById('or-step-badge');
+  const labels = [
+    'گام ۰: مبدأ O(0,0) | Z = 0',
+    'گام ۱: رأس A(50,0) | ورود x1 به پایه',
+    'گام ۲: رأس بهینه B*(40,20) | خروج متغیر کمکی',
+    'گام ۳: رأس C(0,40) | مسیر جایگزین'
+  ];
+  if (badge) badge.innerText = labels[orSimplexStep];
+  if (typeof hapticTap === 'function') hapticTap('medium');
+  drawOR();
+}
 
-            const MRP = Rm - Rf;
-            const ER = Rf + beta * MRP;
+function resetORSimplex() {
+  orSimplexStep = 0;
+  const badge = document.getElementById('or-step-badge');
+  if (badge) badge.innerText = 'گام ۰: مبدأ O(0,0) | Z = 0';
+  if (typeof hapticTap === 'function') hapticTap('light');
+  drawOR();
+}
 
-            document.getElementById('f-kpi-er').innerText = ER.toFixed(2) + '%';
-            document.getElementById('f-kpi-mrp').innerText = MRP.toFixed(2) + '%';
-            
-            const badge = document.getElementById('f-kpi-badge');
-            const desc = document.getElementById('f-kpi-desc');
-            if (beta > 1) {
-                badge.innerText = 'سهم تهاجمی (Aggressive)';
-                badge.className = 'badge badge-micro';
-                desc.innerText = 'نوسان‌پذیری ' + ((beta - 1) * 100).toFixed(0) + '٪ بالاتر نسبت به شاخص کل بورس تهران.';
-            } else if (beta === 1) {
-                badge.innerText = 'سهم منطبق با بازار';
-                badge.className = 'badge badge-dark';
-                desc.innerText = 'نوسان‌پذیری کاملاً همگام با شاخص کل بورس.';
-            } else {
-                badge.innerText = 'سهم تدافعی (Defensive)';
-                badge.className = 'badge badge-cost';
-                desc.innerText = 'نوسان‌پذیری ' + ((1 - beta) * 100).toFixed(0) + '٪ کمتر از ریسک سیستماتیک بازار.';
-            }
-
-            const z = isFs ? zoomLevels.fs : zoomLevels.finance;
-            const padL = 72, padR = 40, padT = 38, padB = 48;
-            const maxBeta = (Math.max(2.5, beta * 1.3)) / z;
-            const maxR = (Math.max(60, ER * 1.25, Rm * 1.4)) / z;
-
-            function toX(b) { return padL + (b / maxBeta) * (W - padL - padR); }
-            function toY(r) { return H - padB - (r / maxR) * (H - padT - padB); }
-            function fromX(px) { return Math.max(0, ((px - padL) / (W - padL - padR)) * maxBeta); }
-            function fromY(py) { return Math.max(0, ((H - padB - py) / (H - padT - padB)) * maxR); }
-
-            ctx.clearRect(0, 0, W, H);
-
-            const bTicks = getNiceTicks(0, maxBeta, 5);
-            const rTicks = getNiceTicks(0, maxR, 5);
-
-            ctx.strokeStyle = '#F1F5F9'; ctx.lineWidth = 1;
-            bTicks.forEach(b => {
-                const x = toX(b);
-                ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, H - padB); ctx.stroke();
-            });
-            rTicks.forEach(r => {
-                const y = toY(r);
-                ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR, y); ctx.stroke();
-            });
-
-            ctx.strokeStyle = '#64748B'; ctx.lineWidth = 1.8;
-            ctx.beginPath();
-            ctx.moveTo(padL, padT); ctx.lineTo(padL, H - padB); ctx.lineTo(W - padR, H - padB);
-            ctx.stroke();
-
-            ctx.fillStyle = '#64748B'; ctx.font = '600 11px "JetBrains Mono", monospace';
-            ctx.textAlign = 'center';
-            bTicks.forEach(b => {
-                const x = toX(b);
-                ctx.beginPath(); ctx.moveTo(x, H - padB); ctx.lineTo(x, H - padB + 5); ctx.stroke();
-                ctx.fillText(b.toFixed(1), x, H - padB + 18);
-            });
-
-            ctx.textAlign = 'right';
-            rTicks.forEach(r => {
-                const y = toY(r);
-                ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL - 5, y); ctx.stroke();
-                ctx.fillText(r.toFixed(0) + '%', padL - 8, y + 4);
-            });
-
-            ctx.font = '700 12px "Vazirmatn", sans-serif'; ctx.fillStyle = '#0F172A'; ctx.textAlign = 'center';
-            ctx.fillText('ریسک سیستماتیک سهم (ضریب بتا β)', padL + (W - padL - padR) / 2, H - 8);
-
-            ctx.save();
-            ctx.translate(18, padT + (H - padT - padB) / 2); ctx.rotate(-Math.PI / 2);
-            ctx.fillText('بازده مورد انتظار E(R)', 0, 0);
-            ctx.restore();
-
-            if (layers.finance.rf) {
-                ctx.strokeStyle = '#1D4ED8'; ctx.lineWidth = 1.6; ctx.setLineDash([5, 4]);
-                ctx.beginPath(); ctx.moveTo(toX(0), toY(Rf)); ctx.lineTo(toX(maxBeta), toY(Rf)); ctx.stroke();
-                ctx.setLineDash([]);
-                ctx.fillStyle = '#1D4ED8'; ctx.font = '700 10.5px "Vazirmatn"'; ctx.textAlign = 'left';
-                ctx.fillText('نرخ بدون ریسک Rf = ' + Rf + '%', toX(0.05), toY(Rf) - 6);
-            }
-
-            if (layers.finance.sml) {
-                ctx.strokeStyle = '#6D28D9'; ctx.lineWidth = 3.0;
-                ctx.beginPath(); ctx.moveTo(toX(0), toY(Rf)); ctx.lineTo(toX(maxBeta), toY(Rf + maxBeta * MRP)); ctx.stroke();
-            }
-
-            if (layers.finance.market && maxBeta >= 1) {
-                ctx.fillStyle = '#047857';
-                ctx.beginPath(); ctx.arc(toX(1.0), toY(Rm), 6, 0, Math.PI * 2); ctx.fill();
-                ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
-                ctx.fillStyle = '#0F172A'; ctx.font = '800 11px "JetBrains Mono"'; ctx.textAlign = 'left';
-                ctx.fillText('پرتفوی بازار M (β=1.0 , Rm=' + Rm + '%)', toX(1.0) + 9, toY(Rm) - 5);
-            }
-
-            if (layers.finance.proj) {
-                ctx.strokeStyle = '#94A3B8'; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]);
-                ctx.beginPath();
-                ctx.moveTo(toX(beta), toY(ER)); ctx.lineTo(toX(beta), H - padB);
-                ctx.moveTo(toX(beta), toY(ER)); ctx.lineTo(padL, toY(ER));
-                ctx.stroke();
-                ctx.setLineDash([]);
-            }
-
-            ctx.fillStyle = '#D97706';
-            ctx.beginPath(); ctx.arc(toX(beta), toY(ER), 7, 0, Math.PI * 2); ctx.fill();
-            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2.5; ctx.stroke();
-            ctx.fillStyle = '#0F172A'; ctx.font = '900 11.5px "JetBrains Mono"'; ctx.textAlign = 'left';
-            ctx.fillText('سهم انتخابی بهادر: ' + ER.toFixed(1) + '%', toX(beta) + 9, toY(ER) - 6);
-
-            const currentHover = isFs ? hoverState.fs : hoverState.finance;
-            if (currentHover.active) {
-                const hx = currentHover.x;
-                const hy = currentHover.y;
-                if (hx >= padL && hx <= W - padR && hy >= padT && hy <= H - padB) {
-                    ctx.strokeStyle = '#0F172A'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
-                    ctx.beginPath(); ctx.moveTo(hx, padT); ctx.lineTo(hx, H - padB); ctx.moveTo(padL, hy); ctx.lineTo(W - padR, hy); ctx.stroke();
-                    ctx.setLineDash([]);
-
-                    const curBeta = fromX(hx);
-                    const curR = fromY(hy);
-                    const smlR = Rf + curBeta * MRP;
-
-                    if (isFs) {
-                        const hud = document.getElementById('fs-hud-bar');
-                        hud.innerHTML = `<span><strong>بتا β:</strong> ${curBeta.toFixed(2)}</span>
-                            <span><strong>بازده SML:</strong> ${smlR.toFixed(2)}%</span>
-                            <span><strong>صرف ریسک:</strong> ${(curBeta * MRP).toFixed(2)}%</span>
-                            <span><strong>بزرگ‌نمایی:</strong> ${Math.round(z * 100)}%</span>`;
-                    } else {
-                        const tooltip = document.getElementById('tooltip-finance');
-                        tooltip.style.opacity = 1;
-                        tooltip.innerHTML = `<div><strong>مختصات بتا: ${curBeta.toFixed(2)}</strong></div>
-                            <div>بازده روی خط SML: ${smlR.toFixed(2)}%</div>
-                            <div>صرف ریسک سهم: ${(curBeta * MRP).toFixed(2)}%</div>`;
-                    }
-                }
-            }
-        }
-
-        // ========================================================
-        // 4. DRAW OPERATIONS RESEARCH
-        // ========================================================
-        function drawOR(canvasId = 'canvasOR', isFs = false) {
+function drawOR(canvasId = 'canvasOR', isFs = false) {
             const setup = setupCanvas(canvasId);
             if (!setup) return;
             const { ctx, W, H } = setup;
@@ -11544,49 +10212,384 @@ body.theme-dark .formula-card {
         }
 
         // ========================================================
-        // 6. MASTER ENCYCLOPEDIA HUB FILTER & SEARCH
-        // ========================================================
-        function setHubCategory(cat, btn) {
+// OMNI-SEARCH SPOTLIGHT ENGINE (v21.0 BM25 & Trigram Index)
+// ========================================================
+class OmniSearchEngine {
+  constructor() {
+    this.docs = [];
+    this.index = new Map();
+    this.trigrams = new Map();
+    this.isBuilt = false;
+  }
 
-            hubActiveCategory = cat;
-            document.querySelectorAll('#hub-filter-chips .scenario-chip').forEach(c => {
-                c.classList.remove('active');
-                c.style.background = '#F8FAFC';
-                c.style.color = '#334155';
-            });
-            btn.classList.add('active');
-            btn.style.background = '#0F172A';
-            btn.style.color = '#FFFFFF';
-            filterHubCards();
+  buildIndex() {
+    if (this.isBuilt) return;
+    this.docs = [];
+    this.index.clear();
+    this.trigrams.clear();
+
+    const courseMap = {
+      'pane-micro': { id: 'micro', name: 'اقتصاد خرد', icon: '📈', color: '#D97706' },
+      'pane-cost': { id: 'cost', name: 'حسابداری صنعتی ۱', icon: '🏭', color: '#059669' },
+      'pane-or': { id: 'or', name: 'تحقیق در عملیات ۱', icon: '⚙️', color: '#0891B2' },
+      'pane-stat': { id: 'stat', name: 'آمار کاربردی ۱', icon: '📊', color: '#4F46E5' },
+      'pane-math': { id: 'math', name: 'ریاضیات مدیریت', icon: '📐', color: '#7C3AED' }
+    };
+
+    let docId = 0;
+    Object.keys(courseMap).forEach(paneId => {
+      const pane = document.getElementById(paneId);
+      if (!pane) return;
+      const cInfo = courseMap[paneId];
+      const cards = pane.querySelectorAll('.formula-card');
+      cards.forEach((card, idx) => {
+        if (!card.id) card.id = 'fc-' + cInfo.id + '-' + idx;
+        const h4 = card.querySelector('h4');
+        const title = h4 ? h4.innerText.trim() : ('فرمول ' + (idx + 1));
+        const formulaEl = card.querySelector('.formula-display, .formula-stack');
+        const formula = formulaEl ? formulaEl.innerText.trim() : '';
+        const profTier = card.querySelector('.prof-tier');
+        const bankaiTier = card.querySelector('.bankai-tier');
+        const trapTier = card.querySelector('.trap-tier');
+        const desc = [
+          profTier ? profTier.innerText : '',
+          bankaiTier ? bankaiTier.innerText : '',
+          trapTier ? trapTier.innerText : ''
+        ].join(' ');
+
+        const doc = {
+          id: docId++,
+          cardId: card.id,
+          course: cInfo.id,
+          courseName: cInfo.name,
+          courseIcon: cInfo.icon,
+          courseColor: cInfo.color,
+          title: title,
+          formula: formula,
+          desc: desc,
+          fullText: title + ' ' + formula + ' ' + desc
         };
+        this.docs.push(doc);
 
-        function filterHubCards() {
+        const tokens = this._tokenize(doc.fullText);
+        tokens.forEach(token => {
+          if (!this.index.has(token)) this.index.set(token, new Set());
+          this.index.get(token).add(doc.id);
 
-            const query = (document.getElementById('hub-search-input').value || '').trim().toLowerCase();
-            const cards = document.querySelectorAll('.hub-card');
-            let visibleCount = 0;
+          const tgs = this._trigrams(token);
+          tgs.forEach(tg => {
+            if (!this.trigrams.has(tg)) this.trigrams.set(tg, new Set());
+            this.trigrams.get(tg).add(doc.id);
+          });
+        });
+      });
+    });
+    this.isBuilt = true;
+  }
 
-            cards.forEach(card => {
-                const categories = (card.getAttribute('data-category') || '').toLowerCase();
-                const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
-                const textContent = card.innerText.toLowerCase();
+  search(query, courseFilter = 'all', limit = 10) {
+    if (!this.isBuilt) this.buildIndex();
+    if (!query || query.trim().length === 0) {
+      return this.docs
+        .filter(d => courseFilter === 'all' || d.course === courseFilter)
+        .slice(0, limit);
+    }
 
-                const matchesCat = (hubActiveCategory === 'all') || categories.includes(hubActiveCategory);
-                const matchesQuery = !query || keywords.includes(query) || textContent.includes(query);
+    const qTokens = this._tokenize(query);
+    const scores = new Map();
 
-                if (matchesCat && matchesQuery) {
-                    card.style.display = 'flex';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+    qTokens.forEach(t => {
+      const matching = this.index.get(t) || new Set();
+      matching.forEach(id => {
+        scores.set(id, (scores.get(id) || 0) + 12);
+      });
 
-            document.getElementById('hub-count-badge').innerText = 'تعداد نمایش: ' + visibleCount + ' مورد';
-        };
+      const tgs = this._trigrams(t);
+      tgs.forEach(tg => {
+        const trigramMatches = this.trigrams.get(tg) || new Set();
+        trigramMatches.forEach(id => {
+          scores.set(id, (scores.get(id) || 0) + 1.2);
+        });
+      });
+    });
 
-        // Export Full Brief
-        function exportFullBrief() {
+    const qLower = query.toLowerCase().trim();
+    this.docs.forEach(doc => {
+      if (doc.title.toLowerCase().includes(qLower)) {
+        scores.set(doc.id, (scores.get(doc.id) || 0) + 25);
+      }
+      if (doc.formula.toLowerCase().includes(qLower)) {
+        scores.set(doc.id, (scores.get(doc.id) || 0) + 18);
+      }
+    });
+
+    return [...scores.entries()]
+      .map(([id, score]) => ({ doc: this.docs[id], score }))
+      .filter(item => courseFilter === 'all' || item.doc.course === courseFilter)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit)
+      .map(item => item.doc);
+  }
+
+  _tokenize(text) {
+    return text
+      .toLowerCase()
+      .replace(/[،,.\-؛;:!?()[\]{}=+×÷/_/]/g, ' ')
+      .split(/\s+/)
+      .filter(t => t.length >= 2)
+      .flatMap(t => [t, ...this._persianStem(t)]);
+  }
+
+  _persianStem(word) {
+    const suffixes = ['ها', 'های', 'ترین', 'تر', 'ان', 'ات', 'ی'];
+    const stems = [];
+    for (const suf of suffixes) {
+      if (word.endsWith(suf) && word.length > suf.length + 2) {
+        stems.push(word.slice(0, -suf.length));
+      }
+    }
+    return stems;
+  }
+
+  _trigrams(str) {
+    const tgs = [];
+    const padded = '_' + str + '_';
+    for (let i = 0; i < padded.length - 2; i++) {
+      tgs.push(padded.slice(i, i + 3));
+    }
+    return tgs;
+  }
+}
+
+const omniEngine = new OmniSearchEngine();
+let omniCurrentFilter = 'all';
+
+function openOmniSearch() {
+  if (typeof hapticTap === 'function') hapticTap('medium');
+  const modal = document.getElementById('modal-omni-search');
+  if (!modal) return;
+  modal.style.display = 'flex';
+  omniEngine.buildIndex();
+  const input = document.getElementById('omni-search-input');
+  if (input) {
+    input.value = '';
+    setTimeout(() => input.focus(), 80);
+  }
+  renderOmniResults(omniEngine.search('', omniCurrentFilter, 8));
+}
+
+function closeOmniSearch() {
+  if (typeof hapticTap === 'function') hapticTap('light');
+  const modal = document.getElementById('modal-omni-search');
+  if (modal) modal.style.display = 'none';
+}
+
+let omniDebounceTimer = null;
+function handleOmniSearchInput(val) {
+  clearTimeout(omniDebounceTimer);
+  omniDebounceTimer = setTimeout(() => {
+    const results = omniEngine.search(val, omniCurrentFilter, 12);
+    renderOmniResults(results);
+  }, 90);
+}
+
+function filterOmniByTag(tag, el) {
+  if (typeof hapticTap === 'function') hapticTap('light');
+  omniCurrentFilter = tag;
+  const tags = document.querySelectorAll('.omni-tag');
+  tags.forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  const input = document.getElementById('omni-search-input');
+  const val = input ? input.value : '';
+  const results = omniEngine.search(val, omniCurrentFilter, 12);
+  renderOmniResults(results);
+}
+
+function renderOmniResults(results) {
+  const container = document.getElementById('omni-search-results');
+  if (!container) return;
+  if (!results || results.length === 0) {
+    container.innerHTML = '<div style="padding: 24px; text-align: center; color: #94A3B8; font-weight: 700;">نتیجه‌ای یافت نشد. عبارت دیگری را امتحان کنید 🔍</div>';
+    return;
+  }
+
+  let html = '';
+  results.forEach(doc => {
+    const cleanSnippet = doc.desc.replace(/<[^>]+>/g, '').slice(0, 95);
+    html += '<div class="omni-result-item" onclick="jumpToFormula(\'' + doc.cardId + '\', \'' + doc.course + '\')">' +
+      '<span class="omni-result-badge" style="background: ' + doc.courseColor + '20; color: ' + doc.courseColor + ';">' +
+        doc.courseIcon + ' ' + doc.courseName +
+      '</span>' +
+      '<div style="flex: 1; min-width: 0;">' +
+        '<div class="omni-result-title">' + doc.title + '</div>' +
+        (doc.formula ? '<div style="font-family: monospace; font-size: 0.78rem; color: #4338CA; direction: ltr; text-align: left; margin: 2px 0;">' + doc.formula.slice(0, 70) + '</div>' : '') +
+        '<div class="omni-result-snippet">' + cleanSnippet + '...</div>' +
+      '</div>' +
+      '<span style="font-size: 0.85rem; color: #94A3B8;">❮</span>' +
+    '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function jumpToFormula(cardId, courseId) {
+  closeOmniSearch();
+  selectCourse(courseId);
+  selectTab('formula');
+  setTimeout(() => {
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('search-highlight');
+      setTimeout(() => card.classList.remove('search-highlight'), 3600);
+      if (typeof hapticTap === 'function') hapticTap('success');
+      showToast('فرمول در کانون دید قرار گرفت 🎯');
+    }
+  }, 250);
+}
+
+// ========================================================
+// MISTAKE VAULT (جعبه اشتباهات شخصی)
+// ========================================================
+function getMistakes() {
+  try {
+    const raw = localStorage.getItem('bankai_mistake_vault');
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveMistake(course, qIdx, selectedOpt, item) {
+  const mistakes = getMistakes();
+  const id = course + '_' + qIdx;
+  const existingIdx = mistakes.findIndex(m => m.id === id);
+  const tag = (item.expl && item.expl.includes('تله')) ? '⚠️ تله طراح کنکور' :
+              ((item.expl && item.expl.includes('محاسب')) ? '🔢 خطای محاسباتی' : '🧠 خطای مفهومی');
+
+  const record = {
+    id: id,
+    course: course,
+    qIdx: qIdx,
+    q: item.q,
+    options: item.options,
+    selected: selectedOpt,
+    correct: item.correct,
+    expl: item.expl,
+    tag: tag,
+    timestamp: Date.now()
+  };
+
+  if (existingIdx !== -1) {
+    mistakes[existingIdx] = record;
+  } else {
+    mistakes.unshift(record);
+  }
+  try {
+    localStorage.setItem('bankai_mistake_vault', JSON.stringify(mistakes));
+  } catch (e) {}
+}
+
+function clearMistake(id) {
+  let mistakes = getMistakes();
+  mistakes = mistakes.filter(m => m.id !== id);
+  try {
+    localStorage.setItem('bankai_mistake_vault', JSON.stringify(mistakes));
+  } catch (e) {}
+  if (typeof hapticTap === 'function') hapticTap('warning');
+  showToast('تست از جعبه اشتباهات با موفقیت حذف شد');
+  renderMistakeVault();
+}
+
+function openMistakeVault(filterCourse = null) {
+  if (typeof hapticTap === 'function') hapticTap('medium');
+  const modal = document.getElementById('modal-mistake-vault');
+  if (!modal) return;
+  modal.style.display = 'flex';
+  renderMistakeVault(filterCourse);
+}
+
+function closeMistakeVault() {
+  if (typeof hapticTap === 'function') hapticTap('light');
+  const modal = document.getElementById('modal-mistake-vault');
+  if (modal) modal.style.display = 'none';
+}
+
+function renderMistakeVault(filterCourse = null) {
+  const body = document.getElementById('mistake-vault-body');
+  if (!body) return;
+  const mistakes = getMistakes();
+  const filtered = filterCourse ? mistakes.filter(m => m.course === filterCourse) : mistakes;
+
+  if (filtered.length === 0) {
+    body.innerHTML = '<div style="text-align: center; padding: 40px 16px; color: #64748B;">' +
+      '<span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">🎉</span>' +
+      '<h4 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 0;">جعبه اشتباهات شما خالی است!</h4>' +
+      '<p style="font-size: 0.78rem; color: #94A3B8; margin-top: 6px;">هر تستی که در شبیه‌ساز آزمون اشتباه بزنید، به طور خودکار به این بخش منتقل می‌شود تا آن را تحلیل و تثبیت کنید.</p>' +
+    '</div>';
+    return;
+  }
+
+  const courseNames = {
+    micro: 'اقتصاد خرد',
+    cost: 'حسابداری صنعتی ۱',
+    or: 'تحقیق در عملیات ۱',
+    stat: 'آمار کاربردی ۱',
+    math: 'ریاضیات مدیریت'
+  };
+
+  let html = '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">' +
+    '<span style="font-size: 0.85rem; font-weight: 800; color: #0F172A;">تعداد تست‌های نیازمند تثبیت: <b>' + filtered.length + ' مورد</b></span>' +
+    '<button onclick="localStorage.removeItem(\'bankai_mistake_vault\'); renderMistakeVault();" class="badge" style="background: #FEE2E2; color: #DC2626; border: 1px solid #FECACA; cursor: pointer; padding: 4px 10px; font-weight: 800;">' +
+      '🗑️ پاکسازی همه اشتباهات' +
+    '</button>' +
+  '</div>';
+
+  filtered.forEach(m => {
+    const cName = courseNames[m.course] || m.course;
+    const userAns = m.options[m.selected] || 'نامشخص';
+    const correctAns = m.options[m.correct] || 'نامشخص';
+
+    html += '<div class="mistake-card">' +
+      '<div class="mistake-header">' +
+        '<span class="badge badge-cost" style="font-size: 0.7rem;">' + cName + '</span>' +
+        '<span class="mistake-tag">' + m.tag + '</span>' +
+      '</div>' +
+      '<div style="font-size: 0.85rem; font-weight: 800; color: #0F172A; margin-bottom: 8px; line-height: 1.4;">' + m.q + '</div>' +
+      '<div style="background: #FEF2F2; border: 1px solid #FEE2E2; border-radius: 8px; padding: 8px 12px; font-size: 0.78rem; margin-bottom: 6px; color: #991B1B;">' +
+        '❌ <b>پاسخ انتخابی شما:</b> ' + userAns +
+      '</div>' +
+      '<div style="background: #ECFDF5; border: 1px solid #D1FAE5; border-radius: 8px; padding: 8px 12px; font-size: 0.78rem; margin-bottom: 8px; color: #065F46;">' +
+        '✅ <b>پاسخ صحیح:</b> ' + correctAns +
+      '</div>' +
+      '<div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 8px 12px; font-size: 0.75rem; color: #334155; line-height: 1.45;">' +
+        m.expl +
+      '</div>' +
+      '<div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px;">' +
+        '<button onclick="clearMistake(\'' + m.id + '\')" class="badge" style="background: #E2E8F0; color: #475569; border: none; cursor: pointer; padding: 4px 10px; font-weight: 700;">' +
+          '✓ فهمیدم و تثبیت شد' +
+        '</button>' +
+      '</div>' +
+    '</div>';
+  });
+
+  body.innerHTML = html;
+}
+
+// Global Keyboard Shortcuts
+document.addEventListener('keydown', e => {
+  if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) &&
+      document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+    e.preventDefault();
+    openOmniSearch();
+  }
+  if (e.key === 'Escape') {
+    closeOmniSearch();
+    closeMistakeVault();
+    closeFlashbackModal();
+  }
+});
+
+function exportFullBrief() {
 
             const lines = [
                 '=== گزارش تحلیلی سامانه BANKAI v12.0 ===',
@@ -11605,10 +10608,6 @@ body.theme-dark .formula-card {
                 lines.push('تیراژ سود هدف: ' + (document.getElementById('c-kpi-qtarget') ? document.getElementById('c-kpi-qtarget').innerText : ''));
                 lines.push('حاشیه فروش CM: ' + (document.getElementById('c-kpi-cm') ? document.getElementById('c-kpi-cm').innerText : ''));
                 lines.push('نسبت حاشیه فروش: ' + (document.getElementById('c-kpi-cmratio') ? document.getElementById('c-kpi-cmratio').innerText : ''));
-            } else if (currentCourse === 'finance') {
-                lines.push('جبهه: مدیریت مالی ۱');
-                lines.push('بازده مورد انتظار E(R): ' + (document.getElementById('f-kpi-er') ? document.getElementById('f-kpi-er').innerText : ''));
-                lines.push('صرف ریسک بازار MRP: ' + (document.getElementById('f-kpi-mrp') ? document.getElementById('f-kpi-mrp').innerText : ''));
             } else if (currentCourse === 'or') {
                 lines.push('جبهه: تحقیق در عملیات ۱');
                 lines.push('نقطه بهینه: ' + (document.getElementById('or-kpi-opt') ? document.getElementById('or-kpi-opt').innerText : ''));
@@ -11642,12 +10641,22 @@ body.theme-dark .formula-card {
         window.fsZoom = fsZoom;
         window.fsResetZoom = fsResetZoom;
         window.toggleLayer = toggleLayer;
-        window.setHubCategory = setHubCategory;
-        window.filterHubCards = filterHubCards;
-        window.exportFullBrief = exportFullBrief;
+                        window.exportFullBrief = exportFullBrief;
         window.redrawActiveCourse = redrawActiveCourse;
         window.initLeitner = initLeitner;
         window.renderQuiz = renderQuiz;
+
+window.openOmniSearch = openOmniSearch;
+window.closeOmniSearch = closeOmniSearch;
+window.handleOmniSearchInput = handleOmniSearchInput;
+window.filterOmniByTag = filterOmniByTag;
+window.jumpToFormula = jumpToFormula;
+window.openMistakeVault = openMistakeVault;
+window.closeMistakeVault = closeMistakeVault;
+window.clearMistake = clearMistake;
+window.stepORSimplex = stepORSimplex;
+window.resetORSimplex = resetORSimplex;
+
 
         
         // ========================================================
@@ -11813,30 +10822,6 @@ body.theme-dark .formula-card {
                     expl: '<b>کالبدشکافی تحلیلی:</b> رابطه معکوس بنیادین بین اهرم عملیاتی و حاشیه امنیت: DOL = ۱ / MS% = ۱ / ۰.۲۵ = ۴.۰.'
                 }
             ],
-            finance: [
-                {
-                    q: 'نرخ بدون ریسک ۲۲٪، بازده بازار ۳۴٪ و بتای سهم ۱.۵ است. اگر تحلیلگر بازده سهم را ۴۲٪ پیش‌بینی کند، آلفای جنسن و وضعیت ارزش‌گذاری کدام است؟',
-                    opts: [
-                        '۱. آلفا ۲٪+ و سهم زیرارزش (فرصت خرید)',
-                        '۲. آلفا ۲٪+ و سهم بیش‌ارزش (گران)',
-                        '۳. آلفا ۲٪- و سهم زیرارزش',
-                        '۴. آلفا ۲٪- و سهم بیش‌ارزش'
-                    ],
-                    correct: 0,
-                    expl: '<b>کالبدشکافی تحلیلی:</b><br>• بازده منصفانه SML: E(R) = ۲۲٪ + ۱.۵ × (۳۴٪ - ۲۲٪) = ۲۲٪ + ۱۸٪ = ۴۰٪.<br>• آلفای جنسن: α = ۴۲٪ - ۴۰٪ = +۲٪.<br>چون بازده واقعی از تعادل بالاتر است، سهم زیر ارزش ذاتی خود معامله می‌شود و سیگنال خرید است.'
-                },
-                {
-                    q: 'شرکت بدون اهرمی دارای بتای ۱.۰ است. با نسبت بدهی به حقوق صاحبان سهام D/E = 0.5 و نرخ مالیات ۲۰٪، بتای اهرمی همادا چقدر است؟',
-                    opts: [
-                        '۱. بتا = ۱.۴۰',
-                        '۲. بتا = ۱.۵۰',
-                        '۳. بتا = ۱.۲۵',
-                        '۴. بتا = ۱.۶۰'
-                    ],
-                    correct: 0,
-                    expl: '<b>کالبدشکافی تحلیلی:</b> معادله همادا: β_L = β_U × [۱ + (۱ - T)(D/E)] = ۱.۰ × [۱ + (۱ - ۰.۲۰)(۰.۵)] = ۱.۰ × [۱ + ۰.۴۰] = ۱.۴۰.'
-                }
-            ],
             or: [
                 {
                     q: 'در مسئله برنامه‌ریزی خطی حداکثرسازی، اگر در جدول بهینه سیمپلکس متغیر کمکی قید اول s1 = 0 باشد، این قید چه وضعیتی دارد؟',
@@ -11850,7 +10835,7 @@ body.theme-dark .formula-card {
                     expl: '<b>کالبدشکافی تحلیلی:</b> متغیر کمکی صفر یعنی قید در تساوی کامل قرار گرفته و کل سهمیه منبع مصرف شده است (قید فعال یا Binding). قیمت سایه آن مثبت است.'
                 }
             ],
-                        math: [
+            math: [
                 {
                     q: 'اگر تابع تقاضای کالایی P = 120 - 3Q و تابع هزینه کل TC = Q² + 20Q + 40 باشد، تیراژ حداکثرکننده سود کدام است؟',
                     opts: ['الف) ۱۰ واحد', 'ب) ۱۲.۵ واحد', 'ج) ۱۵ واحد', 'د) ۱۸ واحد'],
@@ -11967,12 +10952,10 @@ body.theme-dark .formula-card {
                 }
             ]
         };
-
-        const quizState = {
+const quizState = {
             micro: { selected: {}, submitted: {} },
             cost: { selected: {}, submitted: {} },
-            finance: { selected: {}, submitted: {} },
-            or: { selected: {}, submitted: {} },
+                        or: { selected: {}, submitted: {} },
             stat: { selected: {}, submitted: {} },
             math: { selected: {}, submitted: {} }
         };
@@ -11995,10 +10978,11 @@ body.theme-dark .formula-card {
             const rawScore = total > 0 ? ((correctCount - (wrongCount / 3)) / total) * 100 : 0;
 
             let qHtml = '<div class="quiz-score-banner">' +
-                '<div><h3 style="font-size: 1.1rem; font-weight: 900;">🎯 شبیه‌ساز آزمون کنکور ارشد و CFA</h3>' +
-                '<p style="font-size: 0.72rem; color: #94A3B8; margin-top: 2px;">سنجش تسلط تستی با احتساب نمره منفی یک‌سوم و تحلیل گام‌به‌گام</p></div>' +
-                '<div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">' +
-                '<button class="btn-chart-tool" onclick="resetQuiz(\'' + course + '\')" style="background: rgba(239, 68, 68, 0.12); border: 1.5px solid #EF4444; color: #DC2626; padding: 6px 14px; border-radius: 10px; font-weight: 800; font-size: 0.74rem;">🔄 مرور مجدد آزمون</button>' +
+'<div><h3 style="font-size: 1.1rem; font-weight: 900;">🎯 شبیه‌ساز آزمون کنکور ارشد</h3>' +
+'<p style="font-size: 0.72rem; color: #94A3B8; margin-top: 2px;">سنجش تسلط تستی با احتساب نمره منفی یک‌سوم و بایگانی هوشمند خطاها در جعبه اشتباهات</p></div>' +
+'<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">' +
+'<button class="btn-chart-tool" onclick="openMistakeVault(\'' + course + '\')" style="background: rgba(239, 68, 68, 0.15); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); font-weight: 800;">⚠️ جعبه اشتباهات</button>' +
+'<button class="btn-chart-tool" onclick="resetQuiz<button class="btn-chart-tool" onclick="resetQuiz(\'' + course + '\')" style="background: rgba(239, 68, 68, 0.12); border: 1.5px solid #EF4444; color: #DC2626; padding: 6px 14px; border-radius: 10px; font-weight: 800; font-size: 0.74rem;">🔄 مرور مجدد آزمون</button>' +
                 '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #34D399;">' + correctCount + '</span><span class="quiz-stat-lbl">صحیح</span></div>' +
                 '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #F87171;">' + wrongCount + '</span><span class="quiz-stat-lbl">غلط</span></div>' +
                 '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #38BDF8;">' + rawScore.toFixed(1) + '%</span><span class="quiz-stat-lbl">درصد تراز</span></div>' +
@@ -12052,6 +11036,7 @@ body.theme-dark .formula-card {
                 return;
             }
             quizState[course].submitted[qIdx] = true;
+if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveMistake(course, qIdx, quizState[course].selected[qIdx], quizBank[course][qIdx]); }
             renderQuiz(course);
         }
         window.submitQuizAnswer = submitQuizAnswer;
@@ -13086,11 +12071,7 @@ body.theme-dark .formula-card {
             bindDual('c-tp-slider', 'c-tp-num', drawCost);
             initCanvasHover('cost', drawCost);
 
-            bindDual('f-rf-slider', 'f-rf-num', drawFinance);
-            bindDual('f-rm-slider', 'f-rm-num', drawFinance);
-            bindDual('f-beta-slider', 'f-beta-num', drawFinance);
-            initCanvasHover('finance', drawFinance);
-
+                                                
             bindDual('or-c1-slider', 'or-c1-num', drawOR);
             bindDual('or-c2-slider', 'or-c2-num', drawOR);
             initCanvasHover('or', drawOR);
@@ -13105,7 +12086,7 @@ body.theme-dark .formula-card {
 
             initTheme();
             updateAllSensitivities();
-            ['micro', 'cost', 'finance', 'or', 'stat'].forEach(renderQuiz);
+            ['micro', 'cost', 'or', 'stat', 'math'].forEach(renderQuiz);
             initLeitner();
             runStatCalculation();
             
@@ -14231,62 +13212,6 @@ body.theme-dark .formula-card {
                 aliases: ['Prime=DM+DL', 'prime=dm+dl', 'Prime Cost = DM + DL', 'Prime_Cost = DM + DL'],
                 hint: 'جمع مستقیم مواد اولیه و دستمزد مستقیم خط تولید.',
                 breakdown: 'کالبدشکافی: بخش ریشه‌ای و مستقیماً قابل ردیابی بهای تمام‌شده محصول قبل از تخصیص سربار کارخانه.'
-            }
-        ],
-        finance: [
-            {
-                id: 'f1',
-                title: 'مدل قیمت‌گذاری دارایی سرمایه‌ای (CAPM)',
-                prompt: 'فرمول نرخ بازده مورد انتظار سهم (E(Ri)) بر اساس CAPM با نرخ بدون ریسک (Rf) و بتا (Beta) چیست؟',
-                canonical: 'E(Ri) = Rf + beta * [E(Rm) - Rf]',
-                aliases: ['E(Ri)=Rf+beta*[E(Rm)-Rf]', 'Ri = Rf + beta * (Rm - Rf)', 'E(R) = Rf + beta*(Rm - Rf)', 'E(Ri) = Rf + beta_i * (E(Rm) - Rf)'],
-                hint: 'نرخ بدون ریسک به علاوه بتای سهم ضرب‌در صرف ریسک بازار [E(Rm) - Rf].',
-                breakdown: 'کالبدشکافی: فقط ریسک سیستماتیک (بتا) پاداش داده می‌شود زیرا ریسک غیرسیستماتیک با تنوع‌بخشی قابل حذف است.'
-            },
-            {
-                id: 'f2',
-                title: 'شاخص شارپ پورتفوی (Sharpe Ratio)',
-                prompt: 'فرمول شاخص شارپ (Sharpe) با بازده پورتفو (Rp)، نرخ بدون ریسک (Rf) و انحراف معیار (sigma) چیست؟',
-                canonical: 'Sharpe = (Rp - Rf) / sigma',
-                aliases: ['Sharpe=(Rp-Rf)/sigma', 'sharpe=(rp-rf)/sigma', 'SR = (Rp - Rf) / sigma_p'],
-                hint: 'مازاد بازده پورتفوی نسبت به بدون ریسک تقسیم بر انحراف معیار کل.',
-                breakdown: 'کالبدشکافی: سنجش بازده به ازای یک واحد ریسک کل؛ مناسب برای ارزیابی پورتفوهایی که تمام دارایی سرمایه‌گذار در آن است.'
-            },
-            {
-                id: 'f3',
-                title: 'شاخص ترینور (Treynor Ratio)',
-                prompt: 'فرمول شاخص ترینور با بازده پورتفو (Rp)، بدون ریسک (Rf) و ریسک سیستماتیک (beta) چیست؟',
-                canonical: 'Treynor = (Rp - Rf) / beta',
-                aliases: ['Treynor=(Rp-Rf)/beta', 'treynor=(rp-rf)/beta', 'TR = (Rp - Rf) / beta_p'],
-                hint: 'مازاد بازده پورتفو تقسیم بر بتای پورتفو.',
-                breakdown: 'کالبدشکافی: سنجش بازده به ازای هر واحد ریسک سیستماتیک؛ مناسب برای صندوق‌هایی که بخشی از یک سبد متنوع هستند.'
-            },
-            {
-                id: 'f4',
-                title: 'آلفای جنسن (Jensen Alpha)',
-                prompt: 'فرمول آلفای جنسن (Alpha) به عنوان بازده مازاد واقعی سهم نسبت به بازده انتظاری CAPM چیست؟',
-                canonical: 'Alpha = Rp - [Rf + beta * (Rm - Rf)]',
-                aliases: ['Alpha=Rp-[Rf+beta*(Rm-Rf)]', 'alpha=rp-[rf+beta*(rm-rf)]', 'Alpha = Rp - E(Rp)'],
-                hint: 'بازده واقعی محقق‌شده منهای بازده مورد انتظار تئوریک مدل CAPM.',
-                breakdown: 'کالبدشکافی: آلفای مثبت نشان‌دهنده هنر و مهارت مدیر پورتفو در کسب بازده غیرعادی و شکست دادن خط بازار اوراق بهادار (SML) است.'
-            },
-            {
-                id: 'f5',
-                title: 'مدل ارزش‌گذاری رشد گوردون (Gordon Growth)',
-                prompt: 'فرمول ارزش فعلی سهام عادی (P0) با سود تقسیمی سال بعد (D1)، نرخ بازده مورد انتظار (ke) و نرخ رشد (g) چیست؟',
-                canonical: 'P0 = D1 / (ke - g)',
-                aliases: ['P0=D1/(ke-g)', 'p0=d1/(ke-g)', 'P0 = D0*(1+g) / (ke - g)'],
-                hint: 'سود سهام سال آینده (D1) تقسیم بر مابه‌التفاوت نرخ تنزیل و نرخ رشد دائمی سود.',
-                breakdown: 'کالبدشکافی: شرط اعتبار مدل این است که همواره ke > g باشد، در غیر این صورت ارزش منفی یا بی‌نهایت می‌شود.'
-            },
-            {
-                id: 'f6',
-                title: 'معادله هامادا برای بتای اهرمی (Hamada Equation)',
-                prompt: 'فرمول بتای اهرمی (beta_L) بر حسب بتای بدون بدهی (beta_U)، نرخ مالیات (T) و نسبت بدهی به حقوق صاحبان سهام (D/E) چیست؟',
-                canonical: 'beta_L = beta_U * [1 + (1 - T) * (D / E)]',
-                aliases: ['beta_L=beta_U*[1+(1-T)*(D/E)]', 'beta_l=beta_u*[1+(1-t)*(d/e)]', 'beta_L = beta_U * (1 + (1-T)*(D/E))'],
-                hint: 'بتای عملیاتی ضرب‌در پرانتز یک به علاوه سپر مالیاتی نسبت بدهی به سرمایه.',
-                breakdown: 'کالبدشکافی: بدهی اهرمی ریسک مالی را افزایش داده و بتای سهامداران را تشدید می‌کند.'
             }
         ],
         or: [
