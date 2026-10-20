@@ -4237,6 +4237,151 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
   font-weight: 800 !important;
 }
 
+
+/* ============================================================
+   UNIVERSAL HEADING CONTRAST & BLOOMBERG CANVAS SYSTEM (v27.1)
+   ============================================================ */
+
+/* --- HEADING CONTRAST INVARIANT --- */
+:root {
+  --heading-primary: #0F172A;
+  --heading-secondary: #1E293B;
+  --heading-tertiary: #334155;
+  --heading-shadow: none;
+}
+
+body:not([data-theme="light"]):not(.theme-light) {
+  --heading-primary: #FFFFFF !important;
+  --heading-secondary: #F1F5F9 !important;
+  --heading-tertiary: #CBD5E1 !important;
+  --heading-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+body:not([data-theme="light"]):not(.theme-light) h1,
+body:not([data-theme="light"]):not(.theme-light) h2,
+body:not([data-theme="light"]):not(.theme-light) h3,
+body:not([data-theme="light"]):not(.theme-light) h4,
+body:not([data-theme="light"]):not(.theme-light) h5,
+body:not([data-theme="light"]):not(.theme-light) h6,
+body:not([data-theme="light"]):not(.theme-light) .card-title,
+body:not([data-theme="light"]):not(.theme-light) .tree-title,
+body:not([data-theme="light"]):not(.theme-light) .formula-title,
+body:not([data-theme="light"]):not(.theme-light) .hud-course-name,
+body:not([data-theme="light"]):not(.theme-light) .section-title,
+body:not([data-theme="light"]):not(.theme-light) .thematic-course-bar__title,
+body:not([data-theme="light"]):not(.theme-light) [class*="title"],
+body:not([data-theme="light"]):not(.theme-light) [class*="heading"] {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.theme-light h1, body.theme-light h2, body.theme-light h3,
+body.theme-light h4, body.theme-light h5, body.theme-light h6,
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+[data-theme="light"] h4, [data-theme="light"] h5, [data-theme="light"] h6 {
+  color: #0F172A !important;
+  text-shadow: none !important;
+}
+
+/* --- BLOOMBERG TERMINAL CHART HUD --- */
+.chart-hud {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  padding: 8px 12px !important;
+  background: #0A0F1D !important;
+  border-top-left-radius: 14px !important;
+  border-top-right-radius: 14px !important;
+  border: 1.5px solid #1E293B !important;
+  border-bottom: 1px solid #1E3A5F !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  box-sizing: border-box !important;
+}
+
+.hud-id {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  color: #38BDF8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-radius: 6px !important;
+  padding: 2px 7px !important;
+  white-space: nowrap !important;
+}
+
+.hud-status {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  padding: 2px 8px !important;
+  border-radius: 20px !important;
+  white-space: nowrap !important;
+  color: #4ADE80 !important;
+  background: rgba(74, 222, 128, 0.14) !important;
+  border: 1px solid rgba(74, 222, 128, 0.35) !important;
+}
+
+.hud-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: hud-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hud-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.7); }
+}
+
+.hud-coords {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #F1F5F9 !important;
+  direction: ltr !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  flex: 1 !important;
+  text-align: center !important;
+}
+
+.hud-fullscreen {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 8px !important;
+  color: #E2E8F0 !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  transition: all 150ms ease !important;
+  flex-shrink: 0 !important;
+}
+
+.hud-fullscreen:active {
+  transform: scale(0.92) !important;
+  background: rgba(255, 255, 255, 0.20) !important;
+}
+
+.canvas-arena {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  touch-action: none !important;
+  position: relative !important;
+}
+
 </style>
 
 </head>
@@ -4517,7 +4662,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
     <section class="banner-executive" id="banner-card">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
             <div>
-                <h2 id="banner-title" style="font-size: 1.05rem; font-weight: 900; color: #0F172A;">جبهه اول: اقتصاد خرد (Microeconomics)</h2>
+                <h2 id="banner-title" style="font-size: 1.05rem; font-weight: 900; color: var(--heading-primary);">جبهه اول: اقتصاد خرد (Microeconomics)</h2>
                 <p id="banner-desc" style="font-size: 0.74rem; color: #64748B; margin-top: 3px;">
                     تحلیل هندسی تعادل عرضه و تقاضا، کشش‌های قیمتی، دخالت مالیاتی دولت و تبخیر رفاهی جامعه
                 </p>
@@ -4618,7 +4763,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <div class="canvas-top-bar">
                                 <div>
-                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: #0F172A;">📊 تعادل عرضه، تقاضا و مثلث رفاهی DWL</h3>
+                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: var(--heading-primary);">📊 تعادل عرضه، تقاضا و مثلث رفاهی DWL</h3>
                                     <p style="font-size: 0.72rem; color: #64748B;">
                                         بوم عریض رتینا با تیک‌های عددی روی محورها و خطوط پروجکشن نقاط تعادل
                                     </p>
@@ -4644,6 +4789,12 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         </div>
 
                         <div class="canvas-arena-wrapper">
+                            <div class="chart-hud" id="hud-bar-micro">
+                                <span class="hud-id">MICRO // EQUILIBRIUM</span>
+                                <span class="hud-status" id="hud-status-micro">تعادل پایدار</span>
+                                <div class="hud-coords" id="hud-coords-micro">P*=20.0 | Q*=60.0 | DWL=0.0</div>
+                                <button class="hud-fullscreen" onclick="openFullscreenChart('micro')" title="نمای تمام‌صفحه تریدینگ">⛶</button>
+                            </div>
                             <div class="canvas-arena" id="arena-micro">
                                 <canvas id="canvasMicro"></canvas>
                                 <div class="chart-tooltip" id="tooltip-micro" style="opacity: 0;"></div>
@@ -4852,7 +5003,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <!-- Panel 2: Bahador's Custom Formula Vault -->
                     <div class="lab-panel" id="micro-panel-custom">
                         <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-sizing: border-box;">
-                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 4px 0;">
                                 ✍️ افزودن فرمول اختصاصی جدید به درس اقتصاد خرد
                             </h4>
                             <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
@@ -4923,7 +5074,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۱</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: کشش و بار مالیاتی</button>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('Burden_C / Burden_P = Es / |Ed| = d / b', this)" title="برای کپی فرمول کلیک کنید"><span class="math-frac"><span class="math-num">Burden_C</span><span class="math-den">Burden_P</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E_s</span><span class="math-den">|E_d|</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>کالبدشکافی متغیرها:</strong>
@@ -4940,7 +5091,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۲</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">زیان بار مرده جامعه (Deadweight Loss)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">زیان بار مرده جامعه (Deadweight Loss)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('DWL = 0.5 × t × (Q0 - Qt)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DWL</span><span class="math-op">=</span>0.5 × t × (Q_0 - Q_t)</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>کالبدشکافی متغیرها:</strong>
@@ -4958,7 +5109,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۳</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک: مشتق و تعادل سود MR = MC</button>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص درجه انحصار لرنر (Lerner Index)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">شاخص درجه انحصار لرنر (Lerner Index)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('L = (P - MC) / P = 1 / |Ed|', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">L</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">P - MC</span><span class="math-den">P</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">|E_d|</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>مفهوم استراتژیک:</strong>
@@ -4973,7 +5124,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۴</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شاخص تمرکز بازار هرفیندال-هیرشمن (HHI)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">شاخص تمرکز بازار هرفیندال-هیرشمن (HHI)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('HHI = ∑ (s_i)^2', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">HHI</span><span class="math-op">=</span>∑ (s_i)²</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>سنجش انحصار صنعت:</strong>
@@ -4990,7 +5141,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۵</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: مازاد رفاه</button>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مازاد رفاه مصرف‌کننده (CS)، تولیدکننده (PS) و تغییر رفاه (ΔCS)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مازاد رفاه مصرف‌کننده (CS)، تولیدکننده (PS) و تغییر رفاه (ΔCS)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('CS = 0.5 × (α - P*) × Q* ; PS = 0.5 × (P* - P_res) × Q* ; ΔCS = (P1 - P2)×Q1 + 0.5×(P1 - P2)×(Q2 - Q1)', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -5032,7 +5183,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۶</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">کشش قیمتی تقاضا، آزمون درآمد کل و رابطه آموروسو-رابینسون</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">کشش قیمتی تقاضا، آزمون درآمد کل و رابطه آموروسو-رابینسون</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Ed = (dQ / dP) × (P / Q) ; MR = P × [ 1 - (1 / |Ed|) ] ; TR_max at |Ed| = 1', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -5070,7 +5221,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۷</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تعادل رفتار مصرف‌کننده و نرخ نهایی جانشینی (MRS)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تعادل رفتار مصرف‌کننده و نرخ نهایی جانشینی (MRS)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('MRS_xy = - (dy / dx) = MUx / MUy ; Equilibrium: MRS_xy = Px / Py <=> MUx / Px = MUy / Py', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -5118,7 +5269,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
                         <div>
                             <span class="badge badge-micro">بستر اختصاصی محاسبات و آزمایشگاه تعاملی</span>
-                            <h3 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                            <h3 style="font-size: 1.1rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
                                 📉 کارگاه تعاملی کشش، بار مالیاتی و رفاه مصرف‌کننده
                             </h3>
                             <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
@@ -5209,7 +5360,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
 
                 <div class="card">
                     <span class="badge badge-micro" style="margin-bottom: 8px;">مسئله تیپ کنکور کارشناسی ارشد تهران و شریف</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin-bottom: 12px;">
                         صورت مسئله: توابع تقاضا و عرضه به صورت Xd = 100 - 2P و Xs = -20 + 4P است. با وضع مالیات واحدی t = 6 ریال، تعادل جدید، درآمد دولت و زیان رفاهی جامعه را حساب کنید.
                     </h3>
 
@@ -5367,7 +5518,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <div class="canvas-top-bar">
                                 <div>
-                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: #0F172A;">📊 ساختار بهای تمام‌شده، نقطه سر‌به‌سر و سود</h3>
+                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: var(--heading-primary);">📊 ساختار بهای تمام‌شده، نقطه سر‌به‌سر و سود</h3>
                                     <p style="font-size: 0.72rem; color: #64748B;">
                                         نمودار باز و شفاف صنعتی با پروجکشن دقیق تیراژ سر‌به‌سر بر محورها
                                     </p>
@@ -5393,6 +5544,12 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         </div>
 
                         <div class="canvas-arena-wrapper">
+                            <div class="chart-hud" id="hud-bar-cost">
+                                <span class="hud-id">COST // CVP-BEP</span>
+                                <span class="hud-status" id="hud-status-cost">سر به سر و حاشیه ایمنی</span>
+                                <div class="hud-coords" id="hud-coords-cost">BEP Q=2,400 | Rev=120k | DOL=2.5</div>
+                                <button class="hud-fullscreen" onclick="openFullscreenChart('cost')" title="نمای تمام‌صفحه تریدینگ">⛶</button>
+                            </div>
                             <div class="canvas-arena" id="arena-cost">
                                 <canvas id="canvasCost"></canvas>
                                 <div class="chart-tooltip" id="tooltip-cost" style="opacity: 0;"></div>
@@ -5552,7 +5709,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <!-- Panel 2: Bahador's Custom Formula Vault -->
                     <div class="lab-panel" id="cost-panel-custom">
                         <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-sizing: border-box;">
-                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 4px 0;">
                                 ✍️ افزودن فرمول اختصاصی جدید به درس حسابداری صنعتی ۱
                             </h4>
                             <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
@@ -5622,7 +5779,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۱</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ نقطه سر‌به‌سر (BEP)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تیراژ نقطه سر‌به‌سر (BEP)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('Q_bep = FC / (P - VC) = FC / CM', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_{bep}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC</span><span class="math-den">P - VC</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC</span><span class="math-den">CM</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>منطق صورت و مخرج:</strong>
@@ -5637,7 +5794,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۲</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درجه اهرم عملیاتی (DOL)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">درجه اهرم عملیاتی (DOL)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('DOL = Total CM / EBIT', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DOL</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Total CM</span><span class="math-den">EBIT</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Q(P - VC)</span><span class="math-den">Q(P - VC) - FC</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>تحلیل حساسیت:</strong>
@@ -5652,7 +5809,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۳</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نسبت حاشیه امنیت (Margin of Safety)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">نسبت حاشیه امنیت (Margin of Safety)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('MS% = (Sales - BEP_Sales) / Sales = 1 / DOL', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">MS%</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Sales - BEP_{Sales}</span><span class="math-den">Sales</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">DOL</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>سپر محافظ شرکت:</strong>
@@ -5667,7 +5824,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۴</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تیراژ سود هدف با مالیات شرکتی</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تیراژ سود هدف با مالیات شرکتی</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('Q_target = (FC + Target_Profit / (1 - T)) / CM', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_{target}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC + [ Target\_Profit ÷ (1 - T) ]</span><span class="math-den">CM</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>سپر مالیاتی:</strong>
@@ -5683,7 +5840,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۵</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">بهای اولیه (Prime Cost)، بهای تبدیل (Conversion Cost) و ساختار تولید</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">بهای اولیه (Prime Cost)، بهای تبدیل (Conversion Cost) و ساختار تولید</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Prime Cost = DM + DL ; Conversion Cost = DL + MOH ; Total Manufacturing Cost = DM + DL + MOH', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -5720,7 +5877,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۶</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تفکیک هزینه‌های مختلط به روش حد بالا و پایین (High-Low Method)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تفکیک هزینه‌های مختلط به روش حد بالا و پایین (High-Low Method)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('b = (Y_max - Y_min) / (X_max - X_min) ; a = Y_max - b × X_max ; Y = a + bX', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -5757,7 +5914,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۷</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">صورت سود و زیان بر مبنای حاشیه فروش (Contribution Margin Format)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">صورت سود و زیان بر مبنای حاشیه فروش (Contribution Margin Format)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Total CM = Revenues - TVC ; EBIT = Total CM - TFC ; CMR = CM / P = Total CM / Sales', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -5809,7 +5966,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
                         <div>
                             <span class="badge badge-cost">بستر اختصاصی بهای تمام‌شده و CVP</span>
-                            <h3 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                            <h3 style="font-size: 1.1rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
                                 🏭 کارگاه تعاملی بهای تمام‌شده، تحلیل CVP و اهرم‌ها
                             </h3>
                             <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
@@ -5939,7 +6096,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
 
                 <div class="card">
                     <span class="badge badge-cost" style="margin-bottom: 8px;">مسئله تفکیک هزینه‌های نیمه‌متغیر (روش High-Low)</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin-bottom: 12px;">
                         صورت مسئله: در بالاترین سطح فعالیت (۱۰,۰۰۰ ساعت) بهای کل ۵۰۰,۰۰۰ تومان و در پایین‌ترین سطح (۴,۰۰۰ ساعت) بهای کل ۲۶۰,۰۰۰ تومان است. معادله هزینه و نقطه سر‌به‌سر در قیمت فروش ۸۰ تومان چیست؟
                     </h3>
 
@@ -6089,7 +6246,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <div class="canvas-top-bar">
                                 <div>
-                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: #0F172A;">📊 ناحیه موجه (Feasible Region) و خطوط تراز سود</h3>
+                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: var(--heading-primary);">📊 ناحیه موجه (Feasible Region) و خطوط تراز سود</h3>
                                     <p style="font-size: 0.72rem; color: #64748B;">
                                         ترسیم چندضلعی محدب با وضوح رتینا و خطوط تراز ایزوسود
                                     </p>
@@ -6115,6 +6272,12 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         </div>
 
                         <div class="canvas-arena-wrapper">
+                            <div class="chart-hud" id="hud-bar-or">
+                                <span class="hud-id">OR // SIMPLEX-LP</span>
+                                <span class="hud-status" id="hud-status-or">ناحیه موجه بهینه</span>
+                                <div class="hud-coords" id="hud-coords-or">Z*=320.0 | X1=4.0 | X2=6.0</div>
+                                <button class="hud-fullscreen" onclick="openFullscreenChart('or')" title="نمای تمام‌صفحه تریدینگ">⛶</button>
+                            </div>
                             <div class="canvas-arena" id="arena-or">
                                 <canvas id="canvasOR"></canvas>
                                 <div class="chart-tooltip" id="tooltip-or" style="opacity: 0;"></div>
@@ -6264,7 +6427,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <!-- Panel 2: Bahador's Custom Formula Vault -->
                     <div class="lab-panel" id="or-panel-custom">
                         <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-sizing: border-box;">
-                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 4px 0;">
                                 ✍️ افزودن فرمول اختصاصی جدید به درس تحقیق در عملیات ۱
                             </h4>
                             <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
@@ -6334,7 +6497,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۱</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قیمت سایه و ارزش منبع محدودکننده</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قیمت سایه و ارزش منبع محدودکننده</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Z_{max}</span><span class="math-den">∂b_i</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>مفهوم کاربردی:</strong>
@@ -6349,7 +6512,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۲</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قضیه مکمل فزونی (Complementary Slackness)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قضیه مکمل فزونی (Complementary Slackness)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('s_i × y_i = 0  و  x_j × e_j = 0', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">(s_i × y_i = 0)</span><span class="math-op">&amp;</span><span class="math-sym">(x_j × e_j = 0)</span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>قاعده طلایی:</strong>
@@ -6364,7 +6527,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۳</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">آزمون حداقل نسبت سیمپلکس</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">آزمون حداقل نسبت سیمپلکس</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('θ = min { b_i / a_ik  |  a_ik > 0 }', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">θ</span><span class="math-op">=</span>min { <span class="math-frac"><span class="math-num">b_i</span><span class="math-den">a_{ik}</span></span>  |  a_{ik} &gt; 0 }</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>شرط موجه ماندن:</strong>
@@ -6380,7 +6543,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۴</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">شکل استاندارد برنامه‌ریزی خطی (متغیرهای اسلک و مازاد)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">شکل استاندارد برنامه‌ریزی خطی (متغیرهای اسلک و مازاد)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Constraint (<=): ∑ a_ij x_j + S_i = b_i (S_i >= 0) ; Constraint (>=): ∑ a_ij x_j - e_i = b_i (e_i >= 0)', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -6417,7 +6580,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۵</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قواعد تبدیل متقارن دوگان (Primal to Dual Mapping)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قواعد تبدیل متقارن دوگان (Primal to Dual Mapping)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Primal: Max Z = C^T X, AX <= b, X >= 0 <=> Dual: Min W = b^T Y, A^T Y >= C, Y >= 0 ; Strong Duality: Max Z* = Min W*', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -6455,7 +6618,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۶</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">چهار حالت خاص در برنامه‌ریزی خطی (Special Cases)</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">چهار حالت خاص در برنامه‌ریزی خطی (Special Cases)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Alternative Optima: zj - cj = 0 for non-basic ; Infeasibility: Artificial var > 0 ; Unboundedness: all y_ik <= 0 in entering col ; Degeneracy: RHS_i = 0 for basic', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -6496,7 +6659,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۷</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل حمل و نقل، تعادل عرضه-تقاضا و قاعده متغیرهای پایه</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مدل حمل و نقل، تعادل عرضه-تقاضا و قاعده متغیرهای پایه</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('∑ s_i = ∑ d_j  |  Basic Variables = m + n - 1', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">شرط تعادل فیزیکی کل:</span>
@@ -6529,7 +6692,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۸</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">روش پتانسیل دوگان MODI و آزمون بهینگی جهش سنگفرشی</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">روش پتانسیل دوگان MODI و آزمون بهینگی جهش سنگفرشی</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('u_i + v_j = c_ij  |  Δ_ij = c_ij - (u_i + v_j)', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">رابطه متغیرهای پایه (خانه‌های پر):</span>
@@ -6562,7 +6725,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۹</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل‌سازی برنامه‌ریزی خطی سبد دارایی و پورتفوی سرمایه‌گذاری</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مدل‌سازی برنامه‌ریزی خطی سبد دارایی و پورتفوی سرمایه‌گذاری</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Max Z = ∑ r_i * x_i  |  s.t.  ∑ x_i = 1 , x_i ≥ 0', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">تابع هدف بیشینه‌سازی بازده پورتفو:</span>
@@ -6595,7 +6758,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۱۰</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل‌سازی برنامه‌ریزی خطی ترکیب رسانه و بودجه تبلیغات</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مدل‌سازی برنامه‌ریزی خطی ترکیب رسانه و بودجه تبلیغات</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Max Z = ∑ a_j * y_j  |  s.t.  ∑ c_j * y_j ≤ Budget', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">بیشینه‌سازی کل بازدید و دسترسی (Reach):</span>
@@ -6645,7 +6808,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
                         <div>
                             <span class="badge badge-or">کاکپیت تحقیق در عملیات ۱</span>
-                            <h3 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                            <h3 style="font-size: 1.1rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
                                 ⚙️ کارگاه تعاملی دوگان، قیمت سایه و آزمون حداقل نسبت
                             </h3>
                             <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
@@ -6745,7 +6908,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
 
                 <div class="card">
                     <span class="badge badge-or" style="margin-bottom: 8px;">الگوریتم حل جدول سیمپلکس با آزمون حداقل نسبت</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin-bottom: 12px;">
                         صورت مسئله: Max Z = 3x1 + 5x2 تحت قیود x1 ≤ 4 و 2x2 ≤ 12 و 3x1 + 2x2 ≤ 18.
                     </h3>
 
@@ -6792,7 +6955,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
                         <div>
                             <span class="badge badge-or">مسئله کاربردی و امتحانی</span>
-                            <h3 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                            <h3 style="font-size: 1.05rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
                                 ❄️ حل تشریحی مسئله حمل و نقل شرکت تولید یخچال (ماتریس عرضه و تقاضا)
                             </h3>
                             <p style="font-size: 0.74rem; color: #64748B; margin: 2px 0 0 0;">
@@ -6811,7 +6974,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
 
                     <div class="tree-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 14px;">
                         <div class="tree-node" style="border-right-color: #F59E0B;">
-                            <h4 style="font-size: 0.84rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">گام ۱: اعتبارسنجی تعادل و تعداد متغیرهای پایه</h4>
+                            <h4 style="font-size: 0.84rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 6px 0;">گام ۱: اعتبارسنجی تعادل و تعداد متغیرهای پایه</h4>
                             <p style="font-size: 0.76rem; color: #475569; margin: 0 0 6px 0;">
                                 • مجموع عرضه: ۶۰ + ۹۰ = ۱۵۰ دستگاه<br>
                                 • مجموع تقاضا: ۵۰ + ۴۰ + ۶۰ = ۱۵۰ دستگاه<br>
@@ -6821,7 +6984,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         </div>
 
                         <div class="tree-node" style="border-right-color: #10B981;">
-                            <h4 style="font-size: 0.84rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">گام ۲: تخصیص گوشه شمال غربی (North-West)</h4>
+                            <h4 style="font-size: 0.84rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 6px 0;">گام ۲: تخصیص گوشه شمال غربی (North-West)</h4>
                             <p style="font-size: 0.76rem; color: #475569; margin: 0 0 6px 0;">
                                 ۱. خانه (A, تهران): تخصیص ۵۰ واحد (تکمیل تقاضای تهران). باقی‌مانده عرضه A برابر ۱۰ واحد.<br>
                                 ۲. خانه (A, اصفهان): تخصیص ۱۰ واحد (اتمام عرضه کارخانه A). باقی‌مانده تقاضای اصفهان برابر ۳۰ واحد.<br>
@@ -6831,7 +6994,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         </div>
 
                         <div class="tree-node" style="border-right-color: #3B82F6;">
-                            <h4 style="font-size: 0.84rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">گام ۳: محاسبه هزینه کل اولیه (Total Initial Cost)</h4>
+                            <h4 style="font-size: 0.84rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 6px 0;">گام ۳: محاسبه هزینه کل اولیه (Total Initial Cost)</h4>
                             <div class="formula-display" dir="ltr" style="font-size: 0.82rem; margin: 6px 0;">
                                 Z = (50 × 8) + (10 × 6) + (30 × 12) + (60 × 13)
                             </div>
@@ -6841,7 +7004,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         </div>
 
                         <div class="tree-node" style="border-right-color: #7C3AED;">
-                            <h4 style="font-size: 0.84rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">گام ۴: آزمون بهینگی پتانسیل MODI</h4>
+                            <h4 style="font-size: 0.84rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 6px 0;">گام ۴: آزمون بهینگی پتانسیل MODI</h4>
                             <p style="font-size: 0.76rem; color: #475569; margin: 0 0 6px 0;">
                                 با فرض قراردادی u_A = 0 برای خانه‌های پایه (u_i + v_j = c_ij):<br>
                                 • v_تهران = ۸ - ۰ = ۸<br>
@@ -6963,7 +7126,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <div class="canvas-top-bar">
                                 <div>
-                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: #0F172A;">📊 منحنی زنگوله‌ای توزیع نرمال استاندارد گاوسی</h3>
+                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: var(--heading-primary);">📊 منحنی زنگوله‌ای توزیع نرمال استاندارد گاوسی</h3>
                                     <p style="font-size: 0.72rem; color: #64748B;">
                                         بوم عریض رتینا، خط تقارن میانگین و پروجکشن نقاط انحراف معیار بر محور
                                     </p>
@@ -6989,6 +7152,12 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         </div>
 
                         <div class="canvas-arena-wrapper">
+                            <div class="chart-hud" id="hud-bar-stat">
+                                <span class="hud-id">STAT // GAUSS-DIST</span>
+                                <span class="hud-status" id="hud-status-stat">توزیع نرمال استاندارد</span>
+                                <div class="hud-coords" id="hud-coords-stat">μ=25.0 | σ=5.0 | [20, 30]=68.3%</div>
+                                <button class="hud-fullscreen" onclick="openFullscreenChart('stat')" title="نمای تمام‌صفحه تریدینگ">⛶</button>
+                            </div>
                             <div class="canvas-arena" id="arena-stat">
                                 <canvas id="canvasStat"></canvas>
                                 <div class="chart-tooltip" id="tooltip-stat" style="opacity: 0;"></div>
@@ -7021,7 +7190,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;">
                         <div>
                             <span class="badge badge-stat">نقشه جامع مفهومی 🌳</span>
-                            <h3 style="font-size: 1.08rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                            <h3 style="font-size: 1.08rem; font-weight: 900; color: var(--heading-primary); margin-top: 4px;">
                                 درخت دانش آمار و کاربرد آن در مدیریت (از داده خام تا استنتاج و تصمیم‌گیری)
                             </h3>
                         </div>
@@ -7219,7 +7388,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <!-- Panel 2: Bahador's Custom Formula Vault -->
                     <div class="lab-panel" id="stat-panel-custom">
                         <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-sizing: border-box;">
-                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 4px 0;">
                                 ✍️ افزودن فرمول اختصاصی جدید به درس آمار کاربردی ۱
                             </h4>
                             <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
@@ -7288,7 +7457,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                 <div style="margin-bottom: 14px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span class="badge badge-pro">تلفیق تکمیلی 🔥</span>
-                        <h3 style="font-size: 1.08rem; font-weight: 900; color: #0F172A;">گنجینه فرمول‌نامه آمار: سنتز کلاس استاد و استانداردهای جهانی CFA</h3>
+                        <h3 style="font-size: 1.08rem; font-weight: 900; color: var(--heading-primary);">گنجینه فرمول‌نامه آمار: سنتز کلاس استاد و استانداردهای جهانی CFA</h3>
                     </div>
                     <p style="font-size: 0.74rem; color: #64748B; margin-top: 3px;">
                         ترکیب مو به موی یادداشت‌های کلاس درس استاد با کالبدشکافی ریشه‌ای (First Principles) و پوشش مباحث ناگفته
@@ -7311,7 +7480,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('means')"><span>⚡</span> فلش‌بک: رشد ثروت و میانگین‌ها</button>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Arithmetic Mean (μ vs x̄)</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین حسابی جامعه و نمونه (مو و ایکس‌بار)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین حسابی جامعه و نمونه (مو و ایکس‌بار)</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('μ_x = ∑ x_i / N ; x̄ = ∑ x_i / n', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">پارامتر جامعه (مو x):</span>
@@ -7354,7 +7523,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">میانگین جدول ۲</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Grouped Data Mean</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین داده‌های طبقه‌بندی شده (جدول فراوانی)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین داده‌های طبقه‌بندی شده (جدول فراوانی)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('x̄ = ∑ (f_i × x_i) / ∑ f_i = ∑ (f_i × x_i) / n', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">x̄</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ (f_i × x_i)</span><span class="math-den">∑ f_i</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ (f_i × x_i)</span><span class="math-den">n</span></span></div>
                             
                             <div class="tier-card prof-tier">
@@ -7387,7 +7556,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">میانگین رشد ۳</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Geometric Mean & CAGR</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی، بازده مرکب و توان‌های کسری</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین هندسی، بازده مرکب و توان‌های کسری</h4>
                             <div class="card-inner" style="margin: 10px 0; font-size: 0.74rem; background: #F8FAFC; border: 1.5px solid #C7D2FE; border-radius: 12px; line-height: 1.8;">
                                 <strong style="color: #4338CA;">💡 کالبدشکافی علائم ریاضی: حاصل‌ضرب پی (∏) و توان کسری (1/N):</strong><br>
                                 • <b>نماد ∏ (حرف پی بزرگ یونانی):</b> این نماد نشان‌دهنده <b>«حاصل‌ضرب زنجیره‌ای»</b> تمام داده‌ها است (دقیقاً همان‌طور که نماد ∑ نشان‌دهنده حاصل‌جمع است): ∏ x_i = x₁ × x₂ × ... × x_N.<br>
@@ -7428,7 +7597,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">میانگین نرخ‌ها ۴</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Harmonic Mean & DCA</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هارمونیک (همساز) و خرید پله‌ای ارز/سهام</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین هارمونیک (همساز) و خرید پله‌ای ارز/سهام</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('μ_h = N / ∑ (1 / x_i)   |   H = x̄_h = n / ∑ (1 / x_i)', this)" title="برای کپی فرمول کلیک کنید">
                                 <span class="math-sym" style="color: #4338CA;">μ_h</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">N</span><span class="math-den">∑ (1 / x_i)</span></span><span class="math-sep">|</span><span class="math-sym" style="color: #047857;">H = x̄_h</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">n</span><span class="math-den">∑ (1 / x_i)</span></span>
                             </div>
@@ -7504,7 +7673,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">شاخص مرکزی ۲</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Median & Interpolation</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانه داده‌ها و فرمول درون‌یابی طبقه میانه</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانه داده‌ها و فرمول درون‌یابی طبقه میانه</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('Median = L + [ (n/2 - F_{c-1}) / f_med ] × c', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Median</span><span class="math-op">=</span>L + [ <span class="math-frac"><span class="math-num">n/2 - F_{c-1}</span><span class="math-den">f_{med}</span></span> ] × c</div>
                             
                             <div class="tier-card prof-tier">
@@ -7537,7 +7706,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">شاخص مرکزی ۳</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Mode & Pearson</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مد (نما)، دلتاها و رابطه تجربی پیرسون</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مد (نما)، دلتاها و رابطه تجربی پیرسون</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Mode = L + [ Δ1 / (Δ1 + Δ2) ] × c ; x̄ - Mode ≈ 3(x̄ - Median) ; Range = Max - Min', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">مد داده‌های طبقه‌بندی (تفاضل دلتاها):</span>
@@ -7585,7 +7754,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">شاخص پراکندگی ۱</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sample Variance (Bessel)</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">واریانس نمونه و راز تقسیم بر n - 1 (تصحیح بسل)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">واریانس نمونه و راز تقسیم بر n - 1 (تصحیح بسل)</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('s² = ∑ (x_i - x̄)² / (n - 1)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">s²</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ (x_i - x̄)²</span><span class="math-den">n - 1</span></span><span class="math-sep">|</span><span class="math-sym">s</span><span class="math-op">=</span>√s²</div>
                             
                             <div class="tier-card prof-tier">
@@ -7617,7 +7786,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">شاخص پراکندگی نسبی</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Coefficient of Variation</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ضریب تغییرات (CV) - ترازوی سنجش ریسک نسبی</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">ضریب تغییرات (CV) - ترازوی سنجش ریسک نسبی</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('CV = (s / x̄) × 100%', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">CV</span><span class="math-op">=</span>[ <span class="math-frac"><span class="math-num">s</span><span class="math-den">x̄</span></span> ] × 100%<span class="math-sep">|</span>[ <span class="math-frac"><span class="math-num">σ</span><span class="math-den">μ</span></span> ] × 100%</div>
                             
                             <div class="tier-card prof-tier">
@@ -7648,7 +7817,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">شاخص موقعیت</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Quartiles, IQR & Outliers</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">چارک‌ها، دامنه میان‌چارکی و مرز داده‌های پرت توکی</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">چارک‌ها، دامنه میان‌چارکی و مرز داده‌های پرت توکی</h4>
                             <div class="formula-display" dir="ltr" onclick="copyFormula('IQR = Q3 - Q1   |   Fences: [ Q1 - 1.5×IQR  ,  Q3 + 1.5×IQR ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">IQR</span><span class="math-op">=</span>Q_3 - Q_1<span class="math-sep">|</span>[ Q_1 - 1.5×IQR , Q_3 + 1.5×IQR ]</div>
                             
                             <div class="tier-card prof-tier">
@@ -7680,7 +7849,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">ریسک نامطلوب ۱۱</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Semi-variance & Sortino</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">نیمه‌واریانس، نیمه‌انحراف معیار و نسبت سورتینو</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">نیمه‌واریانس، نیمه‌انحراف معیار و نسبت سورتینو</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('SV = (1 / n) * ∑ [ min(0, x_i - x̄) ]² ; Semi-SD = √SV ; Sortino = [ E(R) - Rf ] / Semi-SD', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -7729,7 +7898,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">میانگین وزنی ۱۲</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Weighted GM & AM</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">میانگین هندسی وزنی (WGM) و میانگین حسابی وزنی (WAM)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین هندسی وزنی (WGM) و میانگین حسابی وزنی (WAM)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('X̄_gw = [ ∏ (X_i^w_i) ]^(1 / ∑ w_i) ; ln(X̄_gw) = [ ∑ w_i ln(X_i) ] / ∑ w_i ; X̄_w = [ ∑ w_i X_i ] / ∑ w_i', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -7769,7 +7938,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">قضایای بنیادین ۱۳</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Algebraic Properties</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">ویژگی‌های جبری و قضایای بنیادین میانگین حسابی</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">ویژگی‌های جبری و قضایای بنیادین میانگین حسابی</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Theorem 1: ∑ (x_i - x̄) = 0 ; Theorem 2: min_c ∑ (x_i - c)^2 <=> c = x̄ ; Combined: x̄_c = [ ∑ n_j x̄_j ] / ∑ n_j', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -7810,7 +7979,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">پایداری مقیاس ۱۴</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Linear Transformations</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">پایداری و رفتار شاخص‌ها در تبدیلات خطی (y = ax + b)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">پایداری و رفتار شاخص‌ها در تبدیلات خطی (y = ax + b)</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Center: ȳ = a × x̄ + b ; Disp: s_y = |a| × s_x ; Var: s²_y = a² × s²_x ; Range: R_y = |a| × R_x', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -7850,7 +8019,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">تئوری نمونه‌گیری ۱۵</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Sampling Methods</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تکنیک‌های نمونه‌گیری، شانس انتخاب و فاصله منظم سیستماتیک</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تکنیک‌های نمونه‌گیری، شانس انتخاب و فاصله منظم سیستماتیک</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('SRS Prob: P = n / N ; Systematic: k = N / n, items: r, r+k, r+2k ; Stratified: n_h = n × (N_h / N)', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -7890,7 +8059,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-stat">شاخص پراکندگی ۱۶</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">MAD vs Variance</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">انحراف متوسط از میانگین (MAD) و دوئل تاریخی با واریانس</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">انحراف متوسط از میانگین (MAD) و دوئل تاریخی با واریانس</h4>
                             
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('MAD = (1 / n) * ∑ | x_i - x̄ |   |   MAD_pop = (1 / N) * ∑ | x_i - μ |', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
@@ -7935,7 +8104,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <div style="display: flex; align-items: center; gap: 8px;">
                                 <span class="badge badge-stat">آزمایشگاه محاسباتی زنده ⚡</span>
-                                <h3 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 0;">ماشین حساب تحلیلی شاخص‌های آمار و کاربرد در مدیریت</h3>
+                                <h3 style="font-size: 1.05rem; font-weight: 900; color: var(--heading-primary); margin: 0;">ماشین حساب تحلیلی شاخص‌های آمار و کاربرد در مدیریت</h3>
                             </div>
                             <p style="font-size: 0.74rem; color: #64748B; margin-top: 4px;">
                                 محاسبه خودکار و کالبدشکافی ۹ شاخص گرایش به مرکز و پراکندگی (میانگین‌ها، چارک‌ها، واریانس، انحراف معیار و CV) به همراه جدول انحرافات
@@ -8116,7 +8285,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                 <!-- CANONICAL SOLVED PROBLEM -->
                 <div class="card">
                     <span class="badge badge-stat" style="margin-bottom: 8px;">مسئله جامع محاسبه میانگین‌ها، واریانس و ضریب تغییرات</span>
-                    <h3 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin-bottom: 12px;">
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin-bottom: 12px;">
                         صورت مسئله: بازدهی سهام در ۵ ماه اخیر برابر است با: ۲٪، ۴٪، ۸٪، ۱۶٪، ۳۲٪. میانگین حسابی، میانگین هندسی، میانگین هارمونیک و واریانس نمونه را با گام‌های تحلیلی حساب کنید.
                     </h3>
 
@@ -8288,7 +8457,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                         <div>
                             <div class="canvas-top-bar">
                                 <div>
-                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: #0F172A;">📊 هندسه دیفرانسیل: خط مماس، خط قاطع و اکسترمم</h3>
+                                    <h3 style="font-size: 0.98rem; font-weight: 900; color: var(--heading-primary);">📊 هندسه دیفرانسیل: خط مماس، خط قاطع و اکسترمم</h3>
                                     <p style="font-size: 0.72rem; color: #64748B;">
                                         ترسیم رتینای تابع سود، خط مماس در نقطه ارزیابی و حد خطوط قاطع
                                     </p>
@@ -8315,6 +8484,12 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
 
                             <!-- Canvas Area -->
                             <div class="canvas-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; background: #FFFFFF;">
+                                <div class="chart-hud" id="hud-bar-math">
+                                <span class="hud-id">MATH // MARGINAL-OPT</span>
+                                <span class="hud-status" id="hud-status-math">نقطه بهینه MR=MC</span>
+                                <div class="hud-coords" id="hud-coords-math">Q*=30.0 | P*=45.0 | π*=450</div>
+                                <button class="hud-fullscreen" onclick="openFullscreenChart('math')" title="نمای تمام‌صفحه تریدینگ">⛶</button>
+                            </div>
                                 <canvas id="canvasMath" width="600" height="340" style="width: 100%; height: auto; display: block;"></canvas>
                             </div>
                         </div>
@@ -8348,7 +8523,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 10px;">
                         <div>
                             <span class="badge badge-math">بستر اختصاصی تمرین تعاملی</span>
-                            <h3 style="font-size: 1.12rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                            <h3 style="font-size: 1.12rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
                                 🧮 کارگاه تمرین و آزمایشگاه فرمول‌های ریاضی مدیریت
                             </h3>
                             <p style="font-size: 0.74rem; color: #64748B; margin: 3px 0 0 0;">
@@ -8534,7 +8709,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
             <div id="math-tab-tree" class="subtab-view">
                 <div class="card" style="border-top: 4px solid #7C3AED;">
                     <span class="badge badge-math">نقشه مفهومی ۵ ستونه</span>
-                    <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--heading-primary); margin-top: 4px;">
                         🌳 درخت دانش ریاضیات و روش‌های کمی در مدیریت و مالی
                     </h3>
                     <p style="font-size: 0.75rem; color: #64748B; margin-bottom: 16px;">
@@ -8675,7 +8850,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <!-- Panel 2: Bahador's Custom Formula Vault -->
                     <div class="lab-panel" id="math-panel-custom">
                         <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-sizing: border-box;">
-                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 4px 0;">
                                 ✍️ افزودن فرمول اختصاصی جدید به درس ریاضیات کاربردی و مالی
                             </h4>
                             <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
@@ -8745,7 +8920,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
                         <div>
                             <span class="badge badge-math">فرمول‌نامه عمودی بدون اسکرول افقی</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--heading-primary); margin-top: 4px;">
                                 📐 فرمول‌نامه جامع و تفکیکی ریاضیات و روش‌های مقداری در مدیریت
                             </h3>
                             <p style="font-size: 0.74rem; color: #64748B; margin-top: 2px;">
@@ -8763,7 +8938,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">حسابان ۱</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Derivative Limit</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تعریف حدی مشتق و شیب خط مماس</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تعریف حدی مشتق و شیب خط مماس</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('f\'(x) = lim_{h -> 0} [f(x+h) - f(x)] / h', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">تعریف لایب‌نیتس و کوشی:</span>
@@ -8793,7 +8968,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">حسابان ۲</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Calculus Rules</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">قواعد بنیادین مشتق‌گیری (ضرب، تقسیم و زنجیره‌ای)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قواعد بنیادین مشتق‌گیری (ضرب، تقسیم و زنجیره‌ای)</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('(u.v)\' = u\'.v + v\'.u ; (u/v)\' = (u\'.v - v\'.u)/v^2 ; d/dx[f(g(x))] = f\'(g(x)).g\'(x)', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">قاعده ضرب:</span>
@@ -8827,7 +9002,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">کاربرد مدیریتی ۱</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Marginal Functions</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">درآمد نهایی (MR)، هزینه نهایی (MC) و حداکثرسازی سود</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">درآمد نهایی (MR)، هزینه نهایی (MC) و حداکثرسازی سود</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('MR = dTR/dQ ; MC = dTC/dQ ; Max Profit: MR = MC', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">درآمد و هزینه نهایی:</span>
@@ -8853,7 +9028,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">کاربرد مدیریتی ۲</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Price Elasticity</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">کشش نقطه‌ای تقاضا و رابطه آموروسو-رابینسون</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">کشش نقطه‌ای تقاضا و رابطه آموروسو-رابینسون</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('E_d = (dQ/dP) * (P/Q) ; MR = P * [ 1 - 1/|E_d| ]', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">کشش نقطه‌ای با مشتق:</span>
@@ -8879,7 +9054,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">چندمتغیره ۱</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Implicit Derivative</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مشتق ضمنی و شیب منحنی‌های تراز (MRS و MRTS)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مشتق ضمنی و شیب منحنی‌های تراز (MRS و MRTS)</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('dy/dx = - (∂F/∂x) / (∂F/∂y) ; MRS = MU_x / MU_y', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">قضیه تابع ضمنی (F(x, y) = c):</span>
@@ -8905,7 +9080,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">بهینه‌سازی مقید</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Lagrange Multiplier</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">بهینه‌سازی مقید به روش ضریب لاگرانژ (Lagrange Multipliers)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">بهینه‌سازی مقید به روش ضریب لاگرانژ (Lagrange Multipliers)</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('L(x, y, λ) = f(x, y) - λ [ g(x, y) - c ] ; ∇f = λ ∇g', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">معادله تابع لاگرانژ:</span>
@@ -8931,7 +9106,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">جبر خطی ۱</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Determinant & Inverse</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دترمینان، ماتریس الحاقی و معکوس ماتریس (A⁻¹)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">دترمینان، ماتریس الحاقی و معکوس ماتریس (A⁻¹)</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('|A| = ad - bc ; A^-1 = (1 / |A|) * [ d, -b ; -c, a ]', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">دترمینان ماتریس ۲×۲:</span>
@@ -8957,7 +9132,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">انتگرال مالی</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Continuous PV</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">انتگرال معین و ارزش فعلی جریان پیوسته نقدی</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">انتگرال معین و ارزش فعلی جریان پیوسته نقدی</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('PV = integral_0^T CF(t) * e^(-rt) dt = (CF / r) * [ 1 - e^(-rT) ]', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">ارزش فعلی جریان پیوسته:</span>
@@ -8983,7 +9158,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">چندمتغیره ۲</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Total Differential</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دیفرانسیل کل، خطایابی و تقریب خطی سیستم‌ها</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">دیفرانسیل کل، خطایابی و تقریب خطی سیستم‌ها</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('dz = (∂z/∂x) dx + (∂z/∂y) dy ; du = (∂u/∂x) dx + (∂u/∂y) dy + (∂u/∂z) dz', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">دیفرانسیل کامل تابع دومتغیره:</span>
@@ -9018,7 +9193,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">بهینه‌سازی ۳D</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Hessian Determinant</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">اکسترمم‌های سه‌بعدی، نقطه زینی و دترمینان هسیان</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">اکسترمم‌های سه‌بعدی، نقطه زینی و دترمینان هسیان</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('Δ = f_xx * f_yy - (f_xy)² ; Max: Δ > 0 & f_xx < 0 ; Min: Δ > 0 & f_xx > 0 ; Saddle: Δ < 0', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">شاخص دترمینان هسیان (Hessian):</span>
@@ -9054,7 +9229,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">تئوری تولید</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Euler's Theorem</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">توابع همگن، بازدهی به مقیاس و قضیه اویلر</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">توابع همگن، بازدهی به مقیاس و قضیه اویلر</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('f(λx, λy) = λ^n * f(x, y) ; x*(∂f/∂x) + y*(∂f/∂y) = n * f(x, y)', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">آزمون همگنی مقیاس:</span>
@@ -9086,7 +9261,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">حسابان پیشرفته</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Total Chain Rule</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مشتق کامل زمانی و قاعده زنجیره‌ای چندمتغیره</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مشتق کامل زمانی و قاعده زنجیره‌ای چندمتغیره</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('du/dt = (∂u/∂x)(dx/dt) + (∂u/∂y)(dy/dt) + (∂u/∂z)(dz/dt)', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">فرمول مشتق کامل زمانی (u = F(x, y, z) با x(t), y(t), z(t)):</span>
@@ -9116,7 +9291,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">هندسه دیفرانسیل</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Clairaut's Theorem</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تقارن مشتقات متقاطع مرتبه دوم (قضیه کلرو - شوارتز)</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تقارن مشتقات متقاطع مرتبه دوم (قضیه کلرو - شوارتز)</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('∂²z / ∂x∂y = ∂²z / ∂y∂x   |   f_xy = f_yx', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">تساوی مشتقات متقاطع (تقارن هسیان):</span>
@@ -9142,7 +9317,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                                 <span class="badge badge-math">دامنه و برد ۳D</span>
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Domain & Range</span>
                             </div>
-                            <h4 style="font-size: 0.92rem; font-weight: 900; color: #0F172A; margin-top: 6px;">تحلیل دامنه و برد رویه‌های فضایی و رادیکال‌ها</h4>
+                            <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تحلیل دامنه و برد رویه‌های فضایی و رادیکال‌ها</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('z = √(R² - x² - y²) ; Domain: x² + y² ≤ R² ; Range: [0, R]', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">دامنه تابع رادیکالی نیم‌کره:</span>
@@ -9170,7 +9345,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div class="formula-card">
                         <div>
                             <span class="badge badge-math">فرمول طلایی ۱۵</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دیفرانسیل کل، خطای ابعاد، خطای نسبی و درصدی هندسی-اقتصادی</h4>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">دیفرانسیل کل، خطای ابعاد، خطای نسبی و درصدی هندسی-اقتصادی</h4>
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('dV = (2πrh) dr + (πr²) dh  |  dV / V = 2(dr/r) + (dh/h)', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">دیفرانسیل کل حجم استوانه مستدیر (V = πr²h):</span>
@@ -9217,7 +9392,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
             <div id="math-tab-solution" class="subtab-view">
                 <div class="card" style="border-top: 4px solid #7C3AED; margin-bottom: 16px;">
                     <span class="badge badge-math">آزمایشگاه حل تشریحی مسائل</span>
-                    <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--heading-primary); margin-top: 4px;">
                         🛠️ حل گام‌به‌گام و استاندارد مسائل کنکور ارشد در ریاضیات مدیریت
                     </h3>
                     <p style="font-size: 0.74rem; color: #64748B;">
@@ -9229,7 +9404,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <!-- Solution 1 -->
                     <div class="card" style="border-right: 4px solid #7C3AED;">
                         <span class="badge badge-math">مسئله تیپ ۱ کنکور ارشد</span>
-                        <h4 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin: 6px 0;">حداکثرسازی سود انحصارگر با توابع درجه دو</h4>
+                        <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 6px 0;">حداکثرسازی سود انحصارگر با توابع درجه دو</h4>
                         <div style="font-size: 0.76rem; color: #334155; line-height: 1.8;">
                             <strong>صورت مسئله:</strong> اگر تابع تقاضای کالایی P = 100 - 2Q و تابع هزینه کل TC = Q² + 10Q + 50 باشد، تیراژ تولید بهینه و حداکثر سود شرکت را تعیین کنید.<br>
                             <strong>گام ۱ (تشکیل درآمد کل):</strong> TR = P × Q = (100 - 2Q)Q = 100Q - 2Q².<br>
@@ -9249,7 +9424,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <!-- Solution 2 -->
                     <div class="card" style="border-right: 4px solid #2563EB;">
                         <span class="badge badge-math">مسئله تیپ ۲ کنکور ارشد</span>
-                        <h4 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin: 6px 0;">حل دستگاه تعادل بازار با قاعده کرامر</h4>
+                        <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 6px 0;">حل دستگاه تعادل بازار با قاعده کرامر</h4>
                         <div style="font-size: 0.76rem; color: #334155; line-height: 1.8;">
                             <strong>صورت مسئله:</strong> دستگاه معادلات 3x₁ + 2x₂ = 18 و x₁ + 4x₂ = 16 را به روش ماتریسی کرامر حل کنید.<br>
                             <strong>گام ۱ (محاسبه دترمینان ضرایب |A|):</strong><br>
@@ -9267,7 +9442,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <!-- Solution 3: Total Differential Cylinder Problem -->
                     <div class="card" style="border-right: 4px solid #10B981;">
                         <span class="badge badge-math">مسئله کاربردی تقریب دیفرانسیل کل</span>
-                        <h4 style="font-size: 0.95rem; font-weight: 900; color: #0F172A; margin: 6px 0;">تحلیل تغییرات حجم استوانه با دیفرانسیل کامل</h4>
+                        <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 6px 0;">تحلیل تغییرات حجم استوانه با دیفرانسیل کامل</h4>
                         <div style="font-size: 0.76rem; color: #334155; line-height: 1.8;">
                             <strong>صورت مسئله:</strong> استوانه‌ای به شعاع r = 3 cm و ارتفاع h = 4 cm مفروض است. اگر شعاع به 2.9 cm کاهش و ارتفاع به 4.2 cm افزایش یابد، تغییرات تقریبی حجم استوانه (V = π r² h) چقدر است؟<br>
                             <strong>گام ۱ (استخراج نمو متغیرها):</strong><br>
@@ -9294,7 +9469,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
             <div id="math-tab-traps" class="subtab-view">
                 <div class="card" style="border-top: 4px solid #EF4444; margin-bottom: 16px;">
                     <span class="badge" style="background: #FEE2E2; color: #DC2626; border: 1px solid #FCA5A5;">کپسول تله‌های کنکور ارشد</span>
-                    <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--heading-primary); margin-top: 4px;">
                         ⚠️ تله‌های مرگبار طراحان کنکور ارشد در ریاضیات مدیریت
                     </h3>
                     <p style="font-size: 0.74rem; color: #64748B;">
@@ -9345,7 +9520,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
                         <div>
                             <span class="badge badge-math">شبیه‌ساز کارشناسی ارشد</span>
-                            <h3 style="font-size: 1.15rem; font-weight: 900; color: #0F172A; margin-top: 4px;">
+                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--heading-primary); margin-top: 4px;">
                                 🎯 کارزار تستی ریاضیات و کاربرد آن در مدیریت
                             </h3>
                             <p style="font-size: 0.74rem; color: #64748B;">
@@ -9545,7 +9720,7 @@ body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-bt
                 <div class="fs-title-box">
                     <span class="fs-emblem">📈</span>
                     <div>
-                        <h3 id="fs-course-title" style="font-size: 1.05rem; font-weight: 900; color: #0F172A;">نمای تریدینگ و بزرگ‌نمایی چارت</h3>
+                        <h3 id="fs-course-title" style="font-size: 1.05rem; font-weight: 900; color: var(--heading-primary);">نمای تریدینگ و بزرگ‌نمایی چارت</h3>
                         <p id="fs-course-desc" style="font-size: 0.72rem; color: #64748B;">تحلیل با دقت رتینا HD و خطوط متقاطع زنده</p>
                     </div>
                 </div>
@@ -11121,7 +11296,7 @@ function renderMistakeVault(filterCourse = null) {
   if (filtered.length === 0) {
     body.innerHTML = '<div style="text-align: center; padding: 40px 16px; color: #64748B;">' +
       '<span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">🎉</span>' +
-      '<h4 style="font-size: 1.1rem; font-weight: 900; color: #0F172A; margin: 0;">جعبه اشتباهات شما خالی است!</h4>' +
+      '<h4 style="font-size: 1.1rem; font-weight: 900; color: var(--heading-primary); margin: 0;">جعبه اشتباهات شما خالی است!</h4>' +
       '<p style="font-size: 0.78rem; color: #94A3B8; margin-top: 6px;">هر تستی که در شبیه‌ساز آزمون اشتباه بزنید، به طور خودکار به این بخش منتقل می‌شود تا آن را تحلیل و تثبیت کنید.</p>' +
     '</div>';
     return;
@@ -14412,6 +14587,71 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             };
         }
     
+
+
+    // --- BANKAI BLOOMBERG CROSSHAIR & LIVE PROBE ENGINE (CLAUDE-BANKAI v27.1) ---
+    function initCanvasCrosshair(canvasId, coordsId, formatFn) {
+        const canvas = document.getElementById(canvasId);
+        const coordsEl = document.getElementById(coordsId);
+        if (!canvas || !coordsEl) return;
+
+        function handlePointer(e) {
+            const rect = canvas.getBoundingClientRect();
+            let clientX, clientY;
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+            if (x < 0 || x > rect.width || y < 0 || y > rect.height) return;
+
+            // Ratio within plot area
+            const rx = Math.max(0, Math.min(1, x / rect.width));
+            const ry = Math.max(0, Math.min(1, 1 - (y / rect.height)));
+
+            if (typeof formatFn === 'function') {
+                const text = formatFn(rx, ry, x, y);
+                if (text) coordsEl.innerText = text;
+            }
+        }
+
+        canvas.addEventListener('mousemove', handlePointer, { passive: true });
+        canvas.addEventListener('touchmove', handlePointer, { passive: true });
+    }
+
+    // Attach to 5 core canvases
+    setTimeout(() => {
+        initCanvasCrosshair('canvasMicro', 'hud-coords-micro', (rx, ry) => {
+            const q = (rx * 120).toFixed(1);
+            const p = (ry * 60).toFixed(1);
+            return `📍 کاوشگر زنده: P=${p} | Q=${q}`;
+        });
+        initCanvasCrosshair('canvasCost', 'hud-coords-cost', (rx, ry) => {
+            const q = (rx * 6000).toFixed(0);
+            const r = (ry * 300).toFixed(1);
+            return `📍 کاوشگر زنده: تیراژ=${q} | مبلغ=${r}k`;
+        });
+        initCanvasCrosshair('canvasOR', 'hud-coords-or', (rx, ry) => {
+            const x1 = (rx * 15).toFixed(1);
+            const x2 = (ry * 15).toFixed(1);
+            return `📍 مختصات متغیرها: X1=${x1} | X2=${x2}`;
+        });
+        initCanvasCrosshair('canvasStat', 'hud-coords-stat', (rx, ry) => {
+            const x = (10 + rx * 30).toFixed(1);
+            const f = (ry * 0.1).toFixed(3);
+            return `📍 چگالی احتمال: X=${x} | f(x)=${f}`;
+        });
+        initCanvasCrosshair('canvasMath', 'hud-coords-math', (rx, ry) => {
+            const q = (rx * 80).toFixed(1);
+            const v = (ry * 100).toFixed(1);
+            return `📍 تحلیل نهایی: Q=${q} | ارزش=${v}`;
+        });
+    }, 500);
 
 })();
     
