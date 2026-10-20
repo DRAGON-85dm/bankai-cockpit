@@ -5038,10 +5038,281 @@ canvas {
   }
 }
 
+
+/* ============================================================
+   BANKAI COCKPIT v30.0: SOVEREIGN ACADEMIC LIGHT THEME
+   & MATHEMATICAL FORMULA PERFECTION ENGINE
+   ============================================================ */
+
+/* ── 1. GLOBAL ROOT BASE: PURE WHITE & IVORY PORCELAIN (DEFAULT) ── */
+:root {
+  --bg-base:        #F8FAFC;
+  --bg-card:        #FFFFFF;
+  --border-card:    #CBD5E1;
+  --border-strong:  #94A3B8;
+
+  --text-heading:   #0F172A;
+  --text-subtitle:  #334155;
+  --text-muted:     #64748B;
+  --text-body:      #1E293B;
+
+  --math-symbol:    #1D4ED8;   /* Royal Deep Blue */
+  --math-operator:  #E11D48;   /* Crimson Rose */
+  --math-number:    #0F172A;   /* Near-black */
+  --math-fraction:  #334155;   /* Fraction Solid Rule */
+
+  --copy-glow:      #10B981;
+}
+
+body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Light Theme Cards & Containers */
+body:not(.theme-dark) .card {
+  background: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06) !important;
+  border-radius: 16px !important;
+}
+
+body:not(.theme-dark) .course-chip {
+  background: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05) !important;
+}
+
+body:not(.theme-dark) .course-chip__name {
+  color: #0F172A !important;
+  font-weight: 900 !important;
+}
+
+body:not(.theme-dark) .course-chip__subtitle {
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+
+body:not(.theme-dark) .thematic-course-bar__title {
+  color: #0F172A !important;
+  font-weight: 900 !important;
+}
+
+body:not(.theme-dark) h1,
+body:not(.theme-dark) h2,
+body:not(.theme-dark) h3,
+body:not(.theme-dark) h4,
+body:not(.theme-dark) h5,
+body:not(.theme-dark) h6,
+body:not(.theme-dark) .card-title,
+body:not(.theme-dark) .tree-title,
+body:not(.theme-dark) .formula-title,
+body:not(.theme-dark) .hud-course-name,
+body:not(.theme-dark) .section-title,
+body:not(.theme-dark) [class*="title"]:not(.banner-title):not(.banner__title) {
+  color: #0F172A !important;
+  text-shadow: none !important;
+}
+
+body:not(.theme-dark) #banner-title {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+}
+
+body:not(.theme-dark) #banner-desc {
+  color: #F1F5F9 !important;
+}
+
+/* ── 2. FORMULA TYPOGRAPHY & BOX ARCHITECTURE ── */
+.formula-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  margin-bottom: 14px !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
+  position: relative !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.formula-card:hover {
+  border-color: #94A3B8 !important;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08) !important;
+}
+
+.formula-card.copy-success,
+.formula-display.copy-success,
+.formula-stack.copy-success {
+  border-color: #10B981 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25), 0 4px 18px rgba(16, 185, 129, 0.2) !important;
+}
+
+.formula-display,
+.formula-stack {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: isolate !important;
+  background: #F8FAFC !important;
+  border: 1.5px solid #CBD5E1 !important;
+  border-radius: 14px !important;
+  padding: 14px 16px !important;
+  margin: 12px 0 !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.formula-display {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  -webkit-overflow-scrolling: touch !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: #0F172A !important;
+}
+
+.formula-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.formula-line {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: #0F172A !important;
+  padding: 4px 0 !important;
+}
+
+/* Math Symbols & Operators */
+.math-sym {
+  color: #1D4ED8 !important;   /* Royal Deep Blue */
+  font-weight: 800 !important;
+}
+
+.math-op {
+  color: #E11D48 !important;   /* Crimson Rose */
+  font-weight: 900 !important;
+  margin: 0 3px !important;
+}
+
+/* Two-Deck Stacked Fraction Perfection */
+.math-frac, .frac {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  margin: 0 4px !important;
+  line-height: 1.15 !important;
+}
+
+.math-num, .frac .num {
+  border-bottom: 2px solid #334155 !important;
+  padding-bottom: 2px !important;
+  margin-bottom: 1px !important;
+  display: block !important;
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
+
+.math-den, .frac .den {
+  padding-top: 2px !important;
+  display: block !important;
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
+
+/* Math Badges (Population vs Sample vs Application) */
+.math-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 0.6875rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.03em !important;
+  padding: 3px 8px !important;
+  border-radius: 8px !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+}
+
+.math-badge.pop {
+  background: #EFF6FF !important;
+  color: #1D4ED8 !important;
+  border: 1px solid #BFDBFE !important;
+}
+
+.math-badge.samp {
+  background: #ECFDF5 !important;
+  color: #065F46 !important;
+  border: 1px solid #A7F3D0 !important;
+}
+
+.math-badge.app {
+  background: #FFFBEB !important;
+  color: #92400E !important;
+  border: 1px solid #FDE68A !important;
+}
+
+/* ── 3. FLOATING DOCK IN CRISP LIGHT THEME ── */
+body:not(.theme-dark) .dock-inner {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1.5px solid #CBD5E1 !important;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(15, 23, 42, 0.06) !important;
+}
+
+body:not(.theme-dark) .dock-btn .dock-label {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+body:not(.theme-dark) .dock-btn .dock-icon {
+  color: #0F172A !important;
+}
+
+body:not(.theme-dark) .dock-btn.active {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%) !important;
+  border: 1.5px solid #4F46E5 !important;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.20) !important;
+}
+
+body:not(.theme-dark) .dock-btn.active .dock-label {
+  color: #1E1B4B !important;
+  font-weight: 900 !important;
+}
+
+body:not(.theme-dark) .dock-btn.active .dock-indicator {
+  background: #4F46E5 !important;
+}
+
 </style>
 
 </head>
-<body class="theme-dark">
+<body>
 
     <!-- BANKAI SOVEREIGN SECURITY SHIELD OVERLAY -->
     <div id="bankai-security-shield">
@@ -5731,7 +6002,7 @@ canvas {
                             <span class="badge badge-micro">فرمول طلایی ۱</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: کشش و بار مالیاتی</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('Burden_C / Burden_P = Es / |Ed| = d / b', this)" title="برای کپی فرمول کلیک کنید"><span class="math-frac"><span class="math-num">Burden_C</span><span class="math-den">Burden_P</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E_s</span><span class="math-den">|E_d|</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-frac"><span class="math-num">Burden_C</span><span class="math-den">Burden_P</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E_s</span><span class="math-den">|E_d|</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>کالبدشکافی متغیرها:</strong>
                                 <p>• <b>Burden_C:</b> سهم افزایش قیمت پرداختی مصرف‌کننده (Pc - P*).</p>
@@ -5748,7 +6019,7 @@ canvas {
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۲</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">زیان بار مرده جامعه (Deadweight Loss)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('DWL = 0.5 × t × (Q0 - Qt)', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DWL</span><span class="math-op">=</span>0.5 × t × (Q_0 - Q_t)</div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)", this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DWL</span><span class="math-op">=</span>0.5 × t × (Q_0 - Q_t)</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>کالبدشکافی متغیرها:</strong>
                                 <p>• <b>0.5:</b> ضریب مساحت هندسی مثلث.</p>
@@ -5879,7 +6150,7 @@ canvas {
                             <span class="badge badge-micro">فرمول طلایی ۷</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تعادل رفتار مصرف‌کننده و نرخ نهایی جانشینی (MRS)</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('MRS_xy = - (dy / dx) = MUx / MUy ; Equilibrium: MRS_xy = Px / Py <=> MUx / Px = MUy / Py', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('MRS_xy = - (dy / dx) = MUx / MUy ; Equilibrium: MRS_xy = Px / Py ≤&gt; MUx / Px = MUy / Py', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">نرخ نهایی جانشینی (شیب منحنی بی‌تفاوتی):</span>
                                     <span class="math-sym">MRS_{xy}</span><span class="math-op">=</span>- ( <span class="math-frac"><span class="math-num">dy</span><span class="math-den">dx</span></span> )<span class="math-op">=</span><span class="math-frac"><span class="math-num">MU_x</span><span class="math-den">MU_y</span></span>
@@ -6451,7 +6722,7 @@ canvas {
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۲</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">درجه اهرم عملیاتی (DOL)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('DOL = Total CM / EBIT', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DOL</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Total CM</span><span class="math-den">EBIT</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Q(P - VC)</span><span class="math-den">Q(P - VC) - FC</span></span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">DOL</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Total CM</span><span class="math-den">EBIT</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Q(P - VC)</span><span class="math-den">Q(P - VC) - FC</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>تحلیل حساسیت:</strong>
                                 <p>نشان می‌دهد به ازای ۱٪ تغییر در تیراژ فروش، سود عملیاتی شرکت چند درصد جهش می‌کند. با نزدیک شدن به BEP، اهرم به بی‌نهایت میل می‌کند.</p>
@@ -6498,7 +6769,7 @@ canvas {
                             <span class="badge badge-cost">فرمول طلایی ۵</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">بهای اولیه (Prime Cost)، بهای تبدیل (Conversion Cost) و ساختار تولید</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Prime Cost = DM + DL ; Conversion Cost = DL + MOH ; Total Manufacturing Cost = DM + DL + MOH', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">بهای اولیه (عوامل مستقیم ساخت):</span>
                                     <span class="math-sym">Prime Cost</span><span class="math-op">=</span>مواد مستقیم (DM) + دستمزد مستقیم (DL)
@@ -6572,7 +6843,7 @@ canvas {
                             <span class="badge badge-cost">فرمول طلایی ۷</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">صورت سود و زیان بر مبنای حاشیه فروش (Contribution Margin Format)</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Total CM = Revenues - TVC ; EBIT = Total CM - TFC ; CMR = CM / P = Total CM / Sales', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">حاشیه فروش کل (Total CM):</span>
                                     <span class="math-sym">Total CM</span><span class="math-op">=</span>درآمد فروش (TR) - کل هزینه‌های متغیر (TVC)
@@ -7154,7 +7425,7 @@ canvas {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۱</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قیمت سایه و ارزش منبع محدودکننده</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('y_i* = ∂Z* / ∂b_i', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Z_{max}</span><span class="math-den">∂b_i</span></span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Z_{max}</span><span class="math-den">∂b_i</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>مفهوم کاربردی:</strong>
                                 <p>حداکثر قیمتی که مدیر حاضر است برای خرید یک واحد منبع اضافی iام پرداخت کند تا سود شرکت افزایش یابد.</p>
@@ -7169,7 +7440,7 @@ canvas {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۲</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قضیه مکمل فزونی (Complementary Slackness)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('s_i × y_i = 0  و  x_j × e_j = 0', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">(s_i × y_i = 0)</span><span class="math-op">&amp;</span><span class="math-sym">(x_j × e_j = 0)</span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">(s_i × y_i = 0)</span><span class="math-op">&amp;</span><span class="math-sym">(x_j × e_j = 0)</span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>قاعده طلایی:</strong>
                                 <p>اگر منبعی اضافه بیاید (Slack &gt; 0)، ارزش سایه آن منبع صفر مطلق است؛ برای منبع مازاد پولی نباید پرداخت شود.</p>
@@ -7184,13 +7455,13 @@ canvas {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۳</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">آزمون حداقل نسبت سیمپلکس</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('θ = min { b_i / a_ik  |  a_ik > 0 }', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">θ</span><span class="math-op">=</span>min { <span class="math-frac"><span class="math-num">b_i</span><span class="math-den">a_{ik}</span></span>  |  a_{ik} &gt; 0 }</div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">θ</span><span class="math-op">=</span>min { <span class="math-frac"><span class="math-num">b_i</span><span class="math-den">a_{ik}</span></span>  |  a_{ik} &gt; 0 }</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>شرط موجه ماندن:</strong>
                                 <p>ستون لولایی k را تعیین کرده و مقادیر مثبت سمت راست را تقسیم می‌کنیم؛ کمترین نسبت مثبت متغیر خروجی را مشخص می‌کند.</p>
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('theta = min{ b_i / a_ik | a_ik > 0 }')">
+                        <button class="btn-copy-formula" onclick="copyFormula('theta = min{ b_i / a_ik | a_ik &gt; 0 }')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -7201,7 +7472,7 @@ canvas {
                             <span class="badge badge-or">فرمول طلایی ۴</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">شکل استاندارد برنامه‌ریزی خطی (متغیرهای اسلک و مازاد)</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Constraint (<=): ∑ a_ij x_j + S_i = b_i (S_i >= 0) ; Constraint (>=): ∑ a_ij x_j - e_i = b_i (e_i >= 0)', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Constraint (≤): ∑ a_ij x_j + S_i = b_i (S_i ≥ 0) ; Constraint (≥): ∑ a_ij x_j - e_i = b_i (e_i ≥ 0)', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">قید کوچکتر-مساوی (اضافه کردن کمکی S_i):</span>
                                     ∑ a_{ij} x_j + <span class="math-sym">S_i</span><span class="math-op">=</span>b_i <span class="math-sep">|</span> S_i ≥ 0 (ظرفیت بلااستفاده)
@@ -7238,7 +7509,7 @@ canvas {
                             <span class="badge badge-or">فرمول طلایی ۵</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قواعد تبدیل متقارن دوگان (Primal to Dual Mapping)</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Primal: Max Z = C^T X, AX <= b, X >= 0 <=> Dual: Min W = b^T Y, A^T Y >= C, Y >= 0 ; Strong Duality: Max Z* = Min W*', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">مدل اولیه (Primal):</span>
                                     <span class="math-sym">Max Z</span><span class="math-op">=</span>C<span class="math-sup">T</span> X  تحت  A X ≤ b  و  X ≥ 0
@@ -7265,7 +7536,7 @@ canvas {
                                 اشتباه در تعیین علامت متغیر دوگان! اگر قید اولیه به صورت تساوی (=) باشد، متغیر دوگان متناظر با آن آزاد در علامت (URS: Unrestricted in Sign) خواهد بود!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Primal: Max Z = C^T X, AX <= b <=> Dual: Min W = b^T Y, A^T Y >= C; Max Z* = Min W*')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Primal: Max Z = C^T X, AX ≤ b ≤&gt; Dual: Min W = b^T Y, A^T Y ≥ C; Max Z* = Min W*')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -7276,7 +7547,7 @@ canvas {
                             <span class="badge badge-or">فرمول طلایی ۶</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">چهار حالت خاص در برنامه‌ریزی خطی (Special Cases)</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Alternative Optima: zj - cj = 0 for non-basic ; Infeasibility: Artificial var > 0 ; Unboundedness: all y_ik <= 0 in entering col ; Degeneracy: RHS_i = 0 for basic', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">۱. چندجوابی بهینه:</span>
                                     z_j - c_j = 0 برای متغیر غیرپایه در جدول بهینه (خط تراز موازی قید)
@@ -7306,7 +7577,7 @@ canvas {
                                 اشتباه گرفتن ناحیه موجه بی‌کران با تابع هدف بی‌کران! ممکن است ناحیه موجه از یک سمت باز باشد اما خط تراز در جهت مخالف محدود شده و مسئله جواب بهینه متناهی و یکتا داشته باشد!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Alternative: non-basic zj - cj = 0; Infeasible: Artificial > 0; Unbounded: y_ik <= 0; Degenerate: RHS = 0')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Alternative: non-basic zj - cj = 0; Infeasible: Artificial &gt; 0; Unbounded: y_ik ≤ 0; Degenerate: RHS = 0')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -7316,7 +7587,7 @@ canvas {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۷</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مدل حمل و نقل، تعادل عرضه-تقاضا و قاعده متغیرهای پایه</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('∑ s_i = ∑ d_j  |  Basic Variables = m + n - 1', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">شرط تعادل فیزیکی کل:</span>
                                     <span class="math-sym">∑</span> s_i <span class="math-op">=</span> <span class="math-sym">∑</span> d_j
@@ -7349,7 +7620,7 @@ canvas {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۸</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">روش پتانسیل دوگان MODI و آزمون بهینگی جهش سنگفرشی</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('u_i + v_j = c_ij  |  Δ_ij = c_ij - (u_i + v_j)', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)", this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">رابطه متغیرهای پایه (خانه‌های پر):</span>
                                     <span class="math-sym">u_i</span> + <span class="math-sym">v_j</span> <span class="math-op">=</span> c_ij
@@ -7382,7 +7653,7 @@ canvas {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۹</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مدل‌سازی برنامه‌ریزی خطی سبد دارایی و پورتفوی سرمایه‌گذاری</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Max Z = ∑ r_i * x_i  |  s.t.  ∑ x_i = 1 , x_i ≥ 0', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">تابع هدف بیشینه‌سازی بازده پورتفو:</span>
                                     <span class="math-sym">Max Z</span> <span class="math-op">=</span> ∑ r_i · x_i
@@ -7415,7 +7686,7 @@ canvas {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۱۰</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">مدل‌سازی برنامه‌ریزی خطی ترکیب رسانه و بودجه تبلیغات</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Max Z = ∑ a_j * y_j  |  s.t.  ∑ c_j * y_j ≤ Budget', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">بیشینه‌سازی کل بازدید و دسترسی (Reach):</span>
                                     <span class="math-sym">Max Z</span> <span class="math-op">=</span> ∑ a_j · y_j
@@ -8137,7 +8408,7 @@ canvas {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Arithmetic Mean (μ vs x̄)</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین حسابی جامعه و نمونه (مو و ایکس‌بار)</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('μ_x = ∑ x_i / N ; x̄ = ∑ x_i / n', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">پارامتر جامعه (مو x):</span>
                                     <span class="math-sym" style="color: #4338CA;">μ_x</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ x_i</span><span class="math-den">N</span></span>
@@ -8289,7 +8560,7 @@ canvas {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">AM-GM-HM Golden Chain</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: #1E1B4B; margin-top: 6px;">نامساوی طلایی و سلسله‌مراتب میانگین‌ها</h4>
-                            <div class="formula-display" dir="ltr" style="background: #FFFFFF; color: #4338CA;"><div class="formula-stack" dir="ltr" onclick="copyFormula('Min ≤ μ_h ≤ μ_g ≤ μ_x ≤ μ_q ≤ Max ; Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-display" dir="ltr" style="background: #FFFFFF; color: #4338CA;"><div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">سلسله‌مراتب جامعه:</span>
                                     Min ≤ <span class="math-sym" style="color: #4338CA;">μ_h</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_g</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_x</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_q</span> ≤ Max
@@ -8317,7 +8588,7 @@ canvas {
                                 طراح سوال می‌نویسد: «اگر H = x̄ باشد، کدام گزینه صحیح است؟»؛ پاسخ قطعی: واریانس داده‌ها صفر است و تمام مشاهدات یکسانند!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Min <= H <= G <= x_bar <= RMS <= Max')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Min ≤ H ≤ G ≤ x_bar ≤ RMS ≤ Max')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -8474,7 +8745,7 @@ canvas {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Quartiles, IQR & Outliers</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">چارک‌ها، دامنه میان‌چارکی و مرز داده‌های پرت توکی</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('IQR = Q3 - Q1   |   Fences: [ Q1 - 1.5×IQR  ,  Q3 + 1.5×IQR ]', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">IQR</span><span class="math-op">=</span>Q_3 - Q_1<span class="math-sep">|</span>[ Q_1 - 1.5×IQR , Q_3 + 1.5×IQR ]</div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">IQR</span><span class="math-op">=</span>Q_3 - Q_1<span class="math-sep">|</span>[ Q_1 - 1.5×IQR , Q_3 + 1.5×IQR ]</div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
@@ -8596,7 +8867,7 @@ canvas {
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">ویژگی‌های جبری و قضایای بنیادین میانگین حسابی</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Theorem 1: ∑ (x_i - x̄) = 0 ; Theorem 2: min_c ∑ (x_i - c)^2 <=> c = x̄ ; Combined: x̄_c = [ ∑ n_j x̄_j ] / ∑ n_j', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Theorem 1: ∑ (x_i - x̄) = 0 ; Theorem 2: min_c ∑ (x_i - c)^2 ≤&gt; c = x̄ ; Combined: x̄_c = [ ∑ n_j x̄_j ] / ∑ n_j', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">قضیه ۱ (صفر شدن مجموع انحرافات):</span>
                                     <span class="math-sym">∑ ( x_i - x̄ )</span><span class="math-op">=</span>0
@@ -8623,7 +8894,7 @@ canvas {
                                 فریب میانگینِ میانگین‌ها! اگر کلاسی ۲۰ نفره میانگین ۱۸ و کلاسی ۱۰ نفره میانگین ۱۴ داشته باشد، میانگین کل (۱۸+۱۴)/۲ = ۱۶ نیست! باید وزنی حساب شود: [ (20×18) + (10×14) ] / 30 = 16.67.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('sum(x_i - x_bar) = 0; min sum((x_i - c)^2) => c = x_bar; x_combined = sum(n_j * x_j) / sum(n_j)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('sum(x_i - x_bar) = 0; min sum((x_i - c)^2) =&gt; c = x_bar; x_combined = sum(n_j * x_j) / sum(n_j)')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -8637,7 +8908,7 @@ canvas {
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">پایداری و رفتار شاخص‌ها در تبدیلات خطی (y = ax + b)</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Center: ȳ = a × x̄ + b ; Disp: s_y = |a| × s_x ; Var: s²_y = a² × s²_x ; Range: R_y = |a| × R_x', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">شاخص‌های مرکزی (میانگین، میانه، مد):</span>
                                     <span class="math-sym">ȳ</span><span class="math-op">=</span>a × x̄ + b <span class="math-sep">|</span> <span class="math-sym">Med_y</span><span class="math-op">=</span>a × Med_x + b
@@ -8677,7 +8948,7 @@ canvas {
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تکنیک‌های نمونه‌گیری، شانس انتخاب و فاصله منظم سیستماتیک</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('SRS Prob: P = n / N ; Systematic: k = N / n, items: r, r+k, r+2k ; Stratified: n_h = n × (N_h / N)', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)", this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">شانس انتخاب در تصادفی ساده (SRS):</span>
                                     <span class="math-sym">P(انتخاب هر عضو)</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">n</span><span class="math-den">N</span></span>
@@ -9595,7 +9866,7 @@ canvas {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Derivative Limit</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تعریف حدی مشتق و شیب خط مماس</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('f\'(x) = lim_{h -> 0} [f(x+h) - f(x)] / h', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('f\'(x) = lim_{h -&gt; 0} [f(x+h) - f(x)] / h', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">تعریف لایب‌نیتس و کوشی:</span>
                                     <span class="math-sym" style="color: #7C3AED;">f'(x)</span><span class="math-op">=</span><span class="math-sym">lim_{Δx→0}</span><span class="math-frac"><span class="math-num">f(x + Δx) - f(x)</span><span class="math-den">Δx</span></span>
@@ -9614,7 +9885,7 @@ canvas {
                                 نرخ تغییرات آنی سود، هزینه، ریسک و تغییرات قیمت سهام با مشتق لحظه‌ای سنجیده می‌شود.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('f\'(x) = lim_{h->0} [f(x+h) - f(x)] / h')"><span>📋</span> کپی فرمول</button>
+                        <button class="btn-copy-formula" onclick="copyFormula('f\'(x) = lim_{h-&gt;0} [f(x+h) - f(x)] / h')"><span>📋</span> کپی فرمول</button>
                     </div>
 
                     <!-- Math Formula 2: Differentiation Rules -->
@@ -9659,7 +9930,7 @@ canvas {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Marginal Functions</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">درآمد نهایی (MR)، هزینه نهایی (MC) و حداکثرسازی سود</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('MR = dTR/dQ ; MC = dTC/dQ ; Max Profit: MR = MC', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">درآمد و هزینه نهایی:</span>
                                     <span class="math-sym">MR</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dTR</span><span class="math-den">dQ</span></span> <span class="math-sep">|</span> <span class="math-sym">MC</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dTC</span><span class="math-den">dQ</span></span>
@@ -9850,7 +10121,7 @@ canvas {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Hessian Determinant</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">اکسترمم‌های سه‌بعدی، نقطه زینی و دترمینان هسیان</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Δ = f_xx * f_yy - (f_xy)² ; Max: Δ > 0 & f_xx < 0 ; Min: Δ > 0 & f_xx > 0 ; Saddle: Δ < 0', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Δ = f_xx * f_yy - (f_xy)² ; Max: Δ &gt; 0 & f_xx &lt; 0 ; Min: Δ &gt; 0 & f_xx &gt; 0 ; Saddle: Δ &lt; 0', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">شاخص دترمینان هسیان (Hessian):</span>
                                     <span class="math-sym">Δ</span><span class="math-op">=</span>f_xx · f_yy - ( f_xy )²
@@ -9875,7 +10146,7 @@ canvas {
                                 داوطلبان به اشتباه فکر می‌کنند اگر Δ &gt; 0 و f_xx &lt; 0 باشد، مینیمم است چون منفی است! منفی بودن f_xx یعنی تقعر رو به پایین (کاسه واژگون) که نشانه ماکزیمم مطلق/نسبی است.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Delta = f_xx * f_yy - (f_xy)^2; Max: Delta > 0, f_xx < 0; Min: Delta > 0, f_xx > 0; Saddle: Delta < 0')"><span>📋</span> کپی فرمول</button>
+                        <button class="btn-copy-formula" onclick="copyFormula('Delta = f_xx * f_yy - (f_xy)^2; Max: Delta &gt; 0, f_xx &lt; 0; Min: Delta &gt; 0, f_xx &gt; 0; Saddle: Delta &lt; 0')"><span>📋</span> کپی فرمول</button>
                     </div>
 
                     <!-- Math Formula 11: Homogeneous Functions & Euler Theorem -->
@@ -9948,7 +10219,7 @@ canvas {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Clairaut's Theorem</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تقارن مشتقات متقاطع مرتبه دوم (قضیه کلرو - شوارتز)</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('∂²z / ∂x∂y = ∂²z / ∂y∂x   |   f_xy = f_yx', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">تساوی مشتقات متقاطع (تقارن هسیان):</span>
                                     <span class="math-sym">f_xy</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂²z</span><span class="math-den">∂y ∂x</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂²z</span><span class="math-den">∂x ∂y</span></span><span class="math-op">=</span><span class="math-sym">f_yx</span>
@@ -9994,7 +10265,7 @@ canvas {
                                 اشتباه گرفتن بازه باز و بسته! چون رادیکال در صورت کسر است، مرز دایره یعنی x² + y² = 9 مجاز بوده و بازه بسته [0, 3] است؛ اما اگر رادیکال در مخرج بود، مرز حذف و بازه نیمه‌باز می‌شد.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('z = sqrt(R^2 - x^2 - y^2); Domain: x^2 + y^2 <= R^2; Range: [0, R]')"><span>📋</span> کپی فرمول</button>
+                        <button class="btn-copy-formula" onclick="copyFormula('z = sqrt(R^2 - x^2 - y^2); Domain: x^2 + y^2 ≤ R^2; Range: [0, R]')"><span>📋</span> کپی فرمول</button>
                     </div>
 
                     <!-- FORMULA 15: TOTAL DIFFERENTIAL, RELATIVE ERROR & CYLINDER -->
@@ -10540,6 +10811,26 @@ canvas {
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 2600);
         };
+
+        
+        // Universal Mathematical Formula Copy Architecture (v30.0)
+        function copyFormulaCard(el) {
+            if (!el) return;
+            const formulaText = el.innerText.trim();
+            if (typeof hapticTap === 'function') hapticTap('success');
+            el.classList.add('copy-success');
+            setTimeout(() => el.classList.remove('copy-success'), 1200);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(formulaText).then(() => {
+                    showToast('رابطه در کلیپ‌بورد کپی شد: ' + formulaText.substring(0, 36) + '...');
+                }).catch(() => {
+                    showToast('رابطه در کلیپ‌بورد کپی شد');
+                });
+            } else {
+                showToast('رابطه در کلیپ‌بورد کپی شد');
+            }
+        }
+        window.copyFormulaCard = copyFormulaCard;
 
         function copyFormula(formulaText, el) {
             hapticTap('success');
@@ -12428,7 +12719,7 @@ const quizState = {
 '<p style="font-size: 0.72rem; color: #94A3B8; margin-top: 2px;">سنجش تسلط تستی با احتساب نمره منفی یک‌سوم و بایگانی هوشمند خطاها در جعبه اشتباهات</p></div>' +
 '<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">' +
 '<button class="btn-chart-tool" onclick="openMistakeVault(\'' + course + '\')" style="background: rgba(239, 68, 68, 0.15); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); font-weight: 800;">⚠️ جعبه اشتباهات</button>' +
-'<button class="btn-chart-tool" onclick="resetQuiz<button class="btn-chart-tool" onclick="resetQuiz(\'' + course + '\')" style="background: rgba(239, 68, 68, 0.12); border: 1.5px solid #EF4444; color: #DC2626; padding: 6px 14px; border-radius: 10px; font-weight: 800; font-size: 0.74rem;">🔄 مرور مجدد آزمون</button>' +
+'<button class="btn-chart-tool" onclick="resetQuiz&lt;button class="btn-chart-tool" onclick="resetQuiz(\'' + course + '\')" style="background: rgba(239, 68, 68, 0.12); border: 1.5px solid #EF4444; color: #DC2626; padding: 6px 14px; border-radius: 10px; font-weight: 800; font-size: 0.74rem;">🔄 مرور مجدد آزمون</button>' +
                 '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #34D399;">' + correctCount + '</span><span class="quiz-stat-lbl">صحیح</span></div>' +
                 '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #F87171;">' + wrongCount + '</span><span class="quiz-stat-lbl">غلط</span></div>' +
                 '<div class="quiz-stat-pill"><span class="quiz-stat-val" style="color: #38BDF8;">' + rawScore.toFixed(1) + '%</span><span class="quiz-stat-lbl">درصد تراز</span></div>' +
