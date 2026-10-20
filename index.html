@@ -3007,7 +3007,422 @@ body:not(.theme-dark) .dock-btn.active::after {
             }
         }
 
-    </style>
+    
+
+/* ========================================================
+   BANKAI FORMULA WORKOUT & CUSTOM FORMULA STUDIO STYLES
+   ======================================================== */
+.formula-lab-box {
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+}
+body.theme-dark .formula-lab-box {
+    background: #0F172A;
+    border-color: #334155;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.lab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid #F1F5F9;
+    margin-bottom: 14px;
+}
+body.theme-dark .lab-header {
+    border-bottom-color: #1E293B;
+}
+
+.lab-title-group h3 {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #0F172A;
+    margin: 4px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+body.theme-dark .lab-title-group h3 {
+    color: #F8FAFC;
+}
+
+.lab-title-group p {
+    font-size: 0.74rem;
+    color: #64748B;
+    margin: 2px 0 0 0;
+}
+body.theme-dark .lab-title-group p {
+    color: #94A3B8;
+}
+
+.lab-mode-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+.lab-mode-pill {
+    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+body.theme-dark .lab-mode-pill {
+    background: #1E293B;
+    border-color: #334155;
+    color: #94A3B8;
+}
+.lab-mode-pill.active {
+    background: #4F46E5 !important;
+    color: #FFFFFF !important;
+    border-color: #4338CA !important;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+}
+
+.lab-panel {
+    display: none;
+    animation: bankaiFadeTab 0.2s ease;
+}
+.lab-panel.active-panel {
+    display: block;
+}
+
+/* Prompt Card */
+.lab-prompt-card {
+    background: #F8FAFC;
+    border: 1.5px dashed #CBD5E1;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+}
+body.theme-dark .lab-prompt-card {
+    background: #1E293B;
+    border-color: #475569;
+}
+.lab-prompt-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+body.theme-dark .lab-prompt-title {
+    color: #F1F5F9;
+}
+.lab-prompt-text {
+    font-size: 0.82rem;
+    color: #334155;
+    line-height: 1.5;
+    margin: 0;
+}
+body.theme-dark .lab-prompt-text {
+    color: #CBD5E1;
+}
+
+/* Formula Input Field */
+.lab-input-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+.lab-formula-input {
+    width: 100%;
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.5px solid #CBD5E1;
+    background: #F8FAFC;
+    color: #0F172A;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+body.theme-dark .lab-formula-input {
+    background: #090D16;
+    border-color: #334155;
+    color: #38BDF8;
+}
+.lab-formula-input:focus {
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    background: #FFFFFF;
+}
+body.theme-dark .lab-formula-input:focus {
+    background: #020617;
+    border-color: #38BDF8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+/* Symbol Palette */
+.lab-symbol-palette {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+}
+.lab-symbol-palette::-webkit-scrollbar {
+    height: 4px;
+}
+.lab-symbol-palette::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+body.theme-dark .lab-symbol-palette::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+.lab-symbol-btn {
+    flex-shrink: 0;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+body.theme-dark .lab-symbol-btn {
+    background: #1E293B;
+    border-color: #334155;
+    color: #E2E8F0;
+}
+.lab-symbol-btn:hover {
+    background: #EEF2FF;
+    border-color: #6366F1;
+    color: #4F46E5;
+    transform: translateY(-1px);
+}
+body.theme-dark .lab-symbol-btn:hover {
+    background: #312E81;
+    border-color: #818CF8;
+    color: #C7D2FE;
+}
+.lab-symbol-btn:active {
+    transform: scale(0.95);
+}
+
+/* Action Buttons */
+.lab-actions-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.lab-btn-primary {
+    background: linear-gradient(135deg, #4F46E5, #4338CA);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+}
+.lab-btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+    transform: translateY(-1px);
+}
+.lab-btn-secondary {
+    background: #F8FAFC;
+    color: #475569;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+body.theme-dark .lab-btn-secondary {
+    background: #1E293B;
+    border-color: #334155;
+    color: #94A3B8;
+}
+.lab-btn-secondary:hover {
+    background: #F1F5F9;
+    color: #0F172A;
+}
+body.theme-dark .lab-btn-secondary:hover {
+    background: #334155;
+    color: #F8FAFC;
+}
+
+/* Feedback Box */
+.lab-feedback-box {
+    display: none;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-top: 10px;
+    animation: bankaiFadeTab 0.2s ease;
+}
+.lab-feedback-box.feedback-success {
+    display: block;
+    background: #ECFDF5;
+    border: 1.5px solid #10B981;
+    color: #065F46;
+}
+body.theme-dark .lab-feedback-box.feedback-success {
+    background: #064E3B;
+    border-color: #059669;
+    color: #A7F3D0;
+}
+.lab-feedback-box.feedback-error {
+    display: block;
+    background: #FEF2F2;
+    border: 1.5px solid #EF4444;
+    color: #991B1B;
+}
+body.theme-dark .lab-feedback-box.feedback-error {
+    background: #450A0A;
+    border-color: #DC2626;
+    color: #FECACA;
+}
+.lab-feedback-box.feedback-hint {
+    display: block;
+    background: #EFF6FF;
+    border: 1.5px solid #3B82F6;
+    color: #1E40AF;
+}
+body.theme-dark .lab-feedback-box.feedback-hint {
+    background: #172554;
+    border-color: #2563EB;
+    color: #BFDBFE;
+}
+
+/* Custom Formula Studio Form */
+.custom-formula-form {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+.custom-formula-field label {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 3px;
+}
+body.theme-dark .custom-formula-field label {
+    color: #94A3B8;
+}
+.custom-formula-field input, .custom-formula-field textarea, .custom-formula-field select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1.5px solid #CBD5E1;
+    background: #F8FAFC;
+    color: #0F172A;
+    font-size: 0.82rem;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+body.theme-dark .custom-formula-field input,
+body.theme-dark .custom-formula-field textarea,
+body.theme-dark .custom-formula-field select {
+    background: #090D16;
+    border-color: #334155;
+    color: #F8FAFC;
+}
+.custom-formula-field input.ltr-input {
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Formula Saved List */
+.custom-formulas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.custom-formula-card {
+    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 12px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+body.theme-dark .custom-formula-card {
+    background: #1E293B;
+    border-color: #334155;
+}
+.custom-formula-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+.custom-formula-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0F172A;
+}
+body.theme-dark .custom-formula-title {
+    color: #F8FAFC;
+}
+
+/* Live Scratchpad Preview */
+.scratchpad-preview-box {
+    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 14px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.05rem;
+    direction: ltr !important;
+    word-break: break-all;
+}
+body.theme-dark .scratchpad-preview-box {
+    background: #090D16;
+    border-color: #334155;
+    color: #38BDF8;
+}
+
+</style>
 
 </head>
 <body>
@@ -3468,6 +3883,146 @@ body:not(.theme-dark) .dock-btn.active::after {
 
             <!-- 1.3 FORMULAS & ANATOMY -->
             <div id="micro-tab-formula" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     BANKAI FORMULA WORKOUT & STUDIO LAB (MICRO)
+                     ======================================================== -->
+                <div class="formula-lab-box" id="micro-formula-lab">
+                    <div class="lab-header">
+                        <div class="lab-title-group">
+                            <span class="badge badge-micro">کارگاه اختصاصی فرمول اقتصاد خرد</span>
+                            <h3>📊 استودیوی فرمول و یادسپاری فعال بانکای</h3>
+                            <p>بستر تعاملی تمرین، بازنویسی، سنجش یادسپاری و ثبت فرمول‌های شخصی و دانشگاهی</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="badge badge-dark" id="micro-mastery-badge">🏆 تسلط فرمولی: ۰%</span>
+                        </div>
+                    </div>
+
+                    <!-- Lab Mode Switcher Pills -->
+                    <div class="lab-mode-pills">
+                        <button type="button" class="lab-mode-pill active" id="micro-pill-recall" onclick="switchLabMode('micro', 'recall')">
+                            <span>🧠</span> تمرین یادسپاری فعال
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="micro-pill-custom" onclick="switchLabMode('micro', 'custom')">
+                            <span>✍️</span> ثبت فرمول شخصی بهادر
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="micro-pill-scratchpad" onclick="switchLabMode('micro', 'scratchpad')">
+                            <span>🔬</span> آزمایشگاه و پیش‌نمایش زنده
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Active Recall Workout -->
+                    <div class="lab-panel active-panel" id="micro-panel-recall">
+                        <div class="lab-prompt-card">
+                            <div class="lab-prompt-title">
+                                <span id="micro-drill-title">🎯 بارگذاری چالش فرمول...</span>
+                                <span class="badge badge-or" style="font-size: 0.65rem;">یادآوری فعال</span>
+                            </div>
+                            <p class="lab-prompt-text" id="micro-drill-text">در حال بارگذاری صورت مسئله...</p>
+                        </div>
+
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="micro-drill-input" class="lab-formula-input" placeholder="ضابطه جبری فرمول را اینجا تایپ یا از پالت نمادها درج کنید..." onkeydown="if(event.key==='Enter') checkCurrentFormulaDrill('micro')">
+                        </div>
+
+                        <!-- Symbol Palette for Quick Math Entry -->
+                        <div style="font-size: 0.72rem; color: #64748B; margin-bottom: 4px; font-weight: 700;">
+                            ⌨️ پالت سریع درج نمادهای ریاضی و عملگرها با یک لمس:
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∑')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∏')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∂')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'Δ')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '√')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'μ')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'σ')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'β')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'θ')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'λ')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'π')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'x̄')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≤')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≥')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≠')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '÷')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '×')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '^')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '²')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '³')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '_')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '(')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', ')')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '[')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', ']')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '+')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '-')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '=')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '/')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '·')">·</button>
+                        </div>
+
+                        <!-- Action Toolbar -->
+                        <div class="lab-actions-row">
+                            <button type="button" class="lab-btn-primary" onclick="checkCurrentFormulaDrill('micro')">
+                                <span>⚡</span> بررسی صحت فرمول
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="showFormulaDrillHint('micro')">
+                                <span>💡</span> راهنمایی مفهومی
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="revealFormulaDrillAnswer('micro')">
+                                <span>👁️</span> مشاهده پاسخ مرجع
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="nextFormulaDrill('micro')">
+                                <span>🎲</span> فرمول بعدی
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Feedback Alert -->
+                        <div class="lab-feedback-box" id="micro-drill-feedback"></div>
+                    </div>
+
+                    <!-- Panel 2: Bahador's Custom Formula Vault -->
+                    <div class="lab-panel" id="micro-panel-custom">
+                        <div style="background: #F1F5F9; border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                                ✍️ افزودن فرمول اختصاصی جدید به درس اقتصاد خرد
+                            </h4>
+                            <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
+                                فرمول‌ها یا نکات جدید کلاسی را ثبت کن تا در حافظه دستگاه ذخیره و بلافاصله به بانک یادسپاری اضافه شوند.
+                            </p>
+                            <div class="custom-formula-form">
+                                <div class="custom-formula-field">
+                                    <label>عنوان فرمول یا رابطه:</label>
+                                    <input type="text" id="micro-custom-title" placeholder="مثال: شرط تعادل پتانسیل در مسیرهای بحرانی">
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>ضابطه ریاضی فرمول (به همراه نمادها):</label>
+                                    <input type="text" id="micro-custom-formula" class="ltr-input" placeholder="مثال: u_i + v_j = c_ij">
+                                </div>
+                                <div class="lab-symbol-palette" style="margin-top: -4px;">
+                                    <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∑', 'micro-custom-formula')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∏', 'micro-custom-formula')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∂', 'micro-custom-formula')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'Δ', 'micro-custom-formula')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '√', 'micro-custom-formula')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'μ', 'micro-custom-formula')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'σ', 'micro-custom-formula')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'β', 'micro-custom-formula')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'θ', 'micro-custom-formula')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'λ', 'micro-custom-formula')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'π', 'micro-custom-formula')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'x̄', 'micro-custom-formula')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≤', 'micro-custom-formula')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≥', 'micro-custom-formula')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≠', 'micro-custom-formula')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '÷', 'micro-custom-formula')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '×', 'micro-custom-formula')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '^', 'micro-custom-formula')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '²', 'micro-custom-formula')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '³', 'micro-custom-formula')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '_', 'micro-custom-formula')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '(', 'micro-custom-formula')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', ')', 'micro-custom-formula')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '[', 'micro-custom-formula')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', ']', 'micro-custom-formula')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '+', 'micro-custom-formula')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '-', 'micro-custom-formula')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '=', 'micro-custom-formula')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '/', 'micro-custom-formula')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '·', 'micro-custom-formula')">·</button>
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>مفهوم تحلیلی و یادداشت سر کلاس:</label>
+                                    <textarea id="micro-custom-note" rows="2" placeholder="توضیح تحلیلی یا کاربرد فرمول..."></textarea>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                    <div class="custom-formula-field" style="margin: 0; min-width: 140px;">
+                                        <select id="micro-custom-tag">
+                                            <option value="نکته طلایی">⭐ نکته طلایی</option>
+                                            <option value="فرمول کلاسی">🎓 تدریس استاد</option>
+                                            <option value="تله کنکور">🚨 تله کنکور ارشد</option>
+                                            <option value="CFA استاندار">💎 استاندارد CFA</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="lab-btn-primary" onclick="saveCustomFormula('micro')">
+                                        <span>💾</span> ذخیره فرمول در بانکای
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saved Formulas Archive -->
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #0F172A; margin-bottom: 8px;">
+                            📋 فرمول‌های اختصاصی ثبت‌شده بهادر در این درس:
+                        </div>
+                        <div class="custom-formulas-list" id="micro-custom-formulas-list"></div>
+                    </div>
+
+                    <!-- Panel 3: Live Scratchpad & Symbol Workbench -->
+                    <div class="lab-panel" id="micro-panel-scratchpad">
+                        <div style="font-size: 0.82rem; color: #475569; margin-bottom: 8px;">
+                            ورودی آزاد فرمول‌نویسی: هر فرمولی را بنویسید تا پیش‌نمایش ریاضی تمیز آن را بلادرنگ ببینید:
+                        </div>
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="micro-scratchpad-input" class="lab-formula-input" placeholder="اینجا آزادانه فرمول بنویسید..." oninput="updateScratchpadPreview('micro')">
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∑', 'micro-scratchpad-input')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∏', 'micro-scratchpad-input')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '∂', 'micro-scratchpad-input')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'Δ', 'micro-scratchpad-input')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '√', 'micro-scratchpad-input')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'μ', 'micro-scratchpad-input')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'σ', 'micro-scratchpad-input')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'β', 'micro-scratchpad-input')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'θ', 'micro-scratchpad-input')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'λ', 'micro-scratchpad-input')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'π', 'micro-scratchpad-input')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', 'x̄', 'micro-scratchpad-input')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≤', 'micro-scratchpad-input')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≥', 'micro-scratchpad-input')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '≠', 'micro-scratchpad-input')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '÷', 'micro-scratchpad-input')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '×', 'micro-scratchpad-input')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '^', 'micro-scratchpad-input')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '²', 'micro-scratchpad-input')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '³', 'micro-scratchpad-input')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '_', 'micro-scratchpad-input')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '(', 'micro-scratchpad-input')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', ')', 'micro-scratchpad-input')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '[', 'micro-scratchpad-input')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', ']', 'micro-scratchpad-input')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '+', 'micro-scratchpad-input')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '-', 'micro-scratchpad-input')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '=', 'micro-scratchpad-input')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '/', 'micro-scratchpad-input')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('micro', '·', 'micro-scratchpad-input')">·</button>
+                        </div>
+                        <div style="font-size: 0.74rem; font-weight: 700; color: #64748B; margin-top: 8px;">
+                            پیش‌نمایش زنده ریاضی:
+                        </div>
+                        <div class="scratchpad-preview-box" id="micro-scratchpad-preview">
+                            <span style="color: #94A3B8; font-size: 0.82rem;">پیش‌نمایش زنده فرمول اینجا نمایش داده می‌شود...</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="formula-card-grid">
                     <div class="formula-card">
                         <div>
@@ -4025,6 +4580,146 @@ body:not(.theme-dark) .dock-btn.active::after {
 
             <!-- 2.3 FORMULAS & ANATOMY -->
             <div id="cost-tab-formula" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     BANKAI FORMULA WORKOUT & STUDIO LAB (COST)
+                     ======================================================== -->
+                <div class="formula-lab-box" id="cost-formula-lab">
+                    <div class="lab-header">
+                        <div class="lab-title-group">
+                            <span class="badge badge-cost">کارگاه اختصاصی فرمول حسابداری صنعتی ۱</span>
+                            <h3>🏭 استودیوی فرمول و یادسپاری فعال بانکای</h3>
+                            <p>بستر تعاملی تمرین، بازنویسی، سنجش یادسپاری و ثبت فرمول‌های شخصی و دانشگاهی</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="badge badge-dark" id="cost-mastery-badge">🏆 تسلط فرمولی: ۰%</span>
+                        </div>
+                    </div>
+
+                    <!-- Lab Mode Switcher Pills -->
+                    <div class="lab-mode-pills">
+                        <button type="button" class="lab-mode-pill active" id="cost-pill-recall" onclick="switchLabMode('cost', 'recall')">
+                            <span>🧠</span> تمرین یادسپاری فعال
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="cost-pill-custom" onclick="switchLabMode('cost', 'custom')">
+                            <span>✍️</span> ثبت فرمول شخصی بهادر
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="cost-pill-scratchpad" onclick="switchLabMode('cost', 'scratchpad')">
+                            <span>🔬</span> آزمایشگاه و پیش‌نمایش زنده
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Active Recall Workout -->
+                    <div class="lab-panel active-panel" id="cost-panel-recall">
+                        <div class="lab-prompt-card">
+                            <div class="lab-prompt-title">
+                                <span id="cost-drill-title">🎯 بارگذاری چالش فرمول...</span>
+                                <span class="badge badge-or" style="font-size: 0.65rem;">یادآوری فعال</span>
+                            </div>
+                            <p class="lab-prompt-text" id="cost-drill-text">در حال بارگذاری صورت مسئله...</p>
+                        </div>
+
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="cost-drill-input" class="lab-formula-input" placeholder="ضابطه جبری فرمول را اینجا تایپ یا از پالت نمادها درج کنید..." onkeydown="if(event.key==='Enter') checkCurrentFormulaDrill('cost')">
+                        </div>
+
+                        <!-- Symbol Palette for Quick Math Entry -->
+                        <div style="font-size: 0.72rem; color: #64748B; margin-bottom: 4px; font-weight: 700;">
+                            ⌨️ پالت سریع درج نمادهای ریاضی و عملگرها با یک لمس:
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∑')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∏')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∂')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'Δ')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '√')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'μ')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'σ')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'β')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'θ')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'λ')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'π')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'x̄')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≤')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≥')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≠')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '÷')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '×')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '^')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '²')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '³')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '_')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '(')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', ')')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '[')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', ']')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '+')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '-')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '=')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '/')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '·')">·</button>
+                        </div>
+
+                        <!-- Action Toolbar -->
+                        <div class="lab-actions-row">
+                            <button type="button" class="lab-btn-primary" onclick="checkCurrentFormulaDrill('cost')">
+                                <span>⚡</span> بررسی صحت فرمول
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="showFormulaDrillHint('cost')">
+                                <span>💡</span> راهنمایی مفهومی
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="revealFormulaDrillAnswer('cost')">
+                                <span>👁️</span> مشاهده پاسخ مرجع
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="nextFormulaDrill('cost')">
+                                <span>🎲</span> فرمول بعدی
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Feedback Alert -->
+                        <div class="lab-feedback-box" id="cost-drill-feedback"></div>
+                    </div>
+
+                    <!-- Panel 2: Bahador's Custom Formula Vault -->
+                    <div class="lab-panel" id="cost-panel-custom">
+                        <div style="background: #F1F5F9; border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                                ✍️ افزودن فرمول اختصاصی جدید به درس حسابداری صنعتی ۱
+                            </h4>
+                            <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
+                                فرمول‌ها یا نکات جدید کلاسی را ثبت کن تا در حافظه دستگاه ذخیره و بلافاصله به بانک یادسپاری اضافه شوند.
+                            </p>
+                            <div class="custom-formula-form">
+                                <div class="custom-formula-field">
+                                    <label>عنوان فرمول یا رابطه:</label>
+                                    <input type="text" id="cost-custom-title" placeholder="مثال: شرط تعادل پتانسیل در مسیرهای بحرانی">
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>ضابطه ریاضی فرمول (به همراه نمادها):</label>
+                                    <input type="text" id="cost-custom-formula" class="ltr-input" placeholder="مثال: u_i + v_j = c_ij">
+                                </div>
+                                <div class="lab-symbol-palette" style="margin-top: -4px;">
+                                    <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∑', 'cost-custom-formula')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∏', 'cost-custom-formula')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∂', 'cost-custom-formula')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'Δ', 'cost-custom-formula')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '√', 'cost-custom-formula')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'μ', 'cost-custom-formula')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'σ', 'cost-custom-formula')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'β', 'cost-custom-formula')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'θ', 'cost-custom-formula')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'λ', 'cost-custom-formula')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'π', 'cost-custom-formula')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'x̄', 'cost-custom-formula')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≤', 'cost-custom-formula')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≥', 'cost-custom-formula')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≠', 'cost-custom-formula')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '÷', 'cost-custom-formula')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '×', 'cost-custom-formula')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '^', 'cost-custom-formula')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '²', 'cost-custom-formula')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '³', 'cost-custom-formula')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '_', 'cost-custom-formula')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '(', 'cost-custom-formula')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', ')', 'cost-custom-formula')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '[', 'cost-custom-formula')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', ']', 'cost-custom-formula')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '+', 'cost-custom-formula')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '-', 'cost-custom-formula')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '=', 'cost-custom-formula')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '/', 'cost-custom-formula')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '·', 'cost-custom-formula')">·</button>
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>مفهوم تحلیلی و یادداشت سر کلاس:</label>
+                                    <textarea id="cost-custom-note" rows="2" placeholder="توضیح تحلیلی یا کاربرد فرمول..."></textarea>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                    <div class="custom-formula-field" style="margin: 0; min-width: 140px;">
+                                        <select id="cost-custom-tag">
+                                            <option value="نکته طلایی">⭐ نکته طلایی</option>
+                                            <option value="فرمول کلاسی">🎓 تدریس استاد</option>
+                                            <option value="تله کنکور">🚨 تله کنکور ارشد</option>
+                                            <option value="CFA استاندار">💎 استاندارد CFA</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="lab-btn-primary" onclick="saveCustomFormula('cost')">
+                                        <span>💾</span> ذخیره فرمول در بانکای
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saved Formulas Archive -->
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #0F172A; margin-bottom: 8px;">
+                            📋 فرمول‌های اختصاصی ثبت‌شده بهادر در این درس:
+                        </div>
+                        <div class="custom-formulas-list" id="cost-custom-formulas-list"></div>
+                    </div>
+
+                    <!-- Panel 3: Live Scratchpad & Symbol Workbench -->
+                    <div class="lab-panel" id="cost-panel-scratchpad">
+                        <div style="font-size: 0.82rem; color: #475569; margin-bottom: 8px;">
+                            ورودی آزاد فرمول‌نویسی: هر فرمولی را بنویسید تا پیش‌نمایش ریاضی تمیز آن را بلادرنگ ببینید:
+                        </div>
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="cost-scratchpad-input" class="lab-formula-input" placeholder="اینجا آزادانه فرمول بنویسید..." oninput="updateScratchpadPreview('cost')">
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∑', 'cost-scratchpad-input')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∏', 'cost-scratchpad-input')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '∂', 'cost-scratchpad-input')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'Δ', 'cost-scratchpad-input')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '√', 'cost-scratchpad-input')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'μ', 'cost-scratchpad-input')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'σ', 'cost-scratchpad-input')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'β', 'cost-scratchpad-input')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'θ', 'cost-scratchpad-input')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'λ', 'cost-scratchpad-input')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'π', 'cost-scratchpad-input')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', 'x̄', 'cost-scratchpad-input')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≤', 'cost-scratchpad-input')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≥', 'cost-scratchpad-input')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '≠', 'cost-scratchpad-input')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '÷', 'cost-scratchpad-input')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '×', 'cost-scratchpad-input')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '^', 'cost-scratchpad-input')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '²', 'cost-scratchpad-input')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '³', 'cost-scratchpad-input')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '_', 'cost-scratchpad-input')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '(', 'cost-scratchpad-input')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', ')', 'cost-scratchpad-input')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '[', 'cost-scratchpad-input')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', ']', 'cost-scratchpad-input')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '+', 'cost-scratchpad-input')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '-', 'cost-scratchpad-input')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '=', 'cost-scratchpad-input')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '/', 'cost-scratchpad-input')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('cost', '·', 'cost-scratchpad-input')">·</button>
+                        </div>
+                        <div style="font-size: 0.74rem; font-weight: 700; color: #64748B; margin-top: 8px;">
+                            پیش‌نمایش زنده ریاضی:
+                        </div>
+                        <div class="scratchpad-preview-box" id="cost-scratchpad-preview">
+                            <span style="color: #94A3B8; font-size: 0.82rem;">پیش‌نمایش زنده فرمول اینجا نمایش داده می‌شود...</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="formula-card-grid">
                     <div class="formula-card">
                         <div>
@@ -4599,6 +5294,146 @@ body:not(.theme-dark) .dock-btn.active::after {
 
             <!-- 3.3 FORMULAS & ANATOMY -->
             <div id="finance-tab-formula" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     BANKAI FORMULA WORKOUT & STUDIO LAB (FINANCE)
+                     ======================================================== -->
+                <div class="formula-lab-box" id="finance-formula-lab">
+                    <div class="lab-header">
+                        <div class="lab-title-group">
+                            <span class="badge badge-finance">کارگاه اختصاصی فرمول مدیریت مالی ۱</span>
+                            <h3>💎 استودیوی فرمول و یادسپاری فعال بانکای</h3>
+                            <p>بستر تعاملی تمرین، بازنویسی، سنجش یادسپاری و ثبت فرمول‌های شخصی و دانشگاهی</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="badge badge-dark" id="finance-mastery-badge">🏆 تسلط فرمولی: ۰%</span>
+                        </div>
+                    </div>
+
+                    <!-- Lab Mode Switcher Pills -->
+                    <div class="lab-mode-pills">
+                        <button type="button" class="lab-mode-pill active" id="finance-pill-recall" onclick="switchLabMode('finance', 'recall')">
+                            <span>🧠</span> تمرین یادسپاری فعال
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="finance-pill-custom" onclick="switchLabMode('finance', 'custom')">
+                            <span>✍️</span> ثبت فرمول شخصی بهادر
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="finance-pill-scratchpad" onclick="switchLabMode('finance', 'scratchpad')">
+                            <span>🔬</span> آزمایشگاه و پیش‌نمایش زنده
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Active Recall Workout -->
+                    <div class="lab-panel active-panel" id="finance-panel-recall">
+                        <div class="lab-prompt-card">
+                            <div class="lab-prompt-title">
+                                <span id="finance-drill-title">🎯 بارگذاری چالش فرمول...</span>
+                                <span class="badge badge-or" style="font-size: 0.65rem;">یادآوری فعال</span>
+                            </div>
+                            <p class="lab-prompt-text" id="finance-drill-text">در حال بارگذاری صورت مسئله...</p>
+                        </div>
+
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="finance-drill-input" class="lab-formula-input" placeholder="ضابطه جبری فرمول را اینجا تایپ یا از پالت نمادها درج کنید..." onkeydown="if(event.key==='Enter') checkCurrentFormulaDrill('finance')">
+                        </div>
+
+                        <!-- Symbol Palette for Quick Math Entry -->
+                        <div style="font-size: 0.72rem; color: #64748B; margin-bottom: 4px; font-weight: 700;">
+                            ⌨️ پالت سریع درج نمادهای ریاضی و عملگرها با یک لمس:
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∑')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∏')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∂')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'Δ')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '√')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'μ')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'σ')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'β')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'θ')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'λ')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'π')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'x̄')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≤')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≥')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≠')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '÷')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '×')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '^')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '²')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '³')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '_')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '(')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ')')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '[')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ']')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '+')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '-')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '=')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '/')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '·')">·</button>
+                        </div>
+
+                        <!-- Action Toolbar -->
+                        <div class="lab-actions-row">
+                            <button type="button" class="lab-btn-primary" onclick="checkCurrentFormulaDrill('finance')">
+                                <span>⚡</span> بررسی صحت فرمول
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="showFormulaDrillHint('finance')">
+                                <span>💡</span> راهنمایی مفهومی
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="revealFormulaDrillAnswer('finance')">
+                                <span>👁️</span> مشاهده پاسخ مرجع
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="nextFormulaDrill('finance')">
+                                <span>🎲</span> فرمول بعدی
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Feedback Alert -->
+                        <div class="lab-feedback-box" id="finance-drill-feedback"></div>
+                    </div>
+
+                    <!-- Panel 2: Bahador's Custom Formula Vault -->
+                    <div class="lab-panel" id="finance-panel-custom">
+                        <div style="background: #F1F5F9; border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                                ✍️ افزودن فرمول اختصاصی جدید به درس مدیریت مالی ۱
+                            </h4>
+                            <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
+                                فرمول‌ها یا نکات جدید کلاسی را ثبت کن تا در حافظه دستگاه ذخیره و بلافاصله به بانک یادسپاری اضافه شوند.
+                            </p>
+                            <div class="custom-formula-form">
+                                <div class="custom-formula-field">
+                                    <label>عنوان فرمول یا رابطه:</label>
+                                    <input type="text" id="finance-custom-title" placeholder="مثال: شرط تعادل پتانسیل در مسیرهای بحرانی">
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>ضابطه ریاضی فرمول (به همراه نمادها):</label>
+                                    <input type="text" id="finance-custom-formula" class="ltr-input" placeholder="مثال: u_i + v_j = c_ij">
+                                </div>
+                                <div class="lab-symbol-palette" style="margin-top: -4px;">
+                                    <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∑', 'finance-custom-formula')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∏', 'finance-custom-formula')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∂', 'finance-custom-formula')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'Δ', 'finance-custom-formula')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '√', 'finance-custom-formula')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'μ', 'finance-custom-formula')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'σ', 'finance-custom-formula')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'β', 'finance-custom-formula')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'θ', 'finance-custom-formula')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'λ', 'finance-custom-formula')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'π', 'finance-custom-formula')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'x̄', 'finance-custom-formula')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≤', 'finance-custom-formula')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≥', 'finance-custom-formula')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≠', 'finance-custom-formula')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '÷', 'finance-custom-formula')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '×', 'finance-custom-formula')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '^', 'finance-custom-formula')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '²', 'finance-custom-formula')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '³', 'finance-custom-formula')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '_', 'finance-custom-formula')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '(', 'finance-custom-formula')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ')', 'finance-custom-formula')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '[', 'finance-custom-formula')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ']', 'finance-custom-formula')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '+', 'finance-custom-formula')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '-', 'finance-custom-formula')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '=', 'finance-custom-formula')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '/', 'finance-custom-formula')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '·', 'finance-custom-formula')">·</button>
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>مفهوم تحلیلی و یادداشت سر کلاس:</label>
+                                    <textarea id="finance-custom-note" rows="2" placeholder="توضیح تحلیلی یا کاربرد فرمول..."></textarea>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                    <div class="custom-formula-field" style="margin: 0; min-width: 140px;">
+                                        <select id="finance-custom-tag">
+                                            <option value="نکته طلایی">⭐ نکته طلایی</option>
+                                            <option value="فرمول کلاسی">🎓 تدریس استاد</option>
+                                            <option value="تله کنکور">🚨 تله کنکور ارشد</option>
+                                            <option value="CFA استاندار">💎 استاندارد CFA</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="lab-btn-primary" onclick="saveCustomFormula('finance')">
+                                        <span>💾</span> ذخیره فرمول در بانکای
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saved Formulas Archive -->
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #0F172A; margin-bottom: 8px;">
+                            📋 فرمول‌های اختصاصی ثبت‌شده بهادر در این درس:
+                        </div>
+                        <div class="custom-formulas-list" id="finance-custom-formulas-list"></div>
+                    </div>
+
+                    <!-- Panel 3: Live Scratchpad & Symbol Workbench -->
+                    <div class="lab-panel" id="finance-panel-scratchpad">
+                        <div style="font-size: 0.82rem; color: #475569; margin-bottom: 8px;">
+                            ورودی آزاد فرمول‌نویسی: هر فرمولی را بنویسید تا پیش‌نمایش ریاضی تمیز آن را بلادرنگ ببینید:
+                        </div>
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="finance-scratchpad-input" class="lab-formula-input" placeholder="اینجا آزادانه فرمول بنویسید..." oninput="updateScratchpadPreview('finance')">
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∑', 'finance-scratchpad-input')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∏', 'finance-scratchpad-input')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '∂', 'finance-scratchpad-input')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'Δ', 'finance-scratchpad-input')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '√', 'finance-scratchpad-input')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'μ', 'finance-scratchpad-input')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'σ', 'finance-scratchpad-input')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'β', 'finance-scratchpad-input')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'θ', 'finance-scratchpad-input')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'λ', 'finance-scratchpad-input')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'π', 'finance-scratchpad-input')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', 'x̄', 'finance-scratchpad-input')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≤', 'finance-scratchpad-input')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≥', 'finance-scratchpad-input')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '≠', 'finance-scratchpad-input')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '÷', 'finance-scratchpad-input')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '×', 'finance-scratchpad-input')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '^', 'finance-scratchpad-input')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '²', 'finance-scratchpad-input')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '³', 'finance-scratchpad-input')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '_', 'finance-scratchpad-input')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '(', 'finance-scratchpad-input')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ')', 'finance-scratchpad-input')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '[', 'finance-scratchpad-input')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', ']', 'finance-scratchpad-input')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '+', 'finance-scratchpad-input')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '-', 'finance-scratchpad-input')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '=', 'finance-scratchpad-input')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '/', 'finance-scratchpad-input')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('finance', '·', 'finance-scratchpad-input')">·</button>
+                        </div>
+                        <div style="font-size: 0.74rem; font-weight: 700; color: #64748B; margin-top: 8px;">
+                            پیش‌نمایش زنده ریاضی:
+                        </div>
+                        <div class="scratchpad-preview-box" id="finance-scratchpad-preview">
+                            <span style="color: #94A3B8; font-size: 0.82rem;">پیش‌نمایش زنده فرمول اینجا نمایش داده می‌شود...</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="formula-card-grid">
                     <div class="formula-card">
                         <div>
@@ -5152,6 +5987,146 @@ body:not(.theme-dark) .dock-btn.active::after {
 
             <!-- 4.3 FORMULAS & ANATOMY -->
             <div id="or-tab-formula" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     BANKAI FORMULA WORKOUT & STUDIO LAB (OR)
+                     ======================================================== -->
+                <div class="formula-lab-box" id="or-formula-lab">
+                    <div class="lab-header">
+                        <div class="lab-title-group">
+                            <span class="badge badge-or">کارگاه اختصاصی فرمول تحقیق در عملیات ۱</span>
+                            <h3>⚙️ استودیوی فرمول و یادسپاری فعال بانکای</h3>
+                            <p>بستر تعاملی تمرین، بازنویسی، سنجش یادسپاری و ثبت فرمول‌های شخصی و دانشگاهی</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="badge badge-dark" id="or-mastery-badge">🏆 تسلط فرمولی: ۰%</span>
+                        </div>
+                    </div>
+
+                    <!-- Lab Mode Switcher Pills -->
+                    <div class="lab-mode-pills">
+                        <button type="button" class="lab-mode-pill active" id="or-pill-recall" onclick="switchLabMode('or', 'recall')">
+                            <span>🧠</span> تمرین یادسپاری فعال
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="or-pill-custom" onclick="switchLabMode('or', 'custom')">
+                            <span>✍️</span> ثبت فرمول شخصی بهادر
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="or-pill-scratchpad" onclick="switchLabMode('or', 'scratchpad')">
+                            <span>🔬</span> آزمایشگاه و پیش‌نمایش زنده
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Active Recall Workout -->
+                    <div class="lab-panel active-panel" id="or-panel-recall">
+                        <div class="lab-prompt-card">
+                            <div class="lab-prompt-title">
+                                <span id="or-drill-title">🎯 بارگذاری چالش فرمول...</span>
+                                <span class="badge badge-or" style="font-size: 0.65rem;">یادآوری فعال</span>
+                            </div>
+                            <p class="lab-prompt-text" id="or-drill-text">در حال بارگذاری صورت مسئله...</p>
+                        </div>
+
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="or-drill-input" class="lab-formula-input" placeholder="ضابطه جبری فرمول را اینجا تایپ یا از پالت نمادها درج کنید..." onkeydown="if(event.key==='Enter') checkCurrentFormulaDrill('or')">
+                        </div>
+
+                        <!-- Symbol Palette for Quick Math Entry -->
+                        <div style="font-size: 0.72rem; color: #64748B; margin-bottom: 4px; font-weight: 700;">
+                            ⌨️ پالت سریع درج نمادهای ریاضی و عملگرها با یک لمس:
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∑')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∏')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∂')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'Δ')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '√')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'μ')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'σ')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'β')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'θ')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'λ')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'π')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'x̄')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≤')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≥')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≠')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '÷')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '×')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '^')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '²')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '³')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '_')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '(')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', ')')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '[')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', ']')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '+')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '-')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '=')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '/')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '·')">·</button>
+                        </div>
+
+                        <!-- Action Toolbar -->
+                        <div class="lab-actions-row">
+                            <button type="button" class="lab-btn-primary" onclick="checkCurrentFormulaDrill('or')">
+                                <span>⚡</span> بررسی صحت فرمول
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="showFormulaDrillHint('or')">
+                                <span>💡</span> راهنمایی مفهومی
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="revealFormulaDrillAnswer('or')">
+                                <span>👁️</span> مشاهده پاسخ مرجع
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="nextFormulaDrill('or')">
+                                <span>🎲</span> فرمول بعدی
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Feedback Alert -->
+                        <div class="lab-feedback-box" id="or-drill-feedback"></div>
+                    </div>
+
+                    <!-- Panel 2: Bahador's Custom Formula Vault -->
+                    <div class="lab-panel" id="or-panel-custom">
+                        <div style="background: #F1F5F9; border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                                ✍️ افزودن فرمول اختصاصی جدید به درس تحقیق در عملیات ۱
+                            </h4>
+                            <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
+                                فرمول‌ها یا نکات جدید کلاسی را ثبت کن تا در حافظه دستگاه ذخیره و بلافاصله به بانک یادسپاری اضافه شوند.
+                            </p>
+                            <div class="custom-formula-form">
+                                <div class="custom-formula-field">
+                                    <label>عنوان فرمول یا رابطه:</label>
+                                    <input type="text" id="or-custom-title" placeholder="مثال: شرط تعادل پتانسیل در مسیرهای بحرانی">
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>ضابطه ریاضی فرمول (به همراه نمادها):</label>
+                                    <input type="text" id="or-custom-formula" class="ltr-input" placeholder="مثال: u_i + v_j = c_ij">
+                                </div>
+                                <div class="lab-symbol-palette" style="margin-top: -4px;">
+                                    <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∑', 'or-custom-formula')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∏', 'or-custom-formula')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∂', 'or-custom-formula')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'Δ', 'or-custom-formula')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '√', 'or-custom-formula')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'μ', 'or-custom-formula')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'σ', 'or-custom-formula')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'β', 'or-custom-formula')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'θ', 'or-custom-formula')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'λ', 'or-custom-formula')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'π', 'or-custom-formula')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'x̄', 'or-custom-formula')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≤', 'or-custom-formula')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≥', 'or-custom-formula')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≠', 'or-custom-formula')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '÷', 'or-custom-formula')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '×', 'or-custom-formula')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '^', 'or-custom-formula')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '²', 'or-custom-formula')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '³', 'or-custom-formula')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '_', 'or-custom-formula')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '(', 'or-custom-formula')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', ')', 'or-custom-formula')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '[', 'or-custom-formula')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', ']', 'or-custom-formula')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '+', 'or-custom-formula')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '-', 'or-custom-formula')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '=', 'or-custom-formula')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '/', 'or-custom-formula')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '·', 'or-custom-formula')">·</button>
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>مفهوم تحلیلی و یادداشت سر کلاس:</label>
+                                    <textarea id="or-custom-note" rows="2" placeholder="توضیح تحلیلی یا کاربرد فرمول..."></textarea>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                    <div class="custom-formula-field" style="margin: 0; min-width: 140px;">
+                                        <select id="or-custom-tag">
+                                            <option value="نکته طلایی">⭐ نکته طلایی</option>
+                                            <option value="فرمول کلاسی">🎓 تدریس استاد</option>
+                                            <option value="تله کنکور">🚨 تله کنکور ارشد</option>
+                                            <option value="CFA استاندار">💎 استاندارد CFA</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="lab-btn-primary" onclick="saveCustomFormula('or')">
+                                        <span>💾</span> ذخیره فرمول در بانکای
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saved Formulas Archive -->
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #0F172A; margin-bottom: 8px;">
+                            📋 فرمول‌های اختصاصی ثبت‌شده بهادر در این درس:
+                        </div>
+                        <div class="custom-formulas-list" id="or-custom-formulas-list"></div>
+                    </div>
+
+                    <!-- Panel 3: Live Scratchpad & Symbol Workbench -->
+                    <div class="lab-panel" id="or-panel-scratchpad">
+                        <div style="font-size: 0.82rem; color: #475569; margin-bottom: 8px;">
+                            ورودی آزاد فرمول‌نویسی: هر فرمولی را بنویسید تا پیش‌نمایش ریاضی تمیز آن را بلادرنگ ببینید:
+                        </div>
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="or-scratchpad-input" class="lab-formula-input" placeholder="اینجا آزادانه فرمول بنویسید..." oninput="updateScratchpadPreview('or')">
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∑', 'or-scratchpad-input')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∏', 'or-scratchpad-input')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '∂', 'or-scratchpad-input')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'Δ', 'or-scratchpad-input')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '√', 'or-scratchpad-input')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'μ', 'or-scratchpad-input')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'σ', 'or-scratchpad-input')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'β', 'or-scratchpad-input')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'θ', 'or-scratchpad-input')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'λ', 'or-scratchpad-input')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'π', 'or-scratchpad-input')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', 'x̄', 'or-scratchpad-input')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≤', 'or-scratchpad-input')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≥', 'or-scratchpad-input')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '≠', 'or-scratchpad-input')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '÷', 'or-scratchpad-input')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '×', 'or-scratchpad-input')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '^', 'or-scratchpad-input')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '²', 'or-scratchpad-input')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '³', 'or-scratchpad-input')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '_', 'or-scratchpad-input')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '(', 'or-scratchpad-input')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', ')', 'or-scratchpad-input')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '[', 'or-scratchpad-input')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', ']', 'or-scratchpad-input')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '+', 'or-scratchpad-input')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '-', 'or-scratchpad-input')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '=', 'or-scratchpad-input')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '/', 'or-scratchpad-input')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('or', '·', 'or-scratchpad-input')">·</button>
+                        </div>
+                        <div style="font-size: 0.74rem; font-weight: 700; color: #64748B; margin-top: 8px;">
+                            پیش‌نمایش زنده ریاضی:
+                        </div>
+                        <div class="scratchpad-preview-box" id="or-scratchpad-preview">
+                            <span style="color: #94A3B8; font-size: 0.82rem;">پیش‌نمایش زنده فرمول اینجا نمایش داده می‌شود...</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="formula-card-grid">
                     <div class="formula-card">
                         <div>
@@ -5314,6 +6289,140 @@ body:not(.theme-dark) .dock-btn.active::after {
                         </button>
                     </div>
 
+                    <!-- FORMULA 7: TRANSPORTATION MODEL BALANCED & BASIC VARIABLES -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۷</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل حمل و نقل، تعادل عرضه-تقاضا و قاعده متغیرهای پایه</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('∑ s_i = ∑ d_j  |  Basic Variables = m + n - 1', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">شرط تعادل فیزیکی کل:</span>
+                                    <span class="math-sym">∑</span> s_i <span class="math-op">=</span> <span class="math-sym">∑</span> d_j
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">تعداد متغیرهای پایه (خانه‌های پر):</span>
+                                    <span class="math-sym">BV</span> <span class="math-op">=</span> m + n - 1
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                در ماتریس حمل و نقل با m مبدا و n مقصد، مجموعاً m+n معادله قید خطی داریم. اما به دلیل تعادل عرضه کل و تقاضای کل، یکی از این معادلات زائد (وابسته خطی) است؛ بنابراین رتبه ماتریس ضرایب m+n-1 است و هر جواب موجه پایه همواره دقیقاً m+n-1 متغیر مستقل (سلول بدون دور بسته) دارد.
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد لجستیک و مدیریت مالی:</strong>
+                                بهینه‌سازی شبکه پخش کالا بین کارخانجات تولیدی و انبارهای منطقه‌ای جهت حداقل‌سازی بهای تمام‌شده کالای فروش‌رفته (COGS) و صرفه‌جویی در سرمایه در گردش.
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                تبهگنی (Degeneracy)! اگر در هر مرحله تعداد تخصیص‌های پر کمتر از m+n-1 شود، نمی‌توان پتانسیل‌های دوگان را حل کرد و باید یک صفر مجازی (ε) در خانه‌ای مستقل قرار داد تا اتصال شبکه قطع نشود.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('∑ s_i = ∑ d_j  |  BV = m + n - 1')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- FORMULA 8: MODI POTENTIAL & STEPPING-STONE -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۸</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">روش پتانسیل دوگان MODI و آزمون بهینگی جهش سنگفرشی</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('u_i + v_j = c_ij  |  Δ_ij = c_ij - (u_i + v_j)', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">رابطه متغیرهای پایه (خانه‌های پر):</span>
+                                    <span class="math-sym">u_i</span> + <span class="math-sym">v_j</span> <span class="math-op">=</span> c_ij
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">شاخص بهبود خانه‌های خالی (غیرپایه):</span>
+                                    <span class="math-sym">Δ_ij</span> <span class="math-op">=</span> c_ij - ( u_i + v_j )
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                متغیرهای u_i و v_j در واقع متغیرهای دوگان (قیمت سایه) مبادی و مقاصد هستند. مقدار Δ_ij هزینه کاهش‌یافته (Reduced Cost) است. در کمینه‌سازی، اگر برای همه خانه‌های خالی Δ_ij ≥ 0 باشد، جدول فعلی صددرصد بهینه است.
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد در بازار و زنجیره ارزش:</strong>
+                                تعیین سقف تخفیف مجاز کرایه حمل و ارزیابی مسیرهای ترانزیتی جایگزین در لجستیک صنعتی.
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                برای حل دستگاه معادلات، مقدار یکی از پتانسیل‌ها (معمولاً سطری با بیشترین تخصیص) باید قراردادی صفر شود (u_1 = 0)؛ فراموش کردن این فرض یا اشتباه در علامت تفریق شاخص بهبود شایع‌ترین خطاست.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('u_i + v_j = c_ij  |  Δ_ij = c_ij - (u_i + v_j)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- FORMULA 9: PORTFOLIO OPTIMIZATION LP -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۹</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل‌سازی برنامه‌ریزی خطی سبد دارایی و پورتفوی سرمایه‌گذاری</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Max Z = ∑ r_i * x_i  |  s.t.  ∑ x_i = 1 , x_i ≥ 0', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">تابع هدف بیشینه‌سازی بازده پورتفو:</span>
+                                    <span class="math-sym">Max Z</span> <span class="math-op">=</span> ∑ r_i · x_i
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">قیود نرمال‌سازی و تنوع‌بخشی صنایع:</span>
+                                    ∑ x_i <span class="math-op">=</span> 1  ,  x_i ≤ Cap_i  ,  Risk ≤ Risk_max
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                متغیرهای تصمیم x_i درصد وزنی سرمایه تخصیص‌یافته به هر نماد بورسی هستند. قید ∑ x_i = 1 تضمین می‌کند دقیقاً ۱۰۰ درصد نقدینگی مصرف شود و قیود سقف هر صنعت مانع ریسک تمرکز می‌شوند.
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد در بورس تهران و صندوق‌های سرمایه‌گذاری:</strong>
+                                الگوریتم بهینه‌سازی پرتفوی صندوق‌های ETF منطبق با الزامات حد نصاب‌های سازمان بورس و اوراق بهادار.
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                مدل مارکوویتز به دلیل واریانس کوواریانس غیرخطی (درجه دو QP) است؛ اما مدل‌های خطی با استفاده از معیار انحراف متوسط (MAD) یا ریسک نزولی به برنامه‌ریزی خطی (LP) محض تبدیل می‌شوند.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Max Z = ∑ r_i * x_i  |  ∑ x_i = 1')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+                    <!-- FORMULA 10: MEDIA MIX OPTIMIZATION LP -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-or">فرمول طلایی ۱۰</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">مدل‌سازی برنامه‌ریزی خطی ترکیب رسانه و بودجه تبلیغات</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Max Z = ∑ a_j * y_j  |  s.t.  ∑ c_j * y_j ≤ Budget', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">بیشینه‌سازی کل بازدید و دسترسی (Reach):</span>
+                                    <span class="math-sym">Max Z</span> <span class="math-op">=</span> ∑ a_j · y_j
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">قیود بودجه کل و کف/سقف قراردادها:</span>
+                                    ∑ c_j · y_j ≤ Budget  ,  L_j ≤ y_j ≤ U_j
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                مدل بهینه‌سازی بازاریابی که در آن a_j نرخ دسترسی هر کانال (تلویزیون، دیجیتال، محیطی) و c_j بهای هر تیزر است؛ هدف ایجاد بیشترین آگاهی در ازای حداقل هزینه است.
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد تجاری در شرکت‌های بورسی و فین‌تک‌ها:</strong>
+                                هدایت هوشمند بودجه روابط عمومی و مارکتینگ جهت جذب کاربر جدید با کمترین هزینه جذب (CAC).
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                اگر متغیرهای y_j غیرقابل تقسیم باشند (مثلاً تعداد بیلبورد)، مدل LP به IP تبدیل شده و روش حل آن به شاخه و حد (Branch and Bound) تغییر می‌کند.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('Max Z = ∑ a_j * y_j  |  ∑ c_j * y_j ≤ Budget')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+
+
 
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
@@ -5473,7 +6582,82 @@ body:not(.theme-dark) .dock-btn.active::after {
                     <span>پایان بخش آزمون شبیه‌ساز کارشناسی ارشد | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
                 </div>
 </div>
-            </div>
+            
+
+                <!-- REFRIGERATOR LOGISTICS CANONICAL PROBLEM SOLUTION -->
+                <div class="card" style="border-top: 4px solid #F59E0B; margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                        <div>
+                            <span class="badge badge-or">مسئله کاربردی و امتحانی</span>
+                            <h3 style="font-size: 1.05rem; font-weight: 900; color: #0F172A; margin: 4px 0 0 0;">
+                                ❄️ حل تشریحی مسئله حمل و نقل شرکت تولید یخچال (ماتریس عرضه و تقاضا)
+                            </h3>
+                            <p style="font-size: 0.74rem; color: #64748B; margin: 2px 0 0 0;">
+                                تخصیص اولیه به روش گوشه شمال غربی، اعتبارسنجی متغیرهای پایه (m+n-1) و ارزیابی بهینگی با متغیرهای دوگان MODI
+                            </p>
+                        </div>
+                        <span class="badge badge-dark">حل گام‌به‌گام دانشگاهی</span>
+                    </div>
+
+                    <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px; font-size: 0.82rem; line-height: 1.6; color: #334155;">
+                        <strong>صورت مسئله:</strong><br>
+                        شرکت تولیدی یخچال دارای دو کارخانه فعال در تبریز (A) و مشهد (B) است. ظرفیت تولید ماهانه کارخانه A برابر ۶۰ دستگاه و کارخانه B برابر ۹۰ دستگاه است (عرضه کل = ۱۵۰). سه مرکز توزیع در تهران (مقصد ۱ با تقاضای ۵۰)، اصفهان (مقصد ۲ با تقاضای ۴۰) و شیراز (مقصد ۳ با تقاضای ۶۰ دستگاه) وجود دارد (تقاضای کل = ۱۵۰). ماتریس هزینه واحد حمل (هزار تومان) به صورت زیر است:<br>
+                        • از A به: تهران (۸)، اصفهان (۶)، شیراز (۱۰)<br>
+                        • از B به: تهران (۹)، اصفهان (۱۲)، شیراز (۱۳)
+                    </div>
+
+                    <div class="tree-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 14px;">
+                        <div class="tree-node" style="border-right-color: #F59E0B;">
+                            <h4 style="font-size: 0.84rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">گام ۱: اعتبارسنجی تعادل و تعداد متغیرهای پایه</h4>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0 0 6px 0;">
+                                • مجموع عرضه: ۶۰ + ۹۰ = ۱۵۰ دستگاه<br>
+                                • مجموع تقاضا: ۵۰ + ۴۰ + ۶۰ = ۱۵۰ دستگاه<br>
+                                • چون عرضه و تقاضا برابرند، مسئله <strong>متوازن</strong> است و نیاز به سطر یا ستون کمبود مجازی (Dummy) ندارد.<br>
+                                • تعداد متغیرهای پایه مستقل مورد نیاز: m + n - 1 = ۲ + ۳ - ۱ = <strong>۴ سلول پر</strong>.
+                            </p>
+                        </div>
+
+                        <div class="tree-node" style="border-right-color: #10B981;">
+                            <h4 style="font-size: 0.84rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">گام ۲: تخصیص گوشه شمال غربی (North-West)</h4>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0 0 6px 0;">
+                                ۱. خانه (A, تهران): تخصیص ۵۰ واحد (تکمیل تقاضای تهران). باقی‌مانده عرضه A برابر ۱۰ واحد.<br>
+                                ۲. خانه (A, اصفهان): تخصیص ۱۰ واحد (اتمام عرضه کارخانه A). باقی‌مانده تقاضای اصفهان برابر ۳۰ واحد.<br>
+                                ۳. خانه (B, اصفهان): تخصیص ۳۰ واحد (تکمیل تقاضای اصفهان). باقی‌مانده عرضه کارخانه B برابر ۶۰ واحد.<br>
+                                ۴. خانه (B, شیراز): تخصیص ۶۰ واحد (تکمیل هم‌زمان تقاضای شیراز و عرضه B).
+                            </p>
+                        </div>
+
+                        <div class="tree-node" style="border-right-color: #3B82F6;">
+                            <h4 style="font-size: 0.84rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">گام ۳: محاسبه هزینه کل اولیه (Total Initial Cost)</h4>
+                            <div class="formula-display" dir="ltr" style="font-size: 0.82rem; margin: 6px 0;">
+                                Z = (50 × 8) + (10 × 6) + (30 × 12) + (60 × 13)
+                            </div>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0;">
+                                Z = ۴۰۰ + ۶۰ + ۳۶۰ + ۷۸۰ = <strong>۱,۶۰۰ هزار تومان</strong> (۱.۶ میلیون تومان).
+                            </p>
+                        </div>
+
+                        <div class="tree-node" style="border-right-color: #7C3AED;">
+                            <h4 style="font-size: 0.84rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">گام ۴: آزمون بهینگی پتانسیل MODI</h4>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0 0 6px 0;">
+                                با فرض قراردادی u_A = 0 برای خانه‌های پایه (u_i + v_j = c_ij):<br>
+                                • v_تهران = ۸ - ۰ = ۸<br>
+                                • v_اصفهان = ۶ - ۰ = ۶<br>
+                                • u_B = ۱۲ - v_اصفهان = ۱۲ - ۶ = ۶<br>
+                                • v_شیراز = ۱۳ - u_B = ۱۳ - ۶ = ۷<br>
+                                <strong>ارزیابی خانه‌های خالی (Δ_ij = c_ij - u_i - v_j):</strong><br>
+                                • خانه (A, شیراز): ۱۰ - (۰ + ۷) = +۳ ≥ ۰ (مطلوب)<br>
+                                • خانه (B, تهران): ۹ - (۶ + ۸) = -۵ &lt; ۰ (تولید فرصت بهبود و کاهش هزینه!).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="background: #FFFBEB; border: 1.5px solid #FCD34D; border-radius: 10px; padding: 10px 14px; font-size: 0.76rem; color: #92400E;">
+                        💡 <strong>نتیجه‌گیری راهبردی مدیر مالی:</strong> چون شاخص بهبود خانه (B, تهران) برابر منفی ۵ شد، جدول گوشه شمال غربی هنوز بهینه نهایی نیست. با انتقال جریان در حلقه بسته جهش سنگفرشی به خانه (B, تهران)، هزینه کل حمل به ازای هر یخچال ۵ هزار تومان دیگر کاهش خواهد یافت!
+                    </div>
+                </div>
+
+</div>
 
             <div id="or-tab-traps" class="subtab-view" style="display: none;">
                 <div class="card">
@@ -5755,6 +6939,146 @@ body:not(.theme-dark) .dock-btn.active::after {
             
             <!-- 5.3 FORMULAS & ANATOMY: 3-TIER COGNITIVE REPOSITORY (PROFESSOR + BANKAI/CFA SYNTHESIS) -->
             <div id="stat-tab-formula" class="subtab-view" style="display: none;">
+
+                <!-- ========================================================
+                     BANKAI FORMULA WORKOUT & STUDIO LAB (STAT)
+                     ======================================================== -->
+                <div class="formula-lab-box" id="stat-formula-lab">
+                    <div class="lab-header">
+                        <div class="lab-title-group">
+                            <span class="badge badge-stat">کارگاه اختصاصی فرمول آمار کاربردی ۱</span>
+                            <h3>📐 استودیوی فرمول و یادسپاری فعال بانکای</h3>
+                            <p>بستر تعاملی تمرین، بازنویسی، سنجش یادسپاری و ثبت فرمول‌های شخصی و دانشگاهی</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="badge badge-dark" id="stat-mastery-badge">🏆 تسلط فرمولی: ۰%</span>
+                        </div>
+                    </div>
+
+                    <!-- Lab Mode Switcher Pills -->
+                    <div class="lab-mode-pills">
+                        <button type="button" class="lab-mode-pill active" id="stat-pill-recall" onclick="switchLabMode('stat', 'recall')">
+                            <span>🧠</span> تمرین یادسپاری فعال
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="stat-pill-custom" onclick="switchLabMode('stat', 'custom')">
+                            <span>✍️</span> ثبت فرمول شخصی بهادر
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="stat-pill-scratchpad" onclick="switchLabMode('stat', 'scratchpad')">
+                            <span>🔬</span> آزمایشگاه و پیش‌نمایش زنده
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Active Recall Workout -->
+                    <div class="lab-panel active-panel" id="stat-panel-recall">
+                        <div class="lab-prompt-card">
+                            <div class="lab-prompt-title">
+                                <span id="stat-drill-title">🎯 بارگذاری چالش فرمول...</span>
+                                <span class="badge badge-or" style="font-size: 0.65rem;">یادآوری فعال</span>
+                            </div>
+                            <p class="lab-prompt-text" id="stat-drill-text">در حال بارگذاری صورت مسئله...</p>
+                        </div>
+
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="stat-drill-input" class="lab-formula-input" placeholder="ضابطه جبری فرمول را اینجا تایپ یا از پالت نمادها درج کنید..." onkeydown="if(event.key==='Enter') checkCurrentFormulaDrill('stat')">
+                        </div>
+
+                        <!-- Symbol Palette for Quick Math Entry -->
+                        <div style="font-size: 0.72rem; color: #64748B; margin-bottom: 4px; font-weight: 700;">
+                            ⌨️ پالت سریع درج نمادهای ریاضی و عملگرها با یک لمس:
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∑')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∏')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∂')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'Δ')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '√')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'μ')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'σ')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'β')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'θ')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'λ')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'π')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'x̄')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≤')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≥')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≠')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '÷')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '×')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '^')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '²')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '³')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '_')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '(')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', ')')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '[')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', ']')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '+')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '-')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '=')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '/')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '·')">·</button>
+                        </div>
+
+                        <!-- Action Toolbar -->
+                        <div class="lab-actions-row">
+                            <button type="button" class="lab-btn-primary" onclick="checkCurrentFormulaDrill('stat')">
+                                <span>⚡</span> بررسی صحت فرمول
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="showFormulaDrillHint('stat')">
+                                <span>💡</span> راهنمایی مفهومی
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="revealFormulaDrillAnswer('stat')">
+                                <span>👁️</span> مشاهده پاسخ مرجع
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="nextFormulaDrill('stat')">
+                                <span>🎲</span> فرمول بعدی
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Feedback Alert -->
+                        <div class="lab-feedback-box" id="stat-drill-feedback"></div>
+                    </div>
+
+                    <!-- Panel 2: Bahador's Custom Formula Vault -->
+                    <div class="lab-panel" id="stat-panel-custom">
+                        <div style="background: #F1F5F9; border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                                ✍️ افزودن فرمول اختصاصی جدید به درس آمار کاربردی ۱
+                            </h4>
+                            <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
+                                فرمول‌ها یا نکات جدید کلاسی را ثبت کن تا در حافظه دستگاه ذخیره و بلافاصله به بانک یادسپاری اضافه شوند.
+                            </p>
+                            <div class="custom-formula-form">
+                                <div class="custom-formula-field">
+                                    <label>عنوان فرمول یا رابطه:</label>
+                                    <input type="text" id="stat-custom-title" placeholder="مثال: شرط تعادل پتانسیل در مسیرهای بحرانی">
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>ضابطه ریاضی فرمول (به همراه نمادها):</label>
+                                    <input type="text" id="stat-custom-formula" class="ltr-input" placeholder="مثال: u_i + v_j = c_ij">
+                                </div>
+                                <div class="lab-symbol-palette" style="margin-top: -4px;">
+                                    <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∑', 'stat-custom-formula')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∏', 'stat-custom-formula')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∂', 'stat-custom-formula')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'Δ', 'stat-custom-formula')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '√', 'stat-custom-formula')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'μ', 'stat-custom-formula')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'σ', 'stat-custom-formula')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'β', 'stat-custom-formula')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'θ', 'stat-custom-formula')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'λ', 'stat-custom-formula')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'π', 'stat-custom-formula')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'x̄', 'stat-custom-formula')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≤', 'stat-custom-formula')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≥', 'stat-custom-formula')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≠', 'stat-custom-formula')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '÷', 'stat-custom-formula')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '×', 'stat-custom-formula')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '^', 'stat-custom-formula')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '²', 'stat-custom-formula')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '³', 'stat-custom-formula')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '_', 'stat-custom-formula')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '(', 'stat-custom-formula')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', ')', 'stat-custom-formula')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '[', 'stat-custom-formula')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', ']', 'stat-custom-formula')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '+', 'stat-custom-formula')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '-', 'stat-custom-formula')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '=', 'stat-custom-formula')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '/', 'stat-custom-formula')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '·', 'stat-custom-formula')">·</button>
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>مفهوم تحلیلی و یادداشت سر کلاس:</label>
+                                    <textarea id="stat-custom-note" rows="2" placeholder="توضیح تحلیلی یا کاربرد فرمول..."></textarea>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                    <div class="custom-formula-field" style="margin: 0; min-width: 140px;">
+                                        <select id="stat-custom-tag">
+                                            <option value="نکته طلایی">⭐ نکته طلایی</option>
+                                            <option value="فرمول کلاسی">🎓 تدریس استاد</option>
+                                            <option value="تله کنکور">🚨 تله کنکور ارشد</option>
+                                            <option value="CFA استاندار">💎 استاندارد CFA</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="lab-btn-primary" onclick="saveCustomFormula('stat')">
+                                        <span>💾</span> ذخیره فرمول در بانکای
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saved Formulas Archive -->
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #0F172A; margin-bottom: 8px;">
+                            📋 فرمول‌های اختصاصی ثبت‌شده بهادر در این درس:
+                        </div>
+                        <div class="custom-formulas-list" id="stat-custom-formulas-list"></div>
+                    </div>
+
+                    <!-- Panel 3: Live Scratchpad & Symbol Workbench -->
+                    <div class="lab-panel" id="stat-panel-scratchpad">
+                        <div style="font-size: 0.82rem; color: #475569; margin-bottom: 8px;">
+                            ورودی آزاد فرمول‌نویسی: هر فرمولی را بنویسید تا پیش‌نمایش ریاضی تمیز آن را بلادرنگ ببینید:
+                        </div>
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="stat-scratchpad-input" class="lab-formula-input" placeholder="اینجا آزادانه فرمول بنویسید..." oninput="updateScratchpadPreview('stat')">
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∑', 'stat-scratchpad-input')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∏', 'stat-scratchpad-input')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '∂', 'stat-scratchpad-input')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'Δ', 'stat-scratchpad-input')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '√', 'stat-scratchpad-input')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'μ', 'stat-scratchpad-input')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'σ', 'stat-scratchpad-input')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'β', 'stat-scratchpad-input')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'θ', 'stat-scratchpad-input')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'λ', 'stat-scratchpad-input')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'π', 'stat-scratchpad-input')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', 'x̄', 'stat-scratchpad-input')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≤', 'stat-scratchpad-input')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≥', 'stat-scratchpad-input')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '≠', 'stat-scratchpad-input')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '÷', 'stat-scratchpad-input')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '×', 'stat-scratchpad-input')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '^', 'stat-scratchpad-input')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '²', 'stat-scratchpad-input')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '³', 'stat-scratchpad-input')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '_', 'stat-scratchpad-input')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '(', 'stat-scratchpad-input')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', ')', 'stat-scratchpad-input')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '[', 'stat-scratchpad-input')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', ']', 'stat-scratchpad-input')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '+', 'stat-scratchpad-input')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '-', 'stat-scratchpad-input')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '=', 'stat-scratchpad-input')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '/', 'stat-scratchpad-input')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('stat', '·', 'stat-scratchpad-input')">·</button>
+                        </div>
+                        <div style="font-size: 0.74rem; font-weight: 700; color: #64748B; margin-top: 8px;">
+                            پیش‌نمایش زنده ریاضی:
+                        </div>
+                        <div class="scratchpad-preview-box" id="stat-scratchpad-preview">
+                            <span style="color: #94A3B8; font-size: 0.82rem;">پیش‌نمایش زنده فرمول اینجا نمایش داده می‌شود...</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div style="margin-bottom: 14px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span class="badge badge-pro">تلفیق تکمیلی 🔥</span>
@@ -7068,6 +8392,146 @@ body:not(.theme-dark) .dock-btn.active::after {
 
             <!-- SUBTAB 3: FORMULAS DECK -->
             <div id="math-tab-formula" class="subtab-view">
+
+                <!-- ========================================================
+                     BANKAI FORMULA WORKOUT & STUDIO LAB (MATH)
+                     ======================================================== -->
+                <div class="formula-lab-box" id="math-formula-lab">
+                    <div class="lab-header">
+                        <div class="lab-title-group">
+                            <span class="badge badge-math">کارگاه اختصاصی فرمول ریاضیات کاربردی و مالی</span>
+                            <h3>⚡ استودیوی فرمول و یادسپاری فعال بانکای</h3>
+                            <p>بستر تعاملی تمرین، بازنویسی، سنجش یادسپاری و ثبت فرمول‌های شخصی و دانشگاهی</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="badge badge-dark" id="math-mastery-badge">🏆 تسلط فرمولی: ۰%</span>
+                        </div>
+                    </div>
+
+                    <!-- Lab Mode Switcher Pills -->
+                    <div class="lab-mode-pills">
+                        <button type="button" class="lab-mode-pill active" id="math-pill-recall" onclick="switchLabMode('math', 'recall')">
+                            <span>🧠</span> تمرین یادسپاری فعال
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="math-pill-custom" onclick="switchLabMode('math', 'custom')">
+                            <span>✍️</span> ثبت فرمول شخصی بهادر
+                        </button>
+                        <button type="button" class="lab-mode-pill" id="math-pill-scratchpad" onclick="switchLabMode('math', 'scratchpad')">
+                            <span>🔬</span> آزمایشگاه و پیش‌نمایش زنده
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Active Recall Workout -->
+                    <div class="lab-panel active-panel" id="math-panel-recall">
+                        <div class="lab-prompt-card">
+                            <div class="lab-prompt-title">
+                                <span id="math-drill-title">🎯 بارگذاری چالش فرمول...</span>
+                                <span class="badge badge-or" style="font-size: 0.65rem;">یادآوری فعال</span>
+                            </div>
+                            <p class="lab-prompt-text" id="math-drill-text">در حال بارگذاری صورت مسئله...</p>
+                        </div>
+
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="math-drill-input" class="lab-formula-input" placeholder="ضابطه جبری فرمول را اینجا تایپ یا از پالت نمادها درج کنید..." onkeydown="if(event.key==='Enter') checkCurrentFormulaDrill('math')">
+                        </div>
+
+                        <!-- Symbol Palette for Quick Math Entry -->
+                        <div style="font-size: 0.72rem; color: #64748B; margin-bottom: 4px; font-weight: 700;">
+                            ⌨️ پالت سریع درج نمادهای ریاضی و عملگرها با یک لمس:
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∑')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∏')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∂')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'Δ')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '√')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'μ')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'σ')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'β')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'θ')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'λ')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'π')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'x̄')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≤')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≥')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≠')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '÷')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '×')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '^')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '²')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '³')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '_')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '(')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', ')')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '[')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', ']')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '+')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '-')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '=')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '/')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '·')">·</button>
+                        </div>
+
+                        <!-- Action Toolbar -->
+                        <div class="lab-actions-row">
+                            <button type="button" class="lab-btn-primary" onclick="checkCurrentFormulaDrill('math')">
+                                <span>⚡</span> بررسی صحت فرمول
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="showFormulaDrillHint('math')">
+                                <span>💡</span> راهنمایی مفهومی
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="revealFormulaDrillAnswer('math')">
+                                <span>👁️</span> مشاهده پاسخ مرجع
+                            </button>
+                            <button type="button" class="lab-btn-secondary" onclick="nextFormulaDrill('math')">
+                                <span>🎲</span> فرمول بعدی
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Feedback Alert -->
+                        <div class="lab-feedback-box" id="math-drill-feedback"></div>
+                    </div>
+
+                    <!-- Panel 2: Bahador's Custom Formula Vault -->
+                    <div class="lab-panel" id="math-panel-custom">
+                        <div style="background: #F1F5F9; border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                            <h4 style="font-size: 0.88rem; font-weight: 800; color: #0F172A; margin: 0 0 4px 0;">
+                                ✍️ افزودن فرمول اختصاصی جدید به درس ریاضیات کاربردی و مالی
+                            </h4>
+                            <p style="font-size: 0.74rem; color: #475569; margin: 0 0 10px 0;">
+                                فرمول‌ها یا نکات جدید کلاسی را ثبت کن تا در حافظه دستگاه ذخیره و بلافاصله به بانک یادسپاری اضافه شوند.
+                            </p>
+                            <div class="custom-formula-form">
+                                <div class="custom-formula-field">
+                                    <label>عنوان فرمول یا رابطه:</label>
+                                    <input type="text" id="math-custom-title" placeholder="مثال: شرط تعادل پتانسیل در مسیرهای بحرانی">
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>ضابطه ریاضی فرمول (به همراه نمادها):</label>
+                                    <input type="text" id="math-custom-formula" class="ltr-input" placeholder="مثال: u_i + v_j = c_ij">
+                                </div>
+                                <div class="lab-symbol-palette" style="margin-top: -4px;">
+                                    <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∑', 'math-custom-formula')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∏', 'math-custom-formula')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∂', 'math-custom-formula')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'Δ', 'math-custom-formula')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '√', 'math-custom-formula')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'μ', 'math-custom-formula')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'σ', 'math-custom-formula')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'β', 'math-custom-formula')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'θ', 'math-custom-formula')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'λ', 'math-custom-formula')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'π', 'math-custom-formula')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'x̄', 'math-custom-formula')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≤', 'math-custom-formula')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≥', 'math-custom-formula')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≠', 'math-custom-formula')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '÷', 'math-custom-formula')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '×', 'math-custom-formula')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '^', 'math-custom-formula')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '²', 'math-custom-formula')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '³', 'math-custom-formula')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '_', 'math-custom-formula')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '(', 'math-custom-formula')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', ')', 'math-custom-formula')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '[', 'math-custom-formula')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', ']', 'math-custom-formula')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '+', 'math-custom-formula')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '-', 'math-custom-formula')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '=', 'math-custom-formula')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '/', 'math-custom-formula')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '·', 'math-custom-formula')">·</button>
+                                </div>
+                                <div class="custom-formula-field">
+                                    <label>مفهوم تحلیلی و یادداشت سر کلاس:</label>
+                                    <textarea id="math-custom-note" rows="2" placeholder="توضیح تحلیلی یا کاربرد فرمول..."></textarea>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                    <div class="custom-formula-field" style="margin: 0; min-width: 140px;">
+                                        <select id="math-custom-tag">
+                                            <option value="نکته طلایی">⭐ نکته طلایی</option>
+                                            <option value="فرمول کلاسی">🎓 تدریس استاد</option>
+                                            <option value="تله کنکور">🚨 تله کنکور ارشد</option>
+                                            <option value="CFA استاندار">💎 استاندارد CFA</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="lab-btn-primary" onclick="saveCustomFormula('math')">
+                                        <span>💾</span> ذخیره فرمول در بانکای
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saved Formulas Archive -->
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #0F172A; margin-bottom: 8px;">
+                            📋 فرمول‌های اختصاصی ثبت‌شده بهادر در این درس:
+                        </div>
+                        <div class="custom-formulas-list" id="math-custom-formulas-list"></div>
+                    </div>
+
+                    <!-- Panel 3: Live Scratchpad & Symbol Workbench -->
+                    <div class="lab-panel" id="math-panel-scratchpad">
+                        <div style="font-size: 0.82rem; color: #475569; margin-bottom: 8px;">
+                            ورودی آزاد فرمول‌نویسی: هر فرمولی را بنویسید تا پیش‌نمایش ریاضی تمیز آن را بلادرنگ ببینید:
+                        </div>
+                        <div class="lab-input-wrapper">
+                            <input type="text" id="math-scratchpad-input" class="lab-formula-input" placeholder="اینجا آزادانه فرمول بنویسید..." oninput="updateScratchpadPreview('math')">
+                        </div>
+                        <div class="lab-symbol-palette">
+                            <button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∑', 'math-scratchpad-input')">∑</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∏', 'math-scratchpad-input')">∏</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '∂', 'math-scratchpad-input')">∂</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'Δ', 'math-scratchpad-input')">Δ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '√', 'math-scratchpad-input')">√</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'μ', 'math-scratchpad-input')">μ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'σ', 'math-scratchpad-input')">σ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'β', 'math-scratchpad-input')">β</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'θ', 'math-scratchpad-input')">θ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'λ', 'math-scratchpad-input')">λ</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'π', 'math-scratchpad-input')">π</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', 'x̄', 'math-scratchpad-input')">x̄</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≤', 'math-scratchpad-input')">≤</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≥', 'math-scratchpad-input')">≥</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '≠', 'math-scratchpad-input')">≠</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '÷', 'math-scratchpad-input')">÷</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '×', 'math-scratchpad-input')">×</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '^', 'math-scratchpad-input')">^</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '²', 'math-scratchpad-input')">²</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '³', 'math-scratchpad-input')">³</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '_', 'math-scratchpad-input')">_</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '(', 'math-scratchpad-input')">(</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', ')', 'math-scratchpad-input')">)</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '[', 'math-scratchpad-input')">[</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', ']', 'math-scratchpad-input')">]</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '+', 'math-scratchpad-input')">+</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '-', 'math-scratchpad-input')">-</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '=', 'math-scratchpad-input')">=</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '/', 'math-scratchpad-input')">/</button><button type="button" class="lab-symbol-btn" onclick="insertLabSymbol('math', '·', 'math-scratchpad-input')">·</button>
+                        </div>
+                        <div style="font-size: 0.74rem; font-weight: 700; color: #64748B; margin-top: 8px;">
+                            پیش‌نمایش زنده ریاضی:
+                        </div>
+                        <div class="scratchpad-preview-box" id="math-scratchpad-preview">
+                            <span style="color: #94A3B8; font-size: 0.82rem;">پیش‌نمایش زنده فرمول اینجا نمایش داده می‌شود...</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="card" style="border-top: 4px solid #7C3AED; margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
                         <div>
@@ -7492,6 +8956,45 @@ body:not(.theme-dark) .dock-btn.active::after {
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('z = sqrt(R^2 - x^2 - y^2); Domain: x^2 + y^2 <= R^2; Range: [0, R]')"><span>📋</span> کپی فرمول</button>
                     </div>
+
+                    <!-- FORMULA 15: TOTAL DIFFERENTIAL, RELATIVE ERROR & CYLINDER -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-math">فرمول طلایی ۱۵</span>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: #0F172A; margin-top: 6px;">دیفرانسیل کل، خطای ابعاد، خطای نسبی و درصدی هندسی-اقتصادی</h4>
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('dV = (2πrh) dr + (πr²) dh  |  dV / V = 2(dr/r) + (dh/h)', this)" title="برای کپی کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">دیفرانسیل کل حجم استوانه مستدیر (V = πr²h):</span>
+                                    <span class="math-sym">dV</span> <span class="math-op">=</span> ( 2π · r · h ) · dr + ( π · r² ) · dh
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">خطای نسبی و قاعده توان در لگاریتم طبیعی:</span>
+                                    <span class="math-frac"><span class="math-num">dV</span><span class="math-den">V</span></span> <span class="math-op">=</span> 2 · <span class="math-frac"><span class="math-num">dr</span><span class="math-den">r</span></span> + <span class="math-frac"><span class="math-num">dh</span><span class="math-den">h</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">خطای درصدی تقریب تغییرات:</span>
+                                    <span class="math-sym">%Error_V</span> <span class="math-op">=</span> 2 · ( %Error_r ) + ( %Error_h )
+                                </div>
+                            </div>
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                توان هر متغیر در توابع ضربی، ضریب خطای نسبی آن در دیفرانسیل کل است! چون شعاع r توان ۲ دارد، حساسیت حجم نسبت به خطای شعاع دو برابر حساسیت نسبت به ارتفاع است.
+                            </div>
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد در تحلیل سناریو و مدیریت ریسک مالی:</strong>
+                                ارزیابی حساسیت بهای تمام‌شده و درآمد فروش نسبت به نوسانات هم‌زمان چند نرخ تورم و بهای مواد اولیه.
+                            </div>
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                تمایز تغییر واقعی ΔV با دیفرانسیل کل dV! تغییر واقعی برابر V_2 - V_1 است و شامل جملات درجه بالای سری تایلور است؛ تفاوت dV و ΔV خطای تقریب نام دارد.
+                            </div>
+                        </div>
+                        <button class="btn-copy-formula" onclick="copyFormula('dV = (2πrh)dr + (πr²)dh  |  dV/V = 2(dr/r) + (dh/h)')">
+                            <span>📋</span> کپی فرمول
+                        </button>
+                    </div>
+
+
                 </div>
 
                 <!-- End of Isolated View Boundary Guard -->
@@ -12556,7 +14059,766 @@ body:not(.theme-dark) .dock-btn.active::after {
         window.runORMinRatioTrainer = runORMinRatioTrainer;
 
 
-    })();
+    
+
+/* === BANKAI FORMULA LAB & ACTIVE RECALL ENGINE === */
+// BANKAI FORMULA WORKOUT & CUSTOM FORMULA STUDIO ENGINE
+(function() {
+    'use strict';
+
+    var bankaiFormulaBank = {
+        micro: [
+            {
+                id: 'm1',
+                title: 'کشش قیمتی تقاضا با مشتق',
+                prompt: 'فرمول مشتقی کشش قیمتی تقاضا (Ed) بر حسب dQ/dP و نسبت P به Q چیست؟',
+                canonical: 'Ed = (dQ/dP) * (P/Q)',
+                aliases: ['Ed=(dQ/dP)*(P/Q)', 'Ed=(dq/dp)*(p/q)', 'ed=(dq/dp)*(p/q)', 'Ed = (dQ / dP) * (P / Q)'],
+                hint: 'مشتق تقاضا نسبت به قیمت را در قیمت فعلی ضرب و بر مقدار فعلی تقسیم کنید.',
+                breakdown: 'کالبدشکافی: شیب منفی منحنی تقاضا (dQ/dP < 0) باعث منفی شدن کشش می‌شود که برای تفسیر در قدر مطلق قرار می‌گیرد.'
+            },
+            {
+                id: 'm2',
+                title: 'شاخص درجه انحصار لرنر (Lerner Index)',
+                prompt: 'فرمول شاخص لرنر (L) بر حسب قیمت (P) و هزینه نهایی (MC) چیست؟',
+                canonical: 'L = (P - MC) / P',
+                aliases: ['L=(P-MC)/P', 'l=(p-mc)/p', 'L = (P - MC) / P = 1 / |Ed|', 'L = 1 / |Ed|'],
+                hint: 'کسر حاشیه سود نهایی (P - MC) تقسیم بر قیمت فروش (P).',
+                breakdown: 'کالبدشکافی: در رقابت کامل P = MC و شاخص صفر است؛ هرچه کشش کمتر باشد، قدرت قیمت‌گذاری انحصارگر بالاتر است.'
+            },
+            {
+                id: 'm3',
+                title: 'رابطه درآمد نهایی آموروسو-رابینسون',
+                prompt: 'رابطه درآمد نهایی (MR) با قیمت (P) و قدرمطلق کشش قیمتی تقاضا (|Ed|) را بنویسید:',
+                canonical: 'MR = P * (1 - 1 / |Ed|)',
+                aliases: ['MR=P*(1-1/|Ed|)', 'mr=p*(1-1/|ed|)', 'MR = P * (1 - 1/Ed)', 'MR = P * (1 - 1 / Ed)'],
+                hint: 'قیمت ضرب‌در پرانتز یک منهای معکوس قدرمطلق کشش تقاضا.',
+                breakdown: 'کالبدشکافی: اگر تقاضا باکشش (|Ed| > 1) باشد، کسر کوچک‌تر از یک و MR مثبت است؛ در کشش واحد، MR صفر و درآمد کل حداکثر است.'
+            },
+            {
+                id: 'm4',
+                title: 'نرخ نهایی جانشینی در مصرف (MRS)',
+                prompt: 'فرمول تعادل مصرف‌کننده و برابری MRS با مطلوبیت‌های نهایی (MUx و MUy) چیست؟',
+                canonical: 'MRS = MUx / MUy',
+                aliases: ['MRS=MUx/MUy', 'mrs=mux/muy', 'MRS = MUx / MUy = Px / Py'],
+                hint: 'نسبت مطلوبیت نهایی کالای x به مطلوبیت نهایی کالای y.',
+                breakdown: 'کالبدشکافی: قدر مطلق شیب منحنی بی‌تفاوتی مصرف‌کننده که در نقطه تعادل مماس بر خط بودجه با شیب Px/Py است.'
+            },
+            {
+                id: 'm5',
+                title: 'سهم خریدار از بار مالیاتی (Tax Incidence)',
+                prompt: 'فرمول سهم خریدار (Tb) از مالیات بر حسب کشش عرضه (Es) و تقاضا (|Ed|) چیست؟',
+                canonical: 'Tb = Es / (Es + |Ed|)',
+                aliases: ['Tb=Es/(Es+|Ed|)', 'tb=es/(es+|ed|)', 'Tb = Es / (Es + Ed)'],
+                hint: 'کشش طرف دیگر (عرضه) در صورت کسر، و مجموع کشش‌ها در مخرج.',
+                breakdown: 'کالبدشکافی: هر طرفی که کشش کمتری داشته باشد (ناکشاتر باشد)، سهم بیشتری از مالیات را به دوش می‌کشد.'
+            }
+        ],
+        cost: [
+            {
+                id: 'c1',
+                title: 'تیراژ نقطه سر‌به‌سر (BEP Volume)',
+                prompt: 'فرمول تیراژ نقطه سر‌به‌سر (Q_bep) بر حسب هزینه ثابت (FC)، قیمت فروش (P) و بهای متغیر (V) چیست؟',
+                canonical: 'Q = FC / (P - V)',
+                aliases: ['Q=FC/(P-V)', 'q=fc/(p-v)', 'BEP = FC / (P - V)', 'Q_bep = FC / (P - V)', 'Q = FC / CM'],
+                hint: 'هزینه ثابت تقسیم بر حاشیه فروش هر واحد (P - V).',
+                breakdown: 'کالبدشکافی: در این تیراژ، حاشیه فروش کل دقیقاً هزینه‌های ثابت را پوشش می‌دهد و سود عملیاتی (EBIT) صفر است.'
+            },
+            {
+                id: 'c2',
+                title: 'درجه اهرم عملیاتی (DOL)',
+                prompt: 'فرمول درجه اهرم عملیاتی (DOL) بر حسب حاشیه فروش (CM) و سود عملیاتی (EBIT) چیست؟',
+                canonical: 'DOL = CM / EBIT',
+                aliases: ['DOL=CM/EBIT', 'dol=cm/ebit', 'DOL = CM / (CM - FC)', 'DOL = Q*(P-V) / [Q*(P-V) - FC]'],
+                hint: 'حاشیه فروش کل تقسیم بر سود عملیاتی (قبل از بهره و مالیات).',
+                breakdown: 'کالبدشکافی: نشان‌دهنده حساسیت درصد تغییر سود به درصد تغییر فروش؛ معکوس نسبت حاشیه امنیت است (DOL = 1 / MS).'
+            },
+            {
+                id: 'c3',
+                title: 'نسبت حاشیه امنیت (Margin of Safety)',
+                prompt: 'فرمول نسبت حاشیه امنیت بر حسب فروش فعلی (Sales) و فروش سر‌به‌سر (BEP) چیست؟',
+                canonical: 'MS = (Sales - BEP) / Sales',
+                aliases: ['MS=(Sales-BEP)/Sales', 'ms=(sales-bep)/sales', 'MS = 1 / DOL'],
+                hint: 'تفاضل فروش از نقطه سر‌به‌سر تقسیم بر کل فروش.',
+                breakdown: 'کالبدشکافی: نشان می‌دهد فروش شرکت تا چند درصد می‌تواند افت کند بدون اینکه شرکت وارد منطقه زیان‌دهی شود.'
+            },
+            {
+                id: 'c4',
+                title: 'تیراژ سود هدف با مالیات شرکتی',
+                prompt: 'فرمول تیراژ سود هدف (Q) با در نظر گرفتن مالیات نرخ T و هزینه ثابت FC چیست؟',
+                canonical: 'Q = [FC + Target / (1 - T)] / (P - V)',
+                aliases: ['Q=[FC+Target/(1-T)]/(P-V)', 'q=[fc+target/(1-t)]/(p-v)', 'Q = (FC + TP / (1 - T)) / (P - V)'],
+                hint: 'سود پس از مالیات را بر (1 - T) تقسیم کنید تا قبل از مالیات شود، سپس با FC جمع و بر حاشیه فروش تقسیم کنید.',
+                breakdown: 'کالبدشکافی: چون مالیات بر سود وضع می‌شود، سود هدف قبل از ورود به فرمول سر‌به‌سر باید به سود ناخالص پیش از مالیات تبدیل شود.'
+            },
+            {
+                id: 'c5',
+                title: 'بهای اولیه تولید (Prime Cost)',
+                prompt: 'فرمول بهای اولیه (Prime Cost) بر حسب مواد مستقیم (DM) و دستمزد مستقیم (DL) چیست؟',
+                canonical: 'Prime = DM + DL',
+                aliases: ['Prime=DM+DL', 'prime=dm+dl', 'Prime Cost = DM + DL', 'Prime_Cost = DM + DL'],
+                hint: 'جمع مستقیم مواد اولیه و دستمزد مستقیم خط تولید.',
+                breakdown: 'کالبدشکافی: بخش ریشه‌ای و مستقیماً قابل ردیابی بهای تمام‌شده محصول قبل از تخصیص سربار کارخانه.'
+            }
+        ],
+        finance: [
+            {
+                id: 'f1',
+                title: 'مدل قیمت‌گذاری دارایی سرمایه‌ای (CAPM)',
+                prompt: 'فرمول نرخ بازده مورد انتظار سهم (E(Ri)) بر اساس CAPM با نرخ بدون ریسک (Rf) و بتا (Beta) چیست؟',
+                canonical: 'E(Ri) = Rf + beta * [E(Rm) - Rf]',
+                aliases: ['E(Ri)=Rf+beta*[E(Rm)-Rf]', 'Ri = Rf + beta * (Rm - Rf)', 'E(R) = Rf + beta*(Rm - Rf)', 'E(Ri) = Rf + beta_i * (E(Rm) - Rf)'],
+                hint: 'نرخ بدون ریسک به علاوه بتای سهم ضرب‌در صرف ریسک بازار [E(Rm) - Rf].',
+                breakdown: 'کالبدشکافی: فقط ریسک سیستماتیک (بتا) پاداش داده می‌شود زیرا ریسک غیرسیستماتیک با تنوع‌بخشی قابل حذف است.'
+            },
+            {
+                id: 'f2',
+                title: 'شاخص شارپ پورتفوی (Sharpe Ratio)',
+                prompt: 'فرمول شاخص شارپ (Sharpe) با بازده پورتفو (Rp)، نرخ بدون ریسک (Rf) و انحراف معیار (sigma) چیست؟',
+                canonical: 'Sharpe = (Rp - Rf) / sigma',
+                aliases: ['Sharpe=(Rp-Rf)/sigma', 'sharpe=(rp-rf)/sigma', 'SR = (Rp - Rf) / sigma_p'],
+                hint: 'مازاد بازده پورتفوی نسبت به بدون ریسک تقسیم بر انحراف معیار کل.',
+                breakdown: 'کالبدشکافی: سنجش بازده به ازای یک واحد ریسک کل؛ مناسب برای ارزیابی پورتفوهایی که تمام دارایی سرمایه‌گذار در آن است.'
+            },
+            {
+                id: 'f3',
+                title: 'شاخص ترینور (Treynor Ratio)',
+                prompt: 'فرمول شاخص ترینور با بازده پورتفو (Rp)، بدون ریسک (Rf) و ریسک سیستماتیک (beta) چیست؟',
+                canonical: 'Treynor = (Rp - Rf) / beta',
+                aliases: ['Treynor=(Rp-Rf)/beta', 'treynor=(rp-rf)/beta', 'TR = (Rp - Rf) / beta_p'],
+                hint: 'مازاد بازده پورتفو تقسیم بر بتای پورتفو.',
+                breakdown: 'کالبدشکافی: سنجش بازده به ازای هر واحد ریسک سیستماتیک؛ مناسب برای صندوق‌هایی که بخشی از یک سبد متنوع هستند.'
+            },
+            {
+                id: 'f4',
+                title: 'آلفای جنسن (Jensen Alpha)',
+                prompt: 'فرمول آلفای جنسن (Alpha) به عنوان بازده مازاد واقعی سهم نسبت به بازده انتظاری CAPM چیست؟',
+                canonical: 'Alpha = Rp - [Rf + beta * (Rm - Rf)]',
+                aliases: ['Alpha=Rp-[Rf+beta*(Rm-Rf)]', 'alpha=rp-[rf+beta*(rm-rf)]', 'Alpha = Rp - E(Rp)'],
+                hint: 'بازده واقعی محقق‌شده منهای بازده مورد انتظار تئوریک مدل CAPM.',
+                breakdown: 'کالبدشکافی: آلفای مثبت نشان‌دهنده هنر و مهارت مدیر پورتفو در کسب بازده غیرعادی و شکست دادن خط بازار اوراق بهادار (SML) است.'
+            },
+            {
+                id: 'f5',
+                title: 'مدل ارزش‌گذاری رشد گوردون (Gordon Growth)',
+                prompt: 'فرمول ارزش فعلی سهام عادی (P0) با سود تقسیمی سال بعد (D1)، نرخ بازده مورد انتظار (ke) و نرخ رشد (g) چیست؟',
+                canonical: 'P0 = D1 / (ke - g)',
+                aliases: ['P0=D1/(ke-g)', 'p0=d1/(ke-g)', 'P0 = D0*(1+g) / (ke - g)'],
+                hint: 'سود سهام سال آینده (D1) تقسیم بر مابه‌التفاوت نرخ تنزیل و نرخ رشد دائمی سود.',
+                breakdown: 'کالبدشکافی: شرط اعتبار مدل این است که همواره ke > g باشد، در غیر این صورت ارزش منفی یا بی‌نهایت می‌شود.'
+            },
+            {
+                id: 'f6',
+                title: 'معادله هامادا برای بتای اهرمی (Hamada Equation)',
+                prompt: 'فرمول بتای اهرمی (beta_L) بر حسب بتای بدون بدهی (beta_U)، نرخ مالیات (T) و نسبت بدهی به حقوق صاحبان سهام (D/E) چیست؟',
+                canonical: 'beta_L = beta_U * [1 + (1 - T) * (D / E)]',
+                aliases: ['beta_L=beta_U*[1+(1-T)*(D/E)]', 'beta_l=beta_u*[1+(1-t)*(d/e)]', 'beta_L = beta_U * (1 + (1-T)*(D/E))'],
+                hint: 'بتای عملیاتی ضرب‌در پرانتز یک به علاوه سپر مالیاتی نسبت بدهی به سرمایه.',
+                breakdown: 'کالبدشکافی: بدهی اهرمی ریسک مالی را افزایش داده و بتای سهامداران را تشدید می‌کند.'
+            }
+        ],
+        or: [
+            {
+                id: 'o1',
+                title: 'شرط پتانسیل در متغیرهای پایه مدل حمل و نقل (MODI)',
+                prompt: 'در روش پتانسیل MODI، رابطه متغیرهای دوگان سطری (u_i) و ستونی (v_j) با هزینه سلول پایه (c_ij) چیست؟',
+                canonical: 'u_i + v_j = c_ij',
+                aliases: ['u_i+v_j=c_ij', 'ui+vj=cij', 'u_i + v_j = c_{ij}', 'u_i + v_j = c_ij', 'ui + vj = cij'],
+                hint: 'جمع پتانسیل سطر i و ستون j باید دقیقاً برابر هزینه واحد حمل همان خانه پایه شود.',
+                breakdown: 'کالبدشکافی تحلیلی استاد: متناظر با قضیه مکمل فزونی در دوگان سیمپلکس؛ برای تمام سلول‌های تخصیص‌یافته، هزینه کاهش‌یافته صفر است.'
+            },
+            {
+                id: 'o2',
+                title: 'شاخص بهبود خانه‌های خالی در مدل حمل و نقل (Opportunity Cost)',
+                prompt: 'فرمول شاخص بهبود یا هزینه کاهش‌یافته خانه‌های خالی (Delta_ij) بر حسب هزینه (c_ij) و پتانسیل‌ها چیست؟',
+                canonical: 'Delta_ij = c_ij - (u_i + v_j)',
+                aliases: ['Delta_ij=c_ij-(u_i+v_j)', 'delta_ij=c_ij-u_i-v_j', 'Delta = c_ij - u_i - v_j', 'Delta_ij = c_ij - u_i - v_j'],
+                hint: 'هزینه واقعی سلول منهای جمع پتانسیل‌های سطر و ستون آن خانه.',
+                breakdown: 'کالبدشکافی: در مسئله کمینه‌سازی هزینه، اگر تمام Delta_ij >= 0 باشند جواب بهینه است؛ هر مقدار منفی فرصت کاهش هزینه را نشان می‌دهد.'
+            },
+            {
+                id: 'o3',
+                title: 'تعداد متغیرهای پایه در جدول حمل و نقل',
+                prompt: 'قاعده تعداد متغیرهای پایه (تخصیص‌های مجاز مستقل) در جدول حمل و نقل با m مبدا و n مقصد چیست؟',
+                canonical: 'm + n - 1',
+                aliases: ['m+n-1', 'Basic = m + n - 1', 'm + n - 1 متغیر', 'm+n-1 متغیر پایه'],
+                hint: 'جمع تعداد سطرها و ستون‌ها منهای یک به دلیل وابستگی خطی شرط تعادل عرضه و تقاضا.',
+                breakdown: 'کالبدشکافی: اگر تعداد خانه‌های پر کمتر از این عدد شود جدول تبهگن (Degenerate) است و باید صفر مجازی اپسیلون اضافه شود.'
+            },
+            {
+                id: 'o4',
+                title: 'قضیه مکمل فزونی (Complementary Slackness)',
+                prompt: 'معادله قضیه مکمل فزونی بین متغیر کمبود سطر i (s_i) و متغیر دوگان متناظر (y_i) را بنویسید:',
+                canonical: 's_i * y_i = 0',
+                aliases: ['s_i*y_i=0', 'si*yi=0', 's_i × y_i = 0', 's_i * y_i = 0 & x_j * e_j = 0'],
+                hint: 'حاصل‌ضرب متغیر اسلک در قیمت سایه متناظر آن باید همواره صفر شود.',
+                breakdown: 'کالبدشکافی: اگر منبعی مازاد داشته باشد (s_i > 0)، ارزش سایه آن صفر است (y_i = 0)؛ و اگر قیمت سایه مثبت باشد، کل منبع مصرف شده است (s_i = 0).'
+            },
+            {
+                id: 'o5',
+                title: 'قیمت سایه منبع محدودکننده (Shadow Price)',
+                prompt: 'فرمول مشتقی قیمت سایه (y_i) بر حسب تغییرات تابع هدف بهینه (Z) نسبت به تغییر ظرفیت منبع (b_i) چیست؟',
+                canonical: 'y_i = dZ / db_i',
+                aliases: ['y_i=dZ/db_i', 'yi=dz/dbi', 'y_i = ∂Z / ∂b_i', 'y_i = dZ/db_i'],
+                hint: 'مشتق جزئی تابع هدف بهینه نسبت به مقدار موجودی منبع iام.',
+                breakdown: 'کالبدشکافی: حداکثر قیمتی که مدیر حاضر است برای دریافت یک واحد بیشتر از منبع محدودکننده بپردازد.'
+            },
+            {
+                id: 'o6',
+                title: 'تابع هدف بهینه‌سازی خطی پورتفوی سرمایه‌گذاری (Portfolio LP)',
+                prompt: 'فرمول تابع هدف بیشینه‌سازی بازده پورتفو (Max Z) با وزن دارایی‌ها (x_i) و بازده انتظاری (r_i) چیست؟',
+                canonical: 'Max Z = sum(r_i * x_i)',
+                aliases: ['Max Z = sum(r_i * x_i)', 'Max Z = ∑ r_i * x_i', 'Max Z = sum(ri*xi)', 'Z = sum(r_i * x_i)'],
+                hint: 'مجموع حاصل‌ضرب بازده مورد انتظار هر دارایی در وزن تخصیص‌یافته به آن.',
+                breakdown: 'کالبدشکافی: با قید sum(x_i) = 1 تضمین می‌کند کل سرمایه به بهینه‌ترین ترکیب دارایی‌ها تخصیص یابد.'
+            }
+        ],
+        stat: [
+            {
+                id: 's1',
+                title: 'انحراف متوسط از میانگین (MAD)',
+                prompt: 'فرمول انحراف متوسط از میانگین (MAD) برای n مشاهده نمونه با میانگین x_bar چیست؟',
+                canonical: 'MAD = sum(|x_i - x_bar|) / n',
+                aliases: ['MAD=sum(|x_i-x_bar|)/n', 'MAD = ∑ |x_i - x_bar| / n', 'mad=sum(|xi-xbar|)/n', 'MAD = sum(|x - x_bar|)/n'],
+                hint: 'مجموع قدر مطلق انحرافات داده‌ها از میانگین تقسیم بر تعداد کل مشاهدات (n).',
+                breakdown: 'کالبدشکافی: حذف اثر علامت منفی‌ها از مسیر خطی بدون مربع‌سازی؛ مقاوم در برابر داده‌های پرت و محبوب در زنجیره تامین.'
+            },
+            {
+                id: 's2',
+                title: 'واریانس نمونه و تصحیح بسل (Sample Variance)',
+                prompt: 'فرمول واریانس نمونه (s^2) با تصحیح بسل در مخرج چیست؟',
+                canonical: 's^2 = sum((x_i - x_bar)^2) / (n - 1)',
+                aliases: ['s^2=sum((x_i-x_bar)^2)/(n-1)', 's^2 = ∑ (x_i - x_bar)² / (n - 1)', 's2 = sum((x_i - x_bar)^2) / (n - 1)'],
+                hint: 'مجموع مجذور انحرافات تقسیم بر درجات آزادی (n - 1).',
+                breakdown: 'کالبدشکافی: تقسیم بر n - 1 اریبی برآوردگر را برطرف کرده و تخمین نااریب از واریانس کل جامعه ارائه می‌دهد.'
+            },
+            {
+                id: 's3',
+                title: 'نیمه‌واریانس جامعه با مخرج مشاهدات زیر هدف (Semi-Variance)',
+                prompt: 'طبق قرارداد دانشگاهی استاد، فرمول نیمه‌واریانس (SV) برای k مشاهده پایین‌تر از هدف (Target) چیست؟',
+                canonical: 'SV = sum((x_i - Target)^2) / k',
+                aliases: ['SV=sum((x_i-Target)^2)/k', 'SV = ∑ (x_i - Target)² / k', 'sv=sum((xi-target)^2)/k', 'SV = sum((x_i - mu)^2) / k'],
+                hint: 'مجموع مجذور انحرافات مقادیر زیان‌بار (زیر حد هدف) تقسیم بر k (تعداد دفعات وقوع ریزش).',
+                breakdown: 'کالبدشکافی: سنجش ریسک نامطلوب (Downside Risk) و مخرج نسبت سورتینو؛ نوسانات مثبت ریسک محسوب نمی‌شوند.'
+            },
+            {
+                id: 's4',
+                title: 'ضریب تغییرات و سنجش ریسک نسبی (CV)',
+                prompt: 'فرمول ضریب تغییرات (CV) بر حسب انحراف معیار (s) و میانگین (x_bar) چیست؟',
+                canonical: 'CV = s / x_bar',
+                aliases: ['CV=s/x_bar', 'cv=s/x_bar', 'CV = sigma / mu', 'CV = s / xbar'],
+                hint: 'انحراف معیار تقسیم بر میانگین حسابی.',
+                breakdown: 'کالبدشکافی: معیار ریسک بدون بعد و خنثی از مقیاس؛ مناسب برای مقایسه نوسان دو سهم با قیمت‌های بسیار متفاوت.'
+            },
+            {
+                id: 's5',
+                title: 'انحراف چارکی و دامنه میان‌چارکی (Quartile Deviation)',
+                prompt: 'فرمول انحراف چارکی (QD) بر حسب چارک اول (Q1) و چارک سوم (Q3) چیست؟',
+                canonical: 'QD = (Q3 - Q1) / 2',
+                aliases: ['QD=(Q3-Q1)/2', 'qd=(q3-q1)/2', 'QD = IQR / 2'],
+                hint: 'نصف دامنه میان‌چارکی (IQR / 2).',
+                breakdown: 'کالبدشکافی: شاخص پراکندگی ناپارامتری و مقاوم در برابر داده‌های پرت؛ تغییر ۵۰ درصد داده‌های کناری هیچ اثری روی آن ندارد.'
+            },
+            {
+                id: 's6',
+                title: 'نابرابری طلایی و سلسله‌مراتب میانگین‌ها',
+                prompt: 'رابطه نامساوی طلایی بین میانگین هارمونیک (H)، هندسی (G)، حسابی (x_bar) و جذر میانگین مربعات (RMS) چیست؟',
+                canonical: 'H <= G <= x_bar <= RMS',
+                aliases: ['H<=G<=x_bar<=RMS', 'H <= G <= x_bar', 'H <= G <= X_bar <= RMS', 'Min <= H <= G <= x_bar <= Max'],
+                hint: 'کوچک‌ترین میانگین هارمونیک، سپس هندسی، سپس حسابی و بزرگ‌ترین جذر مجذورات است.',
+                breakdown: 'کالبدشکافی: برابری تنها زمانی رخ می‌دهد که تمام داده‌ها یکسان باشند (x1 = x2 = ... = xn).'
+            }
+        ],
+        math: [
+            {
+                id: 'mt1',
+                title: 'دیفرانسیل کل تابع دومتغیره (Total Differential)',
+                prompt: 'فرمول دیفرانسیل کل تابع z = f(x, y) بر حسب مشتقات جزئی و دیفرانسیل‌های dx و dy چیست؟',
+                canonical: 'dz = (dz/dx) * dx + (dz/dy) * dy',
+                aliases: ['dz=(dz/dx)*dx+(dz/dy)*dy', 'dz = (∂z/∂x) dx + (∂z/∂y) dy', 'dz = (∂z/∂x)*dx + (∂z/∂y)*dy', 'dz = fx*dx + fy*dy'],
+                hint: 'مشتق جزئی نسبت به x در dx به علاوه مشتق جزئی نسبت به y در dy.',
+                breakdown: 'کالبدشکافی تحلیلی استاد: تقریب خطی لایب‌نیتس برای سنجش پاسخ خروجی به شوک‌های هم‌زمان چند متغیر مستقل.'
+            },
+            {
+                id: 'mt2',
+                title: 'دیفرانسیل کل حجم استوانه مستدیر (Cylinder Volume)',
+                prompt: 'فرمول تغییر تقریبی حجم استوانه V = pi * r^2 * h با دیفرانسیل کل بر حسب dr و dh چیست؟',
+                canonical: 'dV = (2*pi*r*h) * dr + (pi*r^2) * dh',
+                aliases: ['dV=(2*pi*r*h)*dr+(pi*r^2)*dh', 'dV = 2*pi*r*h*dr + pi*r^2*dh', 'dV = (2πrh)dr + (πr²)dh', 'dv = (2*pi*r*h)*dr + (pi*r^2)*dh'],
+                hint: 'مشتق حجم نسبت به شعاع r (برابر 2*pi*r*h) در dr به علاوه مشتق حجم نسبت به ارتفاع h (برابر pi*r^2) در dh.',
+                breakdown: 'کالبدشکافی تحلیلی استاد: چون شعاع توان ۲ دارد، نرخ حساسیت حجم به تغییرات شعاع دو برابر اثر هندسی ارتفاع است.'
+            },
+            {
+                id: 'mt3',
+                title: 'خطای نسبی حجم استوانه (Relative Error)',
+                prompt: 'فرمول خطای نسبی حجم استوانه (dV / V) بر حسب خطای نسبی شعاع (dr / r) و ارتفاع (dh / h) چیست؟',
+                canonical: 'dV / V = 2 * (dr / r) + (dh / h)',
+                aliases: ['dV/V=2*(dr/r)+(dh/h)', 'dv/v = 2*(dr/r) + (dh/h)', 'dV / V = 2*(dr/r) + (dh/h)', 'dV/V = 2(dr/r) + (dh/h)'],
+                hint: 'توان هر متغیر در فرمول ضربی، ضریب خطای نسبی آن در دیفرانسیل کل است (ضریب شعاع ۲ و ارتفاع ۱).',
+                breakdown: 'کالبدشکافی: خطای ۱ درصدی در شعاع استوانه منجر به خطای ۲ درصدی در حجم کل خواهد شد.'
+            },
+            {
+                id: 'mt4',
+                title: 'کشش نقطه‌ای تقاضا با مشتق (Point Elasticity)',
+                prompt: 'فرمول مشتقی کشش نقطه‌ای تقاضا (Ed) بر حسب dQ/dP و قیمت و مقدار چیست؟',
+                canonical: 'Ed = (dQ/dP) * (P/Q)',
+                aliases: ['Ed=(dQ/dP)*(P/Q)', 'ed=(dq/dp)*(p/q)', 'Ed = (dQ / dP) * (P / Q)'],
+                hint: 'مشتق مقدار نسبت به قیمت ضرب در نسبت قیمت به مقدار.',
+                breakdown: 'کالبدشکافی: عکس شیب منحنی تقاضا در فضای (P, Q) که بر اساس تغییرات درصدی بدون بعد شده است.'
+            },
+            {
+                id: 'mt5',
+                title: 'تابع لاگرانژ در بهینه‌سازی مقید (Lagrange Multiplier)',
+                prompt: 'فرم کلی تابع لاگرانژ L(x, y, lambda) برای بهینه‌سازی f(x, y) تحت قید g(x, y) = c چیست؟',
+                canonical: 'L = f(x, y) - lambda * [g(x, y) - c]',
+                aliases: ['L=f(x,y)-lambda*[g(x,y)-c]', 'L = f(x, y) + lambda * (c - g(x, y))', 'L = f(x,y) - lambda*(g(x,y)-c)'],
+                hint: 'تابع هدف اصلی منهای ضریب لاگرانژ (لاندا) ضرب‌در پرانتز رابطه قید برابر صفر.',
+                breakdown: 'کالبدشکافی: تبدیل مسئله بهینه‌سازی مقید به نامقید چندمتغیره؛ مقدار لاندا بیانگر قیمت سایه قید است.'
+            }
+        ]
+    };
+
+    // State Tracking
+    var labState = {
+        currentDrillIndex: { micro: 0, cost: 0, finance: 0, or: 0, stat: 0, math: 0 },
+        activeLabMode: { micro: 'recall', cost: 'recall', finance: 'recall', or: 'recall', stat: 'recall', math: 'recall' }
+    };
+
+    // String normalizer for flexible formula matching
+    function normalizeFormula(str) {
+        if (!str) return '';
+        var s = str.trim().toLowerCase();
+        // Remove spaces
+        s = s.replace(/\\s+/g, '');
+        // Replace common unicode operators with standard ascii
+        s = s.replace(/×/g, '*').replace(/·/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+        s = s.replace(/²/g, '^2').replace(/³/g, '^3');
+        s = s.replace(/∂/g, 'd').replace(/δ/g, 'd').replace(/μ/g, 'mu').replace(/σ/g, 'sigma');
+        s = s.replace(/π/g, 'pi').replace(/∑/g, 'sum').replace(/∏/g, 'prod');
+        s = s.replace(/x̄/g, 'x_bar').replace(/xbar/g, 'x_bar');
+        // Clean outer redundant brackets
+        s = s.replace(/[\[\{]/g, '(').replace(/[\]\}]/g, ')');
+        return s;
+    }
+
+    // Load custom formulas from localStorage
+    function getStoredCustomFormulas(course) {
+        try {
+            var raw = localStorage.getItem('bankai_custom_formulas');
+            var all = raw ? JSON.parse(raw) : [];
+            if (course) {
+                return all.filter(function(item) { return item.course === course; });
+            }
+            return all;
+        } catch (e) {
+            return [];
+        }
+    }
+
+    // Save custom formula
+    function saveCustomFormula(course) {
+        var titleEl = document.getElementById(course + '-custom-title');
+        var formulaEl = document.getElementById(course + '-custom-formula');
+        var noteEl = document.getElementById(course + '-custom-note');
+        var tagEl = document.getElementById(course + '-custom-tag');
+
+        if (!titleEl || !formulaEl) return;
+        var title = titleEl.value.trim();
+        var formula = formulaEl.value.trim();
+        var note = noteEl ? noteEl.value.trim() : '';
+        var tag = tagEl ? tagEl.value : 'نکته طلایی';
+
+        if (!title || !formula) {
+            alert('بهادر، لطفاً حداقل عنوان و ضابطه فرمول را وارد کن.');
+            return;
+        }
+
+        var item = {
+            id: 'cust_' + Date.now(),
+            course: course,
+            title: title,
+            formula: formula,
+            note: note,
+            tag: tag,
+            createdAt: new Date().toLocaleDateString('fa-IR')
+        };
+
+        try {
+            var raw = localStorage.getItem('bankai_custom_formulas');
+            var all = raw ? JSON.parse(raw) : [];
+            all.unshift(item);
+            localStorage.setItem('bankai_custom_formulas', JSON.stringify(all));
+
+            // Clear inputs
+            titleEl.value = '';
+            formulaEl.value = '';
+            if (noteEl) noteEl.value = '';
+
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+                window.Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+            }
+
+            renderCustomFormulasList(course);
+            showLabFeedback(course, 'feedback-success', '✨ فرمول «' + title + '» با موفقیت در بانکای ذخیره شد و به چرخه یادسپاری اضافه شد.');
+        } catch (e) {
+            alert('خطا در ذخیره‌سازی فرمول: ' + e.message);
+        }
+    }
+
+    // Delete custom formula
+    function deleteCustomFormula(course, id) {
+        try {
+            var raw = localStorage.getItem('bankai_custom_formulas');
+            var all = raw ? JSON.parse(raw) : [];
+            all = all.filter(function(item) { return item.id !== id; });
+            localStorage.setItem('bankai_custom_formulas', JSON.stringify(all));
+
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+                window.Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+            }
+
+            renderCustomFormulasList(course);
+            showLabFeedback(course, 'feedback-hint', '🗑️ فرمول مورد نظر حذف شد.');
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    // Render list of custom formulas
+    function renderCustomFormulasList(course) {
+        var container = document.getElementById(course + '-custom-formulas-list');
+        if (!container) return;
+
+        var items = getStoredCustomFormulas(course);
+        if (items.length === 0) {
+            container.innerHTML = '<div style="font-size: 0.76rem; color: #94A3B8; text-align: center; padding: 14px; border: 1.5px dashed #CBD5E1; border-radius: 10px;">هنوز فرمول شخصی در این درس ثبت نکرده‌ای. از فرم بالا فرمول جدید وارد کن تا همیشه در دسترس باشد.</div>';
+            return;
+        }
+
+        var html = '';
+        items.forEach(function(item) {
+            html += '<div class="custom-formula-card">' +
+                '<div class="custom-formula-card-header">' +
+                    '<span class="custom-formula-title">' + item.title + '</span>' +
+                    '<span class="badge badge-dark" style="font-size: 0.65rem;">' + item.tag + '</span>' +
+                '</div>' +
+                '<div class="formula-display" dir="ltr" style="font-size: 0.9rem; margin-bottom: 6px;">' + item.formula + '</div>' +
+                (item.note ? '<div style="font-size: 0.74rem; color: #64748B; margin-bottom: 8px;">📝 ' + item.note + '</div>' : '') +
+                '<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">' +
+                    '<span style="font-size: 0.68rem; color: #94A3B8;">' + item.createdAt + '</span>' +
+                    '<div style="display: flex; gap: 6px;">' +
+                        '<button class="lab-btn-secondary" style="padding: 4px 8px; font-size: 0.7rem;" onclick="copyFormula(\'' + item.formula.replace(/'/g, "\\'") + '\')">📋 کپی</button>' +
+                        '<button class="lab-btn-secondary" style="padding: 4px 8px; font-size: 0.7rem; color: #EF4444; border-color: #FCA5A5;" onclick="deleteCustomFormula(\'' + course + '\', \'' + item.id + '\')">🗑️ حذف</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+        });
+        container.innerHTML = html;
+    }
+
+    // Switch between Lab Modes: recall, custom, scratchpad
+    function switchLabMode(course, mode) {
+        labState.activeLabMode[course] = mode;
+
+        // Pills update
+        var pills = document.querySelectorAll('#' + course + '-formula-lab .lab-mode-pill');
+        pills.forEach(function(p) { p.classList.remove('active'); });
+        var activePill = document.getElementById(course + '-pill-' + mode);
+        if (activePill) activePill.classList.add('active');
+
+        // Panels update
+        var panels = document.querySelectorAll('#' + course + '-formula-lab .lab-panel');
+        panels.forEach(function(p) { p.classList.remove('active-panel'); });
+        var targetPanel = document.getElementById(course + '-panel-' + mode);
+        if (targetPanel) targetPanel.classList.add('active-panel');
+
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+            window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+        }
+
+        if (mode === 'custom') {
+            renderCustomFormulasList(course);
+        }
+    }
+
+    // Load active drill question
+    function loadDrillQuestion(course) {
+        var bank = bankaiFormulaBank[course] || [];
+        var custom = getStoredCustomFormulas(course);
+        var combined = bank.concat(custom.map(function(c) {
+            return {
+                id: c.id,
+                title: c.title + ' (فرمول ثبت‌شده بهادر)',
+                prompt: 'فرمول اختصاصی: ' + (c.note || c.title) + ' را بازنویسی کنید:',
+                canonical: c.formula,
+                aliases: [c.formula],
+                hint: 'این فرمول را خودت ثبت کرده بودی: ' + c.title,
+                breakdown: 'یادداشت ثبت‌شده: ' + (c.note || 'فرمول دست‌نویس بهادر')
+            };
+        }));
+
+        if (combined.length === 0) return;
+
+        var idx = labState.currentDrillIndex[course] % combined.length;
+        var current = combined[idx];
+
+        var titleEl = document.getElementById(course + '-drill-title');
+        var textEl = document.getElementById(course + '-drill-text');
+        var inputEl = document.getElementById(course + '-drill-input');
+        var feedbackEl = document.getElementById(course + '-drill-feedback');
+
+        if (titleEl) titleEl.innerText = '🎯 فرمول شماره ' + (idx + 1) + ' از ' + combined.length + ': ' + current.title;
+        if (textEl) textEl.innerText = current.prompt;
+        if (inputEl) {
+            inputEl.value = '';
+            inputEl.focus();
+        }
+        if (feedbackEl) {
+            feedbackEl.className = 'lab-feedback-box';
+            feedbackEl.style.display = 'none';
+            feedbackEl.innerHTML = '';
+        }
+    }
+
+    // Check user formula input
+    function checkCurrentFormulaDrill(course) {
+        var bank = bankaiFormulaBank[course] || [];
+        var custom = getStoredCustomFormulas(course);
+        var combined = bank.concat(custom.map(function(c) {
+            return {
+                id: c.id,
+                title: c.title,
+                prompt: c.note || c.title,
+                canonical: c.formula,
+                aliases: [c.formula],
+                hint: c.note || c.title,
+                breakdown: 'فرمول شخصی ثبت‌شده توسط بهادر'
+            };
+        }));
+
+        if (combined.length === 0) return;
+
+        var idx = labState.currentDrillIndex[course] % combined.length;
+        var target = combined[idx];
+
+        var inputEl = document.getElementById(course + '-drill-input');
+        if (!inputEl) return;
+        var userFormula = inputEl.value.trim();
+
+        if (!userFormula) {
+            showLabFeedback(course, 'feedback-error', '⚠️ بهادر، کادر ورودی خالی است! فرمول را بنویس یا از نمادهای زیر کمک بگیر.');
+            return;
+        }
+
+        var normUser = normalizeFormula(userFormula);
+        var normCanonical = normalizeFormula(target.canonical);
+        var isMatch = (normUser === normCanonical);
+
+        if (!isMatch && target.aliases) {
+            for (var i = 0; i < target.aliases.length; i++) {
+                if (normUser === normalizeFormula(target.aliases[i])) {
+                    isMatch = true;
+                    break;
+                }
+            }
+        }
+
+        if (isMatch) {
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+                window.Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+            }
+            var msg = '🎉 <strong>احسنت بهادر! فرمول کاملاً درست است.</strong><br>' +
+                      'فرمول استاندارد: <code dir="ltr" style="font-weight: bold; color: #10B981;">' + target.canonical + '</code><br>' +
+                      '<div style="margin-top: 6px; font-size: 0.76rem; border-top: 1px dashed rgba(16,185,129,0.3); padding-top: 4px;">' + (target.breakdown || '') + '</div>';
+            showLabFeedback(course, 'feedback-success', msg);
+            recordFormulaMastery(course, target.id);
+        } else {
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+                window.Telegram.WebApp.HapticFeedback.notificationOccurred('error');
+            }
+            var msg = '❌ <strong>هنوز دقیق نیست!</strong><br>' +
+                      'ورودی شما: <code dir="ltr">' + userFormula + '</code><br>' +
+                      'برای رفع اشکال دکمه «💡 راهنمایی مفهومی» را بزن یا بازنویسی کن.';
+            showLabFeedback(course, 'feedback-error', msg);
+        }
+    }
+
+    // Show Hint
+    function showFormulaDrillHint(course) {
+        var bank = bankaiFormulaBank[course] || [];
+        var custom = getStoredCustomFormulas(course);
+        var combined = bank.concat(custom);
+        if (combined.length === 0) return;
+
+        var idx = labState.currentDrillIndex[course] % combined.length;
+        var target = combined[idx];
+
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+            window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+        }
+
+        showLabFeedback(course, 'feedback-hint', '💡 <strong>راهنمایی مفهومی:</strong> ' + (target.hint || 'به رابطه متغیرهای اصلی دقت کنید.'));
+    }
+
+    // Reveal Answer
+    function revealFormulaDrillAnswer(course) {
+        var bank = bankaiFormulaBank[course] || [];
+        var custom = getStoredCustomFormulas(course);
+        var combined = bank.concat(custom.map(function(c) {
+            return {
+                title: c.title,
+                canonical: c.formula,
+                breakdown: c.note || 'فرمول شخصی'
+            };
+        }));
+        if (combined.length === 0) return;
+
+        var idx = labState.currentDrillIndex[course] % combined.length;
+        var target = combined[idx];
+
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+            window.Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+        }
+
+        var msg = '👁️ <strong>پاسخ کامل و ضابطه مرجع:</strong><br>' +
+                  '<div class="formula-display" dir="ltr" style="margin: 6px 0; font-size: 0.95rem;">' + target.canonical + '</div>' +
+                  '<div style="font-size: 0.75rem; color: #475569; margin-top: 4px;">' + (target.breakdown || '') + '</div>';
+        showLabFeedback(course, 'feedback-hint', msg);
+    }
+
+    // Next Drill
+    function nextFormulaDrill(course) {
+        labState.currentDrillIndex[course]++;
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+            window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+        }
+        loadDrillQuestion(course);
+    }
+
+    // Insert math symbol into active input
+    function insertLabSymbol(course, sym, targetInputId) {
+        var inputId = targetInputId || (course + '-drill-input');
+        var input = document.getElementById(inputId);
+        if (!input) return;
+
+        var start = input.selectionStart || input.value.length;
+        var end = input.selectionEnd || input.value.length;
+        var val = input.value;
+
+        input.value = val.substring(0, start) + sym + val.substring(end);
+        input.selectionStart = input.selectionEnd = start + sym.length;
+        input.focus();
+
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+            window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+        }
+
+        if (inputId.indexOf('scratchpad') !== -1) {
+            updateScratchpadPreview(course);
+        }
+    }
+
+    // Update Live Scratchpad Preview
+    function updateScratchpadPreview(course) {
+        var inputEl = document.getElementById(course + '-scratchpad-input');
+        var previewEl = document.getElementById(course + '-scratchpad-preview');
+        if (!inputEl || !previewEl) return;
+
+        var raw = inputEl.value.trim();
+        if (!raw) {
+            previewEl.innerHTML = '<span style="color: #94A3B8; font-size: 0.82rem;">پیش‌نمایش زنده فرمول اینجا نمایش داده می‌شود...</span>';
+            return;
+        }
+
+        // Clean and render math expression preview
+        var rendered = raw.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        previewEl.innerHTML = '<span style="color: #4F46E5; font-weight: 800;">' + rendered + '</span>';
+    }
+
+    // Show feedback alert box
+    function showLabFeedback(course, typeClass, messageHtml) {
+        var box = document.getElementById(course + '-drill-feedback');
+        if (!box) return;
+
+        box.className = 'lab-feedback-box ' + typeClass;
+        box.innerHTML = messageHtml;
+        box.style.display = 'block';
+    }
+
+    // Record formula mastery progress
+    function recordFormulaMastery(course, formulaId) {
+        try {
+            var raw = localStorage.getItem('bankai_formula_mastery');
+            var store = raw ? JSON.parse(raw) : {};
+            if (!store[course]) store[course] = [];
+            if (store[course].indexOf(formulaId) === -1) {
+                store[course].push(formulaId);
+                localStorage.setItem('bankai_formula_mastery', JSON.stringify(store));
+            }
+            updateMasteryBadge(course);
+        } catch (e) {}
+    }
+
+    // Update Mastery Badge
+    function updateMasteryBadge(course) {
+        var badge = document.getElementById(course + '-mastery-badge');
+        if (!badge) return;
+
+        try {
+            var raw = localStorage.getItem('bankai_formula_mastery');
+            var store = raw ? JSON.parse(raw) : {};
+            var completed = (store[course] || []).length;
+            var total = (bankaiFormulaBank[course] || []).length + getStoredCustomFormulas(course).length;
+            var pct = total > 0 ? Math.min(100, Math.round((completed / total) * 100)) : 0;
+            badge.innerText = '🏆 تسلط فرمولی: ' + pct + '%';
+        } catch (e) {
+            badge.innerText = '🏆 تسلط فرمولی: ۰%';
+        }
+    }
+
+    // Global Initializer for a course lab
+    function initFormulaLab(course) {
+        loadDrillQuestion(course);
+        updateMasteryBadge(course);
+        renderCustomFormulasList(course);
+    }
+
+    // Attach to window
+    window.switchLabMode = switchLabMode;
+    window.checkCurrentFormulaDrill = checkCurrentFormulaDrill;
+    window.showFormulaDrillHint = showFormulaDrillHint;
+    window.revealFormulaDrillAnswer = revealFormulaDrillAnswer;
+    window.nextFormulaDrill = nextFormulaDrill;
+    window.insertLabSymbol = insertLabSymbol;
+    window.updateScratchpadPreview = updateScratchpadPreview;
+    window.saveCustomFormula = saveCustomFormula;
+    window.deleteCustomFormula = deleteCustomFormula;
+    window.initFormulaLab = initFormulaLab;
+
+})();
+
+        // Auto-initialize formula lab on tab or course switches
+        var origSelectTab = window.selectTab;
+        if (typeof origSelectTab === 'function') {
+            window.selectTab = function(tab) {
+                origSelectTab(tab);
+                if (tab === 'formula' && typeof initFormulaLab === 'function') {
+                    initFormulaLab(currentCourse);
+                }
+            };
+        }
+        var origSelectCourse = window.selectCourse;
+        if (typeof origSelectCourse === 'function') {
+            window.selectCourse = function(course) {
+                origSelectCourse(course);
+                if (typeof currentTab !== 'undefined' && currentTab === 'formula' && typeof initFormulaLab === 'function') {
+                    initFormulaLab(course);
+                }
+            };
+        }
+    
+
+})();
     
     
     
