@@ -3737,6 +3737,506 @@ body.theme-dark .mistake-tag {
   color: #FEE2E2;
 }
 
+
+/* ============================================================
+   BANKAI COCKPIT v27.0 PRO: CLAUDE MASTER DESIGN SYSTEM
+   Bento Grid Course Hub, Luxury Floating Dock & Math Typography
+   ============================================================ */
+
+/* --- 1. COURSE PALETTES & BENTO TOKENS --- */
+#btn-course-micro {
+  --chip-primary: #10B981;
+  --chip-glow: rgba(16, 185, 129, 0.40);
+  --chip-bg: rgba(16, 185, 129, 0.08);
+  --chip-border: rgba(16, 185, 129, 0.25);
+  --chip-icon-bg: rgba(16, 185, 129, 0.15);
+  --chip-icon-border: rgba(16, 185, 129, 0.40);
+  --chip-bg-active: rgba(16, 185, 129, 0.16);
+}
+#btn-course-cost {
+  --chip-primary: #F59E0B;
+  --chip-glow: rgba(245, 158, 11, 0.40);
+  --chip-bg: rgba(245, 158, 11, 0.08);
+  --chip-border: rgba(245, 158, 11, 0.25);
+  --chip-icon-bg: rgba(245, 158, 11, 0.15);
+  --chip-icon-border: rgba(245, 158, 11, 0.40);
+  --chip-bg-active: rgba(245, 158, 11, 0.16);
+}
+#btn-course-or {
+  --chip-primary: #06B6D4;
+  --chip-glow: rgba(6, 182, 212, 0.40);
+  --chip-bg: rgba(6, 182, 212, 0.08);
+  --chip-border: rgba(6, 182, 212, 0.25);
+  --chip-icon-bg: rgba(6, 182, 212, 0.15);
+  --chip-icon-border: rgba(6, 182, 212, 0.40);
+  --chip-bg-active: rgba(6, 182, 212, 0.16);
+}
+#btn-course-stat {
+  --chip-primary: #3B82F6;
+  --chip-glow: rgba(59, 130, 246, 0.40);
+  --chip-bg: rgba(59, 130, 246, 0.08);
+  --chip-border: rgba(59, 130, 246, 0.25);
+  --chip-icon-bg: rgba(59, 130, 246, 0.15);
+  --chip-icon-border: rgba(59, 130, 246, 0.40);
+  --chip-bg-active: rgba(59, 130, 246, 0.16);
+}
+#btn-course-math {
+  --chip-primary: #8B5CF6;
+  --chip-glow: rgba(139, 92, 246, 0.40);
+  --chip-bg: rgba(139, 92, 246, 0.08);
+  --chip-border: rgba(139, 92, 246, 0.25);
+  --chip-icon-bg: rgba(139, 92, 246, 0.15);
+  --chip-icon-border: rgba(139, 92, 246, 0.40);
+  --chip-bg-active: rgba(139, 92, 246, 0.16);
+}
+
+/* --- 2. BENTO COURSE BAR CONTAINER --- */
+.thematic-course-bar {
+  padding: 14px 12px 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.thematic-course-bar__header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 4px !important;
+}
+
+.thematic-course-bar__title {
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  color: var(--text-primary, #F1F5F9) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.thematic-course-bar__count {
+  font-size: 0.70rem !important;
+  font-weight: 700 !important;
+  color: #818CF8 !important;
+  background: rgba(99, 102, 241, 0.12) !important;
+  border: 1px solid rgba(99, 102, 241, 0.25) !important;
+  border-radius: 20px !important;
+  padding: 2px 8px !important;
+}
+
+/* Bento Grid: 2 columns for first 4, 5th spans full width */
+.course-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.course-grid .course-chip:nth-child(5) {
+  grid-column: 1 / -1 !important;
+}
+
+/* --- 3. BENTO COURSE CHIP CARD --- */
+.course-chip {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 12px 12px 10px !important;
+  border-radius: 16px !important;
+  border: 1.5px solid var(--chip-border, rgba(255, 255, 255, 0.10)) !important;
+  background: var(--chip-bg, rgba(15, 20, 35, 0.85)) !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  text-align: right !important;
+  transition: all 220ms cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.course-chip:active {
+  transform: scale(0.97) !important;
+}
+
+.course-chip__top {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+}
+
+.course-chip__icon-wrap {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 17px !important;
+  background: var(--chip-icon-bg) !important;
+  border: 1px solid var(--chip-icon-border) !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20) !important;
+}
+
+.course-chip__badges {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.course-chip__code {
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+  color: var(--chip-primary) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid var(--chip-border) !important;
+  border-radius: 6px !important;
+  padding: 2px 6px !important;
+  font-family: monospace !important;
+}
+
+.course-chip__active-badge {
+  display: none;
+  align-items: center !important;
+  gap: 3px !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  color: var(--chip-primary) !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid var(--chip-primary) !important;
+  border-radius: 20px !important;
+  padding: 2px 7px !important;
+}
+
+.course-chip__active-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--chip-primary);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.course-chip__body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  width: 100% !important;
+}
+
+.course-chip__name {
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: var(--text-primary, #F1F5F9) !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.course-chip__subtitle {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  color: #94A3B8 !important;
+  line-height: 1.35 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.course-chip:nth-child(5) .course-chip__subtitle {
+  -webkit-line-clamp: 1 !important;
+}
+
+.course-chip__progress-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  width: 100% !important;
+  margin-top: 2px !important;
+}
+
+.course-chip__progress-label {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.course-chip__progress-text {
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  color: #64748B !important;
+}
+
+.course-chip__progress-pct {
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  color: var(--chip-primary) !important;
+}
+
+.course-chip__progress-track {
+  height: 3px !important;
+  border-radius: 99px !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  overflow: hidden !important;
+}
+
+.course-chip__progress-fill {
+  height: 100% !important;
+  border-radius: 99px !important;
+  background: var(--chip-primary) !important;
+  transition: width 600ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* ACTIVE CHIP STATE */
+.course-chip.active, .course-chip.is-active {
+  border-color: var(--chip-primary) !important;
+  background: var(--chip-bg-active) !important;
+  box-shadow: 0 0 20px var(--chip-glow), 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+.course-chip.active .course-chip__active-badge,
+.course-chip.is-active .course-chip__active-badge {
+  display: inline-flex !important;
+}
+
+.course-chip.active .course-chip__name,
+.course-chip.is-active .course-chip__name {
+  color: #FFFFFF !important;
+}
+
+body.theme-light .course-chip.active .course-chip__name,
+[data-theme="light"] .course-chip.active .course-chip__name {
+  color: #0F172A !important;
+}
+
+/* --- 4. EXECUTIVE FLOATING DOCK (CLAUDE-BANKAI V27.0 PRO) --- */
+.executive-dock {
+  position: fixed !important;
+  bottom: 12px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 540px !important;
+  margin: 0 auto !important;
+  z-index: 1000 !important;
+  padding: 0 10px !important;
+  pointer-events: none !important;
+  box-sizing: border-box !important;
+}
+
+.dock-inner {
+  pointer-events: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  background: rgba(13, 17, 30, 0.88) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 24px !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.60), 0 0 0 1px rgba(255,255,255,0.06) inset !important;
+  padding: 6px 8px !important;
+  gap: 4px !important;
+  box-sizing: border-box !important;
+}
+
+.dock-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  min-width: 48px !important;
+  padding: 6px 4px 5px !important;
+  border-radius: 14px !important;
+  border: 1.5px solid transparent !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: all 220ms cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  position: relative !important;
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  box-sizing: border-box !important;
+}
+
+.dock-btn .dock-icon {
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  margin-bottom: 2px !important;
+  transition: transform 200ms ease !important;
+}
+
+.dock-btn .dock-label {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  color: #94A3B8 !important;
+  white-space: nowrap !important;
+  transition: color 200ms ease !important;
+}
+
+.dock-btn .dock-indicator {
+  width: 14px !important;
+  height: 3px !important;
+  border-radius: 99px !important;
+  background: transparent !important;
+  margin-top: 3px !important;
+  transition: all 250ms ease !important;
+}
+
+/* DOCK ACTIVE: DARK THEME */
+body:not([data-theme="light"]):not(.theme-light) .dock-btn.active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.45) 0%, rgba(124, 58, 237, 0.65) 100%) !important;
+  border-color: rgba(165, 180, 252, 0.75) !important;
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.50), 0 2px 8px rgba(0, 0, 0, 0.40) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+body:not([data-theme="light"]):not(.theme-light) .dock-btn.active .dock-label {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6) !important;
+}
+
+body:not([data-theme="light"]):not(.theme-light) .dock-btn.active .dock-indicator {
+  background: #818CF8 !important;
+  box-shadow: 0 0 8px #818CF8 !important;
+  width: 20px !important;
+}
+
+/* DOCK ACTIVE: LIGHT THEME */
+body.theme-light .dock-btn.active, [data-theme="light"] .dock-btn.active {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%) !important;
+  border-color: #4F46E5 !important;
+  box-shadow: 0 2px 12px rgba(79, 70, 229, 0.25) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+body.theme-light .dock-btn.active .dock-label, [data-theme="light"] .dock-btn.active .dock-label {
+  color: #1E1B4B !important;
+  font-weight: 900 !important;
+  text-shadow: none !important;
+}
+
+body.theme-light .dock-btn.active .dock-indicator, [data-theme="light"] .dock-btn.active .dock-indicator {
+  background: #4F46E5 !important;
+  box-shadow: 0 0 6px rgba(79, 70, 229, 0.5) !important;
+  width: 20px !important;
+}
+
+/* --- 5. COGNITIVE FORMULA TYPOGRAPHY & MULTI-LINE STACKS --- */
+.formula-display, .formula-stack {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: isolate !important;
+  box-sizing: border-box !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 14px !important;
+  background: rgba(10, 15, 30, 0.85) !important;
+  padding: 12px 14px !important;
+  cursor: pointer !important;
+  transition: all 200ms ease !important;
+}
+
+.formula-display:hover, .formula-stack:hover {
+  border-color: rgba(99, 102, 241, 0.45) !important;
+}
+
+.formula-display.copied, .formula-stack.copied, .formula-line.copied {
+  border-color: #10B981 !important;
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.45) !important;
+}
+
+.math-frac {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding: 0 4px !important;
+  font-size: 0.9em !important;
+  line-height: 1.15 !important;
+}
+
+.math-num {
+  border-bottom: 2px solid currentColor !important;
+  padding-bottom: 2px !important;
+  display: block !important;
+}
+
+.math-den {
+  padding-top: 2px !important;
+  display: block !important;
+}
+
+.formula-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.formula-line {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.95rem !important;
+  padding: 4px 6px !important;
+  border-radius: 8px !important;
+  transition: background 150ms ease !important;
+}
+
+.formula-line:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.math-badge {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  padding: 2px 7px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.math-badge.pop {
+  background: rgba(139, 92, 246, 0.20) !important;
+  border: 1px solid rgba(139, 92, 246, 0.50) !important;
+  color: #C4B5FD !important;
+}
+
+.math-badge.samp {
+  background: rgba(16, 185, 129, 0.20) !important;
+  border: 1px solid rgba(16, 185, 129, 0.50) !important;
+  color: #86EFAC !important;
+}
+
+.math-badge.app {
+  background: rgba(245, 158, 11, 0.20) !important;
+  border: 1px solid rgba(245, 158, 11, 0.50) !important;
+  color: #FDE68A !important;
+}
+
+.math-sym {
+  color: #7DD3FC !important;
+  font-weight: 700 !important;
+}
+
+.math-op {
+  color: #F472B6 !important;
+  font-weight: 800 !important;
+}
+
 </style>
 
 </head>
@@ -3866,44 +4366,133 @@ body.theme-dark .mistake-tag {
     <!-- 6 MAIN DISCIPLINE CARDS -->
     
     <!-- THEMATIC COURSE SELECTOR BAR (v18.0 COMPACT HIGH-RETENTION RAIL) -->
-    <nav class="thematic-course-bar" id="thematic-course-bar">
-        <button class="course-chip active" id="btn-course-micro" onclick="selectCourse('micro')">
-            <span class="chip-icon">📈</span>
-            <div class="chip-text">
-                <span class="chip-title">اقتصاد خرد</span>
-                <span class="chip-sub">تعادل، رفاه و کشش</span>
-            </div>
-        </button>
-        <button class="course-chip" id="btn-course-cost" onclick="selectCourse('cost')">
-            <span class="chip-icon">🏭</span>
-            <div class="chip-text">
-                <span class="chip-title">حسابداری صنعتی ۱</span>
-                <span class="chip-sub">CVP، بهای تمام‌شده و BEP</span>
-            </div>
-        </button>
-        
-        <button class="course-chip" id="btn-course-or" onclick="selectCourse('or')">
-            <span class="chip-icon">⚙️</span>
-            <div class="chip-text">
-                <span class="chip-title">تحقیق در عملیات ۱</span>
-                <span class="chip-sub">سیمپلکس، دوگان و سایه</span>
-            </div>
-        </button>
-        <button class="course-chip" id="btn-course-stat" onclick="selectCourse('stat')">
-            <span class="chip-icon">📊</span>
-            <div class="chip-text">
-                <span class="chip-title">آمار کاربردی ۱</span>
-                <span class="chip-sub">میانگین‌ها، واریانس، MAD و نرمال</span>
-            </div>
-        </button>
-                <button class="course-chip" id="btn-course-math" onclick="selectCourse('math')">
-            <span class="chip-icon">📐</span>
-            <div class="chip-text">
-                <span class="chip-title">ریاضیات مدیریت</span>
-                <span class="chip-sub">مشتق، بهینه‌سازی، ماتریس و کارگاه تمرین</span>
-            </div>
-        </button>
+        <!-- THEMATIC COURSE SELECTOR BENTO GRID (CLAUDE-BANKAI V27.0 PRO) -->
+    <nav class="thematic-course-bar" id="thematic-course-bar" aria-label="نماینده‌های ۵ جبهه درسی">
+        <div class="thematic-course-bar__header">
+            <span class="thematic-course-bar__title">⚔️ انتخاب جبهه درسی (پنج محور فعال کارشناسی)</span>
+            <span class="thematic-course-bar__count">۵ واحد تخصصی</span>
+        </div>
+        <div class="course-grid">
+            <!-- 1. Microeconomics -->
+            <button class="course-chip active is-active" id="btn-course-micro" onclick="selectCourse('micro')" data-course="micro">
+                <div class="course-chip__top">
+                    <div class="course-chip__icon-wrap">📈</div>
+                    <div class="course-chip__badges">
+                        <span class="course-chip__code">MICRO</span>
+                        <span class="course-chip__active-badge">فعال</span>
+                    </div>
+                </div>
+                <div class="course-chip__body">
+                    <div class="course-chip__name">اقتصاد خرد</div>
+                    <div class="course-chip__subtitle">تعادل، کشش، رفاه و انحصار</div>
+                </div>
+                <div class="course-chip__progress-wrap">
+                    <div class="course-chip__progress-label">
+                        <span class="course-chip__progress-text">تسلط سرفصل</span>
+                        <span class="course-chip__progress-pct">۹۵٪</span>
+                    </div>
+                    <div class="course-chip__progress-track">
+                        <div class="course-chip__progress-fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+            </button>
 
+            <!-- 2. Cost Accounting 1 -->
+            <button class="course-chip" id="btn-course-cost" onclick="selectCourse('cost')" data-course="cost">
+                <div class="course-chip__top">
+                    <div class="course-chip__icon-wrap">🏭</div>
+                    <div class="course-chip__badges">
+                        <span class="course-chip__code">COST-1</span>
+                        <span class="course-chip__active-badge">فعال</span>
+                    </div>
+                </div>
+                <div class="course-chip__body">
+                    <div class="course-chip__name">حسابداری صنعتی ۱</div>
+                    <div class="course-chip__subtitle">CVP، بهایابی و تحلیل نقطه سر به سر</div>
+                </div>
+                <div class="course-chip__progress-wrap">
+                    <div class="course-chip__progress-label">
+                        <span class="course-chip__progress-text">تسلط سرفصل</span>
+                        <span class="course-chip__progress-pct">۹۰٪</span>
+                    </div>
+                    <div class="course-chip__progress-track">
+                        <div class="course-chip__progress-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+            </button>
+
+            <!-- 3. Operations Research 1 -->
+            <button class="course-chip" id="btn-course-or" onclick="selectCourse('or')" data-course="or">
+                <div class="course-chip__top">
+                    <div class="course-chip__icon-wrap">⚙️</div>
+                    <div class="course-chip__badges">
+                        <span class="course-chip__code">OR-1</span>
+                        <span class="course-chip__active-badge">فعال</span>
+                    </div>
+                </div>
+                <div class="course-chip__body">
+                    <div class="course-chip__name">تحقیق در عملیات ۱</div>
+                    <div class="course-chip__subtitle">سیمپلکس، دوگان، سایه و حمل‌ونقل</div>
+                </div>
+                <div class="course-chip__progress-wrap">
+                    <div class="course-chip__progress-label">
+                        <span class="course-chip__progress-text">تسلط سرفصل</span>
+                        <span class="course-chip__progress-pct">۹۲٪</span>
+                    </div>
+                    <div class="course-chip__progress-track">
+                        <div class="course-chip__progress-fill" style="width: 92%;"></div>
+                    </div>
+                </div>
+            </button>
+
+            <!-- 4. Applied Statistics 1 -->
+            <button class="course-chip" id="btn-course-stat" onclick="selectCourse('stat')" data-course="stat">
+                <div class="course-chip__top">
+                    <div class="course-chip__icon-wrap">📊</div>
+                    <div class="course-chip__badges">
+                        <span class="course-chip__code">STAT-1</span>
+                        <span class="course-chip__active-badge">فعال</span>
+                    </div>
+                </div>
+                <div class="course-chip__body">
+                    <div class="course-chip__name">آمار کاربردی ۱</div>
+                    <div class="course-chip__subtitle">میانگین‌ها، واریانس، MAD و نرمال</div>
+                </div>
+                <div class="course-chip__progress-wrap">
+                    <div class="course-chip__progress-label">
+                        <span class="course-chip__progress-text">تسلط سرفصل</span>
+                        <span class="course-chip__progress-pct">۹۸٪</span>
+                    </div>
+                    <div class="course-chip__progress-track">
+                        <div class="course-chip__progress-fill" style="width: 98%;"></div>
+                    </div>
+                </div>
+            </button>
+
+            <!-- 5. Mathematics in Management & Finance (Spans full width across bottom) -->
+            <button class="course-chip" id="btn-course-math" onclick="selectCourse('math')" data-course="math">
+                <div class="course-chip__top">
+                    <div class="course-chip__icon-wrap">📐</div>
+                    <div class="course-chip__badges">
+                        <span class="course-chip__code">MATH</span>
+                        <span class="course-chip__active-badge">فعال</span>
+                    </div>
+                </div>
+                <div class="course-chip__body">
+                    <div class="course-chip__name">ریاضیات در مدیریت و مالی</div>
+                    <div class="course-chip__subtitle">مشتقات جزئی، دیفرانسیل کل، بهینه‌سازی لاگرانژ، ماتریس لئونتیف و کارگاه تمرین</div>
+                </div>
+                <div class="course-chip__progress-wrap">
+                    <div class="course-chip__progress-label">
+                        <span class="course-chip__progress-text">تسلط سرفصل</span>
+                        <span class="course-chip__progress-pct">۹۴٪</span>
+                    </div>
+                    <div class="course-chip__progress-track">
+                        <div class="course-chip__progress-fill" style="width: 94%;"></div>
+                    </div>
+                </div>
+            </button>
+        </div>
     </nav>
     <div id="active-course-content-anchor" style="scroll-margin-top: 14px;">
 
@@ -8840,31 +9429,40 @@ body.theme-dark .mistake-tag {
     <!-- FLOATING BOTTOM EXECUTIVE DOCK -->
     
     <!-- FLOATING BOTTOM EXECUTIVE DOCK -->
-    <nav class="executive-dock">
-        <button class="dock-btn active" id="dock-btn-sim" onclick="selectTab('sim')">
-            <span>📊</span>
-            <span>چارت زنده</span>
-        </button>
-        <button class="dock-btn" id="dock-btn-tree" onclick="selectTab('tree')">
-            <span>🌳</span>
-            <span>درخت دانش</span>
-        </button>
-        <button class="dock-btn" id="dock-btn-formula" onclick="selectTab('formula')">
-            <span>📐</span>
-            <span>فرمول‌نامه</span>
-        </button>
-        <button class="dock-btn" id="dock-btn-solution" onclick="selectTab('solution')">
-            <span>🛠️</span>
-            <span>حل مسئله</span>
-        </button>
-        <button class="dock-btn" id="dock-btn-traps" onclick="selectTab('traps')">
-            <span>⚠️</span>
-            <span>تله‌ها</span>
-        </button>
-        <button class="dock-btn" id="dock-btn-quiz" onclick="selectTab('quiz')">
-            <span>🎯</span>
-            <span>آزمون</span>
-        </button>
+        <!-- FLOATING BOTTOM EXECUTIVE DOCK (CLAUDE-BANKAI V27.0 PRO) -->
+    <nav class="executive-dock" role="navigation" aria-label="ناوبری اجرایی شناور">
+        <div class="dock-inner">
+            <button class="dock-btn active" id="dock-btn-sim" onclick="selectTab('sim')" aria-label="چارت زنده">
+                <span class="dock-icon" aria-hidden="true">📊</span>
+                <span class="dock-label">چارت زنده</span>
+                <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="dock-btn" id="dock-btn-tree" onclick="selectTab('tree')" aria-label="درخت دانش">
+                <span class="dock-icon" aria-hidden="true">🌳</span>
+                <span class="dock-label">درخت دانش</span>
+                <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="dock-btn" id="dock-btn-formula" onclick="selectTab('formula')" aria-label="فرمول‌نامه">
+                <span class="dock-icon" aria-hidden="true">📐</span>
+                <span class="dock-label">فرمول‌نامه</span>
+                <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="dock-btn" id="dock-btn-solution" onclick="selectTab('solution')" aria-label="حل مسئله">
+                <span class="dock-icon" aria-hidden="true">🛠️</span>
+                <span class="dock-label">حل مسئله</span>
+                <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="dock-btn" id="dock-btn-traps" onclick="selectTab('traps')" aria-label="تله‌های کنکور">
+                <span class="dock-icon" aria-hidden="true">⚠️</span>
+                <span class="dock-label">تله‌ها</span>
+                <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="dock-btn" id="dock-btn-quiz" onclick="selectTab('quiz')" aria-label="آزمون و اشتباهات">
+                <span class="dock-icon" aria-hidden="true">🎯</span>
+                <span class="dock-label">آزمون</span>
+                <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+        </div>
     </nav>
 
     
@@ -9138,9 +9736,9 @@ body.theme-dark .mistake-tag {
   currentCourse = course;
 
   // Sync course selector chips
-  document.querySelectorAll('.course-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.course-chip').forEach(c => { c.classList.remove('active'); c.classList.remove('is-active'); });
   const cBtn = document.getElementById('btn-course-' + course);
-  if (cBtn) cBtn.classList.add('active');
+  if (cBtn) { cBtn.classList.add('active'); cBtn.classList.add('is-active'); }
 
   const meta = courseData[course] || {};
   const bTitle = document.getElementById('banner-title');
