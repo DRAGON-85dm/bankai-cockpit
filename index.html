@@ -7011,6 +7011,332 @@ body.theme-dark .step-content {
 
 
 
+                
+<!-- Micro Formula 14: Non-Linear Demand & Tangent Line Method -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-micro">فرمول طلایی ۱۴</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تقاضای غیرخطی (خمیده) و روش هندسی خط مماس (Tangent Method)</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">۱. کشش نقطه‌ای روی منحنی خمیده:</span>
+                <span class="math-sym">E_d</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">dQ</span><span class="math-den">dP</span></span> ) × ( <span class="math-frac"><span class="math-num">P_0</span><span class="math-den">Q_0</span></span> )<span class="math-op">=</span>f'(P_0) × <span class="math-frac"><span class="math-num">P_0</span><span class="math-den">Q_0</span></span>
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">۲. شیب خط مماس بر منحنی در نقطه A:</span>
+                <span class="math-sym">m_{tan}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dP</span><span class="math-den">dQ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">dQ/dP</span></span>
+            </div>
+            <div class="formula-line">
+                <span class="math-badge app">۳. قاعده پاره‌خط‌های خط مماس:</span>
+                <span class="math-sym">|E_d|</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">پاره‌خط پایینی خط مماس</span><span class="math-den">پاره‌خط بالایی خط مماس</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">AB'</span><span class="math-den">T'A</span></span>
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+            • <b>رد قاطع تصور غلط رایج:</b> روش هندسی پاره‌خط‌ها به هیچ وجه منحصر به خط مستقیم نیست! برای هر تابع تقاضای غیرخطی و خمیده Q = f(P)، کافی است در نقطه مورد نظر A(Q₀, P₀) خط مماس بر منحنی را رسم کنیم.<br>
+            • این خط مماس محور قیمت را در T' و محور مقدار را در B' قطع می‌کند. کشش هندسی دقیقاً برابر با نسبت پاره‌خط پایینی خط مماس (AB') به پاره‌خط بالایی خط مماس (T'A) خواهد بود.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>⚡ رهیافت تکمیلی بانکای (هذلولی متساوی‌الساقین):</strong>
+            در منحنی تقاضای با کشش واحد P × Q = c (هذلولی متساوی‌الساقین)، در هر نقطه‌ای که خط مماس رسم شود، نقطه تماس A دقیقاً نقطه وسط پاره‌خط T'B' است؛ یعنی همیشه AB' = T'A بوده و کشش در سراسر منحنی برابر ۱ باقی می‌ماند.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله کنکور ارشد:</strong>
+            اشتباه گرفتن خط قاطع (وتر بین دو نقطه) با خط مماس! خط قاطع کشش قوسی را نشان می‌دهد که میانگین بازه است؛ در حالی که خط مماس کشش نقطه‌ای دقیق در همان لحظه را نشان می‌دهد.
+        </div>
+
+        <div class="visual-diagram-box">
+            <div class="diagram-header">
+                <span class="diagram-badge">🗺️ اطلس هندسی و ترسیمی</span>
+                <h5 class="diagram-title">کالبدشکافی تقاضای خمیده و اثبات روش پاره‌خط‌های خط مماس</h5>
+            </div>
+            <div class="diagram-svg-container">
+                <svg viewBox="0 0 520 280" class="academic-svg" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrow-nl" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155"/>
+                        </marker>
+                    </defs>
+                    <!-- Axes -->
+                    <line x1="70" y1="235" x2="70" y2="25" stroke="#334155" stroke-width="2" marker-end="url(#arrow-nl)"/>
+                    <line x1="70" y1="235" x2="495" y2="235" stroke="#334155" stroke-width="2" marker-end="url(#arrow-nl)"/>
+                    <text x="50" y="30" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#0F172A">قیمت (P)</text>
+                    <text x="475" y="255" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#0F172A">مقدار (Q)</text>
+                    <text x="55" y="250" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748B">O(0,0)</text>
+
+                    <!-- Curved Non-linear Demand: Hyperbolic Curve -->
+                    <path d="M 95 45 Q 120 160 380 215" fill="none" stroke="#DC2626" stroke-width="3.5"/>
+                    <text x="390" y="215" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#DC2626">تقاضای غیرخطی Q = f(P)</text>
+
+                    <!-- Tangent Line at Point A: from (70, 50) [T'] to (330, 235) [B'] -->
+                    <line x1="70" y1="50" x2="330" y2="235" stroke="#059669" stroke-width="3" stroke-dasharray="6,4"/>
+
+                    <!-- Point T' on P-axis -->
+                    <circle cx="70" cy="50" r="5" fill="#FFFFFF" stroke="#059669" stroke-width="3"/>
+                    <text x="25" y="55" font-family="system-ui, sans-serif" font-size="11.5" font-weight="900" fill="#059669">T' (P')</text>
+
+                    <!-- Point B' on Q-axis -->
+                    <circle cx="330" cy="235" r="5" fill="#FFFFFF" stroke="#059669" stroke-width="3"/>
+                    <text x="335" y="252" font-family="system-ui, sans-serif" font-size="11.5" font-weight="900" fill="#059669">B' (Q')</text>
+
+                    <!-- Contact Point A(200, 142.5) -->
+                    <circle cx="200" cy="142.5" r="7" fill="#FFFFFF" stroke="#2563EB" stroke-width="3.5"/>
+                    <text x="215" y="135" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#2563EB">نقطه تماس A(Q₀, P₀)</text>
+
+                    <!-- Coordinate Dashes -->
+                    <line x1="200" y1="142.5" x2="70" y2="142.5" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,3"/>
+                    <line x1="200" y1="142.5" x2="200" y2="235" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,3"/>
+                    <text x="45" y="146" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#1E293B">P₀</text>
+                    <text x="195" y="250" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Q₀</text>
+
+                    <!-- Segments Annotations -->
+                    <rect x="90" y="80" width="110" height="24" rx="6" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+                    <text x="96" y="96" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#B91C1C">پاره‌خط بالا: T'A</text>
+
+                    <rect x="235" y="175" width="110" height="24" rx="6" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1"/>
+                    <text x="242" y="191" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#047857">پاره‌خط پایین: AB'</text>
+
+                    <!-- Formula Capsule -->
+                    <rect x="290" y="35" width="205" height="42" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+                    <text x="298" y="52" font-family="system-ui, sans-serif" font-size="10.5" font-weight="bold" fill="#334155">قاعده طلایی تقاضای غیرخطی:</text>
+                    <text x="298" y="69" font-family="system-ui, sans-serif" font-size="11.5" font-weight="900" fill="#1D4ED8">|Ed| = پایین مماس / بالا مماس = AB' / T'A</text>
+                </svg>
+            </div>
+            <div class="diagram-walkthrough">
+                <div class="walkthrough-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content"><strong>رسم منحنی تقاضای غیرخطی خمیده:</strong> تابع Q = f(P) رسم می‌شود که شیب فیزیکی آن در نقاط مختلف متغیر است.</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content"><strong>تعیین نقطه تماس A و رسم خط مماس:</strong> در نقطه آزمون A(Q₀, P₀)، خط مماس بر منحنی رسم شده و تا برخورد با محورها امتداد می‌یابد.</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content"><strong>نقاط برخورد مماس با محورها (T' و B'):</strong> امتداد خط مماس محور قیمت را در T' و محور مقدار را در B' قطع می‌کند.</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">4</span>
+                    <div class="step-content"><strong>استخراج کشش از نسبت پاره‌خط‌ها:</strong> کشش دقیقاً برابر نسبت پاره‌خط پایینی خط مماس (AB') به پاره‌خط بالایی خط مماس (T'A) است.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')">
+            <span>⚡</span> فلش‌بک به پیش‌نیاز کشش
+        </button>
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
+<!-- Micro Formula 15: Six Determinants of Price Elasticity -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-micro">فرمول طلایی ۱۵</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">عوامل شش‌گانه بنیادین مؤثر بر کشش تقاضا (Determinants of Elasticity)</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">۱. اثر افق زمانی بر کشش تقاضا:</span>
+                <span class="math-sym">|E_{d, LR}|</span> &gt; <span class="math-sym">|E_{d, SR}|</span> \quad (کشش بلندمدت بزرگتر از کوتاه‌مدت)
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">۲. اثر درجه ضرورت کالا:</span>
+                <span class="math-sym">|E_{d, Lux}|</span> &gt; 1 \quad | \quad 0 \le <span class="math-sym">|E_{d, Nec}|</span> &lt; 1
+            </div>
+            <div class="formula-line">
+                <span class="math-badge app">۳. رابطه سهم بودجه و کشش:</span>
+                Budget Share ↑ ⟹ <span class="math-sym">|E_d|</span> ↑
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی استاد (۶ محرک بنیادین):</strong>
+            • <b>۱. قابلیت جانشینی (Substitutability):</b> مهم‌ترین عامل کشش؛ هرچه کالاهای جانشین نزدیک‌تر و بیشتر باشند، کشش بالاتر است (پپسی و کوکاکولا).<br>
+            • <b>۲. درجه ضرورت (Necessity vs Luxury):</b> کالاهای ضروری و درمانی کم‌کشش (انسولین) و کالاهای تجملی باکشش هستند.<br>
+            • <b>۳. سهم کالا در بودجه خانوار (Budget Share):</b> هرچه سهم مخارج کالا ناچیزتر باشد، کشش کمتر است (نمک، کبریت).<br>
+            • <b>۴. افق زمانی تصمیم‌گیری (Time Horizon):</b> در کوتاه‌مدت به علت عادات تقاضا کم‌کشش است، اما در بلندمدت با پیدایش راهکارهای جایگزین بسیار باکشش می‌شود.<br>
+            • <b>۵. تعریف و دامنه بازار کالا (Market Definition):</b> تعریف باریک و مشخص برند (بستنی شکلاتی میهن) باکشش، ولی تعریف کلی (کل مواد غذایی) بی‌کشش است.<br>
+            • <b>۶. دوام کالا و امکان تعویق (Durability):</b> کالاهای بادوام (خودرو، لوازم برقی) باکشش‌ترند زیرا خرید آن‌ها در گرانی به تعویق می‌افتد.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>⚡ کاربرد در مدیریت مالی و استراتژی قیمت‌گذاری شرکتی:</strong>
+            بنگاه‌هایی که کالاهایی با سهم بودجه اندک، ضروری یا با تعریف بازاری انحصاری عرضه می‌کنند، دارای «قدرت قیمت‌گذاری» (Pricing Power) بالا هستند و می‌توانند با افزایش نرخ، حاشیه سود خود را بدون هراس از ریزش فروش گسترش دهند.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله کنکور ارشد:</strong>
+            دام تستی مقایسه کشش سوخت در کوتاه‌مدت و بلندمدت! طراحان اغلب ادعا می‌کنند با گرانی بنزین مصرف فوراً نصف می‌شود؛ در صورتی که در کوتاه‌مدت مردم ناچار به تردد هستند (|Ed| کوچک) و در بلندمدت با تعویض خودرو به هیبریدی کشش به شدت افزایش می‌یابد.
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')">
+            <span>⚡</span> فلش‌بک به پیش‌نیاز کشش
+        </button>
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
+<!-- Micro Formula 16: Partial vs Total Elasticity Duality -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-micro">فرمول طلایی ۱۶</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">دوگانگی کشش جزئی در برابر کشش کلی (Partial vs Total Elasticity)</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">۱. کشش جزئی قیمتی (مشتق جزئی):</span>
+                <span class="math-sym">E_{partial}</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">∂Q_i</span><span class="math-den">∂P_i</span></span> ) × ( <span class="math-frac"><span class="math-num">P_i</span><span class="math-den">Q_i</span></span> ) \quad ( Ceteris \, Paribus )
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">۲. دیفرانسیل کامل تابع تقاضا:</span>
+                <span class="math-sym">dQ_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Q_i</span><span class="math-den">∂P_i</span></span> dP_i + <span class="math-frac"><span class="math-num">∂Q_i</span><span class="math-den">∂I</span></span> dI + ∑_{j \ne i} <span class="math-frac"><span class="math-num">∂Q_i</span><span class="math-den">∂P_j</span></span> dP_j
+            </div>
+            <div class="formula-line">
+                <span class="math-badge app">۳. کشش کلی با تغییر همزمان عوامل:</span>
+                <span class="math-sym">E_{total}</span><span class="math-op">=</span>E_{ii} + E_{iI} × <span class="math-frac"><span class="math-num">dI/I</span><span class="math-den">dP_i/P_i</span></span> + ∑ E_{ij} × <span class="math-frac"><span class="math-num">dP_j/P_j</span><span class="math-den">dP_i/P_i</span></span>
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی استاد در ۳ ساحت علمی:</strong>
+            • <b>ساحت ریاضی و دیفرانسیل:</b> کشش جزئی با مشتق جزئی و فرض ثبات سایر متغیرها محاسبه می‌شود؛ اما کشش کلی از دیفرانسیل کامل بدست آمده و تغییر همزمان درآمد و قیمت سایر کالاها را بازتاب می‌دهد.<br>
+            • <b>ساحت تعادل جزئی مارشال در برابر عمومی والراس:</b> مارشال بازار کالا را تک‌بعدی در لوله آزمایش می‌سنجد؛ والراس زنجیره بازخورد و سرایت تغییر قیمت به کل بازارهای دیگر اقتصاد را محاسبه می‌کند.<br>
+            • <b>ساحت خرد در برابر کلان:</b> کشش جزئی مربوط به تقاضای یک کالای مشخص شرکتی است؛ کشش کلی مربوط به کشش کل تقاضای اقتصاد (AD) در برابر تورم عمومی است.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>⚡ کاربرد در اقتصاد مالی و سیاست‌گذاری:</strong>
+            اگر دولت با فرض کشش جزئی روی سوخت مالیات ببندد، خطای محاسباتی رخ می‌دهد؛ زیرا گرانی سوخت همزمان درآمد واقعی خانوارها را کاهش داده و تقاضای تمام کالاهای دیگر را دستخوش شوک کلی می‌کند.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله کنکور ارشد:</strong>
+            فرض پنهان ثبات سایر شرایط! در تمام مسائل استاندارد فرض Ceteris Paribus برقرار است. اگر در صورت مسئله ذکر شود: «همزمان با افزایش قیمت کالای A، درآمد خانوار نیز ۱۰٪ بالا رفت»، استفاده از کشش جزئی به تنهایی اشتباه بوده و باید اثر کلی دیفرانسیل محاسبه شود.
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')">
+            <span>⚡</span> فلش‌بک به پیش‌نیاز کشش
+        </button>
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
+<!-- Micro Formula 17: Professor Blackboard Table Reconstruction -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-micro">فرمول طلایی ۱۷</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">کالبدشکافی جدول استاد: تطبیق داده‌ها، درآمد کل TR، درآمد نهایی MR و کشش تقاضا</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">معادله تقاضای پنهان در جدول استاد:</span>
+                <span class="math-sym">P</span><span class="math-op">=</span>10 - Q \iff <span class="math-sym">Q</span><span class="math-op">=</span>10 - P
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">تابع درآمد کل (سهمی معکوس):</span>
+                <span class="math-sym">TR</span><span class="math-op">=</span>P × Q<span class="math-op">=</span>10Q - Q²
+            </div>
+            <div class="formula-line">
+                <span class="math-badge app">تابع درآمد نهایی (شیب دو برابر تقاضا):</span>
+                <span class="math-sym">MR</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dTR</span><span class="math-den">dQ</span></span><span class="math-op">=</span>10 - 2Q
+            </div>
+            <div class="formula-line">
+                <span class="math-badge pop">رابطه طلایی آموروسو-رابینسون:</span>
+                <span class="math-sym">MR</span><span class="math-op">=</span>P × ( 1 - <span class="math-frac"><span class="math-num">1</span><span class="math-den">|E_d|</span></span> )
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+            • <b>چرا شیب خط MR دو برابر شیب تقاضاست؟</b> شیب تقاضا برابر -1 است. در تابع درآمد کل درجه دو TR = 10Q - Q²، مشتق‌گیری توان ۲ را ضریب کرده و شیب MR به عدد -2 تبدیل می‌شود.<br>
+            • <b>رفتار ۳ ناحیه درآمد کل:</b> تا زمانی که کشش بزرگتر از ۱ است، ارزان شدن کالا درآمد کل را افزایش می‌دهد و MR مثبت است. در نقطه میانی (Q=5, P=5) کشش برابر ۱، درآمد کل حداکثر (TR=25) و MR مساوی صفر است. بعد از آن تقاضا کم‌کشش شده و ارزان کردن کالا درآمد کل را کاهش می‌دهد (MR منفی).
+        </div>
+
+        <!-- Full Reconstructed 11-Row Table with Zone Colors -->
+        <div class="table-responsive" style="margin: 12px 0;">
+            <table class="stat-table" style="width: 100%; border-collapse: collapse; text-align: center; font-size: 0.78rem;">
+                <thead>
+                    <tr style="background: #E0F2FE; color: #0369A1; font-weight: 900; border-bottom: 2px solid #BAE6FD;">
+                        <th style="padding: 8px 4px;">مقدار (Q)</th>
+                        <th style="padding: 8px 4px;">قیمت (P)</th>
+                        <th style="padding: 8px 4px;">درآمد کل (TR)</th>
+                        <th style="padding: 8px 4px;">درآمد نهایی (MR)</th>
+                        <th style="padding: 8px 4px;">کشش تقاضا (|Ed|)</th>
+                        <th style="padding: 8px 4px;">ناحیه و وضعیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #EFF6FF; color: #1E40AF;">
+                        <td>0</td><td>10</td><td>0</td><td>-</td><td>∞</td><td>شروع ناحیه باکشش</td>
+                    </tr>
+                    <tr style="background: #EFF6FF; color: #1E40AF;">
+                        <td>1</td><td>9</td><td>9</td><td>9</td><td>9.00</td><td>باکشش (|Ed| > 1) | TR صعودی</td>
+                    </tr>
+                    <tr style="background: #EFF6FF; color: #1E40AF;">
+                        <td>2</td><td>8</td><td>16</td><td>7</td><td>4.00</td><td>باکشش (|Ed| > 1) | TR صعودی</td>
+                    </tr>
+                    <tr style="background: #EFF6FF; color: #1E40AF;">
+                        <td>3</td><td>7</td><td>21</td><td>5</td><td>2.33</td><td>باکشش (|Ed| > 1) | TR صعودی</td>
+                    </tr>
+                    <tr style="background: #EFF6FF; color: #1E40AF;">
+                        <td>4</td><td>6</td><td>24</td><td>3</td><td>1.50</td><td>باکشش (|Ed| > 1) | TR صعودی</td>
+                    </tr>
+                    <tr style="background: #ECFDF5; color: #065F46; font-weight: 900; border: 2px solid #10B981;">
+                        <td>5</td><td>5</td><td>25 (ماکزیمم)</td><td>0 (صفر مطلق)</td><td>1.00 (کشش واحد)</td><td>نقطه طلایی میانی: TR_max و MR=0</td>
+                    </tr>
+                    <tr style="background: #FEF2F2; color: #991B1B;">
+                        <td>6</td><td>4</td><td>24</td><td>-1</td><td>0.67</td><td>کم‌کشش (|Ed| < 1) | TR نزولی</td>
+                    </tr>
+                    <tr style="background: #FEF2F2; color: #991B1B;">
+                        <td>7</td><td>3</td><td>21</td><td>-3</td><td>0.43</td><td>کم‌کشش (|Ed| < 1) | TR نزولی</td>
+                    </tr>
+                    <tr style="background: #FEF2F2; color: #991B1B;">
+                        <td>8</td><td>2</td><td>16</td><td>-5</td><td>0.25</td><td>کم‌کشش (|Ed| < 1) | TR نزولی</td>
+                    </tr>
+                    <tr style="background: #FEF2F2; color: #991B1B;">
+                        <td>9</td><td>1</td><td>9</td><td>-7</td><td>0.11</td><td>کم‌کشش (|Ed| < 1) | TR نزولی</td>
+                    </tr>
+                    <tr style="background: #FEF2F2; color: #991B1B;">
+                        <td>10</td><td>0</td><td>0</td><td>-9</td><td>0.00</td><td>برخورد با محور افقی (|Ed| = 0)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>⚡ قانون طلایی قیمت‌گذاری در بازار و انحصار:</strong>
+            هیچ بنگاه عاقل و هیچ انحصارگری در ناحیه کم‌کشش (پایین جدول) تولید نمی‌کند؛ زیرا در آن ناحیه MR منفی است، یعنی فروش هر واحد بیشتر درآمد کل را کاهش می‌دهد. نقطه تعادل انحصارگر همواره در ناحیه باکشش (بالای جدول) قرار دارد.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله کنکور ارشد:</strong>
+            محاسبه MR در نقطه میانی! طراحان کنکور سوال می‌دهند: «در تیراژی که کشش تقاضا برابر یک است، ارزش درآمد نهایی چقدر است؟» پاسخ قطعی: دقیقاً صفر (MR = 0) و درآمد کل در نقطه حداکثر مطلق خود قرار دارد.
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')">
+            <span>⚡</span> فلش‌بک به پیش‌نیاز کشش
+        </button>
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
@@ -7180,6 +7506,22 @@ body.theme-dark .step-content {
                         شیب تابع تقاضای خطی همواره عددی ثابت است (-b)، اما کشش در طول خط تغییر می‌کند! در نقطه وسط خط کشش برابر ۱، در بالا باکشش و در پایین بی‌کشش است.
                     </div>
                 
+                
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۳: روش هندسی برای تقاضای غیرخطی</div>
+                        داوطلب گمان می‌کند فرمول پاره‌خط پایین به بالا فقط برای خط مستقیم است! در تقاضای غیرخطی Q = f(P)، با رسم خط مماس در نقطه آزمون، کشش دقیقاً برابر نسبت پاره‌خط پایین خط مماس به پاره‌خط بالای خط مماس (AB' / T'A) است.
+                    </div>
+
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۴: تعادل انحصارگر و ناحیه باکشش</div>
+                        انحصارگر هرگز در ناحیه کم‌کشش (|Ed| < 1) تعادل برقرار نمی‌کند؛ زیرا شرط تعادل انحصار MR = MC است و چون هزینه نهایی مثبت است (MC > 0)، باید MR > 0 باشد و طبق رابطه آموروسو-رابینسون شرط مثبت بودن MR باکشش بودن تقاضاست (|Ed| > 1).
+                    </div>
+
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۵: شیب خط درآمد نهایی (MR)</div>
+                        در تابع تقاضای خطی P = a - bQ، شیب خط درآمد نهایی دو برابر شیب خط تقاضاست (MR = a - 2bQ)؛ اما عرض از مبدأ هر دو تابع بر روی محور قیمت دقیقاً یکسان و برابر a است.
+                    </div>
+
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
@@ -13902,6 +14244,51 @@ window.resetORSimplex = resetORSimplex;
         const quizBank = {
             micro: [
                 {
+                    q: 'در تابع تقاضای غیرخطی، برای اندازه‌گیری کشش قیمتی در نقطه مفروض A به روش هندسی، کدام اقدام ریاضی الزامی است؟',
+                    opts: [
+                        '۱. رسم خط مماس بر منحنی در نقطه A و محاسبه نسبت پاره‌خط پایینی مماس به پاره‌خط بالایی مماس (AB\' / T\'A)',
+                        '۲. وصل کردن نقطه A به مبدأ مختصات با یک خط مستقیم',
+                        '۳. رسم خط قاطع بین نقطه A و نقطه میانی',
+                        '۴. روش هندسی برای توابع غیرخطی غیرقابل اجراست و فقط برای خط راست صادق است'
+                    ],
+                    ans: 0,
+                    expl: 'کالبدشکافی تحلیلی: روش هندسی پاره‌خط‌ها برای تقاضای غیرخطی با رسم خط مماس بر منحنی در نقطه A اجرا می‌شود. امتداد خط مماس محور قیمت را در T\' و محور مقدار را در B\' قطع می‌کند و کشش دقیقاً برابر پاره‌خط پایین مماس بر پاره‌خط بالای مماس یعنی AB\'/T\'A است.'
+                },
+                {
+                    q: 'در جدول داده‌های تقاضای P = 10 - Q، در تیراژی که درآمد نهایی صفر می‌شود (MR = 0)، وضعیت درآمد کل (TR) و قدرمطلق کشش تقاضا چگونه است؟',
+                    opts: [
+                        '۱. درآمد کل در ماکزیمم مطلق (TR = 25) و کشش برابر یک (|Ed| = 1)',
+                        '۲. درآمد کل صفر و تقاضا کاملاً بی‌کشش (|Ed| = 0)',
+                        '۳. درآمد کل برابر ۱۰ و تقاضا بی‌نهایت باکشش',
+                        '۴. درآمد کل در حال صعود و کشش برابر ۲'
+                    ],
+                    ans: 0,
+                    expl: 'کالبدشکافی تحلیلی: درآمد کل TR = 10Q - Q² است و مشتق آن MR = 10 - 2Q است. با قرار دادن MR = 0 تیراژ Q = 5 و قیمت P = 5 بدست می‌آید که در آن TR = 25 حداکثر می‌شود. طبق رابطه آموروسو MR = P(1 - 1/|Ed|)، شرط صفر شدن MR برابری کشش با یک است.'
+                },
+                {
+                    q: 'چرا کشش قیمتی تقاضا برای بنزین در بلندمدت به مراتب بزرگتر از کوتاه‌مدت است؟',
+                    opts: [
+                        '۱. زیرا در بلندمدت مصرف‌کنندگان امکان تغییر خودرو، استفاده از وسایل نقلیه عمومی و بهینه‌سازی الگوی مصرف را دارند',
+                        '۲. زیرا در بلندمدت قیمت بنزین همیشه ارزان‌تر می‌شود',
+                        '۳. زیرا بنزین در بلندمدت به کالای پست تبدیل می‌شود',
+                        '۴. زیرا در بلندمدت شیب خط تقاضا عمودی‌تر می‌شود'
+                    ],
+                    ans: 0,
+                    expl: 'کالبدشکافی تحلیلی: افق زمانی یکی از ۶ محرک بنیادین کشش است. در کوتاه‌مدت مصرف‌کننده قفل بوده و عادت مصرفی صلب است (کم‌کشش)؛ اما در بلندمدت با پیدایش جانشین‌ها و امکان تغییر فناوری، کشش به شدت افزایش می‌یابد.'
+                },
+                {
+                    q: 'تفاوت اساسی کشش جزئی با کشش کلی در تحلیل تقاضا چیست؟',
+                    opts: [
+                        '۱. کشش جزئی با فرض ثبات سایر شرایط (مشتق جزئی) است؛ اما کشش کلی اثر همزمان تغییر درآمد و سایر قیمت‌ها را از دیفرانسیل کامل می‌سنجد',
+                        '۲. کشش جزئی فقط برای اعداد اعشاری و کشش کلی برای اعداد صحیح است',
+                        '۳. کشش کلی فقط در بازار انحصار کامل محاسبه می‌شود',
+                        '۴. کشش جزئی همواره منفی و کشش کلی همواره مثبت است'
+                    ],
+                    ans: 0,
+                    expl: 'کالبدشکافی تحلیلی: کشش جزئی متکی بر فرض Ceteris Paribus و مشتق جزئی نسبت به قیمت کالا است؛ در حالی که کشش کلی با احتساب دیفرانسیل کل dQ = (∂Q/∂P)dP + (∂Q/∂I)dI + ... اثرات همزمان زنجیره‌ای را در کل اقتصاد محاسبه می‌کند.'
+                },
+
+                {
                     q: 'در تابع تقاضای خطی Qd = 200 - 4P، مقدار کشش قیمتی تقاضا در نقطه میانی هندسی و وضعیت درآمد کل (TR) به ترتیب چگونه است؟',
                     opts: [
                         '۱. |Ed| = 1 و درآمد کل در نقطه حداکثر مطلق (TR_max) قرار دارد',
@@ -16316,6 +16703,25 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
     var bankaiFormulaBank = {
         micro: [
+            {
+                id: 'm6',
+                title: 'کشش تقاضای غیرخطی با خط مماس',
+                prompt: 'نسبت هندسی پاره‌خط‌های خط مماس بر تقاضای خمیده در نقطه A چیست؟',
+                canonical: '|Ed| = AB\'/T\'A',
+                aliases: ['|Ed| = AB/TA', '|Ed|=AB\'/T\'A', 'Ed = AB\'/T\'A', '|Ed| = AB / TA', '|Ed| = AB/T\'A'],
+                hint: 'پاره‌خط پایینی خط مماس تقسیم بر پاره‌خط بالایی خط مماس.',
+                breakdown: 'کالبدشکافی: خط مماس محور قیمت را در T\' و محور مقدار را در B\' قطع می‌کند؛ نسبت پاره‌خط پایین به بالا برابر با کشش نقطه‌ای است.'
+            },
+            {
+                id: 'm7',
+                title: 'تابع درآمد نهایی با شیب دو برابر تقاضا',
+                prompt: 'اگر تابع تقاضای معکوس P = a - bQ باشد، ضابطه جبری درآمد نهایی (MR) چیست؟',
+                canonical: 'MR = a - 2bQ',
+                aliases: ['MR=a-2bQ', 'mr=a-2bq', 'MR = a - 2*b*Q', 'MR = a - 2b*Q'],
+                hint: 'مشتق تابع درآمد کل TR = aQ - bQ² نسبت به Q.',
+                breakdown: 'کالبدشکافی: شیب خط درآمد نهایی دو برابر شیب خط تقاضاست؛ در حالی که هر دو از یک عرض از مبدأ یکسان (a) آغاز می‌شوند.'
+            },
+
             {
                 id: 'm1',
                 title: 'کشش قیمتی تقاضا با مشتق',
