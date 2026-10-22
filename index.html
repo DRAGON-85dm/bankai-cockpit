@@ -1403,7 +1403,7 @@ body:not(.theme-dark) .dock-btn.active::after {
         }
     
         /* ========================================================
-           v19.0 ADVANCED CYBERPUNK SCI-FI CALCULATOR & GLITCH ENGINE
+           v20.0 ADVANCED CYBERPUNK SCI-FI CALCULATOR & GLITCH ENGINE
            ======================================================== */
         #bankai-security-shield {
             position: fixed;
@@ -1420,7 +1420,73 @@ body:not(.theme-dark) .dock-btn.active::after {
             transition: opacity 0.45s ease, filter 0.45s ease;
         }
 
-        /* ADVANCED CYBERPUNK SCI-FI TERMINAL DECK */
+        /* PAGE / BACKGROUND SCREEN GLITCH UPON WRONG PIN (CALCULATOR STAYS 100% STEADY) */
+        #bankai-security-shield.page-screen-glitch {
+            animation: full-page-screen-glitch-anim 0.52s ease-in-out;
+        }
+        @keyframes full-page-screen-glitch-anim {
+            0% { filter: none; }
+            15% { 
+                filter: hue-rotate(90deg) contrast(220%) invert(0.12);
+                background: radial-gradient(circle at 50% 50%, rgba(255, 0, 85, 0.45) 0%, rgba(2, 6, 23, 0.98) 100%);
+            }
+            30% { 
+                filter: hue-rotate(-90deg) contrast(250%) brightness(1.25);
+            }
+            45% { 
+                filter: contrast(300%) invert(0.18);
+                background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.4) 0%, rgba(2, 6, 23, 0.98) 100%);
+            }
+            60% { 
+                filter: hue-rotate(180deg) contrast(180%);
+            }
+            75% { 
+                filter: contrast(130%);
+            }
+            100% { 
+                filter: none;
+                background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.94) 0%, rgba(2, 6, 23, 0.98) 100%);
+            }
+        }
+
+        /* FULL-SCREEN GLITCH TEAR OVERLAY ON WRONG PIN (BEHIND CALCULATOR) */
+        .shield-glitch-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .shield-glitch-tear {
+            position: absolute;
+            left: -15%;
+            width: 130%;
+            background: linear-gradient(90deg, rgba(255, 0, 85, 0.6), rgba(0, 240, 255, 0.6));
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.7);
+            backdrop-filter: invert(0.85);
+            -webkit-backdrop-filter: invert(0.85);
+            opacity: 0;
+        }
+        .shield-glitch-tear.t1 { top: 18%; height: 26px; animation: shield-tear-anim1 0.26s steps(2) infinite alternate; }
+        .shield-glitch-tear.t2 { top: 38%; height: 42px; animation: shield-tear-anim2 0.2s steps(2) infinite alternate-reverse; }
+        .shield-glitch-tear.t3 { top: 62%; height: 20px; animation: shield-tear-anim1 0.22s steps(2) infinite 0.05s; }
+        .shield-glitch-tear.t4 { top: 82%; height: 35px; animation: shield-tear-anim2 0.3s steps(2) infinite alternate; }
+
+        @keyframes shield-tear-anim1 {
+            0% { opacity: 0; transform: translateX(0); }
+            40% { opacity: 0.95; transform: translateX(-55px); }
+            80% { opacity: 0.9; transform: translateX(65px); }
+            100% { opacity: 0; transform: translateX(0); }
+        }
+        @keyframes shield-tear-anim2 {
+            0% { opacity: 0.95; transform: translateX(70px); }
+            50% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 0.9; transform: translateX(-60px); }
+        }
+
+        /* ADVANCED CYBERPUNK SCI-FI TERMINAL DECK (ZERO GLITCH ON DECK) */
         .mycurse-login-card {
             background: linear-gradient(165deg, rgba(15, 23, 42, 0.92) 0%, rgba(9, 13, 22, 0.96) 50%, rgba(28, 14, 5, 0.94) 100%);
             backdrop-filter: blur(28px) saturate(190%);
@@ -1435,6 +1501,7 @@ body:not(.theme-dark) .dock-btn.active::after {
             justify-content: flex-start;
             gap: 13px;
             position: relative;
+            z-index: 5;
             box-sizing: border-box !important;
             border: 2px solid rgba(249, 115, 22, 0.55);
             box-shadow: 
@@ -1443,21 +1510,6 @@ body:not(.theme-dark) .dock-btn.active::after {
                 inset 0 0 24px rgba(249, 115, 22, 0.12),
                 inset 0 1px 2px rgba(255, 255, 255, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* HEAVY GLITCH ON CARD UPON WRONG PIN */
-        .mycurse-login-card.card-heavy-glitch {
-            animation: card-heavy-distortion 0.52s ease-in-out;
-        }
-        @keyframes card-heavy-distortion {
-            0% { transform: translate(0, 0) skewX(0); filter: none; }
-            15% { transform: translate(-8px, 4px) skewX(-4deg); filter: hue-rotate(90deg) contrast(200%); border-color: #FF0055; box-shadow: 0 0 50px #FF0055; }
-            30% { transform: translate(10px, -6px) skewX(5deg); filter: invert(0.2) saturate(300%); }
-            45% { transform: translate(-10px, -4px) skewX(-3deg); filter: hue-rotate(-90deg) contrast(250%); }
-            60% { transform: translate(6px, 6px) skewX(4deg); border-color: #00F0FF; box-shadow: 0 0 45px #00F0FF; }
-            75% { transform: translate(-4px, -2px) skewX(-2deg); }
-            90% { transform: translate(2px, 2px) skewX(1deg); }
-            100% { transform: translate(0, 0) skewX(0); filter: none; }
         }
 
         /* TOPIC PILL: CYBERPUNK HUD BADGE WITH RED & BLUE-VIOLET NEON */
@@ -1564,24 +1616,6 @@ body:not(.theme-dark) .dock-btn.active::after {
             50% { transform: translate(3px, -1px) skewX(-1.5deg); border-color: #FF0055; box-shadow: 0 0 25px #FF0055; }
             75% { transform: translate(-1px, 1px); }
             100% { transform: translate(0, 0); }
-        }
-
-        /* HEAVY GLITCH ON SCREEN UPON WRONG PIN */
-        .mycurse-calc-screen.screen-heavy-glitch {
-            animation: screen-heavy-breakdown 0.52s ease-in-out;
-            border-color: #FF0055 !important;
-            background: rgba(80, 0, 20, 0.6) !important;
-            box-shadow: 0 0 35px #FF0055, inset 0 0 20px #FF0055 !important;
-        }
-        @keyframes screen-heavy-breakdown {
-            0% { transform: translate(0, 0) skewX(0); }
-            15% { transform: translate(-12px, 4px) skewX(-6deg); filter: contrast(300%) hue-rotate(90deg); }
-            30% { transform: translate(14px, -6px) skewX(8deg); filter: invert(0.4); }
-            45% { transform: translate(-10px, -4px) skewX(-5deg); filter: contrast(250%) hue-rotate(-90deg); }
-            60% { transform: translate(8px, 6px) skewX(6deg); }
-            75% { transform: translate(-5px, -2px) skewX(-2deg); }
-            90% { transform: translate(3px, 2px); }
-            100% { transform: translate(0, 0) skewX(0); }
         }
 
         /* INPUT DIGITS - GLOWING CYBERPUNK TYPOGRAPHY */
@@ -5998,6 +6032,14 @@ body.theme-dark .step-content {
 
     <!-- MY CURSE SOVEREIGN CALCULATOR LOGIN OVERLAY -->
     <div id="bankai-security-shield">
+        <!-- FULL-SCREEN BACKGROUND GLITCH OVERLAY ON WRONG PIN -->
+        <div id="shield-screen-glitch" class="shield-glitch-layer" style="display: none;">
+            <div class="shield-glitch-tear t1"></div>
+            <div class="shield-glitch-tear t2"></div>
+            <div class="shield-glitch-tear t3"></div>
+            <div class="shield-glitch-tear t4"></div>
+        </div>
+
         <div class="mycurse-login-card" id="shield-card-box">
             <!-- TOPIC PILL AT TOP CENTER WITH SUBTLE RED & BLUE-VIOLET GLOW -->
             <div class="mycurse-topic-badge">
@@ -15706,8 +15748,6 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             if (isAuthenticating) return;
 
             const input = document.getElementById('shield-pin-input');
-            const cardBox = document.getElementById('shield-card-box');
-            const screenBox = document.querySelector('.mycurse-calc-screen');
             const errEl = document.getElementById('shield-error-text');
             if (!input) return;
 
@@ -15724,20 +15764,23 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             } else {
                 if (typeof hapticTap === 'function') hapticTap('error');
 
-                // 1. Heavy glitch on card and screen
-                if (cardBox) {
-                    cardBox.classList.add('card-heavy-glitch');
-                    setTimeout(() => cardBox.classList.remove('card-heavy-glitch'), 550);
+                // 1. Heavy glitch hits the PAGE / SCREEN, NOT the calculator!
+                const shield = document.getElementById('bankai-security-shield');
+                const screenGlitchLayer = document.getElementById('shield-screen-glitch');
+
+                if (shield) {
+                    shield.classList.add('page-screen-glitch');
+                    setTimeout(() => shield.classList.remove('page-screen-glitch'), 520);
                 }
-                if (screenBox) {
-                    screenBox.classList.add('screen-heavy-glitch');
-                    setTimeout(() => screenBox.classList.remove('screen-heavy-glitch'), 550);
+                if (screenGlitchLayer) {
+                    screenGlitchLayer.style.display = 'block';
+                    setTimeout(() => screenGlitchLayer.style.display = 'none', 520);
                 }
 
                 // 2. Clear digits
                 input.value = '';
 
-                // 3. Display neon red error: «رمز اشتباه است» AFTER heavy glitch
+                // 3. Display neon red error: «رمز اشتباه است» AFTER screen glitch
                 setTimeout(() => {
                     if (errEl) {
                         errEl.innerText = 'رمز اشتباه است';
