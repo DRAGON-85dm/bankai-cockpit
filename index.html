@@ -15591,280 +15591,410 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
         
         // ========================================================
-        // v15.0 BANKAI SOVEREIGN SECURITY & GLITCH TRANSITION ENGINE
+        // v21.0 BANKAI SOVEREIGN ARMOR: BOT SHIELD & ANTI-LEAK ENGINE
+        // Zero-Leak Enclosure | Anti-Automation | Brute-Force Rate Limiting
         // ========================================================
-        const AUTHORIZED_TG_ID = '1256058389';
-        const HASH_8585 = 'bbb925608218d662fa6dcca680d7cd561b3df4c16077118d9753cff351c98f61';
-        const HASH_TG_ID = 'd89314e8cd38fe093c280ecce114409b12b7a0c8224f8178746485b15c883847';
+        (function() {
+            'use strict';
 
-        let isAuthenticating = false;
+            // Cryptographic Vault (Completely private to this closure, zero window pollution)
+            const SOVEREIGN_VAULT = Object.freeze({
+                AUTHORIZED_TG_ID: '1256058389',
+                HASH_8585: 'bbb925608218d662fa6dcca680d7cd561b3df4c16077118d9753cff351c98f61',
+                HASH_TG_ID: 'd89314e8cd38fe093c280ecce114409b12b7a0c8224f8178746485b15c883847',
+                AUTH_TOKEN_KEY: 'bankai_sovereign_auth',
+                AUTH_TOKEN_VAL: 'AUTHORIZED_SOVEREIGN_BAHADOR_85'
+            });
 
-        async function calcSha256(str) {
-            try {
-                if (window.crypto && window.crypto.subtle) {
-                    const enc = new TextEncoder().encode(str);
-                    const buf = await window.crypto.subtle.digest('SHA-256', enc);
-                    const arr = Array.from(new Uint8Array(buf));
-                    return arr.map(b => b.toString(16).padStart(2, '0')).join('');
-                }
-            } catch (e) {}
-            return '';
-        }
+            // Rate-limiting & Anti-Brute-Force state
+            let failedAttempts = 0;
+            let lockoutUntil = 0;
+            let lastKeyTime = 0;
+            let rapidKeyViolations = 0;
+            let isAuthenticating = false;
 
-        function triggerGlitchAndEnter(isBoss) {
-            if (isAuthenticating) return;
-            isAuthenticating = true;
-
-            sessionStorage.setItem('bankai_sovereign_auth', 'AUTHORIZED_SOVEREIGN_BAHADOR_85');
-
-            const shield = document.getElementById('bankai-security-shield');
-            const glitchStage = document.getElementById('bankai-glitch-stage');
-            const glitchAnimBox = document.getElementById('glitch-anim-box');
-            const welcomeTitle = document.getElementById('glitch-welcome-title');
-            const app = document.getElementById('bankai-cockpit-app');
-
-            // Hide the login card immediately
-            if (shield) {
-                shield.style.display = 'none';
-            }
-
-            // Reveal black screen glitch stage with full-screen active jitter
-            if (glitchStage) {
-                glitchStage.style.display = 'flex';
-                glitchStage.style.opacity = '1';
-                glitchStage.style.filter = 'none';
-                glitchStage.classList.add('active-glitch');
-            }
-
-            if (glitchAnimBox) {
-                glitchAnimBox.style.display = 'flex';
-            }
-            if (welcomeTitle) {
-                welcomeTitle.style.display = 'none';
-                welcomeTitle.className = 'glitch-welcome-title ' + (isBoss ? 'boss-title' : 'guest-title');
-                const titleStr = isBoss ? 'خوش آمدید رئیس' : 'خوش آمدید';
-                welcomeTitle.innerText = titleStr;
-                welcomeTitle.setAttribute('data-text', titleStr);
-            }
-
-            if (typeof hapticTap === 'function') hapticTap('heavy');
-
-            // Cyber glitch text cycling
-            const glitchTextEl = glitchStage ? glitchStage.querySelector('.glitch-text') : null;
-            const glitchJitterWords = isBoss ? 
-                ['IDENTIFYING SOVEREIGN...', 'IDENTITY: BAHADOR', 'BYPASSING PASSCODE...', 'ACCESS GRANTED'] :
-                ['INITIALIZING...', 'VERIFYING CODE...', 'SYNCHRONIZING...', 'ACCESS GRANTED'];
-            let wordIdx = 0;
-            const jitterInterval = setInterval(() => {
-                wordIdx = (wordIdx + 1) % glitchJitterWords.length;
-                if (glitchTextEl) glitchTextEl.innerText = glitchJitterWords[wordIdx];
-                if (typeof hapticTap === 'function' && Math.random() > 0.4) hapticTap('light');
-            }, 260);
-
-            // Phase 1: Glitch runs for 1.25s (1 to 1.5s as requested)
-            setTimeout(() => {
-                clearInterval(jitterInterval);
-                if (glitchAnimBox) glitchAnimBox.style.display = 'none';
-                if (glitchStage) glitchStage.classList.remove('active-glitch');
-
-                if (welcomeTitle) {
-                    welcomeTitle.style.display = 'block';
-                }
-                if (typeof hapticTap === 'function') hapticTap('success');
-
-                // Phase 2: Show Welcome for 1.2s, then smooth dissolve into app
-                setTimeout(() => {
-                    if (app) app.style.display = 'block';
-                    initCockpit();
-
-                    if (glitchStage) {
-                        glitchStage.style.transition = 'opacity 0.55s ease, filter 0.55s ease';
-                        glitchStage.style.opacity = '0';
-                        glitchStage.style.filter = 'blur(16px)';
-                        setTimeout(() => {
-                            glitchStage.style.display = 'none';
-                            isAuthenticating = false;
-                        }, 580);
-                    } else {
-                        isAuthenticating = false;
+            // 1. Comprehensive Bot & Headless Automation Detection
+            function detectAutomatedThreat() {
+                // A. Check Telegram is_bot flag
+                if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
+                    const tgUser = window.Telegram.WebApp.initDataUnsafe.user;
+                    if (tgUser && (tgUser.is_bot === true || (tgUser.username && /bot$/i.test(tgUser.username)))) {
+                        return { threat: true, reason: 'TELEGRAM_BOT_PROHIBITED' };
                     }
-                }, 1250);
-            }, 1250);
-        }
-        window.triggerGlitchAndEnter = triggerGlitchAndEnter;
-
-        function triggerInputMicroGlitch() {
-            const screenBox = document.querySelector('.mycurse-calc-screen');
-            const input = document.getElementById('shield-pin-input');
-            if (screenBox) {
-                screenBox.classList.remove('micro-glitch-active');
-                void screenBox.offsetWidth; // re-flow
-                screenBox.classList.add('micro-glitch-active');
-                setTimeout(() => screenBox.classList.remove('micro-glitch-active'), 140);
-            }
-            if (input) {
-                input.classList.remove('digit-glitch-active');
-                void input.offsetWidth;
-                input.classList.add('digit-glitch-active');
-                setTimeout(() => input.classList.remove('digit-glitch-active'), 140);
-            }
-        }
-
-        function calcPress(val) {
-            const input = document.getElementById('shield-pin-input');
-            const errEl = document.getElementById('shield-error-text');
-            if (errEl) errEl.classList.remove('visible');
-
-            if (!input) return;
-
-            if (typeof hapticTap === 'function') hapticTap('light');
-
-            if (val === 'C') {
-                input.value = '';
-                triggerInputMicroGlitch();
-                return;
-            }
-            if (val === 'DEL') {
-                input.value = input.value.slice(0, -1);
-                triggerInputMicroGlitch();
-                return;
-            }
-
-            if (input.value.length < 12) {
-                input.value += val;
-                triggerInputMicroGlitch();
-            }
-
-            const current = input.value.trim();
-            if (current === '8585' || current === AUTHORIZED_TG_ID) {
-                verifyMasterPin();
-            } else if (current.length === 4 && current !== '8585') {
-                verifyMasterPin();
-            }
-        }
-        window.calcPress = calcPress;
-
-        async function verifyMasterPin() {
-            if (isAuthenticating) return;
-
-            const input = document.getElementById('shield-pin-input');
-            const errEl = document.getElementById('shield-error-text');
-            if (!input) return;
-
-            const pin = input.value.trim();
-            if (!pin) return;
-
-            const hash = await calcSha256(pin);
-            const isBoss = (pin === AUTHORIZED_TG_ID || hash === HASH_TG_ID);
-            const isValid = isBoss || (pin === '8585' || hash === HASH_8585);
-
-            if (isValid) {
-                if (errEl) errEl.classList.remove('visible');
-                triggerGlitchAndEnter(isBoss);
-            } else {
-                if (typeof hapticTap === 'function') hapticTap('error');
-
-                // 1. Heavy glitch hits the PAGE / SCREEN, NOT the calculator!
-                const shield = document.getElementById('bankai-security-shield');
-                const screenGlitchLayer = document.getElementById('shield-screen-glitch');
-
-                if (shield) {
-                    shield.classList.add('page-screen-glitch');
-                    setTimeout(() => shield.classList.remove('page-screen-glitch'), 520);
-                }
-                if (screenGlitchLayer) {
-                    screenGlitchLayer.style.display = 'block';
-                    setTimeout(() => screenGlitchLayer.style.display = 'none', 520);
                 }
 
-                // 2. Clear digits
-                input.value = '';
+                // B. WebDriver / Automation Tools Detection
+                if (navigator.webdriver === true) {
+                    return { threat: true, reason: 'NAVIGATOR_WEBDRIVER_FLAG' };
+                }
 
-                // 3. Display neon red error: «رمز اشتباه است» AFTER screen glitch
-                setTimeout(() => {
+                // C. Headless environment globals
+                if (window._phantom || window.__nightmare || window.callPhantom || window.Cypress || window.__selenium_evaluate || window.__webdriver_evaluate) {
+                    return { threat: true, reason: 'HEADLESS_BROWSER_GLOBALS' };
+                }
+
+                // D. Language and Screen anomalies
+                if (!navigator.languages || navigator.languages.length === 0) {
+                    return { threat: true, reason: 'EMPTY_NAVIGATOR_LANGUAGES' };
+                }
+                if (window.screen && (window.screen.width === 0 || window.screen.height === 0)) {
+                    return { threat: true, reason: 'ZERO_VIEWPORT_DIMENSIONS' };
+                }
+
+                // E. Suspicious Crawler User-Agent outside Telegram
+                const ua = (navigator.userAgent || '').toLowerCase();
+                const isTelegramUA = ua.includes('telegram');
+                const botKeywords = ['headlesschrome', 'phantomjs', 'puppeteer', 'selenium', 'crawler', 'spider', 'postmanruntime', 'python-requests', 'aiohttp', 'wget', 'curl', 'scrapy'];
+                for (let i = 0; i < botKeywords.length; i++) {
+                    if (ua.includes(botKeywords[i]) && !isTelegramUA) {
+                        return { threat: true, reason: 'MALICIOUS_CRAWLER_USER_AGENT: ' + botKeywords[i] };
+                    }
+                }
+
+                // F. Clickjacking / Unauthorized Frame Check
+                try {
+                    if (window.top !== window.self && !isTelegramUA && !document.referrer.includes('telegram')) {
+                        window.top.location = window.self.location;
+                        return { threat: true, reason: 'CLICKJACKING_FRAME_DETECTED' };
+                    }
+                } catch (e) {
+                    return { threat: true, reason: 'CROSS_ORIGIN_FRAME_VIOLATION' };
+                }
+
+                return { threat: false };
+            }
+
+            // 2. Lockdown Execution (Renders Security Screen & Neutralizes Document)
+            function executeLockdown(reason) {
+                console.warn('[SECURITY PROTOCOL] Threat neutralized:', reason);
+                document.body.innerHTML = `
+                    <div style="position:fixed;inset:0;background:#000000;z-index:999999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;color:#FF0055;font-family:'JetBrains Mono',monospace;text-align:center;box-sizing:border-box;">
+                        <div style="font-size:3rem;margin-bottom:14px;filter:drop-shadow(0 0 20px #FF0055);">🛑</div>
+                        <div style="border:1px solid #FF0055;padding:6px 14px;border-radius:6px;font-size:0.75rem;letter-spacing:2px;background:rgba(255,0,85,0.1);margin-bottom:16px;">SECURITY PROTOCOL // ACCESS TERMINATED</div>
+                        <div style="font-size:1.6rem;font-weight:900;color:#FFFFFF;margin-bottom:10px;text-shadow:0 0 12px #FF0055;">دسترسی مسدود شد</div>
+                        <div style="font-size:0.85rem;color:#94A3B8;max-width:380px;line-height:1.6;margin-bottom:20px;font-family:'Vazirmatn',sans-serif;">اتصال خودکار، ربات یا فعالیت مخرب شناسایی شد. دسترسی به این سامانه برای ابزارهای نامعتبر غیرمجاز است.</div>
+                        <div style="font-size:0.72rem;color:#64748B;letter-spacing:1px;">CODE: ${reason}</div>
+                    </div>
+                `;
+                try { window.stop(); } catch (e) {}
+            }
+
+            // SHA-256 computation
+            async function calcSha256(str) {
+                try {
+                    if (window.crypto && window.crypto.subtle) {
+                        const enc = new TextEncoder().encode(str);
+                        const buf = await window.crypto.subtle.digest('SHA-256', enc);
+                        const arr = Array.from(new Uint8Array(buf));
+                        return arr.map(b => b.toString(16).padStart(2, '0')).join('');
+                    }
+                } catch (e) {}
+                return '';
+            }
+
+            // Micro-Glitch on Input
+            function triggerInputMicroGlitch() {
+                const screenBox = document.querySelector('.mycurse-calc-screen');
+                const input = document.getElementById('shield-pin-input');
+                if (screenBox) {
+                    screenBox.classList.remove('micro-glitch-active');
+                    void screenBox.offsetWidth;
+                    screenBox.classList.add('micro-glitch-active');
+                    setTimeout(() => screenBox.classList.remove('micro-glitch-active'), 140);
+                }
+                if (input) {
+                    input.classList.remove('digit-glitch-active');
+                    void input.offsetWidth;
+                    input.classList.add('digit-glitch-active');
+                    setTimeout(() => input.classList.remove('digit-glitch-active'), 140);
+                }
+            }
+
+            // Keypad press handler with sub-human speed rate-limiting
+            function calcPress(val) {
+                if (isAuthenticating) return;
+
+                // Check lockout
+                if (Date.now() < lockoutUntil) {
+                    const remaining = Math.ceil((lockoutUntil - Date.now()) / 1000);
+                    const errEl = document.getElementById('shield-error-text');
                     if (errEl) {
-                        errEl.innerText = 'رمز اشتباه است';
+                        errEl.innerText = 'سیستم قفل است (' + remaining + ' ثانیه)';
                         errEl.classList.add('visible');
                     }
-                }, 520);
-            }
-        }
-        window.verifyMasterPin = verifyMasterPin;
-
-        function runSecurityAudit() {
-            let tgUser = null;
-            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
-                tgUser = window.Telegram.WebApp.initDataUnsafe.user;
-            }
-
-            // 1. Check if Bahador is entering via his authorized Telegram ID
-            if (tgUser && tgUser.id) {
-                const uid = String(tgUser.id);
-                if (uid === AUTHORIZED_TG_ID) {
-                    // Sovereign access: never ask for code, run glitch and welcome boss
-                    triggerGlitchAndEnter(true);
+                    if (typeof hapticTap === 'function') hapticTap('error');
                     return;
-                } else {
-                    // Unauthorized Telegram User: purge content
-                    const app = document.getElementById('bankai-cockpit-app');
-                    if (app) app.innerHTML = '';
-                    const shield = document.getElementById('bankai-security-shield');
-                    if (shield) {
-                        shield.innerHTML = '<div style="color: #EF4444; font-family: sans-serif; font-weight: 800; text-align: center; padding: 20px;">دسترسی غیرمجاز</div>';
+                }
+
+                // Sub-human speed detection (automated bot keyboard hammering)
+                const now = Date.now();
+                if (lastKeyTime > 0 && (now - lastKeyTime) < 18) {
+                    rapidKeyViolations++;
+                    if (rapidKeyViolations > 6) {
+                        executeLockdown('SUB_HUMAN_BOT_KEYSTROKES');
+                        return;
                     }
+                }
+                lastKeyTime = now;
+
+                const input = document.getElementById('shield-pin-input');
+                const errEl = document.getElementById('shield-error-text');
+                if (errEl) errEl.classList.remove('visible');
+
+                if (!input) return;
+
+                if (typeof hapticTap === 'function') hapticTap('light');
+
+                if (val === 'C') {
+                    input.value = '';
+                    triggerInputMicroGlitch();
                     return;
+                }
+                if (val === 'DEL') {
+                    input.value = input.value.slice(0, -1);
+                    triggerInputMicroGlitch();
+                    return;
+                }
+
+                if (input.value.length < 12) {
+                    input.value += val;
+                    triggerInputMicroGlitch();
+                }
+
+                const current = input.value.trim();
+                if (current === '8585' || current === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
+                    verifyMasterPin();
+                } else if (current.length === 4 && current !== '8585') {
+                    verifyMasterPin();
                 }
             }
 
-            // 2. If opened outside Telegram and session is already authorized
-            if (sessionStorage.getItem('bankai_sovereign_auth') === 'AUTHORIZED_SOVEREIGN_BAHADOR_85') {
+            // Glitch transition and entry
+            function triggerGlitchAndEnter(isBoss) {
+                if (isAuthenticating) return;
+                isAuthenticating = true;
+
+                sessionStorage.setItem(SOVEREIGN_VAULT.AUTH_TOKEN_KEY, SOVEREIGN_VAULT.AUTH_TOKEN_VAL);
+
                 const shield = document.getElementById('bankai-security-shield');
+                const glitchStage = document.getElementById('bankai-glitch-stage');
+                const glitchAnimBox = document.getElementById('glitch-anim-box');
+                const welcomeTitle = document.getElementById('glitch-welcome-title');
                 const app = document.getElementById('bankai-cockpit-app');
+
                 if (shield) shield.style.display = 'none';
-                if (app) app.style.display = 'block';
-                initCockpit();
-                return;
-            }
 
-            // 3. Normal login presentation (standalone browser without Telegram context)
-            const pinInp = document.getElementById('shield-pin-input');
-            const errEl = document.getElementById('shield-error-text');
-            if (pinInp) {
-                pinInp.addEventListener('input', function() {
-                    if (errEl) errEl.classList.remove('visible');
-                    triggerInputMicroGlitch();
-                    const v = this.value.trim();
-                    if (v === '8585' || v === AUTHORIZED_TG_ID) {
-                        verifyMasterPin();
-                    } else if (v.length === 4 && v !== '8585') {
-                        verifyMasterPin();
-                    }
-                });
-                pinInp.addEventListener('keydown', function(e) {
-                    if (errEl) errEl.classList.remove('visible');
-                    if (e.key === 'Enter') {
-                        verifyMasterPin();
-                    }
-                });
+                if (glitchStage) {
+                    glitchStage.style.display = 'flex';
+                    glitchStage.style.opacity = '1';
+                    glitchStage.style.filter = 'none';
+                    glitchStage.classList.add('active-glitch');
+                }
+
+                if (glitchAnimBox) glitchAnimBox.style.display = 'flex';
+                if (welcomeTitle) {
+                    welcomeTitle.style.display = 'none';
+                    welcomeTitle.className = 'glitch-welcome-title ' + (isBoss ? 'boss-title' : 'guest-title');
+                    const titleStr = isBoss ? 'خوش آمدید رئیس' : 'خوش آمدید';
+                    welcomeTitle.innerText = titleStr;
+                    welcomeTitle.setAttribute('data-text', titleStr);
+                }
+
+                if (typeof hapticTap === 'function') hapticTap('heavy');
+
+                const glitchTextEl = glitchStage ? glitchStage.querySelector('.glitch-text') : null;
+                const glitchJitterWords = isBoss ? 
+                    ['IDENTIFYING SOVEREIGN...', 'IDENTITY: BAHADOR', 'BYPASSING PASSCODE...', 'ACCESS GRANTED'] :
+                    ['INITIALIZING...', 'VERIFYING CODE...', 'SYNCHRONIZING...', 'ACCESS GRANTED'];
+                let wordIdx = 0;
+                const jitterInterval = setInterval(() => {
+                    wordIdx = (wordIdx + 1) % glitchJitterWords.length;
+                    if (glitchTextEl) glitchTextEl.innerText = glitchJitterWords[wordIdx];
+                    if (typeof hapticTap === 'function' && Math.random() > 0.4) hapticTap('light');
+                }, 260);
+
                 setTimeout(() => {
-                    try { pinInp.focus(); } catch (e) {}
-                }, 350);
-            }
-        }
-        window.runSecurityAudit = runSecurityAudit;
+                    clearInterval(jitterInterval);
+                    if (glitchAnimBox) glitchAnimBox.style.display = 'none';
+                    if (glitchStage) glitchStage.classList.remove('active-glitch');
 
+                    if (welcomeTitle) welcomeTitle.style.display = 'block';
+                    if (typeof hapticTap === 'function') hapticTap('success');
 
-        // Anti-Inspection & DevTools Guard
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('keydown', e => {
-            if (e.keyCode === 123 || 
-                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || 
-                (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
+                    setTimeout(() => {
+                        if (app) app.style.display = 'block';
+                        if (typeof window.initCockpit === 'function') window.initCockpit();
+
+                        if (glitchStage) {
+                            glitchStage.style.transition = 'opacity 0.55s ease, filter 0.55s ease';
+                            glitchStage.style.opacity = '0';
+                            glitchStage.style.filter = 'blur(16px)';
+                            setTimeout(() => {
+                                glitchStage.style.display = 'none';
+                                isAuthenticating = false;
+                            }, 580);
+                        } else {
+                            isAuthenticating = false;
+                        }
+                    }, 1250);
+                }, 1250);
             }
-        });
+
+            // PIN Verification with Anti-Brute-Force Lockout
+            async function verifyMasterPin() {
+                if (isAuthenticating) return;
+
+                // Check lockout
+                if (Date.now() < lockoutUntil) {
+                    const remaining = Math.ceil((lockoutUntil - Date.now()) / 1000);
+                    const errEl = document.getElementById('shield-error-text');
+                    if (errEl) {
+                        errEl.innerText = 'سیستم قفل است (' + remaining + ' ثانیه)';
+                        errEl.classList.add('visible');
+                    }
+                    return;
+                }
+
+                const input = document.getElementById('shield-pin-input');
+                const errEl = document.getElementById('shield-error-text');
+                if (!input) return;
+
+                const pin = input.value.trim();
+                if (!pin) return;
+
+                const hash = await calcSha256(pin);
+                const isBoss = (pin === SOVEREIGN_VAULT.AUTHORIZED_TG_ID || hash === SOVEREIGN_VAULT.HASH_TG_ID);
+                const isValid = isBoss || (pin === '8585' || hash === SOVEREIGN_VAULT.HASH_8585);
+
+                if (isValid) {
+                    failedAttempts = 0;
+                    if (errEl) errEl.classList.remove('visible');
+                    triggerGlitchAndEnter(isBoss);
+                } else {
+                    failedAttempts++;
+                    if (typeof hapticTap === 'function') hapticTap('error');
+
+                    // If failed >= 5 times, enforce 45s exponential security lockout
+                    if (failedAttempts >= 5) {
+                        lockoutUntil = Date.now() + 45000;
+                        input.value = '';
+                        if (errEl) {
+                            errEl.innerText = 'قفل امنیتی: ۵ تلاش ناموفق (۴۵ ثانیه)';
+                            errEl.classList.add('visible');
+                        }
+                        return;
+                    }
+
+                    // 1. Heavy glitch hits the PAGE / SCREEN, NOT the calculator!
+                    const shield = document.getElementById('bankai-security-shield');
+                    const screenGlitchLayer = document.getElementById('shield-screen-glitch');
+
+                    if (shield) {
+                        shield.classList.add('page-screen-glitch');
+                        setTimeout(() => shield.classList.remove('page-screen-glitch'), 520);
+                    }
+                    if (screenGlitchLayer) {
+                        screenGlitchLayer.style.display = 'block';
+                        setTimeout(() => screenGlitchLayer.style.display = 'none', 520);
+                    }
+
+                    // 2. Clear digits
+                    input.value = '';
+
+                    // 3. Display neon red error: «رمز اشتباه است» AFTER screen glitch
+                    setTimeout(() => {
+                        if (errEl) {
+                            errEl.innerText = 'رمز اشتباه است';
+                            errEl.classList.add('visible');
+                        }
+                    }, 520);
+                }
+            }
+
+            // Main Security Audit on Entry
+            function runSecurityAudit() {
+                // Threat Inspection: Stop bots immediately
+                const check = detectAutomatedThreat();
+                if (check.threat) {
+                    executeLockdown(check.reason);
+                    return;
+                }
+
+                let tgUser = null;
+                if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
+                    tgUser = window.Telegram.WebApp.initDataUnsafe.user;
+                }
+
+                // 1. Check if Bahador is entering via authorized Telegram ID
+                if (tgUser && tgUser.id) {
+                    const uid = String(tgUser.id);
+                    if (uid === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
+                        triggerGlitchAndEnter(true);
+                        return;
+                    } else {
+                        // Unauthorized Telegram User: purge and block
+                        executeLockdown('UNAUTHORIZED_TELEGRAM_IDENTITY: ' + uid);
+                        return;
+                    }
+                }
+
+                // 2. If opened outside Telegram and session already authenticated
+                if (sessionStorage.getItem(SOVEREIGN_VAULT.AUTH_TOKEN_KEY) === SOVEREIGN_VAULT.AUTH_TOKEN_VAL) {
+                    const shield = document.getElementById('bankai-security-shield');
+                    const app = document.getElementById('bankai-cockpit-app');
+                    if (shield) shield.style.display = 'none';
+                    if (app) app.style.display = 'block';
+                    if (typeof window.initCockpit === 'function') window.initCockpit();
+                    return;
+                }
+
+                // 3. Normal login presentation for guest with PIN
+                const pinInp = document.getElementById('shield-pin-input');
+                const errEl = document.getElementById('shield-error-text');
+                if (pinInp) {
+                    pinInp.addEventListener('input', function() {
+                        if (errEl) errEl.classList.remove('visible');
+                        triggerInputMicroGlitch();
+                        const v = this.value.trim();
+                        if (v === '8585' || v === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
+                            verifyMasterPin();
+                        } else if (v.length === 4 && v !== '8585') {
+                            verifyMasterPin();
+                        }
+                    });
+                    pinInp.addEventListener('keydown', function(e) {
+                        if (errEl) errEl.classList.remove('visible');
+                        if (e.key === 'Enter') {
+                            verifyMasterPin();
+                        }
+                    });
+                    setTimeout(() => {
+                        try { pinInp.focus(); } catch (e) {}
+                    }, 350);
+                }
+            }
+
+            // Expose ONLY safe UI bindings to window, freeze them to prevent prototype tampering
+            window.calcPress = calcPress;
+            window.runSecurityAudit = runSecurityAudit;
+            try {
+                Object.freeze(window.calcPress);
+                Object.freeze(window.runSecurityAudit);
+            } catch (e) {}
+
+            // Anti-DevTools & Anti-Inspection Key Guards
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            document.addEventListener('keydown', e => {
+                if (e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || 
+                    (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+
+        })();
 
         
         // ========================================================
