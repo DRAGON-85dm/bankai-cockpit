@@ -6356,36 +6356,129 @@ body.theme-dark .step-content {
 
                     <!-- Micro Formula 7: Consumer Equilibrium & MRS -->
                     <div class="formula-card">
-                        <div>
-                            <span class="badge badge-micro">فرمول طلایی ۷</span>
-                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تعادل رفتار مصرف‌کننده و نرخ نهایی جانشینی (MRS)</h4>
-                            
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('MRS_xy = - (dy / dx) = MUx / MUy ; Equilibrium: MRS_xy = Px / Py ≤&gt; MUx / Px = MUy / Py', this)" title="برای کپی فرمول کلیک کنید">
-                                <div class="formula-line">
-                                    <span class="math-badge pop">نرخ نهایی جانشینی (شیب منحنی بی‌تفاوتی):</span>
-                                    <span class="math-sym">MRS_{xy}</span><span class="math-op">=</span>- ( <span class="math-frac"><span class="math-num">dy</span><span class="math-den">dx</span></span> )<span class="math-op">=</span><span class="math-frac"><span class="math-num">MU_x</span><span class="math-den">MU_y</span></span>
-                                </div>
-                                <div class="formula-line">
-                                    <span class="math-badge samp">شرط طلایی تعادل مصرف‌کننده:</span>
-                                    <span class="math-sym">MRS_{xy}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">P_x</span><span class="math-den">P_y</span></span> <span class="math-op">&lt;=&gt;</span> <span class="math-frac"><span class="math-num">MU_x</span><span class="math-den">P_x</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MU_y</span><span class="math-den">P_y</span></span>
-                                </div>
-                            </div>
+    <div>
+        <span class="badge badge-micro">فرمول طلایی ۷</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تعادل رفتار مصرف‌کننده و نرخ نهایی جانشینی (MRS)</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">نرخ نهایی جانشینی (شیب منحنی بی‌تفاوتی):</span>
+                <span class="math-sym">MRS_{xy}</span><span class="math-op">=</span>- ( <span class="math-frac"><span class="math-num">dY</span><span class="math-den">dX</span></span> )<span class="math-op">=</span><span class="math-frac"><span class="math-num">MU_x</span><span class="math-den">MU_y</span></span>
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">شرط طلایی تعادل مصرف‌کننده (نقطه مماس):</span>
+                <span class="math-sym">MRS_{xy}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">P_x</span><span class="math-den">P_y</span></span> <span class="math-op">&lt;=&gt;</span> <span class="math-frac"><span class="math-num">MU_x</span><span class="math-den">P_x</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MU_y</span><span class="math-den">P_y</span></span>
+            </div>
+            <div class="formula-line">
+                <span class="math-badge app">قید بودجه و درآمد مصرف‌کننده:</span>
+                <span class="math-sym">M</span><span class="math-op">=</span><span class="math-sym">P_x</span> × <span class="math-sym">X</span> + <span class="math-sym">P_y</span> × <span class="math-sym">Y</span>
+            </div>
+        </div>
 
-                            <div class="tier-card prof-tier">
-                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                • نقطه تماس خط بودجه با بالاترین منحنی بی‌تفاوتی ممکن، تعادل مصرف‌کننده است.<br>
-                                • شرط تعادل یعنی «مطلوبیت نهایی حاصل از آخرین ریال خرج‌شده روی هر کالا با هم برابر باشد».
-                            </div>
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+            • نقطه تماس خط بودجه با بالاترین منحنی بی‌تفاوتی دست‌یافتنی، تعادل پایدار مصرف‌کننده است.<br>
+            • شرط تعادل یعنی «مطلوبیت نهایی حاصل از آخرین ریال خرج‌شده روی هر کالا با هم برابر باشد»؛ اگر MUx/Px &gt; MUy/Py باشد، عقلانیت حکم می‌کند مصرف‌کننده بودجه را از Y به X منتقل کند تا به برابری برسد.
+        </div>
 
-                            <div class="tier-card trap-tier">
-                                <strong>🚨 تله کنکور ارشد:</strong>
-                                در جواب‌های گوشه‌ای (کالاهای جانشین کامل)، تساوی MRS با نسبت قیمت‌ها برقرار نمی‌شود و مصرف‌کننده ۱۰۰٪ درآمد را روی کالای با بازده مطلوبیت ریالی بالاتر خرج می‌کند!
-                            </div>
-                        </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('MRS_xy = MUx / MUy = Px / Py; MUx / Px = MUy / Py')">
-                            <span>📋</span> کپی فرمول
-                        </button>
-                    </div>
+        <div class="tier-card bankai-tier">
+            <strong>⚡ رهیافت تکمیلی بانکای / CFA:</strong>
+            با به‌کارگیری روش ضرایب لاگرانژ (Lagrangian Multiplier)، ضریب λ معرف مطلوبیت نهایی ثروت (Marginal Utility of Income) است: λ* = MUx / Px = MUy / Py. این نرخ نشان می‌دهد با تزریق ۱ ریال درآمد اضافی، حداکثر مطلوبیت کل مصرف‌کننده دقیقاً چقدر منبسط خواهد شد.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله کنکور ارشد:</strong>
+            در ترجیحات جانشین کامل (خطوط بی‌تفاوتی راست) یا ترجیحات مقعر، جواب در نقطه مماس رخ نمی‌دهد بلکه جواب گوشه‌ای (Corner Solution) حاکم است! در این حالت مصرف‌کننده تمام درآمد خود را صرفاً روی کالایی خرج می‌کند که MU/P بزرگتری دارد و کالای دیگر صفر می‌شود.
+        </div>
+
+        <div class="visual-diagram-box">
+            <div class="diagram-header">
+                <span class="diagram-badge">🗺️ اطلس هندسی و ترسیمی</span>
+                <h5 class="diagram-title">کالبدشکافی نقطه تماس خط بودجه با منحنی بی‌تفاوتی (MRS = Px / Py)</h5>
+            </div>
+            <div class="diagram-svg-container">
+                <svg viewBox="0 0 520 280" class="academic-svg" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrow-cons" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155"/>
+                        </marker>
+                    </defs>
+
+                    <!-- Background Grid -->
+                    <line x1="70" y1="50" x2="470" y2="50" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="70" y1="100" x2="470" y2="100" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="70" y1="150" x2="470" y2="150" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="70" y1="200" x2="470" y2="200" stroke="#F1F5F9" stroke-width="1"/>
+
+                    <!-- Axes -->
+                    <line x1="70" y1="230" x2="70" y2="25" stroke="#334155" stroke-width="2" marker-end="url(#arrow-cons)"/>
+                    <line x1="70" y1="230" x2="495" y2="230" stroke="#334155" stroke-width="2" marker-end="url(#arrow-cons)"/>
+                    <text x="40" y="30" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#0F172A">کالای Y</text>
+                    <text x="470" y="252" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#0F172A">کالای X</text>
+                    <text x="55" y="245" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#64748B">O</text>
+
+                    <!-- Budget Line: (70, 60) to (420, 230) -->
+                    <line x1="70" y1="60" x2="420" y2="230" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+                    <text x="30" y="65" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#2563EB">M/Py</text>
+                    <text x="410" y="248" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#2563EB">M/Px</text>
+
+                    <!-- Indifference Curves -->
+                    <!-- U1: below equilibrium -->
+                    <path d="M 90,140 Q 170,185 340,215" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="345" y="215" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#64748B">U₁</text>
+
+                    <!-- U2: Tangent at E*(245, 145) -->
+                    <path d="M 105,75 Q 185,138 245,145 T 435,200" fill="none" stroke="#059669" stroke-width="3.5"/>
+                    <text x="440" y="200" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#059669">U₂ (بهینه)</text>
+
+                    <!-- U3: Unreachable above -->
+                    <path d="M 140,55 Q 230,115 320,125 T 475,170" fill="none" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4,4"/>
+                    <text x="478" y="170" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#94A3B8">U₃ (دست‌نیافتنی)</text>
+
+                    <!-- Projections for Equilibrium Point E* (245, 145) -->
+                    <line x1="245" y1="145" x2="70" y2="145" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,4"/>
+                    <line x1="245" y1="145" x2="245" y2="230" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+                    <circle cx="245" cy="145" r="6" fill="#FFFFFF" stroke="#DC2626" stroke-width="3.5"/>
+                    <text x="255" y="135" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#DC2626">E* (نقطه تعادل مماس)</text>
+                    <text x="42" y="150" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Y*</text>
+                    <text x="238" y="248" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#1E293B">X*</text>
+
+                    <!-- Formula Badge -->
+                    <rect x="280" y="35" width="215" height="40" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+                    <text x="290" y="52" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#334155">شرط تعادل هندسی و جبری:</text>
+                    <text x="290" y="68" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#059669">MRS_{xy} = MU_x / MU_y = P_x / P_y</text>
+                </svg>
+            </div>
+            <div class="diagram-walkthrough">
+                <div class="walkthrough-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content"><strong>رسم خط بودجه با شیب قیمت‌های نسبی:</strong> خط بودجه آبی‌رنگ با دو نقطه عرض از مبدأ (M/Py) و طول از مبدأ (M/Px) رسم می‌شود؛ قدرمطلق شیب هندسی این خط برابر نسبت قیمت دو کالا (Px/Py) است.</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content"><strong>رسم نقشه منحنی‌های بی‌تفاوتی محدب:</strong> خانواده منحنی‌های بی‌تفاوتی (U₁, U₂, U₃) رسم می‌شوند که نرخ نهایی جانشینی نزولی (تحدب به مبدأ) و عدم اشباع (U₃ &gt; U₂ &gt; U₁) را بازتاب می‌دهند.</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content"><strong>نقطه مماس بهینه E*(X*, Y*):</strong> بالاترین منحنی ممکن که با قید بودجه تماس پیدا می‌کند U₂ است؛ در نقطه تماس E*، خط مماس بر منحنی بر خط بودجه منطبق شده و تساوی شیب‌ها برقرار می‌گردد: MRS = Px/Py.</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">4</span>
+                    <div class="step-content"><strong>اثبات برابری مطلوبیت نهایی ریالی:</strong> با بازآرایی رابطه جبری تعادل، قانون گوستین-مارشال به دست می‌آید: MUx/Px = MUy/Py؛ یعنی آخرین ریال تخصیص‌یافته به هر کالا باید بازدهی مطلوبیت یکسانی به بار آورد.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-direct-flashback" onclick="openDirectFlashback('total_diff')">
+            <span>⚡</span> فلش‌بک به دیفرانسیل کل و تقریب خطی
+        </button>
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
 
 <!-- Micro Formula 8: Three Elasticity Calculation Methods & Geometric Segments -->
 <div class="formula-card">
@@ -6969,33 +7062,105 @@ body.theme-dark .step-content {
         
         <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
             <div class="formula-line">
-                <span class="math-badge pop">فرمول کشش متقاطع تقاضا:</span>
-                <span class="math-sym">E_{xy}</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">dQ_x</span><span class="math-den">dP_y</span></span> ) × ( <span class="math-frac"><span class="math-num">P_y</span><span class="math-den">Q_x</span></span> )
+                <span class="math-badge pop">فرمول کشش متقاطع نقطه‌ای:</span>
+                <span class="math-sym">E_{xy}</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">∂Q_x</span><span class="math-den">∂P_y</span></span> ) × ( <span class="math-frac"><span class="math-num">P_y</span><span class="math-den">Q_x</span></span> )
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">کالاهای جانشین (Substitutes):</span>
-                <span class="math-sym">E_{xy}</span> &gt; 0 \implies 	ext{افزایش قیمت Py تقاضای Qx را بالا می‌برد (پپسی و کوکاکولا)}
+                <span class="math-sym">E_{xy}</span> &gt; 0 <span class="math-op">==&gt;</span> گرانی کالای Y تقاضای کالای X را منبسط می‌کند (پپسی و کوکاکولا)
             </div>
             <div class="formula-line">
                 <span class="math-badge app">کالاهای مکمل (Complements):</span>
-                <span class="math-sym">E_{xy}</span> &lt; 0 \implies 	ext{افزایش قیمت Py تقاضای Qx را کاهش می‌دهد (خودرو و بنزین)}
+                <span class="math-sym">E_{xy}</span> &lt; 0 <span class="math-op">==&gt;</span> گرانی کالای Y تقاضای کالای X را منقبض می‌کند (خودرو و بنزین)
             </div>
             <div class="formula-line">
                 <span class="math-badge pop">کالاهای مستقل (Independent):</span>
-                <span class="math-sym">E_{xy}</span><span class="math-op">=</span>0 \implies 	ext{قیمت کالای y هیچ اثری بر تقاضای کالای x ندارد}
+                <span class="math-sym">E_{xy}</span><span class="math-op">=</span>0 <span class="math-op">==&gt;</span> نوسان قیمتی کالای Y هیچ سرایتی به تقاضای کالای X ندارد
             </div>
         </div>
 
         <div class="tier-card prof-tier">
             <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-            • علامت کشش متقاطع نوع رابطه دو کالا را تعیین می‌کند، در حالی که اندازه مطلق آن شدت وابستگی را نشان می‌دهد.<br>
-            • اگر Exy یک عدد مثبت بزرگ باشد (مثلا +۴)، دو کالا جانشین بسیار نزدیک هستند.<br>
-            • اگر Exy منفی باشد، منحنی تقاضای کالای x با گران شدن کالای y به سمت چپ جابجا می‌شود.
+            • کشش متقاطع یعنی «ضریب سرایت تکانه قیمتی یک کالا بر رفتار مصرف‌کننده در کالایی دیگر»؛ این ضریب پرده از خطوط نامرئی وابستگی میان بازارها برمی‌دارد.<br>
+            • علامت کشش متقاطع هویت رابطه (جانشینی یا مکملی) و قدرمطلق آن شدت سرایت و عمق همبستگی استراتژیک را معین می‌سازد.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>⚡ رهیافت تکمیلی بانکای / CFA:</strong>
+            در مدیریت سبد دارایی و قیمت‌گذاری چندمحصولی، نادیده گرفتن کشش متقاطع خطای فاحش تخریب درآمد داخلی (Cannibalization Risk) را به همراه دارد. فرمول قوسی پیوسته آن برای داده‌های گسسته: Exy = (ΔQx / ΔPy) × [(Py1 + Py2) / (Qx1 + Qx2)].
         </div>
 
         <div class="tier-card trap-tier">
             <strong>🚨 تله کنکور ارشد:</strong>
-            عدم تقارن کشش متقاطع! لزوماً Exy برابر با Eyx نیست! ممکن است افزایش قیمت نفت تقاضای گاز را شدیداً افزایش دهد، اما افزایش قیمت گاز اثر کمتری بر نفت بگذارد چون سهم درآمدی و ضرایب تقاضا متفاوت است.
+            توهم تقارن متقابل! Exy لزوماً برابر با Eyx نیست! گرانی ۳۰ درصدی خودرو مصرف بنزین را به شدت کاهش می‌دهد، اما گرانی ۳۰ درصدی بنزین خودرو را متوقف نمی‌کند، بلکه نوع تردد و استفاده را دگرگون می‌سازد؛ زیرا کشش درآمدی و سهم از بودجه نامتقارن است.
+        </div>
+
+        <div class="visual-diagram-box">
+            <div class="diagram-header">
+                <span class="diagram-badge">🗺️ اطلس هندسی و ترسیمی</span>
+                <h5 class="diagram-title">طیف پیوسته و هندسه رژیم‌های کشش متقاطع تقاضا (Exy)</h5>
+            </div>
+            <div class="diagram-svg-container">
+                <svg viewBox="0 0 520 280" class="academic-svg" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrow-cross" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155"/>
+                        </marker>
+                    </defs>
+
+                    <!-- Background Grid -->
+                    <line x1="60" y1="50" x2="480" y2="50" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="60" y1="100" x2="480" y2="100" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="60" y1="150" x2="480" y2="150" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="60" y1="200" x2="480" y2="200" stroke="#F1F5F9" stroke-width="1"/>
+
+                    <!-- Axes: Py on vertical, Qx on horizontal -->
+                    <line x1="60" y1="230" x2="60" y2="25" stroke="#334155" stroke-width="2" marker-end="url(#arrow-cross)"/>
+                    <line x1="60" y1="230" x2="495" y2="230" stroke="#334155" stroke-width="2" marker-end="url(#arrow-cross)"/>
+                    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#0F172A">قیمت Py</text>
+                    <text x="465" y="252" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#0F172A">تقاضای Qx</text>
+                    <text x="48" y="245" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#64748B">O</text>
+
+                    <!-- Curve 1: Complements (Exy < 0, Downward sloping) -->
+                    <line x1="80" y1="70" x2="230" y2="210" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
+                    <text x="165" y="125" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#DC2626">مکمل: Exy &lt; 0</text>
+
+                    <!-- Curve 2: Independent (Exy = 0, Vertical line) -->
+                    <line x1="270" y1="55" x2="270" y2="230" stroke="#64748B" stroke-width="3" stroke-dasharray="4,4"/>
+                    <text x="275" y="90" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#475569">مستقل: Exy = 0</text>
+
+                    <!-- Curve 3: Substitutes (Exy > 0, Upward sloping) -->
+                    <line x1="310" y1="210" x2="460" y2="70" stroke="#059669" stroke-width="3.5" stroke-linecap="round"/>
+                    <text x="380" y="125" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#059669">جانشین: Exy &gt; 0</text>
+
+                    <!-- Continuum Banner at Bottom -->
+                    <rect x="80" y="24" width="360" height="32" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+                    <text x="95" y="44" font-family="system-ui, sans-serif" font-size="11.5" font-weight="bold" fill="#1E293B">طیف پیوسته:</text>
+                    <text x="175" y="44" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#DC2626">مکمل قوی</text>
+                    <text x="242" y="44" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">◄</text>
+                    <text x="255" y="44" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#475569">مستقل</text>
+                    <text x="302" y="44" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">►</text>
+                    <text x="315" y="44" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#059669">جانشین کامل</text>
+                </svg>
+            </div>
+            <div class="diagram-walkthrough">
+                <div class="walkthrough-step">
+                    <span class="step-num">1</span>
+                    <div class="step-content"><strong>رسم دستگاه متقاطع (Py در برابر Qx):</strong> محور عمودی قیمت کالای مرتبط Py و محور افقی مقدار تقاضای کالای اصلی Qx است؛ شیب خطوط نشان‌دهنده مشتق جزئی (∂Qx / ∂Py) است.</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">2</span>
+                    <div class="step-content"><strong>کالبدشکافی کالاهای جانشین (منحنی سبز صعودی):</strong> با افزایش قیمت Py، تقاضا برای کالای X بالا می‌رود؛ شیب خط مثبت است (∂Qx / ∂Py &gt; 0) و کشش همواره مثبت است (Exy &gt; 0).</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">3</span>
+                    <div class="step-content"><strong>کالبدشکافی کالاهای مکمل (منحنی قرمز نزولی):</strong> با افزایش قیمت Py، هزینه سبد مشترک بالا رفته و تقاضای X افت می‌کند؛ شیب منفی است (∂Qx / ∂Py &lt; 0) و کشش منفی است (Exy &lt; 0).</div>
+                </div>
+                <div class="walkthrough-step">
+                    <span class="step-num">4</span>
+                    <div class="step-content"><strong>خط عمودی استقلال کامل و قفل ساختاری:</strong> اگر دو کالا بی‌ارتباط باشند (نان و لاستیک خودرو)، خط عمودی با شیب بی‌نهایت روی نمودار شکل می‌گیرد که نشان‌دهنده کشش صفر مطلق (Exy = 0) است.</div>
+                </div>
+            </div>
         </div>
     </div>
     <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
@@ -7008,10 +7173,6 @@ body.theme-dark .step-content {
     </div>
 </div>
 
-
-
-
-                
 <!-- Micro Formula 14: Non-Linear Demand & Tangent Line Method -->
 <div class="formula-card">
     <div>
@@ -14243,6 +14404,28 @@ window.resetORSimplex = resetORSimplex;
         // ========================================================
         const quizBank = {
             micro: [
+                {
+                    q: 'در نظریه تعادل مصرف‌کننده، شرط حداکثرسازی مطلوبیت تحت قید بودجه در نقطه بهینه درونی (مماس) کدام است؟',
+                    opts: [
+                        '۱. برابری نرخ نهایی جانشینی با نسبت قیمت کالاها (MRS_xy = Px / Py <=> MUx / Px = MUy / Py)',
+                        '۲. برابری مطلوبیت نهایی کل کالاها با صفر (MUx = MUy = 0)',
+                        '۳. بزرگتر بودن قدرمطلق شیب منحنی بی‌تفاوتی از شیب خط بودجه',
+                        '۴. صرف تمام درآمد روی کالایی که قیمت کمتری دارد'
+                    ],
+                    ans: 0,
+                    expl: 'کالبدشکافی تحلیلی: در نقطه تماس خط بودجه با بالاترین منحنی بی‌تفاوتی دست‌یافتنی، شیب منحنی بی‌تفاوتی (-MUx/MUy) با شیب خط بودجه (-Px/Py) برابر می‌شود که به تساوی طلایی مطلوبیت نهایی ریالی ختم می‌گردد: MUx/Px = MUy/Py. یعنی آخرین ریال خرج‌شده روی هر کالا باید بازدهی مطلوبیت یکسانی به ارمغان آورد.'
+                },
+                {
+                    q: 'اگر کشش متقاطع تقاضا میان دو کالای X و Y برابر Exy = +2.4 باشد، رابطه اقتصادی میان این دو کالا چگونه است و با افزایش ۱۰ درصدی قیمت Y چه رخدادی پیش می‌آید؟',
+                    opts: [
+                        '۱. دو کالا جانشین بسیار قوی هستند و تقاضا برای کالای X به میزان ۲۴٪ افزایش می‌یابد',
+                        '۲. دو کالا مکمل هم هستند و تقاضای کالای X به میزان ۲۴٪ افت می‌کند',
+                        '۳. دو کالا مستقل از هم هستند و هیچ تغییری در تقاضا رخ نمی‌دهد',
+                        '۴. کالای X پست و کالای Y لوکس محسوب می‌شود'
+                    ],
+                    ans: 0,
+                    expl: 'کالبدشکافی تحلیلی: مثبت بودن کشش متقاطع (Exy > 0) نشان‌دهنده رابطه جانشینی است. فرمول درصد تغییر تقاضا: %ΔQx = Exy × %ΔPy = (+2.4) × (+10%) = +24%. یعنی با گرانی کالای Y، مصرف‌کنندگان برای تأمین نیاز خود به سمت کالای هم‌رده X سرازیر می‌شوند.'
+                },
                 {
                     q: 'در تابع تقاضای غیرخطی، برای اندازه‌گیری کشش قیمتی در نقطه مفروض A به روش هندسی، کدام اقدام ریاضی الزامی است؟',
                     opts: [
