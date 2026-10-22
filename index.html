@@ -1486,98 +1486,225 @@ body:not(.theme-dark) .dock-btn.active::after {
             100% { opacity: 0.9; transform: translateX(-60px); }
         }
 
-        /* ADVANCED CYBERPUNK SCI-FI TERMINAL DECK (ZERO GLITCH ON DECK) */
+        /* ADVANCED CYBERPUNK SECURITY TERMINAL CONSOLE */
         .mycurse-login-card {
-            background: linear-gradient(165deg, rgba(15, 23, 42, 0.92) 0%, rgba(9, 13, 22, 0.96) 50%, rgba(28, 14, 5, 0.94) 100%);
-            backdrop-filter: blur(28px) saturate(190%);
-            -webkit-backdrop-filter: blur(28px) saturate(190%);
-            border-radius: 36px;
-            padding: 24px 18px 22px;
+            background: linear-gradient(175deg, rgba(11, 18, 36, 0.94) 0%, rgba(6, 11, 24, 0.98) 60%, rgba(2, 6, 18, 0.99) 100%);
+            backdrop-filter: blur(32px) saturate(200%);
+            -webkit-backdrop-filter: blur(32px) saturate(200%);
+            border-radius: 22px;
+            padding: 22px 18px 20px;
             width: 100%;
             max-width: 295px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            gap: 13px;
+            gap: 14px;
             position: relative;
             z-index: 5;
             box-sizing: border-box !important;
-            border: 2px solid rgba(249, 115, 22, 0.55);
+            border: 1.5px solid rgba(0, 240, 255, 0.4);
             box-shadow: 
-                0 0 35px rgba(249, 115, 22, 0.28),
-                0 25px 60px rgba(0, 0, 0, 0.85),
-                inset 0 0 24px rgba(249, 115, 22, 0.12),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                0 0 35px rgba(0, 240, 255, 0.18),
+                0 25px 60px rgba(0, 0, 0, 0.92),
+                inset 0 0 20px rgba(0, 240, 255, 0.08),
+                inset 0 1px 2px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        /* TOPIC PILL: CYBERPUNK HUD BADGE WITH RED & BLUE-VIOLET NEON */
-        .mycurse-topic-badge {
-            display: inline-flex;
+        /* RECTANGULAR CYBER TERMINAL BANNER (HUD DISPLAY) */
+        .mycurse-terminal-banner {
+            position: relative;
+            width: 100%;
+            height: 48px;
+            background: rgba(3, 7, 18, 0.92);
+            border: 1.5px solid rgba(0, 240, 255, 0.75);
+            border-radius: 6px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
-            padding: 7px 18px;
-            border-radius: 9999px;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(255, 255, 255, 0.25);
             box-shadow: 
-                0 0 14px rgba(239, 68, 68, 0.35),
-                0 0 24px rgba(139, 92, 246, 0.32),
-                0 2px 8px rgba(0, 0, 0, 0.6),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
-            animation: topic-aura-pulse 3s ease-in-out infinite alternate;
-        }
-        @keyframes topic-aura-pulse {
-            0% {
-                box-shadow: 
-                    0 0 12px rgba(239, 68, 68, 0.3),
-                    0 0 18px rgba(139, 92, 246, 0.3),
-                    inset 0 1px 2px rgba(255, 255, 255, 0.25);
-            }
-            100% {
-                box-shadow: 
-                    0 0 20px rgba(239, 68, 68, 0.55),
-                    0 0 32px rgba(139, 92, 246, 0.5),
-                    inset 0 1px 3px rgba(255, 255, 255, 0.4);
-            }
-        }
-        .topic-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #FF0055, #8B5CF6);
-            box-shadow: 0 0 8px #FF0055;
-        }
-        .mycurse-topic-text {
-            font-family: 'JetBrains Mono', 'B Nazanin', 'Vazirmatn', monospace;
-            font-size: 0.92rem;
-            font-weight: 900;
-            letter-spacing: 3.5px;
-            color: #FFFFFF;
-            text-transform: uppercase;
-            line-height: 1;
-            text-shadow: 
-                0 0 8px rgba(239, 68, 68, 0.6),
-                0 0 14px rgba(139, 92, 246, 0.6);
+                0 0 16px rgba(0, 240, 255, 0.4),
+                0 2px 10px rgba(0, 0, 0, 0.8),
+                inset 0 0 12px rgba(0, 240, 255, 0.15);
+            box-sizing: border-box !important;
+            overflow: hidden;
+            user-select: none;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            animation: cyber-box-neon-pulse 4s ease-in-out infinite alternate;
         }
 
-        /* CYBERPUNK DISPLAY SCREEN */
+        /* TERMINAL TECH CORNERS (HUD BRACKETS) */
+        .terminal-corner {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-color: #00F0FF;
+            pointer-events: none;
+            transition: border-color 0.25s ease;
+        }
+        .terminal-corner.tl { top: 2px; left: 2px; border-top: 1.5px solid; border-left: 1.5px solid; }
+        .terminal-corner.tr { top: 2px; right: 2px; border-top: 1.5px solid; border-right: 1.5px solid; }
+        .terminal-corner.bl { bottom: 2px; left: 2px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+        .terminal-corner.br { bottom: 2px; right: 2px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+
+        /* DIGITAL MONOSPACE TITLE WITH NEON GLITCH */
+        .mycurse-terminal-title {
+            font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Roboto Mono', 'Courier New', monospace;
+            font-size: 1.12rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #00F0FF;
+            -webkit-text-fill-color: #00F0FF;
+            text-transform: uppercase;
+            line-height: 1;
+            direction: ltr !important;
+            text-align: center;
+            text-shadow: 
+                0 0 8px rgba(0, 240, 255, 0.9),
+                0 0 18px rgba(0, 240, 255, 0.6),
+                -1.5px 0 rgba(255, 0, 85, 0.45),
+                1.5px 0 rgba(0, 240, 255, 0.45);
+            position: relative;
+            z-index: 2;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
+            animation: cyber-title-neon-glitch 3.8s infinite;
+        }
+
+        @keyframes cyber-box-neon-pulse {
+            0%, 100% {
+                border-color: rgba(0, 240, 255, 0.75);
+                box-shadow: 0 0 16px rgba(0, 240, 255, 0.4), inset 0 0 12px rgba(0, 240, 255, 0.15);
+            }
+            50% {
+                border-color: rgba(0, 240, 255, 0.95);
+                box-shadow: 0 0 24px rgba(0, 240, 255, 0.65), inset 0 0 16px rgba(0, 240, 255, 0.25);
+            }
+            75% {
+                border-color: rgba(139, 92, 246, 0.7);
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), inset 0 0 12px rgba(0, 240, 255, 0.15);
+            }
+        }
+
+        @keyframes cyber-title-neon-glitch {
+            0%, 100% {
+                transform: translate(0, 0);
+                text-shadow: 0 0 8px #00F0FF, 0 0 18px rgba(0, 240, 255, 0.6), -1.5px 0 rgba(255, 0, 85, 0.45);
+                opacity: 1;
+            }
+            18% {
+                transform: translate(-1.5px, 0.5px);
+                text-shadow: -2px 0 #FF0055, 2px 0 #00F0FF, 0 0 15px #00F0FF;
+            }
+            20% {
+                transform: translate(1.5px, -0.5px);
+                text-shadow: 2px 0 #FF0055, -2px 0 #00F0FF, 0 0 20px #00F0FF;
+            }
+            22% {
+                transform: translate(0, 0);
+                text-shadow: 0 0 8px #00F0FF, 0 0 18px rgba(0, 240, 255, 0.6);
+            }
+            65% {
+                opacity: 0.94;
+            }
+            67% {
+                opacity: 1;
+                transform: translate(-1px, 0);
+                text-shadow: -2px 0 #FF0055, 1px 0 #00F0FF;
+            }
+            69% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* ERROR STATE: NEON RED GLITCH */
+        .mycurse-terminal-banner.banner-error {
+            border-color: #FF0055 !important;
+            background: rgba(24, 2, 8, 0.94) !important;
+            box-shadow: 
+                0 0 28px rgba(255, 0, 85, 0.8),
+                0 0 50px rgba(255, 0, 85, 0.4),
+                inset 0 0 18px rgba(255, 0, 85, 0.35) !important;
+            animation: banner-error-twitch 0.52s ease-in-out !important;
+        }
+        .mycurse-terminal-banner.banner-error .terminal-corner {
+            border-color: #FF0055 !important;
+        }
+        .mycurse-terminal-title.title-error {
+            color: #FF0055 !important;
+            -webkit-text-fill-color: #FF0055 !important;
+            letter-spacing: 6px !important;
+            text-shadow: 
+                0 0 10px #FF0055,
+                0 0 22px #FF0055,
+                0 0 38px rgba(255, 0, 85, 0.95),
+                -3px 0 #00F0FF,
+                3px 0 #FF0055 !important;
+            animation: error-heavy-glitch 0.18s steps(2) infinite alternate !important;
+        }
+        @keyframes banner-error-twitch {
+            0%, 100% { transform: translate(0, 0); }
+            15% { transform: translate(-6px, 1px) skewX(2.5deg); }
+            30% { transform: translate(6px, -1px) skewX(-2.5deg); }
+            45% { transform: translate(-4px, -1px) skewX(1.5deg); }
+            60% { transform: translate(4px, 1px) skewX(-1.5deg); }
+            75% { transform: translate(-2px, 0); }
+        }
+        @keyframes error-heavy-glitch {
+            0% { transform: translate(0, 0); text-shadow: 0 0 10px #FF0055, -3px 0 #00F0FF; }
+            25% { transform: translate(-4px, 1.5px) skewX(3.5deg); text-shadow: 4px 0 #00F0FF, -4px 0 #FF0055, 0 0 25px #FF0055; }
+            50% { transform: translate(4px, -1.5px) skewX(-3.5deg); text-shadow: -4px 0 #00F0FF, 4px 0 #FF0055, 0 0 32px #FF0055; }
+            75% { transform: translate(-2px, -0.5px); text-shadow: 2px 0 #00F0FF, -2px 0 #FF0055; }
+            100% { transform: translate(0, 0); text-shadow: 0 0 10px #FF0055, -3px 0 #00F0FF; }
+        }
+
+        /* ACCESS AGREED STATE: DIGITAL NEON GREEN */
+        .mycurse-terminal-banner.banner-agreed {
+            border-color: #00FF66 !important;
+            background: rgba(2, 22, 10, 0.94) !important;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 102, 0.85),
+                0 0 60px rgba(0, 255, 102, 0.4),
+                inset 0 0 18px rgba(0, 255, 102, 0.35) !important;
+            animation: banner-agreed-pulse 1.2s infinite alternate !important;
+        }
+        .mycurse-terminal-banner.banner-agreed .terminal-corner {
+            border-color: #00FF66 !important;
+        }
+        .mycurse-terminal-title.title-agreed {
+            color: #00FF66 !important;
+            -webkit-text-fill-color: #00FF66 !important;
+            letter-spacing: 3px !important;
+            font-size: 0.98rem !important;
+            text-shadow: 
+                0 0 10px #00FF66,
+                0 0 22px #00FF66,
+                0 0 40px rgba(0, 255, 102, 0.95),
+                0 0 65px rgba(0, 255, 102, 0.6) !important;
+            animation: agreed-text-glow 1s ease-in-out infinite alternate !important;
+        }
+        @keyframes banner-agreed-pulse {
+            0% { box-shadow: 0 0 24px rgba(0, 255, 102, 0.7), inset 0 0 14px rgba(0, 255, 102, 0.3); }
+            100% { box-shadow: 0 0 38px rgba(0, 255, 102, 0.95), inset 0 0 22px rgba(0, 255, 102, 0.45); }
+        }
+        @keyframes agreed-text-glow {
+            0% { text-shadow: 0 0 10px #00FF66, 0 0 22px #00FF66, 0 0 40px rgba(0, 255, 102, 0.95); }
+            100% { text-shadow: 0 0 14px #00FF66, 0 0 30px #00FF66, 0 0 55px rgba(0, 255, 102, 1); }
+        }
+
+        /* SECURITY PIN ACCESS DISPLAY SCREEN */
         .mycurse-calc-screen {
             width: 100%;
             height: 52px;
-            background: rgba(2, 6, 23, 0.88);
+            background: rgba(2, 6, 20, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-radius: 18px;
-            border: 1.5px solid rgba(249, 115, 22, 0.45);
+            border-radius: 14px;
+            border: 1.5px solid rgba(0, 240, 255, 0.35);
             box-shadow: 
-                inset 0 2px 8px rgba(0, 0, 0, 0.8),
-                0 0 16px rgba(249, 115, 22, 0.2),
-                inset 0 0 12px rgba(249, 115, 22, 0.08);
+                inset 0 2px 10px rgba(0, 0, 0, 0.9),
+                0 0 16px rgba(0, 240, 255, 0.15),
+                inset 0 0 14px rgba(0, 240, 255, 0.06);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1592,18 +1719,18 @@ body:not(.theme-dark) .dock-btn.active::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%);
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
             background-size: 100% 4px;
             pointer-events: none;
-            opacity: 0.55;
+            opacity: 0.6;
             z-index: 1;
         }
         .mycurse-calc-screen:focus-within {
-            border-color: rgba(0, 240, 255, 0.85);
+            border-color: #00F0FF;
             box-shadow: 
-                inset 0 2px 8px rgba(0, 0, 0, 0.8),
-                0 0 22px rgba(0, 240, 255, 0.45),
-                inset 0 0 15px rgba(0, 240, 255, 0.15);
+                inset 0 2px 8px rgba(0, 0, 0, 0.9),
+                0 0 24px rgba(0, 240, 255, 0.5),
+                inset 0 0 16px rgba(0, 240, 255, 0.18);
         }
 
         /* KEYSTROKE MICRO-GLITCH ON SCREEN CONTAINER */
@@ -1618,7 +1745,7 @@ body:not(.theme-dark) .dock-btn.active::after {
             100% { transform: translate(0, 0); }
         }
 
-        /* INPUT DIGITS - GLOWING CYBERPUNK TYPOGRAPHY */
+        /* INPUT DIGITS - GLOWING CYBERPUNK SECURITY TYPOGRAPHY */
         .mycurse-calc-screen input {
             width: 100%;
             height: 100%;
@@ -1626,25 +1753,26 @@ body:not(.theme-dark) .dock-btn.active::after {
             border: none !important;
             outline: none !important;
             text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.45rem;
+            font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+            font-size: 1.55rem;
             font-weight: 900;
-            letter-spacing: 8px;
+            letter-spacing: 10px;
             color: #00F0FF;
             -webkit-text-fill-color: #00F0FF;
-            text-shadow: 0 0 10px #00F0FF, 0 0 20px rgba(0, 240, 255, 0.6);
-            caret-color: #FF0055;
+            text-shadow: 0 0 10px #00F0FF, 0 0 22px rgba(0, 240, 255, 0.7);
+            caret-color: #00F0FF;
             padding: 0;
             margin: 0;
             box-sizing: border-box !important;
             position: relative;
             z-index: 2;
             transition: text-shadow 0.15s ease;
+            direction: ltr !important;
         }
         .mycurse-calc-screen input::placeholder {
             color: rgba(0, 240, 255, 0.25);
             -webkit-text-fill-color: rgba(0, 240, 255, 0.25);
-            letter-spacing: 6px;
+            letter-spacing: 8px;
             text-shadow: none;
         }
 
@@ -1659,97 +1787,64 @@ body:not(.theme-dark) .dock-btn.active::after {
             100% { transform: translate(0); text-shadow: 0 0 10px #00F0FF; }
         }
 
-        /* NEON RED ERROR MESSAGE: «رمز اشتباه است» */
+        /* ERROR TEXT CONTAINER PURGED (Handled in Banner) */
         .mycurse-error-text {
-            font-family: 'JetBrains Mono', 'Vazirmatn', -apple-system, sans-serif;
-            font-size: 0.84rem;
-            font-weight: 900;
-            color: #FF0055 !important;
-            -webkit-text-fill-color: #FF0055 !important;
-            text-align: center;
-            min-height: 20px;
-            line-height: 20px;
-            margin-top: -6px;
-            margin-bottom: 2px;
-            opacity: 0;
-            transform: translateY(-4px);
-            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            letter-spacing: 1.5px;
-            text-shadow: 
-                0 0 6px #FF0055,
-                0 0 14px #FF0055,
-                0 0 26px rgba(255, 0, 85, 0.8),
-                0 0 45px rgba(239, 68, 68, 0.6) !important;
-            pointer-events: none;
-        }
-        .mycurse-error-text.visible {
-            opacity: 1;
-            transform: translateY(0);
-            animation: neon-red-pulse 1.6s infinite alternate;
-        }
-        @keyframes neon-red-pulse {
-            0% {
-                text-shadow: 
-                    0 0 5px #FF0055,
-                    0 0 12px #FF0055,
-                    0 0 22px rgba(255, 0, 85, 0.8);
-            }
-            100% {
-                text-shadow: 
-                    0 0 8px #FF0055,
-                    0 0 18px #FF0055,
-                    0 0 35px rgba(255, 0, 85, 0.95),
-                    0 0 55px rgba(239, 68, 68, 0.7);
-            }
+            display: none !important;
         }
 
-        /* CYBERPUNK KEYPAD - TACTILE, RESPONSIVE, ZERO-GLITCH ON KEYS */
+        /* TACTICAL SECURITY KEYPAD: LTR DIRECTION, LEFT-TO-RIGHT NUMBERS */
         .mycurse-keypad {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 9px;
             width: 100%;
+            direction: ltr !important;
             box-sizing: border-box !important;
         }
         .calc-key {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.85) 100%);
-            border: 1.5px solid rgba(249, 115, 22, 0.35);
-            border-radius: 16px;
-            height: 46px;
+            background: linear-gradient(145deg, rgba(20, 30, 52, 0.78) 0%, rgba(10, 18, 34, 0.9) 100%);
+            border: 1.5px solid rgba(0, 240, 255, 0.25);
+            border-radius: 14px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.25rem;
+            font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #F8FAFC;
             cursor: pointer;
             box-shadow: 
-                0 4px 10px rgba(0, 0, 0, 0.4),
-                inset 0 1px 1px rgba(255, 255, 255, 0.15);
-            transition: transform 0.1s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+                0 4px 12px rgba(0, 0, 0, 0.5),
+                inset 0 1px 1px rgba(255, 255, 255, 0.12);
+            transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
             -webkit-tap-highlight-color: transparent;
             user-select: none;
         }
         .calc-key:active {
             transform: scale(0.92);
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.35) 0%, rgba(30, 41, 59, 0.9) 100%);
-            border-color: rgba(249, 115, 22, 0.8);
-            box-shadow: 0 0 16px rgba(249, 115, 22, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(145deg, rgba(0, 240, 255, 0.28) 0%, rgba(15, 23, 42, 0.92) 100%);
+            border-color: rgba(0, 240, 255, 0.85);
+            box-shadow: 0 0 18px rgba(0, 240, 255, 0.6), inset 0 2px 5px rgba(0, 0, 0, 0.6);
         }
-        .calc-key-action {
-            font-size: 1rem;
-            color: #FFAA33;
-            background: linear-gradient(135deg, rgba(67, 20, 7, 0.8) 0%, rgba(30, 15, 5, 0.9) 100%);
-            border-color: rgba(249, 115, 22, 0.6);
+        .calc-key-placeholder {
+            visibility: hidden;
+            pointer-events: none;
+            height: 48px;
+        }
+        .calc-key-del {
+            color: #FF0055;
+            background: linear-gradient(145deg, rgba(38, 10, 24, 0.8) 0%, rgba(18, 6, 14, 0.92) 100%);
+            border-color: rgba(255, 0, 85, 0.4);
+            font-size: 1.25rem;
             box-shadow: 
                 0 4px 12px rgba(0, 0, 0, 0.5),
-                inset 0 1px 1px rgba(249, 115, 22, 0.3);
+                inset 0 1px 1px rgba(255, 0, 85, 0.2);
         }
-        .calc-key-action:active {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.5) 0%, rgba(67, 20, 7, 0.9) 100%);
-            border-color: #EF4444;
-            box-shadow: 0 0 18px rgba(239, 68, 68, 0.6);
+        .calc-key-del:active {
+            background: linear-gradient(145deg, rgba(255, 0, 85, 0.45) 0%, rgba(38, 10, 24, 0.92) 100%);
+            border-color: #FF0055;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.7);
         }
 
                 /* BLACK SCREEN EXPANSIVE GLITCH STAGE & NEON WELCOME ENGINE */
@@ -6041,22 +6136,22 @@ body.theme-dark .step-content {
         </div>
 
         <div class="mycurse-login-card" id="shield-card-box">
-            <!-- TOPIC PILL AT TOP CENTER WITH SUBTLE RED & BLUE-VIOLET GLOW -->
-            <div class="mycurse-topic-badge">
-                <span class="topic-dot"></span>
-                <span class="mycurse-topic-text">MY CURSE</span>
+            <!-- RECTANGULAR CYBER TERMINAL BANNER (MY CURSE / ERROR / ACCESS AGREED) -->
+            <div class="mycurse-terminal-banner" id="mycurse-terminal-banner">
+                <span class="terminal-corner tl"></span>
+                <span class="terminal-corner tr"></span>
+                <span class="terminal-corner bl"></span>
+                <span class="terminal-corner br"></span>
+                <span class="mycurse-terminal-title" id="mycurse-terminal-title" data-text="MY CURSE">MY CURSE</span>
             </div>
 
-            <!-- CALCULATOR DISPLAY / INPUT SCREEN -->
+            <!-- SECURITY ACCESS PIN DISPLAY SCREEN -->
             <div class="mycurse-calc-screen" onclick="document.getElementById('shield-pin-input').focus()">
                 <input type="password" id="shield-pin-input" maxlength="12" autocomplete="off" autofocus inputmode="numeric" placeholder="••••">
             </div>
 
-            <!-- SMALL ERROR TEXT UNDER INPUT SLIDE -->
-            <div id="shield-error-text" class="mycurse-error-text"></div>
-
-            <!-- CALCULATOR TACTILE KEYPAD -->
-            <div class="mycurse-keypad">
+            <!-- TACTICAL CYBER KEYPAD (LTR, LEFT-TO-RIGHT NUMBERS 1-9, NO 'C', CENTERED '0', 'DEL') -->
+            <div class="mycurse-keypad" dir="ltr">
                 <button type="button" class="calc-key" onclick="calcPress('1')">1</button>
                 <button type="button" class="calc-key" onclick="calcPress('2')">2</button>
                 <button type="button" class="calc-key" onclick="calcPress('3')">3</button>
@@ -6066,9 +6161,9 @@ body.theme-dark .step-content {
                 <button type="button" class="calc-key" onclick="calcPress('7')">7</button>
                 <button type="button" class="calc-key" onclick="calcPress('8')">8</button>
                 <button type="button" class="calc-key" onclick="calcPress('9')">9</button>
-                <button type="button" class="calc-key calc-key-action" onclick="calcPress('C')">C</button>
+                <div class="calc-key-placeholder"></div>
                 <button type="button" class="calc-key" onclick="calcPress('0')">0</button>
-                <button type="button" class="calc-key calc-key-action" onclick="calcPress('DEL')">⌫</button>
+                <button type="button" class="calc-key calc-key-del" onclick="calcPress('DEL')" aria-label="Delete">⌫</button>
             </div>
         </div>
     </div>
@@ -15714,13 +15809,16 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             function calcPress(val) {
                 if (isAuthenticating) return;
 
+                const banner = document.getElementById('mycurse-terminal-banner');
+                const title = document.getElementById('mycurse-terminal-title');
+
                 // Check lockout
                 if (Date.now() < lockoutUntil) {
                     const remaining = Math.ceil((lockoutUntil - Date.now()) / 1000);
-                    const errEl = document.getElementById('shield-error-text');
-                    if (errEl) {
-                        errEl.innerText = 'سیستم قفل است (' + remaining + ' ثانیه)';
-                        errEl.classList.add('visible');
+                    if (banner && title) {
+                        banner.classList.add('banner-error');
+                        title.classList.add('title-error');
+                        title.innerText = 'LOCKED (' + remaining + 'S)';
                     }
                     if (typeof hapticTap === 'function') hapticTap('error');
                     return;
@@ -15738,8 +15836,14 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 lastKeyTime = now;
 
                 const input = document.getElementById('shield-pin-input');
-                const errEl = document.getElementById('shield-error-text');
-                if (errEl) errEl.classList.remove('visible');
+
+                // If currently showing ERROR, immediately restore to MY CURSE on new keypress
+                if (banner && title && banner.classList.contains('banner-error')) {
+                    banner.classList.remove('banner-error');
+                    title.classList.remove('title-error');
+                    title.innerText = 'MY CURSE';
+                    title.setAttribute('data-text', 'MY CURSE');
+                }
 
                 if (!input) return;
 
@@ -15844,19 +15948,21 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             async function verifyMasterPin() {
                 if (isAuthenticating) return;
 
+                const banner = document.getElementById('mycurse-terminal-banner');
+                const title = document.getElementById('mycurse-terminal-title');
+
                 // Check lockout
                 if (Date.now() < lockoutUntil) {
                     const remaining = Math.ceil((lockoutUntil - Date.now()) / 1000);
-                    const errEl = document.getElementById('shield-error-text');
-                    if (errEl) {
-                        errEl.innerText = 'سیستم قفل است (' + remaining + ' ثانیه)';
-                        errEl.classList.add('visible');
+                    if (banner && title) {
+                        banner.classList.add('banner-error');
+                        title.classList.add('title-error');
+                        title.innerText = 'LOCKED (' + remaining + 'S)';
                     }
                     return;
                 }
 
                 const input = document.getElementById('shield-pin-input');
-                const errEl = document.getElementById('shield-error-text');
                 if (!input) return;
 
                 const pin = input.value.trim();
@@ -15868,8 +15974,22 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
                 if (isValid) {
                     failedAttempts = 0;
-                    if (errEl) errEl.classList.remove('visible');
-                    triggerGlitchAndEnter(isBoss);
+                    isAuthenticating = true;
+
+                    // Digital Neon Green "ACCESS AGREED"
+                    if (banner && title) {
+                        banner.classList.remove('banner-error');
+                        banner.classList.add('banner-agreed');
+                        title.classList.remove('title-error');
+                        title.classList.add('title-agreed');
+                        title.innerText = 'ACCESS AGREED';
+                        title.setAttribute('data-text', 'ACCESS AGREED');
+                    }
+                    if (typeof hapticTap === 'function') hapticTap('success');
+
+                    setTimeout(() => {
+                        triggerGlitchAndEnter(isBoss);
+                    }, 520);
                 } else {
                     failedAttempts++;
                     if (typeof hapticTap === 'function') hapticTap('error');
@@ -15878,14 +15998,25 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     if (failedAttempts >= 5) {
                         lockoutUntil = Date.now() + 45000;
                         input.value = '';
-                        if (errEl) {
-                            errEl.innerText = 'قفل امنیتی: ۵ تلاش ناموفق (۴۵ ثانیه)';
-                            errEl.classList.add('visible');
+                        if (banner && title) {
+                            banner.classList.add('banner-error');
+                            title.classList.add('title-error');
+                            title.innerText = 'LOCK 45S';
                         }
                         return;
                     }
 
-                    // 1. Heavy glitch hits the PAGE / SCREEN, NOT the calculator!
+                    // 1. Digital Neon Red "ERROR" with glitch in rectangular banner
+                    if (banner && title) {
+                        banner.classList.remove('banner-agreed');
+                        banner.classList.add('banner-error');
+                        title.classList.remove('title-agreed');
+                        title.classList.add('title-error');
+                        title.innerText = 'ERROR';
+                        title.setAttribute('data-text', 'ERROR');
+                    }
+
+                    // 2. Heavy glitch hits the screen
                     const shield = document.getElementById('bankai-security-shield');
                     const screenGlitchLayer = document.getElementById('shield-screen-glitch');
 
@@ -15898,16 +16029,18 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                         setTimeout(() => screenGlitchLayer.style.display = 'none', 520);
                     }
 
-                    // 2. Clear digits
+                    // 3. Clear digits
                     input.value = '';
 
-                    // 3. Display neon red error: «رمز اشتباه است» AFTER screen glitch
+                    // 4. Smoothly revert back to "MY CURSE" after glitch duration
                     setTimeout(() => {
-                        if (errEl) {
-                            errEl.innerText = 'رمز اشتباه است';
-                            errEl.classList.add('visible');
+                        if (banner && title && !isAuthenticating) {
+                            banner.classList.remove('banner-error');
+                            title.classList.remove('title-error');
+                            title.innerText = 'MY CURSE';
+                            title.setAttribute('data-text', 'MY CURSE');
                         }
-                    }, 520);
+                    }, 1300);
                 }
             }
 
@@ -15929,6 +16062,13 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 if (tgUser && tgUser.id) {
                     const uid = String(tgUser.id);
                     if (uid === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
+                        const banner = document.getElementById('mycurse-terminal-banner');
+                        const title = document.getElementById('mycurse-terminal-title');
+                        if (banner && title) {
+                            banner.classList.add('banner-agreed');
+                            title.classList.add('title-agreed');
+                            title.innerText = 'ACCESS AGREED';
+                        }
                         triggerGlitchAndEnter(true);
                         return;
                     } else {
@@ -15950,10 +16090,16 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
                 // 3. Normal login presentation for guest with PIN
                 const pinInp = document.getElementById('shield-pin-input');
-                const errEl = document.getElementById('shield-error-text');
+                const banner = document.getElementById('mycurse-terminal-banner');
+                const title = document.getElementById('mycurse-terminal-title');
                 if (pinInp) {
                     pinInp.addEventListener('input', function() {
-                        if (errEl) errEl.classList.remove('visible');
+                        if (banner && title && banner.classList.contains('banner-error')) {
+                            banner.classList.remove('banner-error');
+                            title.classList.remove('title-error');
+                            title.innerText = 'MY CURSE';
+                            title.setAttribute('data-text', 'MY CURSE');
+                        }
                         triggerInputMicroGlitch();
                         const v = this.value.trim();
                         if (v === '8585' || v === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
@@ -15963,7 +16109,12 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                         }
                     });
                     pinInp.addEventListener('keydown', function(e) {
-                        if (errEl) errEl.classList.remove('visible');
+                        if (banner && title && banner.classList.contains('banner-error')) {
+                            banner.classList.remove('banner-error');
+                            title.classList.remove('title-error');
+                            title.innerText = 'MY CURSE';
+                            title.setAttribute('data-text', 'MY CURSE');
+                        }
                         if (e.key === 'Enter') {
                             verifyMasterPin();
                         }
