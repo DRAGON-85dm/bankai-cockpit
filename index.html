@@ -136,13 +136,14 @@
         }
 
         .cockpit-title h1 {
-            font-size: 1.35rem;
+            font-family: 'B Nazanin', 'BNazanin', 'Vazirmatn', -apple-system, sans-serif;
+            font-size: 1.45rem;
             font-weight: 900;
             color: var(--text-title);
             display: flex;
             align-items: center;
             gap: 8px;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.5px;
         }
 
         .badge {
@@ -1451,17 +1452,17 @@ body:not(.theme-dark) .dock-btn.active::after {
             align-items: center;
             justify-content: center;
             gap: 6px;
-            padding: 6px 16px;
+            padding: 7px 18px;
             border-radius: 9999px;
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1.5px solid rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.65) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(255, 255, 255, 0.95);
             box-shadow: 
-                0 0 12px rgba(239, 68, 68, 0.32),
-                0 0 20px rgba(139, 92, 246, 0.30),
-                0 2px 6px rgba(0, 0, 0, 0.05),
-                inset 0 1px 2px rgba(255, 255, 255, 0.95);
+                0 0 14px rgba(239, 68, 68, 0.32),
+                0 0 22px rgba(139, 92, 246, 0.30),
+                0 2px 8px rgba(0, 0, 0, 0.06),
+                inset 0 1px 2px #FFFFFF;
             animation: topic-aura-pulse 3s ease-in-out infinite alternate;
         }
         @keyframes topic-aura-pulse {
@@ -1489,7 +1490,7 @@ body:not(.theme-dark) .dock-btn.active::after {
         }
         .mycurse-topic-text {
             font-family: 'B Nazanin', 'BNazanin', 'Vazirmatn', -apple-system, sans-serif;
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             font-weight: 900;
             letter-spacing: 3px;
             color: #0F172A;
@@ -1498,39 +1499,40 @@ body:not(.theme-dark) .dock-btn.active::after {
             text-shadow: 0 0 8px rgba(239, 68, 68, 0.25), 0 0 12px rgba(139, 92, 246, 0.25);
         }
 
-        /* CALCULATOR DISPLAY / INPUT WINDOW */
+        /* CALCULATOR DISPLAY / INPUT WINDOW - MATCHED WITH SOVEREIGN THEME */
         .mycurse-calc-screen {
             width: 100%;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.40);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 16px;
-            border: 1.5px solid rgba(255, 255, 255, 0.75);
+            height: 52px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.48) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 18px;
+            border: 1.5px solid rgba(255, 255, 255, 0.88);
             box-shadow: 
-                inset 0 2px 5px rgba(0, 0, 0, 0.10),
-                0 2px 8px rgba(249, 115, 22, 0.12);
+                inset 0 2px 6px rgba(0, 0, 0, 0.08),
+                0 4px 14px rgba(234, 88, 12, 0.15),
+                inset 0 1px 1px #FFFFFF;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 12px;
+            padding: 0 14px;
             box-sizing: border-box !important;
             position: relative;
             cursor: text;
             transition: all 0.22s ease;
         }
         .mycurse-calc-screen:focus-within {
-            border-color: rgba(255, 255, 255, 0.95);
-            background: rgba(255, 255, 255, 0.52);
+            border-color: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.75);
             box-shadow: 
-                inset 0 2px 5px rgba(0, 0, 0, 0.08),
-                0 0 16px rgba(249, 115, 22, 0.35);
+                inset 0 2px 5px rgba(0, 0, 0, 0.06),
+                0 0 18px rgba(249, 115, 22, 0.40);
         }
         .mycurse-calc-screen.error-shake {
             animation: shake-anim 0.4s ease-in-out;
             border-color: rgba(239, 68, 68, 0.9) !important;
-            background: rgba(254, 202, 202, 0.45) !important;
-            box-shadow: 0 0 14px rgba(239, 68, 68, 0.45) !important;
+            background: rgba(254, 202, 202, 0.55) !important;
+            box-shadow: 0 0 16px rgba(239, 68, 68, 0.45) !important;
         }
         .mycurse-calc-screen input {
             width: 100%;
@@ -1540,17 +1542,17 @@ body:not(.theme-dark) .dock-btn.active::after {
             outline: none !important;
             text-align: center;
             font-family: 'JetBrains Mono', -apple-system, monospace;
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             font-weight: 900;
             letter-spacing: 8px;
-            color: #000000;
+            color: #0F172A;
             caret-color: #EF4444;
             padding: 0;
             margin: 0;
             box-sizing: border-box !important;
         }
         .mycurse-calc-screen input::placeholder {
-            color: rgba(0, 0, 0, 0.22);
+            color: rgba(15, 23, 42, 0.25);
             letter-spacing: 6px;
         }
 
@@ -1576,43 +1578,47 @@ body:not(.theme-dark) .dock-btn.active::after {
             transform: translateY(0);
         }
 
-        /* CALCULATOR KEYPAD */
+        /* CALCULATOR KEYPAD - MATCHED WITH FROSTED SOVEREIGN THEME */
         .mycurse-keypad {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            gap: 9px;
             width: 100%;
             box-sizing: border-box !important;
         }
         .calc-key {
-            background: rgba(255, 255, 255, 0.40);
-            border: 1px solid rgba(255, 255, 255, 0.72);
-            border-radius: 14px;
-            height: 44px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.45) 100%);
+            border: 1.5px solid rgba(255, 255, 255, 0.85);
+            border-radius: 16px;
+            height: 46px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'JetBrains Mono', -apple-system, monospace;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: #0F172A;
             cursor: pointer;
             box-shadow: 
-                0 2px 4px rgba(0, 0, 0, 0.05),
-                inset 0 1px 1px rgba(255, 255, 255, 0.85);
-            transition: all 0.12s ease;
+                0 3px 8px rgba(234, 88, 12, 0.10),
+                inset 0 1px 2px rgba(255, 255, 255, 0.95);
+            transition: all 0.12s cubic-bezier(0.16, 1, 0.3, 1);
             -webkit-tap-highlight-color: transparent;
             user-select: none;
         }
         .calc-key:active {
             transform: scale(0.92);
-            background: rgba(255, 255, 255, 0.65);
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
         }
         .calc-key-action {
-            font-size: 0.95rem;
-            color: #9A3412;
-            background: rgba(254, 215, 170, 0.42);
+            font-size: 1rem;
+            color: #7C2D12;
+            background: linear-gradient(135deg, rgba(254, 215, 170, 0.80) 0%, rgba(251, 146, 60, 0.60) 100%);
+            border-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 
+                0 3px 10px rgba(234, 88, 12, 0.18),
+                inset 0 1px 2px rgba(255, 255, 255, 0.9);
         }
 
         /* BLACK SCREEN EXPANSIVE GLITCH STAGE & NEON WELCOME ENGINE */
@@ -1861,11 +1867,11 @@ body:not(.theme-dark) .dock-btn.active::after {
             100% { opacity: 1; transform: scaleX(1.3); }
         }
 
-        /* WELCOME REVEAL TYPOGRAPHY - NEON & GLITCHY ARCHITECTURE */
+        /* WELCOME REVEAL TYPOGRAPHY - BRIGHT LUMINOUS NEON & GLITCHY ARCHITECTURE */
         .glitch-welcome-title {
             display: none;
             font-family: 'B Nazanin', 'BNazanin', 'Vazirmatn', -apple-system, sans-serif;
-            font-size: clamp(2.3rem, 7.5vw, 3.3rem);
+            font-size: clamp(2.3rem, 7.5vw, 3.4rem);
             font-weight: 900;
             text-align: center;
             position: relative;
@@ -1874,18 +1880,21 @@ body:not(.theme-dark) .dock-btn.active::after {
             line-height: 1.25;
             padding: 0 16px;
             white-space: nowrap;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
         }
 
-        /* BOSS ENTRY: «خوش آمدید رئیس» - GLITCHY NEON RADIANCE */
+        /* BOSS ENTRY: «خوش آمدید رئیس» - BRIGHT WHITE CORE WITH ELECTRIC NEON AURA */
         .glitch-welcome-title.boss-title {
-            color: #00F0FF;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
             text-shadow: 
-                0 0 8px #00F0FF,
-                0 0 18px #00F0FF,
-                0 0 35px #FF0055,
-                0 0 60px #8B5CF6,
+                0 0 10px #FFFFFF,
+                0 0 20px #00F0FF,
+                0 0 38px #00F0FF,
+                0 0 70px #FF0055,
                 -3px 0 #FF0055,
-                3px 0 #00F0FF;
+                3px 0 #00F0FF !important;
             animation: 
                 welcome-reveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards,
                 neon-boss-glitch 2s infinite ease-in-out;
@@ -1908,18 +1917,20 @@ body:not(.theme-dark) .dock-btn.active::after {
             pointer-events: none;
         }
         .glitch-welcome-title.boss-title::before {
-            color: #FF0055;
-            text-shadow: 0 0 12px #FF0055, -3px 0 #FF0055;
+            color: #FF2E93 !important;
+            -webkit-text-fill-color: #FF2E93 !important;
+            text-shadow: 0 0 16px #FF2E93, -3px 0 #FF0055;
             clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
             animation: glitch-slice-top 1.6s infinite linear alternate-reverse;
-            z-index: -1;
+            z-index: 1;
         }
         .glitch-welcome-title.boss-title::after {
-            color: #00FFFF;
-            text-shadow: 0 0 12px #00FFFF, 3px 0 #00FFFF;
+            color: #00FFFF !important;
+            -webkit-text-fill-color: #00FFFF !important;
+            text-shadow: 0 0 16px #00FFFF, 3px 0 #00FFFF;
             clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
             animation: glitch-slice-bot 2s infinite linear alternate-reverse;
-            z-index: -2;
+            z-index: 2;
         }
 
         @keyframes neon-boss-glitch {
@@ -1961,14 +1972,15 @@ body:not(.theme-dark) .dock-btn.active::after {
             100% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, 0); }
         }
 
-        /* GUEST ENTRY: «خوش آمدید» */
+        /* GUEST ENTRY: «خوش آمدید» - BRIGHT LUMINOUS WHITE RADIANCE */
         .glitch-welcome-title.guest-title {
-            color: #FFFFFF;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
             text-shadow: 
-                0 0 18px rgba(99, 102, 241, 0.95),
-                0 0 38px rgba(139, 92, 246, 0.85),
-                0 0 60px rgba(59, 130, 246, 0.70),
-                0 2px 8px rgba(0, 0, 0, 0.8);
+                0 0 10px #FFFFFF,
+                0 0 22px #818CF8,
+                0 0 42px #6366F1,
+                0 0 65px #38BDF8 !important;
             animation: welcome-reveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
@@ -1990,8 +2002,7 @@ body:not(.theme-dark) .dock-btn.active::after {
             }
         }
 
-
-        .shake {
+                .shake {
             animation: shake-anim 0.35s ease-in-out;
         }
         @keyframes shake-anim {
