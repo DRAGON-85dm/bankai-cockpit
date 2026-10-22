@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>BANKAI v13.0 | سوئیت جامع شبیه‌ساز کنکور ارشد، تحلیل حساسیت، اولد بلومبرگ و لایتنر</title>
+    <title>MY CURSE | سوئیت جامع شبیه‌ساز کنکور ارشد، تحلیل حساسیت، اولد بلومبرگ و لایتنر</title>
     <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <!-- Typography: Vazirmatn & JetBrains Mono -->
@@ -1402,152 +1402,111 @@ body:not(.theme-dark) .dock-btn.active::after {
         }
     
         /* ========================================================
-           v14.0 BANKAI SOVEREIGN SECURITY SHIELD CSS
+           MY CURSE SOVEREIGN MINIMALIST LOGIN ENGINE
            ======================================================== */
         #bankai-security-shield {
             position: fixed;
             inset: 0;
             z-index: 100000;
-            background: #07090E;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(28px) saturate(160%);
+            -webkit-backdrop-filter: blur(28px) saturate(160%);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 16px;
-            font-family: 'Vazirmatn', sans-serif;
-            direction: rtl;
+            padding: 20px;
             user-select: none;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
+            transition: opacity 0.5s ease, filter 0.5s ease, visibility 0.5s ease;
         }
-        .shield-card {
-            background: #0F172A;
-            border: 1.5px solid #1E293B;
-            border-radius: 24px;
-            padding: 30px 24px;
-            max-width: 440px;
+        .mycurse-login-card {
+            background: rgba(249, 115, 22, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 32px;
+            padding: 46px 28px 40px;
             width: 100%;
-            text-align: center;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.08);
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
             position: relative;
-            overflow: hidden;
+            box-sizing: border-box !important;
+            border: 2.5px solid rgba(255, 255, 255, 0.75);
+            box-shadow: 
+                0 24px 55px rgba(234, 88, 12, 0.32),
+                0 6px 16px rgba(0, 0, 0, 0.08),
+                inset 0 2.5px 5px rgba(255, 255, 255, 0.85),
+                inset 0 -2.5px 6px rgba(194, 65, 12, 0.35),
+                0 0 0 1.5px rgba(249, 115, 22, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .shield-emblem-wrap {
-            width: 72px;
-            height: 72px;
-            margin: 0 auto 14px;
-            position: relative;
+        .mycurse-brand-title {
+            font-family: 'B Nazanin', 'BNazanin', 'Vazirmatn', -apple-system, sans-serif;
+            font-size: 2.35rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-align: center;
+            color: #000000;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin: 0;
+            padding: 0;
+            text-shadow: 
+                0 1px 1.5px rgba(255, 255, 255, 0.7),
+                0 -1.5px 2px rgba(0, 0, 0, 0.95),
+                0 0 14px rgba(239, 68, 68, 0.95),
+                0 0 28px rgba(220, 38, 38, 0.85),
+                0 0 45px rgba(185, 28, 28, 0.7);
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+        }
+        .mycurse-input-rect {
+            width: 172px;
+            height: 48px;
+            background: rgba(254, 215, 170, 0.22);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1.5px solid rgba(255, 255, 255, 0.65);
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.06),
+                0 2px 10px rgba(249, 115, 22, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0 12px;
+            box-sizing: border-box !important;
+            transition: all 0.25s ease;
         }
-        .shield-radar-ring {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            border: 2px dashed #38BDF8;
-            animation: radar-spin 12s linear infinite;
-            opacity: 0.6;
+        .mycurse-input-rect:focus-within {
+            border-color: rgba(255, 255, 255, 0.95);
+            background: rgba(254, 215, 170, 0.32);
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.04),
+                0 0 16px rgba(249, 115, 22, 0.35);
         }
-        .shield-radar-sweep {
-            position: absolute;
-            inset: 4px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            border-top-color: #38BDF8;
-            animation: radar-spin 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        .mycurse-input-rect.error-shake {
+            animation: shake-anim 0.4s ease-in-out;
+            border-color: rgba(239, 68, 68, 0.9) !important;
+            background: rgba(254, 202, 202, 0.35) !important;
         }
-        .shield-emblem {
-            font-size: 2rem;
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
-        }
-        @keyframes radar-spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .shield-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.05rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            color: #F8FAFC;
-            margin-bottom: 4px;
-        }
-        .shield-badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.12);
-            color: #38BDF8;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 9999px;
-            padding: 3px 12px;
-            font-size: 0.68rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .shield-desc {
-            font-size: 0.72rem;
-            color: #94A3B8;
-            margin-bottom: 14px;
-        }
-        .shield-terminal {
-            background: #07090E;
-            border: 1px solid #1E293B;
-            border-radius: 12px;
-            padding: 12px 14px;
-            text-align: left;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            line-height: 1.8;
-            direction: ltr;
-            margin-bottom: 14px;
-        }
-        .term-line { color: #94A3B8; }
-        .term-cyan { color: #38BDF8; font-weight: 700; }
-        .term-green { color: #10B981; font-weight: 700; }
-        .term-red { color: #EF4444; font-weight: 700; }
-        .shield-status-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-radius: 12px;
-            padding: 12px 14px;
-            margin-bottom: 12px;
-        }
-        .shield-status-box.success {
-            background: rgba(16, 185, 129, 0.12);
-            border: 1.5px solid #10B981;
-        }
-        .shield-status-box.error {
-            background: rgba(239, 68, 68, 0.15);
-            border: 1.5px solid #EF4444;
-        }
-        .shield-progress-bar {
+        .mycurse-input-rect input {
             width: 100%;
-            height: 4px;
-            background: #1E293B;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .shield-progress-fill {
-            width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, #38BDF8, #10B981);
-            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .lockdown-badge {
-            display: inline-block;
-            background: #EF4444;
-            color: #FFFFFF;
-            font-size: 0.72rem;
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            text-align: center;
+            font-family: 'JetBrains Mono', -apple-system, monospace;
+            font-size: 1.4rem;
             font-weight: 900;
-            padding: 6px 14px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
-            animation: pulse-red 1.5s infinite;
-        }
-        @keyframes pulse-red {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(0.98); }
+            letter-spacing: 8px;
+            color: #000000;
+            caret-color: #EF4444;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box !important;
         }
         .shake {
             animation: shake-anim 0.35s ease-in-out;
@@ -1556,15 +1515,6 @@ body:not(.theme-dark) .dock-btn.active::after {
             0%, 100% { transform: translateX(0); }
             20%, 60% { transform: translateX(-8px); }
             40%, 80% { transform: translateX(8px); }
-        }
-        .shield-footer {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.62rem;
-            color: #64748B;
-            margin-top: 18px;
         }
 
     
@@ -5453,78 +5403,12 @@ body.theme-dark .step-content {
 </head>
 <body>
 
-    <!-- BANKAI SOVEREIGN SECURITY SHIELD OVERLAY -->
+    <!-- MY CURSE MINIMALIST LOGIN OVERLAY -->
     <div id="bankai-security-shield">
-        <div class="shield-card" id="shield-card-box">
-            <!-- Radar / Scanner Header -->
-            <div class="shield-emblem-wrap">
-                <div class="shield-radar-ring"></div>
-                <div class="shield-radar-sweep"></div>
-                <div class="shield-emblem">⚔️</div>
-            </div>
-
-            <h2 class="shield-title">BANKAI SOVEREIGN SHIELD</h2>
-            <div class="shield-badge">حفاظ امنیتی انحصاری بهادر</div>
-            <p class="shield-desc">سامانه احراز هویت دوعاملی بیومتریک و شناسه انحصاری تلگرام</p>
-
-            <!-- Diagnostic Monospace Terminal -->
-            <div class="shield-terminal" id="shield-terminal">
-                <div class="term-line term-cyan">> [KERNEL v14.0]: INITIALIZING BANKAI HARDENED ENGINE...</div>
-                <div class="term-line term-dim">> [TELEGRAM GATEWAY]: SCANNING RUNTIME CONTEXT...</div>
-                <div class="term-line" id="term-status">> [AUDIT]: VERIFYING USER CREDENTIALS...</div>
-            </div>
-
-            <!-- Success Block (Revealed when authenticated) -->
-            <div id="shield-success-box" style="display: none; margin-top: 14px;">
-                <div class="shield-status-box success">
-                    <span style="font-size: 1.2rem;">🛡️</span>
-                    <div style="text-align: right;">
-                        <div style="font-weight: 900; color: #10B981; font-size: 0.88rem;">هویت تایید شد: بهادر ⚔️</div>
-                        <div style="font-size: 0.7rem; color: #94A3B8;">سطح دسترسی: فرمانده کل (Sovereign Level 5)</div>
-                    </div>
-                </div>
-                <div class="shield-progress-bar">
-                    <div class="shield-progress-fill" id="shield-progress-fill"></div>
-                </div>
-            </div>
-
-            <!-- Rejection Block (Revealed when unauthorized Telegram user detected) -->
-            <div id="shield-reject-box" style="display: none; margin-top: 14px;">
-                <div class="shield-status-box error">
-                    <span style="font-size: 1.4rem;">⛔</span>
-                    <div style="text-align: right;">
-                        <div style="font-weight: 900; color: #EF4444; font-size: 0.9rem;">اخطار: دسترسی غیرمجاز!</div>
-                        <div id="reject-detail" style="font-size: 0.72rem; color: #FECDD3; line-height: 1.6; margin-top: 4px;">
-                            شناسه کاربری تلگرام شما مجاز نیست. این سامانه انحصاری بوده و تمامی داده‌ها مسدود گردید.
-                        </div>
-                    </div>
-                </div>
-                <div class="lockdown-badge">🔒 وضعیت امنیتی: مسدودسازی کامل سیستم</div>
-            </div>
-
-            <!-- PIN Input Block (Revealed when opened in browser / external) -->
-            <div id="shield-pin-box" style="display: none; margin-top: 16px;">
-                <div style="font-size: 0.78rem; font-weight: 800; color: #CBD5E1; margin-bottom: 8px;">
-                    🔐 ورود با کلید فوق محرمانه بانکای (Master Passcode):
-                </div>
-                <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 12px;">
-                    <input type="password" id="shield-pin-input" maxlength="10" placeholder="••••" autocomplete="off"
-                           style="width: 160px; text-align: center; font-size: 1.3rem; letter-spacing: 6px; padding: 10px 14px; background: #07090E; border: 2px solid #334155; border-radius: 12px; color: #38BDF8; outline: none; font-family: 'JetBrains Mono', monospace;"
-                           onkeydown="if(event.key === 'Enter') verifyMasterPin()">
-                    <button onclick="verifyMasterPin()" class="btn-chart-tool" style="background: #2563EB; color: #FFFFFF; border-color: #2563EB; padding: 0 16px; font-weight: 800;">
-                        ورود ⚔️
-                    </button>
-                </div>
-                <div id="pin-feedback" style="font-size: 0.72rem; min-height: 18px; color: #94A3B8;">
-                    پین‌کد اختصاصی یا شناسه تلگرامی خود را وارد کنید
-                </div>
-            </div>
-
-            <!-- Footer Notice -->
-            <div class="shield-footer">
-                <span>DRAGON-85dm / BANKAI PROTOCOL</span>
-                <span>•</span>
-                <span>SOVEREIGN VIP LOCK</span>
+        <div class="mycurse-login-card" id="shield-card-box">
+            <div class="mycurse-brand-title">MY CURSE</div>
+            <div class="mycurse-input-rect">
+                <input type="password" id="shield-pin-input" maxlength="12" autocomplete="off" autofocus inputmode="numeric">
             </div>
         </div>
     </div>
@@ -5545,8 +5429,8 @@ body.theme-dark .step-content {
             <div class="cockpit-emblem">⚔️</div>
             <div class="cockpit-title">
                 <h1>
-                    <span>BANKAI</span>
-                    <span class="badge badge-pro">SUITE v13.0 PRO</span>
+                    <span>MY CURSE</span>
+                    <span class="badge badge-pro">PRO v14.0</span>
                 </h1>
                 <p style="font-size: 0.75rem; color: #64748B; margin-top: 2px;">
                     سامانه هوش تحلیلی، بزرگ‌نمایی تریدینگ و تلفیق تکمیلی آمار و مالی | بهادر
@@ -15027,49 +14911,39 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
         function unlockSovereignAccess(greetingText) {
             sessionStorage.setItem('bankai_sovereign_auth', 'AUTHORIZED_SOVEREIGN_BAHADOR_85');
-            const successBox = document.getElementById('shield-success-box');
-            const pinBox = document.getElementById('shield-pin-box');
-            const progressFill = document.getElementById('shield-progress-fill');
             const shield = document.getElementById('bankai-security-shield');
             const app = document.getElementById('bankai-cockpit-app');
 
-            if (pinBox) pinBox.style.display = 'none';
-            if (successBox) successBox.style.display = 'block';
-            if (progressFill) progressFill.style.width = '100%';
-
-            setTimeout(() => {
-                if (shield) {
-                    shield.style.opacity = '0';
-                    shield.style.pointerEvents = 'none';
-                    setTimeout(() => { shield.style.display = 'none'; }, 400);
-                }
-                if (app) app.style.display = 'block';
-                initCockpit();
-                showToast(greetingText || 'خوش آمدید بهادر ⚔️ - سطح دسترسی فرمانده کل فعال شد');
-            }, 600);
+            if (shield) {
+                shield.style.transition = 'opacity 0.45s ease, filter 0.45s ease';
+                shield.style.opacity = '0';
+                shield.style.filter = 'blur(12px)';
+                shield.style.pointerEvents = 'none';
+                setTimeout(() => { shield.style.display = 'none'; }, 480);
+            }
+            if (app) app.style.display = 'block';
+            initCockpit();
+            if (typeof showToast === 'function' && greetingText) {
+                showToast(greetingText);
+            }
         }
 
         async function verifyMasterPin() {
             const input = document.getElementById('shield-pin-input');
-            const feedback = document.getElementById('pin-feedback');
-            if (!input || !feedback) return;
+            const inputRect = document.querySelector('.mycurse-input-rect');
+            if (!input) return;
 
             const lockoutUntil = parseInt(localStorage.getItem('bankai_lockout_until') || '0', 10);
             if (Date.now() < lockoutUntil) {
-                const rem = Math.ceil((lockoutUntil - Date.now()) / 1000);
-                feedback.innerText = 'سیستم به دلیل دفعات اشتباه به مدت ' + rem + ' ثانیه قفل است.';
-                feedback.style.color = '#EF4444';
-                input.classList.add('shake');
-                setTimeout(() => input.classList.remove('shake'), 400);
+                if (inputRect) {
+                    inputRect.classList.add('error-shake');
+                    setTimeout(() => inputRect.classList.remove('error-shake'), 450);
+                }
                 return;
             }
 
             const pin = input.value.trim();
-            if (!pin) {
-                feedback.innerText = 'لطفاً کلید فوق محرمانه را وارد کنید';
-                feedback.style.color = '#F59E0B';
-                return;
-            }
+            if (!pin) return;
 
             const hash = await calcSha256(pin);
             const isValid = (hash === HASH_8585 || hash === HASH_TG_ID || pin === '8585' || pin === AUTHORIZED_TG_ID);
@@ -15077,23 +14951,19 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             if (isValid) {
                 localStorage.removeItem('bankai_pin_fails');
                 localStorage.removeItem('bankai_lockout_until');
-                feedback.innerText = 'کلید تایید شد. در حال گشایش کابین...';
-                feedback.style.color = '#10B981';
-                unlockSovereignAccess('احراز هویت موفق: کلید فرماندهی تایید شد ⚔️');
+                if (typeof hapticTap === 'function') hapticTap('success');
+                unlockSovereignAccess('MY CURSE ⚔️');
             } else {
                 let fails = parseInt(localStorage.getItem('bankai_pin_fails') || '0', 10) + 1;
                 localStorage.setItem('bankai_pin_fails', fails.toString());
                 input.value = '';
-                input.classList.add('shake');
-                setTimeout(() => input.classList.remove('shake'), 400);
-
+                if (typeof hapticTap === 'function') hapticTap('error');
+                if (inputRect) {
+                    inputRect.classList.add('error-shake');
+                    setTimeout(() => inputRect.classList.remove('error-shake'), 450);
+                }
                 if (fails >= 3) {
                     localStorage.setItem('bankai_lockout_until', (Date.now() + 60000).toString());
-                    feedback.innerText = '۳ بار اشتباه! سیستم به مدت ۶۰ ثانیه قفل شد.';
-                    feedback.style.color = '#EF4444';
-                } else {
-                    feedback.innerText = 'کلید نامعتبر است! (' + fails + ' از ۳ تلاش مجاز)';
-                    feedback.style.color = '#EF4444';
                 }
             }
         }
@@ -15110,11 +14980,6 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 return;
             }
 
-            const termStatus = document.getElementById('term-status');
-            const rejectBox = document.getElementById('shield-reject-box');
-            const pinBox = document.getElementById('shield-pin-box');
-            const rejectDetail = document.getElementById('reject-detail');
-
             let tgUser = null;
             if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
                 tgUser = window.Telegram.WebApp.initDataUnsafe.user;
@@ -15122,41 +14987,38 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
             if (tgUser && tgUser.id) {
                 const uid = String(tgUser.id);
-                if (uid === AUTHORIZED_TG_ID) {
-                    if (termStatus) {
-                        termStatus.innerHTML = '> [✓] TG_ID: ' + uid + '<br>> [✓] USER: BAHADOR (SOVEREIGN)<br>> [✓] ACCESS GRANTED (LEVEL 5)';
-                        termStatus.className = 'term-line term-green';
-                    }
-                    unlockSovereignAccess('هویت تایید شد: بهادر ⚔️ - ورود مجاز');
-                } else {
-                    // Unauthorized Telegram User
-                    if (termStatus) {
-                        termStatus.innerHTML = '> [✗] TG_ID: ' + uid + '<br>> [✗] USER: ' + (tgUser.first_name || 'UNKNOWN') + '<br>> [!] BREACH DETECTED: ACCESS DENIED';
-                        termStatus.className = 'term-line term-red';
-                    }
-                    if (rejectDetail) {
-                        rejectDetail.innerText = 'شناسه کاربری شما (' + uid + ') در لیست مجاز سامانه ثبت نشده است. این کابین متعلق به بهادر بوده و دسترسی شما کاملاً مسدود گردید.';
-                    }
-                    if (rejectBox) rejectBox.style.display = 'block';
-                    if (pinBox) pinBox.style.display = 'none';
-
-                    // Anti-tamper: wipe content
+                if (uid !== AUTHORIZED_TG_ID) {
+                    // Unauthorized Telegram User: purge content
                     const app = document.getElementById('bankai-cockpit-app');
                     if (app) app.innerHTML = '';
+                    const shield = document.getElementById('bankai-security-shield');
+                    if (shield) {
+                        const card = shield.querySelector('.mycurse-login-card');
+                        if (card) card.style.opacity = '0.2';
+                        const inputRect = shield.querySelector('.mycurse-input-rect');
+                        if (inputRect) inputRect.style.display = 'none';
+                    }
+                    return;
                 }
-            } else {
-                // Standalone browser or untrusted context
-                if (termStatus) {
-                    termStatus.innerHTML = '> [!] ENVIRONMENT: STANDALONE BROWSER<br>> [?] WAITING FOR SOVEREIGN PASSCODE...';
-                    termStatus.className = 'term-line term-cyan';
-                }
-                if (pinBox) {
-                    pinBox.style.display = 'block';
-                    setTimeout(() => {
-                        const inp = document.getElementById('shield-pin-input');
-                        if (inp && typeof inp.focus === "function") inp.focus();
-                    }, 300);
-                }
+            }
+
+            // Normal login presentation: focus input and wire real-time listeners
+            const pinInp = document.getElementById('shield-pin-input');
+            if (pinInp) {
+                pinInp.addEventListener('input', function() {
+                    const v = this.value.trim();
+                    if (v === '8585' || v === AUTHORIZED_TG_ID) {
+                        verifyMasterPin();
+                    }
+                });
+                pinInp.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        verifyMasterPin();
+                    }
+                });
+                setTimeout(() => {
+                    try { pinInp.focus(); } catch (e) {}
+                }, 350);
             }
         }
         window.runSecurityAudit = runSecurityAudit;
