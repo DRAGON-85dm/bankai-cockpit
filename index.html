@@ -15705,10 +15705,9 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             let failedAttempts = 0;
             let lockoutUntil = 0;
             let lastKeyTime = 0;
-            let rapidKeyViolations = 0;
-            let isAuthenticating = false;
+            let isTransitioning = false;
 
-            // 1. Comprehensive Bot & Headless Automation Detection
+            // 1. Genuine Bot & Headless Automation Detection (Zero false positives on Telegram / WebViews)
             function detectAutomatedThreat() {
                 // A. Check Telegram is_bot flag
                 if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
@@ -15728,15 +15727,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     return { threat: true, reason: 'HEADLESS_BROWSER_GLOBALS' };
                 }
 
-                // D. Language and Screen anomalies
-                if (!navigator.languages || navigator.languages.length === 0) {
-                    return { threat: true, reason: 'EMPTY_NAVIGATOR_LANGUAGES' };
-                }
-                if (window.screen && (window.screen.width === 0 || window.screen.height === 0)) {
-                    return { threat: true, reason: 'ZERO_VIEWPORT_DIMENSIONS' };
-                }
-
-                // E. Suspicious Crawler User-Agent outside Telegram
+                // D. Suspicious Crawler User-Agent outside Telegram
                 const ua = (navigator.userAgent || '').toLowerCase();
                 const isTelegramUA = ua.includes('telegram');
                 const botKeywords = ['headlesschrome', 'phantomjs', 'puppeteer', 'selenium', 'crawler', 'spider', 'postmanruntime', 'python-requests', 'aiohttp', 'wget', 'curl', 'scrapy'];
@@ -15744,16 +15735,6 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     if (ua.includes(botKeywords[i]) && !isTelegramUA) {
                         return { threat: true, reason: 'MALICIOUS_CRAWLER_USER_AGENT: ' + botKeywords[i] };
                     }
-                }
-
-                // F. Clickjacking / Unauthorized Frame Check
-                try {
-                    if (window.top !== window.self && !isTelegramUA && !document.referrer.includes('telegram')) {
-                        window.top.location = window.self.location;
-                        return { threat: true, reason: 'CLICKJACKING_FRAME_DETECTED' };
-                    }
-                } catch (e) {
-                    return { threat: true, reason: 'CROSS_ORIGIN_FRAME_VIOLATION' };
                 }
 
                 return { threat: false };
@@ -15807,7 +15788,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
             // Keypad press handler with sub-human speed rate-limiting
             function calcPress(val) {
-                if (isAuthenticating) return;
+                if (isTransitioning) return;
 
                 const banner = document.getElementById('mycurse-terminal-banner');
                 const title = document.getElementById('mycurse-terminal-title');
@@ -15824,14 +15805,10 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     return;
                 }
 
-                // Sub-human speed detection (automated bot keyboard hammering)
+                // Debounce rapid duplicate taps (< 40ms)
                 const now = Date.now();
-                if (lastKeyTime > 0 && (now - lastKeyTime) < 18) {
-                    rapidKeyViolations++;
-                    if (rapidKeyViolations > 6) {
-                        executeLockdown('SUB_HUMAN_BOT_KEYSTROKES');
-                        return;
-                    }
+                if (lastKeyTime > 0 && (now - lastKeyTime) < 40) {
+                    return;
                 }
                 lastKeyTime = now;
 
@@ -15875,10 +15852,12 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
             // Glitch transition and entry
             function triggerGlitchAndEnter(isBoss) {
-                if (isAuthenticating) return;
-                isAuthenticating = true;
+                if (isTransitioning) return;
+                isTransitioning = true;
 
-                sessionStorage.setItem(SOVEREIGN_VAULT.AUTH_TOKEN_KEY, SOVEREIGN_VAULT.AUTH_TOKEN_VAL);
+                try {
+                    sessionStorage.setItem(SOVEREIGN_VAULT.AUTH_TOKEN_KEY, SOVEREIGN_VAULT.AUTH_TOKEN_VAL);
+                } catch (e) {}
 
                 const shield = document.getElementById('bankai-security-shield');
                 const glitchStage = document.getElementById('bankai-glitch-stage');
@@ -15927,7 +15906,11 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
                     setTimeout(() => {
                         if (app) app.style.display = 'block';
-                        if (typeof window.initCockpit === 'function') window.initCockpit();
+                        if (typeof window.initCockpit === 'function') {
+                            window.initCockpit();
+                        } else if (typeof initCockpit === 'function') {
+                            initCockpit();
+                        }
 
                         if (glitchStage) {
                             glitchStage.style.transition = 'opacity 0.55s ease, filter 0.55s ease';
@@ -15935,10 +15918,10 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                             glitchStage.style.filter = 'blur(16px)';
                             setTimeout(() => {
                                 glitchStage.style.display = 'none';
-                                isAuthenticating = false;
+                                isTransitioning = false;
                             }, 580);
                         } else {
-                            isAuthenticating = false;
+                            isTransitioning = false;
                         }
                     }, 1250);
                 }, 1250);
@@ -15946,7 +15929,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
             // PIN Verification with Anti-Brute-Force Lockout
             async function verifyMasterPin() {
-                if (isAuthenticating) return;
+                if (isTransitioning) return;
 
                 const banner = document.getElementById('mycurse-terminal-banner');
                 const title = document.getElementById('mycurse-terminal-title');
@@ -15974,7 +15957,6 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
                 if (isValid) {
                     failedAttempts = 0;
-                    isAuthenticating = true;
 
                     // Digital Neon Green "ACCESS AGREED"
                     if (banner && title) {
@@ -16010,7 +15992,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     if (banner && title) {
                         banner.classList.remove('banner-agreed');
                         banner.classList.add('banner-error');
-                        title.classList.remove('title-agreed');
+                        title.classList.remove('title-error');
                         title.classList.add('title-error');
                         title.innerText = 'ERROR';
                         title.setAttribute('data-text', 'ERROR');
@@ -16034,7 +16016,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
                     // 4. Smoothly revert back to "MY CURSE" after glitch duration
                     setTimeout(() => {
-                        if (banner && title && !isAuthenticating) {
+                        if (banner && title && !isTransitioning) {
                             banner.classList.remove('banner-error');
                             title.classList.remove('title-error');
                             title.innerText = 'MY CURSE';
@@ -16059,32 +16041,34 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 }
 
                 // 1. Check if Bahador is entering via authorized Telegram ID
-                if (tgUser && tgUser.id) {
-                    const uid = String(tgUser.id);
-                    if (uid === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
-                        const banner = document.getElementById('mycurse-terminal-banner');
-                        const title = document.getElementById('mycurse-terminal-title');
-                        if (banner && title) {
-                            banner.classList.add('banner-agreed');
-                            title.classList.add('title-agreed');
-                            title.innerText = 'ACCESS AGREED';
-                        }
-                        triggerGlitchAndEnter(true);
-                        return;
-                    } else {
-                        // Unauthorized Telegram User: purge and block
-                        executeLockdown('UNAUTHORIZED_TELEGRAM_IDENTITY: ' + uid);
-                        return;
+                if (tgUser && tgUser.id && String(tgUser.id) === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
+                    const banner = document.getElementById('mycurse-terminal-banner');
+                    const title = document.getElementById('mycurse-terminal-title');
+                    if (banner && title) {
+                        banner.classList.add('banner-agreed');
+                        title.classList.add('title-agreed');
+                        title.innerText = 'ACCESS AGREED';
                     }
+                    triggerGlitchAndEnter(true);
+                    return;
                 }
 
                 // 2. If opened outside Telegram and session already authenticated
-                if (sessionStorage.getItem(SOVEREIGN_VAULT.AUTH_TOKEN_KEY) === SOVEREIGN_VAULT.AUTH_TOKEN_VAL) {
+                let isSessionAuth = false;
+                try {
+                    isSessionAuth = (sessionStorage.getItem(SOVEREIGN_VAULT.AUTH_TOKEN_KEY) === SOVEREIGN_VAULT.AUTH_TOKEN_VAL);
+                } catch (e) {}
+
+                if (isSessionAuth) {
                     const shield = document.getElementById('bankai-security-shield');
                     const app = document.getElementById('bankai-cockpit-app');
                     if (shield) shield.style.display = 'none';
                     if (app) app.style.display = 'block';
-                    if (typeof window.initCockpit === 'function') window.initCockpit();
+                    if (typeof window.initCockpit === 'function') {
+                        window.initCockpit();
+                    } else if (typeof initCockpit === 'function') {
+                        initCockpit();
+                    }
                     return;
                 }
 
@@ -16797,6 +16781,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
         window.selectFlashbackChain = selectFlashbackChain;
 
         function initCockpit() {
+            window.initCockpit = initCockpit;
             bindDual('m-t-slider', 'm-t-num', drawMicro);
             bindDual('m-a-slider', 'm-a-num', drawMicro);
             bindDual('m-b-slider', 'm-b-num', drawMicro);
