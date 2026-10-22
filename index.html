@@ -1615,7 +1615,7 @@ body:not(.theme-dark) .dock-btn.active::after {
             background: rgba(254, 215, 170, 0.42);
         }
 
-        /* BLACK SCREEN GLITCH STAGE & WELCOME ANIMATION */
+        /* BLACK SCREEN EXPANSIVE GLITCH STAGE & NEON WELCOME ENGINE */
         #bankai-glitch-stage {
             position: fixed;
             inset: 0;
@@ -1629,23 +1629,36 @@ body:not(.theme-dark) .dock-btn.active::after {
             opacity: 1;
             transition: opacity 0.5s ease, filter 0.5s ease;
         }
+        #bankai-glitch-stage.active-glitch {
+            animation: stage-full-jitter 0.22s infinite alternate;
+        }
+        @keyframes stage-full-jitter {
+            0% { transform: translate(0, 0) skewX(0deg); filter: contrast(150%) brightness(120%); }
+            20% { transform: translate(-4px, 2px) skewX(-1.2deg); filter: hue-rotate(45deg) contrast(180%); }
+            40% { transform: translate(4px, -2px) skewX(1deg); filter: invert(0.08) brightness(140%); }
+            60% { transform: translate(-3px, -2px) skewX(0.5deg); }
+            80% { transform: translate(3px, 2px) skewX(-0.8deg); filter: hue-rotate(-30deg); }
+            100% { transform: translate(0, 0) skewX(0deg); filter: contrast(150%) brightness(120%); }
+        }
+
+        /* FULL-SCREEN SCANLINES & DIGITAL STATIC */
         .glitch-scanlines {
             position: absolute;
             inset: 0;
             pointer-events: none;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.45) 50%),
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.55) 50%),
+                        linear-gradient(90deg, rgba(255, 0, 85, 0.05), rgba(0, 240, 255, 0.03), rgba(0, 0, 255, 0.05));
             background-size: 100% 4px, 6px 100%;
             z-index: 2;
-            opacity: 0.85;
+            opacity: 0.9;
         }
         .glitch-noise {
             position: absolute;
             inset: -50%;
             width: 200%;
             height: 200%;
-            background-image: repeating-radial-gradient(circle at 50% 50%, transparent 0, rgba(255,255,255,0.03) 1px, transparent 2px);
-            animation: noise-shift 0.2s steps(2) infinite;
+            background-image: repeating-radial-gradient(circle at 50% 50%, transparent 0, rgba(255,255,255,0.04) 1px, transparent 2px);
+            animation: noise-shift 0.15s steps(2) infinite;
             pointer-events: none;
             z-index: 3;
         }
@@ -1656,6 +1669,123 @@ body:not(.theme-dark) .dock-btn.active::after {
             75% { transform: translate(-1%, 2%); }
             100% { transform: translate(0, 0); }
         }
+
+        /* FULL-SCREEN FLASH BURST */
+        .glitch-flash-burst {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.35), rgba(255, 0, 85, 0.25), transparent 75%);
+            pointer-events: none;
+            z-index: 3;
+            animation: flash-flicker 0.18s infinite;
+        }
+        @keyframes flash-flicker {
+            0%, 100% { opacity: 0.15; }
+            35% { opacity: 0.75; }
+            65% { opacity: 0.1; }
+            85% { opacity: 0.95; }
+        }
+
+        /* FULL-SCREEN TEAR BANDS (ENCOMPASSING ENTIRE DISPLAY) */
+        .glitch-tear-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 4;
+        }
+        .tear-band {
+            position: absolute;
+            left: -15%;
+            width: 130%;
+            background: linear-gradient(90deg, rgba(255, 0, 85, 0.45), rgba(0, 240, 255, 0.45));
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6), 0 0 35px rgba(255, 0, 85, 0.6);
+            backdrop-filter: invert(0.9);
+            -webkit-backdrop-filter: invert(0.9);
+            opacity: 0;
+        }
+        .band-1 {
+            top: 12%;
+            height: 22px;
+            animation: band-tear-1 0.28s steps(2) infinite alternate;
+        }
+        .band-2 {
+            top: 28%;
+            height: 38px;
+            animation: band-tear-2 0.2s steps(2) infinite alternate-reverse;
+        }
+        .band-3 {
+            top: 48%;
+            height: 16px;
+            animation: band-tear-1 0.25s steps(2) infinite 0.04s;
+        }
+        .band-4 {
+            top: 68%;
+            height: 32px;
+            animation: band-tear-2 0.32s steps(2) infinite alternate;
+        }
+        .band-5 {
+            top: 84%;
+            height: 20px;
+            animation: band-tear-1 0.18s steps(2) infinite alternate-reverse;
+        }
+        @keyframes band-tear-1 {
+            0% { opacity: 0; transform: translateX(0); }
+            30% { opacity: 0.95; transform: translateX(-45px); }
+            70% { opacity: 0.85; transform: translateX(55px); }
+            100% { opacity: 0; transform: translateX(0); }
+        }
+        @keyframes band-tear-2 {
+            0% { opacity: 0.95; transform: translateX(60px); }
+            40% { opacity: 0; transform: translateX(-30px); }
+            80% { opacity: 0.9; transform: translateX(-50px); }
+            100% { opacity: 0.1; transform: translateX(40px); }
+        }
+
+        /* FULL-SCREEN SCATTERED CYBER DATA */
+        .glitch-cyber-scatter {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 4;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: rgba(0, 240, 255, 0.8);
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.9);
+            letter-spacing: 1.5px;
+            user-select: none;
+        }
+        .scatter-tag {
+            position: absolute;
+            padding: 3px 8px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            border-radius: 4px;
+            animation: tag-flicker 0.4s infinite alternate;
+        }
+        .tag-tl { top: 16px; left: 16px; }
+        .tag-tr { top: 16px; right: 16px; color: rgba(255, 0, 85, 0.85); border-color: rgba(255, 0, 85, 0.5); text-shadow: 0 0 8px rgba(255, 0, 85, 0.9); }
+        .tag-bl { bottom: 16px; left: 16px; }
+        .tag-br { bottom: 16px; right: 16px; color: rgba(16, 185, 129, 0.85); border-color: rgba(16, 185, 129, 0.5); text-shadow: 0 0 8px rgba(16, 185, 129, 0.9); }
+        .scatter-code {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            opacity: 0.45;
+            font-size: 0.68rem;
+            animation: tag-flicker 0.3s infinite 0.1s;
+        }
+        .code-left { left: 8px; }
+        .code-right { right: 8px; color: rgba(255, 0, 85, 0.65); }
+        @keyframes tag-flicker {
+            0%, 100% { opacity: 0.9; transform: scale(1); }
+            50% { opacity: 0.25; transform: scale(0.97); }
+        }
+
+        /* CENTER GLITCH CONTENT */
         .glitch-content {
             position: relative;
             z-index: 5;
@@ -1664,6 +1794,8 @@ body:not(.theme-dark) .dock-btn.active::after {
             align-items: center;
             justify-content: center;
             padding: 20px;
+            width: 100%;
+            box-sizing: border-box !important;
         }
         .glitch-anim-box {
             display: flex;
@@ -1674,20 +1806,20 @@ body:not(.theme-dark) .dock-btn.active::after {
             animation: glitch-flicker 0.15s infinite;
         }
         .glitch-symbol {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             color: #00FFFF;
-            text-shadow: -3px 0 #FF0055, 3px 0 #00E5FF;
-            animation: glitch-slice 0.3s infinite alternate;
+            text-shadow: -4px 0 #FF0055, 4px 0 #00E5FF;
+            animation: glitch-slice 0.25s infinite alternate;
         }
         .glitch-text {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 900;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             color: #FFFFFF;
             position: relative;
             text-shadow: -2px 0 #FF0055, 2px 0 #00FFFF;
-            animation: glitch-anim 0.25s infinite alternate;
+            animation: glitch-anim 0.22s infinite alternate;
         }
         .glitch-bars {
             display: flex;
@@ -1695,55 +1827,151 @@ body:not(.theme-dark) .dock-btn.active::after {
             margin-top: 6px;
         }
         .glitch-bars span {
-            width: 16px;
+            width: 20px;
             height: 3px;
             background: #EF4444;
-            box-shadow: 0 0 8px #EF4444;
+            box-shadow: 0 0 10px #EF4444;
             animation: bar-glow 0.4s infinite alternate;
         }
-        .glitch-bars span:nth-child(2) { background: #8B5CF6; box-shadow: 0 0 8px #8B5CF6; animation-delay: 0.1s; }
-        .glitch-bars span:nth-child(3) { background: #00FFFF; box-shadow: 0 0 8px #00FFFF; animation-delay: 0.2s; }
-        .glitch-bars span:nth-child(4) { background: #10B981; box-shadow: 0 0 8px #10B981; animation-delay: 0.3s; }
+        .glitch-bars span:nth-child(2) { background: #8B5CF6; box-shadow: 0 0 10px #8B5CF6; animation-delay: 0.1s; }
+        .glitch-bars span:nth-child(3) { background: #00FFFF; box-shadow: 0 0 10px #00FFFF; animation-delay: 0.2s; }
+        .glitch-bars span:nth-child(4) { background: #10B981; box-shadow: 0 0 10px #10B981; animation-delay: 0.3s; }
 
         @keyframes glitch-slice {
             0% { transform: translate(0); clip-path: inset(0 0 0 0); }
-            20% { transform: translate(-4px, 2px); clip-path: inset(20% 0 30% 0); }
-            40% { transform: translate(4px, -2px); clip-path: inset(40% 0 10% 0); }
-            60% { transform: translate(-3px, 1px); clip-path: inset(10% 0 60% 0); }
-            80% { transform: translate(3px, -1px); clip-path: inset(50% 0 20% 0); }
+            20% { transform: translate(-5px, 2px); clip-path: inset(20% 0 30% 0); }
+            40% { transform: translate(5px, -2px); clip-path: inset(40% 0 10% 0); }
+            60% { transform: translate(-4px, 1px); clip-path: inset(10% 0 60% 0); }
+            80% { transform: translate(4px, -1px); clip-path: inset(50% 0 20% 0); }
             100% { transform: translate(0); clip-path: inset(0 0 0 0); }
         }
         @keyframes glitch-anim {
             0% { transform: skewX(0deg); }
-            25% { transform: skewX(-12deg); text-shadow: 3px 0 #FF0055, -3px 0 #00FFFF; }
-            50% { transform: skewX(8deg); text-shadow: -3px 0 #FF0055, 3px 0 #00FFFF; }
-            75% { transform: skewX(-5deg); }
+            25% { transform: skewX(-14deg); text-shadow: 4px 0 #FF0055, -4px 0 #00FFFF; }
+            50% { transform: skewX(10deg); text-shadow: -4px 0 #FF0055, 4px 0 #00FFFF; }
+            75% { transform: skewX(-6deg); }
             100% { transform: skewX(0deg); }
         }
         @keyframes glitch-flicker {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.88; }
+            50% { opacity: 0.85; }
         }
         @keyframes bar-glow {
             0% { opacity: 0.4; transform: scaleX(0.8); }
-            100% { opacity: 1; transform: scaleX(1.2); }
+            100% { opacity: 1; transform: scaleX(1.3); }
         }
 
-        /* WELCOME REVEAL TYPOGRAPHY */
+        /* WELCOME REVEAL TYPOGRAPHY - NEON & GLITCHY ARCHITECTURE */
         .glitch-welcome-title {
             display: none;
             font-family: 'B Nazanin', 'BNazanin', 'Vazirmatn', -apple-system, sans-serif;
-            font-size: 2.9rem;
+            font-size: clamp(2.3rem, 7.5vw, 3.3rem);
             font-weight: 900;
             text-align: center;
-            color: #FFFFFF;
             position: relative;
             z-index: 10;
             letter-spacing: 2px;
             line-height: 1.25;
-            padding: 0 20px;
+            padding: 0 16px;
+            white-space: nowrap;
+        }
+
+        /* BOSS ENTRY: «خوش آمدید رئیس» - GLITCHY NEON RADIANCE */
+        .glitch-welcome-title.boss-title {
+            color: #00F0FF;
+            text-shadow: 
+                0 0 8px #00F0FF,
+                0 0 18px #00F0FF,
+                0 0 35px #FF0055,
+                0 0 60px #8B5CF6,
+                -3px 0 #FF0055,
+                3px 0 #00F0FF;
+            animation: 
+                welcome-reveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+                neon-boss-glitch 2s infinite ease-in-out;
+        }
+        .glitch-welcome-title.boss-title::before,
+        .glitch-welcome-title.boss-title::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            letter-spacing: inherit;
+            line-height: inherit;
+            text-align: center;
+            pointer-events: none;
+        }
+        .glitch-welcome-title.boss-title::before {
+            color: #FF0055;
+            text-shadow: 0 0 12px #FF0055, -3px 0 #FF0055;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            animation: glitch-slice-top 1.6s infinite linear alternate-reverse;
+            z-index: -1;
+        }
+        .glitch-welcome-title.boss-title::after {
+            color: #00FFFF;
+            text-shadow: 0 0 12px #00FFFF, 3px 0 #00FFFF;
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+            animation: glitch-slice-bot 2s infinite linear alternate-reverse;
+            z-index: -2;
+        }
+
+        @keyframes neon-boss-glitch {
+            0%, 86%, 100% {
+                transform: translate(0, 0) scale(1);
+                filter: drop-shadow(0 0 18px rgba(0, 240, 255, 0.85));
+            }
+            87% {
+                transform: translate(-3px, 1px) skewX(2deg) scale(1.02);
+                text-shadow: -4px 0 #FF0055, 4px 0 #00F0FF, 0 0 25px #00F0FF;
+            }
+            89% {
+                transform: translate(4px, -2px) skewX(-2.5deg) scale(0.99);
+                text-shadow: 4px 0 #FF0055, -4px 0 #00F0FF, 0 0 40px #FF0055;
+            }
+            92% {
+                transform: translate(-2px, -1px);
+                filter: drop-shadow(0 0 28px rgba(255, 0, 85, 0.95));
+            }
+            95% {
+                transform: translate(0, 0) scale(1);
+                filter: drop-shadow(0 0 18px rgba(0, 240, 255, 0.85));
+            }
+        }
+        @keyframes glitch-slice-top {
+            0% { clip-path: inset(0 0 80% 0); transform: translate(-3px, -1px); }
+            20% { clip-path: inset(25% 0 55% 0); transform: translate(4px, 1px); }
+            40% { clip-path: inset(60% 0 15% 0); transform: translate(-2px, 0); }
+            60% { clip-path: inset(10% 0 70% 0); transform: translate(3px, -2px); }
+            80% { clip-path: inset(75% 0 5% 0); transform: translate(-4px, 2px); }
+            100% { clip-path: inset(40% 0 40% 0); transform: translate(2px, -1px); }
+        }
+        @keyframes glitch-slice-bot {
+            0% { clip-path: inset(40% 0 40% 0); transform: translate(3px, 1px); }
+            20% { clip-path: inset(15% 0 65% 0); transform: translate(-4px, -1px); }
+            40% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 2px); }
+            60% { clip-path: inset(30% 0 50% 0); transform: translate(-3px, -2px); }
+            80% { clip-path: inset(5% 0 80% 0); transform: translate(4px, 1px); }
+            100% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, 0); }
+        }
+
+        /* GUEST ENTRY: «خوش آمدید» */
+        .glitch-welcome-title.guest-title {
+            color: #FFFFFF;
+            text-shadow: 
+                0 0 18px rgba(99, 102, 241, 0.95),
+                0 0 38px rgba(139, 92, 246, 0.85),
+                0 0 60px rgba(59, 130, 246, 0.70),
+                0 2px 8px rgba(0, 0, 0, 0.8);
             animation: welcome-reveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
         @keyframes welcome-reveal {
             0% {
                 opacity: 0;
@@ -1761,24 +1989,7 @@ body:not(.theme-dark) .dock-btn.active::after {
                 filter: blur(0);
             }
         }
-        /* BOSS ENTRY: «خوش آمدید رئیس» */
-        .glitch-welcome-title.boss-title {
-            color: #FFFFFF;
-            text-shadow: 
-                0 0 16px rgba(239, 68, 68, 0.95),
-                0 0 35px rgba(245, 158, 11, 0.85),
-                0 0 60px rgba(139, 92, 246, 0.75),
-                0 2px 10px rgba(0, 0, 0, 0.9);
-        }
-        /* GUEST ENTRY: «خوش آمدید» */
-        .glitch-welcome-title.guest-title {
-            color: #FFFFFF;
-            text-shadow: 
-                0 0 18px rgba(99, 102, 241, 0.95),
-                0 0 38px rgba(139, 92, 246, 0.85),
-                0 0 60px rgba(59, 130, 246, 0.70),
-                0 2px 8px rgba(0, 0, 0, 0.8);
-        }
+
 
         .shake {
             animation: shake-anim 0.35s ease-in-out;
@@ -5711,10 +5922,33 @@ body.theme-dark .step-content {
         </div>
     </div>
 
-    <!-- BLACK SCREEN GLITCH STAGE & WELCOME ANIMATION -->
+    <!-- BLACK SCREEN EXPANSIVE GLITCH STAGE & WELCOME ANIMATION -->
     <div id="bankai-glitch-stage" style="display: none;">
+        <!-- FULL-SCREEN SCANLINES & NOISE -->
         <div class="glitch-scanlines"></div>
         <div class="glitch-noise"></div>
+        <div class="glitch-flash-burst"></div>
+
+        <!-- FULL-SCREEN TEAR BANDS TRAVERSING VIEWPORT -->
+        <div class="glitch-tear-layer">
+            <div class="tear-band band-1"></div>
+            <div class="tear-band band-2"></div>
+            <div class="tear-band band-3"></div>
+            <div class="tear-band band-4"></div>
+            <div class="tear-band band-5"></div>
+        </div>
+
+        <!-- FULL-SCREEN SCATTERED CYBER DATA BLOCKS -->
+        <div class="glitch-cyber-scatter">
+            <span class="scatter-tag tag-tl">SEC_BYPASS // OK</span>
+            <span class="scatter-tag tag-tr">MEM_OVERFLOW_0x85</span>
+            <span class="scatter-tag tag-bl">SOVEREIGN_ID: 1256058389</span>
+            <span class="scatter-tag tag-br">SYSTEM_CORE: UNLOCKED</span>
+            <span class="scatter-code code-left">01001000 01000001</span>
+            <span class="scatter-code code-right">0xBAHADOR_85</span>
+        </div>
+
+        <!-- CENTER GLITCH CONTENT -->
         <div class="glitch-content">
             <div id="glitch-anim-box" class="glitch-anim-box">
                 <div class="glitch-symbol">⚡</div>
@@ -5723,7 +5957,7 @@ body.theme-dark .step-content {
                     <span></span><span></span><span></span><span></span>
                 </div>
             </div>
-            <div id="glitch-welcome-title" class="glitch-welcome-title"></div>
+            <div id="glitch-welcome-title" class="glitch-welcome-title" data-text=""></div>
         </div>
     </div>
 
@@ -15243,11 +15477,12 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 shield.style.display = 'none';
             }
 
-            // Reveal black screen glitch stage
+            // Reveal black screen glitch stage with full-screen active jitter
             if (glitchStage) {
                 glitchStage.style.display = 'flex';
                 glitchStage.style.opacity = '1';
                 glitchStage.style.filter = 'none';
+                glitchStage.classList.add('active-glitch');
             }
 
             if (glitchAnimBox) {
@@ -15256,7 +15491,9 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             if (welcomeTitle) {
                 welcomeTitle.style.display = 'none';
                 welcomeTitle.className = 'glitch-welcome-title ' + (isBoss ? 'boss-title' : 'guest-title');
-                welcomeTitle.innerText = isBoss ? 'خوش آمدید رئیس' : 'خوش آمدید';
+                const titleStr = isBoss ? 'خوش آمدید رئیس' : 'خوش آمدید';
+                welcomeTitle.innerText = titleStr;
+                welcomeTitle.setAttribute('data-text', titleStr);
             }
 
             if (typeof hapticTap === 'function') hapticTap('heavy');
@@ -15277,6 +15514,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             setTimeout(() => {
                 clearInterval(jitterInterval);
                 if (glitchAnimBox) glitchAnimBox.style.display = 'none';
+                if (glitchStage) glitchStage.classList.remove('active-glitch');
 
                 if (welcomeTitle) {
                     welcomeTitle.style.display = 'block';
