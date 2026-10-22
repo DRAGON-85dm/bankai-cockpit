@@ -2108,8 +2108,9 @@ body:not(.theme-dark) .dock-btn.active::after {
             white-space: nowrap;
         }
 
-        /* BOSS ENTRY: «خوش آمدید رئیس» - CYBERPUNK ELECTRIC NEON HUD */
-        .glitch-welcome-title.boss-title {
+        /* BOSS ENTRY: «خوش آمدید رئیس» & PIN 8585 ENTRY: «خوش آمدید» - CYBERPUNK ELECTRIC NEON HUD */
+        .glitch-welcome-title.boss-title,
+        .glitch-welcome-title.guest-title {
             color: #00F0FF !important;
             -webkit-text-fill-color: #00F0FF !important;
             text-shadow: 
@@ -2125,7 +2126,9 @@ body:not(.theme-dark) .dock-btn.active::after {
                 neon-boss-glitch 2s infinite ease-in-out;
         }
         .glitch-welcome-title.boss-title::before,
-        .glitch-welcome-title.boss-title::after {
+        .glitch-welcome-title.boss-title::after,
+        .glitch-welcome-title.guest-title::before,
+        .glitch-welcome-title.guest-title::after {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -2141,7 +2144,8 @@ body:not(.theme-dark) .dock-btn.active::after {
             text-align: center;
             pointer-events: none;
         }
-        .glitch-welcome-title.boss-title::before {
+        .glitch-welcome-title.boss-title::before,
+        .glitch-welcome-title.guest-title::before {
             color: #FF0055 !important;
             -webkit-text-fill-color: #FF0055 !important;
             text-shadow: 0 0 16px #FF0055, -3px 0 #FF0055;
@@ -2149,7 +2153,8 @@ body:not(.theme-dark) .dock-btn.active::after {
             animation: glitch-slice-top 1.6s infinite linear alternate-reverse;
             z-index: 1;
         }
-        .glitch-welcome-title.boss-title::after {
+        .glitch-welcome-title.boss-title::after,
+        .glitch-welcome-title.guest-title::after {
             color: #00FFFF !important;
             -webkit-text-fill-color: #00FFFF !important;
             text-shadow: 0 0 16px #00FFFF, 3px 0 #00FFFF;
@@ -2195,20 +2200,6 @@ body:not(.theme-dark) .dock-btn.active::after {
             60% { clip-path: inset(30% 0 50% 0); transform: translate(-3px, -2px); }
             80% { clip-path: inset(5% 0 80% 0); transform: translate(4px, 1px); }
             100% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, 0); }
-        }
-
-        /* GUEST ENTRY: «خوش آمدید» - CYBERPUNK DIGITAL NEON */
-        .glitch-welcome-title.guest-title {
-            color: #38BDF8 !important;
-            -webkit-text-fill-color: #38BDF8 !important;
-            text-shadow: 
-                0 0 5px #38BDF8,
-                0 0 16px #38BDF8,
-                0 0 32px #818CF8,
-                0 0 60px #6366F1,
-                -2px 0 #818CF8,
-                2px 0 #38BDF8 !important;
-            animation: welcome-reveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes welcome-reveal {
