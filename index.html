@@ -6861,13 +6861,13 @@ body.theme-dark .step-content {
                         <div>
                             <span class="badge badge-micro">فرمول طلایی ۴</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">شاخص تمرکز بازار هرفیندال-هیرشمن (HHI)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('HHI = ∑ (s_i)^2', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">HHI</span><span class="math-op">=</span>∑ (s_i)²</div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormula('HHI = ∑ sᵢ²', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">HHI</span><span class="math-op">=</span>∑ sᵢ²</div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>سنجش انحصار صنعت:</strong>
                                 <p>مجموع مربعات سهم بازار بنگاه‌ها (بر حسب درصد). کمتر از ۱۵۰۰ رقابتی، بین ۱۵۰۰ تا ۲۵۰۰ تمرکز متوسط، و بالای ۲۵۰۰ بازار شدیداً متمرکز است.</p>
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('HHI = sum(s_i^2)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('HHI = ∑ sᵢ²')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -9579,7 +9579,7 @@ body.theme-dark .step-content {
                                 فراموش کردن تغییر جهت نامساوی هنگام ضرب در منفی ۱! اگر قید x1 - 2x2 ≤ -4 باشد، باید به شکل -x1 + 2x2 ≥ 4 تبدیل شود و سپس متغیر مازاد e_i از آن کسر گردد.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Constraint_LE: sum(a_ij * x_j) + S_i = b_i; Constraint_GE: sum(a_ij * x_j) - e_i = b_i')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Constraint_LE: ∑ (aᵢⱼ · xⱼ) + Sᵢ = bᵢ   |   Constraint_GE: ∑ (aᵢⱼ · xⱼ) - eᵢ = bᵢ')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -9617,7 +9617,7 @@ body.theme-dark .step-content {
                                 اشتباه در تعیین علامت متغیر دوگان! اگر قید اولیه به صورت تساوی (=) باشد، متغیر دوگان متناظر با آن آزاد در علامت (URS: Unrestricted in Sign) خواهد بود!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Primal: Max Z = C^T X, AX ≤ b ≤&gt; Dual: Min W = b^T Y, A^T Y ≥ C; Max Z* = Min W*')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Primal: Max Z = cᵀ x , A x ≤ b   ◄──►   Dual: Min W = bᵀ y , Aᵀ y ≥ c   |   Max Z* = Min W*')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -9923,7 +9923,7 @@ body.theme-dark .step-content {
                                 مدل مارکوویتز به دلیل واریانس کوواریانس غیرخطی (درجه دو QP) است؛ اما مدل‌های خطی با استفاده از معیار انحراف متوسط (MAD) یا ریسک نزولی به برنامه‌ریزی خطی (LP) محض تبدیل می‌شوند.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Max Z = ∑ r_i * x_i  |  ∑ x_i = 1')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Max Z = ∑ (rᵢ · xᵢ)   |   ∑ xᵢ = 1')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -10267,7 +10267,7 @@ body.theme-dark .step-content {
                 <div class="card">
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #0E7490; margin-bottom: 10px;">📝 کپسول دست‌نویس دفترچه بهادر (تحقیق در عملیات ۱)</h4>
                     <div class="notebook-capsule">
-1. Max Z = c^T x  s.t. Ax <= b, x >= 0  [فرم استاندارد]
+1. Max Z = cᵀ x  s.t. A x ≤ b , x ≥ 0  [فرم استاندارد]
 2. Min Ratio Test: min{ b_i / a_ik | a_ik > 0 }  [قاعده خروج]
 3. Shadow Price: y_i = dZ / db_i  [قیمت سایه منبع]
 4. s_i * y_i = 0  [قضیه مکمل فزونی]
@@ -10730,7 +10730,7 @@ body.theme-dark .step-content {
                                 جفت کردن اشتباه نمادها! پارامتر μ فقط با N بزرگ و آماره x̄ فقط با n کوچک جفت می‌شود. نوشتن μ با مخرج n کوچک خطای علمی فاحش است.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('mu = sum(x_i)/N; x_bar = sum(x_i)/n')">
+                        <button class="btn-copy-formula" onclick="copyFormula('μ = (∑ xᵢ) ÷ N   |   x̄ = (∑ xᵢ) ÷ n')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -10755,7 +10755,7 @@ body.theme-dark .step-content {
                             <div class="tier-card bankai-tier">
                                 <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
                                 • <b>معامله بزرگ آمار (Trade-off):</b> اگر داده‌ها زیر ۲۰ عدد باشند (n ≤ 20) مستقیماً آرایه آماری تحلیل می‌شود. اگر بالای ۲۰ باشند جدول فراوانی کشیده می‌شود؛ کمی خطای تقریب مرکز دسته را می‌پذیریم تا شلوغی مهار شود.<br>
-                                • <b>فرمول استورجز برای تعداد طبقات:</b> k = 1 + 3.322 log(n) و طول طبقه c = Range / k.
+                                • <b>فرمول استرجس برای تعداد طبقات:</b> k = 1 + 3.32 log₁₀ n و طول طبقه c = R ÷ k.
                             </div>
 
                             <div class="tier-card trap-tier">
@@ -10763,7 +10763,7 @@ body.theme-dark .step-content {
                                 اشتباه گرفتن «مرکز دسته» با «طول طبقه c»! در ضرب صورت کسر باید حتماً مرکز دسته (وسط طبقه) در فراوانی ضرب شود نه طول طبقه.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('x_bar = sum(f_i * x_i) / sum(f_i)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('x̄ = [ ∑ (fᵢ × xᵢ) ] ÷ n')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -10779,11 +10779,11 @@ body.theme-dark .step-content {
                             <div class="card-inner" style="margin: 10px 0; font-size: 0.74rem; background: #F8FAFC; border: 1.5px solid #C7D2FE; border-radius: 12px; line-height: 1.8;">
                                 <strong style="color: #4338CA;">💡 کالبدشکافی علائم ریاضی: حاصل‌ضرب پی (∏) و توان کسری (1/N):</strong><br>
                                 • <b>نماد ∏ (حرف پی بزرگ یونانی):</b> این نماد نشان‌دهنده <b>«حاصل‌ضرب زنجیره‌ای»</b> تمام داده‌ها است (دقیقاً همان‌طور که نماد ∑ نشان‌دهنده حاصل‌جمع است): ∏ x_i = x₁ × x₂ × ... × x_N.<br>
-                                • <b>توان کسری 1/N:</b> رساندن حاصل‌ضرب به توان ۱/N دقیقاً همان گرفتن <b>ریشه N-ام</b> از ضرب کل اعداد است: ( ∏ x_i )^(1/N) = √(N-ام) از ضرب کل مشاهدات.<br>
+                                • <b>توان کسری 1/N:</b> رساندن حاصل‌ضرب به توان ۱/N دقیقاً همان گرفتن <b>ریشه N-ام</b> از ضرب کل اعداد است: ( ∏ xᵢ )¹ᐟᴺ = ᴺ√[ ∏ xᵢ ] از ضرب کل مشاهدات.<br>
                                 • <b>رفع ابهام ستاره (*):</b> علامت ستاره (*) در اقتصاد و تحقیق در عملیات نماد نقطه «تعادل و بهینگی» (Optimal / Equilibrium) است و هرگز علامت ضرب نیست!
                             </div>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('μ_g = ( ∏ x_i )^(1/N)   |   G = x̄_g = ( ∏ x_i )^(1/n)   |   CAGR = [ ∏ (1 + R_t) ]^(1/n) - 1', this)" title="برای کپی فرمول کلیک کنید">
-                                <span class="math-sym" style="color: #4338CA;">μ_g</span><span class="math-op">=</span>( ∏ x_i )<span class="math-sup">1/N</span><span class="math-sep">|</span><span class="math-sym" style="color: #047857;">G = x̄_g</span><span class="math-op">=</span>( ∏ x_i )<span class="math-sup">1/n</span><span class="math-sep">|</span><span class="math-sym" style="color: #0284C7;">CAGR</span><span class="math-op">=</span>[ ∏ (1 + R_t) ]<span class="math-sup">1/n</span> - 1
+                            <div class="formula-display" dir="ltr" onclick="copyFormula('μ_g = ( ∏ xᵢ )¹ᐟᴺ   |   G = x̄_g = ( ∏ xᵢ )¹ᐟⁿ   |   CAGR = [ ∏ (1 + Rₜ) ]¹ᐟⁿ - 1', this)" title="برای کپی فرمول کلیک کنید">
+                                <span class="math-sym" style="color: #4338CA;">μ_g</span><span class="math-op">=</span>( ∏ xᵢ )¹ᐟᴺ<span class="math-sep">|</span><span class="math-sym" style="color: #047857;">G = x̄_g</span><span class="math-op">=</span>( ∏ xᵢ )¹ᐟⁿ<span class="math-sep">|</span><span class="math-sym" style="color: #0284C7;">CAGR</span><span class="math-op">=</span>[ ∏ (1 + Rₜ) ]¹ᐟⁿ - 1
                             </div>
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
@@ -10804,7 +10804,7 @@ body.theme-dark .step-content {
                                 ضرب مستقیم درصدهای منفی و مثبت! در بازدهی‌های مالی، بازده‌ها ابتدا باید با ۱ جمع شوند: ∏(1 + R_t)، سپس ریشه nام گرفته شود و در انتها عدد ۱ کسر گردد.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('G = (prod(x_i))^(1/n); CAGR = [prod(1 + R_t)]^(1/n) - 1')">
+                        <button class="btn-copy-formula" onclick="copyFormula('G = ( ∏ xᵢ )¹ᐟⁿ   |   CAGR = [ ∏ (1 + Rₜ) ]¹ᐟⁿ - 1')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -10839,7 +10839,7 @@ body.theme-dark .step-content {
                                 اگر در تستی گفتند «شخصی ۵۰۰ هزار تومان سهم در قیمت ۲۰ و ۵۰۰ هزار تومان در قیمت ۳۰ خرید»، داوطلب نباید میانگین ۲۵ بگیرد! جواب دقیق: H = 2 / (1/20 + 1/30) = 24 تومان است!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('H = n / sum(1 / x_i)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('H = n ÷ [ ∑ (1 ÷ xᵢ) ]')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -10880,7 +10880,7 @@ body.theme-dark .step-content {
                                 طراح سوال می‌نویسد: «اگر H = x̄ باشد، کدام گزینه صحیح است؟»؛ پاسخ قطعی: واریانس داده‌ها صفر است و تمام مشاهدات یکسانند!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Min ≤ H ≤ G ≤ x_bar ≤ RMS ≤ Max')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -10993,7 +10993,7 @@ body.theme-dark .step-content {
                                 اگر در صورت مسئله کلمه «نمونه ۵ تایی» آمد و داوطلب مخرج را ۵ بگذارد، نمره را از دست می‌دهد! مخرج حتماً باید ۵ - ۱ = ۴ باشد.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('s^2 = sum((x_i - x_bar)^2) / (n - 1)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('s² = [ ∑ (xᵢ - x̄)² ] ÷ (n - 1)')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -11024,7 +11024,7 @@ body.theme-dark .step-content {
                                 CV فقط برای متغیرهایی با مقیاس نسبی (با صفر مطلق) معنادار است؛ هرگز برای داده‌هایی که میانگین آن‌ها صفر یا منفی است نباید محاسبه شود.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('CV = (s / x_bar) * 100')">
+                        <button class="btn-copy-formula" onclick="copyFormula('CV = (s ÷ x̄) × 100%   |   (σ ÷ μ) × 100%')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -11170,7 +11170,7 @@ body.theme-dark .step-content {
                                 اشتباه در تعداد مشاهدات مخرج n! در فرمول استاندارد آکادمیک، کل تعداد مشاهدات (n) در مخرج قرار می‌گیرد، نه فقط تعداد داده‌های منفی! همچنین در محاسبه مجذور انحراف، فقط اعداد منفی به توان ۲ می‌رسند.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('SV = (1/n) * sum(min(0, x_i - x_bar)^2); Semi_SD = sqrt(SV); Sortino = (E_R - Rf) / Semi_SD')">
+                        <button class="btn-copy-formula" onclick="copyFormula('SV = (1 ÷ n) ∑ (xᵢ - x̄)² [xᵢ < x̄]   |   Semi-SD = √[ SV ]   |   Sortino = (E(R) - R_f) ÷ Semi-SD')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -11185,7 +11185,7 @@ body.theme-dark .step-content {
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین هندسی وزنی (WGM) و میانگین حسابی وزنی (WAM)</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('X̄_gw = [ ∏ (X_i^w_i) ]^(1 / ∑ w_i) ; ln(X̄_gw) = [ ∑ w_i ln(X_i) ] / ∑ w_i ; X̄_w = [ ∑ w_i X_i ] / ∑ w_i', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('X̄_gw = [ ∏ (xᵢʷⁱ) ]¹ᐟᵠʷ   |   ln(X̄_gw) = [ ∑ (wᵢ · ln xᵢ) ] ÷ ∑ wᵢ   |   x̄_w = [ ∑ (wᵢ × xᵢ) ] ÷ ∑ wᵢ', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">میانگین هندسی وزنی (فضای ضربی و رشد):</span>
                                     <span class="math-sym">X̄_{gw}</span><span class="math-op">=</span>[ ∏ ( X_i<span class="math-sup">w_i</span> ) ]<span class="math-sup">1 / ∑ w_i</span>
@@ -11211,7 +11211,7 @@ body.theme-dark .step-content {
                                 وارد کردن بازدهی‌های منفی در میانگین هندسی وزنی! بازده‌ها ابتدا باید با ۱ جمع شوند: Xi = 1 + Ri.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('X_gw = (prod(X_i^w_i))^(1/sum(w_i)); X_w = sum(w_i * X_i) / sum(w_i)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('X̄_gw = [ ∏ (xᵢʷⁱ) ]¹ᐟᵠʷ   |   x̄_w = [ ∑ (wᵢ × xᵢ) ] ÷ ∑ wᵢ')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -11225,7 +11225,7 @@ body.theme-dark .step-content {
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">ویژگی‌های جبری و قضایای بنیادین میانگین حسابی</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('Theorem 1: ∑ (x_i - x̄) = 0 ; Theorem 2: min_c ∑ (x_i - c)^2 ≤&gt; c = x̄ ; Combined: x̄_c = [ ∑ n_j x̄_j ] / ∑ n_j', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('قضیه ۱: ∑ (xᵢ - x̄) = 0   |   قضیه ۲: min ∑ (xᵢ - c)² ──► c = x̄   |   x̄_c = [ ∑ (nⱼ × x̄ⱼ) ] ÷ ∑ nⱼ', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">قضیه ۱ (صفر شدن مجموع انحرافات):</span>
                                     <span class="math-sym">∑ ( x_i - x̄ )</span><span class="math-op">=</span>0
@@ -11252,7 +11252,7 @@ body.theme-dark .step-content {
                                 فریب میانگینِ میانگین‌ها! اگر کلاسی ۲۰ نفره میانگین ۱۸ و کلاسی ۱۰ نفره میانگین ۱۴ داشته باشد، میانگین کل (۱۸+۱۴)/۲ = ۱۶ نیست! باید وزنی حساب شود: [ (20×18) + (10×14) ] / 30 = 16.67.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('sum(x_i - x_bar) = 0; min sum((x_i - c)^2) =&gt; c = x_bar; x_combined = sum(n_j * x_j) / sum(n_j)')">
+                        <button class="btn-copy-formula" onclick="copyFormula('∑ (xᵢ - x̄) = 0   |   min ∑ (xᵢ - c)² ──► c = x̄   |   x̄_c = [ ∑ (nⱼ × x̄ⱼ) ] ÷ ∑ nⱼ')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -11292,7 +11292,7 @@ body.theme-dark .step-content {
                                 اگر a منفی باشد (مثلاً y = -2x + 10)، انحراف معیار منفی نمی‌شود! انحراف معیار در قدرمطلق |-2| = +2 ضرب می‌گردد: s_y = 2 × s_x.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('y_bar = a * x_bar + b; s_y = abs(a) * s_x; s2_y = a^2 * s2_x; R_y = abs(a) * R_x')">
+                        <button class="btn-copy-formula" onclick="copyFormula('ȳ = a · x̄ + b   |   s_y = |a| · s_x   |   s²_y = a² · s²_x   |   R_y = |a| · R_x')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -11374,7 +11374,7 @@ body.theme-dark .step-content {
                                 داوطلبان به اشتباه مخرج MAD نمونه را n - 1 در نظر می‌گیرند؛ تصحیح بسل (n - 1) منحصراً متعلق به واریانس توان دوم است و در MAD مخرج اکیداً n است!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('MAD = sum(|x_i - x_bar|) / n')">
+                        <button class="btn-copy-formula" onclick="copyFormula('MAD = [ ∑ |xᵢ - x̄| ] ÷ n')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -11442,7 +11442,7 @@ body.theme-dark .step-content {
                                 <span class="stat-kpi-badge">G (GM)</span>
                             </div>
                             <div class="stat-kpi-val" id="stat-kpi-gm" style="color: #047857;">8.00</div>
-                            <div class="stat-kpi-formula">(∏ x_i)^(1/n)</div>
+                            <div class="stat-kpi-formula">(∏ xᵢ)¹ᐟⁿ</div>
                         </div>
 
                         <!-- 3. Harmonic Mean -->
@@ -11583,7 +11583,7 @@ body.theme-dark .step-content {
                     <div class="algo-step" style="border-right-color: #047857;">
                         <span class="algo-step-title">گام دوم: میانگین هندسی (GM)</span>
                         حاصل‌ضرب داده‌ها: 2 × 4 × 8 × 16 × 32 = 2¹ × 2² × 2³ × 2⁴ × 2⁵ = 2¹⁵.<br>
-                        ریشه پنجم: G = (2¹⁵)^(1/5) = 2³ = 8.0٪.<br>
+                        ریشه پنجم: G = (2¹⁵)¹ᐟ⁵ = 2³ = 8.0٪.<br>
                         دقت کنید: میانگین هندسی (۸٪) بسیار کمتر از میانگین حسابی (۱۲.۴٪) است؛ سراب میانگین حسابی در سرمایه‌گذاری!
                     </div>
 
@@ -11640,7 +11640,7 @@ body.theme-dark .step-content {
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #4338CA; margin-bottom: 10px;">📝 کپسول دست‌نویس دفترچه بهادر (آمار کاربردی ۱)</h4>
                     <div class="notebook-capsule">
 1. H <= G <= X_bar  [نامساوی قطعی میانگین‌ها]
-2. G = ( prod(x_i) )^(1/n)  [میانگین هندسی]
+2. G = ( ∏ xᵢ )¹ᐟⁿ  [میانگین هندسی]
 3. H = n / sum(1 / x_i)  [میانگین هارمونیک]
 4. Mode = 3*Median - 2*Mean  [رابطه تجربی پیرسون]
 5. CV = (s / X_bar) * 100  [ضریب تغییرات و سنجش ریسک نسبی]
@@ -12254,7 +12254,7 @@ body.theme-dark .step-content {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Calculus Rules</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قواعد بنیادین مشتق‌گیری (ضرب، تقسیم و زنجیره‌ای)</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('(u.v)\' = u\'.v + v\'.u ; (u/v)\' = (u\'.v - v\'.u)/v^2 ; d/dx[f(g(x))] = f\'(g(x)).g\'(x)', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('(u · v)\' = u\' · v + v\' · u   |   (u ÷ v)\' = (u\' · v - v\' · u) ÷ v²   |   [f(g(x))]\' = f\'(g(x)) · g\'(x)', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">قاعده ضرب:</span>
                                     <span class="math-sym">(u · v)'</span><span class="math-op">=</span>u' · v + v' · u
@@ -12415,7 +12415,7 @@ body.theme-dark .step-content {
     </div>
 
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('(u.v)\' = u\'.v + v\'.u; (u/v)\' = (u\'.v - v\'.u)/v^2; (f(g(x)))\' = f\'(g).g\'')"><span>📋</span> کپی فرمول</button>
+                        <button class="btn-copy-formula" onclick="copyFormula('(u · v)\' = u\' · v + v\' · u   |   (u ÷ v)\' = (u\' · v - v\' · u) ÷ v²   |   [f(g(x))]\' = f\'(g(x)) · g\'(x)')"><span>📋</span> کپی فرمول</button>
                     </div>
 
                     <!-- Math Formula 3: Marginal Analysis -->
@@ -12530,7 +12530,7 @@ body.theme-dark .step-content {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Determinant & Inverse</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">دترمینان، ماتریس الحاقی و معکوس ماتریس (A⁻¹)</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('|A| = ad - bc ; A^-1 = (1 / |A|) * [ d, -b ; -c, a ]', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('|A| = ad - bc   |   A⁻¹ = (1 ÷ |A|) · [ d, -b ; -c, a ]', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">دترمینان ماتریس ۲×۲:</span>
                                     <span class="math-sym">|A|</span><span class="math-op">=</span><span class="math-sym">det(A)</span><span class="math-op">=</span>a₁₁ a₂₂ - a₁₂ a₂₁
@@ -12556,14 +12556,14 @@ body.theme-dark .step-content {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Continuous PV</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">انتگرال معین و ارزش فعلی جریان پیوسته نقدی</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('PV = integral_0^T CF(t) * e^(-rt) dt = (CF / r) * [ 1 - e^(-rT) ]', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('PV = ∫₀ᵀ CF(t) · e⁻ʳᵗ dt = (CF ÷ r) × [ 1 - e⁻ʳᵀ ]', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">ارزش فعلی جریان پیوسته:</span>
-                                    <span class="math-sym">PV</span><span class="math-op">=</span>∫₀ᵀ CF(t) · e^(-rt) dt
+                                    <span class="math-sym">PV</span><span class="math-op">=</span>∫₀ᵀ CF(t) · e⁻ʳᵗ dt
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">جریان نقدی ثابت (CF = const):</span>
-                                    <span class="math-sym">PV</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">CF</span><span class="math-den">r</span></span> × [ 1 - e^(-rT) ]
+                                    <span class="math-sym">PV</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">CF</span><span class="math-den">r</span></span> × [ 1 - e⁻ʳᵀ ]
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
@@ -12571,7 +12571,7 @@ body.theme-dark .step-content {
                                 انتگرال پیوسته حد مجموع ریمان است؛ زمانی که دوره‌های ترکیب بهره به سمت بی‌نهایت میل کند (ترکیب پیوسته e⁻ʳᵗ).
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('PV = int_0^T CF * e^(-rt) dt = (CF / r) * [1 - e^(-rT)]')"><span>📋</span> کپی فرمول</button>
+                        <button class="btn-copy-formula" onclick="copyFormula('PV = ∫₀ᵀ CF(t) · e⁻ʳᵗ dt = (CF ÷ r) × [ 1 - e⁻ʳᵀ ]')"><span>📋</span> کپی فرمول</button>
                     </div>
 
                     <!-- Math Formula 9: Total Differential & Linear Approximation -->
@@ -12708,7 +12708,7 @@ body.theme-dark .step-content {
                                 داوطلبان به اشتباه فکر می‌کنند اگر Δ &gt; 0 و f_xx &lt; 0 باشد، مینیمم است چون منفی است! منفی بودن f_xx یعنی تقعر رو به پایین (کاسه واژگون) که نشانه ماکزیمم مطلق/نسبی است.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Delta = f_xx * f_yy - (f_xy)^2; Max: Delta &gt; 0, f_xx &lt; 0; Min: Delta &gt; 0, f_xx &gt; 0; Saddle: Delta &lt; 0')"><span>📋</span> کپی فرمول</button>
+                        <button class="btn-copy-formula" onclick="copyFormula('Δ = fₓₓ · fᵧᵧ - (fₓᵧ)²   |   Max: Δ &gt; 0, fₓₓ &lt; 0   |   Min: Δ &gt; 0, fₓₓ &gt; 0   |   Saddle: Δ &lt; 0')"><span>📋</span> کپی فرمول</button>
                     </div>
 
                     <!-- Math Formula 11: Homogeneous Functions & Euler Theorem -->
@@ -12719,7 +12719,7 @@ body.theme-dark .step-content {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Euler's Theorem</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">توابع همگن، بازدهی به مقیاس و قضیه اویلر</h4>
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('f(λx, λy) = λ^n * f(x, y) ; x*(∂f/∂x) + y*(∂f/∂y) = n * f(x, y)', this)" title="برای کپی کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('f(λx, λy) = λⁿ · f(x, y)   |   x · (∂f ÷ ∂x) + y · (∂f ÷ ∂y) = n · f(x, y)', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">آزمون همگنی مقیاس:</span>
                                     <span class="math-sym">f(λx, λy)</span><span class="math-op">=</span>λⁿ · f(x, y)
@@ -12731,7 +12731,7 @@ body.theme-dark .step-content {
                             </div>
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                • توان n بیانگر درجه همگنی است؛ در توابع تولید کاب-داگلاس Q = A K^α L^β، درجه همگنی برابر α + β است.<br>
+                                • توان n بیانگر درجه همگنی است؛ در توابع تولید کاب-داگلاس Q = A Kᵅ Lᵝ، درجه همگنی برابر α + β است.<br>
                                 • بازدهی به مقیاس: n = 1 بازده ثابت (CRS)، n &gt; 1 بازده صعودی (IRS)، n &lt; 1 بازده نزولی (DRS).<br>
                                 • قضیه اویلر اثبات می‌کند اگر هر عامل تولید به اندازه بهره‌وری نهایی خود دستمزد بگیرد، کل محصول نهایی تسویه می‌شود (قضیه ته‌نشینی محصول).
                             </div>
@@ -12740,7 +12740,7 @@ body.theme-dark .step-content {
                                 حضور عدد ثابت جمع‌شونده در کنار متغیرها تابع را ناهمگن می‌کند! تابع f = x² + y² + 2 همگن نیست چون عدد ۲ از درجه صفر بوده ولی توان‌ها از درجه ۲ هستند.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('f(lambda*x, lambda*y) = lambda^n * f(x, y); x*(df/dx) + y*(df/dy) = n*f(x, y)')"><span>📋</span> کپی فرمول</button>
+                        <button class="btn-copy-formula" onclick="copyFormula('f(λx, λy) = λⁿ · f(x, y)   |   x · (∂f ÷ ∂x) + y · (∂f ÷ ∂y) = n · f(x, y)')"><span>📋</span> کپی فرمول</button>
                     </div>
 
                     <!-- Math Formula 12: Multivariable Chain Rule & Total Derivative -->
@@ -12827,7 +12827,7 @@ body.theme-dark .step-content {
                                 اشتباه گرفتن بازه باز و بسته! چون رادیکال در صورت کسر است، مرز دایره یعنی x² + y² = 9 مجاز بوده و بازه بسته [0, 3] است؛ اما اگر رادیکال در مخرج بود، مرز حذف و بازه نیمه‌باز می‌شد.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('z = sqrt(R^2 - x^2 - y^2); Domain: x^2 + y^2 ≤ R^2; Range: [0, R]')"><span>📋</span> کپی فرمول</button>
+                        <button class="btn-copy-formula" onclick="copyFormula('z = √[ R² - x² - y² ]   |   Domain: x² + y² ≤ R²   |   Range: [0, R]')"><span>📋</span> کپی فرمول</button>
                     </div>
 
                     <!-- FORMULA 15: TOTAL DIFFERENTIAL, RELATIVE ERROR & CYLINDER -->
@@ -15278,7 +15278,7 @@ window.resetORSimplex = resetORSimplex;
                     expl: '<b>کالبدشکافی تحلیلی:</b> درآمد کل TR = 120Q - 3Q² &rArr; MR = 120 - 6Q. هزینه نهایی MC = 2Q + 20.<br>• شرط تعادل MR = MC: 120 - 6Q = 2Q + 20 &rArr; 8Q = 100 &rArr; Q* = 12.5 واحد.'
                 },
                 {
-                    q: 'در تابع تولید کاب-داگلاس Q = 10 K^0.4 L^0.6، نرخ نهایی جانشینی فنی (MRTS_LK) برابر کدام گزینه است؟',
+                    q: 'در تابع تولید کاب-داگلاس Q = 10 K⁰·⁴ L⁰·⁶، نرخ نهایی جانشینی فنی (MRTS_LK) برابر کدام گزینه است؟',
                     opts: ['الف) (0.6 / 0.4) × (K / L)', 'ب) (0.4 / 0.6) × (L / K)', 'ج) 1.5 × (L / K)', 'د) 0.67 × (L / K)'],
                     correct: 0,
                     expl: '<b>کالبدشکافی تحلیلی:</b> MRTS_LK = MP_L / MP_K = [0.6 Q / L] / [0.4 Q / K] = (0.6 / 0.4) × (K / L) = 1.5 (K / L).'
@@ -16436,7 +16436,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                         title: "میل فاصله به سمت صفر و تولد مشتق",
                         formula: "f'(x) = dy ÷ dx = lim_{Δx → 0} [ f(x + Δx) - f(x) ] ÷ Δx",
                         desc: "با میل کردن Δx به صفر، خط قاطع به خط مماس بر یک نقطه تبدیل می‌شود؛ شیب خط مماس همان نرخ تغییرات آنی است!",
-                        trap: "قاعده توان: مشتق x^n برابر n x^{n-1} است. عدد ثابت تنها مشتقش صفر است، اما ضریب ضرب‌شده در مشتق حفظ می‌شود."
+                        trap: "قاعده توان: مشتق xⁿ برابر n xⁿ⁻¹ است. عدد ثابت تنها مشتقش صفر است، اما ضریب ضرب‌شده در مشتق حفظ می‌شود."
                     },
                     {
                         step: "گام ۳ (تزریق به اقتصاد و مالی)",
@@ -16526,7 +16526,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     {
                         step: "گام ۲ (تولد میانگین هندسی و CAGR)",
                         title: "محاسبه دقیق رشد مرکب ثروت با ضرب ریشه‌ای",
-                        formula: "G = [ ∏ (1 + R_t) ]^(1/n) - 1",
+                        formula: "G = [ ∏ (1 + Rₜ) ]¹ᐟⁿ - 1",
                         desc: "میانگین هندسی نرخ بازده مرکب واقعی سالانه را حساب کرده و اثر ضربی نوسانات را در نظر می‌گیرد.",
                         trap: "تقریب درگ نوسان شانون-مارکوویتز: G ≈ x̄ - 0.5 σ². نوسان بالاتر یعنی فرسایش بیشتر ثروت."
                     },
@@ -16637,14 +16637,14 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     {
                         step: "گام ۰ (نقطه تولد در گذشته)",
                         title: "مسئله اولیه (Primal) تخصیص منابع",
-                        formula: "Max Z = c^T x   s.t.  Ax ≤ b, x ≥ 0",
+                        formula: "Max Z = cᵀ x   s.t.  A x ≤ b , x ≥ 0",
                         desc: "شرکت می‌خواهد با محدودیت مواد اولیه و ساعت کار ماشین‌آلات (b)، سود را ماکزیمم کند.",
                         trap: "هر محدودیت در مسئله اولیه، به یک متغیر در مسئله دوگان تبدیل می‌شود."
                     },
                     {
                         step: "گام ۱ (نگاه از زاویه ارزش‌گذاری منابع)",
                         title: "مسئله دوگان (Dual) و حداقل‌سازی ارزش منابع",
-                        formula: "Min W = b^T y   s.t.  A^T y ≥ c, y ≥ 0",
+                        formula: "Min W = bᵀ y   s.t.  Aᵀ y ≥ c , y ≥ 0",
                         desc: "اگر خریداری بخواهد کارخانه و منابع شما را اجاره کند، حاضر به پرداخت چه قیمتی به ازای هر واحد منبع است تا شما تولید را متوقف کنید؟ این قیمت y قیمت سایه نام دارد.",
                         trap: "قضیه دوگانگی قوی: در نقطه بهینه، سود ماکزیمم اولیه دقیقاً برابر هزینه مینیمم دوگان است: Max Z* = Min W*."
                     },
