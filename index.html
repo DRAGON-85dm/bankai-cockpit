@@ -8172,48 +8172,48 @@ body.theme-dark .step-content {
 <div class="formula-card">
     <div>
         <span class="badge badge-micro">فرمول طلایی ۱۸</span>
-        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تابع تولید، شاخص‌های سه‌گانه (TP, APL, MPL) و مراحل سه‌گانه تولید</h4>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تابع تولید، شاخص‌های سه‌گانه (TP, APₗ, MPₗ) و مراحل سه‌گانه تولید</h4>
         
         <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
             <div class="formula-line">
                 <span class="math-badge pop">تولید کل در کوتاه‌مدت (سرمایه ثابت):</span>
-                <span class="math-sym">TP_L</span><span class="math-op">=</span><span class="math-sym">f(L, K̄)</span>
+                <span class="math-sym">TPₗ</span><span class="math-op">=</span><span class="math-sym">f(L, K̄)</span>
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">تولید متوسط و نهایی نیروی کار:</span>
-                <span class="math-sym">AP_L</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">TP_L</span><span class="math-den">L</span></span>
+                <span class="math-sym">APₗ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">TPₗ</span><span class="math-den">L</span></span>
                 <span class="math-op">,</span>
-                <span class="math-sym">MP_L</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dTP_L</span><span class="math-den">dL</span></span>
+                <span class="math-sym">MPₗ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d(TPₗ)</span><span class="math-den">dL</span></span>
             </div>
             <div class="formula-line">
                 <span class="math-badge app">قاعده طلایی عبور MP از اوج AP:</span>
-                <span class="math-frac"><span class="math-num">dAP_L</span><span class="math-den">dL</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MP_L - AP_L</span><span class="math-den">L</span></span><span class="math-op">=</span>0 <span class="math-op">&lt;=&gt;</span> <span class="math-sym">MP_L</span><span class="math-op">=</span><span class="math-sym">AP_L</span>
+                <span class="math-frac"><span class="math-num">d(APₗ)</span><span class="math-den">dL</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MPₗ - APₗ</span><span class="math-den">L</span></span><span class="math-op">=</span>0 <span class="math-op">⟺</span> <span class="math-sym">MPₗ</span><span class="math-op">=</span><span class="math-sym">APₗ</span>
             </div>
         </div>
 
         <div class="tier-card prof-tier">
             <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-            • <b>هندسه تولید متوسط (APL):</b> برابر شیب خط وصل‌کننده مبدأ مختصات به هر نقطه دلخواه روی منحنی تولید کل (TP) است.<br>
-            • <b>هندسه تولید نهایی (MPL):</b> برابر شیب خط مماس بر منحنی تولید کل (TP) در آن نقطه است.<br>
-            • <b>استعاره طلایی نمره جدید و معدل:</b> تا زمانی که تولید کارگر جدید بالاتر از میانگین باشد (MPL > APL)، میانگین رشد می‌کند. وقتی کارگر جدید کمتر از میانگین تولید کند (MPL < APL)، میانگین سقوط می‌کند. بنابراین منحنی MPL دقیقاً و الزاماً از نقطه حداکثر منحنی APL عبور می‌کند.
+            • <b>هندسه تولید متوسط (APₗ):</b> برابر شیب خط وصل‌کننده مبدأ مختصات به هر نقطه دلخواه روی منحنی تولید کل (TP) است.<br>
+            • <b>هندسه تولید نهایی (MPₗ):</b> برابر شیب خط مماس بر منحنی تولید کل (TP) در آن نقطه است.<br>
+            • <b>استعاره طلایی نمره جدید و معدل:</b> تا زمانی که تولید کارگر جدید بالاتر از میانگین باشد (MPₗ > APₗ)، میانگین رشد می‌کند. وقتی کارگر جدید کمتر از میانگین تولید کند (MPₗ < APₗ)، میانگین سقوط می‌کند. بنابراین منحنی MPₗ دقیقاً و الزاماً از نقطه حداکثر منحنی APₗ عبور می‌کند.
         </div>
 
         <div class="tier-card bankai-tier">
             <strong>⚡ رهیافت تکمیلی بانکای / CFA (مراحل سه‌گانه تولید):</strong>
-            • <b>مرحله اول (از L = 0 تا نقطه ماکزیمم APL):</b> APL صعودی است. فعالیت بنگاه در این مرحله غیرعقلایی است؛ زیرا ظرفیت ماشین‌آلات و سرمایه خالی مانده و با افزایش نیروی کار، راندمان متوسط رو به رشد است.<br>
-            • <b>مرحله دوم (از ماکزیمم APL تا نقطه صفر شدن MPL):</b> «منطقه اقتصادی و عقلایی تولید». هر دو شاخص APL و MPL کاهنده‌اند اما مثبت، و TP در پایان این مرحله به حداکثر می‌رسد.<br>
-            • <b>مرحله سوم (از MPL = 0 به بعد):</b> غیرعقلایی مطلق؛ استخدام کارگر اضافی باعث افت تولید کل (TP) می‌شود (MPL < 0).
+            • <b>مرحله اول (از L = 0 تا نقطه ماکزیمم APₗ):</b> APₗ صعودی است. فعالیت بنگاه در این مرحله غیرعقلایی است؛ زیرا ظرفیت ماشین‌آلات و سرمایه خالی مانده و با افزایش نیروی کار، راندمان متوسط رو به رشد است.<br>
+            • <b>مرحله دوم (از ماکزیمم APₗ تا نقطه صفر شدن MPₗ):</b> «منطقه اقتصادی و عقلایی تولید». هر دو شاخص APₗ و MPL کاهنده‌اند اما مثبت، و TP در پایان این مرحله به حداکثر می‌رسد.<br>
+            • <b>مرحله سوم (از MPₗ = 0 به بعد):</b> غیرعقلایی مطلق؛ استخدام کارگر اضافی باعث افت تولید کل (TP) می‌شود (MPₗ < 0).
         </div>
 
         <div class="tier-card trap-tier">
             <strong>🚨 تله کنکور ارشد:</strong>
-            طراحان تست می‌پرسند: «چرا بنگاه عاقل هرگز در مرحله اول تولید توقف نمی‌کند؟» پاسخ: در مرحله اول بازده متوسط کارگر در حال افزایش است، پس اگر بنگاه در این مرحله تولید کند، سرمایه ثابت ($K$) زیر ظرفیت اسمی معطل مانده و هزینه ثابت سربار به ازای هر واحد محصول بالا می‌ماند. همچنین در نقطه ماکزیمم TP، تولید نهایی دقیقاً صفر است (MPL = 0)، نه تولید متوسط!
+            طراحان تست می‌پرسند: «چرا بنگاه عاقل هرگز در مرحله اول تولید توقف نمی‌کند؟» پاسخ: در مرحله اول بازده متوسط کارگر در حال افزایش است، پس اگر بنگاه در این مرحله تولید کند، سرمایه ثابت ($K$) زیر ظرفیت اسمی معطل مانده و هزینه ثابت سربار به ازای هر واحد محصول بالا می‌ماند. همچنین در نقطه ماکزیمم TP، تولید نهایی دقیقاً صفر است (MPₗ = 0)، نه تولید متوسط!
         </div>
 
         <div class="visual-diagram-box">
             <div class="diagram-header">
                 <span class="diagram-badge">🗺️ اطلس هندسی و ترسیمی</span>
-                <h5 class="diagram-title">کالبدشکافی منحنی‌های TP ، APL و MPL و مرزبندی مراحل سه‌گانه تولید</h5>
+                <h5 class="diagram-title">کالبدشکافی منحنی‌های TP ، APₗ و MPₗ و مرزبندی مراحل سه‌گانه تولید</h5>
             </div>
             <div class="diagram-svg-container">
                 <svg viewBox="0 0 520 280" class="academic-svg" xmlns="http://www.w3.org/2000/svg">
@@ -8252,11 +8252,11 @@ body.theme-dark .step-content {
                     <!-- Curves: AP (Blue/Indigo) & MP (Rose/Crimson) -->
                     <!-- AP Curve: starts (60,230), peaks at (200, 100), drops to (460, 190) -->
                     <path d="M 60 230 Q 130 110, 200 100 T 360 145 T 470 190" fill="none" stroke="#2563EB" stroke-width="3"/>
-                    <text x="475" y="195" fill="#2563EB" font-size="12" font-weight="900">AP_L</text>
+                    <text x="475" y="195" fill="#2563EB" font-size="12" font-weight="900">APₗ</text>
 
                     <!-- MP Curve: peaks earlier at (130, 60), crosses AP at (200, 100), hits axis at (360, 230), goes negative to (430, 260) -->
                     <path d="M 60 230 Q 100 60, 130 60 Q 165 60, 200 100 Q 280 170, 360 230 Q 400 260, 440 265" fill="none" stroke="#E11D48" stroke-width="3"/>
-                    <text x="445" y="270" fill="#E11D48" font-size="12" font-weight="900">MP_L</text>
+                    <text x="445" y="270" fill="#E11D48" font-size="12" font-weight="900">MPₗ</text>
 
                     <!-- Key Intersection & Bound Nodes -->
                     <circle cx="200" cy="100" r="5" fill="#10B981" stroke="#FFFFFF" stroke-width="2"/>
@@ -8268,8 +8268,8 @@ body.theme-dark .step-content {
             </div>
             <div class="diagram-walkthrough">
                 <strong>📌 الگوریتم ۴ مرحله‌ای ساخت و تحلیل هندسی:</strong>
-                <p>۱. <b>محور مختصات و متغیرها:</b> محور افقی میزان به‌کارگیری عامل متغیر نیروی کار (L) و محور عمودی تولید متوسط (APL) و نهایی (MPL) را نمایش می‌دهد.</p>
-                <p>۲. <b>رسم منحنی تولید نهایی (MPL):</b> این منحنی زودتر به نقطه اوج می‌رسد، سپس نزول کرده و درست در بالاترین نقطه APL از آن عبور می‌کند و در پایان مرحله دوم، محور افقی را قطع می‌نماید (MPL = 0).</p>
+                <p>۱. <b>محور مختصات و متغیرها:</b> محور افقی میزان به‌کارگیری عامل متغیر نیروی کار (L) و محور عمودی تولید متوسط (APₗ) و نهایی (MPₗ) را نمایش می‌دهد.</p>
+                <p>۲. <b>رسم منحنی تولید نهایی (MPₗ):</b> این منحنی زودتر به نقطه اوج می‌رسد، سپس نزول کرده و درست در بالاترین نقطه APₗ از آن عبور می‌کند و در پایان مرحله دوم، محور افقی را قطع می‌نماید (MPₗ = 0).</p>
                 <p>۳. <b>تفکیک مرزهای سه‌گانه:</b> مرز اول از تقاطع MP = AP عبور می‌کند و مرز دوم در نقطه صفر شدن MP واقع است.</p>
                 <p>۴. <b>استنتاج اقتصادی:</b> تنها ناحیه سبز (مرحله ۲) از نظر اقتصادی عقلایی است، زیرا هر دو نهاده دارای بازده نهایی مثبت هستند و تخصیص منابع بهینه است.</p>
             </div>
@@ -8289,27 +8289,27 @@ body.theme-dark .step-content {
 <div class="formula-card">
     <div>
         <span class="badge badge-micro">فرمول طلایی ۱۹</span>
-        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">منحنی‌های هم‌مقداری (Isoquants)، نرخ فنی جانشینی (MRTS) و خط هزینه یکسان (Isocost)</h4>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">منحنی‌های هم‌مقداری (Isoquants)، نرخ فنی جانشینی (MRTSₗₖ) و خط هزینه یکسان (Isocost)</h4>
         
         <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
             <div class="formula-line">
                 <span class="math-badge pop">دیفرانسیل کل تابع تولید روی منحنی هم‌مقداری (dTP = 0):</span>
-                <span class="math-sym">dTP</span><span class="math-op">=</span><span class="math-sym">MP_L</span> · <span class="math-sym">dL</span> + <span class="math-sym">MP_K</span> · <span class="math-sym">dK</span><span class="math-op">=</span>0
+                <span class="math-sym">dTP</span><span class="math-op">=</span><span class="math-sym">MPₗ</span> · <span class="math-sym">dL</span> + <span class="math-sym">MPₖ</span> · <span class="math-sym">dK</span><span class="math-op">=</span>0
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">نرخ نهایی فنی جانشینی کار به جای سرمایه:</span>
-                <span class="math-sym">MRTS_{LK}</span><span class="math-op">=</span>- ( <span class="math-frac"><span class="math-num">dK</span><span class="math-den">dL</span></span> )<span class="math-op">=</span><span class="math-frac"><span class="math-num">MP_L</span><span class="math-den">MP_K</span></span>
+                <span class="math-sym">MRTSₗₖ</span><span class="math-op">=</span>- ( <span class="math-frac"><span class="math-num">dK</span><span class="math-den">dL</span></span> )<span class="math-op">=</span><span class="math-frac"><span class="math-num">MPₗ</span><span class="math-den">MPₖ</span></span>
             </div>
             <div class="formula-line">
                 <span class="math-badge app">معادله جبری خط هزینه یکسان (Isocost Line):</span>
-                <span class="math-sym">TC</span><span class="math-op">=</span><span class="math-sym">w</span> · <span class="math-sym">L</span> + <span class="math-sym">r</span> · <span class="math-sym">K</span> <span class="math-op">==&gt;</span> <span class="math-sym">K</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">TC</span><span class="math-den">r</span></span> - ( <span class="math-frac"><span class="math-num">w</span><span class="math-den">r</span></span> ) · <span class="math-sym">L</span>
+                <span class="math-sym">TC</span><span class="math-op">=</span><span class="math-sym">w</span> · <span class="math-sym">L</span> + <span class="math-sym">r</span> · <span class="math-sym">K</span> <span class="math-op">⟹</span> <span class="math-sym">K</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">TC</span><span class="math-den">r</span></span> - ( <span class="math-frac"><span class="math-num">w</span><span class="math-den">r</span></span> ) · <span class="math-sym">L</span>
             </div>
         </div>
 
         <div class="tier-card prof-tier">
             <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
             • <b>منحنی هم‌مقداری (Isoquant):</b> مکان هندسی تمام ترکیب‌های مختلف عوامل تولید (کار L و سرمایه K) که سطح یکسانی از محصول را به بار می‌آورند. ویژگی‌ها: شیب منفی، نسبت به مبدأ محدب، عدم قطع یکدیگر، و دورتر بودن از مبدأ نشانه تولید بیشتر است.<br>
-            • <b>نرخ فنی جانشینی (MRTSLK):</b> مقداری از سرمایه (K) که تولیدکننده حاضر است فدا کند تا یک واحد کار (L) اضافه استخدام کند بدون اینکه حجم کل تولید افت کند. قدرمطلق شیب منحنی هم‌مقداری برابر با نسبت تولیدات نهایی دو عامل است (MPL / MPK).<br>
+            • <b>نرخ فنی جانشینی (MRTSₗₖ):</b> مقداری از سرمایه (K) که تولیدکننده حاضر است فدا کند تا یک واحد کار (L) اضافه استخدام کند بدون اینکه حجم کل تولید افت کند. قدرمطلق شیب منحنی هم‌مقداری برابر با نسبت تولیدات نهایی دو عامل است (MPₗ ÷ MPₖ).<br>
             • <b>شیب خط هزینه یکسان (Isocost):</b> شیب خط هزینه برابر منفی نسبت قیمت عوامل (-w / r) است. عرض از مبدأ بر محور سرمایه TC/r و طول از مبدأ بر محور کار TC/w می‌باشد.
         </div>
 
@@ -8375,9 +8375,9 @@ body.theme-dark .step-content {
             <div class="diagram-walkthrough">
                 <strong>📌 الگوریتم ۴ مرحله‌ای ساخت و تحلیل هندسی:</strong>
                 <p>۱. <b>رسم خط هزینه (Isocost):</b> با تعیین نقاط عرض از مبدأ (TC/r) و طول از مبدأ (TC/w)، خط بودجه بنگاه با شیب منفی w/r ترسیم می‌شود.</p>
-                <p>۲. <b>رسم منحنی هم‌مقداری (Isoquant):</b> منحنی محدب Q0 تمام ترکیب‌های فنی L و K را نمایش می‌دهد که شیب مماس بر آن در هر نقطه برابر MRTSLK است.</p>
+                <p>۲. <b>رسم منحنی هم‌مقداری (Isoquant):</b> منحنی محدب Q0 تمام ترکیب‌های فنی L و K را نمایش می‌دهد که شیب مماس بر آن در هر نقطه برابر MRTSₗₖ است.</p>
                 <p>۳. <b>یافتن نقطه تماس E*:</b> بالاترین منحنی هم‌مقداری که مماس بر خط بودجه باشد، در نقطه E*(L*, K*) حاصل می‌شود که در آن شیب دو منحنی برابر است.</p>
-                <p>۴. <b>اثبات تساوی نهایی:</b> در نقطه تماس، رابطه MRTSLK = w/r برقرار می‌گردد که ضامن حداقل شدن هزینه تولید در سطح محصول مفروض است.</p>
+                <p>۴. <b>اثبات تساوی نهایی:</b> در نقطه تماس، رابطه MRTSₗₖ = w/r برقرار می‌گردد که ضامن حداقل شدن هزینه تولید در سطح محصول مفروض است.</p>
             </div>
         </div>
     </div>
@@ -8400,25 +8400,25 @@ body.theme-dark .step-content {
         <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
             <div class="formula-line">
                 <span class="math-badge pop">شرط تعادل بهینه تولیدکننده (حداکثرسازی ستانده / حداقل‌سازی هزینه):</span>
-                <span class="math-frac"><span class="math-num">MP_L</span><span class="math-den">MP_K</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">w</span><span class="math-den">r</span></span> <span class="math-op">&lt;=&gt;</span> <span class="math-frac"><span class="math-num">MP_L</span><span class="math-den">w</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MP_K</span><span class="math-den">r</span></span>
+                <span class="math-frac"><span class="math-num">MPₗ</span><span class="math-den">MPₖ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">w</span><span class="math-den">r</span></span> <span class="math-op">⟺</span> <span class="math-frac"><span class="math-num">MPₗ</span><span class="math-den">w</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MPₖ</span><span class="math-den">r</span></span>
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">تابع تولید همگن کاب-داگلاس (Cobb-Douglas):</span>
-                <span class="math-sym">Q</span><span class="math-op">=</span><span class="math-sym">A</span> · <span class="math-sym">L</span><span class="math-sup">α</span> · <span class="math-sym">K</span><span class="math-sup">β</span>
+                <span class="math-sym">Q</span><span class="math-op">=</span><span class="math-sym">A</span> · <span class="math-sym">Lᵅ</span> · <span class="math-sym">Kᵝ</span>
                 <span class="math-op">,</span>
                 <span class="math-sym">RTS</span><span class="math-op">=</span><span class="math-sym">α</span> + <span class="math-sym">β</span>
             </div>
             <div class="formula-line">
                 <span class="math-badge app">کشش تولیدی نهاده‌ها در تابع کاب-داگلاس:</span>
-                <span class="math-sym">ε_L</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MP_L</span><span class="math-den">AP_L</span></span><span class="math-op">=</span><span class="math-sym">α</span>
+                <span class="math-sym">εₗ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MPₗ</span><span class="math-den">APₗ</span></span><span class="math-op">=</span><span class="math-sym">α</span>
                 <span class="math-op">,</span>
-                <span class="math-sym">ε_K</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MP_K</span><span class="math-den">AP_K</span></span><span class="math-op">=</span><span class="math-sym">β</span>
+                <span class="math-sym">εₖ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MPₖ</span><span class="math-den">APₖ</span></span><span class="math-op">=</span><span class="math-sym">β</span>
             </div>
         </div>
 
         <div class="tier-card prof-tier">
             <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-            • <b>تفسیر شهودی شرط تعادل:</b> رابطه MPL / w = MPK / r یعنی «تولید نهایی حاصل از آخرین یک تومانی که به کارگر می‌دهیم باید با تولید نهایی حاصل از آخرین یک تومانی که برای اجاره سرمایه می‌پردازیم کاملاً برابر باشد». اگر MPL/w > MPK/r باشد، عقلانیت ایجاب می‌کند که بنگاه استخدام کارگر را زیاد و سرمایه را کم کند تا به برابری بازدهی ریالی برسد.<br>
+            • <b>تفسیر شهودی شرط تعادل:</b> رابطه MPₗ ÷ w = MPₖ ÷ r یعنی «تولید نهایی حاصل از آخرین یک تومانی که به کارگر می‌دهیم باید با تولید نهایی حاصل از آخرین یک تومانی که برای اجاره سرمایه می‌پردازیم کاملاً برابر باشد». اگر MPₗ ÷ w > MPₖ ÷ r باشد، عقلانیت ایجاب می‌کند که بنگاه استخدام کارگر را زیاد و سرمایه را کم کند تا به برابری بازدهی ریالی برسد.<br>
             • <b>مسیر توسعه (Expansion Path):</b> مکان هندسی تمام نقاط تماس خطوط هزینه و منحنی‌های هم‌مقداری در سطوح مختلف بودجه (TC). اگر هر دو نهاده عادی باشند، مسیر توسعه دارای شیب مثبت است.
         </div>
 
@@ -8622,7 +8622,7 @@ body.theme-dark .step-content {
                                 ۳. کارگاه بهینه‌سازی تولید و کمینه‌سازی هزینه تابع کاب-داگلاس (Cobb-Douglas):
                             </strong>
                             <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                تابع تولید: Q = A · L^α · K^β &nbsp;|&nbsp; قید بودجه: TC = w·L + r·K &nbsp;|&nbsp; شرط تعادل: MP_L / w = MP_K / r
+                                تابع تولید: Q = A · L^α · K^β &nbsp;|&nbsp; قید بودجه: TC = w·L + r·K &nbsp;|&nbsp; شرط تعادل: MPₗ / w = MPₖ / r
                             </div>
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
                                 <div>
@@ -8704,22 +8704,22 @@ body.theme-dark .step-content {
 
                     <div class="algo-step" style="border-right-color: #2563EB;">
                         <span class="algo-step-title">گام اول: استخراج تولیدات نهایی عوامل (مشتقات جزئی)</span>
-                        مشتق جزئی نسبت به کار: MP_L = ∂Q/∂L = 10K<br>
-                        مشتق جزئی نسبت به سرمایه: MP_K = ∂Q/∂K = 10L<br>
-                        نرخ نهایی فنی جانشینی: MRTS_{LK} = MP_L / MP_K = 10K / 10L = K / L
+                        مشتق جزئی نسبت به کار: MPₗ = ∂Q ÷ ∂L = 10K<br>
+                        مشتق جزئی نسبت به سرمایه: MPₖ = ∂Q ÷ ∂K = 10L<br>
+                        نرخ نهایی فنی جانشینی: MRTSₗₖ = MPₗ / MPₖ = 10K / 10L = K / L
                     </div>
 
                     <div class="algo-step" style="border-right-color: #8B5CF6;">
                         <span class="algo-step-title">گام دوم: اعمال شرط تعادل بهینه تولیدکننده (برابری شیب‌ها)</span>
-                        شرط بهینگی مماس: MRTS_{LK} = w / r<br>
-                        جایگذاری قیمت‌ها: K / L = 1 / 2 &lt;==&gt; L = 2K<br>
+                        شرط بهینگی مماس: MRTSₗₖ = w / r<br>
+                        جایگذاری قیمت‌ها: K ÷ L = 1 ÷ 2 ⟺ L = 2K<br>
                         تفسیر: به ازای هر ۱ واحد سرمایه، بنگاه باید دقیقاً ۲ واحد کارگر استخدام کند تا بازدهی ریالی آخرین ریال خرج‌شده روی دو عامل برابر گردد.
                     </div>
 
                     <div class="algo-step" style="border-right-color: #047857;">
                         <span class="algo-step-title">گام سوم: جایگذاری در معادله قید بودجه (خط هزینه یکسان)</span>
                         معادله بودجه: TC = w · L + r · K ==&gt; 100 = 1 · (2K) + 2 · K = 4K<br>
-                        سرمایه بهینه: K* = 100 / 4 = 25 واحد ماشین‌آلات<br>
+                        سرمایه بهینه: K* = 100 ÷ 4 = 25 واحد ماشین‌آلات<br>
                         نیروی کار بهینه: L* = 2 · (25) = 50 واحد کارگر<br>
                         وارسی بودجه: 1(50) + 2(25) = 50 + 50 = 100 ریال (تطابق کامل).
                     </div>
@@ -8814,11 +8814,11 @@ body.theme-dark .step-content {
 3. Pp = Pc - t  [عایدی خالص دریافتی فروشنده]
 4. Burden_C / Burden_P = d / b = Es / |Ed|  [نسبت طلایی تسهیم بار مالیاتی]
 5. DWL = 0.5 · t · (Q₀ - Qₜ)  [زیان بار مرده رفاهی جامعه]
-6. APL = TP_L / L  [تولید متوسط - شیب خط متصل‌کننده مبدأ به نقطه روی TP]
-7. MPL = dTP_L / dL  [تولید نهایی - شیب خط مماس بر منحنی TP]
-8. MRTS_LK = MP_L / MP_K = w / r  [شرط طلایی تعادل بهینه تولیدکننده]
-9. Q = A · L^α · K^β ==> RTS = α + β  [بازده به مقیاس کاب-داگلاس: فزاینده >1 ، ثابت =1 ، کاهنده <1]
-10. Stage II: max(APL) <= L <= (MPL = 0)  [تنها منطقه اقتصادی و عقلایی تولید]
+6. APₗ = TP ÷ L  [تولید متوسط - شیب خط متصل‌کننده مبدأ به نقطه روی TP]
+7. MPₗ = d(TP) ÷ dL  [تولید نهایی - شیب خط مماس بر منحنی TP]
+8. MRTSₗₖ = MPₗ ÷ MPₖ = w ÷ r  [شرط طلایی تعادل بهینه تولیدکننده]
+9. Q = A · Lᵅ · Kᵝ ⟹ RTS = α + β  [بازده به مقیاس کاب-داگلاس: فزاینده > 1 ، ثابت = 1 ، کاهنده < 1]
+10. Stage II: Max APₗ ≤ L ≤ (MPₗ = 0)  [تنها منطقه اقتصادی و عقلایی تولید]
                     </div>
                 </div>
             </div>
@@ -15651,13 +15651,13 @@ window.resetORSimplex = resetORSimplex;
                 {
                     q: 'در تابع تولید با یک عامل متغیر (L)، محدوده «منطقه اقتصادی تولید (مرحله دوم)» کدام است و چرا بنگاه در مرحله اول فعالیت نمی‌کند؟',
                     opts: [
-                        '۱. از نقطه اوج APL تا نقطه صفر شدن MPL؛ زیرا در مرحله اول بازده متوسط در حال افزایش است و سرمایه ثابت بدون استفاده مانده است',
-                        '۲. از مبدأ مختصات تا نقطه اوج MPL؛ زیرا در این بازه تولید نهایی بیشترین شتاب را دارد',
-                        '۳. از نقطه صفر شدن MPL به بعد؛ زیرا در این بازه تولید کل بیشترین مقدار ممکن را داراست',
-                        '۴. از نقطه اوج TP تا جایی که APL منفی شود'
+                        '۱. از نقطه اوج APₗ تا نقطه صفر شدن MPₗ؛ زیرا در مرحله اول بازده متوسط در حال افزایش است و سرمایه ثابت بدون استفاده مانده است',
+                        '۲. از مبدأ مختصات تا نقطه اوج MPₗ؛ زیرا در این بازه تولید نهایی بیشترین شتاب را دارد',
+                        '۳. از نقطه صفر شدن MPₗ به بعد؛ زیرا در این بازه تولید کل بیشترین مقدار ممکن را داراست',
+                        '۴. از نقطه اوج TP تا جایی که APₗ منفی شود'
                     ],
                     ans: 0,
-                    expl: 'کالبدشکافی تحلیلی: مرحله دوم تولید از ماکزیمم APL (جایی که MPL = APL) آغاز شده و تا صفر شدن MPL (ماکزیمم TP) ادامه دارد. این مرحله تنها منطقه عقلایی تولید است. در مرحله اول، بازده متوسط کارگر در حال افزایش است و سرمایه ثابت کمتر از ظرفیت اسمی به کار گرفته شده است، بنابراین توقف در مرحله اول غیرعقلایی است.'
+                    expl: 'کالبدشکافی تحلیلی: مرحله دوم تولید از ماکزیمم APₗ (جایی که MPₗ = APₗ) آغاز شده و تا صفر شدن MPₗ (ماکزیمم TP) ادامه دارد. این مرحله تنها منطقه عقلایی تولید است. در مرحله اول، بازده متوسط کارگر در حال افزایش است و سرمایه ثابت کمتر از ظرفیت اسمی به کار گرفته شده است، بنابراین توقف در مرحله اول غیرعقلایی است.'
                 },
                 {
                     q: 'اگر معادله تابع تولید به صورت Q = 10LK با بودجه TC = 100 و قیمت عوامل w = 1 و r = 2 باشد، مقادیر بهینه L* و K* و حداکثر تولید Q* چقدر است؟',
@@ -15668,10 +15668,10 @@ window.resetORSimplex = resetORSimplex;
                         '۴. L* = 100 و K* = 50 با حداکثر تولید Q* = 50,000'
                     ],
                     ans: 0,
-                    expl: 'کالبدشکافی تحلیلی: شرط تعادل MRTS_LK = w/r => (10K)/(10L) = 1/2 => L = 2K. جایگذاری در خط بودجه: 1(2K) + 2K = 100 => 4K = 100 => K* = 25 و L* = 50. حداکثر تولید بهینه: Q* = 10 × 50 × 25 = 12,500 واحد.'
+                    expl: 'کالبدشکافی تحلیلی: شرط تعادل MRTSₗₖ = w/r => (10K)/(10L) = 1/2 => L = 2K. جایگذاری در خط بودجه: 1(2K) + 2K = 100 => 4K = 100 => K* = 25 و L* = 50. حداکثر تولید بهینه: Q* = 10 × 50 × 25 = 12,500 واحد.'
                 },
                 {
-                    q: 'در تابع تولید همگن کاب-داگلاس Q = 4 · L^0.7 · K^0.5، وضعیت بازدهی نسبت به مقیاس (RTS) و کشش تولیدی نیروی کار (εL) کدام است؟',
+                    q: 'در تابع تولید همگن کاب-داگلاس Q = 4 · L⁰·⁷ · K⁰·⁵، وضعیت بازدهی نسبت به مقیاس (RTS) و کشش تولیدی نیروی کار (εₗ) کدام است؟',
                     opts: [
                         '۱. بازده فزاینده به مقیاس (IRTS با RTS = 1.2) و کشش تولیدی کار برابر ۰.۷',
                         '۲. بازده ثابت به مقیاس (CRTS با RTS = 1.0) و کشش تولیدی کار برابر ۱.۲',
@@ -15679,7 +15679,7 @@ window.resetORSimplex = resetORSimplex;
                         '۴. بازده فزاینده به مقیاس با کشش تولیدی کار برابر ۱.۴'
                     ],
                     ans: 0,
-                    expl: 'کالبدشکافی تحلیلی: در تابع کاب-داگلاس توان نهاده کار (α = 0.7) مستقیماً کشش تولیدی کار (εL = (MPL/APL) = 0.7) است. بازده به مقیاس مجموع توان‌هاست: RTS = α + β = 0.7 + 0.5 = 1.2. چون RTS > 1 است، تولید دارای بازده فزاینده به مقیاس (IRTS) و صرفه‌های ناشی از مقیاس است.'
+                    expl: 'کالبدشکافی تحلیلی: در تابع کاب-داگلاس توان نهاده کار (α = 0.7) مستقیماً کشش تولیدی کار (εL = (MPₗ ÷ APₗ) = 0.7) است. بازده به مقیاس مجموع توان‌هاست: RTS = α + β = 0.7 + 0.5 = 1.2. چون RTS > 1 است، تولید دارای بازده فزاینده به مقیاس (IRTS) و صرفه‌های ناشی از مقیاس است.'
                 },
             ],
             cost: [
@@ -15762,10 +15762,10 @@ window.resetORSimplex = resetORSimplex;
                     expl: '<b>کالبدشکافی تحلیلی:</b> درآمد کل TR = 120Q - 3Q² &rArr; MR = 120 - 6Q. هزینه نهایی MC = 2Q + 20.<br>• شرط تعادل MR = MC: 120 - 6Q = 2Q + 20 &rArr; 8Q = 100 &rArr; Q* = 12.5 واحد.'
                 },
                 {
-                    q: 'در تابع تولید کاب-داگلاس Q = 10 K⁰·⁴ L⁰·⁶، نرخ نهایی جانشینی فنی (MRTS_LK) برابر کدام گزینه است؟',
+                    q: 'در تابع تولید کاب-داگلاس Q = 10 K⁰·⁴ L⁰·⁶، نرخ نهایی جانشینی فنی (MRTSₗₖ) برابر کدام گزینه است؟',
                     opts: ['الف) (0.6 / 0.4) × (K / L)', 'ب) (0.4 / 0.6) × (L / K)', 'ج) 1.5 × (L / K)', 'د) 0.67 × (L / K)'],
                     correct: 0,
-                    expl: '<b>کالبدشکافی تحلیلی:</b> MRTS_LK = MP_L / MP_K = [0.6 Q / L] / [0.4 Q / K] = (0.6 / 0.4) × (K / L) = 1.5 (K / L).'
+                    expl: '<b>کالبدشکافی تحلیلی:</b> MRTSₗₖ = MPₗ / MPₖ = [0.6 Q / L] / [0.4 Q / K] = (0.6 / 0.4) × (K / L) = 1.5 (K / L).'
                 },
                 {
                     q: 'دترمینان ماتریس A = [ 2, -1 ; 4, 3 ] برابر کدام است و آیا ماتریس معکوس‌پذیر است؟',
@@ -17988,8 +17988,8 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     </div>
                     <div class="workout-step">
                         <strong>گام ۲ (شرط تعادل و تساوی بازدهی ریالی):</strong><br>
-                        MRTS_LK = (α/β) · (K/L) = (${alpha}/${beta}) · (${optK.toFixed(2)}/${optL.toFixed(2)}) = ${(w/r).toFixed(3)} = w/r<br>
-                        <span style="color: #047857; font-weight: 800;">✓ تایید اصل تعادل: MP_L / w = MP_K / r (تساوی بازدهی آخرین یک ریال مخارج).</span>
+                        MRTSₗₖ = (α/β) · (K/L) = (${alpha}/${beta}) · (${optK.toFixed(2)}/${optL.toFixed(2)}) = ${(w/r).toFixed(3)} = w/r<br>
+                        <span style="color: #047857; font-weight: 800;">✓ تایید اصل تعادل: MPₗ / w = MPₖ / r (تساوی بازدهی آخرین یک ریال مخارج).</span>
                     </div>
                     <div class="workout-step" style="background: #F0FDF4; border-color: #BBF7D0; color: #166534;">
                         <strong>گام ۳ (ارزیابی بازده نسبت به مقیاس RTS):</strong><br>
@@ -18450,37 +18450,37 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             },
             {
                 id: 'm8',
-                title: 'نرخ نهایی فنی جانشینی (MRTS)',
-                prompt: 'فرمول نرخ نهایی فنی جانشینی کار به جای سرمایه (MRTS_LK) بر حسب تولیدات نهایی چیست؟',
-                canonical: 'MRTS_LK = MP_L / MP_K',
-                aliases: ['MRTS = MP_L / MP_K', 'MRTS_LK = MPL / MPK', 'MRTS = MPL / MPK', 'MRTS_LK = -dK/dL', 'MRTS_LK = -dK / dL = MP_L / MP_K'],
-                hint: 'کسر تولید نهایی کار (MP_L) تقسیم بر تولید نهایی سرمایه (MP_K).',
+                title: 'نرخ نهایی فنی جانشینی (MRTSₗₖ)',
+                prompt: 'فرمول نرخ نهایی فنی جانشینی کار به جای سرمایه (MRTSₗₖ) بر حسب تولیدات نهایی چیست؟',
+                canonical: 'MRTSₗₖ = MPₗ ÷ MPₖ',
+                aliases: ['MRTSₗₖ = MPₗ ÷ MPₖ', 'MRTS = MPₗ ÷ MPₖ', 'MRTSₗₖ = -dK ÷ dL', 'MRTSₗₖ = MPₗ / MPₖ', 'MRTS = MPₗ / MPₖ', 'MRTSₗₖ = MPL / MPK', 'MRTS = MPL / MPK', 'MRTSₗₖ = -dK/dL', 'mrts = mpl / mpk'],
+                hint: 'کسر تولید نهایی کار (MPₗ) تقسیم بر تولید نهایی سرمایه (MPₖ).',
                 breakdown: 'کالبدشکافی: قدرمطلق شیب منحنی هم‌مقداری که نشان‌دهنده میزان فدا کردن سرمایه برای استخدام یک کارگر بیشتر با تولید ثابت است.'
             },
             {
                 id: 'm9',
                 title: 'شرط تعادل بهینه تولیدکننده',
                 prompt: 'شرط برابری بازدهی ریالی در نقطه تعادل تولیدکننده (برابری شیب هم‌مقداری و خط هزینه) چیست؟',
-                canonical: 'MP_L / w = MP_K / r',
-                aliases: ['MPL / w = MPK / r', 'MP_L/w = MP_K/r', 'MPL/w = MPK/r', 'MP_L / MP_K = w / r', 'MPL / MPK = w / r'],
+                canonical: 'MPₗ ÷ w = MPₖ ÷ r',
+                aliases: ['MPₗ ÷ w = MPₖ ÷ r', 'MPₗ / w = MPₖ / r', 'MPL / w = MPK / r', 'MPₗ/w = MPₖ/r', 'MPL/w = MPK/r', 'MPₗ ÷ MPₖ = w ÷ r', 'MPₗ / MPₖ = w / r', 'MPL / MPK = w / r'],
                 hint: 'تولید نهایی هر عامل تقسیم بر قیمت بازاری آن عامل.',
                 breakdown: 'کالبدشکافی: در نقطه بهینه، بازدهی فیزیکی حاصل از آخرین ریال هزینه‌شده روی کار و سرمایه باید کاملاً برابر باشد.'
             },
             {
                 id: 'm10',
-                title: 'کشش تولیدی نیروی کار',
-                prompt: 'فرمول کشش تولیدی نهاده کار (ε_L) بر حسب تولید نهایی و تولید متوسط چیست؟',
-                canonical: 'e_L = MP_L / AP_L',
-                aliases: ['ε_L = MP_L / AP_L', 'eL = MPL / APL', 'εL = MPL / APL', 'e_L = MPL / APL'],
-                hint: 'تولید نهایی کارگر (MP_L) تقسیم بر تولید متوسط کارگر (AP_L).',
-                breakdown: 'کالبدشکافی: در تابع کاب-داگلاس Q = A·L^α·K^β، این کشش دقیقاً برابر توان α است.'
+                title: 'کشش تولیدی نیروی کار (εₗ)',
+                prompt: 'فرمول کشش تولیدی نهاده کار (εₗ) بر حسب تولید نهایی و تولید متوسط چیست؟',
+                canonical: 'εₗ = MPₗ ÷ APₗ',
+                aliases: ['εₗ = MPₗ ÷ APₗ', 'εₗ = MPₗ / APₗ', 'e_L = MPₗ / APₗ', 'εₗ = MPₗ / APₗ', 'eL = MPL / APL', 'εL = MPL / APL', 'e_L = MPL / APL', 'el = mpl / apl'],
+                hint: 'تولید نهایی کارگر (MPₗ) تقسیم بر تولید متوسط کارگر (APₗ).',
+                breakdown: 'کالبدشکافی: در تابع کاب-داگلاس Q = A·Lᵅ·Kᵝ، این کشش دقیقاً برابر توان α است.'
             },
             {
                 id: 'm11',
                 title: 'معادله خط هزینه یکسان (Isocost)',
                 prompt: 'معادله خط هزینه کل (TC) بر حسب دستمزد (w)، کار (L)، اجاره (r) و سرمایه (K) چیست؟',
-                canonical: 'TC = w*L + r*K',
-                aliases: ['TC = w·L + r·K', 'TC = wL + rK', 'TC=w*L+r*K', 'TC = w L + r K'],
+                canonical: 'TC = w · L + r · K',
+                aliases: ['TC = w · L + r · K', 'TC = w·L + r·K', 'TC = w*L + r*K', 'TC = wL + rK', 'TC=w*L+r*K', 'TC = w L + r K'],
                 hint: 'مجموع هزینه دستمزد کارگران (w·L) و هزینه اجاره ماشین‌آلات (r·K).',
                 breakdown: 'کالبدشکافی: بودجه کل تولیدکننده با شیب منفی -w/r که موقعیت آن با بودجه کل TC تعیین می‌شود.'
             },
@@ -18703,8 +18703,12 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
     function normalizeFormula(str) {
         if (!str) return '';
         var s = str.trim().toLowerCase();
-        // Remove spaces
-        s = s.replace(/\\s+/g, '');
+        // Remove spaces and underscores
+        s = s.replace(/\s+/g, '').replace(/_/g, '');
+        // Normalize unicode subscripts and superscripts to standard ascii
+        s = s.replace(/ₗ/g, 'l').replace(/ₖ/g, 'k').replace(/ᵅ/g, 'a').replace(/ᵝ/g, 'b');
+        s = s.replace(/₁/g, '1').replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4').replace(/₅/g, '5');
+        s = s.replace(/ᵢ/g, 'i').replace(/ⱼ/g, 'j').replace(/ₘ/g, 'm').replace(/ₙ/g, 'n').replace(/ₛ/g, 's').replace(/Ꮷ/g, 'd');
         // Replace common unicode operators with standard ascii
         s = s.replace(/×/g, '*').replace(/·/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
         s = s.replace(/²/g, '^2').replace(/³/g, '^3');
