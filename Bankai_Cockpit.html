@@ -1403,24 +1403,59 @@ body:not(.theme-dark) .dock-btn.active::after {
         }
     
         /* ========================================================
-           v20.0 ADVANCED CYBERPUNK SCI-FI CALCULATOR & GLITCH ENGINE
+           v22.0 GLASSY OTP V2: HIGH-END OBSIDIAN GLASS AUTHENTICATION
+           Frosted Glassmorphic Sheet | 4-Slot OTP with Neon Cursor | Emerald Checkmark Morph
            ======================================================== */
         #bankai-security-shield {
             position: fixed;
             inset: 0;
             z-index: 100000;
-            background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.94) 0%, rgba(2, 6, 23, 0.98) 100%);
-            backdrop-filter: blur(32px) saturate(200%);
-            -webkit-backdrop-filter: blur(32px) saturate(200%);
+            background: #020612;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
             user-select: none;
+            overflow: hidden;
             transition: opacity 0.45s ease, filter 0.45s ease;
         }
 
-        /* PAGE / BACKGROUND SCREEN GLITCH UPON WRONG PIN (CALCULATOR STAYS 100% STEADY) */
+        /* 3D CHISELED POLYGONAL & FACETED GEOMETRIC BACKDROP */
+        .glassy-facet-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 50% 35%, rgba(30, 41, 59, 0.45) 0%, rgba(2, 6, 18, 0.95) 75%),
+                linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 6, 23, 0.98) 100%);
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .glassy-facet-bg::before {
+            content: '';
+            position: absolute;
+            inset: -50px;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 20px 30px, rgba(255, 255, 255, 0.15), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, rgba(0, 240, 255, 0.2), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 90px 40px, rgba(255, 87, 34, 0.2), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 130px 130px;
+            opacity: 0.6;
+        }
+        /* Faceted Low-Poly Polygon Shards */
+        .facet-shard {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.4) 100%);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
+            pointer-events: none;
+        }
+        .shard-1 { top: 8%; left: 10%; width: 220px; height: 180px; clip-path: polygon(25% 0%, 100% 15%, 85% 100%, 0% 75%); transform: rotate(-12deg); opacity: 0.35; }
+        .shard-2 { bottom: 12%; right: 8%; width: 260px; height: 220px; clip-path: polygon(15% 0%, 90% 25%, 100% 85%, 20% 100%); transform: rotate(18deg); opacity: 0.3; }
+        .shard-3 { top: 45%; right: 5%; width: 180px; height: 190px; clip-path: polygon(0% 20%, 80% 0%, 100% 70%, 10% 90%); transform: rotate(8deg); opacity: 0.25; }
+        .shard-4 { bottom: 25%; left: 8%; width: 200px; height: 160px; clip-path: polygon(10% 10%, 100% 0%, 90% 90%, 0% 100%); transform: rotate(-25deg); opacity: 0.25; }
+
+        /* FULL-PAGE SCREEN GLITCH ON WRONG PIN */
         #bankai-security-shield.page-screen-glitch {
             animation: full-page-screen-glitch-anim 0.52s ease-in-out;
         }
@@ -1430,34 +1465,19 @@ body:not(.theme-dark) .dock-btn.active::after {
                 filter: hue-rotate(90deg) contrast(220%) invert(0.12);
                 background: radial-gradient(circle at 50% 50%, rgba(255, 0, 85, 0.45) 0%, rgba(2, 6, 23, 0.98) 100%);
             }
-            30% { 
-                filter: hue-rotate(-90deg) contrast(250%) brightness(1.25);
-            }
-            45% { 
-                filter: contrast(300%) invert(0.18);
-                background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.4) 0%, rgba(2, 6, 23, 0.98) 100%);
-            }
-            60% { 
-                filter: hue-rotate(180deg) contrast(180%);
-            }
-            75% { 
-                filter: contrast(130%);
-            }
-            100% { 
-                filter: none;
-                background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.94) 0%, rgba(2, 6, 23, 0.98) 100%);
-            }
+            30% { filter: none; }
+            45% { filter: hue-rotate(-90deg) contrast(180%); }
+            60% { filter: none; }
+            75% { filter: contrast(160%); }
+            100% { filter: none; }
         }
 
-        /* FULL-SCREEN GLITCH TEAR OVERLAY ON WRONG PIN (BEHIND CALCULATOR) */
         .shield-glitch-layer {
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
             pointer-events: none;
+            z-index: 2;
             overflow: hidden;
-            z-index: 1;
         }
         .shield-glitch-tear {
             position: absolute;
@@ -1483,371 +1503,258 @@ body:not(.theme-dark) .dock-btn.active::after {
         @keyframes shield-tear-anim2 {
             0% { opacity: 0.95; transform: translateX(70px); }
             50% { opacity: 0; transform: translateX(-40px); }
-            100% { opacity: 0.9; transform: translateX(-60px); }
+            100% { opacity: 0; transform: translateX(-60px); }
         }
 
-        /* ADVANCED CYBERPUNK SECURITY TERMINAL CONSOLE */
-        .mycurse-login-card {
-            background: linear-gradient(175deg, rgba(11, 18, 36, 0.94) 0%, rgba(6, 11, 24, 0.98) 60%, rgba(2, 6, 18, 0.99) 100%);
+        /* GLASSY OTP MODAL CARD (EXACT REPLICA OF VIDEO DESIGN) */
+        .glassy-otp-card {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            max-width: 330px;
+            background: rgba(13, 20, 36, 0.76);
             backdrop-filter: blur(32px) saturate(200%);
             -webkit-backdrop-filter: blur(32px) saturate(200%);
-            border-radius: 22px;
-            padding: 22px 18px 20px;
-            width: 100%;
-            max-width: 295px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            padding: 18px 20px 22px;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.88),
+                0 0 40px rgba(0, 240, 255, 0.06),
+                inset 0 1px 1px rgba(255, 255, 255, 0.22),
+                inset 0 0 24px rgba(255, 255, 255, 0.02);
+            box-sizing: border-box !important;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            gap: 14px;
-            position: relative;
-            z-index: 5;
-            box-sizing: border-box !important;
-            border: 1.5px solid rgba(0, 240, 255, 0.4);
-            box-shadow: 
-                0 0 35px rgba(0, 240, 255, 0.18),
-                0 25px 60px rgba(0, 0, 0, 0.92),
-                inset 0 0 20px rgba(0, 240, 255, 0.08),
-                inset 0 1px 2px rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
         }
 
-        /* RECTANGULAR CYBER TERMINAL BANNER (HUD DISPLAY) */
-        .mycurse-terminal-banner {
-            position: relative;
-            width: 100%;
-            height: 48px;
-            background: rgba(3, 7, 18, 0.92);
-            border: 1.5px solid rgba(0, 240, 255, 0.75);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 
-                0 0 16px rgba(0, 240, 255, 0.4),
-                0 2px 10px rgba(0, 0, 0, 0.8),
-                inset 0 0 12px rgba(0, 240, 255, 0.15);
-            box-sizing: border-box !important;
-            overflow: hidden;
-            user-select: none;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-            animation: cyber-box-neon-pulse 4s ease-in-out infinite alternate;
+        .glassy-otp-card.card-shake {
+            animation: card-error-shake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            border-color: rgba(239, 68, 68, 0.75);
+            box-shadow: 0 0 35px rgba(239, 68, 68, 0.45), 0 25px 60px rgba(0, 0, 0, 0.9);
+        }
+        @keyframes card-error-shake {
+            10%, 90% { transform: translate3d(-3px, 0, 0); }
+            20%, 80% { transform: translate3d(5px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
         }
 
-        /* TERMINAL TECH CORNERS (HUD BRACKETS) */
-        .terminal-corner {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-color: #00F0FF;
-            pointer-events: none;
-            transition: border-color 0.25s ease;
+        /* TOP DRAG HANDLE */
+        .glassy-drag-handle {
+            width: 38px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.26);
+            border-radius: 4px;
+            margin-bottom: 16px;
         }
-        .terminal-corner.tl { top: 2px; left: 2px; border-top: 1.5px solid; border-left: 1.5px solid; }
-        .terminal-corner.tr { top: 2px; right: 2px; border-top: 1.5px solid; border-right: 1.5px solid; }
-        .terminal-corner.bl { bottom: 2px; left: 2px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
-        .terminal-corner.br { bottom: 2px; right: 2px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
 
-        /* DIGITAL MONOSPACE TITLE WITH NEON GLITCH */
-        .mycurse-terminal-title {
-            font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Roboto Mono', 'Courier New', monospace;
-            font-size: 1.12rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            color: #00F0FF;
-            -webkit-text-fill-color: #00F0FF;
-            text-transform: uppercase;
-            line-height: 1;
-            direction: ltr !important;
+        /* HEADER TEXTS */
+        .glassy-otp-header {
             text-align: center;
-            text-shadow: 
-                0 0 8px rgba(0, 240, 255, 0.9),
-                0 0 18px rgba(0, 240, 255, 0.6),
-                -1.5px 0 rgba(255, 0, 85, 0.45),
-                1.5px 0 rgba(0, 240, 255, 0.45);
-            position: relative;
-            z-index: 2;
-            transition: color 0.2s ease, text-shadow 0.2s ease;
-            animation: cyber-title-neon-glitch 3.8s infinite;
-        }
-
-        @keyframes cyber-box-neon-pulse {
-            0%, 100% {
-                border-color: rgba(0, 240, 255, 0.75);
-                box-shadow: 0 0 16px rgba(0, 240, 255, 0.4), inset 0 0 12px rgba(0, 240, 255, 0.15);
-            }
-            50% {
-                border-color: rgba(0, 240, 255, 0.95);
-                box-shadow: 0 0 24px rgba(0, 240, 255, 0.65), inset 0 0 16px rgba(0, 240, 255, 0.25);
-            }
-            75% {
-                border-color: rgba(139, 92, 246, 0.7);
-                box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), inset 0 0 12px rgba(0, 240, 255, 0.15);
-            }
-        }
-
-        @keyframes cyber-title-neon-glitch {
-            0%, 100% {
-                transform: translate(0, 0);
-                text-shadow: 0 0 8px #00F0FF, 0 0 18px rgba(0, 240, 255, 0.6), -1.5px 0 rgba(255, 0, 85, 0.45);
-                opacity: 1;
-            }
-            18% {
-                transform: translate(-1.5px, 0.5px);
-                text-shadow: -2px 0 #FF0055, 2px 0 #00F0FF, 0 0 15px #00F0FF;
-            }
-            20% {
-                transform: translate(1.5px, -0.5px);
-                text-shadow: 2px 0 #FF0055, -2px 0 #00F0FF, 0 0 20px #00F0FF;
-            }
-            22% {
-                transform: translate(0, 0);
-                text-shadow: 0 0 8px #00F0FF, 0 0 18px rgba(0, 240, 255, 0.6);
-            }
-            65% {
-                opacity: 0.94;
-            }
-            67% {
-                opacity: 1;
-                transform: translate(-1px, 0);
-                text-shadow: -2px 0 #FF0055, 1px 0 #00F0FF;
-            }
-            69% {
-                transform: translate(0, 0);
-            }
-        }
-
-        /* ERROR STATE: NEON RED GLITCH */
-        .mycurse-terminal-banner.banner-error {
-            border-color: #FF0055 !important;
-            background: rgba(24, 2, 8, 0.94) !important;
-            box-shadow: 
-                0 0 28px rgba(255, 0, 85, 0.8),
-                0 0 50px rgba(255, 0, 85, 0.4),
-                inset 0 0 18px rgba(255, 0, 85, 0.35) !important;
-            animation: banner-error-twitch 0.52s ease-in-out !important;
-        }
-        .mycurse-terminal-banner.banner-error .terminal-corner {
-            border-color: #FF0055 !important;
-        }
-        .mycurse-terminal-title.title-error {
-            color: #FF0055 !important;
-            -webkit-text-fill-color: #FF0055 !important;
-            letter-spacing: 6px !important;
-            text-shadow: 
-                0 0 10px #FF0055,
-                0 0 22px #FF0055,
-                0 0 38px rgba(255, 0, 85, 0.95),
-                -3px 0 #00F0FF,
-                3px 0 #FF0055 !important;
-            animation: error-heavy-glitch 0.18s steps(2) infinite alternate !important;
-        }
-        @keyframes banner-error-twitch {
-            0%, 100% { transform: translate(0, 0); }
-            15% { transform: translate(-6px, 1px) skewX(2.5deg); }
-            30% { transform: translate(6px, -1px) skewX(-2.5deg); }
-            45% { transform: translate(-4px, -1px) skewX(1.5deg); }
-            60% { transform: translate(4px, 1px) skewX(-1.5deg); }
-            75% { transform: translate(-2px, 0); }
-        }
-        @keyframes error-heavy-glitch {
-            0% { transform: translate(0, 0); text-shadow: 0 0 10px #FF0055, -3px 0 #00F0FF; }
-            25% { transform: translate(-4px, 1.5px) skewX(3.5deg); text-shadow: 4px 0 #00F0FF, -4px 0 #FF0055, 0 0 25px #FF0055; }
-            50% { transform: translate(4px, -1.5px) skewX(-3.5deg); text-shadow: -4px 0 #00F0FF, 4px 0 #FF0055, 0 0 32px #FF0055; }
-            75% { transform: translate(-2px, -0.5px); text-shadow: 2px 0 #00F0FF, -2px 0 #FF0055; }
-            100% { transform: translate(0, 0); text-shadow: 0 0 10px #FF0055, -3px 0 #00F0FF; }
-        }
-
-        /* ACCESS AGREED STATE: DIGITAL NEON GREEN */
-        .mycurse-terminal-banner.banner-agreed {
-            border-color: #00FF66 !important;
-            background: rgba(2, 22, 10, 0.94) !important;
-            box-shadow: 
-                0 0 30px rgba(0, 255, 102, 0.85),
-                0 0 60px rgba(0, 255, 102, 0.4),
-                inset 0 0 18px rgba(0, 255, 102, 0.35) !important;
-            animation: banner-agreed-pulse 1.2s infinite alternate !important;
-        }
-        .mycurse-terminal-banner.banner-agreed .terminal-corner {
-            border-color: #00FF66 !important;
-        }
-        .mycurse-terminal-title.title-agreed {
-            color: #00FF66 !important;
-            -webkit-text-fill-color: #00FF66 !important;
-            letter-spacing: 3px !important;
-            font-size: 0.98rem !important;
-            text-shadow: 
-                0 0 10px #00FF66,
-                0 0 22px #00FF66,
-                0 0 40px rgba(0, 255, 102, 0.95),
-                0 0 65px rgba(0, 255, 102, 0.6) !important;
-            animation: agreed-text-glow 1s ease-in-out infinite alternate !important;
-        }
-        @keyframes banner-agreed-pulse {
-            0% { box-shadow: 0 0 24px rgba(0, 255, 102, 0.7), inset 0 0 14px rgba(0, 255, 102, 0.3); }
-            100% { box-shadow: 0 0 38px rgba(0, 255, 102, 0.95), inset 0 0 22px rgba(0, 255, 102, 0.45); }
-        }
-        @keyframes agreed-text-glow {
-            0% { text-shadow: 0 0 10px #00FF66, 0 0 22px #00FF66, 0 0 40px rgba(0, 255, 102, 0.95); }
-            100% { text-shadow: 0 0 14px #00FF66, 0 0 30px #00FF66, 0 0 55px rgba(0, 255, 102, 1); }
-        }
-
-        /* SECURITY PIN ACCESS DISPLAY SCREEN */
-        .mycurse-calc-screen {
+            margin-bottom: 18px;
             width: 100%;
-            height: 52px;
-            background: rgba(2, 6, 20, 0.92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 14px;
-            border: 1.5px solid rgba(0, 240, 255, 0.35);
-            box-shadow: 
-                inset 0 2px 10px rgba(0, 0, 0, 0.9),
-                0 0 16px rgba(0, 240, 255, 0.15),
-                inset 0 0 14px rgba(0, 240, 255, 0.06);
+        }
+        .glassy-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 5px;
+            letter-spacing: -0.3px;
+            transition: color 0.25s ease, text-shadow 0.25s ease;
+        }
+        .glassy-title.title-success {
+            color: #10B981 !important;
+            text-shadow: 0 0 15px rgba(16, 185, 129, 0.8), 0 0 30px rgba(16, 185, 129, 0.4);
+        }
+        .glassy-title.title-error {
+            color: #EF4444 !important;
+            text-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+        }
+        .glassy-subtitle {
+            font-size: 0.79rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+            font-weight: 400;
+            transition: color 0.25s ease;
+        }
+
+        /* 4-SLOT OTP CONTAINER & STAGE WRAPPER */
+        .glassy-stage-wrapper {
+            width: 100%;
+            min-height: 66px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 14px;
-            box-sizing: border-box !important;
+            margin-bottom: 18px;
             position: relative;
-            cursor: text;
-            transition: all 0.22s ease;
-            overflow: hidden;
         }
-        .mycurse-calc-screen::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
-            background-size: 100% 4px;
-            pointer-events: none;
-            opacity: 0.6;
-            z-index: 1;
+        .glassy-otp-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+            direction: ltr !important;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        .mycurse-calc-screen:focus-within {
-            border-color: #00F0FF;
+        .otp-slot {
+            flex: 1;
+            max-width: 58px;
+            height: 60px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+        /* Active slot with neon orange / coral glow */
+        .otp-slot.active {
+            border-color: rgba(255, 87, 34, 0.75);
+            border-bottom: 2.5px solid #FF5722;
             box-shadow: 
-                inset 0 2px 8px rgba(0, 0, 0, 0.9),
-                0 0 24px rgba(0, 240, 255, 0.5),
-                inset 0 0 16px rgba(0, 240, 255, 0.18);
+                0 4px 16px rgba(255, 87, 34, 0.4),
+                inset 0 0 10px rgba(255, 87, 34, 0.15);
+            background: rgba(255, 87, 34, 0.06);
+        }
+        /* Filled slot */
+        .otp-slot.filled {
+            border-color: rgba(255, 87, 34, 0.4);
+            border-bottom: 2px solid #FF5722;
+            box-shadow: 0 2px 10px rgba(255, 87, 34, 0.25);
+        }
+        /* Error slot */
+        .otp-slot.slot-error {
+            border-color: #EF4444 !important;
+            box-shadow: 0 0 16px rgba(239, 68, 68, 0.6) !important;
+            background: rgba(239, 68, 68, 0.12) !important;
+        }
+        .otp-digit {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+        .otp-cursor {
+            width: 2px;
+            height: 24px;
+            background: #FFFFFF;
+            border-radius: 1px;
+            animation: otp-cursor-blink 1s ease-in-out infinite;
+            box-shadow: 0 0 6px #FFFFFF;
+        }
+        @keyframes otp-cursor-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
-        /* KEYSTROKE MICRO-GLITCH ON SCREEN CONTAINER */
-        .mycurse-calc-screen.micro-glitch-active {
-            animation: screen-micro-twitch 0.13s ease-out;
+        /* SUCCESS STATE: EMERALD GLOWING SQUARE WITH CHECKMARK (FRAME 5 IN VIDEO) */
+        .glassy-success-box {
+            width: 66px;
+            height: 66px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: success-box-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        @keyframes screen-micro-twitch {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-3px, 1px) skewX(1.5deg); border-color: #00F0FF; box-shadow: 0 0 25px #00F0FF; }
-            50% { transform: translate(3px, -1px) skewX(-1.5deg); border-color: #FF0055; box-shadow: 0 0 25px #FF0055; }
-            75% { transform: translate(-1px, 1px); }
-            100% { transform: translate(0, 0); }
+        @keyframes success-box-pop {
+            0% { transform: scale(0.3); opacity: 0; }
+            65% { transform: scale(1.12); }
+            100% { transform: scale(1); opacity: 1; }
         }
-
-        /* INPUT DIGITS - GLOWING CYBERPUNK SECURITY TYPOGRAPHY */
-        .mycurse-calc-screen input {
+        .success-checkmark-glow {
+            position: absolute;
+            inset: -14px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.55) 0%, transparent 72%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: emerald-glow-pulse 1.8s ease-in-out infinite alternate;
+        }
+        @keyframes emerald-glow-pulse {
+            0% { opacity: 0.65; transform: scale(0.92); }
+            100% { opacity: 1; transform: scale(1.18); }
+        }
+        .success-box-inner {
             width: 100%;
             height: 100%;
-            background: transparent !important;
-            border: none !important;
-            outline: none !important;
-            text-align: center;
-            font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
-            font-size: 1.55rem;
+            border-radius: 18px;
+            background: rgba(16, 185, 129, 0.16);
+            border: 2px solid #10B981;
+            box-shadow: 
+                0 0 28px rgba(16, 185, 129, 0.65),
+                inset 0 0 16px rgba(16, 185, 129, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(12px);
+        }
+        .success-check-icon {
+            font-size: 2.2rem;
             font-weight: 900;
-            letter-spacing: 10px;
-            color: #00F0FF;
-            -webkit-text-fill-color: #00F0FF;
-            text-shadow: 0 0 10px #00F0FF, 0 0 22px rgba(0, 240, 255, 0.7);
-            caret-color: #00F0FF;
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box !important;
-            position: relative;
-            z-index: 2;
-            transition: text-shadow 0.15s ease;
-            direction: ltr !important;
-        }
-        .mycurse-calc-screen input::placeholder {
-            color: rgba(0, 240, 255, 0.25);
-            -webkit-text-fill-color: rgba(0, 240, 255, 0.25);
-            letter-spacing: 8px;
-            text-shadow: none;
+            color: #FFFFFF;
+            text-shadow: 0 0 14px rgba(16, 185, 129, 0.9);
+            line-height: 1;
         }
 
-        /* KEYSTROKE MICRO-GLITCH ON DIGITS */
-        .mycurse-calc-screen input.digit-glitch-active {
-            animation: digit-micro-jitter 0.13s ease-out;
-        }
-        @keyframes digit-micro-jitter {
-            0% { transform: translate(0); text-shadow: 0 0 10px #00F0FF; }
-            30% { transform: translate(-4px, 1px) skewX(2deg); text-shadow: -4px 0 #FF0055, 4px 0 #00F0FF, 0 0 25px #00F0FF; }
-            70% { transform: translate(3px, -1px) skewX(-2deg); text-shadow: 4px 0 #FF0055, -4px 0 #00F0FF, 0 0 25px #FF0055; }
-            100% { transform: translate(0); text-shadow: 0 0 10px #00F0FF; }
-        }
-
-        /* ERROR TEXT CONTAINER PURGED (Handled in Banner) */
-        .mycurse-error-text {
-            display: none !important;
-        }
-
-        /* TACTICAL SECURITY KEYPAD: LTR DIRECTION, LEFT-TO-RIGHT NUMBERS */
-        .mycurse-keypad {
+        /* TACTICAL GLASS KEYPAD */
+        .glassy-keypad {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 9px;
+            gap: 8px;
             width: 100%;
             direction: ltr !important;
             box-sizing: border-box !important;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        .calc-key {
-            background: linear-gradient(145deg, rgba(20, 30, 52, 0.78) 0%, rgba(10, 18, 34, 0.9) 100%);
-            border: 1.5px solid rgba(0, 240, 255, 0.25);
-            border-radius: 14px;
-            height: 48px;
+        .glass-key {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 13px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #F8FAFC;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFFFFF;
             cursor: pointer;
-            box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.5),
-                inset 0 1px 1px rgba(255, 255, 255, 0.12);
-            transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-            -webkit-tap-highlight-color: transparent;
             user-select: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.1s ease;
+            -webkit-tap-highlight-color: transparent;
         }
-        .calc-key:active {
+        .glass-key:active {
             transform: scale(0.92);
-            background: linear-gradient(145deg, rgba(0, 240, 255, 0.28) 0%, rgba(15, 23, 42, 0.92) 100%);
-            border-color: rgba(0, 240, 255, 0.85);
-            box-shadow: 0 0 18px rgba(0, 240, 255, 0.6), inset 0 2px 5px rgba(0, 0, 0, 0.6);
+            background: rgba(255, 87, 34, 0.22);
+            border-color: rgba(255, 87, 34, 0.65);
+            box-shadow: 0 0 14px rgba(255, 87, 34, 0.5);
         }
-        .calc-key-placeholder {
+        .glass-key-spacer {
             visibility: hidden;
             pointer-events: none;
-            height: 48px;
+            height: 45px;
         }
-        .calc-key-del {
-            color: #FF0055;
-            background: linear-gradient(145deg, rgba(38, 10, 24, 0.8) 0%, rgba(18, 6, 14, 0.92) 100%);
-            border-color: rgba(255, 0, 85, 0.4);
-            font-size: 1.25rem;
-            box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.5),
-                inset 0 1px 1px rgba(255, 0, 85, 0.2);
+        .glass-key-del {
+            color: #FF5722;
+            font-size: 1.2rem;
+            border-color: rgba(255, 87, 34, 0.25);
         }
-        .calc-key-del:active {
-            background: linear-gradient(145deg, rgba(255, 0, 85, 0.45) 0%, rgba(38, 10, 24, 0.92) 100%);
-            border-color: #FF0055;
-            box-shadow: 0 0 20px rgba(255, 0, 85, 0.7);
+        .glass-key-del:active {
+            background: rgba(255, 87, 34, 0.35);
+            border-color: #FF5722;
         }
 
-                /* BLACK SCREEN EXPANSIVE GLITCH STAGE & NEON WELCOME ENGINE */
+        /* BLACK SCREEN EXPANSIVE GLITCH STAGE & NEON WELCOME ENGINE */
         #bankai-glitch-stage {
             position: fixed;
             inset: 0;
@@ -6116,8 +6023,16 @@ body.theme-dark .step-content {
 </head>
 <body>
 
-    <!-- MY CURSE SOVEREIGN CALCULATOR LOGIN OVERLAY -->
+    <!-- GLASSY OTP V2 SOVEREIGN AUTH SHIELD -->
     <div id="bankai-security-shield">
+        <!-- 3D CHISELED GEOMETRIC FACETED SHARDS -->
+        <div class="glassy-facet-bg">
+            <div class="facet-shard shard-1"></div>
+            <div class="facet-shard shard-2"></div>
+            <div class="facet-shard shard-3"></div>
+            <div class="facet-shard shard-4"></div>
+        </div>
+
         <!-- FULL-SCREEN BACKGROUND GLITCH OVERLAY ON WRONG PIN -->
         <div id="shield-screen-glitch" class="shield-glitch-layer" style="display: none;">
             <div class="shield-glitch-tear t1"></div>
@@ -6126,36 +6041,66 @@ body.theme-dark .step-content {
             <div class="shield-glitch-tear t4"></div>
         </div>
 
-        <div class="mycurse-login-card" id="shield-card-box">
-            <!-- RECTANGULAR CYBER TERMINAL BANNER (MY CURSE / ERROR / ACCESS AGREED) -->
-            <div class="mycurse-terminal-banner" id="mycurse-terminal-banner">
-                <span class="terminal-corner tl"></span>
-                <span class="terminal-corner tr"></span>
-                <span class="terminal-corner bl"></span>
-                <span class="terminal-corner br"></span>
-                <span class="mycurse-terminal-title" id="mycurse-terminal-title" data-text="MY CURSE">MY CURSE</span>
+        <div class="glassy-otp-card" id="shield-card-box">
+            <!-- TOP SHEET DRAG HANDLE -->
+            <div class="glassy-drag-handle"></div>
+
+            <!-- HEADER TEXT (UPDATES DYNAMICALLY ON SUCCESS/ERROR) -->
+            <div class="glassy-otp-header">
+                <h2 id="glassy-title" class="glassy-title">ورود به کابین بانکای</h2>
+                <p id="glassy-subtitle" class="glassy-subtitle">کد ۴ رقمی ورود به سامانه را وارد کنید.<br>پس از درج کد، هویت خودکار تایید می‌شود.</p>
             </div>
 
-            <!-- SECURITY ACCESS PIN DISPLAY SCREEN -->
-            <div class="mycurse-calc-screen" onclick="document.getElementById('shield-pin-input').focus()">
-                <input type="password" id="shield-pin-input" maxlength="12" autocomplete="off" autofocus inputmode="numeric" placeholder="••••">
+            <!-- 4 OTP BOXES OR SUCCESS CHECKMARK -->
+            <div class="glassy-stage-wrapper">
+                <!-- 4-SLOT OTP TILES -->
+                <div id="otp-slots-row" class="glassy-otp-row" dir="ltr">
+                    <div class="otp-slot active" id="otp-slot-0" onclick="focusOtpInput()">
+                        <span class="otp-digit" id="otp-digit-0"></span>
+                        <span class="otp-cursor" id="otp-cursor-0"></span>
+                    </div>
+                    <div class="otp-slot" id="otp-slot-1" onclick="focusOtpInput()">
+                        <span class="otp-digit" id="otp-digit-1"></span>
+                        <span class="otp-cursor" id="otp-cursor-1" style="display:none;"></span>
+                    </div>
+                    <div class="otp-slot" id="otp-slot-2" onclick="focusOtpInput()">
+                        <span class="otp-digit" id="otp-digit-2"></span>
+                        <span class="otp-cursor" id="otp-cursor-2" style="display:none;"></span>
+                    </div>
+                    <div class="otp-slot" id="otp-slot-3" onclick="focusOtpInput()">
+                        <span class="otp-digit" id="otp-digit-3"></span>
+                        <span class="otp-cursor" id="otp-cursor-3" style="display:none;"></span>
+                    </div>
+                </div>
+
+                <!-- SUCCESS CHECKMARK BOX (EMERALD GLOWING SQUARE - FRAME 5) -->
+                <div id="otp-success-box" class="glassy-success-box" style="display: none;">
+                    <div class="success-checkmark-glow"></div>
+                    <div class="success-box-inner">
+                        <span class="success-check-icon">✓</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- TACTICAL CYBER KEYPAD (LTR, LEFT-TO-RIGHT NUMBERS 1-9, NO 'C', CENTERED '0', 'DEL') -->
-            <div class="mycurse-keypad" dir="ltr">
-                <button type="button" class="calc-key" onclick="calcPress('1')">1</button>
-                <button type="button" class="calc-key" onclick="calcPress('2')">2</button>
-                <button type="button" class="calc-key" onclick="calcPress('3')">3</button>
-                <button type="button" class="calc-key" onclick="calcPress('4')">4</button>
-                <button type="button" class="calc-key" onclick="calcPress('5')">5</button>
-                <button type="button" class="calc-key" onclick="calcPress('6')">6</button>
-                <button type="button" class="calc-key" onclick="calcPress('7')">7</button>
-                <button type="button" class="calc-key" onclick="calcPress('8')">8</button>
-                <button type="button" class="calc-key" onclick="calcPress('9')">9</button>
-                <div class="calc-key-placeholder"></div>
-                <button type="button" class="calc-key" onclick="calcPress('0')">0</button>
-                <button type="button" class="calc-key calc-key-del" onclick="calcPress('DEL')" aria-label="Delete">⌫</button>
+            <!-- HIDDEN INPUT FOR PHYSICAL KEYBOARDS AND MOBILE VIRTUAL KEYBOARDS -->
+            <input type="password" id="shield-pin-input" maxlength="4" autocomplete="off" autofocus inputmode="numeric" style="position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px;">
+
+            <!-- TACTICAL GLASS KEYPAD (1-9, 0, DEL) -->
+            <div class="glassy-keypad" id="glassy-keypad" dir="ltr">
+                <button type="button" class="glass-key" onclick="calcPress('1')">1</button>
+                <button type="button" class="glass-key" onclick="calcPress('2')">2</button>
+                <button type="button" class="glass-key" onclick="calcPress('3')">3</button>
+                <button type="button" class="glass-key" onclick="calcPress('4')">4</button>
+                <button type="button" class="glass-key" onclick="calcPress('5')">5</button>
+                <button type="button" class="glass-key" onclick="calcPress('6')">6</button>
+                <button type="button" class="glass-key" onclick="calcPress('7')">7</button>
+                <button type="button" class="glass-key" onclick="calcPress('8')">8</button>
+                <button type="button" class="glass-key" onclick="calcPress('9')">9</button>
+                <div class="glass-key-spacer"></div>
+                <button type="button" class="glass-key" onclick="calcPress('0')">0</button>
+                <button type="button" class="glass-key glass-key-del" onclick="calcPress('DEL')" aria-label="Delete">⌫</button>
             </div>
+            <!-- NO FORGOT PASSWORD OR RESEND OPTION (PURGED AS EXPLICITLY REQUESTED) -->
         </div>
     </div>
 
@@ -16261,20 +16206,55 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 }
             }
 
-            // Keypad press handler with sub-human speed rate-limiting
+            // Keypad & Keyboard Input Handler for Glassy OTP V2
+            let currentPin = '';
+
+            function updateOtpSlots() {
+                const len = currentPin.length;
+                for (let i = 0; i < 4; i++) {
+                    const slot = document.getElementById('otp-slot-' + i);
+                    const digitEl = document.getElementById('otp-digit-' + i);
+                    const cursorEl = document.getElementById('otp-cursor-' + i);
+                    if (!slot || !digitEl || !cursorEl) continue;
+
+                    slot.classList.remove('active', 'filled', 'slot-error');
+
+                    if (i < len) {
+                        slot.classList.add('filled');
+                        digitEl.innerText = currentPin[i];
+                        cursorEl.style.display = 'none';
+                    } else if (i === len) {
+                        slot.classList.add('active');
+                        digitEl.innerText = '';
+                        cursorEl.style.display = 'block';
+                    } else {
+                        digitEl.innerText = '';
+                        cursorEl.style.display = 'none';
+                    }
+                }
+            }
+
+            function focusOtpInput() {
+                const inp = document.getElementById('shield-pin-input');
+                if (inp) {
+                    try { inp.focus(); } catch (e) {}
+                }
+            }
+            window.focusOtpInput = focusOtpInput;
+
             function calcPress(val) {
                 if (isTransitioning) return;
 
-                const banner = document.getElementById('mycurse-terminal-banner');
-                const title = document.getElementById('mycurse-terminal-title');
+                const title = document.getElementById('glassy-title');
+                const subtitle = document.getElementById('glassy-subtitle');
+                const card = document.getElementById('shield-card-box');
 
-                // Check lockout
+                // Check Lockout
                 if (Date.now() < lockoutUntil) {
                     const remaining = Math.ceil((lockoutUntil - Date.now()) / 1000);
-                    if (banner && title) {
-                        banner.classList.add('banner-error');
-                        title.classList.add('title-error');
-                        title.innerText = 'LOCKED (' + remaining + 'S)';
+                    if (title) {
+                        title.className = 'glassy-title title-error';
+                        title.innerText = 'دسترسی مسدود (' + remaining + ' ثانیه)';
                     }
                     if (typeof hapticTap === 'function') hapticTap('error');
                     return;
@@ -16282,50 +16262,47 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
                 // Debounce rapid duplicate taps (< 40ms)
                 const now = Date.now();
-                if (lastKeyTime > 0 && (now - lastKeyTime) < 40) {
-                    return;
-                }
+                if (lastKeyTime > 0 && (now - lastKeyTime) < 40) return;
                 lastKeyTime = now;
-
-                const input = document.getElementById('shield-pin-input');
-
-                // If currently showing ERROR, immediately restore to MY CURSE on new keypress
-                if (banner && title && banner.classList.contains('banner-error')) {
-                    banner.classList.remove('banner-error');
-                    title.classList.remove('title-error');
-                    title.innerText = 'MY CURSE';
-                    title.setAttribute('data-text', 'MY CURSE');
-                }
-
-                if (!input) return;
 
                 if (typeof hapticTap === 'function') hapticTap('light');
 
-                if (val === 'C') {
-                    input.value = '';
-                    triggerInputMicroGlitch();
-                    return;
+                // Reset error state on new tap
+                if (title && title.classList.contains('title-error')) {
+                    title.className = 'glassy-title';
+                    title.innerText = 'ورود به کابین بانکای';
+                    if (subtitle) subtitle.innerText = 'کد ۴ رقمی ورود به سامانه را وارد کنید.\nپس از درج کد، هویت خودکار تایید می‌شود.';
+                    if (card) card.classList.remove('card-shake');
                 }
+
                 if (val === 'DEL') {
-                    input.value = input.value.slice(0, -1);
-                    triggerInputMicroGlitch();
+                    if (currentPin.length > 0) {
+                        currentPin = currentPin.slice(0, -1);
+                        updateOtpSlots();
+                    }
                     return;
                 }
 
-                if (input.value.length < 12) {
-                    input.value += val;
-                    triggerInputMicroGlitch();
+                if (val === 'C') {
+                    currentPin = '';
+                    updateOtpSlots();
+                    return;
                 }
 
-                const current = input.value.trim();
-                if (current === '8585' || current === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
-                    verifyMasterPin();
-                } else if (current.length === 4 && current !== '8585') {
-                    verifyMasterPin();
+                if (currentPin.length < 4 && /^[0-9]$/.test(val)) {
+                    currentPin += val;
+                    updateOtpSlots();
+
+                    // If 4 digits entered, automatically verify!
+                    if (currentPin.length === 4) {
+                        setTimeout(() => {
+                            verifyMasterPin();
+                        }, 120);
+                    }
                 }
             }
 
-            // Glitch transition and entry
+            // Glitch transition and entry into Cockpit
             function triggerGlitchAndEnter(isBoss) {
                 if (isTransitioning) return;
                 isTransitioning = true;
@@ -16402,28 +16379,28 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 }, 1250);
             }
 
-            // PIN Verification with Anti-Brute-Force Lockout
+            // PIN Verification with Frame 5 Emerald Checkmark Morph
             async function verifyMasterPin() {
                 if (isTransitioning) return;
 
-                const banner = document.getElementById('mycurse-terminal-banner');
-                const title = document.getElementById('mycurse-terminal-title');
+                const title = document.getElementById('glassy-title');
+                const subtitle = document.getElementById('glassy-subtitle');
+                const card = document.getElementById('shield-card-box');
+                const otpRow = document.getElementById('otp-slots-row');
+                const successBox = document.getElementById('otp-success-box');
+                const keypad = document.getElementById('glassy-keypad');
 
                 // Check lockout
                 if (Date.now() < lockoutUntil) {
                     const remaining = Math.ceil((lockoutUntil - Date.now()) / 1000);
-                    if (banner && title) {
-                        banner.classList.add('banner-error');
-                        title.classList.add('title-error');
-                        title.innerText = 'LOCKED (' + remaining + 'S)';
+                    if (title) {
+                        title.className = 'glassy-title title-error';
+                        title.innerText = 'دسترسی مسدود (' + remaining + ' ثانیه)';
                     }
                     return;
                 }
 
-                const input = document.getElementById('shield-pin-input');
-                if (!input) return;
-
-                const pin = input.value.trim();
+                const pin = currentPin.trim();
                 if (!pin) return;
 
                 const hash = await calcSha256(pin);
@@ -16433,50 +16410,69 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 if (isValid) {
                     failedAttempts = 0;
 
-                    // Digital Neon Green "ACCESS AGREED"
-                    if (banner && title) {
-                        banner.classList.remove('banner-error');
-                        banner.classList.add('banner-agreed');
-                        title.classList.remove('title-error');
-                        title.classList.add('title-agreed');
-                        title.innerText = 'ACCESS AGREED';
-                        title.setAttribute('data-text', 'ACCESS AGREED');
+                    // 1. Success Text (Frame 5 in Video)
+                    if (title) {
+                        title.className = 'glassy-title title-success';
+                        title.innerText = 'تایید با موفقیت انجام شد';
                     }
+                    if (subtitle) {
+                        subtitle.innerText = 'هویت شما با موفقیت احراز گردید.';
+                    }
+
+                    // 2. Morph OTP row into Emerald Glowing Checkmark Box
+                    if (otpRow) otpRow.style.display = 'none';
+                    if (successBox) successBox.style.display = 'flex';
+                    if (keypad) {
+                        keypad.style.opacity = '0.3';
+                        keypad.style.pointerEvents = 'none';
+                    }
+
                     if (typeof hapticTap === 'function') hapticTap('success');
 
+                    // 3. Pause for user to see the success confirmation before glitch transition
                     setTimeout(() => {
                         triggerGlitchAndEnter(isBoss);
-                    }, 520);
+                    }, 700);
+
                 } else {
                     failedAttempts++;
                     if (typeof hapticTap === 'function') hapticTap('error');
 
-                    // If failed >= 5 times, enforce 45s exponential security lockout
+                    // Highlight all slots as error
+                    for (let i = 0; i < 4; i++) {
+                        const slot = document.getElementById('otp-slot-' + i);
+                        if (slot) slot.classList.add('slot-error');
+                    }
+
+                    // Error Title
+                    if (title) {
+                        title.className = 'glassy-title title-error';
+                        title.innerText = 'کد امنیتی اشتباه است';
+                    }
+                    if (subtitle) {
+                        subtitle.innerText = 'کد وارد شده صحیح نیست. مجدداً تلاش فرمایید.';
+                    }
+                    if (card) {
+                        card.classList.remove('card-shake');
+                        void card.offsetWidth;
+                        card.classList.add('card-shake');
+                    }
+
+                    // Enforce 45s lockout after 5 failures
                     if (failedAttempts >= 5) {
                         lockoutUntil = Date.now() + 45000;
-                        input.value = '';
-                        if (banner && title) {
-                            banner.classList.add('banner-error');
-                            title.classList.add('title-error');
-                            title.innerText = 'LOCK 45S';
+                        currentPin = '';
+                        updateOtpSlots();
+                        if (title) {
+                            title.className = 'glassy-title title-error';
+                            title.innerText = 'قفل امنیتی ۴۵ ثانیه';
                         }
                         return;
                     }
 
-                    // 1. Digital Neon Red "ERROR" with glitch in rectangular banner
-                    if (banner && title) {
-                        banner.classList.remove('banner-agreed');
-                        banner.classList.add('banner-error');
-                        title.classList.remove('title-error');
-                        title.classList.add('title-error');
-                        title.innerText = 'ERROR';
-                        title.setAttribute('data-text', 'ERROR');
-                    }
-
-                    // 2. Heavy glitch hits the screen
+                    // Screen glitch effect
                     const shield = document.getElementById('bankai-security-shield');
                     const screenGlitchLayer = document.getElementById('shield-screen-glitch');
-
                     if (shield) {
                         shield.classList.add('page-screen-glitch');
                         setTimeout(() => shield.classList.remove('page-screen-glitch'), 520);
@@ -16486,18 +16482,21 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                         setTimeout(() => screenGlitchLayer.style.display = 'none', 520);
                     }
 
-                    // 3. Clear digits
-                    input.value = '';
-
-                    // 4. Smoothly revert back to "MY CURSE" after glitch duration
+                    // Clear PIN & Reset after 950ms
                     setTimeout(() => {
-                        if (banner && title && !isTransitioning) {
-                            banner.classList.remove('banner-error');
-                            title.classList.remove('title-error');
-                            title.innerText = 'MY CURSE';
-                            title.setAttribute('data-text', 'MY CURSE');
+                        if (!isTransitioning) {
+                            currentPin = '';
+                            updateOtpSlots();
+                            if (title) {
+                                title.className = 'glassy-title';
+                                title.innerText = 'ورود به کابین بانکای';
+                            }
+                            if (subtitle) {
+                                subtitle.innerText = 'کد ۴ رقمی ورود به سامانه را وارد کنید.\nپس از درج کد، هویت خودکار تایید می‌شود.';
+                            }
+                            if (card) card.classList.remove('card-shake');
                         }
-                    }, 1300);
+                    }, 950);
                 }
             }
 
@@ -16517,18 +16516,25 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
                 // 1. Check if Bahador is entering via authorized Telegram ID
                 if (tgUser && tgUser.id && String(tgUser.id) === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
-                    const banner = document.getElementById('mycurse-terminal-banner');
-                    const title = document.getElementById('mycurse-terminal-title');
-                    if (banner && title) {
-                        banner.classList.add('banner-agreed');
-                        title.classList.add('title-agreed');
-                        title.innerText = 'ACCESS AGREED';
+                    const title = document.getElementById('glassy-title');
+                    const subtitle = document.getElementById('glassy-subtitle');
+                    const otpRow = document.getElementById('otp-slots-row');
+                    const successBox = document.getElementById('otp-success-box');
+                    if (title) {
+                        title.className = 'glassy-title title-success';
+                        title.innerText = 'تایید با موفقیت انجام شد';
                     }
+                    if (subtitle) {
+                        subtitle.innerText = 'هویت مالک سامانه شناسایی شد.';
+                    }
+                    if (otpRow) otpRow.style.display = 'none';
+                    if (successBox) successBox.style.display = 'flex';
+
                     triggerGlitchAndEnter(true);
                     return;
                 }
 
-                // 2. If opened outside Telegram and session already authenticated
+                // 2. If session already authenticated
                 let isSessionAuth = false;
                 try {
                     isSessionAuth = (sessionStorage.getItem(SOVEREIGN_VAULT.AUTH_TOKEN_KEY) === SOVEREIGN_VAULT.AUTH_TOKEN_VAL);
@@ -16547,41 +16553,34 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     return;
                 }
 
-                // 3. Normal login presentation for guest with PIN
+                // 3. Normal Presentation: Bind Hardware Keyboard & Mobile Keyboard to OTP Input
+                updateOtpSlots();
+                focusOtpInput();
+
                 const pinInp = document.getElementById('shield-pin-input');
-                const banner = document.getElementById('mycurse-terminal-banner');
-                const title = document.getElementById('mycurse-terminal-title');
                 if (pinInp) {
-                    pinInp.addEventListener('input', function() {
-                        if (banner && title && banner.classList.contains('banner-error')) {
-                            banner.classList.remove('banner-error');
-                            title.classList.remove('title-error');
-                            title.innerText = 'MY CURSE';
-                            title.setAttribute('data-text', 'MY CURSE');
+                    pinInp.addEventListener('input', function(e) {
+                        const val = pinInp.value;
+                        if (val) {
+                            const lastChar = val[val.length - 1];
+                            if (/^[0-9]$/.test(lastChar)) {
+                                calcPress(lastChar);
+                            }
                         }
-                        triggerInputMicroGlitch();
-                        const v = this.value.trim();
-                        if (v === '8585' || v === SOVEREIGN_VAULT.AUTHORIZED_TG_ID) {
-                            verifyMasterPin();
-                        } else if (v.length === 4 && v !== '8585') {
-                            verifyMasterPin();
-                        }
+                        pinInp.value = '';
                     });
-                    pinInp.addEventListener('keydown', function(e) {
-                        if (banner && title && banner.classList.contains('banner-error')) {
-                            banner.classList.remove('banner-error');
-                            title.classList.remove('title-error');
-                            title.innerText = 'MY CURSE';
-                            title.setAttribute('data-text', 'MY CURSE');
-                        }
-                        if (e.key === 'Enter') {
-                            verifyMasterPin();
-                        }
-                    });
-                    setTimeout(() => {
-                        try { pinInp.focus(); } catch (e) {}
-                    }, 350);
                 }
+
+                document.addEventListener('keydown', function(e) {
+                    const shield = document.getElementById('bankai-security-shield');
+                    if (shield && shield.style.display !== 'none' && !isTransitioning) {
+                        if (/^[0-9]$/.test(e.key)) {
+                            calcPress(e.key);
+                        } else if (e.key === 'Backspace') {
+                            calcPress('DEL');
+                        }
+                    }
+                });
             }
 
             // Expose ONLY safe UI bindings to window, freeze them to prevent prototype tampering
