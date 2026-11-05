@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>شبیه‌ساز تعاملی شیب‌های اقتصادی و کالاهای مکمل | BANKAI</title>
+    <style>
+        :root {
+            --bg: #090D16;
+            --panel: rgba(15, 23, 42, 0.85);
+            --card: #1E293B;
+            --border: #334155;
+            --accent-cyan: #00F0FF;
+            --accent-blue: #3B82F6;
+            --accent-emerald: #10B981;
+            --accent-crimson: #EF4444;
+            --accent-amber: #F59E0B;
+            --accent-purple: #8B5CF6;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Vazirmatn", Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            margin-bottom: 12px;
+            padding: 10px 14px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hud-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: rgba(0, 240, 255, 0.08);
+            margin-bottom: 6px;
+        }
+
+        h1 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Mode Tabs */
+        .tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 12px;
+        }
+
+        .tab-btn {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 10px 6px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+        }
+
+        .tab-btn.active {
+            background: rgba(0, 240, 255, 0.12);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+        }
+
+        /* Main Workbench */
+        .workbench {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .workbench {
+                grid-template-columns: 1.25fr 1fr;
+            }
+        }
+
+        /* Canvas Container */
+        .canvas-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .canvas-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        canvas {
+            width: 100%;
+            height: auto;
+            max-height: 380px;
+            background: #060911;
+            border: 1px solid #1E293B;
+            border-radius: 10px;
+            touch-action: none;
+            cursor: crosshair;
+        }
+
+        .canvas-hint {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Controls Card */
+        .controls-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .control-val {
+            font-family: monospace;
+            color: var(--accent-cyan);
+            font-size: 14px;
+            direction: ltr;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 7px;
+            border-radius: 5px;
+            background: #1E293B;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        /* Analytical Telemetry Readout */
+        .telemetry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .telemetry-item {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .telemetry-title {
+            font-size: 10.5px;
+            color: var(--text-muted);
+        }
+
+        .telemetry-data {
+            font-size: 15px;
+            font-weight: 800;
+            font-family: monospace;
+            direction: ltr;
+            text-align: right;
+        }
+
+        /* Concept Flashcard */
+        .concept-card {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .concept-title {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--accent-emerald);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .formula-box {
+            background: #020617;
+            border: 1px solid #1E293B;
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-family: monospace;
+            font-size: 13.5px;
+            color: #38BDF8;
+            margin: 6px 0;
+            direction: ltr;
+        }
+
+        .warning-card {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 11.5px;
+            line-height: 1.5;
+            color: #FCA5A5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hud-badge">⚔️ آزمایشگاه تجسمی هندسی BANKAI</div>
+        <h1>شبیه‌ساز تعاملی شیب‌ها و حساسیت‌های اقتصادی</h1>
+        <p class="subtitle">چرخش زنده شیب‌ها، کشش تقاضای متقاطع مکمل و زوایای تعادل تولیدکننده</p>
+    </header>
+
+    <!-- Tab Selector -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchMode(0)">۱. کالاهای مکمل (کشش متقاطع)</button>
+        <button class="tab-btn" onclick="switchMode(1)">۲. مکمل کامل (لئونتیف ۹۰°)</button>
+        <button class="tab-btn" onclick="switchMode(2)">۳. چرخش شیب خط هزینه (w/r)</button>
+    </div>
+
+    <!-- Main Workbench -->
+    <div class="workbench">
+        <!-- Visual Canvas Card -->
+        <div class="canvas-card">
+            <div class="canvas-header">
+                <span id="canvas-title">منحنی تقاضای متقاطع کالای مکمل (چای و قند)</span>
+                <span id="slope-badge" style="color: var(--accent-crimson);">شیب منفی: مکمل</span>
+            </div>
+            <canvas id="mathCanvas" width="460" height="380"></canvas>
+            <div class="canvas-hint">
+                <span>👆 انگشت یا ماوس را روی صفحه بکشید تا زاویه و شیب را لمس کنید</span>
+            </div>
+        </div>
+
+        <!-- Controls & Telemetry -->
+        <div class="controls-card">
+            <!-- Dynamic Controls -->
+            <div id="controls-container">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- Telemetry Values -->
+            <div class="telemetry-grid">
+                <div class="telemetry-item">
+                    <span class="telemetry-title" id="t1-title">شیب جبری (m = ΔY/ΔX)</span>
+                    <span class="telemetry-data" id="t1-val" style="color: var(--accent-cyan);">-0.80</span>
+                </div>
+                <div class="telemetry-item">
+                    <span class="telemetry-title" id="t2-title">زاویه شیب نسبت به افق</span>
+                    <span class="telemetry-data" id="t2-val" style="color: var(--accent-amber);">-38.6°</span>
+                </div>
+                <div class="telemetry-item">
+                    <span class="telemetry-title" id="t3-title">کشش نقطه‌ای برآوردشده</span>
+                    <span class="telemetry-data" id="t3-val" style="color: var(--accent-emerald);">-0.65</span>
+                </div>
+                <div class="telemetry-item">
+                    <span class="telemetry-title" id="t4-title">رابطه متقابل اقتصادی</span>
+                    <span class="telemetry-data" id="t4-val" style="color: #A855F7;">مکمل قوی</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Explanations -->
+            <div class="concept-card" id="concept-box">
+                <div class="concept-title" id="concept-title">◈ ماهیت هندسی شیب کالای مکمل:</div>
+                <div id="concept-text">
+                    در کالاهای مکمل (مانند خودرو و بنزین)، با افزایش قیمت کالای مکمل (Py)، تقاضای کالای اصلی (Qx) کاهش می‌یابد؛ بنابراین شیب رابطه متقاطع همواره <b>منفی</b> است (Exy &lt; 0).
+                </div>
+                <div class="formula-box" id="formula-text">
+                    E_xy = (dQ_x / dP_y) · (P_y / Q_x) &lt; 0
+                </div>
+            </div>
+
+            <!-- Exam Trap Warning -->
+            <div class="warning-card" id="warning-box">
+                ⚠️ <b>تله امتحانی استاد:</b> هرچه دو کالا مکمل قوی‌تری باشند، شیب منحنی تقاضای متقاطع منفی‌تر و کشش دورتر از صفر می‌شود. اگر شیب صفر شود، دو کالا کاملاً مستقل از هم هستند!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('mathCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let currentMode = 0;
+        let isDragging = false;
+
+        // State parameters
+        const state = {
+            // Mode 0: Cross Elasticity & Complementary Slope
+            mode0: {
+                slopeVal: -0.80,    // dQ/dPy
+                py: 45,             // Price of Y
+                baseDemand: 100,    // Intercept
+            },
+            // Mode 1: Leontief Production (L-shaped isoquant)
+            mode1: {
+                ratio: 1.0,         // Capital to Labor ratio (K/L)
+                targetQ: 50,        // Target output
+                touchL: 50,
+                touchK: 50
+            },
+            // Mode 2: Isocost slope rotation (w / r)
+            mode2: {
+                w: 2.0,             // wage rate
+                r: 4.0,             // rental of capital
+                tc: 200             // budget
+            }
+        };
+
+        // Initialize high-DPI scaling
+        function setupDPI() {
+            const rect = canvas.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+        }
+
+        window.addEventListener('resize', () => {
+            setupDPI();
+            draw();
+        });
+
+        // Mode Switching
+        function switchMode(idx) {
+            currentMode = idx;
+            document.querySelectorAll('.tab-btn').forEach((b, i) => {
+                b.classList.toggle('active', i === idx);
+            });
+            renderControls();
+            updateTelemetry();
+            draw();
+        }
+
+        // Render Dynamic Sliders based on Mode
+        function renderControls() {
+            const container = document.getElementById('controls-container');
+            if (currentMode === 0) {
+                document.getElementById('canvas-title').innerText = 'منحنی تقاضای متقاطع کالای مکمل (Qx بر حسب Py)';
+                container.innerHTML = `
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>تغییر شیب متقاطع (میزان مکمل بودن):</span>
+                            <span class="control-val" id="v-slope">${state.mode0.slopeVal.toFixed(2)}</span>
+                        </div>
+                        <input type="range" id="sl-slope" min="-2.0" max="0.5" step="0.05" value="${state.mode0.slopeVal}" oninput="onMode0Slope(this.value)">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>قیمت کالای مکمل (Py):</span>
+                            <span class="control-val" id="v-py">${state.mode0.py}</span>
+                        </div>
+                        <input type="range" id="sl-py" min="10" max="90" step="1" value="${state.mode0.py}" oninput="onMode0Py(this.value)">
+                    </div>
+                `;
+            } else if (currentMode === 1) {
+                document.getElementById('canvas-title').innerText = 'منحنی هم‌مقداری لئونتیف (مکمل کامل کار و سرمایه)';
+                container.innerHTML = `
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>نسبت بهینه ترکیب عوامل (k = K / L):</span>
+                            <span class="control-val" id="v-ratio">${state.mode1.ratio.toFixed(2)}</span>
+                        </div>
+                        <input type="range" id="sl-ratio" min="0.25" max="3.0" step="0.05" value="${state.mode1.ratio}" oninput="onMode1Ratio(this.value)">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>حجم تولید هدف (Q = min{aL, bK}):</span>
+                            <span class="control-val" id="v-q">${state.mode1.targetQ}</span>
+                        </div>
+                        <input type="range" id="sl-q" min="20" max="80" step="2" value="${state.mode1.targetQ}" oninput="onMode1Q(this.value)">
+                    </div>
+                `;
+            } else if (currentMode === 2) {
+                document.getElementById('canvas-title').innerText = 'چرخش شیب خط هزینه یکسان: Isocost Slope = - (w / r)';
+                container.innerHTML = `
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>دستمزد کارگر (w):</span>
+                            <span class="control-val" id="v-w">${state.mode2.w.toFixed(1)}</span>
+                        </div>
+                        <input type="range" id="sl-w" min="0.5" max="6.0" step="0.1" value="${state.mode2.w}" oninput="onMode2W(this.value)">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>نرخ اجاره سرمایه (r):</span>
+                            <span class="control-val" id="v-r">${state.mode2.r.toFixed(1)}</span>
+                        </div>
+                        <input type="range" id="sl-r" min="1.0" max="6.0" step="0.2" value="${state.mode2.r}" oninput="onMode2R(this.value)">
+                    </div>
+                `;
+            }
+        }
+
+        // Slider Event Handlers
+        function onMode0Slope(val) {
+            state.mode0.slopeVal = parseFloat(val);
+            document.getElementById('v-slope').innerText = state.mode0.slopeVal.toFixed(2);
+            updateTelemetry();
+            draw();
+        }
+
+        function onMode0Py(val) {
+            state.mode0.py = parseFloat(val);
+            document.getElementById('v-py').innerText = state.mode0.py;
+            updateTelemetry();
+            draw();
+        }
+
+        function onMode1Ratio(val) {
+            state.mode1.ratio = parseFloat(val);
+            document.getElementById('v-ratio').innerText = state.mode1.ratio.toFixed(2);
+            updateTelemetry();
+            draw();
+        }
+
+        function onMode1Q(val) {
+            state.mode1.targetQ = parseFloat(val);
+            document.getElementById('v-q').innerText = state.mode1.targetQ;
+            updateTelemetry();
+            draw();
+        }
+
+        function onMode2W(val) {
+            state.mode2.w = parseFloat(val);
+            document.getElementById('v-w').innerText = state.mode2.w.toFixed(1);
+            updateTelemetry();
+            draw();
+        }
+
+        function onMode2R(val) {
+            state.mode2.r = parseFloat(val);
+            document.getElementById('v-r').innerText = state.mode2.r.toFixed(1);
+            updateTelemetry();
+            draw();
+        }
+
+        // Telemetry Update
+        function updateTelemetry() {
+            const badge = document.getElementById('slope-badge');
+            const cBox = document.getElementById('concept-box');
+            const wBox = document.getElementById('warning-box');
+
+            if (currentMode === 0) {
+                const s = state.mode0.slopeVal;
+                const py = state.mode0.py;
+                const qx = Math.max(5, state.mode0.baseDemand + s * py);
+                const angle = Math.atan(s) * (180 / Math.PI);
+                const elast = (s * py) / qx;
+
+                document.getElementById('t1-title').innerText = 'شیب متقاطع (dQx / dPy)';
+                document.getElementById('t1-val').innerText = s.toFixed(2);
+                document.getElementById('t1-val').style.color = s < 0 ? 'var(--accent-crimson)' : 'var(--accent-emerald)';
+
+                document.getElementById('t2-title').innerText = 'زاویه شیب نسبت به افق';
+                document.getElementById('t2-val').innerText = angle.toFixed(1) + '°';
+
+                document.getElementById('t3-title').innerText = 'کشش متقاطع نقطه‌ای (Exy)';
+                document.getElementById('t3-val').innerText = elast.toFixed(2);
+
+                document.getElementById('t4-title').innerText = 'وضعیت رابطه دو کالا';
+                if (s < -0.8) {
+                    document.getElementById('t4-val').innerText = 'مکمل قوی (Strong Complement)';
+                    document.getElementById('t4-val').style.color = '#EF4444';
+                    badge.innerText = 'شیب تند منفی: مکمل قوی';
+                    badge.style.color = 'var(--accent-crimson)';
+                } else if (s < -0.05) {
+                    document.getElementById('t4-val').innerText = 'مکمل ملایم (Weak Complement)';
+                    document.getElementById('t4-val').style.color = '#F59E0B';
+                    badge.innerText = 'شیب ملایم منفی: مکمل';
+                    badge.style.color = 'var(--accent-amber)';
+                } else if (Math.abs(s) <= 0.05) {
+                    document.getElementById('t4-val').innerText = 'مستقل (Independent)';
+                    document.getElementById('t4-val').style.color = '#94A3B8';
+                    badge.innerText = 'شیب صفر: مستقل';
+                    badge.style.color = 'var(--text-muted)';
+                } else {
+                    document.getElementById('t4-val').innerText = 'جانشین (Substitute)';
+                    document.getElementById('t4-val').style.color = '#10B981';
+                    badge.innerText = 'شیب مثبت: جانشین';
+                    badge.style.color = 'var(--accent-emerald)';
+                }
+
+                document.getElementById('concept-title').innerText = '◈ تحلیل هندسی شیب مکمل:';
+                document.getElementById('concept-text').innerHTML = `
+                    در کالاهای مکمل (چای و قند)، شیب منحنی متقاطع <b>منفی</b> است. هرچه وابستگی دو کالا بیشتر باشد، شیب تندتر شده و با گران شدن کالای مکمل، تقاضای کالای اصلی شدیداً سقوط می‌کند.
+                `;
+                document.getElementById('formula-text').innerText = 'E_xy = (dQ_x / dP_y) · (P_y / Q_x) < 0';
+                wBox.innerHTML = `⚠️ <b>تله امتحانی:</b> اگر دو کالا مکمل کامل باشند (مثل لنگه چپ و راست کفش)، افزایش قیمت یکی تقاضای هر دو را به یک نسبت نابود می‌کند!`;
+
+            } else if (currentMode === 1) {
+                const ratio = state.mode1.ratio;
+                const q = state.mode1.targetQ;
+                const lCorner = q;
+                const kCorner = q * ratio;
+
+                document.getElementById('t1-title').innerText = 'شیب بازوی افقی (MRTS)';
+                document.getElementById('t1-val').innerText = '0.00 (تخت)';
+                document.getElementById('t1-val').style.color = 'var(--accent-cyan)';
+
+                document.getElementById('t2-title').innerText = 'شیب بازوی عمودی (MRTS)';
+                document.getElementById('t2-val').innerText = '∞ (بی‌نهایت قائم)';
+                document.getElementById('t2-val').style.color = 'var(--accent-crimson)';
+
+                document.getElementById('t3-title').innerText = 'شیب در نقطه گوشه (راس L)';
+                document.getElementById('t3-val').innerText = 'تعریف‌نشده (زاویه ۹۰°)';
+                document.getElementById('t3-val').style.color = 'var(--accent-amber)';
+
+                document.getElementById('t4-title').innerText = 'کشش جانشینی عوامل (σ)';
+                document.getElementById('t4-val').innerText = '0.00 (صفر مطلق)';
+                document.getElementById('t4-val').style.color = '#EF4444';
+
+                badge.innerText = 'تکنولوژی لئونتیف (مکمل کامل)';
+                badge.style.color = 'var(--accent-cyan)';
+
+                document.getElementById('concept-title').innerText = '◈ شیب منحنی هم‌مقداری مکمل کامل (Leontief):';
+                document.getElementById('concept-text').innerHTML = `
+                    در نهاده‌های مکمل کامل، نسبت کار به سرمایه ثابت است (خط‌چین بنفش). اضافه کردن کارگر بدون افزایش ماشین‌آلات تولید را حتی یک واحد زیاد نمی‌کند؛ بنابراین شیب بازوی افقی صفر است: <b>MRTS = 0</b>.
+                `;
+                document.getElementById('formula-text').innerText = 'Q = min{ a · L , b · K }  ==>  σ = 0';
+                wBox.innerHTML = `⚠️ <b>تله طراحان تست:</b> در نقطه گوشه L شکل، مشتق و MRTS وجود ندارد (مشتق‌پذیر نیست)! در بازوی راست MRTS=0 و در بازوی بالا MRTS=∞ است.`;
+
+            } else if (currentMode === 2) {
+                const w = state.mode2.w;
+                const r = state.mode2.r;
+                const slope = -(w / r);
+                const angle = Math.atan(slope) * (180 / Math.PI);
+                const tc = state.mode2.tc;
+
+                document.getElementById('t1-title').innerText = 'شیب خط هزینه: - (w / r)';
+                document.getElementById('t1-val').innerText = slope.toFixed(2);
+                document.getElementById('t1-val').style.color = 'var(--accent-crimson)';
+
+                document.getElementById('t2-title').innerText = 'زاویه شیب نسبت به افق';
+                document.getElementById('t2-val').innerText = angle.toFixed(1) + '°';
+
+                document.getElementById('t3-title').innerText = 'حداکثر خرید سرمایه (TC/r)';
+                document.getElementById('t3-val').innerText = (tc / r).toFixed(1);
+
+                document.getElementById('t4-title').innerText = 'حداکثر استخدام کارگر (TC/w)';
+                document.getElementById('t4-val').innerText = (tc / w).toFixed(1);
+
+                badge.innerText = `شیب = - (${w.toFixed(1)} / ${r.toFixed(1)})`;
+                badge.style.color = 'var(--accent-amber)';
+
+                document.getElementById('concept-title').innerText = '◈ چرخش شیب خط هزینه یکسان (Isocost):';
+                document.getElementById('concept-text').innerHTML = `
+                    با تغییر دستمزد کارگر (w)، عرض از مبدأ روی محور سرمایه (K = TC/r) کاملاً ثابت مانده و خط هزینه دقیقاً <b>حول نقطه ثابت محور K به صورت ساعت‌گرد یا پادساعت‌گرد می‌چرخد</b>.
+                `;
+                document.getElementById('formula-text').innerText = 'K = (TC / r) - (w / r) · L';
+                wBox.innerHTML = `⚠️ <b>نکته امتحانی کلیدی:</b> کاهش دستمزد خط هزینه را موازی جابه‌جا نمی‌کند؛ بلکه شیب آن را ملایم‌تر کرده و حول محور K به سمت بیرون می‌چرخاند!`;
+            }
+        }
+
+        // Draw Canvas Graphics
+        function draw() {
+            const w = canvas.getBoundingClientRect().width;
+            const h = canvas.getBoundingClientRect().height;
+            ctx.clearRect(0, 0, w, h);
+
+            // Coordinate System Padding
+            const padL = 45;
+            const padR = 25;
+            const padT = 30;
+            const padB = 40;
+            const plotW = w - padL - padR;
+            const plotH = h - padT - padB;
+
+            // Draw Background Grid
+            ctx.strokeStyle = '#1E293B';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 3]);
+            for (let x = padL; x <= w - padR; x += plotW / 5) {
+                ctx.beginPath();
+                ctx.moveTo(x, padT);
+                ctx.lineTo(x, h - padB);
+                ctx.stroke();
+            }
+            for (let y = padT; y <= h - padB; y += plotH / 5) {
+                ctx.beginPath();
+                ctx.moveTo(padL, y);
+                ctx.lineTo(w - padR, y);
+                ctx.stroke();
+            }
+            ctx.setLineDash([]);
+
+            // Draw Axes
+            ctx.strokeStyle = '#64748B';
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            // Y Axis
+            ctx.moveTo(padL, padT - 10);
+            ctx.lineTo(padL, h - padB);
+            // X Axis
+            ctx.lineTo(w - padR + 10, h - padB);
+            ctx.stroke();
+
+            // Arrowheads
+            ctx.fillStyle = '#64748B';
+            // Y arrow
+            ctx.beginPath();
+            ctx.moveTo(padL, padT - 15);
+            ctx.lineTo(padL - 4, padT - 6);
+            ctx.lineTo(padL + 4, padT - 6);
+            ctx.fill();
+            // X arrow
+            ctx.beginPath();
+            ctx.moveTo(w - padR + 15, h - padB);
+            ctx.lineTo(w - padR + 6, h - padB - 4);
+            ctx.lineTo(w - padR + 6, h - padB + 4);
+            ctx.fill();
+
+            // Axis Labels
+            ctx.font = 'bold 11px sans-serif';
+            ctx.fillStyle = '#94A3B8';
+            ctx.textAlign = 'center';
+
+            if (currentMode === 0) {
+                // X = Py, Y = Qx
+                ctx.fillText('قیمت کالای مکمل (Py)', padL + plotW / 2, h - 12);
+                ctx.save();
+                ctx.translate(14, padT + plotH / 2);
+                ctx.rotate(-Math.PI / 2);
+                ctx.fillText('تقاضای کالای اصلی (Qx)', 0, 0);
+                ctx.restore();
+
+                drawMode0(padL, padT, plotW, plotH);
+
+            } else if (currentMode === 1) {
+                // X = L, Y = K
+                ctx.fillText('نیروی کار (L)', padL + plotW / 2, h - 12);
+                ctx.save();
+                ctx.translate(14, padT + plotH / 2);
+                ctx.rotate(-Math.PI / 2);
+                ctx.fillText('سرمایه (K)', 0, 0);
+                ctx.restore();
+
+                drawMode1(padL, padT, plotW, plotH);
+
+            } else if (currentMode === 2) {
+                // X = L, Y = K
+                ctx.fillText('نیروی کار (L)', padL + plotW / 2, h - 12);
+                ctx.save();
+                ctx.translate(14, padT + plotH / 2);
+                ctx.rotate(-Math.PI / 2);
+                ctx.fillText('سرمایه (K)', 0, 0);
+                ctx.restore();
+
+                drawMode2(padL, padT, plotW, plotH);
+            }
+        }
+
+        // Draw Mode 0: Cross Elasticity Demand Curve
+        function drawMode0(padL, padT, plotW, plotH) {
+            const slope = state.mode0.slopeVal;
+            const curPy = state.mode0.py;
+            const maxPy = 100;
+            const maxQx = 120;
+
+            const mapX = py => padL + (py / maxPy) * plotW;
+            const mapY = qx => padT + plotH - (qx / maxQx) * plotH;
+
+            // Draw Curve Line: Qx = 100 + slope * Py
+            ctx.strokeStyle = slope < 0 ? '#EF4444' : '#10B981';
+            ctx.lineWidth = 3.2;
+            ctx.beginPath();
+
+            const pStart = 0;
+            const qStart = Math.min(maxQx, Math.max(0, state.mode0.baseDemand + slope * pStart));
+            const pEnd = 100;
+            const qEnd = Math.min(maxQx, Math.max(0, state.mode0.baseDemand + slope * pEnd));
+
+            ctx.moveTo(mapX(pStart), mapY(qStart));
+            ctx.lineTo(mapX(pEnd), mapY(qEnd));
+            ctx.stroke();
+
+            // Active Point
+            const curQx = Math.max(0, state.mode0.baseDemand + slope * curPy);
+            const ptX = mapX(curPy);
+            const ptY = mapY(curQx);
+
+            // Droplines
+            ctx.strokeStyle = '#00F0FF';
+            ctx.lineWidth = 1.2;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(ptX, padT + plotH);
+            ctx.lineTo(ptX, ptY);
+            ctx.lineTo(padL, ptY);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Glowing Node
+            ctx.fillStyle = '#00F0FF';
+            ctx.beginPath();
+            ctx.arc(ptX, ptY, 6.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Tangent Triangle indicator for slope
+            const dx = 25;
+            const dy = dx * slope;
+            const triX1 = ptX - dx / 2;
+            const triY1 = ptY + (dy / 2);
+            const triX2 = ptX + dx / 2;
+            const triY2 = ptY - (dy / 2);
+
+            ctx.strokeStyle = '#F59E0B';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(triX1, triY1);
+            ctx.lineTo(triX2, triY1);
+            ctx.lineTo(triX2, triY2);
+            ctx.stroke();
+
+            // Annotations
+            ctx.font = 'bold 11px sans-serif';
+            ctx.fillStyle = '#F59E0B';
+            ctx.textAlign = 'left';
+            ctx.fillText(`ΔPy`, (triX1 + triX2) / 2 - 8, triY1 + 14);
+            ctx.fillText(`ΔQx`, triX2 + 4, (triY1 + triY2) / 2);
+
+            // Tag
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = 'bold 12px sans-serif';
+            ctx.fillText(`نقطه جاری (Py=${curPy}, Qx=${curQx.toFixed(0)})`, ptX + 10, ptY - 12);
+        }
+
+        // Draw Mode 1: Leontief L-Shaped Isoquant
+        function drawMode1(padL, padT, plotW, plotH) {
+            const ratio = state.mode1.ratio;
+            const q = state.mode1.targetQ;
+            const maxVal = 100;
+
+            const mapX = l => padL + (l / maxVal) * plotW;
+            const mapY = k => padT + plotH - (k / maxVal) * plotH;
+
+            // Optimal corner coordinates
+            const lCorner = q;
+            const kCorner = q * ratio;
+
+            // Draw expansion ray from origin
+            ctx.strokeStyle = '#8B5CF6';
+            ctx.lineWidth = 1.8;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(mapX(0), mapY(0));
+            ctx.lineTo(mapX(100), mapY(100 * ratio));
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#8B5CF6';
+            ctx.font = 'bold 10px sans-serif';
+            ctx.fillText('مسیر انبساط فنی: K = ' + ratio.toFixed(2) + ' · L', mapX(80), mapY(80 * ratio) - 8);
+
+            // Draw 2 other sample isoquants (lighter)
+            [0.5, 1.4].forEach(factor => {
+                const lc = q * factor;
+                const kc = lc * ratio;
+                if (lc <= 95 && kc <= 95) {
+                    ctx.strokeStyle = 'rgba(59, 130, 246, 0.35)';
+                    ctx.lineWidth = 1.8;
+                    ctx.beginPath();
+                    ctx.moveTo(mapX(lc), mapY(100));
+                    ctx.lineTo(mapX(lc), mapY(kc));
+                    ctx.lineTo(mapX(100), mapY(kc));
+                    ctx.stroke();
+                }
+            });
+
+            // Draw Target Active L-shaped Isoquant
+            ctx.strokeStyle = '#3B82F6';
+            ctx.lineWidth = 3.5;
+            ctx.beginPath();
+            // Vertical leg (MRTS = infinity)
+            ctx.moveTo(mapX(lCorner), mapY(100));
+            ctx.lineTo(mapX(lCorner), mapY(kCorner));
+            // Horizontal leg (MRTS = 0)
+            ctx.lineTo(mapX(100), mapY(kCorner));
+            ctx.stroke();
+
+            // Shaded Feasible Output Region
+            ctx.fillStyle = 'rgba(59, 130, 246, 0.08)';
+            ctx.fillRect(mapX(lCorner), mapY(100), mapX(100) - mapX(lCorner), mapY(kCorner) - mapY(100));
+
+            // Corner Point
+            const ptX = mapX(lCorner);
+            const ptY = mapY(kCorner);
+
+            ctx.fillStyle = '#00F0FF';
+            ctx.beginPath();
+            ctx.arc(ptX, ptY, 7, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Leg Slope Badges on canvas
+            ctx.font = 'bold 11px sans-serif';
+            ctx.fillStyle = '#EF4444';
+            ctx.fillText('بازوی عمودی: شیب = ∞', ptX + 8, ptY - 35);
+
+            ctx.fillStyle = '#10B981';
+            ctx.fillText('بازوی افقی: شیب = 0', ptX + 45, ptY + 16);
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillText(`گوشه بهینه (L=${lCorner}, K=${kCorner.toFixed(0)})`, ptX - 10, ptY - 12);
+        }
+
+        // Draw Mode 2: Isocost Rotation
+        function drawMode2(padL, padT, plotW, plotH) {
+            const w = state.mode2.w;
+            const r = state.mode2.r;
+            const tc = state.mode2.tc;
+            const maxVal = 120;
+
+            const mapX = l => padL + (l / maxVal) * plotW;
+            const mapY = k => padT + plotH - (k / maxVal) * plotH;
+
+            const lMax = tc / w;
+            const kMax = tc / r;
+
+            // Draw Baseline isocost for comparison (w=2, r=4)
+            const baseW = 2.0;
+            const baseLMax = tc / baseW;
+            ctx.strokeStyle = 'rgba(148, 163, 184, 0.35)';
+            ctx.lineWidth = 1.8;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(mapX(0), mapY(kMax));
+            ctx.lineTo(mapX(baseLMax), mapY(0));
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = 'rgba(148, 163, 184, 0.7)';
+            ctx.font = '10px sans-serif';
+            ctx.fillText('موقعیت مبنا (w=2.0)', mapX(baseLMax) - 20, mapY(0) + 16);
+
+            // Shaded Budget Area
+            ctx.fillStyle = 'rgba(239, 68, 68, 0.08)';
+            ctx.beginPath();
+            ctx.moveTo(mapX(0), mapY(0));
+            ctx.lineTo(mapX(0), mapY(kMax));
+            ctx.lineTo(mapX(lMax), mapY(0));
+            ctx.closePath();
+            ctx.fill();
+
+            // Active Rotated Isocost Line
+            ctx.strokeStyle = '#EF4444';
+            ctx.lineWidth = 3.2;
+            ctx.beginPath();
+            ctx.moveTo(mapX(0), mapY(kMax));
+            ctx.lineTo(mapX(lMax), mapY(0));
+            ctx.stroke();
+
+            // Fixed Pivot Point (K_max = TC/r)
+            ctx.fillStyle = '#F59E0B';
+            ctx.beginPath();
+            ctx.arc(mapX(0), mapY(kMax), 6.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // Moving Point on X Axis (L_max = TC/w)
+            ctx.fillStyle = '#00F0FF';
+            ctx.beginPath();
+            ctx.arc(mapX(lMax), mapY(0), 6.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // Curved arrow showing rotation
+            ctx.strokeStyle = '#00F0FF';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            const arcRadius = 55;
+            ctx.arc(mapX(0), mapY(kMax), arcRadius, Math.PI / 4, Math.PI / 2.2, false);
+            ctx.stroke();
+
+            // Labels
+            ctx.font = 'bold 11px sans-serif';
+            ctx.fillStyle = '#F59E0B';
+            ctx.textAlign = 'left';
+            ctx.fillText(`نقطه لولای ثابت (K=${kMax.toFixed(0)})`, mapX(0) + 12, mapY(kMax) + 4);
+
+            ctx.fillStyle = '#00F0FF';
+            ctx.textAlign = 'center';
+            ctx.fillText(`L_max = ${lMax.toFixed(0)}`, mapX(lMax), mapY(0) - 10);
+
+            const midL = lMax / 2;
+            const midK = kMax / 2;
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillText(`شیب خط = - (${w.toFixed(1)} / ${r.toFixed(1)}) = -${(w/r).toFixed(2)}`, mapX(midL) + 20, mapY(midK) - 15);
+        }
+
+        // Direct Touch & Drag on Canvas to manipulate slopes
+        canvas.addEventListener('pointerdown', e => {
+            isDragging = true;
+            handlePointer(e);
+        });
+
+        canvas.addEventListener('pointermove', e => {
+            if (isDragging) handlePointer(e);
+        });
+
+        window.addEventListener('pointerup', () => isDragging = false);
+
+        function handlePointer(e) {
+            const rect = canvas.getBoundingClientRect();
+            const px = e.clientX - rect.left;
+            const py = e.clientY - rect.top;
+
+            const padL = 45;
+            const padR = 25;
+            const padT = 30;
+            const padB = 40;
+            const plotW = rect.width - padL - padR;
+            const plotH = rect.height - padT - padB;
+
+            const normX = Math.min(1, Math.max(0, (px - padL) / plotW));
+            const normY = Math.min(1, Math.max(0, 1 - (py - padT) / plotH));
+
+            if (currentMode === 0) {
+                // Adjust slope based on pointer Y
+                const targetSlope = -2.0 + normY * 2.5; // -2.0 to +0.5
+                state.mode0.slopeVal = Math.min(0.5, Math.max(-2.0, targetSlope));
+                state.mode0.py = Math.round(normX * 90 + 10);
+                renderControls();
+                updateTelemetry();
+                draw();
+            } else if (currentMode === 1) {
+                // Adjust ratio based on touch
+                const targetRatio = (normY / (normX || 0.01));
+                state.mode1.ratio = Math.min(3.0, Math.max(0.25, targetRatio));
+                renderControls();
+                updateTelemetry();
+                draw();
+            } else if (currentMode === 2) {
+                // Adjust wage rate w
+                const targetW = (1 - normX) * 5.5 + 0.5;
+                state.mode2.w = Math.min(6.0, Math.max(0.5, targetW));
+                renderControls();
+                updateTelemetry();
+                draw();
+            }
+        }
+
+        // Initialize
+        setupDPI();
+        renderControls();
+        updateTelemetry();
+        draw();
+    </script>
+</body>
+</html>
