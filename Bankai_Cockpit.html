@@ -6018,6 +6018,98 @@ body.theme-dark .step-content {
     color: #CBD5E1 !important;
 }
 
+
+        /* ========================================================
+           v23.0 MULTI-SCENARIO INTERACTIVE SIMULATORS & WORKBENCHES
+           ======================================================== */
+        .sim-mode-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 14px;
+            border-bottom: 1.5px solid #E2E8F0;
+            scrollbar-width: none;
+        }
+        body.theme-dark .sim-mode-bar {
+            border-bottom-color: #334155;
+        }
+        .sim-mode-bar::-webkit-scrollbar { display: none; }
+        
+        .sim-mode-pill {
+            background: #F8FAFC;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 10px;
+            padding: 8px 14px;
+            font-size: 0.77rem;
+            font-weight: 800;
+            color: #475569;
+            cursor: pointer;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+        body.theme-dark .sim-mode-pill {
+            background: #1E293B;
+            border-color: #334155;
+            color: #94A3B8;
+        }
+        .sim-mode-pill:hover {
+            border-color: #94A3B8;
+            transform: translateY(-1px);
+        }
+        .sim-mode-pill.active {
+            background: #00F0FF !important;
+            border-color: #00F0FF !important;
+            color: #020617 !important;
+            box-shadow: 0 0 16px rgba(0, 240, 255, 0.45);
+        }
+        body.theme-dark .sim-mode-pill.active {
+            background: #00F0FF !important;
+            border-color: #00F0FF !important;
+            color: #020617 !important;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+        }
+
+        .micro-sim-panel, .math-sim-panel, .stat-sim-panel {
+            display: none;
+            width: 100%;
+            animation: simPanelFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .micro-sim-panel.active-panel, .math-sim-panel.active-panel, .stat-sim-panel.active-panel {
+            display: block;
+        }
+        @keyframes simPanelFadeIn {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dynamic Canvas Styling */
+        #canvasMicroStages, #canvasMicroIsoquant, #canvasMicroComp,
+        #canvasMathDiff, #canvasMathHessian,
+        #canvasStatSeesaw, #canvasStatSturges {
+            width: 100%;
+            height: 420px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            display: block;
+            touch-action: none;
+            cursor: crosshair;
+        }
+        body.theme-dark #canvasMicroStages,
+        body.theme-dark #canvasMicroIsoquant,
+        body.theme-dark #canvasMicroComp,
+        body.theme-dark #canvasMathDiff,
+        body.theme-dark #canvasMathHessian,
+        body.theme-dark #canvasStatSeesaw,
+        body.theme-dark #canvasStatSturges {
+            background: #080D1A;
+            border-color: #1E293B;
+        }
 </style>
 
 </head>
@@ -6361,7 +6453,26 @@ body.theme-dark .step-content {
     <main id="main-content">
 <div id="pane-micro" class="discipline-pane">
             <div id="micro-tab-sim" class="subtab-view">
-                <div class="sim-layout" id="m-layout">
+                
+                <!-- SIMULATOR MODE SELECTOR -->
+                <div class="sim-mode-bar" id="micro-sim-mode-bar">
+                    <button type="button" class="sim-mode-pill micro-sim-pill active" id="micro-sim-pill-tax" onclick="switchSimMode('micro', 'tax')">
+                        <span>📉</span> تعادل بازار، مالیات و زیان رفاهی (DWL)
+                    </button>
+                    <button type="button" class="sim-mode-pill micro-sim-pill" id="micro-sim-pill-stages" onclick="switchSimMode('micro', 'stages')">
+                        <span>🏭</span> مراحل سه‌گانه تولید (منحنی‌های TP ، MP ، AP)
+                    </button>
+                    <button type="button" class="sim-mode-pill micro-sim-pill" id="micro-sim-pill-isoquant" onclick="switchSimMode('micro', 'isoquant')">
+                        <span>📐</span> تعادل تولیدکننده (هم‌مقداری، خط هزینه و مسیر توسعه)
+                    </button>
+                    <button type="button" class="sim-mode-pill micro-sim-pill" id="micro-sim-pill-complements" onclick="switchSimMode('micro', 'complements')">
+                        <span>🔄</span> شیب متقاطع کالاهای مکمل و لئونتیف ۹۰°
+                    </button>
+                </div>
+
+                <!-- 1.1 PANEL TAX (ORIGINAL) -->
+                <div id="micro-sim-tax" class="micro-sim-panel active-panel">
+                    <div class="sim-layout" id="m-layout">
                     <!-- Controls Column -->
                     <div class="controls-column card" style="margin-bottom: 0;">
                         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
@@ -6504,7 +6615,234 @@ body.theme-dark .step-content {
                     </div>
                 
                 <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
+                </div>
+
+                <!-- 1.2 PANEL PRODUCTION STAGES (TP, MP, AP & 3 STAGES) -->
+                <div id="micro-sim-stages" class="micro-sim-panel">
+                    <div class="sim-layout">
+                        <!-- Controls -->
+                        <div class="controls-column card" style="margin-bottom: 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                                <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-micro);">⚙️ تنظیمات تابع تولید و نیروی کار</span>
+                                <span class="font-mono badge badge-micro">TP = A·(-L³ + 12L²)·K̄/2</span>
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">نیروی کار استخدامی (L):</span>
+                                    <input type="number" id="mstg-l-num" value="6.0" min="0" max="9.5" step="0.1" class="param-input-box" style="color: #2563EB;">
+                                </div>
+                                <input type="range" id="mstg-l-slider" min="0" max="9.5" step="0.1" value="6.0">
+                                <span style="font-size: 0.68rem; color: #64748B;">👆 روی اسلایدر تکان دهید یا مستقیم روی نمودار دست بکشید</span>
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">سرمایه فیزیکی ثابت (K̄):</span>
+                                    <input type="number" id="mstg-k-num" value="2.0" min="1.0" max="5.0" step="0.5" class="param-input-box" style="color: #059669;">
+                                </div>
+                                <input type="range" id="mstg-k-slider" min="1.0" max="5.0" step="0.5" value="2.0">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">سطح بهره‌وری فناوری (A):</span>
+                                    <input type="number" id="mstg-a-num" value="1.0" min="0.5" max="2.5" step="0.1" class="param-input-box" style="color: #7C3AED;">
+                                </div>
+                                <input type="range" id="mstg-a-slider" min="0.5" max="2.5" step="0.1" value="1.0">
+                            </div>
+
+                            <!-- Live Concept Flashcard -->
+                            <div style="background: #EFF6FF; border: 1.5px solid #3B82F6; border-radius: 10px; padding: 10px 12px; margin-top: 10px;">
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #1E40AF; margin-bottom: 4px;">◈ تقاطع طلایی و مرزبندی مراحل سه‌گانه:</div>
+                                <div style="font-size: 0.72rem; color: #1E293B; line-height: 1.6;">
+                                    • نقطه عطف (Max MP): در L=4.0<br>
+                                    • اوج تولید متوسط (Max AP = MP): در L=6.0<br>
+                                    • اوج تولید کل (Max TP & MP=0): در L=8.0<br>
+                                    • مرحله اقتصادی: <b>منحصراً بازه L=6 تا L=8</b>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Canvas Column -->
+                        <div class="chart-column card" style="margin-bottom: 0;">
+                            <div class="chart-header">
+                                <span class="chart-title">کالبدشکافی زنده TP (بالا) و مشتقات MP و AP (پایین)</span>
+                                <span id="mstg-stage-badge" class="badge" style="background: #10B981; color: white; font-weight: 800;">مرحله دوم: منطقه اقتصادی عقلایی</span>
+                            </div>
+
+                            <canvas id="canvasMicroStages"></canvas>
+
+                            <!-- Live Telemetry Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px;">
+                                <div class="kpi-card" style="border-top: 3px solid #1E40AF;">
+                                    <div class="kpi-title">تولید کل (TP)</div>
+                                    <div class="kpi-val" id="mstg-val-tp" style="color: #1E40AF;">216.0</div>
+                                    <div class="kpi-sub">محصول فیزیکی کارخانه</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #DC2626;">
+                                    <div class="kpi-title">تولید نهایی (MPₗ)</div>
+                                    <div class="kpi-val" id="mstg-val-mp" style="color: #DC2626;">36.0</div>
+                                    <div class="kpi-sub">شیب خط مماس بر TP</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #059669;">
+                                    <div class="kpi-title">تولید متوسط (APₗ)</div>
+                                    <div class="kpi-val" id="mstg-val-ap" style="color: #059669;">36.0</div>
+                                    <div class="kpi-sub">شیب خط واصل از مبدأ</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #7C3AED;">
+                                    <div class="kpi-title">کشش تولیدی (εₗ)</div>
+                                    <div class="kpi-val" id="mstg-val-el" style="color: #7C3AED;">1.00</div>
+                                    <div class="kpi-sub">εₗ = MPₗ / APₗ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1.3 PANEL ISOQUANT & ISOCOST EQUILIBRIUM -->
+                <div id="micro-sim-isoquant" class="micro-sim-panel">
+                    <div class="sim-layout">
+                        <!-- Controls -->
+                        <div class="controls-column card" style="margin-bottom: 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                                <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-micro);">⚙️ قیمت نهاده‌ها، بودجه و توان‌های تولید</span>
+                                <span class="font-mono badge badge-micro">TC = w·L + r·K | Q = A·Lᵃ·Kᵇ</span>
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">دستمزد نیروی کار (w):</span>
+                                    <input type="number" id="miso-w-num" value="1.0" min="0.5" max="6.0" step="0.2" class="param-input-box" style="color: #DC2626;">
+                                </div>
+                                <input type="range" id="miso-w-slider" min="0.5" max="6.0" step="0.2" value="1.0">
+                                <span style="font-size: 0.68rem; color: #64748B;">با تغییر w، چرخش شیب خط هزینه را تماشا کنید!</span>
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">نرخ اجاره سرمایه (r):</span>
+                                    <input type="number" id="miso-r-num" value="2.0" min="0.5" max="6.0" step="0.2" class="param-input-box" style="color: #2563EB;">
+                                </div>
+                                <input type="range" id="miso-r-slider" min="0.5" max="6.0" step="0.2" value="2.0">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">بودجه کل تولید (TC):</span>
+                                    <input type="number" id="miso-tc-num" value="100" min="40" max="300" step="10" class="param-input-box" style="color: #059669;">
+                                </div>
+                                <input type="range" id="miso-tc-slider" min="40" max="300" step="10" value="100">
+                                <span style="font-size: 0.68rem; color: #64748B;">تغییر بودجه = حرکت روی مسیر توسعه (Expansion Path)</span>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                <div class="param-card" style="margin-bottom: 0;">
+                                    <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">توان کار (α):</span>
+                                    <input type="number" id="miso-alpha-num" value="1.0" min="0.2" max="2.0" step="0.1" class="param-input-box" style="width: 100%;">
+                                    <input type="range" id="miso-alpha-slider" min="0.2" max="2.0" step="0.1" value="1.0">
+                                </div>
+                                <div class="param-card" style="margin-bottom: 0;">
+                                    <span style="font-size: 0.7rem; font-weight: 800; color: #64748B;">توان سرمایه (β):</span>
+                                    <input type="number" id="miso-beta-num" value="1.0" min="0.2" max="2.0" step="0.1" class="param-input-box" style="width: 100%;">
+                                    <input type="range" id="miso-beta-slider" min="0.2" max="2.0" step="0.1" value="1.0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Canvas Column -->
+                        <div class="chart-column card" style="margin-bottom: 0;">
+                            <div class="chart-header">
+                                <span class="chart-title">نقطه مماس تعادل E* (هم‌مقداری و خط هزینه)</span>
+                                <span id="miso-rts-badge" class="badge" style="background: #3B82F6; color: white; font-weight: 800;">RTS = 2.0 (بازده صعودی به مقیاس)</span>
+                            </div>
+
+                            <canvas id="canvasMicroIsoquant"></canvas>
+
+                            <!-- Live Telemetry Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px;">
+                                <div class="kpi-card" style="border-top: 3px solid #2563EB;">
+                                    <div class="kpi-title">کارگر بهینه (L*)</div>
+                                    <div class="kpi-val" id="miso-val-l" style="color: #2563EB;">50.0</div>
+                                    <div class="kpi-sub">L* = (α/(α+β))·(TC/w)</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #059669;">
+                                    <div class="kpi-title">سرمایه بهینه (K*)</div>
+                                    <div class="kpi-val" id="miso-val-k" style="color: #059669;">25.0</div>
+                                    <div class="kpi-sub">K* = (β/(α+β))·(TC/r)</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #7C3AED;">
+                                    <div class="kpi-title">حداکثر تولید (Q*)</div>
+                                    <div class="kpi-val" id="miso-val-q" style="color: #7C3AED;">12,500</div>
+                                    <div class="kpi-sub">Q = 10·L^α·K^β</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #DC2626;">
+                                    <div class="kpi-title">شیب خط هزینه (-w/r)</div>
+                                    <div class="kpi-val" id="miso-val-slope" style="color: #DC2626;">-0.50</div>
+                                    <div class="kpi-sub">MRTS در نقطه تعادل</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1.4 PANEL COMPLEMENTS & LEONTIEF 90° -->
+                <div id="micro-sim-complements" class="micro-sim-panel">
+                    <div class="sim-layout">
+                        <!-- Controls -->
+                        <div class="controls-column card" style="margin-bottom: 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                                <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-micro);">⚙️ تحلیل شیب مکمل و لئونتیف</span>
+                                <span class="font-mono badge badge-micro">E_xy &lt; 0 | σ = 0</span>
+                            </div>
+
+                            <div class="workout-nav-pills" style="margin-bottom: 12px;">
+                                <button type="button" class="workout-pill active" id="btn-comp-m0" onclick="switchCompSubmode(0)">کالای مکمل (کشش متقاطع)</button>
+                                <button type="button" class="workout-pill" id="btn-comp-m1" onclick="switchCompSubmode(1)">مکمل کامل (لئونتیف ۹۰°)</button>
+                                <button type="button" class="workout-pill" id="btn-comp-m2" onclick="switchCompSubmode(2)">چرخش شیب خط هزینه</button>
+                            </div>
+
+                            <div id="comp-controls-dynamic">
+                                <!-- Injected via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Canvas Column -->
+                        <div class="chart-column card" style="margin-bottom: 0;">
+                            <div class="chart-header">
+                                <span class="chart-title" id="comp-chart-title">منحنی تقاضای متقاطع کالای مکمل (Qx بر حسب Py)</span>
+                                <span id="comp-slope-badge" class="badge" style="background: #DC2626; color: white; font-weight: 800;">شیب منفی: مکمل قوی</span>
+                            </div>
+
+                            <canvas id="canvasMicroComp"></canvas>
+
+                            <!-- Telemetry -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px;">
+                                <div class="kpi-card">
+                                    <div class="kpi-title" id="comp-t1-title">شیب جبری</div>
+                                    <div class="kpi-val" id="comp-t1-val" style="color: #DC2626;">-0.80</div>
+                                    <div class="kpi-sub">ΔY / ΔX</div>
+                                </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-title" id="comp-t2-title">زاویه شیب نسبت به افق</div>
+                                    <div class="kpi-val" id="comp-t2-val" style="color: #D97706;">-38.6°</div>
+                                    <div class="kpi-sub">arctan(m)</div>
+                                </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-title" id="comp-t3-title">کشش برآوردشده</div>
+                                    <div class="kpi-val" id="comp-t3-val" style="color: #059669;">-0.65</div>
+                                    <div class="kpi-sub">E_xy نقطه‌ای</div>
+                                </div>
+                                <div class="kpi-card">
+                                    <div class="kpi-title" id="comp-t4-title">رابطه متقابل</div>
+                                    <div class="kpi-val" id="comp-t4-val" style="color: #7C3AED;">مکمل قوی</div>
+                                    <div class="kpi-sub">طبقه‌بندی بازار</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="view-end-guard">
                     <span>🔒</span>
                     <span>پایان بخش چارت زنده و شبیه‌ساز | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
                 </div>
@@ -8743,6 +9081,21 @@ body.theme-dark .step-content {
                         اگر دستمزد کارگر (w) نصف شود، خط هزینه موازی جابه‌جا نمی‌شود؛ بلکه حول نقطه عرض از مبدأ روی محور سرمایه (TC/r) به سمت راست می‌چرخد و طول از مبدأ آن (TC/w) دو برابر می‌گردد.
                     </div>
 
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۹: خلط بازده نزولی با بازده نزولی به مقیاس</div>
+                        داوطلب گمان می‌کند اگر تابعی در کوتاه‌مدت بازده نزولی داشته باشد، در بلندمدت هم بازده نزولی به مقیاس دارد! اصل حقیقت: بازده نزولی مربوط به کوتاه‌مدت و افزودن کارگر به سرمایه ثابت است؛ بازده به مقیاس مربوط به بلندمدت و افزایش همزمان همه عوامل است. یک تابع می‌تواند در کوتاه‌مدت بازده نزولی اما در بلندمدت بازده صعودی به مقیاس داشته باشد!
+                    </div>
+
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۱۰: کشش تولیدی در نقطه اوج تولید کل</div>
+                        داوطلب در تست‌ها کشش تولیدی در اوج TP را ۱ علامت می‌زند! در نقطه بیشینه TP، شیب خط مماس یعنی تولید نهایی دقیقاً صفر است (MP = 0)؛ بنابراین فرمول εₗ = MP / AP دقیقاً مساوی صفر است، نه مساوی یک. در اوج AP است که کشش مساوی ۱ می‌شود.
+                    </div>
+
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۱۱: کشش جانشینی صفر در تکنولوژی لئونتیف ۹۰ درجه</div>
+                        در نهاده‌ها یا کالاهای مکمل کامل، نسبت ترکیب ثابت است. روی بازوی افقی نرخ جانشینی فنی صفر (MRTS = 0) و روی بازوی عمودی بی‌نهایت (MRTS = ∞) است؛ در نقطه گوشه مشتق وجود ندارد و کشش جانشینی عوامل صفر مطلق است (σ = 0).
+                    </div>
+
 
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
@@ -8759,11 +9112,15 @@ body.theme-dark .step-content {
 3. Pp = Pc - t  [عایدی خالص دریافتی فروشنده]
 4. Burden_C / Burden_P = d / b = Es / |Ed|  [نسبت طلایی تسهیم بار مالیاتی]
 5. DWL = 0.5 · t · (Q₀ - Qₜ)  [زیان بار مرده رفاهی جامعه]
-6. APₗ = TP ÷ L  [تولید متوسط - شیب خط متصل‌کننده مبدأ به نقطه روی TP]
-7. MPₗ = d(TP) ÷ dL  [تولید نهایی - شیب خط مماس بر منحنی TP]
-8. MRTSₗₖ = MPₗ ÷ MPₖ = w ÷ r  [شرط طلایی تعادل بهینه تولیدکننده]
-9. Q = A · Lᵅ · Kᵝ ⟹ RTS = α + β  [بازده به مقیاس کاب-داگلاس: فزاینده > 1 ، ثابت = 1 ، کاهنده < 1]
-10. Stage II: Max APₗ ≤ L ≤ (MPₗ = 0)  [تنها منطقه اقتصادی و عقلایی تولید]
+6. APₗ = TP / L  [تولید متوسط - شیب خط متصل‌کننده مبدأ به نقطه روی TP]
+7. MPₗ = d(TP) / dL  [تولید نهایی - شیب خط مماس بر منحنی TP]
+8. MRTSₗₖ = MPₗ / MPₖ = w / r  [شرط طلایی تعادل بهینه تولیدکننده]
+9. MPₗ / w = MPₖ / r  [اصل برابری بازدهی نهایی آخرین ریال هزینه‌شده]
+10. Q = A · Lᵃ · Kᵇ ⟹ RTS = a + b  [بازده به مقیاس کاب-داگلاس: فزاینده > 1 ، ثابت = 1 ، کاهنده < 1]
+11. εₗ = MPₗ / APₗ  [کشش تولیدی کار - در اوج TP برابر صفر و در اوج AP برابر ۱]
+12. Stage II: Max APₗ ≤ L ≤ (MPₗ = 0)  [تنها منطقه اقتصادی و عقلایی تولید]
+13. Exy = (dQx / dPy) · (Py / Qx) < 0  [کشش متقاطع کالاهای مکمل - شیب منفی]
+14. Q = min{aL , bK} ⟹ σ = 0  [مکمل کامل لئونتیف - زاویه ۹۰ درجه L شکل]
                     </div>
                 </div>
             </div>
@@ -10677,7 +11034,23 @@ body.theme-dark .step-content {
              ======================================================== -->
         <div id="pane-stat" class="discipline-pane" style="display: none;">
             <div id="stat-tab-sim" class="subtab-view">
-                <div class="sim-layout" id="s-layout">
+                
+                <!-- STAT SIMULATOR MODE SELECTOR -->
+                <div class="sim-mode-bar" id="stat-sim-mode-bar">
+                    <button type="button" class="sim-mode-pill stat-sim-pill active" id="stat-sim-pill-norm" onclick="switchSimMode('stat', 'norm')">
+                        <span>🔔</span> توزیع نرمال و قانون تجربی
+                    </button>
+                    <button type="button" class="sim-mode-pill stat-sim-pill" id="stat-sim-pill-seesaw" onclick="switchSimMode('stat', 'seesaw')">
+                        <span>⚖️</span> الاکلنگ میانگین حسابی و مقایسه (AM ≥ GM ≥ HM)
+                    </button>
+                    <button type="button" class="sim-mode-pill stat-sim-pill" id="stat-sim-pill-sturges" onclick="switchSimMode('stat', 'sturges')">
+                        <span>📊</span> جدول توزیع، قاعده استرجس و تصحیح شپرد
+                    </button>
+                </div>
+
+                <!-- 3.1 PANEL NORMAL (ORIGINAL) -->
+                <div id="stat-sim-norm" class="stat-sim-panel active-panel">
+                    <div class="sim-layout" id="s-layout">
                     <div class="controls-column card" style="margin-bottom: 0;">
                         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
                             <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-stat);">📈 پارامترهای توزیع نرمال و نمره Z</span>
@@ -10790,7 +11163,167 @@ body.theme-dark .step-content {
                     </div>
                 
                 <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
+                </div>
+
+                <!-- 3.2 PANEL MEAN SEESAW & OUTLIER SENSITIVITY -->
+                <div id="stat-sim-seesaw" class="stat-sim-panel">
+                    <div class="sim-layout">
+                        <!-- Controls -->
+                        <div class="controls-column card" style="margin-bottom: 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                                <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-stat);">⚙️ داده‌های نمونه و تزریق داده پرت</span>
+                                <span class="font-mono badge badge-stat">∑ (xᵢ - x̄) = 0 | AM ≥ GM ≥ HM</span>
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">داده اول (x₁):</span>
+                                    <input type="number" id="ssee-x1-num" value="10" min="2" max="50" class="param-input-box">
+                                </div>
+                                <input type="range" id="ssee-x1-slider" min="2" max="50" value="10">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">داده دوم (x₂):</span>
+                                    <input type="number" id="ssee-x2-num" value="20" min="5" max="60" class="param-input-box">
+                                </div>
+                                <input type="range" id="ssee-x2-slider" min="5" max="60" value="20">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">داده سوم (x₃):</span>
+                                    <input type="number" id="ssee-x3-num" value="30" min="10" max="80" class="param-input-box">
+                                </div>
+                                <input type="range" id="ssee-x3-slider" min="10" max="80" value="30">
+                            </div>
+
+                            <div class="param-card" style="border: 1.5px solid #EF4444; background: #FEF2F2;">
+                                <div class="param-top">
+                                    <span class="param-label" style="color: #991B1B; font-weight: 800;">تزریق داده پرت (Outlier x₄):</span>
+                                    <input type="number" id="ssee-x4-num" value="120" min="20" max="250" class="param-input-box" style="color: #EF4444; font-weight: 900;">
+                                </div>
+                                <input type="range" id="ssee-x4-slider" min="20" max="250" value="120">
+                                <span style="font-size: 0.68rem; color: #991B1B;">تغییر این داده، نقطه اتکای الاکلنگ را به شدت می‌کشد!</span>
+                            </div>
+                        </div>
+
+                        <!-- Canvas Column -->
+                        <div class="chart-column card" style="margin-bottom: 0;">
+                            <div class="chart-header">
+                                <span class="chart-title">الاکلنگ مکانیکی مرکز ثقل و مقایسه همزمان ۳ میانگین</span>
+                                <span class="badge" style="background: #10B981; color: white; font-weight: 800;">اثبات تعادل انحرافات = ۰</span>
+                            </div>
+
+                            <canvas id="canvasStatSeesaw"></canvas>
+
+                            <!-- Live Telemetry Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px;">
+                                <div class="kpi-card" style="border-top: 3px solid #2563EB;">
+                                    <div class="kpi-title">میانگین حسابی (AM = x̄)</div>
+                                    <div class="kpi-val" id="ssee-val-am" style="color: #2563EB;">45.0</div>
+                                    <div class="kpi-sub">مرکز ثقل الاکلنگ</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #059669;">
+                                    <div class="kpi-title">میانگین هندسی (GM = G)</div>
+                                    <div class="kpi-val" id="ssee-val-gm" style="color: #059669;">29.1</div>
+                                    <div class="kpi-sub">مقاوم در برابر داده پرت</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #7C3AED;">
+                                    <div class="kpi-title">میانگین هارمونیک (HM = H)</div>
+                                    <div class="kpi-val" id="ssee-val-hm" style="color: #7C3AED;">20.7</div>
+                                    <div class="kpi-sub">همساز / سرعت و نسبت‌ها</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #DC2626;">
+                                    <div class="kpi-title">مجموع انحرافات (∑(xi - x̄))</div>
+                                    <div class="kpi-val" id="ssee-val-dev" style="color: #DC2626;">0.000</div>
+                                    <div class="kpi-sub">تعادل قطعی فیزیکی و جبری</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.3 PANEL STURGES & SHEPPARD CORRECTION -->
+                <div id="stat-sim-sturges" class="stat-sim-panel">
+                    <div class="sim-layout">
+                        <!-- Controls -->
+                        <div class="controls-column card" style="margin-bottom: 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                                <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-stat);">⚙️ پارامترهای جدول طبقه‌بندی استرجس</span>
+                                <span class="font-mono badge badge-stat">k = 1 + 3.32 log₁₀ N | s²_adj = s² - c²/12</span>
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">حجم کل نمونه (N):</span>
+                                    <input type="number" id="ssturg-n-num" value="120" min="30" max="1000" step="10" class="param-input-box">
+                                </div>
+                                <input type="range" id="ssturg-n-slider" min="30" max="1000" step="10" value="120">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">دامنه کل تغییرات (R = Xmax - Xmin):</span>
+                                    <input type="number" id="ssturg-r-num" value="84" min="20" max="300" step="2" class="param-input-box">
+                                </div>
+                                <input type="range" id="ssturg-r-slider" min="20" max="300" step="2" value="84">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">واریانس محاسبه‌شده از جدول (s²):</span>
+                                    <input type="number" id="ssturg-var-num" value="48.0" min="10.0" max="200.0" step="1.0" class="param-input-box" style="color: #DC2626;">
+                                </div>
+                                <input type="range" id="ssturg-var-slider" min="10.0" max="200.0" step="1.0" value="48.0">
+                            </div>
+
+                            <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 10px; padding: 10px 12px; margin-top: 10px;">
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #065F46; margin-bottom: 4px;">◈ قاعده سقف استرجس و تصحیح شپرد:</div>
+                                <div style="font-size: 0.72rem; color: #1E293B; line-height: 1.6;">
+                                    طبق قرارداد علمی بهادر، مقادیر k و c همواره به عدد صحیح بزرگتر گرد می‌شوند (سقف).<br>
+                                    به دلیل خطای فرض تمرکز تمام داده‌ها در مرکز طبقه (Grouping Error)، واریانس جدول بیش‌آورد می‌شود؛ فرمول تصحیح شپرد مقدار c²/12 را از آن کسر می‌کند.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Canvas Column -->
+                        <div class="chart-column card" style="margin-bottom: 0;">
+                            <div class="chart-header">
+                                <span class="chart-title">هیستوگرام طبقه‌بندی، کران‌های واقعی (LCB, UCB) و مرکز دسته (Xᵢ)</span>
+                                <span class="badge" style="background: #10B981; color: white; font-weight: 800;">سقف استرجس</span>
+                            </div>
+
+                            <canvas id="canvasStatSturges"></canvas>
+
+                            <!-- Live Telemetry Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px;">
+                                <div class="kpi-card" style="border-top: 3px solid #2563EB;">
+                                    <div class="kpi-title">تعداد طبقات (k استرجس)</div>
+                                    <div class="kpi-val" id="ssturg-val-k" style="color: #2563EB;">8 طبقه</div>
+                                    <div class="kpi-sub">k = ⌈1 + 3.32 log₁₀ N⌉</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #059669;">
+                                    <div class="kpi-title">طول هر طبقه (c)</div>
+                                    <div class="kpi-val" id="ssturg-val-c" style="color: #059669;">11 واحد</div>
+                                    <div class="kpi-sub">c = ⌈R / k⌉</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #7C3AED;">
+                                    <div class="kpi-title">واریانس تعدیل‌شده شپرد</div>
+                                    <div class="kpi-val" id="ssturg-val-varadj" style="color: #7C3AED;">37.9</div>
+                                    <div class="kpi-sub">s² - c²/12</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #DC2626;">
+                                    <div class="kpi-title">میزان بیش‌آورد واریانس</div>
+                                    <div class="kpi-val" id="ssturg-val-err" style="color: #DC2626;">10.1 (21%)</div>
+                                    <div class="kpi-sub">کسر c²/12</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="view-end-guard">
                     <span>🔒</span>
                     <span>پایان بخش چارت زنده و شبیه‌ساز | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
                 </div>
@@ -12054,7 +12587,23 @@ body.theme-dark .step-content {
             
             <!-- SUBTAB 1: LIVE SIMULATION & INTERACTIVE FORMULA WORKOUT BENCH -->
             <div id="math-tab-sim" class="subtab-view">
-                <div class="sim-layout" id="math-layout">
+                
+                <!-- MATH SIMULATOR MODE SELECTOR -->
+                <div class="sim-mode-bar" id="math-sim-mode-bar">
+                    <button type="button" class="sim-mode-pill math-sim-pill active" id="math-sim-pill-quad" onclick="switchSimMode('math', 'quad')">
+                        <span>📈</span> تابع درجه دو و خط مماس
+                    </button>
+                    <button type="button" class="sim-mode-pill math-sim-pill" id="math-sim-pill-diff" onclick="switchSimMode('math', 'diff')">
+                        <span>🛢️</span> دیفرانسیل کل و تحلیل خطای استوانه
+                    </button>
+                    <button type="button" class="sim-mode-pill math-sim-pill" id="math-sim-pill-hessian" onclick="switchSimMode('math', 'hessian')">
+                        <span>🏔️</span> بهینه‌سازی دومتغیره و ماتریس هسیان
+                    </button>
+                </div>
+
+                <!-- 2.1 PANEL QUADRATIC (ORIGINAL) -->
+                <div id="math-sim-quad" class="math-sim-panel active-panel">
+                    <div class="sim-layout" id="math-layout">
                     <!-- Controls Column -->
                     <div class="controls-column card" style="margin-bottom: 0;">
                         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
@@ -12380,7 +12929,177 @@ body.theme-dark .step-content {
                 </div>
 
                 <!-- End of Isolated View Boundary Guard -->
-                <div class="view-end-guard">
+                </div>
+
+                <!-- 2.2 PANEL TOTAL DIFFERENTIAL (CYLINDER ERROR SENSITIVITY) -->
+                <div id="math-sim-diff" class="math-sim-panel">
+                    <div class="sim-layout">
+                        <!-- Controls -->
+                        <div class="controls-column card" style="margin-bottom: 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                                <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-math);">⚙️ ابعاد استوانه و خطاهای اندازه‌گیری</span>
+                                <span class="font-mono badge badge-math">V = π·r²·h | dV = 2πrh·dr + πr²·dh</span>
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">شعاع قاعده (r):</span>
+                                    <input type="number" id="mdiff-r-num" value="10" min="2" max="25" step="1" class="param-input-box" style="color: #2563EB;">
+                                </div>
+                                <input type="range" id="mdiff-r-slider" min="2" max="25" step="1" value="10">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">ارتفاع استوانه (h):</span>
+                                    <input type="number" id="mdiff-h-num" value="20" min="5" max="50" step="1" class="param-input-box" style="color: #059669;">
+                                </div>
+                                <input type="range" id="mdiff-h-slider" min="5" max="50" step="1" value="20">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">خطای اندازه‌گیری شعاع (dr):</span>
+                                    <input type="number" id="mdiff-dr-num" value="0.2" min="-1.0" max="1.0" step="0.05" class="param-input-box" style="color: #D97706;">
+                                </div>
+                                <input type="range" id="mdiff-dr-slider" min="-1.0" max="1.0" step="0.05" value="0.2">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">خطای اندازه‌گیری ارتفاع (dh):</span>
+                                    <input type="number" id="mdiff-dh-num" value="0.4" min="-2.0" max="2.0" step="0.1" class="param-input-box" style="color: #DC2626;">
+                                </div>
+                                <input type="range" id="mdiff-dh-slider" min="-2.0" max="2.0" step="0.1" value="0.4">
+                            </div>
+
+                            <div style="background: #F5F3FF; border: 1.5px solid #8B5CF6; border-radius: 10px; padding: 10px 12px; margin-top: 10px;">
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #6D28D9; margin-bottom: 4px;">◈ اثبات حساسیت مضاعف شعاع در دیفرانسیل کل:</div>
+                                <div style="font-size: 0.72rem; color: #1E293B; line-height: 1.6;">
+                                    dV / V = 2·(dr / r) + (dh / h)<br>
+                                    چون توان شعاع ۲ است، اثر خطای درصدی شعاع <b>دقیقاً دو برابر</b> اثر خطای درصدی ارتفاع در حجم کل است!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Canvas Column -->
+                        <div class="chart-column card" style="margin-bottom: 0;">
+                            <div class="chart-header">
+                                <span class="chart-title">تجسم هندسی استوانه و مقایسه دیفرانسیل کل (dV) با تغییر واقعی (ΔV)</span>
+                                <span class="badge" style="background: #8B5CF6; color: white; font-weight: 800;">تحلیل خطای لگاریتمی</span>
+                            </div>
+
+                            <canvas id="canvasMathDiff"></canvas>
+
+                            <!-- Live Telemetry Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px;">
+                                <div class="kpi-card" style="border-top: 3px solid #2563EB;">
+                                    <div class="kpi-title">حجم مبنا (V = πr²h)</div>
+                                    <div class="kpi-val" id="mdiff-val-v" style="color: #2563EB;">6,283</div>
+                                    <div class="kpi-sub">سانتی‌متر مکعب</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #059669;">
+                                    <div class="kpi-title">دیفرانسیل کل (dV)</div>
+                                    <div class="kpi-val" id="mdiff-val-dv" style="color: #059669;">+377.0</div>
+                                    <div class="kpi-sub">تقریب خطی درجه یک</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #7C3AED;">
+                                    <div class="kpi-title">تغییر واقعی (ΔV)</div>
+                                    <div class="kpi-val" id="mdiff-val-deltav" style="color: #7C3AED;">+380.1</div>
+                                    <div class="kpi-sub">محاسبه دقیق جبری</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #DC2626;">
+                                    <div class="kpi-title">خطای تقریب (|ΔV - dV|)</div>
+                                    <div class="kpi-val" id="mdiff-val-err" style="color: #DC2626;">3.1 (0.8%)</div>
+                                    <div class="kpi-sub">خطای جملات مرتبه دو</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.3 PANEL HESSIAN & 2D OPTIMIZATION -->
+                <div id="math-sim-hessian" class="math-sim-panel">
+                    <div class="sim-layout">
+                        <!-- Controls -->
+                        <div class="controls-column card" style="margin-bottom: 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
+                                <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-math);">⚙️ ماتریس هسیان و مشتقات جزئی</span>
+                                <span class="font-mono badge badge-math">D = f_xx·f_yy - (f_xy)²</span>
+                            </div>
+
+                            <div class="param-card">
+                                <span class="param-label" style="display:block; margin-bottom:6px;">نوع سطح دومتغیره (Surface Geometry):</span>
+                                <select id="mhess-func-sel" class="param-input-box" style="width: 100%; height: 38px; font-weight: 800;" onchange="drawMathHessian()">
+                                    <option value="saddle">زین اسبی (Saddle Point): z = x² - y²</option>
+                                    <option value="min">کاسه‌ای مینیمم (Paraboloid Min): z = x² + y²</option>
+                                    <option value="max">کاسه‌ای ماکزیمم (Paraboloid Max): z = -(x² + y²)</option>
+                                </select>
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">مختصات طول نقطه (x):</span>
+                                    <input type="number" id="mhess-x-num" value="0.0" min="-3.0" max="3.0" step="0.2" class="param-input-box">
+                                </div>
+                                <input type="range" id="mhess-x-slider" min="-3.0" max="3.0" step="0.2" value="0.0">
+                            </div>
+
+                            <div class="param-card">
+                                <div class="param-top">
+                                    <span class="param-label">مختصات عرض نقطه (y):</span>
+                                    <input type="number" id="mhess-y-num" value="0.0" min="-3.0" max="3.0" step="0.2" class="param-input-box">
+                                </div>
+                                <input type="range" id="mhess-y-slider" min="-3.0" max="3.0" step="0.2" value="0.0">
+                            </div>
+
+                            <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 10px 12px; margin-top: 10px;">
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #0F172A; margin-bottom: 4px;">◈ آزمون دترمینان هسیان (Hessian Test):</div>
+                                <div style="font-size: 0.72rem; color: #334155; line-height: 1.6;">
+                                    • اگر D &gt; 0 و f_xx &gt; 0  ==&gt;  <b>مینیمم محلی</b><br>
+                                    • اگر D &gt; 0 و f_xx &lt; 0  ==&gt;  <b>ماکزیمم محلی</b><br>
+                                    • اگر D &lt; 0  ==&gt;  <b>نقطه زینی (Saddle Point)</b><br>
+                                    • اگر D = 0  ==&gt;  آزمون بی‌نتیجه است
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Canvas Column -->
+                        <div class="chart-column card" style="margin-bottom: 0;">
+                            <div class="chart-header">
+                                <span class="chart-title">نقشه منحنی‌های تراز (Contour Map) و بردار گرادیان ∇f</span>
+                                <span id="mhess-class-badge" class="badge" style="background: #EF4444; color: white; font-weight: 800;">نقطه زینی (Saddle Point)</span>
+                            </div>
+
+                            <canvas id="canvasMathHessian"></canvas>
+
+                            <!-- Live Telemetry Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 12px;">
+                                <div class="kpi-card" style="border-top: 3px solid #2563EB;">
+                                    <div class="kpi-title">مشتقات مرتبه اول</div>
+                                    <div class="kpi-val" id="mhess-val-grad" style="color: #2563EB;">(0.0 , 0.0)</div>
+                                    <div class="kpi-sub">∇f = (fx , fy)</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #059669;">
+                                    <div class="kpi-title">مشتقات دوم متقاطع</div>
+                                    <div class="kpi-val" id="mhess-val-fxy" style="color: #059669;">f_xy = 0</div>
+                                    <div class="kpi-sub">قضیه کلرو-شوارتز</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #7C3AED;">
+                                    <div class="kpi-title">دترمینان هسیان (D)</div>
+                                    <div class="kpi-val" id="mhess-val-d" style="color: #7C3AED;">-4.0</div>
+                                    <div class="kpi-sub">D = fxx·fyy - fxy²</div>
+                                </div>
+                                <div class="kpi-card" style="border-top: 3px solid #DC2626;">
+                                    <div class="kpi-title">تشخیص بهینگی</div>
+                                    <div class="kpi-val" id="mhess-val-type" style="color: #DC2626;">نقطه زینی</div>
+                                    <div class="kpi-sub">وضعیت هندسی اکسترمم</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<div class="view-end-guard">
                     <span>🔒</span>
                     <span>پایان بخش چارت زنده و کارگاه تمرین ریاضیات | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
                 </div>
@@ -13953,12 +14672,30 @@ function selectTab(tab) {
             if (activeFsCourse) {
                 drawFullscreen();
             }
-            if (currentCourse === 'micro') drawMicro();
+            if (currentCourse === 'micro') {
+                const mode = (typeof activeSimModes !== 'undefined' && activeSimModes.micro) ? activeSimModes.micro : 'tax';
+                if (mode === 'tax') drawMicro();
+                else if (mode === 'stages') drawMicroStages();
+                else if (mode === 'isoquant') drawMicroIsoquant();
+                else if (mode === 'complements') drawMicroComplements();
+                else drawMicro();
+            }
             else if (currentCourse === 'cost') drawCost();
-            
             else if (currentCourse === 'or') drawOR();
-            else if (currentCourse === 'stat') drawStat();
-            else if (currentCourse === 'math') drawMath();
+            else if (currentCourse === 'stat') {
+                const mode = (typeof activeSimModes !== 'undefined' && activeSimModes.stat) ? activeSimModes.stat : 'norm';
+                if (mode === 'norm') drawStat();
+                else if (mode === 'seesaw') drawStatSeesaw();
+                else if (mode === 'sturges') drawStatSturges();
+                else drawStat();
+            }
+            else if (currentCourse === 'math') {
+                const mode = (typeof activeSimModes !== 'undefined' && activeSimModes.math) ? activeSimModes.math : 'quad';
+                if (mode === 'quad') drawMath();
+                else if (mode === 'diff') drawMathDiff();
+                else if (mode === 'hessian') drawMathHessian();
+                else drawMath();
+            }
         }
 
         // TradingView-Style Zoom Controls
@@ -17254,6 +17991,1090 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
         window.closeFlashbackModal = closeFlashbackModal;
         window.selectFlashbackChain = selectFlashbackChain;
 
+        
+        // ========================================================
+        // v23.0 MULTI-SCENARIO INTERACTIVE SIMULATORS & WORKBENCHES
+        // ========================================================
+
+        let activeSimModes = {
+            micro: 'tax',
+            math: 'quad',
+            stat: 'norm'
+        };
+
+        let compSubmode = 0; // 0: complement slope, 1: leontief 90, 2: isocost rotation
+
+        function switchSimMode(course, mode) {
+            if (typeof hapticTap === 'function') hapticTap('light');
+            activeSimModes[course] = mode;
+
+            // Update pills
+            document.querySelectorAll('.' + course + '-sim-pill').forEach(function(p) {
+                p.classList.remove('active');
+            });
+            const btn = document.getElementById(course + '-sim-pill-' + mode);
+            if (btn) btn.classList.add('active');
+
+            // Update panels
+            document.querySelectorAll('.' + course + '-sim-panel').forEach(function(panel) {
+                panel.classList.remove('active-panel');
+            });
+            const panel = document.getElementById(course + '-sim-' + mode);
+            if (panel) panel.classList.add('active-panel');
+
+            // Trigger redraw for the newly activated mode
+            setTimeout(function() {
+                if (course === 'micro') {
+                    if (mode === 'tax') drawMicro();
+                    else if (mode === 'stages') drawMicroStages();
+                    else if (mode === 'isoquant') drawMicroIsoquant();
+                    else if (mode === 'complements') {
+                        renderCompControls();
+                        drawMicroComplements();
+                    }
+                } else if (course === 'math') {
+                    if (mode === 'quad') drawMath();
+                    else if (mode === 'diff') drawMathDiff();
+                    else if (mode === 'hessian') drawMathHessian();
+                } else if (course === 'stat') {
+                    if (mode === 'norm') drawStat();
+                    else if (mode === 'seesaw') drawStatSeesaw();
+                    else if (mode === 'sturges') drawStatSturges();
+                }
+            }, 60);
+        }
+        window.switchSimMode = switchSimMode;
+
+        // -------------------------------------------------------------
+        // 1. MICRO: PRODUCTION STAGES (TP, MP, AP & 3 STAGES)
+        // -------------------------------------------------------------
+        function drawMicroStages(canvasId = 'canvasMicroStages') {
+            const setup = setupCanvas(canvasId);
+            if (!setup) return;
+            const { ctx, W, H } = setup;
+
+            const isDark = document.body.classList.contains('theme-dark');
+            const bgCol = isDark ? '#080D1A' : '#FFFFFF';
+            const textCol = isDark ? '#F8FAFC' : '#0F172A';
+            const gridCol = isDark ? '#1E293B' : '#E2E8F0';
+
+            ctx.fillStyle = bgCol;
+            ctx.fillRect(0, 0, W, H);
+
+            const L = parseFloat(document.getElementById('mstg-l-num')?.value) || 6.0;
+            const K_bar = parseFloat(document.getElementById('mstg-k-num')?.value) || 2.0;
+            const A = parseFloat(document.getElementById('mstg-a-num')?.value) || 1.0;
+
+            const scaleK = K_bar / 2.0;
+
+            // Mathematical formulas:
+            // TP = A * scaleK * (-L^3 + 12L^2)
+            // MP = A * scaleK * (-3L^2 + 24L)
+            // AP = A * scaleK * (-L^2 + 12L)
+            const curTP = Math.max(0, A * scaleK * (-Math.pow(L, 3) + 12 * Math.pow(L, 2)));
+            const curMP = A * scaleK * (-3 * Math.pow(L, 2) + 24 * L);
+            const curAP = L > 0 ? (curTP / L) : (A * scaleK * 12);
+            const curEl = curAP > 0 ? (curMP / curAP) : 0;
+
+            // Telemetry update
+            const tpEl = document.getElementById('mstg-val-tp'); if (tpEl) tpEl.innerText = curTP.toFixed(1);
+            const mpEl = document.getElementById('mstg-val-mp'); if (mpEl) mpEl.innerText = curMP.toFixed(1);
+            const apEl = document.getElementById('mstg-val-ap'); if (apEl) apEl.innerText = curAP.toFixed(1);
+            const elEl = document.getElementById('mstg-val-el'); if (elEl) elEl.innerText = curEl.toFixed(2);
+
+            const badge = document.getElementById('mstg-stage-badge');
+            if (badge) {
+                if (L <= 6.0) {
+                    badge.innerText = 'مرحله اول (Stage I): بازدهی صعودی کارگر (غیرعقلایی)';
+                    badge.style.background = '#2563EB';
+                } else if (L <= 8.0) {
+                    badge.innerText = 'مرحله دوم (Stage II): منطقه اقتصادی عقلایی تولید';
+                    badge.style.background = '#10B981';
+                } else {
+                    badge.innerText = 'مرحله سوم (Stage III): بازدهی منفی و افت محصول (زیان‌بار)';
+                    badge.style.background = '#EF4444';
+                }
+            }
+
+            // Layout split: Top 54% for TP, Bottom 38% for MP & AP
+            const padL = 46, padR = 24, padT = 26;
+            const topH = H * 0.48;
+            const botT = topH + 42;
+            const botH = H - botT - 28;
+            const plotW = W - padL - padR;
+
+            const maxL = 9.5;
+            const maxTP = Math.max(300, 260 * A * scaleK);
+            const maxMP = Math.max(65, 52 * A * scaleK);
+            const minMP = -30 * A * scaleK;
+
+            const mapX = function(l) { return padL + (l / maxL) * plotW; };
+            const mapY_TP = function(tp) { return padT + topH - (tp / maxTP) * topH; };
+            const mapY_MP = function(v) { return botT + botH - ((v - minMP) / (maxMP - minMP)) * botH; };
+
+            // Stage Background Fills (Across both top and bottom)
+            // Stage I: 0 <= L <= 6 (Blue tint)
+            ctx.fillStyle = isDark ? 'rgba(37, 99, 235, 0.08)' : 'rgba(239, 246, 255, 0.7)';
+            ctx.fillRect(mapX(0), padT, mapX(6) - mapX(0), H - padT - 28);
+
+            // Stage II: 6 <= L <= 8 (Emerald tint - Economic Stage)
+            ctx.fillStyle = isDark ? 'rgba(16, 185, 129, 0.12)' : 'rgba(240, 253, 244, 0.8)';
+            ctx.fillRect(mapX(6), padT, mapX(8) - mapX(6), H - padT - 28);
+
+            // Stage III: 8 <= L <= 9.5 (Red tint)
+            ctx.fillStyle = isDark ? 'rgba(239, 68, 68, 0.08)' : 'rgba(254, 242, 242, 0.7)';
+            ctx.fillRect(mapX(8), padT, mapX(maxL) - mapX(8), H - padT - 28);
+
+            // Stage text labels at bottom
+            ctx.font = 'bold 9.5px sans-serif';
+            ctx.fillStyle = '#2563EB'; ctx.textAlign = 'center';
+            ctx.fillText('مرحله اول (Stage I)', (mapX(0) + mapX(6)) / 2, H - 10);
+            ctx.fillStyle = '#059669';
+            ctx.fillText('مرحله دوم (منطقه عقلایی)', (mapX(6) + mapX(8)) / 2, H - 10);
+            ctx.fillStyle = '#DC2626';
+            ctx.fillText('مرحله سوم (Stage III)', (mapX(8) + mapX(maxL)) / 2, H - 10);
+
+            // Grid lines
+            ctx.strokeStyle = gridCol;
+            ctx.lineWidth = 1;
+            ctx.setLineDash([3, 3]);
+            [2, 4, 6, 8].forEach(function(lVal) {
+                const x = mapX(lVal);
+                ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, H - 24); ctx.stroke();
+            });
+            ctx.setLineDash([]);
+
+            // Draw TP curve in Top Plot
+            ctx.strokeStyle = '#1E40AF';
+            ctx.lineWidth = 3.0;
+            ctx.beginPath();
+            for (let lStep = 0; lStep <= maxL; lStep += 0.05) {
+                const tpVal = A * scaleK * (-Math.pow(lStep, 3) + 12 * Math.pow(lStep, 2));
+                const x = mapX(lStep);
+                const y = mapY_TP(Math.max(0, tpVal));
+                if (lStep === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Tangent Line at L on TP
+            const xNode = mapX(L);
+            const yNode = mapY_TP(curTP);
+            const slopeScale = (topH / maxTP) / (plotW / maxL);
+            const pixelSlope = -curMP * slopeScale;
+
+            const tLen = 45;
+            ctx.strokeStyle = '#DC2626';
+            ctx.lineWidth = 2.0;
+            ctx.beginPath();
+            ctx.moveTo(xNode - tLen, yNode - pixelSlope * (-tLen));
+            ctx.lineTo(xNode + tLen, yNode - pixelSlope * (tLen));
+            ctx.stroke();
+
+            // Secant Ray from Origin to Node (Slope = AP)
+            ctx.strokeStyle = '#059669';
+            ctx.lineWidth = 1.6;
+            ctx.setLineDash([4, 3]);
+            ctx.beginPath();
+            ctx.moveTo(mapX(0), mapY_TP(0));
+            ctx.lineTo(xNode, yNode);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Node on TP
+            ctx.fillStyle = '#1E40AF';
+            ctx.beginPath(); ctx.arc(xNode, yNode, 6, 0, Math.PI * 2); ctx.fill();
+            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+
+            // Dropline connecting L between top and bottom plots
+            ctx.strokeStyle = '#64748B';
+            ctx.lineWidth = 1.4;
+            ctx.setLineDash([2, 3]);
+            ctx.beginPath();
+            ctx.moveTo(xNode, padT);
+            ctx.lineTo(xNode, H - 24);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw MP curve (Red) in Bottom Plot
+            ctx.strokeStyle = '#DC2626';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            for (let lStep = 0; lStep <= maxL; lStep += 0.05) {
+                const mpVal = A * scaleK * (-3 * Math.pow(lStep, 2) + 24 * lStep);
+                const x = mapX(lStep);
+                const y = mapY_MP(mpVal);
+                if (lStep === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Draw AP curve (Emerald) in Bottom Plot
+            ctx.strokeStyle = '#059669';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            for (let lStep = 0.1; lStep <= maxL; lStep += 0.05) {
+                const apVal = A * scaleK * (-Math.pow(lStep, 2) + 12 * lStep);
+                const x = mapX(lStep);
+                const y = mapY_MP(apVal);
+                if (lStep <= 0.15) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Zero line in Bottom Plot
+            const yZero = mapY_MP(0);
+            ctx.strokeStyle = isDark ? '#475569' : '#0F172A';
+            ctx.lineWidth = 1.0;
+            ctx.beginPath(); ctx.moveTo(padL, yZero); ctx.lineTo(W - padR, yZero); ctx.stroke();
+
+            // Current Nodes in Bottom Plot
+            ctx.fillStyle = '#DC2626';
+            ctx.beginPath(); ctx.arc(xNode, mapY_MP(curMP), 5.5, 0, Math.PI * 2); ctx.fill();
+            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 1.5; ctx.stroke();
+
+            ctx.fillStyle = '#059669';
+            ctx.beginPath(); ctx.arc(xNode, mapY_MP(curAP), 5.5, 0, Math.PI * 2); ctx.fill();
+            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 1.5; ctx.stroke();
+
+            // Chart Legends & Annotations
+            ctx.font = 'bold 10px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillStyle = '#1E40AF'; ctx.fillText('منحنی تولید کل (TP)', padL + 8, padT + 14);
+            ctx.fillStyle = '#DC2626'; ctx.fillText('خط مماس (شیب = MPₗ)', xNode + 10, yNode - 10);
+            ctx.fillStyle = '#059669'; ctx.fillText('خط واصل از مبدأ (شیب = APₗ)', xNode + 10, yNode + 16);
+
+            ctx.fillStyle = '#DC2626'; ctx.fillText('تولید نهایی (MPₗ)', padL + 8, botT + 14);
+            ctx.fillStyle = '#059669'; ctx.fillText('تولید متوسط (APₗ)', padL + 110, botT + 14);
+        }
+        window.drawMicroStages = drawMicroStages;
+
+        // -------------------------------------------------------------
+        // 2. MICRO: PRODUCER EQUILIBRIUM & ISOQUANTS (COBB-DOUGLAS)
+        // -------------------------------------------------------------
+        function drawMicroIsoquant(canvasId = 'canvasMicroIsoquant') {
+            const setup = setupCanvas(canvasId);
+            if (!setup) return;
+            const { ctx, W, H } = setup;
+
+            const isDark = document.body.classList.contains('theme-dark');
+            const bgCol = isDark ? '#080D1A' : '#FFFFFF';
+            const textCol = isDark ? '#F8FAFC' : '#0F172A';
+            const gridCol = isDark ? '#1E293B' : '#E2E8F0';
+
+            ctx.fillStyle = bgCol;
+            ctx.fillRect(0, 0, W, H);
+
+            const w = parseFloat(document.getElementById('miso-w-num')?.value) || 1.0;
+            const r = parseFloat(document.getElementById('miso-r-num')?.value) || 2.0;
+            const tc = parseFloat(document.getElementById('miso-tc-num')?.value) || 100.0;
+            const alpha = parseFloat(document.getElementById('miso-alpha-num')?.value) || 1.0;
+            const beta = parseFloat(document.getElementById('miso-beta-num')?.value) || 1.0;
+            const A = 10.0;
+
+            const sumExp = alpha + beta;
+            const optL = (alpha / sumExp) * (tc / w);
+            const optK = (beta / sumExp) * (tc / r);
+            const maxQ = A * Math.pow(Math.max(0.1, optL), alpha) * Math.pow(Math.max(0.1, optK), beta);
+            const slope = -(w / r);
+
+            // Telemetry update
+            const lEl = document.getElementById('miso-val-l'); if (lEl) lEl.innerText = optL.toFixed(1);
+            const kEl = document.getElementById('miso-val-k'); if (kEl) kEl.innerText = optK.toFixed(1);
+            const qEl = document.getElementById('miso-val-q'); if (qEl) qEl.innerText = Math.round(maxQ).toLocaleString();
+            const slEl = document.getElementById('miso-val-slope'); if (slEl) slEl.innerText = slope.toFixed(2);
+
+            const rtsBadge = document.getElementById('miso-rts-badge');
+            if (rtsBadge) {
+                if (sumExp > 1.02) {
+                    rtsBadge.innerText = `RTS = ${sumExp.toFixed(2)} (بازده صعودی به مقیاس: IRTS)`;
+                    rtsBadge.style.background = '#2563EB';
+                } else if (sumExp >= 0.98) {
+                    rtsBadge.innerText = `RTS = 1.00 (بازده ثابت به مقیاس: CRTS)`;
+                    rtsBadge.style.background = '#10B981';
+                } else {
+                    rtsBadge.innerText = `RTS = ${sumExp.toFixed(2)} (بازده نزولی به مقیاس: DRTS)`;
+                    rtsBadge.style.background = '#D97706';
+                }
+            }
+
+            const padL = 46, padR = 24, padT = 24, padB = 34;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
+
+            const maxAxisL = Math.max(120, optL * 2.2);
+            const maxAxisK = Math.max(70, (tc / r) * 1.35);
+
+            const mapX = function(l) { return padL + (l / maxAxisL) * plotW; };
+            const mapY = function(k) { return padT + plotH - (k / maxAxisK) * plotH; };
+
+            // Grid
+            ctx.strokeStyle = gridCol; ctx.lineWidth = 1; ctx.setLineDash([3, 3]);
+            for (let i = 1; i <= 5; i++) {
+                const gx = padL + (i / 5) * plotW;
+                const gy = padT + (i / 5) * plotH;
+                ctx.beginPath(); ctx.moveTo(gx, padT); ctx.lineTo(gx, padT + plotH); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(padL, gy); ctx.lineTo(padL + plotW, gy); ctx.stroke();
+            }
+            ctx.setLineDash([]);
+
+            // Axes
+            ctx.strokeStyle = isDark ? '#475569' : '#0F172A';
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + plotH); ctx.lineTo(padL + plotW, padT + plotH);
+            ctx.stroke();
+
+            // Axis labels
+            ctx.font = 'bold 10px sans-serif'; ctx.fillStyle = textCol; ctx.textAlign = 'center';
+            ctx.fillText('نیروی کار (L)', padL + plotW / 2, H - 10);
+            ctx.save(); ctx.translate(14, padT + plotH / 2); ctx.rotate(-Math.PI / 2);
+            ctx.fillText('سرمایه فیزیکی (K)', 0, 0); ctx.restore();
+
+            // Feasible Isocost Budget Triangle Shading
+            const lIntercept = tc / w;
+            const kIntercept = tc / r;
+            ctx.fillStyle = isDark ? 'rgba(239, 68, 68, 0.08)' : 'rgba(254, 242, 242, 0.65)';
+            ctx.beginPath();
+            ctx.moveTo(mapX(0), mapY(0));
+            ctx.lineTo(mapX(0), mapY(kIntercept));
+            ctx.lineTo(mapX(lIntercept), mapY(0));
+            ctx.closePath();
+            ctx.fill();
+
+            // Expansion Path Ray from Origin: K = (beta/alpha)*(w/r)*L
+            const expSlope = (beta / alpha) * (w / r);
+            ctx.strokeStyle = '#8B5CF6'; ctx.lineWidth = 1.8; ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(mapX(0), mapY(0));
+            ctx.lineTo(mapX(maxAxisL), mapY(maxAxisL * expSlope));
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#8B5CF6'; ctx.font = 'bold 9.5px sans-serif'; ctx.textAlign = 'left';
+            ctx.fillText('مسیر توسعه (Expansion Path)', mapX(optL * 1.3), mapY(optL * 1.3 * expSlope) - 8);
+
+            // Isoquants Q_sub, Q*, Q_super
+            const qLevels = [maxQ * 0.55, maxQ, maxQ * 1.55];
+            const qColors = ['#94A3B8', '#2563EB', '#CBD5E1'];
+            const qWidths = [1.5, 3.2, 1.5];
+
+            qLevels.forEach(function(qTarget, qIdx) {
+                ctx.strokeStyle = qColors[qIdx];
+                ctx.lineWidth = qWidths[qIdx];
+                if (qIdx !== 1) ctx.setLineDash([3, 3]); else ctx.setLineDash([]);
+                ctx.beginPath();
+
+                let started = false;
+                for (let lVal = maxAxisL * 0.04; lVal <= maxAxisL; lVal += maxAxisL / 120) {
+                    // Q = A * L^alpha * K^beta => K = (Q / (A * L^alpha))^(1/beta)
+                    const kVal = Math.pow(qTarget / (A * Math.pow(lVal, alpha)), 1.0 / beta);
+                    if (kVal <= maxAxisK * 1.2) {
+                        const px = mapX(lVal);
+                        const py = mapY(kVal);
+                        if (!started) { ctx.moveTo(px, py); started = true; } else { ctx.lineTo(px, py); }
+                    }
+                }
+                ctx.stroke();
+            });
+            ctx.setLineDash([]);
+
+            // Isocost Line (Active Crimson)
+            ctx.strokeStyle = '#DC2626';
+            ctx.lineWidth = 2.8;
+            ctx.beginPath();
+            ctx.moveTo(mapX(0), mapY(kIntercept));
+            ctx.lineTo(mapX(lIntercept), mapY(0));
+            ctx.stroke();
+
+            // Pivot Point on Y Axis (K_max = TC / r)
+            ctx.fillStyle = '#D97706';
+            ctx.beginPath(); ctx.arc(mapX(0), mapY(kIntercept), 6.5, 0, Math.PI * 2); ctx.fill();
+            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 1.5; ctx.stroke();
+            ctx.font = 'bold 9.5px sans-serif'; ctx.fillStyle = '#D97706'; ctx.textAlign = 'left';
+            ctx.fillText(`لنگر TC/r = ${kIntercept.toFixed(1)}`, mapX(0) + 10, mapY(kIntercept) + 4);
+
+            // Tangency Point E* (L*, K*)
+            const ex = mapX(optL);
+            const ey = mapY(optK);
+
+            // Droplines
+            ctx.strokeStyle = '#059669'; ctx.lineWidth = 1.4; ctx.setLineDash([3, 3]);
+            ctx.beginPath();
+            ctx.moveTo(ex, padT + plotH); ctx.lineTo(ex, ey); ctx.lineTo(padL, ey);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Glowing Node
+            ctx.fillStyle = '#059669';
+            ctx.beginPath(); ctx.arc(ex, ey, 7, 0, Math.PI * 2); ctx.fill();
+            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+
+            // Label at E*
+            ctx.font = 'bold 10px sans-serif'; ctx.fillStyle = textCol; ctx.textAlign = 'left';
+            ctx.fillText(`E* (L*=${optL.toFixed(1)}, K*=${optK.toFixed(1)})`, ex + 10, ey - 8);
+        }
+        window.drawMicroIsoquant = drawMicroIsoquant;
+
+        // -------------------------------------------------------------
+        // 3. MICRO: COMPLEMENTS, CROSS ELASTICITY & LEONTIEF 90°
+        // -------------------------------------------------------------
+        let compState = {
+            slope: -0.8,
+            py: 45,
+            ratio: 1.0,
+            targetQ: 50,
+            w: 2.0,
+            r: 4.0,
+            tc: 200
+        };
+
+        function switchCompSubmode(subIdx) {
+            compSubmode = subIdx;
+            [0, 1, 2].forEach(function(i) {
+                const b = document.getElementById('btn-comp-m' + i);
+                if (b) b.classList.toggle('active', i === subIdx);
+            });
+            renderCompControls();
+            drawMicroComplements();
+        }
+        window.switchCompSubmode = switchCompSubmode;
+
+        function renderCompControls() {
+            const container = document.getElementById('comp-controls-dynamic');
+            if (!container) return;
+
+            if (compSubmode === 0) {
+                container.innerHTML = `
+                    <div class="param-card">
+                        <div class="param-top">
+                            <span class="param-label">شیب متقاطع (میزان مکمل بودن dQx/dPy):</span>
+                            <input type="number" id="csub-slope-num" value="${compState.slope.toFixed(2)}" step="0.05" class="param-input-box" style="color: #DC2626;">
+                        </div>
+                        <input type="range" id="csub-slope-slider" min="-2.0" max="0.5" step="0.05" value="${compState.slope}">
+                    </div>
+                    <div class="param-card">
+                        <div class="param-top">
+                            <span class="param-label">قیمت کالای مکمل (Py):</span>
+                            <input type="number" id="csub-py-num" value="${compState.py}" min="10" max="90" step="1" class="param-input-box">
+                        </div>
+                        <input type="range" id="csub-py-slider" min="10" max="90" step="1" value="${compState.py}">
+                    </div>
+                `;
+                bindDual('csub-slope-slider', 'csub-slope-num', function() {
+                    compState.slope = parseFloat(document.getElementById('csub-slope-num').value) || -0.8;
+                    drawMicroComplements();
+                });
+                bindDual('csub-py-slider', 'csub-py-num', function() {
+                    compState.py = parseFloat(document.getElementById('csub-py-num').value) || 45;
+                    drawMicroComplements();
+                });
+            } else if (compSubmode === 1) {
+                container.innerHTML = `
+                    <div class="param-card">
+                        <div class="param-top">
+                            <span class="param-label">نسبت فنی لئونتیف (k = K / L):</span>
+                            <input type="number" id="csub-ratio-num" value="${compState.ratio.toFixed(2)}" step="0.05" class="param-input-box" style="color: #2563EB;">
+                        </div>
+                        <input type="range" id="csub-ratio-slider" min="0.25" max="3.0" step="0.05" value="${compState.ratio}">
+                    </div>
+                    <div class="param-card">
+                        <div class="param-top">
+                            <span class="param-label">تیراژ هدف (Q = min{aL, bK}):</span>
+                            <input type="number" id="csub-q-num" value="${compState.targetQ}" min="20" max="80" step="2" class="param-input-box">
+                        </div>
+                        <input type="range" id="csub-q-slider" min="20" max="80" step="2" value="${compState.targetQ}">
+                    </div>
+                `;
+                bindDual('csub-ratio-slider', 'csub-ratio-num', function() {
+                    compState.ratio = parseFloat(document.getElementById('csub-ratio-num').value) || 1.0;
+                    drawMicroComplements();
+                });
+                bindDual('csub-q-slider', 'csub-q-num', function() {
+                    compState.targetQ = parseFloat(document.getElementById('csub-q-num').value) || 50;
+                    drawMicroComplements();
+                });
+            } else if (compSubmode === 2) {
+                container.innerHTML = `
+                    <div class="param-card">
+                        <div class="param-top">
+                            <span class="param-label">دستمزد کارگر (w):</span>
+                            <input type="number" id="csub-w-num" value="${compState.w.toFixed(1)}" step="0.1" class="param-input-box" style="color: #DC2626;">
+                        </div>
+                        <input type="range" id="csub-w-slider" min="0.5" max="6.0" step="0.1" value="${compState.w}">
+                    </div>
+                    <div class="param-card">
+                        <div class="param-top">
+                            <span class="param-label">نرخ اجاره سرمایه (r):</span>
+                            <input type="number" id="csub-r-num" value="${compState.r.toFixed(1)}" step="0.2" class="param-input-box" style="color: #2563EB;">
+                        </div>
+                        <input type="range" id="csub-r-slider" min="1.0" max="6.0" step="0.2" value="${compState.r}">
+                    </div>
+                `;
+                bindDual('csub-w-slider', 'csub-w-num', function() {
+                    compState.w = parseFloat(document.getElementById('csub-w-num').value) || 2.0;
+                    drawMicroComplements();
+                });
+                bindDual('csub-r-slider', 'csub-r-num', function() {
+                    compState.r = parseFloat(document.getElementById('csub-r-num').value) || 4.0;
+                    drawMicroComplements();
+                });
+            }
+        }
+
+        function drawMicroComplements(canvasId = 'canvasMicroComp') {
+            const setup = setupCanvas(canvasId);
+            if (!setup) return;
+            const { ctx, W, H } = setup;
+
+            const isDark = document.body.classList.contains('theme-dark');
+            const bgCol = isDark ? '#080D1A' : '#FFFFFF';
+            const textCol = isDark ? '#F8FAFC' : '#0F172A';
+            const gridCol = isDark ? '#1E293B' : '#E2E8F0';
+
+            ctx.fillStyle = bgCol;
+            ctx.fillRect(0, 0, W, H);
+
+            const padL = 46, padR = 24, padT = 24, padB = 34;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
+
+            // Grid & Axes
+            ctx.strokeStyle = gridCol; ctx.lineWidth = 1; ctx.setLineDash([3, 3]);
+            for (let i = 1; i <= 5; i++) {
+                const gx = padL + (i / 5) * plotW;
+                const gy = padT + (i / 5) * plotH;
+                ctx.beginPath(); ctx.moveTo(gx, padT); ctx.lineTo(gx, padT + plotH); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(padL, gy); ctx.lineTo(padL + plotW, gy); ctx.stroke();
+            }
+            ctx.setLineDash([]);
+
+            ctx.strokeStyle = isDark ? '#475569' : '#0F172A';
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            ctx.moveTo(padL, padT); ctx.lineTo(padL, padT + plotH); ctx.lineTo(padL + plotW, padT + plotH);
+            ctx.stroke();
+
+            if (compSubmode === 0) {
+                // X = Py, Y = Qx
+                const s = compState.slope;
+                const py = compState.py;
+                const qx = Math.max(5, 100 + s * py);
+                const angle = Math.atan(s) * (180 / Math.PI);
+                const elast = (s * py) / qx;
+
+                document.getElementById('comp-chart-title').innerText = 'منحنی تقاضای متقاطع کالای مکمل (Qx بر حسب Py)';
+                document.getElementById('comp-t1-title').innerText = 'شیب متقاطع (dQx/dPy)';
+                document.getElementById('comp-t1-val').innerText = s.toFixed(2);
+                document.getElementById('comp-t2-title').innerText = 'زاویه شیب نسبت به افق';
+                document.getElementById('comp-t2-val').innerText = angle.toFixed(1) + '°';
+                document.getElementById('comp-t3-title').innerText = 'کشش متقاطع (Exy)';
+                document.getElementById('comp-t3-val').innerText = elast.toFixed(2);
+
+                const t4 = document.getElementById('comp-t4-val');
+                const badge = document.getElementById('comp-slope-badge');
+                if (s < -0.8) {
+                    t4.innerText = 'مکمل قوی'; t4.style.color = '#EF4444';
+                    badge.innerText = 'شیب تند منفی: مکمل قوی'; badge.style.background = '#EF4444';
+                } else if (s < -0.05) {
+                    t4.innerText = 'مکمل ملایم'; t4.style.color = '#F59E0B';
+                    badge.innerText = 'شیب منفی: مکمل'; badge.style.background = '#F59E0B';
+                } else if (Math.abs(s) <= 0.05) {
+                    t4.innerText = 'مستقل'; t4.style.color = '#94A3B8';
+                    badge.innerText = 'شیب صفر: مستقل'; badge.style.background = '#64748B';
+                } else {
+                    t4.innerText = 'جانشین'; t4.style.color = '#10B981';
+                    badge.innerText = 'شیب مثبت: جانشین'; badge.style.background = '#10B981';
+                }
+
+                const mapX = function(p) { return padL + (p / 100) * plotW; };
+                const mapY = function(q) { return padT + plotH - (q / 120) * plotH; };
+
+                // Draw curve
+                ctx.strokeStyle = s < 0 ? '#EF4444' : '#10B981';
+                ctx.lineWidth = 3.2;
+                ctx.beginPath();
+                ctx.moveTo(mapX(0), mapY(100));
+                ctx.lineTo(mapX(100), mapY(Math.max(0, 100 + s * 100)));
+                ctx.stroke();
+
+                // Current point
+                const px = mapX(py);
+                const pyNode = mapY(qx);
+                ctx.strokeStyle = '#00F0FF'; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(px, padT + plotH); ctx.lineTo(px, pyNode); ctx.lineTo(padL, pyNode); ctx.stroke();
+                ctx.setLineDash([]);
+
+                ctx.fillStyle = '#00F0FF'; ctx.beginPath(); ctx.arc(px, pyNode, 6.5, 0, Math.PI * 2); ctx.fill();
+                ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+
+                ctx.font = 'bold 10px sans-serif'; ctx.fillStyle = textCol; ctx.textAlign = 'left';
+                ctx.fillText(`نقطه جاری (Py=${py}, Qx=${qx.toFixed(0)})`, px + 10, pyNode - 8);
+
+            } else if (compSubmode === 1) {
+                // Leontief 90 degree
+                const ratio = compState.ratio;
+                const q = compState.targetQ;
+                const mapX = function(l) { return padL + (l / 100) * plotW; };
+                const mapY = function(k) { return padT + plotH - (k / 100) * plotH; };
+
+                document.getElementById('comp-chart-title').innerText = 'منحنی هم‌مقداری لئونتیف ۹۰ درجه (مکمل کامل)';
+                document.getElementById('comp-t1-title').innerText = 'شیب بازوی افقی';
+                document.getElementById('comp-t1-val').innerText = '0 (تخت)';
+                document.getElementById('comp-t2-title').innerText = 'شیب بازوی عمودی';
+                document.getElementById('comp-t2-val').innerText = '∞ (بی‌نهایت)';
+                document.getElementById('comp-t3-title').innerText = 'شیب در نقطه گوشه';
+                document.getElementById('comp-t3-val').innerText = 'تعریف‌نشده';
+                document.getElementById('comp-t4-title').innerText = 'کشش جانشینی (σ)';
+                document.getElementById('comp-t4-val').innerText = '0.00';
+
+                const badge = document.getElementById('comp-slope-badge');
+                badge.innerText = 'لئونتیف ۹۰° (مکمل کامل)'; badge.style.background = '#2563EB';
+
+                const lc = q;
+                const kc = q * ratio;
+
+                // Expansion ray
+                ctx.strokeStyle = '#8B5CF6'; ctx.lineWidth = 1.8; ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(mapX(0), mapY(0)); ctx.lineTo(mapX(100), mapY(100 * ratio)); ctx.stroke();
+                ctx.setLineDash([]);
+
+                // L-shaped Isoquant
+                ctx.strokeStyle = '#3B82F6'; ctx.lineWidth = 3.6;
+                ctx.beginPath();
+                ctx.moveTo(mapX(lc), mapY(100));
+                ctx.lineTo(mapX(lc), mapY(kc));
+                ctx.lineTo(mapX(100), mapY(kc));
+                ctx.stroke();
+
+                // Corner Node
+                ctx.fillStyle = '#00F0FF'; ctx.beginPath(); ctx.arc(mapX(lc), mapY(kc), 7, 0, Math.PI * 2); ctx.fill();
+                ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+
+                ctx.font = 'bold 10px sans-serif'; ctx.fillStyle = textCol; ctx.textAlign = 'left';
+                ctx.fillText(`گوشه بهینه (L=${lc}, K=${kc.toFixed(0)})`, mapX(lc) + 10, mapY(kc) - 10);
+
+            } else if (compSubmode === 2) {
+                // Isocost Rotation
+                const w = compState.w;
+                const r = compState.r;
+                const tc = compState.tc;
+                const lMax = tc / w;
+                const kMax = tc / r;
+                const mapX = function(l) { return padL + (l / 120) * plotW; };
+                const mapY = function(k) { return padT + plotH - (k / 100) * plotH; };
+
+                document.getElementById('comp-chart-title').innerText = 'چرخش شیب خط هزینه یکسان حول محور سرمایه: - (w / r)';
+                document.getElementById('comp-t1-title').innerText = 'شیب خط هزینه';
+                document.getElementById('comp-t1-val').innerText = (-(w / r)).toFixed(2);
+                document.getElementById('comp-t2-title').innerText = 'دستمزد کارگر (w)';
+                document.getElementById('comp-t2-val').innerText = w.toFixed(1);
+                document.getElementById('comp-t3-title').innerText = 'لنگر سرمایه (TC/r)';
+                document.getElementById('comp-t3-val').innerText = kMax.toFixed(1);
+                document.getElementById('comp-t4-title').innerText = 'حداکثر کارگر (TC/w)';
+                document.getElementById('comp-t4-val').innerText = lMax.toFixed(1);
+
+                const badge = document.getElementById('comp-slope-badge');
+                badge.innerText = `شیب = - (${w.toFixed(1)} / ${r.toFixed(1)})`;
+                badge.style.background = '#D97706';
+
+                // Rotated line
+                ctx.strokeStyle = '#DC2626'; ctx.lineWidth = 3.2;
+                ctx.beginPath();
+                ctx.moveTo(mapX(0), mapY(kMax));
+                ctx.lineTo(mapX(lMax), mapY(0));
+                ctx.stroke();
+
+                // Fixed pivot node
+                ctx.fillStyle = '#D97706'; ctx.beginPath(); ctx.arc(mapX(0), mapY(kMax), 7, 0, Math.PI * 2); ctx.fill();
+                ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+
+                ctx.font = 'bold 10px sans-serif'; ctx.fillStyle = '#D97706'; ctx.textAlign = 'left';
+                ctx.fillText(`لنگر ثابت TC/r = ${kMax.toFixed(0)}`, mapX(0) + 12, mapY(kMax) + 4);
+            }
+        }
+        window.drawMicroComplements = drawMicroComplements;
+
+        // -------------------------------------------------------------
+        // 4. MATH: TOTAL DIFFERENTIAL & CYLINDER ERROR SENSITIVITY
+        // -------------------------------------------------------------
+        function drawMathDiff(canvasId = 'canvasMathDiff') {
+            const setup = setupCanvas(canvasId);
+            if (!setup) return;
+            const { ctx, W, H } = setup;
+
+            const isDark = document.body.classList.contains('theme-dark');
+            const bgCol = isDark ? '#080D1A' : '#FFFFFF';
+            const textCol = isDark ? '#F8FAFC' : '#0F172A';
+
+            ctx.fillStyle = bgCol;
+            ctx.fillRect(0, 0, W, H);
+
+            const r = parseFloat(document.getElementById('mdiff-r-num')?.value) || 10;
+            const h = parseFloat(document.getElementById('mdiff-h-num')?.value) || 20;
+            const dr = parseFloat(document.getElementById('mdiff-dr-num')?.value) || 0.2;
+            const dh = parseFloat(document.getElementById('mdiff-dh-num')?.value) || 0.4;
+
+            const V = Math.PI * Math.pow(r, 2) * h;
+            const dV = 2 * Math.PI * r * h * dr + Math.PI * Math.pow(r, 2) * dh;
+            const deltaV = Math.PI * Math.pow(r + dr, 2) * (h + dh) - V;
+            const approxErr = Math.abs(deltaV - dV);
+
+            const vEl = document.getElementById('mdiff-val-v'); if (vEl) vEl.innerText = Math.round(V).toLocaleString();
+            const dvEl = document.getElementById('mdiff-val-dv'); if (dvEl) dvEl.innerText = (dV >= 0 ? '+' : '') + dV.toFixed(1);
+            const delEl = document.getElementById('mdiff-val-deltav'); if (delEl) delEl.innerText = (deltaV >= 0 ? '+' : '') + deltaV.toFixed(1);
+            const errEl = document.getElementById('mdiff-val-err'); if (errEl) errEl.innerText = approxErr.toFixed(2);
+
+            // Visual: Isometric 2.5D Cylinder on the left, Sensitivity Bars on the right
+            const cx = W * 0.32;
+            const cy = H * 0.58;
+            const scaleR = Math.min(cx * 0.75, r * 7.5);
+            const scaleH = Math.min(H * 0.45, h * 6.5);
+
+            // Draw Base Cylinder in Royal Blue
+            ctx.fillStyle = isDark ? '#1E293B' : '#EFF6FF';
+            ctx.strokeStyle = '#2563EB';
+            ctx.lineWidth = 2.5;
+
+            // Side rectangle
+            ctx.fillRect(cx - scaleR, cy - scaleH, scaleR * 2, scaleH);
+            ctx.strokeRect(cx - scaleR, cy - scaleH, scaleR * 2, scaleH);
+
+            // Top ellipse
+            ctx.beginPath();
+            ctx.ellipse(cx, cy - scaleH, scaleR, scaleR * 0.35, 0, 0, Math.PI * 2);
+            ctx.fillStyle = isDark ? '#334155' : '#DBEAFE';
+            ctx.fill(); ctx.stroke();
+
+            // Bottom ellipse
+            ctx.beginPath();
+            ctx.ellipse(cx, cy, scaleR, scaleR * 0.35, 0, 0, Math.PI);
+            ctx.stroke();
+
+            // Dimension lines
+            ctx.font = 'bold 11px sans-serif'; ctx.fillStyle = textCol; ctx.textAlign = 'center';
+            ctx.fillText(`r = ${r}`, cx, cy - scaleH - 14);
+            ctx.fillText(`h = ${h}`, cx - scaleR - 24, cy - scaleH / 2);
+
+            // Right Column: Error Sensitivity Decomposition Bars
+            const bx = W * 0.62;
+            const bWidth = W * 0.32;
+
+            ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = '#6D28D9'; ctx.textAlign = 'left';
+            ctx.fillText('تسهیم حساسیت خطا: dV/V = 2(dr/r) + dh/h', bx, H * 0.24);
+
+            const rPct = 2 * (dr / r) * 100;
+            const hPct = (dh / h) * 100;
+            const totPct = rPct + hPct;
+
+            // Bar 1: Radius Impact (Double weight)
+            ctx.font = '10.5px sans-serif'; ctx.fillStyle = textCol;
+            ctx.fillText(`سهم شعاع (۲ برابر توان): +${rPct.toFixed(2)}%`, bx, H * 0.40);
+            ctx.fillStyle = '#D97706';
+            ctx.fillRect(bx, H * 0.43, Math.min(bWidth, Math.abs(rPct) * 18), 18);
+
+            // Bar 2: Height Impact (Single weight)
+            ctx.fillStyle = textCol;
+            ctx.fillText(`سهم ارتفاع (توان یک): +${hPct.toFixed(2)}%`, bx, H * 0.60);
+            ctx.fillStyle = '#059669';
+            ctx.fillRect(bx, H * 0.63, Math.min(bWidth, Math.abs(hPct) * 18), 18);
+
+            // Summary tag
+            ctx.fillStyle = '#7C3AED'; ctx.font = 'bold 12px sans-serif';
+            ctx.fillText(`خطای درصدی کل حجم: +${totPct.toFixed(2)}%`, bx, H * 0.82);
+        }
+        window.drawMathDiff = drawMathDiff;
+
+        // -------------------------------------------------------------
+        // 5. MATH: 2D HESSIAN & CRITICAL POINT CLASSIFIER
+        // -------------------------------------------------------------
+        function drawMathHessian(canvasId = 'canvasMathHessian') {
+            const setup = setupCanvas(canvasId);
+            if (!setup) return;
+            const { ctx, W, H } = setup;
+
+            const isDark = document.body.classList.contains('theme-dark');
+            const bgCol = isDark ? '#080D1A' : '#FFFFFF';
+            const textCol = isDark ? '#F8FAFC' : '#0F172A';
+
+            ctx.fillStyle = bgCol;
+            ctx.fillRect(0, 0, W, H);
+
+            const funcType = document.getElementById('mhess-func-sel')?.value || 'saddle';
+            const x = parseFloat(document.getElementById('mhess-x-num')?.value) || 0.0;
+            const y = parseFloat(document.getElementById('mhess-y-num')?.value) || 0.0;
+
+            let fx = 0, fy = 0, fxx = 0, fyy = 0, fxy = 0, D = 0, pointType = '';
+
+            if (funcType === 'saddle') {
+                // z = x^2 - y^2
+                fx = 2 * x; fy = -2 * y;
+                fxx = 2; fyy = -2; fxy = 0;
+                D = fxx * fyy - Math.pow(fxy, 2); // -4
+                pointType = 'نقطه زینی (Saddle Point)';
+            } else if (funcType === 'min') {
+                // z = x^2 + y^2
+                fx = 2 * x; fy = 2 * y;
+                fxx = 2; fyy = 2; fxy = 0;
+                D = fxx * fyy - Math.pow(fxy, 2); // +4
+                pointType = 'مینیمم محلی (Local Minimum)';
+            } else if (funcType === 'max') {
+                // z = -(x^2 + y^2)
+                fx = -2 * x; fy = -2 * y;
+                fxx = -2; fyy = -2; fxy = 0;
+                D = fxx * fyy - Math.pow(fxy, 2); // +4
+                pointType = 'ماکزیمم محلی (Local Maximum)';
+            }
+
+            // Update Telemetry
+            const gradEl = document.getElementById('mhess-val-grad'); if (gradEl) gradEl.innerText = `(${fx.toFixed(1)} , ${fy.toFixed(1)})`;
+            const fxyEl = document.getElementById('mhess-val-fxy'); if (fxyEl) fxyEl.innerText = `f_xy = ${fxy.toFixed(1)}`;
+            const dEl = document.getElementById('mhess-val-d'); if (dEl) dEl.innerText = D.toFixed(1);
+            const typeEl = document.getElementById('mhess-val-type'); if (typeEl) typeEl.innerText = pointType;
+
+            const badge = document.getElementById('mhess-class-badge');
+            if (badge) {
+                badge.innerText = pointType;
+                badge.style.background = D < 0 ? '#EF4444' : (fxx > 0 ? '#10B981' : '#2563EB');
+            }
+
+            // Draw 2D Contour Map
+            const pad = 36;
+            const sz = Math.min(W - pad * 2, H - pad * 2);
+            const ox = W / 2;
+            const oy = H / 2;
+
+            const scale = sz / 7.0; // [-3.5, 3.5]
+            const mapX = function(v) { return ox + v * scale; };
+            const mapY = function(v) { return oy - v * scale; };
+
+            // Contour circles / hyperbolas
+            ctx.lineWidth = 1.4;
+            const cLevels = [-6, -4, -2, 0, 2, 4, 6];
+            cLevels.forEach(function(cVal) {
+                ctx.strokeStyle = cVal < 0 ? '#3B82F6' : (cVal > 0 ? '#EF4444' : '#F59E0B');
+                ctx.beginPath();
+                if (funcType === 'min' && cVal > 0) {
+                    const rC = Math.sqrt(cVal);
+                    ctx.ellipse(ox, oy, rC * scale, rC * scale, 0, 0, Math.PI * 2);
+                } else if (funcType === 'max' && cVal < 0) {
+                    const rC = Math.sqrt(-cVal);
+                    ctx.ellipse(ox, oy, rC * scale, rC * scale, 0, 0, Math.PI * 2);
+                } else if (funcType === 'saddle') {
+                    // Hyperbolas x^2 - y^2 = c
+                    let started = false;
+                    for (let t = -3.2; t <= 3.2; t += 0.1) {
+                        const arg = Math.pow(t, 2) - cVal;
+                        if (arg >= 0) {
+                            const yH = Math.sqrt(arg);
+                            ctx.rect(mapX(t), mapY(yH), 1.5, 1.5);
+                            ctx.rect(mapX(t), mapY(-yH), 1.5, 1.5);
+                        }
+                    }
+                }
+                ctx.stroke();
+            });
+
+            // Axes
+            ctx.strokeStyle = isDark ? '#475569' : '#0F172A';
+            ctx.lineWidth = 1.6;
+            ctx.beginPath();
+            ctx.moveTo(ox - sz / 2, oy); ctx.lineTo(ox + sz / 2, oy);
+            ctx.moveTo(ox, oy - sz / 2); ctx.lineTo(ox, oy + sz / 2);
+            ctx.stroke();
+
+            // Gradient Vector arrow starting at (x, y)
+            const px = mapX(x);
+            const py = mapY(y);
+            const arrowLen = 25;
+            const normGrad = Math.hypot(fx, fy) || 1;
+            const gdx = (fx / normGrad) * arrowLen;
+            const gdy = (-fy / normGrad) * arrowLen;
+
+            ctx.strokeStyle = '#00F0FF'; ctx.lineWidth = 2.4;
+            ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + gdx, py + gdy); ctx.stroke();
+
+            // Active Point Node
+            ctx.fillStyle = '#00F0FF';
+            ctx.beginPath(); ctx.arc(px, py, 6.5, 0, Math.PI * 2); ctx.fill();
+            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+
+            ctx.font = 'bold 10px sans-serif'; ctx.fillStyle = textCol; ctx.textAlign = 'left';
+            ctx.fillText(`P(${x.toFixed(1)}, ${y.toFixed(1)})`, px + 10, py - 8);
+        }
+        window.drawMathHessian = drawMathHessian;
+
+        // -------------------------------------------------------------
+        // 6. STAT: MEAN SEESAW, OUTLIERS & AM >= GM >= HM
+        // -------------------------------------------------------------
+        function drawStatSeesaw(canvasId = 'canvasStatSeesaw') {
+            const setup = setupCanvas(canvasId);
+            if (!setup) return;
+            const { ctx, W, H } = setup;
+
+            const isDark = document.body.classList.contains('theme-dark');
+            const bgCol = isDark ? '#080D1A' : '#FFFFFF';
+            const textCol = isDark ? '#F8FAFC' : '#0F172A';
+
+            ctx.fillStyle = bgCol;
+            ctx.fillRect(0, 0, W, H);
+
+            const x1 = parseFloat(document.getElementById('ssee-x1-num')?.value) || 10;
+            const x2 = parseFloat(document.getElementById('ssee-x2-num')?.value) || 20;
+            const x3 = parseFloat(document.getElementById('ssee-x3-num')?.value) || 30;
+            const x4 = parseFloat(document.getElementById('ssee-x4-num')?.value) || 120; // Outlier!
+
+            const data = [x1, x2, x3, x4];
+            const n = data.length;
+
+            const AM = data.reduce((a, b) => a + b, 0) / n;
+            const GM = Math.pow(data.reduce((a, b) => a * b, 1), 1.0 / n);
+            const HM = n / data.reduce((a, b) => a + (1.0 / b), 0);
+
+            // Telemetry update
+            const amEl = document.getElementById('ssee-val-am'); if (amEl) amEl.innerText = AM.toFixed(1);
+            const gmEl = document.getElementById('ssee-val-gm'); if (gmEl) gmEl.innerText = GM.toFixed(1);
+            const hmEl = document.getElementById('ssee-val-hm'); if (hmEl) hmEl.innerText = HM.toFixed(1);
+            const devEl = document.getElementById('ssee-val-dev'); if (devEl) devEl.innerText = '0.000';
+
+            // Top Section (60%): Mechanical Seesaw beam
+            const beamY = H * 0.42;
+            const padX = 50;
+            const beamW = W - padX * 2;
+            const maxVal = Math.max(160, Math.max(...data) * 1.15);
+
+            const mapX = function(v) { return padX + (v / maxVal) * beamW; };
+
+            // Draw Base Floor
+            ctx.strokeStyle = isDark ? '#334155' : '#CBD5E1'; ctx.lineWidth = 2.0;
+            ctx.beginPath(); ctx.moveTo(padX - 20, beamY + 45); ctx.lineTo(W - padX + 20, beamY + 45); ctx.stroke();
+
+            // Draw Triangle Fulcrum at AM (Center of Gravity)
+            const fulcrumX = mapX(AM);
+            ctx.fillStyle = '#2563EB';
+            ctx.beginPath();
+            ctx.moveTo(fulcrumX, beamY);
+            ctx.lineTo(fulcrumX - 18, beamY + 44);
+            ctx.lineTo(fulcrumX + 18, beamY + 44);
+            ctx.closePath();
+            ctx.fill();
+
+            // Draw Balanced Beam
+            ctx.strokeStyle = '#0F172A'; ctx.lineWidth = 4.5;
+            ctx.beginPath(); ctx.moveTo(padX, beamY); ctx.lineTo(W - padX, beamY); ctx.stroke();
+
+            // Place Data Weights on the beam with deviation arrows
+            data.forEach(function(val, idx) {
+                const wx = mapX(val);
+                const isOutlier = (idx === 3);
+
+                // Weight Box
+                ctx.fillStyle = isOutlier ? '#EF4444' : '#10B981';
+                ctx.fillRect(wx - 10, beamY - 26, 20, 24);
+                ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 1.5;
+                ctx.strokeRect(wx - 10, beamY - 26, 20, 24);
+
+                ctx.font = 'bold 9px sans-serif'; ctx.fillStyle = '#FFFFFF'; ctx.textAlign = 'center';
+                ctx.fillText(Math.round(val), wx, beamY - 10);
+
+                // Deviation vector
+                const dev = val - AM;
+                ctx.strokeStyle = dev < 0 ? '#DC2626' : '#059669';
+                ctx.lineWidth = 1.8;
+                ctx.beginPath();
+                ctx.moveTo(wx, beamY + 12);
+                ctx.lineTo(fulcrumX, beamY + 12);
+                ctx.stroke();
+            });
+
+            // Fulcrum Label
+            ctx.font = 'bold 11px sans-serif'; ctx.fillStyle = '#2563EB'; ctx.textAlign = 'center';
+            ctx.fillText(`نقطه اتکا: میانگین x̄ = ${AM.toFixed(1)}`, fulcrumX, beamY + 62);
+
+            // Bottom Section (35%): 3 Comparison Bars for AM >= GM >= HM
+            const barY = H * 0.74;
+            const barW = (W - padX * 2) / 3.4;
+
+            const means = [
+                { label: `میانگین حسابی (AM): ${AM.toFixed(1)}`, val: AM, col: '#2563EB' },
+                { label: `میانگین هندسی (GM): ${GM.toFixed(1)}`, val: GM, col: '#059669' },
+                { label: `میانگین هارمونیک (HM): ${HM.toFixed(1)}`, val: HM, col: '#7C3AED' }
+            ];
+
+            means.forEach(function(m, i) {
+                const bx = padX + i * (barW + 16);
+                const hBar = (m.val / maxVal) * 55;
+
+                ctx.fillStyle = m.col;
+                ctx.fillRect(bx, barY + (55 - hBar), barW, hBar);
+
+                ctx.font = 'bold 9.5px sans-serif'; ctx.fillStyle = textCol; ctx.textAlign = 'center';
+                ctx.fillText(m.label, bx + barW / 2, barY + 72);
+            });
+        }
+        window.drawStatSeesaw = drawStatSeesaw;
+
+        // -------------------------------------------------------------
+        // 7. STAT: STURGES RULE & SHEPPARD'S CORRECTION
+        // -------------------------------------------------------------
+        function drawStatSturges(canvasId = 'canvasStatSturges') {
+            const setup = setupCanvas(canvasId);
+            if (!setup) return;
+            const { ctx, W, H } = setup;
+
+            const isDark = document.body.classList.contains('theme-dark');
+            const bgCol = isDark ? '#080D1A' : '#FFFFFF';
+            const textCol = isDark ? '#F8FAFC' : '#0F172A';
+
+            ctx.fillStyle = bgCol;
+            ctx.fillRect(0, 0, W, H);
+
+            const N = parseFloat(document.getElementById('ssturg-n-num')?.value) || 120;
+            const R = parseFloat(document.getElementById('ssturg-r-num')?.value) || 84;
+            const rawVar = parseFloat(document.getElementById('ssturg-var-num')?.value) || 48.0;
+
+            // Sturges rule: k = 1 + 3.32 * log10(N) => ceiling
+            const exactK = 1 + 3.322 * Math.log10(N);
+            const k = Math.ceil(exactK);
+            const c = Math.ceil(R / k);
+
+            // Sheppard's Correction: s^2_adj = s^2 - c^2 / 12
+            const sheppardSub = Math.pow(c, 2) / 12.0;
+            const adjVar = Math.max(0.1, rawVar - sheppardSub);
+            const pctOver = (sheppardSub / rawVar) * 100;
+
+            // Telemetry
+            const kEl = document.getElementById('ssturg-val-k'); if (kEl) kEl.innerText = `${k} طبقه`;
+            const cEl = document.getElementById('ssturg-val-c'); if (cEl) cEl.innerText = `${c} واحد`;
+            const vAdjEl = document.getElementById('ssturg-val-varadj'); if (vAdjEl) vAdjEl.innerText = adjVar.toFixed(1);
+            const errEl = document.getElementById('ssturg-val-err'); if (errEl) errEl.innerText = `${sheppardSub.toFixed(1)} (${pctOver.toFixed(0)}%)`;
+
+            // Draw Histogram
+            const padL = 45, padR = 25, padT = 30, padB = 40;
+            const plotW = W - padL - padR;
+            const plotH = H - padT - padB;
+
+            const binW = plotW / k;
+
+            for (let i = 0; i < k; i++) {
+                const bx = padL + i * binW;
+                // Generate natural bell-shaped bin heights
+                const normDist = Math.exp(-Math.pow(i - (k - 1) / 2, 2) / (k * 0.45));
+                const bH = plotH * (0.25 + 0.65 * normDist);
+
+                ctx.fillStyle = isDark ? 'rgba(37, 99, 235, 0.45)' : 'rgba(59, 130, 246, 0.55)';
+                ctx.fillRect(bx + 2, padT + plotH - bH, binW - 4, bH);
+
+                ctx.strokeStyle = '#1D4ED8'; ctx.lineWidth = 1.5;
+                ctx.strokeRect(bx + 2, padT + plotH - bH, binW - 4, bH);
+
+                // Midpoint marker
+                ctx.font = 'bold 9px sans-serif'; ctx.fillStyle = textCol; ctx.textAlign = 'center';
+                ctx.fillText(`X${i+1}`, bx + binW / 2, padT + plotH + 16);
+            }
+
+            ctx.font = 'bold 11px sans-serif'; ctx.fillStyle = '#059669'; ctx.textAlign = 'left';
+            ctx.fillText(`طول طبقه c = ${c} واحد (سقف R/k)  |  تعدیل شپرد: -c²/12 = -${sheppardSub.toFixed(1)}`, padL + 8, padT - 10);
+        }
+        window.drawStatSturges = drawStatSturges;
+
+
         function initCockpit() {
             window.initCockpit = initCockpit;
             bindDual('m-t-slider', 'm-t-num', drawMicro);
@@ -17261,6 +19082,80 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             bindDual('m-b-slider', 'm-b-num', drawMicro);
             bindDual('m-d-slider', 'm-d-num', drawMicro);
             bindDual('m-c-slider', 'm-c-num', drawMicro);
+            
+            // BINDINGS FOR NEW INTERACTIVE SIMULATORS (v23.0)
+            bindDual('mstg-l-slider', 'mstg-l-num', drawMicroStages);
+            bindDual('mstg-k-slider', 'mstg-k-num', drawMicroStages);
+            bindDual('mstg-a-slider', 'mstg-a-num', drawMicroStages);
+
+            bindDual('miso-w-slider', 'miso-w-num', drawMicroIsoquant);
+            bindDual('miso-r-slider', 'miso-r-num', drawMicroIsoquant);
+            bindDual('miso-tc-slider', 'miso-tc-num', drawMicroIsoquant);
+            bindDual('miso-alpha-slider', 'miso-alpha-num', drawMicroIsoquant);
+            bindDual('miso-beta-slider', 'miso-beta-num', drawMicroIsoquant);
+
+            bindDual('mdiff-r-slider', 'mdiff-r-num', drawMathDiff);
+            bindDual('mdiff-h-slider', 'mdiff-h-num', drawMathDiff);
+            bindDual('mdiff-dr-slider', 'mdiff-dr-num', drawMathDiff);
+            bindDual('mdiff-dh-slider', 'mdiff-dh-num', drawMathDiff);
+
+            bindDual('mhess-x-slider', 'mhess-x-num', drawMathHessian);
+            bindDual('mhess-y-slider', 'mhess-y-num', drawMathHessian);
+
+            bindDual('ssee-x1-slider', 'ssee-x1-num', drawStatSeesaw);
+            bindDual('ssee-x2-slider', 'ssee-x2-num', drawStatSeesaw);
+            bindDual('ssee-x3-slider', 'ssee-x3-num', drawStatSeesaw);
+            bindDual('ssee-x4-slider', 'ssee-x4-num', drawStatSeesaw);
+
+            bindDual('ssturg-n-slider', 'ssturg-n-num', drawStatSturges);
+            bindDual('ssturg-r-slider', 'ssturg-r-num', drawStatSturges);
+            bindDual('ssturg-var-slider', 'ssturg-var-num', drawStatSturges);
+
+            // ATTACH TOUCH/DRAG ON CANVASES FOR REAL-TIME GRAPH MANIPULATION
+            const cvStages = document.getElementById('canvasMicroStages');
+            if (cvStages) {
+                let isDrag = false;
+                const updateLFromPointer = (e) => {
+                    const rect = cvStages.getBoundingClientRect();
+                    const px = e.clientX - rect.left;
+                    const padL = 46, padR = 24;
+                    const plotW = rect.width - padL - padR;
+                    const normX = Math.min(1, Math.max(0, (px - padL) / plotW));
+                    const newL = normX * 9.5;
+                    const numEl = document.getElementById('mstg-l-num');
+                    const slEl = document.getElementById('mstg-l-slider');
+                    if (numEl && slEl) {
+                        numEl.value = newL.toFixed(1);
+                        slEl.value = newL.toFixed(1);
+                        drawMicroStages();
+                    }
+                };
+                cvStages.addEventListener('pointerdown', e => { isDrag = true; updateLFromPointer(e); });
+                cvStages.addEventListener('pointermove', e => { if (isDrag) updateLFromPointer(e); });
+                window.addEventListener('pointerup', () => isDrag = false);
+            }
+
+            const cvIsoquant = document.getElementById('canvasMicroIsoquant');
+            if (cvIsoquant) {
+                let isDragIso = false;
+                const updateIsoFromPointer = (e) => {
+                    const rect = cvIsoquant.getBoundingClientRect();
+                    const px = e.clientX - rect.left;
+                    const normX = Math.min(1, Math.max(0, px / rect.width));
+                    const newW = 0.5 + normX * 4.5;
+                    const numW = document.getElementById('miso-w-num');
+                    const slW = document.getElementById('miso-w-slider');
+                    if (numW && slW) {
+                        numW.value = newW.toFixed(1);
+                        slW.value = newW.toFixed(1);
+                        drawMicroIsoquant();
+                    }
+                };
+                cvIsoquant.addEventListener('pointerdown', e => { isDragIso = true; updateIsoFromPointer(e); });
+                cvIsoquant.addEventListener('pointermove', e => { if (isDragIso) updateIsoFromPointer(e); });
+                window.addEventListener('pointerup', () => isDragIso = false);
+            }
+
             initCanvasHover('micro', drawMicro);
 
             bindDual('c-fc-slider', 'c-fc-num', drawCost);
