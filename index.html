@@ -10762,6 +10762,215 @@ body.theme-dark .step-content {
 
 
 
+                <!-- OR Formula 12: Total Corner Points Combinatorics -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-or">فرمول طلایی ۱۲</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">محاسبه ترکیباتی تعداد کل نقاط گوشه‌ای و قضیه بنیادی برنامه‌ریزی خطی</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">تعداد کل نقاط گوشه‌ای (تلاقی خطوط مرزی):</span>
+                <span class="math-sym">Total Corner Points</span>
+                <span class="math-op">=</span>
+                <span class="math-frac">
+                    <span class="math-num">(m + n)!</span>
+                    <span class="math-den">m! · n!</span>
+                </span>
+                <span class="math-op">=</span>
+                <span class="math-sym">C(m + n, n)</span>
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">مثال کلاسی استاد (n = 2 متغیر ، m = 2 قید):</span>
+                <span class="math-frac">
+                    <span class="math-num">(2 + 2)!</span>
+                    <span class="math-den">2! · 2!</span>
+                </span>
+                <span class="math-op">=</span>
+                <span class="math-frac">
+                    <span class="math-num">24</span>
+                    <span class="math-den">4</span>
+                </span>
+                <span class="math-op">=</span>
+                <span class="math-sym">6</span>
+                <span class="math-sep">|</span>
+                ۴ نقطه موجه (O, A, B, C) + ۲ نقطه غیرموجه
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی تدریس دانشگاهی:</strong>
+            • <b>منشأ تولد رابطه:</b> در فضای n بعدی با m قید اصلی، m خط مرزی محدودیت به اضافه n خط مرزی نامنفی بودن (xⱼ = 0) وجود دارد؛ بنابراین مجموعاً m + n خط مرزی داریم.<br>
+            • هر نقطه گوشه‌ای (رأس / جواب پایه) از تقاطع دقیقاً n ابرصفحه مستقل متولد می‌شود. انتخاب n خط از میان m + n خط، برابر با ترکیب C(m + n, n) = (m + n)! ÷ (m! · n!) است.<br>
+            • <b>قضیه بنیادی برنامه‌ریزی خطی:</b> در منطقه موجه بی‌نهایت نقطه وجود دارد، اما طبق اثبات ریاضی، جواب بهینه (در صورت وجود) حتماً در یکی از همین نقاط گوشه‌ای متناهی رخ می‌دهد؛ بنابراین جستجو از بی‌نهایت نقطه به نقاط گوشه‌ای موجه محدود می‌شود.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>🔥 تلفیق تکمیلی بانکای / استانداردهای CFA:</strong>
+            • در الگوریتم سیمپلکس، هر نقطه گوشه‌ای دقیقاً متناظر با یک «جواب پایه» (Basic Solution) است. اگر مقادیر تمام متغیرها غیرمنفی باشند (X ≥ 0)، آن نقطه «جواب موجه پایه» (BFS: Basic Feasible Solution) و در غیر این صورت «جواب غیرموجه پایه» است.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+            اشتباه گرفتن «تعداد کل نقاط گوشه‌ای» با «تعداد نقاط گوشه‌ای موجه»! فرمول (m + n)! ÷ (m! · n!) سقف تلاقی تمام خطوط (موجه + ناموجه) را می‌دهد. نقاطی که خارج از منطقه اشتراک قیود قرار دارند غیرموجه‌اند و نباید در جدول ارزیابی سود وارد شوند!
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
+<!-- OR Formula 13: Feasible Region Dimensionality & Equality Constraints -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-or">فرمول طلایی ۱۳</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">هندسه سه‌گانه منطقه موجه و تقلیل بعد با قیود تساوی</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">حالت ۱ (تمام قیود نامساوی ≤ یا ≥):</span>
+                منطقه موجه <span class="math-op">⟹</span> چندضلعی محدب ۲ بعدی (Convex Polygon دارای مساحت)
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">حالت ۲ (وجود ۱ قید تساوی =):</span>
+                منطقه موجه <span class="math-op">⟹</span> پاره‌خط ۱ بعدی (Line Segment روی خط تساوی)
+            </div>
+            <div class="formula-line">
+                <span class="math-badge app">حالت ۳ (وجود ۲ قید تساوی =):</span>
+                منطقه موجه <span class="math-op">⟹</span> حداکثر یک تک‌نقطه ۰ بعدی (Single Point) <span class="math-op">⟹</span> جواب بهینه قطعی و یکتا
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی تدریس دانشگاهی:</strong>
+            • <b>قاعده تقلیل درجه آزادی:</b> هر قید تساوی مستقل، دقیقاً ۱ درجه آزادی از فضای مسئله کم می‌کند.<br>
+            • در فضای ۲ بعدی (x₁, x₂): قیود نامساوی فضا را به نیم‌صفحه‌های ۲ بعدی تقسیم می‌کنند. اما به محض معرفی یک قید تساوی (مانند x₁ + x₂ = 2)، ناحیه موجه مجبور است منحصراً روی همان خط یک‌بعدی مستقر شود و به پاره‌خط تبدیل می‌گردد.<br>
+            • اگر دو قید تساوی در مدل دو متغیره وجود داشته باشد، محل تلاقی دو خط حداکثر یک نقطه منفرد است. اگر این نقطه شرط نامنفی بودن و سایر قیود را ارضا کند، خودِ آن نقطه بدون نیاز به هیچ مقایسه‌ای، جواب بهینه مسئله است.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>🔥 تلفیق تکمیلی بانکای / استانداردهای CIMA:</strong>
+            • در مسائل بودجه‌بندی سرمایه‌ای با مصرف کامل بودجه (قید تساوی سفت)، انعطاف سبد پروژه کاهش یافته و تصمیم‌گیری مدیریتی به مرزهای فوق‌العاده مقید خطی محدود می‌شود.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+            فراموش کردن بررسی موجه بودن تک‌نقطه در دو قید تساوی! اگر نقطه تلاقی دو خط تساوی مقادیر منفی تولید کند (مثلاً x₁ &lt; 0)، مسئله فاقد منطقه موجه (Infeasible) می‌شود و جوابی ندارد.
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
+<!-- OR Formula 14: Multiple Optimal Solutions & Gradient Parallelism -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-or">فرمول طلایی ۱۴</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">شرط تحلیلی و هندسی جواب بهینه چندگانه و ترکیب محدب نقاط</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">شرط موازی بودن شیب‌ها (تشخیص فوری قبل از حل):</span>
+                <span class="math-frac">
+                    <span class="math-num">c₁</span>
+                    <span class="math-den">c₂</span>
+                </span>
+                <span class="math-op">=</span>
+                <span class="math-frac">
+                    <span class="math-num">aᵢ₁</span>
+                    <span class="math-den">aᵢ₂</span>
+                </span>
+                <span class="math-op">⟺</span>
+                شیب خط تراز تابع هدف <span class="math-op">=</span> شیب قید مرزی فعال iام
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">مجموعه بی‌نهایت جواب بهینه (ترکیب محدب روی پاره‌خط BC):</span>
+                <span class="math-sym">X*</span>
+                <span class="math-op">=</span>
+                λ · <span class="math-sym">X_B</span> + (1 - λ) · <span class="math-sym">X_C</span>
+                <span class="math-sep">|</span>
+                0 ≤ λ ≤ 1
+                <span class="math-op">⟹</span>
+                <span class="math-sym">Z*</span> ثابت و بیشینه است
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی تدریس دانشگاهی:</strong>
+            • <b>مثال کلاسی استاد:</b> تابع هدف Max Z = 40x₁ + 30x₂ با نسبت ضرایب 40 ÷ 30 = 4 ÷ 3 است. محدودیت فعال 4x₁ + 3x₂ ≤ 120 با نسبت ضرایب 4 ÷ 3 است.<br>
+            • چون شیب تابع هدف با شیب مرز فعال برابر است، خط تراز هم‌زمان با کل یال مرزی مماس می‌شود؛ در نتیجه دو رأس مجاور B(24, 8) و C(30, 0) هر دو سود بیشینه Z = 1200 را تولید می‌کنند.<br>
+            • تمام بی‌نهایت نقطه واقع بر روی پاره‌خط واصل بین B و C جواب بهینه مسئله هستند.<br>
+            • <b>ارزش تصمیم‌گیری برای مدیران:</b> جواب بهینه چندگانه به مدیران سازمان آزادی عمل و انعطاف استراتژیک می‌دهد؛ زیرا می‌توانند بدون افت سود، ترکیب محصول را بر اساس سایر ترجیحات کیفی، بازاری یا روابط عمومی انتخاب کنند.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>🔥 تلفیق تکمیلی بانکای / آزمون CFA:</strong>
+            • در جدول نهایی بهینه سیمپلکس، نشانه ریاضی چندجوابی بودن عبارت است از: صفر بودن ضریب کاهش هزینه (zⱼ - cⱼ = 0) برای حداقل یکی از متغیرهای غیرپایه. با ورود آن متغیر به پایه، مقدار Z تغییر نکرده و یک جواب گوشه‌ای بهینه دیگر کشف می‌شود.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+            برابری شیب تابع هدف با یک قید «غیرفعال» (Redundant / Inactive)! اگر شیب تابع هدف با قیدی موازی باشد که جزو مرزهای منطقه موجه نیست، مسئله چندجوابی نمی‌شود و جواب بهینه همچنان یکتا خواهد بود.
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
+<!-- OR Formula 15: Degeneracy, RHS Zero & Simplex Cycling -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-or">فرمول طلایی ۱۵</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">کالبدشکافی تباهیدگی (Degeneracy)، تلاقی مازاد خطوط و پدیده دوران</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">تعریف هندسی تباهیدگی:</span>
+                تلاقی بیش از n معادله حدی در یک نقطه <span class="math-op">⟹</span> انطباق چند نقطه گوشه‌ای بر روی یکدیگر
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">اثر در جدول سیمپلکس:</span>
+                <span class="math-sym">x_B</span> <span class="math-op">=</span> 0  در ستون RHS برای حداقل یک متغیر پایه
+            </div>
+            <div class="formula-line">
+                <span class="math-badge app">پیامد الگوریتمی (خطر لوپ):</span>
+                طول گام حرکت <span class="math-sym">θ</span> <span class="math-op">=</span> 0 <span class="math-op">⟹</span> دوران و چرخش در پایه بدون تغییر در مقدار Z
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی تدریس دانشگاهی:</strong>
+            • <b>تدریس تخته استاد:</b> در شرایط نرمال، هر نقطه گوشه‌ای در صفحه دو بعدی از تلاقی دقیقاً دو معادله حدی به وجود می‌آید. اما اگر ۳ یا چند خط مرزی (مانند L₁, L₂, L₃) دقیقاً از یک نقطه مشترک B عبور کنند، مسئله دچار تباهیدگی است.<br>
+            • در این حالت، چند پایه متمایز جبری به یک نقطه هندسی واحد اشاره دارند.<br>
+            • <b>پدیده چرخش یا Loop:</b> در سیمپلکس به دلیل انتخاب این رأس، متغیر پایه با مقدار صفر وارد می‌شود؛ در نتیجه مقدار تابع هدف بهبود نمی‌یابد (ΔZ = 0) و ممکن است الگوریتم بین چند پایه تکراری بچرخد و دچار بن‌بست حرکتی شود.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>🔥 تلفیق تکمیلی بانکای / روش‌های رفع چرخش:</strong>
+            • رفع لوپ تباهیدگی با «قاعده بلاند» (Bland's Smallest-Subscript Rule) یا روش آشفتگی لغت‌نامه‌ای چارنز (Lexicographic Perturbation) با اضافه کردن اپسیلون مثبت ε به سمت راست قیود.
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+            تباهیدگی لزوماً به این معنی نیست که جواب بهینه وجود ندارد یا الگوریتم قطعاً تا ابد در لوپ می‌ماند؛ در اکثر مسائل واقعی، پس از چند تکرار با θ = 0، الگوریتم از رأس تباهیده عبور کرده و به بهینگی همگرا می‌شود.
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
+
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
@@ -10901,6 +11110,49 @@ body.theme-dark .step-content {
                         جواب بهینه نهایی: x1* = 2 , x2* = 6 با مقدار بیشینه سود Max Z = 36.
                     </div>
                 
+                                <!-- Canonical Classroom Graphical Method Problem Solution -->
+                <div class="card" style="margin-top: 14px;">
+                    <span class="badge badge-or" style="margin-bottom: 8px;">حل تشریحی مسئله کلاسی استاد: روش ترسیمی و ارزیابی نقاط گوشه‌ای</span>
+                    <h3 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin-bottom: 12px;">
+                        مدل برنامه‌ریزی خطی: بیشینه‌سازی سود Max Z = 3x₁ + 2x₂ تحت قیود x₁ + 3x₂ ≤ 6 (L₁) و 3x₁ + x₂ ≤ 6 (L₂) و x₁, x₂ ≥ 0.
+                    </h3>
+
+                    <div class="algo-step" style="border-right-color: #0E7490;">
+                        <span class="algo-step-title">گام اول: رسم محورهای مختصات و معادلات حدی خطوط مرزی</span>
+                        • خط اول (L₁): x₁ + 3x₂ = 6 ⟹ نقاط برخورد با محورها: A(0, 2) و A'(6, 0).<br>
+                        • خط دوم (L₂): 3x₁ + x₂ = 6 ⟹ نقاط برخورد با محورها: B(0, 6) و B'(2, 0).<br>
+                        • با توجه به علامت ≤ در هر دو قید و آزمون مبدأ (0, 0)، جهت مجاز هر دو خط به سمت مبدأ است؛ بنابراین منطقه موجه، چندضلعی محدب OABC در ربع اول خواهد بود.
+                    </div>
+
+                    <div class="algo-step" style="border-right-color: #D97706;">
+                        <span class="algo-step-title">گام دوم: تحلیل ترکیباتی نقاط گوشه‌ای (موجه در برابر غیرموجه)</span>
+                        • تعداد کل تلاقی خطوط مرزی: (m + n)! ÷ (m! · n!) = (2 + 2)! ÷ (2! · 2!) = 24 ÷ 4 = ۶ نقطه.<br>
+                        • ۴ نقطه گوشه‌ای موجه: O(0, 0) ، A(0, 2) ، B(1.5, 1.5) و C(2, 0) که تشکیل‌دهنده چندضلعی موجه هستند.<br>
+                        • ۲ نقطه گوشه‌ای غیرموجه: نقطه (0, 6) روی L₂ و نقطه (6, 0) روی L₁ که خارج از منطقه اشتراک قرار دارند.
+                    </div>
+
+                    <div class="algo-step" style="border-right-color: #7C3AED;">
+                        <span class="algo-step-title">گام سوم: حل دستگاه دو معادله و دو مجهول برای مختصات نقطه تقاطع B</span>
+                        دستگاه تلاقی خطوط فعال L₁ و L₂:<br>
+                        x₁ + 3x₂ = 6  (ضرب در 3- ⟹ -3x₁ - 9x₂ = -18)<br>
+                        3x₁ + x₂ = 6<br>
+                        جمع طرفین: -8x₂ = -12 ⟹ x₂* = -12 ÷ (-8) = 1.5.<br>
+                        جایگذاری در معادله اول: x₁* = 6 - 3(1.5) = 1.5. مختصات نقطه B برابر با (1.5, 1.5) است.
+                    </div>
+
+                    <div class="algo-step" style="border-right-color: #047857;">
+                        <span class="algo-step-title">گام چهارم: جدول ارزیابی مقدار تابع هدف و استخراج ترکیب بهینه</span>
+                        • نقطه O(0, 0) ⟹ Z = 3(0) + 2(0) = 0<br>
+                        • نقطه A(0, 2) ⟹ Z = 3(0) + 2(2) = 4<br>
+                        • نقطه C(2, 0) ⟹ Z = 3(2) + 2(0) = 6<br>
+                        • نقطه B(1.5, 1.5) ⟹ Z = 3(1.5) + 2(1.5) = 4.5 + 3 = 7.5 (بیشترین مقدار سود)<br>
+                        <div style="background: #ECFDF5; border: 1.5px solid #059669; border-radius: 8px; padding: 8px 12px; margin-top: 8px; font-weight: 800; color: #065F46;">
+                            🏆 جواب بهینه یکتا: x₁* = 1.5  و  x₂* = 1.5  با مقدار بیشینه تابع هدف Max Z* = 7.5
+                        </div>
+                    </div>
+                </div>
+
+
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
@@ -11021,9 +11273,13 @@ body.theme-dark .step-content {
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #0E7490; margin-bottom: 10px;">📝 کپسول دست‌نویس دفترچه بهادر (تحقیق در عملیات ۱)</h4>
                     <div class="notebook-capsule">
 1. Max Z = cᵀ x  s.t. A x ≤ b , x ≥ 0  [فرم استاندارد]
-2. Min Ratio Test: min{ bᵢ / a_ik | a_ik > 0 }  [قاعده خروج]
-3. Shadow Price: yᵢ = dZ / dbᵢ  [قیمت سایه منبع]
-4. sᵢ · yᵢ = 0  [قضیه مکمل فزونی]
+2. Total Corner Points: (m + n)! ÷ (m! · n!)  [تعداد کل نقاط گوشه‌ای]
+3. Multiple Solutions: c₁ ÷ c₂ = a₁ ÷ a₂  [برابری شیب تابع هدف با قید فعال]
+4. Feasible Geometry: پاره‌خط (۱ قید =)، تک‌نقطه (۲ قید =)
+5. Degeneracy: تلاقی بیش از ۲ خط در یک رأس (x_B = 0 در سیمپلکس و لوپ)
+6. Min Ratio Test: min{ bᵢ ÷ a_ik | a_ik > 0 }  [قاعده خروج]
+7. Shadow Price: yᵢ = dZ ÷ dbᵢ  [قیمت سایه منبع]
+8. sᵢ · yᵢ = 0  [قضیه مکمل فزونی]
                     </div>
                 </div>
             </div>
@@ -16422,6 +16678,39 @@ window.resetORSimplex = resetORSimplex;
                     ],
                     correct: 0,
                     expl: '<b>کالبدشکافی تحلیلی:</b> متغیر کمکی صفر یعنی قید در تساوی کامل قرار گرفته و کل سهمیه منبع مصرف شده است (قید فعال یا Binding). قیمت سایه آن مثبت است.'
+                },
+                {
+                    q: 'در یک مسئله برنامه‌ریزی خطی با ۲ متغیر تصمیم و ۳ قید نامساوی در کنار شروط عدم منفی بودن، حداکثر تعداد کل نقاط گوشه‌ای (تلاقی خطوط مرزی) چند نقطه است؟',
+                    opts: [
+                        '۱. ۱۰ نقطه ((۳ + ۲)! ÷ (۳! × ۲!))',
+                        '۲. ۶ نقطه',
+                        '۳. ۵ نقطه',
+                        '۴. ۱۲ نقطه'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> تعداد کل نقاط گوشه‌ای برابر ترکیب انتخاب n متغیر از میان m + n خط مرزی است: (m + n)! ÷ (m! · n!) = (3 + 2)! ÷ (3! · 2!) = 120 ÷ 12 = 10 نقطه گوشه‌ای.'
+                },
+                {
+                    q: 'اگر در یک مدل برنامه‌ریزی خطی ۲ متغیره، یکی از محدودیت‌ها به فرم تساوی دقیق (=) باشد، منطقه موجه چه شکلی به خود می‌گیرد؟',
+                    opts: [
+                        '۱. یک پاره‌خط یک‌بعدی بر روی خط تساوی',
+                        '۲. یک چندضلعی محدب دوبعدی دارای مساحت',
+                        '۳. یک تک‌نقطه در مبدأ مختصات',
+                        '۴. همواره تهی و فاقد منطقه موجه است'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> هر قید تساوی مستقل ۱ درجه آزادی فضا را می‌گیرد؛ در مدل دو متغیره، وجود ۱ قید تساوی باعث تقلیل منطقه موجه از چندضلعی دوبعدی به یک پاره‌خط یک‌بعدی بر روی همان خط تساوی می‌شود.'
+                },
+                {
+                    q: 'نشانه وجود جواب بهینه چندگانه (Multiple Optimal Solutions) در روش ترسیمی چیست؟',
+                    opts: [
+                        '۱. برابری شیب خط تراز تابع هدف با شیب یکی از محدودیت‌های فعال مرز منطقه موجه',
+                        '۲. تلاقی بیش از دو قید در یک نقطه گوشه‌ای',
+                        '۳. باز بودن منطقه موجه به سمت بی‌نهایت',
+                        '۴. منفی شدن مقدار تمام متغیرهای تصمیم'
+                    ],
+                    correct: 0,
+                    expl: '<b>کالبدشکافی تحلیلی:</b> هرگاه نسبت ضرایب تابع هدف c₁/c₂ با نسبت ضرایب یک قید فعال aᵢ₁/aᵢ₂ برابر باشد، شیب تابع هدف با شیب آن قید موازی شده و تمام نقاط روی پاره‌خط مرزی، جواب‌های بهینه با سود یکسان و بیشینه خواهند بود.'
                 }
             ],
             math: [
@@ -20480,6 +20769,24 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 aliases: ['Max Z = sum(r_i * x_i)', 'Max Z = ∑ r_i * x_i', 'Max Z = sum(ri*xi)', 'Z = sum(r_i * x_i)'],
                 hint: 'مجموع حاصل‌ضرب بازده مورد انتظار هر دارایی در وزن تخصیص‌یافته به آن.',
                 breakdown: 'کالبدشکافی: با قید sum(x_i) = 1 تضمین می‌کند کل سرمایه به بهینه‌ترین ترکیب دارایی‌ها تخصیص یابد.'
+            },
+            {
+                id: 'o7',
+                title: 'تعداد کل نقاط گوشه‌ای در برنامه‌ریزی خطی',
+                prompt: 'فرمول ترکیباتی تعداد کل نقاط گوشه‌ای مدل برنامه‌ریزی خطی بر حسب تعداد قیود (m) و تعداد متغیرها (n) چیست؟',
+                canonical: '(m + n)! / (m! · n!)',
+                aliases: ['(m+n)!/(m!*n!)', '(m+n)!/(m!·n!)', 'C(m+n, n)', '(m+n)! / (m! * n!)', '(m + n)! / (m! * n!)', 'c(m+n,n)'],
+                hint: 'تعداد کل خطوط مرزی m + n است و هر رأس از تلاقی n خط به وجود می‌آید.',
+                breakdown: 'کالبدشکافی: ترکیب انتخاب n از m+n خط؛ تمام تلاقی‌های ممکن مرزها را مشخص می‌کند که بخشی از آن‌ها موجه و بخشی ناموجه هستند.'
+            },
+            {
+                id: 'o8',
+                title: 'شرط جبری جواب بهینه چندگانه',
+                prompt: 'شرط برابری شیب تابع هدف (ضرایب c₁, c₂) با شیب قید فعال مرزی (ضرایب a₁, a₂) را بنویسید:',
+                canonical: 'c₁ / c₂ = a₁ / a₂',
+                aliases: ['c1/c2 = a1/a2', 'c1/c2=a1/a2', 'c₁/c₂ = a₁/a₂', 'c₁ / c₂ = aᵢ₁ / aᵢ₂', 'c1 / c2 = a1 / a2'],
+                hint: 'نسبت ضرایب متغیر اول به متغیر دوم در تابع هدف باید با نسبت متناظر در قید فعال برابر باشد.',
+                breakdown: 'کالبدشکافی: موازی بودن خط تراز سود با مرز فعال؛ سبب مماس شدن خط سود با کل پاره‌خط مرزی و ایجاد بی‌نهایت جواب بهینه می‌شود.'
             }
         ],
         stat: [
