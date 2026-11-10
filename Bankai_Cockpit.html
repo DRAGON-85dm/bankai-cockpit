@@ -11247,6 +11247,441 @@ body.theme-dark .step-content {
                     </div>
                 </div>
 
+
+                <!-- ========================================================
+                     SOLVED UNIVERSITY EXAM PROBLEMS (OR-1 CANONICAL CASES)
+                     ======================================================== -->
+                <div class="card" style="margin-top: 24px; border-top: 4px solid var(--c-or);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 12px;">
+                        <div>
+                            <span class="badge badge-or">کارگاه حل مسائل امتحانی دانشگاهی</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                📝 حل تشریحی ۵ مسئله امتحانی تحقیق در عملیات ۱
+                            </h3>
+                            <p style="font-size: 0.76rem; color: #64748B; margin: 3px 0 0 0;">
+                                پروتکل استاندارد پاسخ‌نویسی تشریحی، ممیزی نقاط گوشه‌ای (BFS/BIS)، جداول مقایسه Z و تحلیل حالات خاص
+                            </p>
+                        </div>
+                        <span class="badge badge-dark">ملاک بارم‌بندی ۲۰ از ۲۰</span>
+                    </div>
+
+                    <!-- PROBLEM 1 CARD -->
+                    <div class="formula-card" style="border-right: 4px solid #0284C7; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #E0F2FE; color: #0369A1; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۱</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    کمینه‌سازی هزینه روی قید تساوی و قیود کف (کاهش بعد ۲D به پاره‌خط ۱D)
+                                </h4>
+                            </div>
+                            <span class="badge badge-or" style="font-size: 0.65rem;">پاره‌خط موجه</span>
+                        </div>
+
+                        <div style="font-size: 0.78rem; color: #334155; margin-bottom: 10px; line-height: 1.6;">
+                            <strong>مدل برنامه‌ریزی خطی:</strong>
+                        </div>
+                        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)">
+                            <div class="formula-line">
+                                <span class="math-badge app">تابع هدف:</span>
+                                <span class="math-sym">Min Z</span><span class="math-op">=</span>3x₁ + 5x₂
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge pop">قید تساوی:</span>
+                                x₁ + x₂ = 100
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge samp">قیود کف:</span>
+                                x₁ ≥ 50 &nbsp;,&nbsp; x₂ ≥ 40 &nbsp;,&nbsp; x₁ , x₂ ≥ 0
+                            </div>
+                        </div>
+
+                        <!-- Step 1 -->
+                        <div style="margin-top: 14px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px;">
+                            <strong style="font-size: 0.8rem; color: #0369A1; display: block; margin-bottom: 6px;">
+                                گام ۱: استخراج جبری و هندسی پاره‌خط موجه
+                            </strong>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0 0 6px 0; line-height: 1.6;">
+                                قید تساوی ساختاری، بعد فضای حل را از سطح ۲ بعدی به یک خط ۱ بعدی تنزل می‌دهد:<br>
+                                <strong dir="ltr">x₂ = 100 - x₁</strong><br>
+                                با اعمال قید کف متغیر دوم (x₂ ≥ 40) از طریق جایگذاری داریم:<br>
+                                <strong dir="ltr">100 - x₁ ≥ 40 &nbsp;⇒&nbsp; - x₁ ≥ - 60 &nbsp;⇒&nbsp; x₁ ≤ 60</strong><br>
+                                با اشتراک این سقف با قید کف اول (x₁ ≥ 50)، دامنه مجاز مشخص می‌شود: <strong>50 ≤ x₁ ≤ 60</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div style="margin-top: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px;">
+                            <strong style="font-size: 0.8rem; color: #0369A1; display: block; margin-bottom: 6px;">
+                                گام ۲: استخراج مختصات نقاط گوشه‌ای (دو سر پاره‌خط)
+                            </strong>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0; line-height: 1.6;">
+                                • رأس اول (کف دامنه): <strong>A(50, 50)</strong> با x₁ = 50 و x₂ = 100 - 50 = 50<br>
+                                • رأس دوم (سقف دامنه): <strong>B(60, 40)</strong> با x₁ = 60 و x₂ = 100 - 60 = 40
+                            </p>
+                        </div>
+
+                        <!-- Step 3 Table -->
+                        <div style="margin-top: 12px;">
+                            <strong style="font-size: 0.8rem; color: #0F172A; display: block; margin-bottom: 6px;">
+                                گام ۳: جدول ارزیابی و مقایسه مقادیر تابع هدف (Min Z = 3x₁ + 5x₂)
+                            </strong>
+                            <div class="table-responsive">
+                                <table class="stat-table" style="min-width: 100%; font-size: 0.75rem;">
+                                    <thead>
+                                        <tr style="background: #F1F5F9; color: #1E293B;">
+                                            <th style="padding: 8px;">نام رأس</th>
+                                            <th style="padding: 8px;">متغیر اول (x₁)</th>
+                                            <th style="padding: 8px;">متغیر دوم (x₂)</th>
+                                            <th style="padding: 8px;">ریز محاسبات تابع هدف</th>
+                                            <th style="padding: 8px;">هزینه کل (Z)</th>
+                                            <th style="padding: 8px;">وضعیت بهینگی</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 8px; font-weight: 800;">A</td>
+                                            <td style="padding: 8px;" dir="ltr">50</td>
+                                            <td style="padding: 8px;" dir="ltr">50</td>
+                                            <td style="padding: 8px;" dir="ltr">3(50) + 5(50) = 150 + 250</td>
+                                            <td style="padding: 8px; font-weight: 800;" dir="ltr">400</td>
+                                            <td style="padding: 8px; color: #64748B;">نامطلوب</td>
+                                        </tr>
+                                        <tr style="background: #ECFDF5; font-weight: 800;">
+                                            <td style="padding: 8px; color: #047857;">B*</td>
+                                            <td style="padding: 8px;" dir="ltr">60</td>
+                                            <td style="padding: 8px;" dir="ltr">40</td>
+                                            <td style="padding: 8px;" dir="ltr">3(60) + 5(40) = 180 + 200</td>
+                                            <td style="padding: 8px; color: #047857;" dir="ltr">380</td>
+                                            <td style="padding: 8px; color: #047857;">جواب بهینه (کمینه مطلق)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 Result Box -->
+                        <div style="margin-top: 12px; background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 12px; padding: 12px 16px;">
+                            <span style="font-size: 0.78rem; font-weight: 900; color: #065F46; display: block; margin-bottom: 4px;">
+                                🏆 جواب بهینه قطعی مسئله ۱:
+                            </span>
+                            <div style="font-family: monospace; font-size: 0.95rem; font-weight: 900; color: #047857;" dir="ltr">
+                                x₁* = 60 &nbsp;|&nbsp; x₂* = 40 &nbsp;|&nbsp; Z* = 380
+                            </div>
+                        </div>
+
+                        <!-- Step 5 Intuition -->
+                        <div class="cfa-tier" style="margin-top: 12px;">
+                            <div class="tier-label" style="color: #0369A1;">💡 کالبدشکافی تحلیلی استاد و شهود اقتصادی نرخ صرفه‌جویی:</div>
+                            <p style="font-size: 0.75rem; color: #334155; margin: 0; line-height: 1.6;">
+                                هزینه واحد محصول اول ۳ تومان و محصول دوم ۵ تومان است. با توجه به قید تساوی x₁ + x₂ = 100، جانشینی هر ۱ واحد از x₁ به جای x₂ دقیقاً <strong>5 - 3 = 2 تومان</strong> هزینه کل را کاهش می‌دهد؛ بنابراین عقلانیت کمینه‌سازی هزینه حکم می‌کند متغیر ارزان‌تر (x₁) تا حداکثر سقف مجاز پاره‌خط (x₁ = 60) افزایش یابد.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- PROBLEM 2 CARD -->
+                    <div class="formula-card" style="border-right: 4px solid #7C3AED; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #F3E8FF; color: #7E22CE; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۲</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    ممیزی نقاط گوشه‌ای، تفکیک ۴ نقطه BFS از ۵ نقطه BIS و ترکیب بهینه تولید
+                                </h4>
+                            </div>
+                            <span class="badge badge-or" style="font-size: 0.65rem;">ممیزی رئوس</span>
+                        </div>
+
+                        <div style="font-size: 0.78rem; color: #334155; margin-bottom: 10px; line-height: 1.6;">
+                            <strong>مدل برنامه‌ریزی خطی:</strong>
+                        </div>
+                        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)">
+                            <div class="formula-line">
+                                <span class="math-badge app">تابع هدف:</span>
+                                <span class="math-sym">Max Z</span><span class="math-op">=</span>3x₁ + 6x₂
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge pop">قیود مرزی:</span>
+                                3x₁ + 2x₂ ≤ 18 (L₁) &nbsp;|&nbsp; x₁ + 2x₂ ≥ 5 (L₂) &nbsp;|&nbsp; x₁ ≤ 4 (L₃)
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge samp">شرط عدم منفی:</span>
+                                x₁ , x₂ ≥ 0
+                            </div>
+                        </div>
+
+                        <!-- Step 1 -->
+                        <div style="margin-top: 14px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px;">
+                            <strong style="font-size: 0.8rem; color: #7C3AED; display: block; margin-bottom: 6px;">
+                                گام ۱: تعیین خطوط مرزی و نقاط تلاقی با محورها
+                            </strong>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0; line-height: 1.6;">
+                                • خط L₁: برخورد با محور عمودی در (0, 9) و محور افقی در (6, 0) | آزمون مبدأ: 0 ≤ 18 (صدق می‌کند؛ رو به مبدأ)<br>
+                                • خط L₂: برخورد با محور عمودی در (0, 2.5) و محور افقی در (5, 0) | آزمون مبدأ: 0 ≥ 5 (نقض می‌شود؛ پشت به مبدأ)<br>
+                                • خط L₃: خط عمودی x₁ = 4 | جهت نامساوی x₁ ≤ 4 به سمت چپ محور است.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div style="margin-top: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px;">
+                            <strong style="font-size: 0.8rem; color: #7C3AED; display: block; margin-bottom: 6px;">
+                                گام ۲: تفکیک دقیق ۴ نقطه موجه پایه (BFS) از ۵ نقطه غیرموجه پایه (BIS)
+                            </strong>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0; line-height: 1.6;">
+                                تعداد کل خطوط مرزی ۵ خط (۳ قید + ۲ محور) است. به دلیل موازی بودن x₁ = 4 با محور x₁ = 0، تعداد تلاقی‌ها برابر <strong>۹ نقطه</strong> است:<br>
+                                <strong>۴ نقطه موجه پایه (BFS):</strong><br>
+                                • P₁(0, 9) تلاقی L₁ با محور عمودی<br>
+                                • P₂(0, 2.5) تلاقی L₂ با محور عمودی<br>
+                                • P₃(4, 0.5) تلاقی L₂ با خط عمودی x₁ = 4<br>
+                                • P₄(4, 3) تلاقی L₁ با خط عمودی x₁ = 4<br>
+                                <strong>۵ نقطه غیرموجه پایه (BIS):</strong> (0, 0) نقض L₂ | (4, 0) نقض L₂ | (5, 0) نقض L₃ | (6, 0) نقض L₃ | (6.5, -0.75) نقض L₃ و شرط x₂ ≥ 0.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 Table -->
+                        <div style="margin-top: 12px;">
+                            <strong style="font-size: 0.8rem; color: #0F172A; display: block; margin-bottom: 6px;">
+                                گام ۳: جدول رسمی ارزیابی و مقایسه مقادیر تابع هدف (Max Z = 3x₁ + 6x₂)
+                            </strong>
+                            <div class="table-responsive">
+                                <table class="stat-table" style="min-width: 100%; font-size: 0.75rem;">
+                                    <thead>
+                                        <tr style="background: #F1F5F9; color: #1E293B;">
+                                            <th style="padding: 8px;">نام رأس</th>
+                                            <th style="padding: 8px;">x₁</th>
+                                            <th style="padding: 8px;">x₂</th>
+                                            <th style="padding: 8px;">جایگذاری در تابع هدف Max Z</th>
+                                            <th style="padding: 8px;">سود کل (Z)</th>
+                                            <th style="padding: 8px;">وضعیت</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background: #F5F3FF; font-weight: 800;">
+                                            <td style="padding: 8px; color: #6D28D9;">P₁*</td>
+                                            <td style="padding: 8px;" dir="ltr">0</td>
+                                            <td style="padding: 8px;" dir="ltr">9</td>
+                                            <td style="padding: 8px;" dir="ltr">3(0) + 6(9) = 0 + 54</td>
+                                            <td style="padding: 8px; color: #6D28D9;" dir="ltr">54</td>
+                                            <td style="padding: 8px; color: #6D28D9;">بیشینه مطلق (جواب بهینه)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 8px;">P₂</td>
+                                            <td style="padding: 8px;" dir="ltr">0</td>
+                                            <td style="padding: 8px;" dir="ltr">2.5</td>
+                                            <td style="padding: 8px;" dir="ltr">3(0) + 6(2.5) = 0 + 15</td>
+                                            <td style="padding: 8px;" dir="ltr">15</td>
+                                            <td style="padding: 8px; color: #64748B;">-</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 8px;">P₃</td>
+                                            <td style="padding: 8px;" dir="ltr">4</td>
+                                            <td style="padding: 8px;" dir="ltr">0.5</td>
+                                            <td style="padding: 8px;" dir="ltr">3(4) + 6(0.5) = 12 + 3</td>
+                                            <td style="padding: 8px;" dir="ltr">15</td>
+                                            <td style="padding: 8px; color: #64748B;">-</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 8px;">P₄</td>
+                                            <td style="padding: 8px;" dir="ltr">4</td>
+                                            <td style="padding: 8px;" dir="ltr">3</td>
+                                            <td style="padding: 8px;" dir="ltr">3(4) + 6(3) = 12 + 18</td>
+                                            <td style="padding: 8px;" dir="ltr">30</td>
+                                            <td style="padding: 8px; color: #64748B;">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 Result Box -->
+                        <div style="margin-top: 12px; background: #F5F3FF; border: 1.5px solid #8B5CF6; border-radius: 12px; padding: 12px 16px;">
+                            <span style="font-size: 0.78rem; font-weight: 900; color: #5B21B6; display: block; margin-bottom: 4px;">
+                                🏆 جواب بهینه و ترکیب بهینه تولید:
+                            </span>
+                            <div style="font-family: monospace; font-size: 0.95rem; font-weight: 900; color: #6D28D9;" dir="ltr">
+                                x₁* = 0 &nbsp;|&nbsp; x₂* = 9 &nbsp;|&nbsp; Z* = 54
+                            </div>
+                        </div>
+
+                        <!-- Step 5 Intuition -->
+                        <div class="cfa-tier" style="margin-top: 12px;">
+                            <div class="tier-label" style="color: #6D28D9;">💡 مفهوم مدیریتی و اقتصادی ترکیب بهینه تولید:</div>
+                            <p style="font-size: 0.75rem; color: #334155; margin: 0; line-height: 1.6;">
+                                سازمان باید تولید محصول اول (x₁) را کاملاً متوقف کند و تمام ظرفیت منابع قید اول را به تولید ۹ واحد از محصول دوم اختصاص دهد؛ زیرا نسبت سودآوری به مصرف منبع محدود قید اول در محصول دوم برابر <strong dir="ltr">6 ÷ 2 = 3</strong> است، در حالی که برای محصول اول برابر <strong dir="ltr">3 ÷ 3 = 1</strong> بوده و محصول دوم سه برابر بازدهی منبع بالاتری دارد.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- PROBLEM 3 CARD -->
+                    <div class="formula-card" style="border-right: 4px solid #10B981; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #ECFDF5; color: #047857; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۳</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    قیود ظرفیت مستقل (باکس دکارتی و رشد مستقل متغیرها)
+                                </h4>
+                            </div>
+                            <span class="badge badge-or" style="font-size: 0.65rem;">مستطیل دکارتی</span>
+                        </div>
+
+                        <div style="font-size: 0.78rem; color: #334155; margin-bottom: 10px; line-height: 1.6;">
+                            <strong>مدل برنامه‌ریزی خطی:</strong>
+                        </div>
+                        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)">
+                            <div class="formula-line">
+                                <span class="math-badge app">تابع هدف:</span>
+                                <span class="math-sym">Max Z</span><span class="math-op">=</span>1.5x₁ + x₂
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge pop">قیود ظرفیت مستقل:</span>
+                                x₁ ≤ 4 &nbsp;|&nbsp; x₂ ≤ 5
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge samp">عدم منفی:</span>
+                                x₁ , x₂ ≥ 0
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 14px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px;">
+                            <strong style="font-size: 0.8rem; color: #047857; display: block; margin-bottom: 6px;">
+                                کالبدشکافی هندسی و محاسبات ۴ رأس مستطیل
+                            </strong>
+                            <p style="font-size: 0.76rem; color: #475569; margin: 0; line-height: 1.6;">
+                                چون هیچ قید اشتراکی بین x₁ و x₂ وجود ندارد، ناحیه موجه مستطیل متعامد 0 ≤ x₁ ≤ 4 و 0 ≤ x₂ ≤ 5 است:<br>
+                                • O(0, 0) ⇒ Z = 1.5(0) + 1(0) = 0<br>
+                                • A(4, 0) ⇒ Z = 1.5(4) + 1(0) = 6<br>
+                                • B(0, 5) ⇒ Z = 1.5(0) + 1(5) = 5<br>
+                                • C*(4, 5) ⇒ Z = 1.5(4) + 1(5) = 6 + 5 = 11 (جواب بهینه)
+                            </p>
+                        </div>
+
+                        <div style="margin-top: 12px; background: #ECFDF5; border: 1.5px solid #10B981; border-radius: 12px; padding: 12px 16px;">
+                            <span style="font-size: 0.78rem; font-weight: 900; color: #065F46; display: block; margin-bottom: 4px;">
+                                🏆 جواب بهینه قطعی مسئله ۳:
+                            </span>
+                            <div style="font-family: monospace; font-size: 0.95rem; font-weight: 900; color: #047857;" dir="ltr">
+                                x₁* = 4 &nbsp;|&nbsp; x₂* = 5 &nbsp;|&nbsp; Z* = 11
+                            </div>
+                            <div style="font-size: 0.74rem; color: #047857; margin-top: 4px;">
+                                تحلیل: در غیاب رقابت بر سر منابع، هر متغیر مستقلاً تا سقف ظرفیت خود رشد می‌کند.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROBLEM 4 CARD -->
+                    <div class="formula-card" style="border-right: 4px solid #F59E0B; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #FEF3C7; color: #B45309; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۴</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    جراحی قید مازاد یا زائد (Redundant Constraint)
+                                </h4>
+                            </div>
+                            <span class="badge badge-or" style="font-size: 0.65rem;">حالت خاص</span>
+                        </div>
+
+                        <div style="font-size: 0.78rem; color: #334155; margin-bottom: 10px; line-height: 1.6;">
+                            <strong>مدل برنامه‌ریزی خطی:</strong>
+                        </div>
+                        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)">
+                            <div class="formula-line">
+                                <span class="math-badge app">تابع هدف:</span>
+                                <span class="math-sym">Max Z</span><span class="math-op">=</span>2x₁ + x₂
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge pop">قیود ساختاری:</span>
+                                4x₁ + 4x₂ ≤ 12 (L₁) &nbsp;|&nbsp; 2x₁ + 2x₂ ≤ 8 (L₂) &nbsp;|&nbsp; 4x₁ - 2x₂ ≤ 8 (L₃)
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 14px; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px;">
+                            <strong style="font-size: 0.8rem; color: #B45309; display: block; margin-bottom: 6px;">
+                                اثبات تحلیلی حالت خاص و برابری شیب‌ها:
+                            </strong>
+                            <p style="font-size: 0.76rem; color: #78350F; margin: 0; line-height: 1.6;">
+                                ۱. تقسیم قید اول بر ۴: <strong>x₁ + x₂ ≤ 3</strong> (شیب = -۱)<br>
+                                ۲. تقسیم قید دوم بر ۲: <strong>x₁ + x₂ ≤ 4</strong> (شیب = -۱)<br>
+                                ۳. چون هر نقطه برآورده‌کننده x₁ + x₂ ≤ 3 خودبخود در x₁ + x₂ ≤ 4 نیز صدق می‌کند، قید دوم کاملاً پشت قید اول قرار گرفته و هیچ تماسی با مرز ناحیه موجه فعال ندارد.
+                            </p>
+                        </div>
+
+                        <div style="margin-top: 12px; background: #FFFBEB; border: 1.5px solid #F59E0B; border-radius: 12px; padding: 12px 16px;">
+                            <span style="font-size: 0.78rem; font-weight: 900; color: #92400E; display: block; margin-bottom: 4px;">
+                                🚨 پاسخ قطعی امتحانی:
+                            </span>
+                            <div style="font-size: 0.84rem; font-weight: 900; color: #B45309;">
+                                این مدل دارای «محدودیت مازاد یا زائد (Redundant Constraint)» در قید دوم (L₂) است.
+                            </div>
+                            <div style="font-size: 0.74rem; color: #78350F; margin-top: 4px; line-height: 1.5;">
+                                • حذف L₂ هیچ اثری روی شکل ناحیه موجه و جواب بهینه ندارد.<br>
+                                • در جدول نهایی سیمپلکس، متغیر کمکی مربوط به قید دوم اکیداً مثبت (s₂ &gt; 0) و قیمت سایه آن دقیقاً صفر (y₂* = 0) است.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROBLEM 5 CARD -->
+                    <div class="formula-card" style="border-right: 4px solid #EF4444; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #FEE2E2; color: #B91C1C; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۵</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    جواب بی‌کران و ضرایب منفی قیود (Unbounded Solution)
+                                </h4>
+                            </div>
+                            <span class="badge badge-or" style="font-size: 0.65rem;">ناحیه بی‌کران</span>
+                        </div>
+
+                        <div style="font-size: 0.78rem; color: #334155; margin-bottom: 10px; line-height: 1.6;">
+                            <strong>مدل برنامه‌ریزی خطی:</strong>
+                        </div>
+                        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)">
+                            <div class="formula-line">
+                                <span class="math-badge app">تابع هدف:</span>
+                                <span class="math-sym">Max Z</span><span class="math-op">=</span>2x₁ + x₂
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge pop">قیود با ضریب منفی:</span>
+                                x₁ - x₂ ≤ 10 (L₁) &nbsp;|&nbsp; 2x₁ - x₂ ≤ 40 (L₂)
+                            </div>
+                            <div class="formula-line">
+                                <span class="math-badge samp">عدم منفی:</span>
+                                x₁ , x₂ ≥ 0
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 14px; background: #FEF2F2; border: 1px solid #FECACA; border-radius: 10px; padding: 12px;">
+                            <strong style="font-size: 0.8rem; color: #B91C1C; display: block; margin-bottom: 6px;">
+                                اثبات تحلیلی بی‌کران بودن سود تابع هدف:
+                            </strong>
+                            <p style="font-size: 0.76rem; color: #7F1D1D; margin: 0; line-height: 1.6;">
+                                ۱. مرتب‌سازی برحسب x₂: <strong>x₂ ≥ x₁ - 10</strong> و <strong>x₂ ≥ 2x₁ - 40</strong><br>
+                                ۲. علامت نامساوی‌ها برای x₂ به صورت بزرگ‌تر یا مساوی است؛ یعنی قیود فقط یک «کف» برای x₂ تعیین کرده و هیچ سقف بالایی ندارند.<br>
+                                ۳. با میل x₂ به سمت +∞ با فرض x₁ = 0، تابع هدف به صورت <strong>Z = 2(0) + x₂ → +∞</strong> میل کرده و هیچ مرزی برای متوقف ساختن رشد سود وجود ندارد.
+                            </p>
+                        </div>
+
+                        <div style="margin-top: 12px; background: #FEF2F2; border: 1.5px solid #EF4444; border-radius: 12px; padding: 12px 16px;">
+                            <span style="font-size: 0.78rem; font-weight: 900; color: #991B1B; display: block; margin-bottom: 4px;">
+                                🚨 پاسخ قطعی امتحانی:
+                            </span>
+                            <div style="font-size: 0.84rem; font-weight: 900; color: #DC2626;">
+                                این مدل دارای «ناحیه موجه بی‌کران و جواب بهینه نامحدود (Unbounded Solution)» است.
+                            </div>
+                        </div>
+
+                        <div class="trap-tier" style="margin-top: 12px;">
+                            <div class="tier-label" style="color: #991B1B;">⚠️ تله بزرگ طراحان کنکور ارشد:</div>
+                            <p style="font-size: 0.75rem; color: #7F1D1D; margin: 0; line-height: 1.6;">
+                                اگر هدف این مسئله کمینه‌سازی سود بود (<strong dir="ltr">Min Z = 2x₁ + x₂</strong>): با وجود بی‌کران بودن ناحیه موجه رو به بالا، مسئله دارای جواب بهینه متناهی و محدود در مبدأ مختصات (0, 0) با مقدار بهینه <strong dir="ltr">Z* = 0</strong> می‌شد! بنابراین بی‌کران بودن ناحیه موجه شرط لازم است اما شرط کافی برای جواب بی‌کران نیست (بستگی تام به جهت رشد تابع هدف دارد).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End of Isolated View Boundary Guard -->
+                <div class="view-end-guard">
+                    <span>🔒</span>
+                    <span>پایان بخش حل مسائل امتحانی و کارگاه عملیات | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
+                </div>
+
 </div>
 
             <div id="or-tab-traps" class="subtab-view" style="display: none;">
@@ -11262,7 +11697,23 @@ body.theme-dark .step-content {
                         اگر در جدول نهایی بهینه، ضریب حداقل یکی از متغیرهای غیرپایه‌ای در سطر Z صفر باشد، نشانه وجود بی‌شمار جواب بهینه متناهی است.
                     </div>
                 
-                <!-- End of Isolated View Boundary Guard -->
+                
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۳: تله جواب بی‌کران در مسائل کمینه‌سازی (Min Z)</div>
+                        بی‌کران بودن ناحیه موجه شرط لازم است اما شرط کافی برای نامحدود بودن جواب نیست! اگر ناحیه رو به بالا باز باشد اما هدف کمینه‌سازی (Min Z) باشد، جواب بهینه متناهی در پایین‌ترین نقطه مرزی (کف) به دست می‌آید.
+                    </div>
+
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۴: قید مازاد موازی و متغیر اسلک در جدول بهینه</div>
+                        اگر دو قید مرزی شیب یکسان داشته و یکی ضعیف‌تر باشد، قید ضعیف‌تر کاملاً مازاد (Redundant) است. در جدول بهینه سیمپلکس، متغیر اسلک قید مازاد مثبت (s &gt; 0) و ارزش سایه آن دقیقاً صفر (y* = 0) است.
+                    </div>
+
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۵: قید تساوی، سوختن درجه آزادی و پاره‌خط موجه</div>
+                        هر قید تساوی ساختاری، بعد فضای حل را ۱ واحد کاهش می‌دهد. در مدل ۲ متغیره، وجود یک قید تساوی همراه با قیود کف، ناحیه موجه را از سطح به یک پاره‌خط ۱ بعدی تنزل داده و نقاط بهینه روی دو سر پاره‌خط ارزیابی می‌شوند.
+                    </div>
+
+<!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
                     <span>پایان بخش تله‌های تستی و کپسول دفترچه | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
@@ -16745,6 +17196,51 @@ window.resetORSimplex = resetORSimplex;
                     expl: '<b>کالبدشکافی تحلیلی:</b> det(A) = (2)(3) - (-1)(4) = 6 - (-4) = 10 &ne; 0. چون دترمینان ناصفر است، ماتریس غیرمنفرد و معکوس‌پذیر است.'
                 },
                 {
+                    q: 'اگر در یک مدل برنامه‌ریزی خطی با هدف Max Z، دو قید 4x₁ + 4x₂ ≤ 12 و 2x₁ + 2x₂ ≤ 8 داشته باشیم، وضعیت قید دوم چگونه است؟',
+                    opts: [
+                        '۱. قید دوم مازاد (Redundant) است و متغیر اسلک آن در جدول بهینه مثبت است',
+                        '۲. قید اول مازاد است و قید دوم فعال است',
+                        '۳. هر دو قید هم‌زمان فعال هستند و جواب چندگانه ایجاد می‌کنند',
+                        '۴. مسئله به دلیل تناقض قیود فاقد ناحیه موجه است'
+                    ],
+                    ans: 0,
+                    expl: 'با ساده‌سازی، قید اول x₁ + x₂ ≤ 3 و قید دوم x₁ + x₂ ≤ 4 است. چون شیب‌ها یکسان بوده و قید دوم ضعیف‌تر است، قید دوم کاملاً در پشت قید اول قرار گرفته و مازاد است (متغیر اسلک آن در بهینه s₂ > 0 و قیمت سایه آن y₂* = 0 است).'
+                },
+                {
+                    q: 'در مسئله Max Z = 2x₁ + x₂ با قیود x₁ - x₂ ≤ 10 و 2x₁ - x₂ ≤ 40 و x₁, x₂ ≥ 0، اگر تابع هدف به Min Z = 2x₁ + x₂ تغییر یابد، وضعیت جواب چگونه خواهد بود؟',
+                    opts: [
+                        '۱. مسئله همچنان دارای جواب نامحدود (Unbounded) در بی‌نهایت است',
+                        '۲. مسئله دارای جواب بهینه متناهی و یکتا در مبدأ مختصات (0, 0) با سود صفر است',
+                        '۳. مسئله فاقد ناحیه موجه (Infeasible) می‌شود',
+                        '۴. مسئله دارای بی‌نهایت جواب بهینه روی پاره‌خط مرزی است'
+                    ],
+                    ans: 1,
+                    expl: 'تله کلاسیک کنکور: ناحیه موجه از بالا بی‌کران است، اما برای هدف Min Z به دنبال کوچک‌ترین مقدار هستیم که در پایین‌ترین نقطه مرزی یعنی نقطه (0, 0) با مقدار Z* = 0 حاصل می‌شود.'
+                },
+                {
+                    q: 'در مدل Min Z = 3x₁ + 5x₂ تحت قید تساوی x₁ + x₂ = 100 و قیود کف x₁ ≥ 50 و x₂ ≥ 40، مقدار متغیر اول در جواب بهینه چقدر است؟',
+                    opts: [
+                        '۱. x₁* = 60 به دلیل صرفه‌جویی ۲ تومانی در هر واحد جانشینی به جای x₂',
+                        '۲. x₁* = 50 به دلیل قید کف',
+                        '۳. x₁* = 100 با توقف کامل متغیر دوم',
+                        '۴. x₁* = 40'
+                    ],
+                    ans: 0,
+                    expl: 'چون مجموع دو متغیر ۱۰۰ است، به ازای هر واحد افزایش x₁، متغیر x₂ یک واحد کاهش می‌یابد که صرفه‌جویی ۵ - ۳ = ۲ تومان دارد؛ پس x₁ تا سقف مجاز پاره‌خط یعنی ۶۰ رشد می‌کند.'
+                },
+                {
+                    q: 'در یک دستگاه برنامه‌ریزی خطی ۲ متغیره با ۳ قید ساختاری نامساوی، اگر خط x₁ = 4 با محور x₁ = 0 موازی باشد، تعداد کل تلاقی‌ها (BFS + BIS) چند نقطه است؟',
+                    opts: [
+                        '۱. ۹ نقطه (۱۰ منهای ۱ به دلیل موازی بودن دو خط عمودی)',
+                        '۲. ۱۰ نقطه کامل',
+                        '۳. ۶ نقطه',
+                        '۴. ۴ نقطه'
+                    ],
+                    ans: 0,
+                    expl: 'تعداد کل خطوط مرزی ۵ است که ۱۰ تلاقی ایجاد می‌کند؛ اما خط عمودی x₁ = 4 با محور عمودی موازی بوده و هرگز متلاقی نمی‌شوند، پس تعداد کل تلاقی‌ها ۹ نقطه (شامل ۴ نقطه BFS و ۵ نقطه BIS) است.'
+                },
+
+                {
                     q: 'در روش بهینه‌سازی مقید لاگرانژ، ضریب لاگرانژ (λ*) بیانگر کدام مفهوم اقتصادی و مدیریتی است؟',
                     opts: ['الف) قیمت سایه منبع (ارزش نهایی ۱ واحد افزایش در قید)', 'ب) نرخ استهلاک سرمایه', 'ج) ضریب ریسک سیستماتیک دارایی', 'د) سود ناخالص هر واحد تولید'],
                     correct: 0,
@@ -20787,6 +21283,33 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 aliases: ['c1/c2 = a1/a2', 'c1/c2=a1/a2', 'c₁/c₂ = a₁/a₂', 'c₁ / c₂ = aᵢ₁ / aᵢ₂', 'c1 / c2 = a1 / a2'],
                 hint: 'نسبت ضرایب متغیر اول به متغیر دوم در تابع هدف باید با نسبت متناظر در قید فعال برابر باشد.',
                 breakdown: 'کالبدشکافی: موازی بودن خط تراز سود با مرز فعال؛ سبب مماس شدن خط سود با کل پاره‌خط مرزی و ایجاد بی‌نهایت جواب بهینه می‌شود.'
+            },
+            {
+                id: 'o9',
+                title: 'ارزش سایه قید مازاد یا زائد (Redundant Constraint Shadow Price)',
+                prompt: 'قیمت سایه (yᵢ*) یک قید مازاد یا زائد (Redundant Constraint) در جواب بهینه برنامه‌ریزی خطی چقدر است؟',
+                canonical: 'y_redundant = 0',
+                aliases: ['y=0', 'y_i=0', 'y_redundant=0', 'y=0', 'shadow=0', 'yᵢ = 0', 'y=0 تومان'],
+                hint: 'چون قید مازاد هیچ تماسی با مرز فعال ندارد و منبع آن اضافی است، ارزش سایه آن دقیقاً صفر است.',
+                breakdown: 'کالبدشکافی تحلیلی استاد: طبق قضیه مکمل فزونی، چون متغیر کمکی قید مازاد در پایه نهایی مثبت است (s_redundant > 0)، قیمت سایه آن متناظراً صفر مطلق می‌شود.'
+            },
+            {
+                id: 'o10',
+                title: 'ضابطه خط کاهش بعد در قید تساوی ساختاری',
+                prompt: 'در قید تساوی ساختاری x₁ + x₂ = 100، رابطه کاهش بعد متغیر دوم بر حسب متغیر اول چیست؟',
+                canonical: 'x₂ = 100 - x₁',
+                aliases: ['x2=100-x1', 'x₂=100-x₁', 'x2 = 100 - x1'],
+                hint: 'انتقال متغیر اول به سمت راست معادله تساوی.',
+                breakdown: 'کالبدشکافی تحلیلی استاد: قید تساوی یک درجه آزادی را می‌سوزاند و فضای ۲ بعدی را دقیقاً به یک خط ۱ بعدی تبدیل می‌کند.'
+            },
+            {
+                id: 'o11',
+                title: 'شرط توقف به دلیل جواب بی‌کران در آزمون نسبت سیمپلکس',
+                prompt: 'در جدول سیمپلکس، در چه صورتی برای متغیر ورودی kام، مسئله دارای جواب نامتناهی (Unbounded) اعلام می‌شود؟',
+                canonical: 'a_ik ≤ 0',
+                aliases: ['a_ik <= 0', 'a_ik<=0', 'a_ik ≤ 0', 'aik<=0', 'aik <= 0', 'all a_ik <= 0'],
+                hint: 'تمامی درایه‌های ستون لولایی برای متغیر ورودی صفر یا منفی باشند.',
+                breakdown: 'کالبدشکافی: اگر درایه‌های ستون لولایی همگی منفی یا صفر باشند، هیچ مانعی برای رشد متغیر ورودی وجود ندارد و متغیر خارج‌شونده‌ای یافت نمی‌شود.'
             }
         ],
         stat: [
