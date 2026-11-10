@@ -6774,7 +6774,7 @@ body.theme-dark .step-content {
                                 <div class="kpi-card" style="border-top: 3px solid #7C3AED;">
                                     <div class="kpi-title">حداکثر تولید (Q*)</div>
                                     <div class="kpi-val" id="miso-val-q" style="color: #7C3AED;">12,500</div>
-                                    <div class="kpi-sub">Q = 10·L^α·K^β</div>
+                                    <div class="kpi-sub">Q = 10 · Lᵅ · Kᵝ</div>
                                 </div>
                                 <div class="kpi-card" style="border-top: 3px solid #DC2626;">
                                     <div class="kpi-title">شیب خط هزینه (-w/r)</div>
@@ -8788,6 +8788,266 @@ body.theme-dark .step-content {
 </div>
 
 
+                
+
+<!-- FORMULA 21: PRICE CONTROLS & BLACK MARKET -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۲۱</span>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: سقف و کف قیمت</button>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">کنترل قیمت‌های دولتی (سقف قیمت Pc و کف قیمت Pf)، شکاف کمبود و مازاد، و بازار سیاه</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">سقف قیمت (Price Ceiling) و شکاف کمبود:</span>
+                                    <span class="math-sym">Shortage</span><span class="math-op">=</span><span class="math-sym">QᏧ</span><span class="math-op">-</span><span class="math-sym">Qₛ</span> <span class="math-op">></span> <span class="math-sym">0</span> <span class="math-op">(</span><span class="math-sym">شرط تأثیرگذاری:</span> <span class="math-sym">P_c</span> <span class="math-op">&lt;</span> <span class="math-sym">P*</span><span class="math-op">)</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">کف قیمت (Price Floor) و شکاف مازاد:</span>
+                                    <span class="math-sym">Surplus</span><span class="math-op">=</span><span class="math-sym">Qₛ</span><span class="math-op">-</span><span class="math-sym">QᏧ</span> <span class="math-op">></span> <span class="math-sym">0</span> <span class="math-op">(</span><span class="math-sym">شرط تأثیرگذاری:</span> <span class="math-sym">P_f</span> <span class="math-op">&gt;</span> <span class="math-sym">P*</span><span class="math-op">)</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">قیمت بازار سیاه و رانت دلالی:</span>
+                                    <span class="math-sym">P_black</span><span class="math-op">=</span><span class="math-sym">PᏧ</span>( <span class="math-sym">Qₛ</span> ) <span class="math-op">,</span> <span class="math-sym">Rent</span><span class="math-op">=</span>( <span class="math-sym">P_black</span> <span class="math-op">-</span> <span class="math-sym">P_c</span> ) · <span class="math-sym">Qₛ</span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>سقف قیمت مؤثر (Binding Ceiling):</b> تنها زمانی بر بازار اثر می‌گذارد که پایین‌تر از تعادل آزاد وضع شود (P_c &lt; P*). پیامدهای حتمی: ۱. بروز شکاف کمبود (Shortage = QᏧ - Qₛ)، ۲. صف‌های طولانی و تلف شدن وقت خریداران، ۳. ظهور بازار سیاه با قیمت P_black، ۴. افت کیفیت محصول و ۵. سهمیه‌بندی غیرقیمتی (کوپن).<br>
+                                • <b>کف قیمت مؤثر (Binding Floor):</b> تنها زمانی اثرگذار است که بالاتر از قیمت تعادلی وضع گردد (P_f &gt; P*). پیامدها: ۱. ایجاد مازاد عرضه (Surplus = Qₛ - QᏧ)، ۲. انباشت کالا در انبارها، ۳. اتلاف منابع و ۴. بیکاری نیروی کار در بازار دستمزد، مگر آنکه دولت مازاد را با خرید تضمینی جذب کند.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>⚡ رهیافت تکمیلی بانکای / CFA (رانت دلالی و بورس کالا):</strong>
+                                • در سقف قیمت P_c، کارخانه‌ها بر اساس هزینه نهایی خود مقدار اندک Qₛ(P_c) را عرضه می‌کنند. اما خریداران برای همین تیراژ محدود حاضرند قیمتی به مراتب بالاتر (تا سقف منحنی تقاضا P_black) بپردازند.<br>
+                                • مابه‌التفاوت این دو سطح قیمت در تیراژ موجود، یعنی (P_black - P_c) · Qₛ، مساحت مستطیل «رانت واسطه‌گری» است که بدون ایجاد کوچک‌ترین ارزش افزوده تولیدی، نصیب دلالان می‌شود؛ در حالی که صورت‌های مالی تولیدکننده زیان‌ده می‌ماند.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد:</strong>
+                                طراحان آزمون سقف قیمتی را *بالاتر* از تعادل پیشنهاد می‌دهند (مثلاً قیمت تعادلی ۱۰ تومان و سقف ۱۲ تومان). داوطلب ناآگاه با جایگذاری عدد ۱۲، کمبود منفی یا مازاد حساب می‌کند! قانون طلایی: اگر سقف قیمت بالاتر از تعادل یا کف قیمت پایین‌تر از تعادل باشد، مداخله «بی‌اثر (Non-binding)» است؛ یعنی بازار بدون تغییر در همان نقطه تعادل اولیه کار می‌کند و شکاف صفر است!
+                            </div>
+
+                            <div class="visual-diagram-box">
+                                <div class="diagram-header">
+                                    <span class="diagram-badge">🗺️ اطلس هندسی و ترسیمی</span>
+                                    <h5 class="diagram-title">کالبدشکافی شکاف کمبود در سقف قیمت (Pc) و شکاف مازاد در کف قیمت (Pf)</h5>
+                                </div>
+                                <div class="diagram-svg-container">
+                                    <svg viewBox="0 0 520 280" class="academic-svg" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <marker id="arrow-pc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155"/>
+                                            </marker>
+                                        </defs>
+
+                                        <!-- Grid Lines -->
+                                        <line x1="60" y1="50" x2="480" y2="50" stroke="#F1F5F9" stroke-width="1"/>
+                                        <line x1="60" y1="110" x2="480" y2="110" stroke="#F1F5F9" stroke-width="1"/>
+                                        <line x1="60" y1="170" x2="480" y2="170" stroke="#F1F5F9" stroke-width="1"/>
+                                        <line x1="60" y1="230" x2="480" y2="230" stroke="#F1F5F9" stroke-width="1"/>
+
+                                        <!-- Axes -->
+                                        <line x1="60" y1="240" x2="60" y2="25" stroke="#334155" stroke-width="2" marker-end="url(#arrow-pc)"/>
+                                        <line x1="60" y1="240" x2="495" y2="240" stroke="#334155" stroke-width="2" marker-end="url(#arrow-pc)"/>
+                                        <text x="40" y="30" fill="#0F172A" font-size="12" font-weight="900">قیمت (P)</text>
+                                        <text x="495" y="258" fill="#0F172A" font-size="12" font-weight="900" text-anchor="end">مقدار (Q)</text>
+
+                                        <!-- Demand Curve (D) -->
+                                        <line x1="80" y1="50" x2="440" y2="230" stroke="#2563EB" stroke-width="2.5"/>
+                                        <text x="445" y="235" fill="#2563EB" font-size="11" font-weight="900">تقاضا (D)</text>
+
+                                        <!-- Supply Curve (S) -->
+                                        <line x1="80" y1="230" x2="440" y2="50" stroke="#EF4444" stroke-width="2.5"/>
+                                        <text x="445" y="55" fill="#EF4444" font-size="11" font-weight="900">عرضه (S)</text>
+
+                                        <!-- Equilibrium E0 (260, 140) -->
+                                        <circle cx="260" cy="140" r="5" fill="#10B981" stroke="#FFFFFF" stroke-width="1.5"/>
+                                        <line x1="260" y1="140" x2="60" y2="140" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                        <line x1="260" y1="140" x2="260" y2="240" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                        <text x="35" y="144" fill="#0F172A" font-size="10" font-weight="900">P* = 5</text>
+                                        <text x="260" y="255" fill="#0F172A" font-size="10" font-weight="900" text-anchor="middle">Q* = 5</text>
+                                        <text x="270" y="135" fill="#065F46" font-size="10" font-weight="900">تعادل E*</text>
+
+                                        <!-- Price Ceiling Pc = 3 (y = 180) -->
+                                        <line x1="60" y1="180" x2="460" y2="180" stroke="#DC2626" stroke-width="1.8" stroke-dasharray="4,4"/>
+                                        <text x="25" y="184" fill="#DC2626" font-size="10" font-weight="900">Pc = 3</text>
+                                        
+                                        <!-- Shortage bracket between Qs(180, 180) and Qd(340, 180) -->
+                                        <circle cx="180" cy="180" r="4" fill="#DC2626"/>
+                                        <circle cx="340" cy="180" r="4" fill="#2563EB"/>
+                                        <line x1="180" y1="180" x2="180" y2="240" stroke="#DC2626" stroke-width="1" stroke-dasharray="2,2"/>
+                                        <line x1="340" y1="180" x2="340" y2="240" stroke="#2563EB" stroke-width="1" stroke-dasharray="2,2"/>
+                                        <text x="180" y="255" fill="#DC2626" font-size="9" font-weight="900" text-anchor="middle">Qₛ = 3</text>
+                                        <text x="340" y="255" fill="#2563EB" font-size="9" font-weight="900" text-anchor="middle">QᏧ = 7</text>
+
+                                        <!-- Shortage Bar -->
+                                        <rect x="180" y="172" width="160" height="16" fill="rgba(239, 68, 68, 0.18)" stroke="#EF4444" stroke-width="1.2"/>
+                                        <text x="260" y="184" fill="#DC2626" font-size="9.5" font-weight="900" text-anchor="middle">شکاف کمبود = ۴ واحد (صف و کوپن)</text>
+
+                                        <!-- Black Market Price Projection from Qs=3 (x=180) to Demand (y=100) -->
+                                        <circle cx="180" cy="100" r="4.5" fill="#7C3AED" stroke="#FFFFFF" stroke-width="1.2"/>
+                                        <line x1="180" y1="180" x2="180" y2="100" stroke="#7C3AED" stroke-width="1.8" stroke-dasharray="2,2"/>
+                                        <line x1="180" y1="100" x2="60" y2="100" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="3,3"/>
+                                        <text x="15" y="104" fill="#7C3AED" font-size="9.5" font-weight="900">P_black = 7</text>
+                                        <text x="190" y="95" fill="#7C3AED" font-size="9" font-weight="900">قیمت بازار سیاه</text>
+                                    </svg>
+                                </div>
+                                <div class="diagram-walkthrough">
+                                    <strong>📌 الگوریتم ۴ مرحله‌ای ساخت و تحلیل هندسی:</strong>
+                                    <p>۱. <b>رسم تعادل اولیه:</b> تلاقی عرضه و تقاضا در نقطه E*(Q*=5, P*=5) مشخص می‌شود.</p>
+                                    <p>۲. <b>بررسی شرط سقف قیمت:</b> خط افقی قرمز در Pc = 3 زیر قیمت تعادلی رسم شده و تأثیرگذار بودن آن محرز می‌گردد.</p>
+                                    <p>۳. <b>محاسبه شکاف کمبود:</b> در قیمت Pc=3، عرضه به Qₛ=3 کاهش و تقاضا به QᏧ=7 افزایش می‌یابد؛ فاصله افقی بین آن‌ها برابر ۴ واحد شکاف کمبود است.</p>
+                                    <p>۴. <b>استخراج قیمت بازار سیاه:</b> با خط‌چین عمودی از Qₛ=3 به منحنی تقاضا وصل می‌شویم؛ ارتفاع نقطه به دست آمده قیمت بازار سیاه (P_black=7) را آشکار می‌سازد.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')">
+                                <span>⚡</span> فلش‌بک به کشش و مداخله قیمت
+                            </button>
+                            <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+                                <span>📋</span> کپی فرمول
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- FORMULA 22: SLUTSKY DECOMPOSITION -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۲۲</span>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک: مشتق و اثرات تقاضا</button>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تفکیک اثرات اسلاتسکی و هیکس (Slutsky Decomposition): اثر کل، جانشینی و درآمدی</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">اتحاد بنیادین اسلاتسکی (Slutsky Equation):</span>
+                                    <span class="math-sym">TE</span><span class="math-op">=</span><span class="math-sym">SE</span><span class="math-op">+</span><span class="math-sym">IE</span> <span class="math-op">⟺</span> <span class="math-frac"><span class="math-num">∂X</span><span class="math-den">∂Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Xˢ</span><span class="math-den">∂Pₓ</span></span><span class="math-op">-</span><span class="math-sym">X</span> · <span class="math-frac"><span class="math-num">∂X</span><span class="math-den">∂I</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">اثر جانشینی خالص (Substitution Effect - قانون منفی بودن):</span>
+                                    <span class="math-sym">SE</span><span class="math-op">:</span> <span class="math-sym">ΔPₓ</span> <span class="math-op">↑</span> <span class="math-op">⟹</span> <span class="math-sym">ΔX</span> <span class="math-op">↓</span> <span class="math-op">(</span><span class="math-frac"><span class="math-num">∂Xˢ</span><span class="math-den">∂Pₓ</span></span> <span class="math-op">&lt;</span> <span class="math-sym">0</span> <span class="math-sym">همواره منفی و بدون استثنا</span><span class="math-op">)</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">رژیم‌های سه‌گانه کالایی بر اساس علامت اثر درآمدی (IE):</span>
+                                    <span class="math-sym">کالای عادی:</span> <span class="math-sym">IE</span> <span class="math-sym">تقویت‌کننده</span> <span class="math-sym">SE</span> <span class="math-op">|</span> <span class="math-sym">کالای پست:</span> <span class="math-sym">IE</span> <span class="math-sym">مخالف</span> <span class="math-sym">SE</span> <span class="math-op">|</span> <span class="math-sym">کالای گیفن:</span> <span class="math-sym">|IE|</span> <span class="math-op">&gt;</span> <span class="math-sym">|SE|</span> <span class="math-op">⟹</span> <span class="math-sym">TE</span> <span class="math-op">&gt;</span> <span class="math-sym">0</span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>اثر کل (Total Effect - TE):</b> تغییر خالص مقدار تقاضای کالا در پاسخ به تغییر قیمت آن با فرض ثبات سایر شرایط است (حرکت مستقیم از سبد تعادلی اولیه E₁ به سبد تعادلی ثانویه E₂).<br>
+                                • <b>اثر جانشینی (Substitution Effect - SE):</b> تغییر تقاضا ناشی از تغییر قیمت نسبی، با فرض ثابت نگه داشتن رفاه مصرف‌کننده. به دلیل تحدب منحنی‌های بی‌تفاوتی، اثر جانشینی *همواره منفی* است؛ یعنی هرگاه کالایی گران شود، جایگزینی آن قطعاً افت می‌کند.<br>
+                                • <b>اثر درآمدی (Income Effect - IE):</b> تغییر تقاضا صرفاً ناشی از تغییر قدرت خرید واقعی است. اگر کالا عادی باشد، گرانی کالا قدرت خرید را کم کرده و مصرف را کاهش می‌دهد (IE منفی و هم‌جهت با SE). اگر کالا پست باشد، افت قدرت خرید مصرف آن را افزایش می‌دهد (IE مثبت و خلاف جهت SE).
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>⚡ رهیافت تکمیلی بانکای / CFA (تمایز هیکس در برابر اسلاتسکی):</strong>
+                                • <b>روش هیکس (Hicksian):</b> جبران درآمدی به گونه‌ای است که مصرف‌کننده دقیقاً روی همان منحنی بی‌تفاوتی اولیه (U₀) باقی بماند (ثبات مطلوبیت واقعی). خط بودجه فرضی بر منحنی U₀ مماس می‌شود.<br>
+                                • <b>روش اسلاتسکی (Slutskian):</b> جبران درآمدی به گونه‌ای است که مصرف‌کننده بتواند دقیقاً همان سبد مصرفی اولیه (X₁, Y₁) را در قیمت‌های جدید خریداری کند (ثبات قدرت خرید پولی). خط بودجه فرضی از نقطه سبد قبلی می‌گذرد.<br>
+                                • در تغییرات کوچک قیمتی، هیکس و اسلاتسکی بر هم منطبق می‌شوند.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله کنکور ارشد (پارادوکس گیفن):</strong>
+                                طراحان کنکور این تست را مطرح می‌کنند: «آیا هر کالای پستی، کالای گیفن است؟». پاسخ اکیداً خیر! تنها دسته‌ای خاص از کالاهای به شدت پست که سهم عظیمی از سبد مخارج خانوار را می‌بلعند به کالای گیفن تبدیل می‌شوند؛ یعنی زمانی که قدرت اثر درآمدی مثبت آن‌قدر سرکش باشد که بتواند اثر جانشینی منفی را خنثی کرده و مغلوب سازد (|IE| &gt; |SE|). در این حالت نادر، با افزایش قیمت، تقاضای کالا بالا می‌رود و منحنی تقاضا شیب صعودی به خود می‌گیرد!
+                            </div>
+
+                            <div class="visual-diagram-box">
+                                <div class="diagram-header">
+                                    <span class="diagram-badge">🗺️ اطلس هندسی و ترسیمی</span>
+                                    <h5 class="diagram-title">کالبدشکافی تفکیک اسلاتسکی: چرخش خط بودجه، خط فرضی جبرانی و استخراج اثر جانشینی و درآمدی</h5>
+                                </div>
+                                <div class="diagram-svg-container">
+                                    <svg viewBox="0 0 520 280" class="academic-svg" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <marker id="arrow-slutsky" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155"/>
+                                            </marker>
+                                        </defs>
+
+                                        <!-- Background Grid -->
+                                        <line x1="60" y1="50" x2="480" y2="50" stroke="#F1F5F9" stroke-width="1"/>
+                                        <line x1="60" y1="120" x2="480" y2="120" stroke="#F1F5F9" stroke-width="1"/>
+                                        <line x1="60" y1="190" x2="480" y2="190" stroke="#F1F5F9" stroke-width="1"/>
+
+                                        <!-- Axes -->
+                                        <line x1="60" y1="240" x2="60" y2="25" stroke="#334155" stroke-width="2" marker-end="url(#arrow-slutsky)"/>
+                                        <line x1="60" y1="240" x2="495" y2="240" stroke="#334155" stroke-width="2" marker-end="url(#arrow-slutsky)"/>
+                                        <text x="40" y="30" fill="#0F172A" font-size="12" font-weight="900">کالای Y</text>
+                                        <text x="495" y="258" fill="#0F172A" font-size="12" font-weight="900" text-anchor="end">کالای X</text>
+
+                                        <!-- Initial Budget Line BL1 (from 60, 50 to 420, 240) -->
+                                        <line x1="60" y1="60" x2="430" y2="240" stroke="#2563EB" stroke-width="2"/>
+                                        <text x="435" y="235" fill="#2563EB" font-size="10" font-weight="700">BL₁</text>
+
+                                        <!-- Final Budget Line BL2 (after Px increases: rotates inwards to 240, 240) -->
+                                        <line x1="60" y1="60" x2="250" y2="240" stroke="#DC2626" stroke-width="2"/>
+                                        <text x="255" y="235" fill="#DC2626" font-size="10" font-weight="700">BL₂</text>
+
+                                        <!-- Compensated Budget Line BL' (parallel to BL2, passing through initial indifference curve U1) -->
+                                        <line x1="120" y1="60" x2="310" y2="240" stroke="#7C3AED" stroke-width="1.8" stroke-dasharray="4,4"/>
+                                        <text x="315" y="235" fill="#7C3AED" font-size="10" font-weight="700">BL' (خط فرضی)</text>
+
+                                        <!-- Indifference Curves U1 and U2 -->
+                                        <path d="M 120 70 Q 210 160, 370 200" fill="none" stroke="#059669" stroke-width="2"/>
+                                        <path d="M 90 90 Q 150 170, 270 220" fill="none" stroke="#059669" stroke-width="1.8" stroke-dasharray="3,3"/>
+                                        <text x="375" y="200" fill="#059669" font-size="10" font-weight="900">U₁</text>
+                                        <text x="275" y="220" fill="#059669" font-size="10" font-weight="900">U₂</text>
+
+                                        <!-- Tangency Points -->
+                                        <!-- E1 on BL1 and U1: (265, 140) -->
+                                        <circle cx="265" cy="140" r="5" fill="#2563EB" stroke="#FFFFFF" stroke-width="1.5"/>
+                                        <text x="275" y="138" fill="#1D4ED8" font-size="10" font-weight="900">E₁ (سبد اولیه)</text>
+                                        <line x1="265" y1="140" x2="265" y2="240" stroke="#2563EB" stroke-width="1" stroke-dasharray="2,2"/>
+                                        <text x="265" y="255" fill="#1D4ED8" font-size="9" font-weight="900" text-anchor="middle">X₁</text>
+
+                                        <!-- E' on BL' and U1: (200, 165) -->
+                                        <circle cx="200" cy="165" r="5" fill="#7C3AED" stroke="#FFFFFF" stroke-width="1.5"/>
+                                        <text x="155" y="155" fill="#7C3AED" font-size="10" font-weight="900">E' (فرضی)</text>
+                                        <line x1="200" y1="165" x2="200" y2="240" stroke="#7C3AED" stroke-width="1" stroke-dasharray="2,2"/>
+                                        <text x="200" y="255" fill="#7C3AED" font-size="9" font-weight="900" text-anchor="middle">X'</text>
+
+                                        <!-- E2 on BL2 and U2: (150, 185) -->
+                                        <circle cx="150" cy="185" r="5" fill="#DC2626" stroke="#FFFFFF" stroke-width="1.5"/>
+                                        <text x="105" y="180" fill="#DC2626" font-size="10" font-weight="900">E₂ (نهایی)</text>
+                                        <line x1="150" y1="185" x2="150" y2="240" stroke="#DC2626" stroke-width="1" stroke-dasharray="2,2"/>
+                                        <text x="150" y="255" fill="#DC2626" font-size="9" font-weight="900" text-anchor="middle">X₂</text>
+
+                                        <!-- Decomposition Arrows on X axis -->
+                                        <!-- SE arrow from X1 to X' -->
+                                        <line x1="265" y1="225" x2="205" y2="225" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow-slutsky)"/>
+                                        <text x="232" y="220" fill="#7C3AED" font-size="9" font-weight="900" text-anchor="middle">SE</text>
+
+                                        <!-- IE arrow from X' to X2 -->
+                                        <line x1="200" y1="225" x2="155" y2="225" stroke="#DC2626" stroke-width="2" marker-end="url(#arrow-slutsky)"/>
+                                        <text x="177" y="220" fill="#DC2626" font-size="9" font-weight="900" text-anchor="middle">IE</text>
+
+                                        <!-- TE arrow from X1 to X2 -->
+                                        <line x1="265" y1="210" x2="155" y2="210" stroke="#0F172A" stroke-width="2.5" marker-end="url(#arrow-slutsky)"/>
+                                        <text x="210" y="204" fill="#0F172A" font-size="9.5" font-weight="900" text-anchor="middle">اثر کل TE = SE + IE</text>
+                                    </svg>
+                                </div>
+                                <div class="diagram-walkthrough">
+                                    <strong>📌 الگوریتم ۴ مرحله‌ای ساخت و تحلیل هندسی:</strong>
+                                    <p>۱. <b>تعادل اولیه E₁:</b> نقطه مماس خط بودجه اولیه BL₁ بر منحنی بی‌تفاوتی U₁ که مصرف اولیه X₁ را معین می‌کند.</p>
+                                    <p>۲. <b>چرخش خط بودجه به BL₂:</b> با افزایش قیمت کالای X، خط بودجه به سمت داخل می‌چرخد و تعادل نهایی E₂ روی منحنی پایین‌تر U₂ شکل می‌گیرد (مصرف نهایی X₂).</p>
+                                    <p>۳. <b>رسم خط بودجه جبرانی BL':</b> خطی موازی خط جدید BL₂ (با شیب قیمت‌های جدید) رسم می‌کنیم تا مماس بر منحنی اولیه U₁ شود (نقطه E' با مصرف X').</p>
+                                    <p>۴. <b>جداسازی اثرات:</b> فاصله X₁ تا X' بیانگر اثر جانشینی خالص (SE) است و فاصله X' تا X₂ بیانگر اثر درآمدی (IE) است که مجموع برداری آن‌ها اثر کل (TE) را تشکیل می‌دهد.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')">
+                                <span>⚡</span> فلش‌بک به مشتق و کشش
+                            </button>
+                            <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+                                <span>📋</span> کپی فرمول
+                            </button>
+                        </div>
+                    </div>
+
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
@@ -9015,6 +9275,273 @@ body.theme-dark .step-content {
                     </div>
                 </div>
 
+
+                
+
+<!-- ========================================================
+                     SOLVED UNIVERSITY EXAM PROBLEMS (MICROECONOMICS CH 1-3)
+                     ======================================================== -->
+                <div class="card" style="margin-top: 24px; border-top: 4px solid var(--c-micro); padding: 18px 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 12px;">
+                        <div>
+                            <span class="badge badge-micro">کارگاه حل مسائل امتحانی دانشگاهی</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                📝 حل تشریحی ۵ مسئله امتحانی اقتصاد خرد (فصول ۱، ۲ و ۳)
+                            </h3>
+                            <p style="font-size: 0.76rem; color: #64748B; margin: 3px 0 0 0;">
+                                الگوی پاسخ‌نویسی نمره‌آور سر جلسه، تفکیک گام‌های جبری، اثبات‌های ریاضی و تحلیل‌های اقتصادی ملاک مصحح کنکور
+                            </p>
+                        </div>
+                        <span class="badge badge-dark">ملاک بارم‌بندی ۲۰ از ۲۰</span>
+                    </div>
+
+                    <!-- PROBLEM 1: PRICE CONTROLS & BLACK MARKET -->
+                    <div class="formula-card" style="border-right: 4px solid #2563EB; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #EFF6FF; color: #1D4ED8; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۱ (فصل ۱)</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    ممیزی سقف و کف قیمت دولتی، شکاف کمبود/مازاد و رانت بازار سیاه
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۴ نمره کامل</span>
+                        </div>
+
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
+                            <strong>صورت مسئله:</strong> در بازار کالایی معین، توابع تقاضا و عرضه به صورت <span dir="ltr">QᏧ = 10 - P</span> و <span dir="ltr">Qₛ = P</span> هستند.
+                            دولت دو سیاست مداخله قیمتی مجزا را بررسی می‌کند: الف) وضع سقف قیمت <span dir="ltr">P_c = 3</span> تومان؛ ب) وضع کف قیمت <span dir="ltr">P_f = 7</span> تومان.<br>
+                            تعادل اولیه، مؤثر بودن هر سیاست، مقدار شکاف بازار و قیمت بازار سیاه در سناریوی (الف) را به دست آورید.
+                        </div>
+
+                        <!-- Step 1 -->
+                        <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۱: استخراج قیمت و مقدار تعادل طبیعی بازار</strong>
+                            <p style="margin: 2px 0;">شرط تعادل بازار برابری مقدار تقاضا و عرضه است:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">QᏧ</span><span class="math-op">=</span><span class="math-sym">Qₛ</span> <span class="math-op">⟹</span> <span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">P</span><span class="math-op">=</span><span class="math-sym">P</span> <span class="math-op">⟹</span> <span class="math-sym">2P</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">⟹</span> <span class="math-sym">P*</span><span class="math-op">=</span><span class="math-sym">5</span> <span class="math-op">,</span> <span class="math-sym">Q*</span><span class="math-op">=</span><span class="math-sym">5</span></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۲: تحلیل سیاست سقف قیمت (Price Ceiling: P_c = 3)</strong>
+                            <p style="margin: 2px 0;">• <b>ممیزی شرط اثرگذاری:</b> سقف قیمت زمانی مؤثر (Binding) است که پایین‌تر از قیمت تعادل آزاد باشد: چون <span dir="ltr">3 &lt; 5</span> است، سیاست کاملاً مؤثر است.</p>
+                            <p style="margin: 2px 0;">• <b>محاسبه مقادیر تقاضا و عرضه در سقف قیمت:</b></p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">QᏧ</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">,</span> <span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">3</span> <span class="math-op">⟹</span> <span class="math-sym">Shortage</span><span class="math-op">=</span><span class="math-sym">QᏧ</span> <span class="math-op">-</span> <span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">4</span></div>
+                            <p style="margin: 2px 0;">شکاف کمبود برابر ۴ واحد است که منجر به تشکیل صف، اتلاف وقت و سهمیه‌بندی غیرقیمتی می‌شود.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۳: کشف قیمت در بازار سیاه و محاسبه رانت دلالی</strong>
+                            <p style="margin: 2px 0;">تولیدکنندگان تنها به اندازه <span dir="ltr">Qₛ = 3</span> واحد کالا تولید و روانه بازار می‌کنند. خریداران برای دریافت این ۳ واحد حاضرند تا حداکثر سقف تمایل به پرداخت روی منحنی تقاضا هزینه کنند:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">P_black</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">,</span> <span class="math-sym">Rent</span><span class="math-op">=</span>( <span class="math-sym">7</span> <span class="math-op">-</span> <span class="math-sym">3</span> ) · <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">12</span></div>
+                            <p style="margin: 2px 0;">قیمت بازار سیاه به ۷ تومان می‌رسد و رانت بادآورده واسطه‌ها برابر ۱۲ تومان است.</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۴: تحلیل سیاست کف قیمت (Price Floor: P_f = 7)</strong>
+                            <p style="margin: 2px 0;">• <b>ممیزی شرط اثرگذاری:</b> کف قیمت زمانی مؤثر است که بالاتر از تعادل آزاد باشد: چون <span dir="ltr">7 &gt; 5</span> است، سیاست مؤثر است.</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">,</span> <span class="math-sym">QᏧ</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">7</span><span class="math-op">=</span><span class="math-sym">3</span> <span class="math-op">⟹</span> <span class="math-sym">Surplus</span><span class="math-op">=</span><span class="math-sym">Qₛ</span> <span class="math-op">-</span> <span class="math-sym">QᏧ</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">4</span></div>
+                            <p style="margin: 2px 0;">مازاد عرضه برابر ۴ واحد است که نشان‌دهنده انباشت کالا در انبار یا بیکاری در بازار کار است.</p>
+                        </div>
+
+                        <div style="background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 8px; padding: 10px 12px; margin-top: 12px; font-size: 0.75rem; color: #1E40AF;">
+                            🎯 <b>نتیجه‌گیری راهبردی مدیر مالی:</b> کنترل قیمت بدون اصلاح ساختار عرضه، فقط ایجادکننده رانت توزیعی و بازار غیررسمی است. در سقف قیمت، مصرف‌کننده نهایی به جای ۳ تومان مصوب، ۷ تومان در بازار سیاه می‌پردازد و مابه‌التفاوت به جیب دلالان سرازیر می‌شود.
+                        </div>
+                    </div>
+
+                    <!-- PROBLEM 2: PER-UNIT TAX INCIDENCE -->
+                    <div class="formula-card" style="border-right: 4px solid #10B981; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #ECFDF5; color: #047857; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۲ (فصل ۱)</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    تحلیل جامع مالیات بر واحد (t = 2)، جابه‌جایی عرضه و تسهیم بار مالیاتی
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۴ نمره کامل</span>
+                        </div>
+
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
+                            <strong>صورت مسئله:</strong> با همان توابع تقاضا و عرضه (<span dir="ltr">QᏧ = 10 - P</span> و <span dir="ltr">Qₛ = P</span>)، دولت مالیات بر واحد به میزان <span dir="ltr">t = 2</span> تومان بر تولیدکننده وضع می‌کند.<br>
+                            معادله عرضه جدید، تعادل پس از مالیات، قیمت‌های پرداختی و دریافتی، درآمد مالیاتی دولت و سهم طرفین را حساب کنید.
+                        </div>
+
+                        <!-- Step 1 & 2 -->
+                        <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۱: استخراج تابع عرضه جدید پس از وضع مالیات</strong>
+                            <p style="margin: 2px 0;">وضع مالیات بر تولیدکننده هزینه نهایی را به اندازه t=2 بالا می‌برد؛ لذا معادله معکوس عرضه به صورت <span dir="ltr">P = Qₛ + 2</span> تغییر می‌یابد:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">P</span><span class="math-op">=</span><span class="math-sym">Qₛ</span> <span class="math-op">+</span> <span class="math-sym">2</span> <span class="math-op">⟹</span> <span class="math-sym">Qₛ'</span><span class="math-op">=</span><span class="math-sym">P</span> <span class="math-op">-</span> <span class="math-sym">2</span></div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۲: تعادل ثانویه بازار پس از مداخله مالیاتی</strong>
+                            <p style="margin: 2px 0;">تقاطع تقاضای اولیه و عرضه جدید پس از مالیات:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">P</span><span class="math-op">=</span><span class="math-sym">P</span> <span class="math-op">-</span> <span class="math-sym">2</span> <span class="math-op">⟹</span> <span class="math-sym">2P</span><span class="math-op">=</span><span class="math-sym">12</span> <span class="math-op">⟹</span> <span class="math-sym">P₁</span><span class="math-op">=</span><span class="math-sym">6</span> <span class="math-op">,</span> <span class="math-sym">Q₁</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">6</span><span class="math-op">=</span><span class="math-sym">4</span></div>
+                            <p style="margin: 2px 0;">قیمت پرداختی مصرف‌کننده از ۵ به ۶ تومان افزایش یافته و تیراژ تولید از ۵ به ۴ واحد افت می‌کند.</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۳: محاسبه قیمت دریافتی خالص فروشنده و درآمد مالیاتی دولت</strong>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">P₂</span><span class="math-op">=</span><span class="math-sym">P₁</span> <span class="math-op">-</span> <span class="math-sym">t</span><span class="math-op">=</span><span class="math-sym">6</span> <span class="math-op">-</span> <span class="math-sym">2</span><span class="math-op">=</span><span class="math-sym">4</span> <span class="math-op">,</span> <span class="math-sym">T</span><span class="math-op">=</span><span class="math-sym">t</span> · <span class="math-sym">Q₁</span><span class="math-op">=</span><span class="math-sym">2</span> · <span class="math-sym">4</span><span class="math-op">=</span><span class="math-sym">8</span></div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۴: تسهیم بار مالیاتی بین مصرف‌کننده و تولیدکننده</strong>
+                            <p style="margin: 2px 0;">• <b>سهم خریدار:</b> <span dir="ltr">(P₁ - P₀) · Q₁ = (6 - 5) · 4 = 4</span> تومان (معادل ۵۰٪ کل مالیات)</p>
+                            <p style="margin: 2px 0;">• <b>سهم فروشنده:</b> <span dir="ltr">(P₀ - P₂) · Q₁ = (5 - 4) · 4 = 4</span> تومان (معادل ۵۰٪ کل مالیات)</p>
+                            <p style="margin: 2px 0;">• <b>اثبات تئوریک برابری سهم‌ها:</b> شیب تقاضا b=1 و عرضه d=1 است؛ چون نسبت شیب‌ها ۱ به ۱ است، بار مالیات دقیقاً ۵۰/۵۰ تقسیم می‌شود.</p>
+                        </div>
+
+                        <div style="background: #ECFDF5; border: 1.5px solid #A7F3D0; border-radius: 8px; padding: 10px 12px; margin-top: 12px; font-size: 0.75rem; color: #065F46;">
+                            💡 <b>نکته طلایی برگه امتحان:</b> هر سمتی از بازار که کشش کمتری داشته باشد (نمودار عمودی‌تر)، قدرت فرار کمتری از مالیات دارد و سهم بیشتری از بار مالیات را بر دوش می‌کشد.
+                        </div>
+                    </div>
+
+                    <!-- PROBLEM 3: GEOMETRIC ELASTICITY & AMOROSO-ROBINSON -->
+                    <div class="formula-card" style="border-right: 4px solid #7C3AED; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #F3E8FF; color: #7E22CE; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۳ (فصل ۲)</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    محاسبه هندسی کشش با روش قطعات و اثبات قضیه آموروسو - رابینسون
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۴ نمره کامل</span>
+                        </div>
+
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
+                            <strong>صورت مسئله:</strong> تابع تقاضای معکوس بنگاهی به صورت <span dir="ltr">P = 10 - 2Q</span> داده شده است.<br>
+                            ۱. قدر مطلق کشش قیمتی تقاضا را در نقطه‌ای با قیمت <span dir="ltr">P = 4</span> صرفاً به روش هندسی قطعات محاسبه کنید.<br>
+                            ۲. رابطه آموروسو-رابینسون را به صورت تحلیلی اثبات کرده و نشان دهید چرا در کشش واحد درآمد کل بیشینه است.
+                        </div>
+
+                        <!-- Step 1 -->
+                        <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۱: استخراج نقاط برخورد تقاضا با محورهای مختصات</strong>
+                            <p style="margin: 2px 0;">• عرض از مبدأ (محور قیمت): اگر <span dir="ltr">Q = 0</span> باشد ──► <span dir="ltr">P = 10</span> (نقطه N(0, 10))</p>
+                            <p style="margin: 2px 0;">• طول از مبدأ (محور مقدار): اگر <span dir="ltr">P = 0</span> باشد ──► <span dir="ltr">0 = 10 - 2Q ⟹ Q = 5</span> (نقطه M(5, 0))</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۲: تعیین مختصات نقطه A در قیمت P = 4 و محاسبه هندسی کشش</strong>
+                            <p style="margin: 2px 0;">با جایگذاری P = 4 در تابع تقاضا:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">4</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">2Q</span> <span class="math-op">⟹</span> <span class="math-sym">2Q</span><span class="math-op">=</span><span class="math-sym">6</span> <span class="math-op">⟹</span> <span class="math-sym">Q₁</span><span class="math-op">=</span><span class="math-sym">3</span></div>
+                            <p style="margin: 2px 0;">طبق قضیه هندسی تالس، نسبت کشش برابر نسبت طول قطعه سمت راست (Q₁M) به قطعه سمت چپ (OQ₁) روی محور افقی است:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">|E|</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Q₁M</span><span class="math-den">OQ₁</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">5 - 3</span><span class="math-den">3 - 0</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">2</span><span class="math-den">3</span></span> <span class="math-op">≈</span> <span class="math-sym">0.67</span> <span class="math-op">&lt;</span> <span class="math-sym">1</span> <span class="math-op">(</span><span class="math-sym">کم‌کشش</span><span class="math-op">)</span></div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۳: اثبات جبری قضیه آموروسو - رابینسون</strong>
+                            <p style="margin: 2px 0;">درآمد کل برابر <span dir="ltr">TR = P · Q</span> است. مشتق درآمد کل نسبت به مقدار، درآمد نهایی (MR) را می‌سازد:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">MR</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d(P · Q)</span><span class="math-den">dQ</span></span><span class="math-op">=</span><span class="math-sym">P</span> <span class="math-op">+</span> <span class="math-sym">Q</span> · <span class="math-frac"><span class="math-num">dP</span><span class="math-den">dQ</span></span><span class="math-op">=</span><span class="math-sym">P</span> · <span class="math-op">[</span> <span class="math-sym">1</span> <span class="math-op">+</span> <span class="math-frac"><span class="math-num">Q</span><span class="math-den">P</span></span> · <span class="math-frac"><span class="math-num">dP</span><span class="math-den">dQ</span></span> <span class="math-op">]</span></div>
+                            <p style="margin: 2px 0;">چون تعریف کشش قیمتی تقاضا <span dir="ltr">E = (dQ/dP) · (P/Q)</span> است، عبارت داخل کروشه دقیقاً برابر <span dir="ltr">1/E</span> است:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">MR</span><span class="math-op">=</span><span class="math-sym">P</span> · <span class="math-op">[</span> <span class="math-sym">1</span> <span class="math-op">+</span> <span class="math-frac"><span class="math-num">1</span><span class="math-den">E</span></span> <span class="math-op">]</span> <span class="math-op">(</span><span class="math-sym">رابطه آموروسو - رابینسون اثبات شد</span><span class="math-op">)</span></div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۴: اثبات بیشینگی درآمد کل در کشش واحد</strong>
+                            <p style="margin: 2px 0;">شرط لازم برای ماکزیمم شدن تابع درآمد کل، صفر شدن مشتق اول آن (<span dir="ltr">MR = 0</span>) است:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">P</span> · <span class="math-op">[</span> <span class="math-sym">1</span> <span class="math-op">+</span> <span class="math-frac"><span class="math-num">1</span><span class="math-den">E</span></span> <span class="math-op">]</span><span class="math-op">=</span><span class="math-sym">0</span> <span class="math-op">⟹</span> <span class="math-sym">1</span> <span class="math-op">+</span> <span class="math-frac"><span class="math-num">1</span><span class="math-den">E</span></span><span class="math-op">=</span><span class="math-sym">0</span> <span class="math-op">⟹</span> <span class="math-sym">E</span><span class="math-op">=</span><span class="math-op">-</span><span class="math-sym">1</span> <span class="math-op">⟹</span> <span class="math-sym">|E|</span><span class="math-op">=</span><span class="math-sym">1</span></div>
+                        </div>
+
+                        <div style="background: #F5F3FF; border: 1.5px solid #DDD6FE; border-radius: 8px; padding: 10px 12px; margin-top: 12px; font-size: 0.75rem; color: #5B21B6;">
+                            📈 <b>نکته سیاست‌گذاری قیمت:</b> اگر بنگاه در ناحیه کم‌کشش (|E| &lt; 1) باشد، با افزایش قیمت درآمد کل افزایش می‌یابد؛ و اگر در ناحیه پرکشش (|E| &gt; 1) باشد، با کاهش قیمت درآمد کل اوج می‌گیرد. بیشینه مطلق درآمد کل فقط در |E| = 1 محقق می‌شود.
+                        </div>
+                    </div>
+
+                    <!-- PROBLEM 4: CONSUMER EQUILIBRIUM COBB-DOUGLAS -->
+                    <div class="formula-card" style="border-right: 4px solid #EA580C; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #FFF7ED; color: #C2410C; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۴ (فصل ۳)</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    تعادل مصرف‌کننده با تابع کاب-داگلاس TU = 10XY و برابری مطلوبیت ریالی
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۴ نمره کامل</span>
+                        </div>
+
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
+                            <strong>صورت مسئله:</strong> مصرف‌کننده‌ای دارای تابع مطلوبیت کل <span dir="ltr">TU = 10XY</span> است. درآمد کل او <span dir="ltr">I = 100</span> تومان و قیمت کالاها <span dir="ltr">Pₓ = 1</span> و <span dir="ltr">Pᵧ = 2</span> تومان می‌باشد.<br>
+                            ۱. مطلوبیت‌های نهایی و نرخ نهایی جانشینی (MRS) را بیابید.<br>
+                            ۲. سبد مصرفی بهینه (X*, Y*) و حداکثر مطلوبیت کل حاصله را محاسبه کنید.<br>
+                            ۳. اصل برابری مطلوبیت حاصل از آخرین ریال را در نقطه تعادل اثبات کنید.
+                        </div>
+
+                        <!-- Step 1 -->
+                        <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۱: استخراج مشتقات جزئی مطلوبیت نهایی و MRS</strong>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">MUₓ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂(TU)</span><span class="math-den">∂X</span></span><span class="math-op">=</span><span class="math-sym">10Y</span> <span class="math-op">,</span> <span class="math-sym">MUᵧ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂(TU)</span><span class="math-den">∂Y</span></span><span class="math-op">=</span><span class="math-sym">10X</span> <span class="math-op">⟹</span> <span class="math-sym">MRSₓᵧ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">MUᵧ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">10Y</span><span class="math-den">10X</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Y</span><span class="math-den">X</span></span></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۲: اعمال شروط دوگانه تعادل و استخراج سبد بهینه</strong>
+                            <p style="margin: 2px 0;">• شرط اول (تساوی شیب‌ها): برابری MRS با نسبت قیمت‌ها:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-frac"><span class="math-num">Y</span><span class="math-den">X</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Pₓ</span><span class="math-den">Pᵧ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> <span class="math-op">⟹</span> <span class="math-sym">X</span><span class="math-op">=</span><span class="math-sym">2Y</span></div>
+                            <p style="margin: 2px 0;">• شرط دوم (مصرف تمام بودجه): جایگذاری رابطه فوق در قید خط بودجه:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">100</span><span class="math-op">=</span><span class="math-sym">1 · X</span> <span class="math-op">+</span> <span class="math-sym">2 · Y</span> <span class="math-op">⟹</span> <span class="math-sym">100</span><span class="math-op">=</span>( <span class="math-sym">2Y</span> ) <span class="math-op">+</span> <span class="math-sym">2Y</span><span class="math-op">=</span><span class="math-sym">4Y</span> <span class="math-op">⟹</span> <span class="math-sym">Y*</span><span class="math-op">=</span><span class="math-sym">25</span> <span class="math-op">,</span> <span class="math-sym">X*</span><span class="math-op">=</span><span class="math-sym">50</span></div>
+                            <p style="margin: 2px 0;">سبد مصرفی بهینه در نقطه تماس برابر <span dir="ltr">(X* = 50 , Y* = 25)</span> است.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۳: محاسبه حداکثر مطلوبیت و اثبات برابری مطلوبیت ریالی</strong>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">TU_max</span><span class="math-op">=</span><span class="math-sym">10 · (50) · (25)</span><span class="math-op">=</span><span class="math-sym">12,500</span> <span class="math-op">واحد</span></div>
+                            <p style="margin: 2px 0;">محاسبه مطلوبیت آخرین ریال برای هر کالا:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">10 · 25</span><span class="math-den">1</span></span><span class="math-op">=</span><span class="math-sym">250</span> <span class="math-op">,</span> <span class="math-frac"><span class="math-num">MUᵧ</span><span class="math-den">Pᵧ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">10 · 50</span><span class="math-den">2</span></span><span class="math-op">=</span><span class="math-sym">250</span> <span class="math-op">⟹</span> <span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MUᵧ</span><span class="math-den">Pᵧ</span></span></div>
+                        </div>
+
+                        <div style="background: #FFF7ED; border: 1.5px solid #FED7AA; border-radius: 8px; padding: 10px 12px; margin-top: 12px; font-size: 0.75rem; color: #9A3412;">
+                            🧠 <b>شهود رفتاری:</b> آخرین یک تومانی که برای خرید کالای X پرداخت شده دقیقاً ۲۵۰ واحد مطلوبیت تولید کرده، درست مانند آخرین یک تومانی که برای خرید Y صرف شده است. این برابری نشان می‌دهد تعادل پایدار است و هیچ جابه‌جایی در سبد، رفاه را بیشتر نمی‌کند.
+                        </div>
+                    </div>
+
+                    <!-- PROBLEM 5: CORNER SOLUTION FOR PERFECT SUBSTITUTES -->
+                    <div class="formula-card" style="border-right: 4px solid #D97706; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #FEF3C7; color: #B45309; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۵ (فصل ۳)</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    راه‌حل گوشه‌ای (Corner Solution) در کالاهای جانشین کامل U = 2X + 3Y
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۴ نمره کامل</span>
+                        </div>
+
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
+                            <strong>صورت مسئله:</strong> مصرف‌کننده‌ای کالاهای X و Y را جانشین کامل می‌داند و تابع مطلوبیت او <span dir="ltr">U(X, Y) = 2X + 3Y</span> است.
+                            اگر بودجه کل <span dir="ltr">I = 60</span> تومان و قیمت‌ها <span dir="ltr">Pₓ = 2</span> و <span dir="ltr">Pᵧ = 5</span> تومان باشد، سبد بهینه مصرفی و حداکثر مطلوبیت را به دست آورید.
+                        </div>
+
+                        <!-- Step 1 & 2 -->
+                        <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۱: محاسبه نرخ نهایی جانشینی (MRS) و شیب خط بودجه</strong>
+                            <p style="margin: 2px 0;">در توابع خطی، مطلوبیت‌های نهایی ثابت هستند: <span dir="ltr">MUₓ = 2</span> و <span dir="ltr">MUᵧ = 3</span>.</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">MRSₓᵧ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">MUᵧ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">2</span><span class="math-den">3</span></span> <span class="math-op">≈</span> <span class="math-sym">0.667</span> <span class="math-op">,</span> <span class="math-frac"><span class="math-num">Pₓ</span><span class="math-den">Pᵧ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">2</span><span class="math-den">5</span></span><span class="math-op">=</span><span class="math-sym">0.400</span></div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ۲: مقایسه بازدهی ریالی کالاها و استخراج سبد بهینه گوشه‌ای</strong>
+                            <p style="margin: 2px 0;">محاسبه مطلوبیت نهایی به ازای هر یک تومان خرج‌شده:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">2</span><span class="math-den">2</span></span><span class="math-op">=</span><span class="math-sym">1.0</span> <span class="math-op">></span> <span class="math-frac"><span class="math-num">MUᵧ</span><span class="math-den">Pᵧ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">3</span><span class="math-den">5</span></span><span class="math-op">=</span><span class="math-sym">0.6</span></div>
+                            <p style="margin: 2px 0;">چون بازدهی ریالی کالای X بیشتر است (<span dir="ltr">1.0 &gt; 0.6</span>)، مصرف‌کننده کل بودجه ۶۰ تومانی خود را منحصراً روی کالای X خرج می‌کند و خرید Y را صفر می‌کند:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">X*</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">I</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">60</span><span class="math-den">2</span></span><span class="math-op">=</span><span class="math-sym">30</span> <span class="math-op">,</span> <span class="math-sym">Y*</span><span class="math-op">=</span><span class="math-sym">0</span> <span class="math-op">⟹</span> <span class="math-sym">U*</span><span class="math-op">=</span><span class="math-sym">2(30) + 3(0)</span><span class="math-op">=</span><span class="math-sym">60</span></div>
+                        </div>
+
+                        <div style="background: #FEF3C7; border: 1.5px solid #FDE68A; border-radius: 8px; padding: 10px 12px; margin-top: 12px; font-size: 0.75rem; color: #92400E;">
+                            ⚠️ <b>تله مرگبار کنکور:</b> در جانشین‌های کامل هرگز به دنبال نقطه مماس خمیده نگردید! چون شیب خط بودجه و منحنی بی‌تفاوتی هر دو عدد ثابت هستند، تساوی MRS = Px/Py تقریباً هرگز رخ نمی‌دهد مگر اینکه دو خط کاملاً موازی باشند (بی‌نهایت جواب). در غیر این صورت همواره جواب گوشه‌ای است.
+                        </div>
+                    </div>
+                </div>
 
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
