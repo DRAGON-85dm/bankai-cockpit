@@ -3141,6 +3141,14 @@ body:not(.theme-dark) .dock-btn.active::after {
             margin-left: 2px !important;
             font-weight: 700 !important;
         }
+        .math-sub {
+            font-size: 0.72em !important;
+            vertical-align: sub !important;
+            margin-left: 1px !important;
+            margin-right: 1px !important;
+            font-weight: 700 !important;
+            line-height: 0 !important;
+        }
 
     
         /* ========================================================
@@ -6610,7 +6618,7 @@ body.theme-dark .step-content {
                                 <span><strong style="color: #DC2626;">—</strong> عرضه با مالیات</span>
                                 <span><strong style="color: #F87171;">■</strong> مثلث DWL</span>
                             </div>
-                            <span style="font-weight: 800; color: #0F172A;" id="m-choke-badge">P_choke: 50.0</span>
+                            <span style="font-weight: 800; color: #0F172A;" id="m-choke-badge">P<span class="math-sub">choke</span>: 50.0</span>
                         </div>
                     </div>
                 
@@ -6793,7 +6801,7 @@ body.theme-dark .step-content {
                         <div class="controls-column card" style="margin-bottom: 0;">
                             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
                                 <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-micro);">⚙️ تحلیل شیب مکمل و لئونتیف</span>
-                                <span class="font-mono badge badge-micro">E_xy &lt; 0 | σ = 0</span>
+                                <span class="font-mono badge badge-micro">Eₓᵧ &lt; 0 | σ = 0</span>
                             </div>
 
                             <div class="workout-nav-pills" style="margin-bottom: 12px;">
@@ -6831,7 +6839,7 @@ body.theme-dark .step-content {
                                 <div class="kpi-card">
                                     <div class="kpi-title" id="comp-t3-title">کشش برآوردشده</div>
                                     <div class="kpi-val" id="comp-t3-val" style="color: #059669;">-0.65</div>
-                                    <div class="kpi-sub">E_xy نقطه‌ای</div>
+                                    <div class="kpi-sub">Eₓᵧ نقطه‌ای</div>
                                 </div>
                                 <div class="kpi-card">
                                     <div class="kpi-title" id="comp-t4-title">رابطه متقابل</div>
@@ -6907,7 +6915,7 @@ body.theme-dark .step-content {
                             </div>
                             <div class="tree-leaf-item">
                                 <strong style="color: #DC2626;">شکاف مالیاتی و تسهیم بار</strong>
-                                سهم خریدار و فروشنده: Burden_C / Burden_P = Es / |Ed|. هر سمتی بی‌کشش‌تر باشد بار بیشتری تحمل می‌کند.
+                                سهم خریدار و فروشنده: Burden<span class="math-sub">C</span> ÷ Burden<span class="math-sub">P</span> = Eₛ ÷ |EᏧ|. هر سمتی بی‌کشش‌تر باشد بار بیشتری تحمل می‌کند.
                             </div>
                             <div class="tree-leaf-item">
                                 <strong style="color: #DC2626;">زیان بار مرده (DWL)</strong>
@@ -7094,15 +7102,15 @@ body.theme-dark .step-content {
                             <span class="badge badge-micro">فرمول طلایی ۱</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: کشش و بار مالیاتی</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تسهیم بار مالیاتی با کشش‌ها (Tax Incidence)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-frac"><span class="math-num">Burden_C</span><span class="math-den">Burden_P</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Eₛ</span><span class="math-den">|EᏧ|</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-frac"><span class="math-num">Burden<span class="math-sub">C</span></span><span class="math-den">Burden<span class="math-sub">P</span></span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Eₛ</span><span class="math-den">|EᏧ|</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d</span><span class="math-den">b</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>کالبدشکافی متغیرها:</strong>
-                                <p>• <b>Burden_C:</b> سهم افزایش قیمت پرداختی مصرف‌کننده (Pc - P*).</p>
-                                <p>• <b>Burden_P:</b> سهم کاهش قیمت دریافتی تولیدکننده (P* - Pp).</p>
+                                <p>• <b>Burden<span class="math-sub">C</span>:</b> سهم افزایش قیمت پرداختی مصرف‌کننده (Pc - P*).</p>
+                                <p>• <b>Burden<span class="math-sub">P</span>:</b> سهم کاهش قیمت دریافتی تولیدکننده (P* - Pp).</p>
                                 <p>• <b>Es / |Ed|:</b> نسبت شیب عرضه به تقاضا (d/b) در توابع خطی؛ کشش کمتر = تحمل بار بیشتر.</p>
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Burden_C ÷ Burden_P = Eₛ ÷ |EᏧ| = d ÷ b')">
+                        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-display'))">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -7586,7 +7594,7 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge app">دامنه تغییرات کشش روی خط تقاضا:</span>
-                0 \le <span class="math-sym">|EᏧ|</span> \le \infty
+                0 ≤ <span class="math-sym">|EᏧ|</span> ≤ ∞
             </div>
         </div>
 
@@ -7702,7 +7710,7 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge app">۳. کشش واحد (هذلولی متساوی‌الساقین):</span>
-                <span class="math-sym">|EᏧ|</span><span class="math-op">=</span>1 \quad ( P × Q = 	const )
+                <span class="math-sym">|EᏧ|</span><span class="math-op">=</span>1  ( P × Q = const )
             </div>
             <div class="formula-line">
                 <span class="math-badge pop">۴. باکشش (شیب ملایم):</span>
@@ -7710,7 +7718,7 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">۵. کاملاً باکشش (افقی):</span>
-                <span class="math-sym">|EᏧ|</span><span class="math-op">=</span>\infty (بازار رقابت کامل)
+                <span class="math-sym">|EᏧ|</span><span class="math-op">=</span>∞ (بازار رقابت کامل)
             </div>
         </div>
 
@@ -7807,15 +7815,15 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">کالای لوکس (Luxury Goods):</span>
-                <span class="math-sym">Eᵧ</span> &gt; 1 ⟹ 	ext{سهم کالا در سبد خانوار صعودی است}
+                <span class="math-sym">Eᵧ</span> &gt; 1 ⟹ سهم کالا در سبد خانوار صعودی است
             </div>
             <div class="formula-line">
                 <span class="math-badge app">کالای ضروری (Necessity Goods):</span>
-                0 &lt; <span class="math-sym">Eᵧ</span> &lt; 1 ⟹ 	ext{سهم کالا در سبد خانوار نزولی است}
+                0 &lt; <span class="math-sym">Eᵧ</span> &lt; 1 ⟹ سهم کالا در سبد خانوار نزولی است
             </div>
             <div class="formula-line">
                 <span class="math-badge pop">کالای پست (Inferior Goods):</span>
-                <span class="math-sym">Eᵧ</span> &lt; 0 ⟹ 	ext{با افزایش درآمد، مصرف کالا کاهش می‌یابد}
+                <span class="math-sym">Eᵧ</span> &lt; 0 ⟹ با افزایش درآمد، مصرف کالا کاهش می‌یابد
             </div>
         </div>
 
@@ -7828,7 +7836,7 @@ body.theme-dark .step-content {
 
         <div class="tier-card trap-tier">
             <strong>🚨 تله کنکور ارشد:</strong>
-            قانون جمع انجل و میانگین وزنی کشش‌های درآمدی! مجموع حاصل‌ضرب سهم بودجه هر کالا در کشش درآمدی آن باید برابر ۱ باشد (∑ w_i · Eᵧi = 1). این یعنی یک مصرف‌کننده نمی‌تواند تمام کالاهای سبد خود را لوکس یا تمام آن‌ها را پست بداند؛ حتماً باید تعادل برقرار باشد!
+            قانون جمع انجل و میانگین وزنی کشش‌های درآمدی! مجموع حاصل‌ضرب سهم بودجه هر کالا در کشش درآمدی آن باید برابر ۱ باشد (∑ wᵢ · Eᵢ = 1). این یعنی یک مصرف‌کننده نمی‌تواند تمام کالاهای سبد خود را لوکس یا تمام آن‌ها را پست بداند؛ حتماً باید تعادل برقرار باشد!
         </div>
 
         <div class="visual-diagram-box">
@@ -7912,7 +7920,7 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge app">گذرنده از مبدأ مختصات (0,0):</span>
-                Qₛ = dP ⟹ <span class="math-sym">Eₛ</span><span class="math-op">=</span>1 \quad ( 	ext{در تمام نقاط کشش واحد!} )
+                Qₛ = dP ⟹ <span class="math-sym">Eₛ</span><span class="math-op">=</span>1 ( در تمام نقاط کشش واحد! )
             </div>
             <div class="formula-line">
                 <span class="math-badge pop">عرض از مبدأ روی محور مقدار (Q > 0):</span>
@@ -8139,7 +8147,7 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">۲. شیب خط مماس بر منحنی در نقطه A:</span>
-                <span class="math-sym">m_{tan}</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dP</span><span class="math-den">dQ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">dQ/dP</span></span>
+                <span class="math-sym">m<span class="math-sub">tan</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dP</span><span class="math-den">dQ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">(dQ ÷ dP)</span></span>
             </div>
             <div class="formula-line">
                 <span class="math-badge app">۳. قاعده پاره‌خط‌های خط مماس:</span>
@@ -8259,11 +8267,11 @@ body.theme-dark .step-content {
         <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
             <div class="formula-line">
                 <span class="math-badge pop">۱. اثر افق زمانی بر کشش تقاضا:</span>
-                <span class="math-sym">|E_{d, LR}|</span> &gt; <span class="math-sym">|E_{d, SR}|</span> \quad (کشش بلندمدت بزرگتر از کوتاه‌مدت)
+                <span class="math-sym">|E<span class="math-sub">d,LR</span>|</span> &gt; <span class="math-sym">|E<span class="math-sub">d,SR</span>|</span> (کشش بلندمدت بزرگتر از کوتاه‌مدت)
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">۲. اثر درجه ضرورت کالا:</span>
-                <span class="math-sym">|E_{d, Lux}|</span> &gt; 1 \quad | \quad 0 \le <span class="math-sym">|E_{d, Nec}|</span> &lt; 1
+                <span class="math-sym">|E<span class="math-sub">d,Lux</span>|</span> &gt; 1 <span class="math-sep">|</span> 0 ≤ <span class="math-sym">|E<span class="math-sub">d,Nec</span>|</span> &lt; 1
             </div>
             <div class="formula-line">
                 <span class="math-badge app">۳. رابطه سهم بودجه و کشش:</span>
@@ -8310,15 +8318,15 @@ body.theme-dark .step-content {
         <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
             <div class="formula-line">
                 <span class="math-badge pop">۱. کشش جزئی قیمتی (مشتق جزئی):</span>
-                <span class="math-sym">Eₚₐᵣₜᵢₐₗ</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">∂Qᵢ</span><span class="math-den">∂Pᵢ</span></span> ) × ( <span class="math-frac"><span class="math-num">Pᵢ</span><span class="math-den">Qᵢ</span></span> ) \quad ( Ceteris \, Paribus )
+                <span class="math-sym">E<span class="math-sub">partial</span></span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">∂Qᵢ</span><span class="math-den">∂Pᵢ</span></span> ) × ( <span class="math-frac"><span class="math-num">Pᵢ</span><span class="math-den">Qᵢ</span></span> ) ( Ceteris Paribus )
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">۲. دیفرانسیل کامل تابع تقاضا:</span>
-                <span class="math-sym">dQᵢ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Qᵢ</span><span class="math-den">∂Pᵢ</span></span> dPᵢ + <span class="math-frac"><span class="math-num">∂Qᵢ</span><span class="math-den">∂I</span></span> dI + ∑_{j \ne i} <span class="math-frac"><span class="math-num">∂Qᵢ</span><span class="math-den">∂Pⱼ</span></span> dPⱼ
+                <span class="math-sym">dQᵢ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Qᵢ</span><span class="math-den">∂Pᵢ</span></span> dPᵢ + <span class="math-frac"><span class="math-num">∂Qᵢ</span><span class="math-den">∂I</span></span> dI + ∑<span class="math-sub">j≠i</span> <span class="math-frac"><span class="math-num">∂Qᵢ</span><span class="math-den">∂Pⱼ</span></span> dPⱼ
             </div>
             <div class="formula-line">
                 <span class="math-badge app">۳. کشش کلی با تغییر همزمان عوامل:</span>
-                <span class="math-sym">Eₜₒₜₐₗ</span><span class="math-op">=</span>Eᵢᵢ + Eᵢ_I × <span class="math-frac"><span class="math-num">dI/I</span><span class="math-den">dPᵢ/Pᵢ</span></span> + ∑ E_{ij} × <span class="math-frac"><span class="math-num">dPⱼ/Pⱼ</span><span class="math-den">dPᵢ/Pᵢ</span></span>
+                <span class="math-sym">E<span class="math-sub">total</span></span><span class="math-op">=</span>Eᵢᵢ + Eᵢ<span class="math-sub">,I</span> × <span class="math-frac"><span class="math-num">(dI ÷ I)</span><span class="math-den">(dPᵢ ÷ Pᵢ)</span></span> + ∑ Eᵢⱼ × <span class="math-frac"><span class="math-num">(dPⱼ ÷ Pⱼ)</span><span class="math-den">(dPᵢ ÷ Pᵢ)</span></span>
             </div>
         </div>
 
@@ -8371,6 +8379,10 @@ body.theme-dark .step-content {
             <div class="formula-line">
                 <span class="math-badge pop">رابطه طلایی آموروسو-رابینسون:</span>
                 <span class="math-sym">MR</span><span class="math-op">=</span>P × ( 1 - <span class="math-frac"><span class="math-num">1</span><span class="math-den">|EᏧ|</span></span> )
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">تداوم مثبت بودن TR هنگام منفی شدن MR:</span>
+                <span class="math-sym">MR</span> &lt; 0 <span class="math-op">⟹</span> <span class="math-sym">TR</span><span class="math-op">=</span>P × Q &gt; 0 ( <span class="math-sym">|EᏧ|</span> &lt; 1 : نزولی اما مثبت )
             </div>
         </div>
 
@@ -8437,8 +8449,9 @@ body.theme-dark .step-content {
         </div>
 
         <div class="tier-card trap-tier">
-            <strong>🚨 تله کنکور ارشد:</strong>
-            محاسبه MR در نقطه میانی! طراحان کنکور سوال می‌دهند: «در تیراژی که کشش تقاضا برابر یک است، ارزش درآمد نهایی چقدر است؟» پاسخ قطعی: دقیقاً صفر (MR = 0) و درآمد کل در نقطه حداکثر مطلق خود قرار دارد.
+            <strong>🚨 تله کنکور ارشد (تفکیک مقدار TR از شیب MR):</strong>
+            • <b>تله ۱ (نقطه اوج):</b> در کشش واحد (|EᏧ| = 1)، درآمد نهایی دقیقاً صفر (MR = 0) و TR در حداکثر مطلق است.<br>
+            • <b>تله ۲ (منفی شدن MR بدون منفی شدن TR):</b> منفی شدن MR به معنای منفی شدن درآمد کل نیست! MR شیب منحنی TR است؛ وقتی MR &lt; 0 است فقط یعنی TR در حال کاهش است اما تا زمانی که P &gt; 0 باشد، TR همچنان مثبت می‌ماند (در جدول بالا در Q = 6: TR = +24 و MR = -1؛ در Q = 8: TR = +16 و MR = -5؛ و تنها در Q = 10 که P = 0 است، TR صفر می‌شود).
         </div>
     </div>
     <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
@@ -8800,28 +8813,28 @@ body.theme-dark .step-content {
                             <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">سقف قیمت (Price Ceiling) و شکاف کمبود:</span>
-                                    <span class="math-sym">Shortage</span><span class="math-op">=</span><span class="math-sym">QᏧ</span><span class="math-op">-</span><span class="math-sym">Qₛ</span> <span class="math-op">></span> <span class="math-sym">0</span> <span class="math-op">(</span><span class="math-sym">شرط تأثیرگذاری:</span> <span class="math-sym">P_c</span> <span class="math-op">&lt;</span> <span class="math-sym">P*</span><span class="math-op">)</span>
+                                    <span class="math-sym">Shortage</span><span class="math-op">=</span><span class="math-sym">QᏧ</span><span class="math-op">-</span><span class="math-sym">Qₛ</span> <span class="math-op">></span> <span class="math-sym">0</span> <span class="math-op">(</span><span class="math-sym">شرط تأثیرگذاری:</span> <span class="math-sym">P<span class="math-sub">c</span></span> <span class="math-op">&lt;</span> <span class="math-sym">P*</span><span class="math-op">)</span>
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">کف قیمت (Price Floor) و شکاف مازاد:</span>
-                                    <span class="math-sym">Surplus</span><span class="math-op">=</span><span class="math-sym">Qₛ</span><span class="math-op">-</span><span class="math-sym">QᏧ</span> <span class="math-op">></span> <span class="math-sym">0</span> <span class="math-op">(</span><span class="math-sym">شرط تأثیرگذاری:</span> <span class="math-sym">P_f</span> <span class="math-op">&gt;</span> <span class="math-sym">P*</span><span class="math-op">)</span>
+                                    <span class="math-sym">Surplus</span><span class="math-op">=</span><span class="math-sym">Qₛ</span><span class="math-op">-</span><span class="math-sym">QᏧ</span> <span class="math-op">></span> <span class="math-sym">0</span> <span class="math-op">(</span><span class="math-sym">شرط تأثیرگذاری:</span> <span class="math-sym">P<span class="math-sub">f</span></span> <span class="math-op">&gt;</span> <span class="math-sym">P*</span><span class="math-op">)</span>
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">قیمت بازار سیاه و رانت دلالی:</span>
-                                    <span class="math-sym">P_black</span><span class="math-op">=</span><span class="math-sym">PᏧ</span>( <span class="math-sym">Qₛ</span> ) <span class="math-op">,</span> <span class="math-sym">Rent</span><span class="math-op">=</span>( <span class="math-sym">P_black</span> <span class="math-op">-</span> <span class="math-sym">P_c</span> ) · <span class="math-sym">Qₛ</span>
+                                    <span class="math-sym">P<span class="math-sub">black</span></span><span class="math-op">=</span><span class="math-sym">PᏧ</span>( <span class="math-sym">Qₛ</span> ) <span class="math-op">,</span> <span class="math-sym">Rent</span><span class="math-op">=</span>( <span class="math-sym">P<span class="math-sub">black</span></span> <span class="math-op">-</span> <span class="math-sym">P<span class="math-sub">c</span></span> ) · <span class="math-sym">Qₛ</span>
                                 </div>
                             </div>
 
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                • <b>سقف قیمت مؤثر (Binding Ceiling):</b> تنها زمانی بر بازار اثر می‌گذارد که پایین‌تر از تعادل آزاد وضع شود (P_c &lt; P*). پیامدهای حتمی: ۱. بروز شکاف کمبود (Shortage = QᏧ - Qₛ)، ۲. صف‌های طولانی و تلف شدن وقت خریداران، ۳. ظهور بازار سیاه با قیمت P_black، ۴. افت کیفیت محصول و ۵. سهمیه‌بندی غیرقیمتی (کوپن).<br>
-                                • <b>کف قیمت مؤثر (Binding Floor):</b> تنها زمانی اثرگذار است که بالاتر از قیمت تعادلی وضع گردد (P_f &gt; P*). پیامدها: ۱. ایجاد مازاد عرضه (Surplus = Qₛ - QᏧ)، ۲. انباشت کالا در انبارها، ۳. اتلاف منابع و ۴. بیکاری نیروی کار در بازار دستمزد، مگر آنکه دولت مازاد را با خرید تضمینی جذب کند.
+                                • <b>سقف قیمت مؤثر (Binding Ceiling):</b> تنها زمانی بر بازار اثر می‌گذارد که پایین‌تر از تعادل آزاد وضع شود (P<span class="math-sub">c</span> &lt; P*). پیامدهای حتمی: ۱. بروز شکاف کمبود (Shortage = QᏧ - Qₛ)، ۲. صف‌های طولانی و تلف شدن وقت خریداران، ۳. ظهور بازار سیاه با قیمت P<span class="math-sub">black</span>، ۴. افت کیفیت محصول و ۵. سهمیه‌بندی غیرقیمتی (کوپن).<br>
+                                • <b>کف قیمت مؤثر (Binding Floor):</b> تنها زمانی اثرگذار است که بالاتر از قیمت تعادلی وضع گردد (P<span class="math-sub">f</span> &gt; P*). پیامدها: ۱. ایجاد مازاد عرضه (Surplus = Qₛ - QᏧ)، ۲. انباشت کالا در انبارها، ۳. اتلاف منابع و ۴. بیکاری نیروی کار در بازار دستمزد، مگر آنکه دولت مازاد را با خرید تضمینی جذب کند.
                             </div>
 
                             <div class="tier-card bankai-tier">
                                 <strong>⚡ رهیافت تکمیلی بانکای / CFA (رانت دلالی و بورس کالا):</strong>
-                                • در سقف قیمت P_c، کارخانه‌ها بر اساس هزینه نهایی خود مقدار اندک Qₛ(P_c) را عرضه می‌کنند. اما خریداران برای همین تیراژ محدود حاضرند قیمتی به مراتب بالاتر (تا سقف منحنی تقاضا P_black) بپردازند.<br>
-                                • مابه‌التفاوت این دو سطح قیمت در تیراژ موجود، یعنی (P_black - P_c) · Qₛ، مساحت مستطیل «رانت واسطه‌گری» است که بدون ایجاد کوچک‌ترین ارزش افزوده تولیدی، نصیب دلالان می‌شود؛ در حالی که صورت‌های مالی تولیدکننده زیان‌ده می‌ماند.
+                                • در سقف قیمت P<span class="math-sub">c</span>، کارخانه‌ها بر اساس هزینه نهایی خود مقدار اندک Qₛ(P<span class="math-sub">c</span>) را عرضه می‌کنند. اما خریداران برای همین تیراژ محدود حاضرند قیمتی به مراتب بالاتر (تا سقف منحنی تقاضا P<span class="math-sub">black</span>) بپردازند.<br>
+                                • مابه‌التفاوت این دو سطح قیمت در تیراژ موجود، یعنی (P<span class="math-sub">black</span> - P<span class="math-sub">c</span>) · Qₛ، مساحت مستطیل «رانت واسطه‌گری» است که بدون ایجاد کوچک‌ترین ارزش افزوده تولیدی، نصیب دلالان می‌شود؛ در حالی که صورت‌های مالی تولیدکننده زیان‌ده می‌ماند.
                             </div>
 
                             <div class="tier-card trap-tier">
@@ -8890,7 +8903,7 @@ body.theme-dark .step-content {
                                         <circle cx="180" cy="100" r="4.5" fill="#7C3AED" stroke="#FFFFFF" stroke-width="1.2"/>
                                         <line x1="180" y1="180" x2="180" y2="100" stroke="#7C3AED" stroke-width="1.8" stroke-dasharray="2,2"/>
                                         <line x1="180" y1="100" x2="60" y2="100" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="3,3"/>
-                                        <text x="15" y="104" fill="#7C3AED" font-size="9.5" font-weight="900">P_black = 7</text>
+                                        <text x="15" y="104" fill="#7C3AED" font-size="9.5" font-weight="900">P<tspan baseline-shift="sub" font-size="7">black</tspan> = 7</text>
                                         <text x="190" y="95" fill="#7C3AED" font-size="9" font-weight="900">قیمت بازار سیاه</text>
                                     </svg>
                                 </div>
@@ -8899,7 +8912,7 @@ body.theme-dark .step-content {
                                     <p>۱. <b>رسم تعادل اولیه:</b> تلاقی عرضه و تقاضا در نقطه E*(Q*=5, P*=5) مشخص می‌شود.</p>
                                     <p>۲. <b>بررسی شرط سقف قیمت:</b> خط افقی قرمز در Pc = 3 زیر قیمت تعادلی رسم شده و تأثیرگذار بودن آن محرز می‌گردد.</p>
                                     <p>۳. <b>محاسبه شکاف کمبود:</b> در قیمت Pc=3، عرضه به Qₛ=3 کاهش و تقاضا به QᏧ=7 افزایش می‌یابد؛ فاصله افقی بین آن‌ها برابر ۴ واحد شکاف کمبود است.</p>
-                                    <p>۴. <b>استخراج قیمت بازار سیاه:</b> با خط‌چین عمودی از Qₛ=3 به منحنی تقاضا وصل می‌شویم؛ ارتفاع نقطه به دست آمده قیمت بازار سیاه (P_black=7) را آشکار می‌سازد.</p>
+                                    <p>۴. <b>استخراج قیمت بازار سیاه:</b> با خط‌چین عمودی از Qₛ=3 به منحنی تقاضا وصل می‌شویم؛ ارتفاع نقطه به دست آمده قیمت بازار سیاه (P<span class="math-sub">black</span> = 7) را آشکار می‌سازد.</p>
                                 </div>
                             </div>
                         </div>
@@ -9048,6 +9061,213 @@ body.theme-dark .step-content {
                         </div>
                     </div>
 
+                    <!-- FORMULA 23: ENGEL CURVES, ICC/PCC & BACKWARD-BENDING LABOR SUPPLY -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۲۳</span>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: کشش و رفتار مصرف‌کننده</button>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">منحنی‌های انگل (Engel)، استخراج از ICC/PCC و عرضه کار خمیده به عقب</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">تابع توانی انگل (کشش درآمدی ثابت):</span>
+                                    <span class="math-sym">Q</span><span class="math-op">=</span><span class="math-sym">A</span> · <span class="math-sym">I</span><span class="math-sup">α</span> <span class="math-op">⟹</span> <span class="math-sym">Eᵢ</span><span class="math-op">=</span><span class="math-sym">α</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">قضیه تجمیع انجل (مجموع وزنی بودجه):</span>
+                                    <span class="math-sym">∑ ( wᵢ · Eᵢ )</span><span class="math-op">=</span><span class="math-sym">1</span>
+                                    <span class="math-sep">|</span>
+                                    <span class="math-sym">wᵢ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">Pᵢ · Xᵢ</span><span class="math-den">I</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">انتقال در برابر حرکت روی منحنی:</span>
+                                    <span class="math-sym">ΔPₓ</span> <span class="math-op">⟹</span> حرکت روی منحنی <span class="math-sep">|</span> <span class="math-sym">ΔI, ΔPᵧ</span> <span class="math-op">⟹</span> انتقال کامل منحنی
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge pop">عرضه کار خمیده به عقب (دستمزد W و کار L):</span>
+                                    <span class="math-sym">W</span> پایین: <span class="math-sym">SE &gt; IE ⟹ L ↑</span>
+                                    <span class="math-sep">|</span>
+                                    <span class="math-sym">W</span> بالا: <span class="math-sym">IE &gt; SE ⟹ L ↓</span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>استخراج هندسی منحنی‌ها:</b> اتصال نقاط تعادل مصرف‌کننده هنگام تغییر درآمد (انتقال موازی خط بودجه) منحنی <b>درآمد-مصرف (ICC)</b> را می‌سازد که مستقیماً به منحنی انگل تبدیل می‌شود. چرخش خط بودجه در اثر تغییر قیمت X، منحنی <b>قیمت-مصرف (PCC)</b> و سپس منحنی تقاضای انفرادی را تولید می‌کند.<br>
+                                • <b>منحنی انگل C شکل (پویایی کالا):</b> عادی یا پست بودن صفت ذاتی و ابدی کالا نیست؛ یک کالا در درآمدهای پایین عادی است (dQ ÷ dI &gt; 0)، اما پس از عبور از آستانه درآمد، مصرف‌کننده کالای باکیفیت‌تر را جایگزین کرده و کالا پست می‌شود (dQ ÷ dI &lt; 0).
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>⚡ تلفیق تکمیلی بانکای و CFA:</strong>
+                                در بازار نیروی کار، فراغت کالای عادی است. وقتی دستمزد از یک سقف رفاهی فراتر می‌رود، کارگر با ثروت بالاتر ترجیح می‌دهد ساعت کار خود را کاهش داده و زمان فراغت بخرد (غلبه اثر درآمدی بر اثر جانشینی) که باعث خمیدگی منحنی عرضه کار به سمت عقب می‌شود.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار کنکور ارشد:</strong>
+                                هر منحنی انگل خطی که دقیقاً از مبدأ مختصات (0, 0) بگذرد، بدون توجه به زاویه شیب آن، دقیقاً دارای کشش درآمدی واحد (Eᵢ = 1) است! خط قطع‌کننده محور عمودی درآمد لوکس (Eᵢ &gt; 1) و خط قطع‌کننده محور افقی مقدار ضروری (0 &lt; Eᵢ &lt; 1) است.
+                            </div>
+
+                            <div class="visual-diagram-box">
+                                <div class="diagram-title">📐 اطلس هندسی: عرضه نیروی کار خمیده به عقب و منحنی انگل C شکل</div>
+                                <div class="diagram-svg-container">
+                                    <svg viewBox="0 0 520 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="max-height: 230px;">
+                                        <!-- Left Panel: Backward-Bending Labor Supply -->
+                                        <text x="130" y="18" fill="#0F172A" font-size="10.5" font-weight="900" text-anchor="middle">عرضه نیروی کار خمیده به عقب</text>
+                                        <line x1="40" y1="30" x2="40" y2="195" stroke="#0F172A" stroke-width="1.8"/>
+                                        <line x1="40" y1="195" x2="235" y2="195" stroke="#0F172A" stroke-width="1.8"/>
+                                        <text x="26" y="38" fill="#0F172A" font-size="9.5" font-weight="900">W</text>
+                                        <text x="228" y="212" fill="#0F172A" font-size="9.5" font-weight="900">L (ساعات کار)</text>
+
+                                        <!-- Backward bending curve -->
+                                        <path d="M 65 188 C 145 160, 195 135, 195 105 C 195 75, 155 52, 120 36" fill="none" stroke="#1D4ED8" stroke-width="2.8"/>
+                                        <line x1="40" y1="105" x2="195" y2="105" stroke="#DC2626" stroke-width="1.4" stroke-dasharray="4,3"/>
+                                        <circle cx="195" cy="105" r="4.5" fill="#DC2626" stroke="#FFFFFF" stroke-width="1.5"/>
+                                        <text x="22" y="108" fill="#DC2626" font-size="9" font-weight="900">W*</text>
+                                        <text x="140" y="150" fill="#059669" font-size="8.5" font-weight="900">SE &gt; IE (صعودی)</text>
+                                        <text x="148" y="64" fill="#DC2626" font-size="8.5" font-weight="900">IE &gt; SE (خمیده به عقب)</text>
+
+                                        <!-- Divider -->
+                                        <line x1="260" y1="20" x2="260" y2="215" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,4"/>
+
+                                        <!-- Right Panel: C-Shaped Engel Curve -->
+                                        <text x="390" y="18" fill="#0F172A" font-size="10.5" font-weight="900" text-anchor="middle">منحنی انگل C شکل (تغییر ماهیت کالا)</text>
+                                        <line x1="295" y1="30" x2="295" y2="195" stroke="#0F172A" stroke-width="1.8"/>
+                                        <line x1="295" y1="195" x2="495" y2="195" stroke="#0F172A" stroke-width="1.8"/>
+                                        <text x="278" y="38" fill="#0F172A" font-size="9.5" font-weight="900">I</text>
+                                        <text x="488" y="212" fill="#0F172A" font-size="9.5" font-weight="900">Q</text>
+
+                                        <path d="M 310 190 C 390 165, 445 140, 445 108 C 445 78, 395 55, 345 38" fill="none" stroke="#7C3AED" stroke-width="2.8"/>
+                                        <line x1="295" y1="108" x2="445" y2="108" stroke="#D97706" stroke-width="1.4" stroke-dasharray="4,3"/>
+                                        <circle cx="445" cy="108" r="4.5" fill="#D97706" stroke="#FFFFFF" stroke-width="1.5"/>
+                                        <text x="278" y="111" fill="#D97706" font-size="9" font-weight="900">I*</text>
+                                        <text x="382" y="152" fill="#059669" font-size="8.5" font-weight="900">عادی (Eᵢ &gt; 0)</text>
+                                        <text x="385" y="66" fill="#DC2626" font-size="8.5" font-weight="900">پست (Eᵢ &lt; 0)</text>
+                                    </svg>
+                                </div>
+                                <div class="diagram-walkthrough">
+                                    <strong>📌 الگوریتم ۴ مرحله‌ای ساخت و تحلیل هندسی:</strong>
+                                    <p>۱. <b>محورها و نقاط چرخش:</b> سطح بحرانی دستمزد (W*) در بازار کار و سطح آستانه درآمد (I*) در منحنی انگل به عنوان مرز تغییر رفتار رسم می‌شوند.</p>
+                                    <p>۲. <b>ناحیه پایینی (شیب مثبت):</b> زیر نقطه آستانه، افزایش دستمزد ساعات کار را بالا می‌برد و افزایش درآمد مصرف کالا را افزایش می‌دهد.</p>
+                                    <p>۳. <b>نقطه بازگشت عمودی:</b> در W* و I* شیب مماس عمودی می‌شود (کشش نقطه‌ای صفر است و روند مصرف یا عرضه متوقف می‌گردد).</p>
+                                    <p>۴. <b>ناحیه بالایی (خمیده به عقب):</b> با عبور از آستانه، اثر درآمدی چیره شده و شیب منحنی به سمت چپ و عقب برمی‌گردد.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')">
+                                <span>⚡</span> فلش‌بک به کشش و درآمد
+                            </button>
+                            <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+                                <span>📋</span> کپی فرمول
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- FORMULA 24: SPECIAL INDIFFERENCE CURVES & KING'S LAW -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۲۴</span>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک: مشتق و مطلوبیت نهایی</button>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">حالات ۶گانه خاص منحنی‌های بی‌تفاوتی و قانون کینگ (پارادوکس وفور)</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">۱. مکمل کامل L شکل (نسبت ثابت):</span>
+                                    <span class="math-sym">TU</span><span class="math-op">=</span>min{ aX , bY } <span class="math-op">⟹</span> تعادل رأسی: <span class="math-sym">aX = bY</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">۲. جانشین کامل خطی (MRS ثابت):</span>
+                                    <span class="math-sym">TU</span><span class="math-op">=</span>aX + bY <span class="math-op">⟹</span> گوشه‌ای: <span class="math-sym">X*</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">I</span><span class="math-den">Pₓ</span></span> یا <span class="math-sym">Y*</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">I</span><span class="math-den">Pᵧ</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">۳. کالای خنثی (Neutral Good):</span>
+                                    <span class="math-sym">MUₓ</span><span class="math-op">=</span>0 (افقی) <span class="math-sep">|</span> <span class="math-sym">MUᵧ</span><span class="math-op">=</span>0 (عمودی)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge pop">۴. کالای بد اقتصادی (Economic Bad):</span>
+                                    <span class="math-sym">MUₓ</span> &lt; 0 <span class="math-op">⟹</span> <span class="math-sym">شیب منحنی مثبت</span> (برای جبران ضرر، Y باید افزایش یابد)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">۵. قانون کینگ و پارادوکس وفور:</span>
+                                    <span class="math-sym">|EᏧ|</span> &lt; 1 <span class="math-op">⟹</span> محصول ↑ <span class="math-op">⟹</span> P ↓ شدیدتر <span class="math-op">⟹</span> <span class="math-sym">TR ↓</span>
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+                                • <b>چرا منحنی‌های بی‌تفاوتی هرگز متقاطع نیستند؟</b> فرض تقاطع دو منحنی روی یک سبد مشترک C، اصل ترایایی (A ≻ B ≻ C ⟹ A ≻ C) و اصل عدم اشباع (بیشتر بهتر از کمتر است) را نقض می‌کند.<br>
+                                • <b>پاسخ کالای خنثی و بد:</b> در کالای خنثی X (MUₓ = 0)، مصرف‌کننده کل بودجه‌اش را صرف کالای Y می‌کند؛ در کالای بد X (مثل آلودگی)، کل بودجه صرف Y شده و X = 0 انتخاب می‌شود.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>⚡ تلفیق تکمیلی بانکای و CFA:</strong>
+                                قانون کینگ پایه اقتصادی سیاست‌های خرید تضمینی دولت در بخش کشاورزی و تثبیت عرضه اوپک است. چون تقاضای غلات و نفت در کوتاه‌مدت کم‌کشش است، وفور عرضه بدون کنترل بازار درآمد کل تولیدکنندگان را سقوط می‌دهد.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار کنکور ارشد:</strong>
+                                در کالای بد اقتصادی (X نامطلوب و Y مطلوب)، جهت افزایش رضایت در نقشه بی‌تفاوتی به سمت بالا و چپ (Y بیشتر و X کمتر) است؛ نه بالا و راست! همچنین شیب منحنی بی‌تفاوتی در این حالت برخلاف کالاهای عادی مثبت است.
+                            </div>
+
+                            <div class="visual-diagram-box">
+                                <div class="diagram-title">📐 اطلس ۴گانه حالات خاص منحنی‌های بی‌تفاوتی (مکمل، جانشین، خنثی و بد)</div>
+                                <div class="diagram-svg-container">
+                                    <svg viewBox="0 0 520 215" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="max-height: 215px;">
+                                        <!-- Panel 1: L-shaped -->
+                                        <text x="65" y="18" fill="#0F172A" font-size="9" font-weight="900" text-anchor="middle">۱. مکمل کامل L شکل</text>
+                                        <line x1="20" y1="30" x2="20" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+                                        <line x1="20" y1="170" x2="115" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+                                        <polyline points="42,45 42,140 105,140" fill="none" stroke="#1D4ED8" stroke-width="2.4"/>
+                                        <polyline points="68,35 68,110 112,110" fill="none" stroke="#1D4ED8" stroke-width="1.8" stroke-dasharray="4,3"/>
+                                        <line x1="20" y1="170" x2="105" y2="65" stroke="#059669" stroke-width="1.2" stroke-dasharray="2,2"/>
+                                        <circle cx="42" cy="140" r="3.5" fill="#059669"/>
+                                        <circle cx="68" cy="110" r="3.5" fill="#059669"/>
+                                        <text x="65" y="192" fill="#475569" font-size="8" font-weight="800" text-anchor="middle">σ = 0 | تعادل رأسی</text>
+
+                                        <!-- Panel 2: Linear Substitutes -->
+                                        <text x="195" y="18" fill="#0F172A" font-size="9" font-weight="900" text-anchor="middle">۲. جانشین کامل خطی</text>
+                                        <line x1="145" y1="30" x2="145" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+                                        <line x1="145" y1="170" x2="245" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+                                        <line x1="155" y1="65" x2="225" y2="160" stroke="#7C3AED" stroke-width="2.4"/>
+                                        <line x1="168" y1="45" x2="242" y2="145" stroke="#7C3AED" stroke-width="1.8" stroke-dasharray="4,3"/>
+                                        <text x="195" y="192" fill="#475569" font-size="8" font-weight="800" text-anchor="middle">σ = ∞ | راه‌حل گوشه‌ای</text>
+
+                                        <!-- Panel 3: Neutral X -->
+                                        <text x="325" y="18" fill="#0F172A" font-size="9" font-weight="900" text-anchor="middle">۳. کالای X خنثی (MUₓ = 0)</text>
+                                        <line x1="275" y1="30" x2="275" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+                                        <line x1="275" y1="170" x2="375" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+                                        <line x1="275" y1="125" x2="370" y2="125" stroke="#D97706" stroke-width="2.4"/>
+                                        <line x1="275" y1="75" x2="370" y2="75" stroke="#D97706" stroke-width="1.8" stroke-dasharray="4,3"/>
+                                        <text x="325" y="192" fill="#475569" font-size="8" font-weight="800" text-anchor="middle">افقی | کل بودجه روی Y</text>
+
+                                        <!-- Panel 4: Economic Bad X -->
+                                        <text x="455" y="18" fill="#0F172A" font-size="9" font-weight="900" text-anchor="middle">۴. کالای بد X (MUₓ &lt; 0)</text>
+                                        <line x1="405" y1="30" x2="405" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+                                        <line x1="405" y1="170" x2="505" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+                                        <line x1="415" y1="150" x2="495" y2="75" stroke="#DC2626" stroke-width="2.4"/>
+                                        <line x1="415" y1="115" x2="480" y2="52" stroke="#DC2626" stroke-width="1.8" stroke-dasharray="4,3"/>
+                                        <text x="455" y="192" fill="#475569" font-size="8" font-weight="800" text-anchor="middle">شیب مثبت | X* = 0</text>
+                                    </svg>
+                                </div>
+                                <div class="diagram-walkthrough">
+                                    <strong>📌 الگوریتم ۴ مرحله‌ای ساخت و تحلیل هندسی:</strong>
+                                    <p>۱. <b>مکمل کامل:</b> خطوط تراز زاویه ۹۰ درجه می‌سازند و رئوس آن‌ها روی شعاع نسبت ثابت مصرف قرار می‌گیرد.</p>
+                                    <p>۲. <b>جانشین کامل:</b> خطوط مستقیم با شیب ثابت که در صورت اختلاف با شیب بودجه، تعادل را به یکی از محورها پرتاب می‌کنند.</p>
+                                    <p>۳. <b>کالای خنثی:</b> مطلوبیت فقط تابع کالای دیگر است، لذا خط بی‌تفاوتی موازی محور کالای خنثی رسم می‌شود.</p>
+                                    <p>۴. <b>کالای بد اقتصادی:</b> برای ثابت ماندن مطلوبیت، پذیرش هر واحد بیشتر از کالای بد مستلزم دریافت پاداش از کالای مطلوب است؛ پس شیب منحنی صعودی است.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')">
+                                <span>⚡</span> فلش‌بک به مشتق و مطلوبیت
+                            </button>
+                            <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+                                <span>📋</span> کپی فرمول
+                            </button>
+                        </div>
+                    </div>
+
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
@@ -9097,7 +9317,7 @@ body.theme-dark .step-content {
                                 ۱. محاسبه تسهیم بار مالیاتی با کشش‌ها و زیان بار مرده جامعه:
                             </strong>
                             <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                فرمول سهم خریدار: ΔP_b = [ Eₛ / (Eₛ + |EᏧ|) ] × t &nbsp;|&nbsp; زیان رفاهی: DWL = 0.5 × t × ΔQ
+                                فرمول سهم خریدار: ΔP<span class="math-sub">b</span> = [ Eₛ ÷ (Eₛ + |EᏧ|) ] × t &nbsp;|&nbsp; زیان رفاهی: DWL = 0.5 × t × ΔQ
                             </div>
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
                                 <div>
@@ -9309,7 +9529,7 @@ body.theme-dark .step-content {
 
                         <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
                             <strong>صورت مسئله:</strong> در بازار کالایی معین، توابع تقاضا و عرضه به صورت <span dir="ltr">QᏧ = 10 - P</span> و <span dir="ltr">Qₛ = P</span> هستند.
-                            دولت دو سیاست مداخله قیمتی مجزا را بررسی می‌کند: الف) وضع سقف قیمت <span dir="ltr">P_c = 3</span> تومان؛ ب) وضع کف قیمت <span dir="ltr">P_f = 7</span> تومان.<br>
+                            دولت دو سیاست مداخله قیمتی مجزا را بررسی می‌کند: الف) وضع سقف قیمت <span dir="ltr">P<span class="math-sub">c</span> = 3</span> تومان؛ ب) وضع کف قیمت <span dir="ltr">P<span class="math-sub">f</span> = 7</span> تومان.<br>
                             تعادل اولیه، مؤثر بودن هر سیاست، مقدار شکاف بازار و قیمت بازار سیاه در سناریوی (الف) را به دست آورید.
                         </div>
 
@@ -9322,7 +9542,7 @@ body.theme-dark .step-content {
 
                         <!-- Step 2 -->
                         <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
-                            <strong style="color: #1E293B;">گام ۲: تحلیل سیاست سقف قیمت (Price Ceiling: P_c = 3)</strong>
+                            <strong style="color: #1E293B;">گام ۲: تحلیل سیاست سقف قیمت (Price Ceiling: P<span class="math-sub">c</span> = 3)</strong>
                             <p style="margin: 2px 0;">• <b>ممیزی شرط اثرگذاری:</b> سقف قیمت زمانی مؤثر (Binding) است که پایین‌تر از قیمت تعادل آزاد باشد: چون <span dir="ltr">3 &lt; 5</span> است، سیاست کاملاً مؤثر است.</p>
                             <p style="margin: 2px 0;">• <b>محاسبه مقادیر تقاضا و عرضه در سقف قیمت:</b></p>
                             <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">QᏧ</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">,</span> <span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">3</span> <span class="math-op">⟹</span> <span class="math-sym">Shortage</span><span class="math-op">=</span><span class="math-sym">QᏧ</span> <span class="math-op">-</span> <span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">4</span></div>
@@ -9333,13 +9553,13 @@ body.theme-dark .step-content {
                         <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
                             <strong style="color: #1E293B;">گام ۳: کشف قیمت در بازار سیاه و محاسبه رانت دلالی</strong>
                             <p style="margin: 2px 0;">تولیدکنندگان تنها به اندازه <span dir="ltr">Qₛ = 3</span> واحد کالا تولید و روانه بازار می‌کنند. خریداران برای دریافت این ۳ واحد حاضرند تا حداکثر سقف تمایل به پرداخت روی منحنی تقاضا هزینه کنند:</p>
-                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">P_black</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">,</span> <span class="math-sym">Rent</span><span class="math-op">=</span>( <span class="math-sym">7</span> <span class="math-op">-</span> <span class="math-sym">3</span> ) · <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">12</span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">P<span class="math-sub">black</span></span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">,</span> <span class="math-sym">Rent</span><span class="math-op">=</span>( <span class="math-sym">7</span> <span class="math-op">-</span> <span class="math-sym">3</span> ) · <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">12</span></div>
                             <p style="margin: 2px 0;">قیمت بازار سیاه به ۷ تومان می‌رسد و رانت بادآورده واسطه‌ها برابر ۱۲ تومان است.</p>
                         </div>
 
                         <!-- Step 4 -->
                         <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
-                            <strong style="color: #1E293B;">گام ۴: تحلیل سیاست کف قیمت (Price Floor: P_f = 7)</strong>
+                            <strong style="color: #1E293B;">گام ۴: تحلیل سیاست کف قیمت (Price Floor: P<span class="math-sub">f</span> = 7)</strong>
                             <p style="margin: 2px 0;">• <b>ممیزی شرط اثرگذاری:</b> کف قیمت زمانی مؤثر است که بالاتر از تعادل آزاد باشد: چون <span dir="ltr">7 &gt; 5</span> است، سیاست مؤثر است.</p>
                             <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">Qₛ</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">,</span> <span class="math-sym">QᏧ</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">7</span><span class="math-op">=</span><span class="math-sym">3</span> <span class="math-op">⟹</span> <span class="math-sym">Surplus</span><span class="math-op">=</span><span class="math-sym">Qₛ</span> <span class="math-op">-</span> <span class="math-sym">QᏧ</span><span class="math-op">=</span><span class="math-sym">7</span> <span class="math-op">-</span> <span class="math-sym">3</span><span class="math-op">=</span><span class="math-sym">4</span></div>
                             <p style="margin: 2px 0;">مازاد عرضه برابر ۴ واحد است که نشان‌دهنده انباشت کالا در انبار یا بیکاری در بازار کار است.</p>
@@ -9494,7 +9714,7 @@ body.theme-dark .step-content {
                         <!-- Step 3 -->
                         <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
                             <strong style="color: #1E293B;">گام ۳: محاسبه حداکثر مطلوبیت و اثبات برابری مطلوبیت ریالی</strong>
-                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">TU_max</span><span class="math-op">=</span><span class="math-sym">10 · (50) · (25)</span><span class="math-op">=</span><span class="math-sym">12,500</span> <span class="math-op">واحد</span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">TU<span class="math-sub">max</span></span><span class="math-op">=</span><span class="math-sym">10 · (50) · (25)</span><span class="math-op">=</span><span class="math-sym">12,500</span> <span class="math-op">واحد</span></div>
                             <p style="margin: 2px 0;">محاسبه مطلوبیت آخرین ریال برای هر کالا:</p>
                             <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">10 · 25</span><span class="math-den">1</span></span><span class="math-op">=</span><span class="math-sym">250</span> <span class="math-op">,</span> <span class="math-frac"><span class="math-num">MUᵧ</span><span class="math-den">Pᵧ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">10 · 50</span><span class="math-den">2</span></span><span class="math-op">=</span><span class="math-sym">250</span> <span class="math-op">⟹</span> <span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MUᵧ</span><span class="math-den">Pᵧ</span></span></div>
                         </div>
@@ -9542,6 +9762,41 @@ body.theme-dark .step-content {
                         </div>
                     </div>
                 </div>
+
+                    <!-- PROBLEM 6: TR POSITIVE WHEN MR NEGATIVE (INELASTIC REGION) -->
+                    <div class="formula-card" style="border-right: 4px solid #7C3AED; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #EDE9FE; color: #5B21B6; font-weight: 800; font-size: 0.68rem;">مسئله امتحانی ۶ (فصل ۲ - تله مفهومی)</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    تحلیل رفتار درآمد کل (TR) و درآمد نهایی (MR) در ناحیه بی‌کشش (چرا با منفی شدن MR، درآمد کل مثبت می‌ماند؟)
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۴ نمره کامل</span>
+                        </div>
+
+                        <div class="tier-card prof-tier" style="margin-top: 10px;">
+                            <strong>📌 صورت مسئله استاندارد و سوال کلیدی:</strong><br>
+                            تابع تقاضای معکوس بازاری برابر با <span dir="ltr">P = 10 - Q</span> است. الف) توابع درآمد کل (TR) و درآمد نهایی (MR) را استخراج کنید. ب) نشان دهید چرا با ورود به ناحیه کم‌کشش (<span dir="ltr">Q &gt; 5</span>) با وجود منفی شدن درآمد نهایی (<span dir="ltr">MR &lt; 0</span>)، مقدار درآمد کل همچنان مثبت می‌ماند.
+                        </div>
+
+                        <div style="margin-top: 12px; font-size: 0.82rem; line-height: 1.85; color: var(--text-main);">
+                            <p style="margin: 6px 0;"><b style="color: #1D4ED8;">گام ۱: تفکیک بنیادین سطح تابع (TR) و مشتق تابع (MR):</b></p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">TR</span><span class="math-op">=</span>P × Q<span class="math-op">=</span>10Q - Q² <span class="math-sep">|</span> <span class="math-sym">MR</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d(TR)</span><span class="math-den">dQ</span></span><span class="math-op">=</span>10 - 2Q</div>
+                            <p style="margin: 2px 0;">تا زمانی که قیمت و مقدار فروش غیرمنفی باشند (<span dir="ltr">P ≥ 0 , Q ≥ 0</span>)، حاصل‌ضرب آن‌ها یعنی درآمد کل (TR) هرگز منفی نمی‌شود. منفی شدن MR فقط به معنای <b>نزولی بودن شیب منحنی TR</b> است نه منفی بودن خود درآمد.</p>
+
+                            <p style="margin: 8px 0 4px 0;"><b style="color: #1D4ED8;">گام ۲: اثبات عددی در ۴ نقطه بحرانی (<span dir="ltr">Q = 5, 6, 8, 10</span>):</b></p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">Q = 5</span>: P = 5 <span class="math-op">⟹</span> TR = +25 (اوج) , MR = 0 <span class="math-sep">|</span> <span class="math-sym">Q = 6</span>: P = 4 <span class="math-op">⟹</span> TR = +24 &gt; 0 , MR = -1 &lt; 0</div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">Q = 8</span>: P = 2 <span class="math-op">⟹</span> TR = +16 &gt; 0 , MR = -6 &lt; 0 <span class="math-sep">|</span> <span class="math-sym">Q = 10</span>: P = 0 <span class="math-op">⟹</span> TR = 0</div>
+
+                            <p style="margin: 8px 0 4px 0;"><b style="color: #1D4ED8;">گام ۳: استنتاج راهبردی با رابطه آموروسو-رابینسون:</b></p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)"><span class="math-sym">MR</span><span class="math-op">=</span>P · [ 1 - <span class="math-frac"><span class="math-num">1</span><span class="math-den">|EᏧ|</span></span> ] <span class="math-op">&lt; 0</span> <span class="math-op">⟺</span> <span class="math-sym">|EᏧ|</span> &lt; 1 <span class="math-op">⟹</span> <span class="math-sym">TR</span> مثبت ولی نزولی</div>
+                        </div>
+
+                        <div style="background: #FEF3C7; border: 1.5px solid #FDE68A; border-radius: 8px; padding: 10px 12px; margin-top: 12px; font-size: 0.75rem; color: #92400E;">
+                            ⚠️ <b>تله مرگبار کنکور:</b> هیچ‌گاه منفی شدن درآمد نهایی (MR &lt; 0) را به معنای زیان‌ده یا منفی شدن درآمد کل تفسیر نکنید! در تیراژ Q = 8 با وجود MR = -6، هنوز ۱۶ واحد پول وارد صندوق بنگاه می‌شود؛ فقط نسبت به Q = 7 درآمد کمتری به دست آمده است.
+                        </div>
+                    </div>
 
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
@@ -9624,6 +9879,21 @@ body.theme-dark .step-content {
                     </div>
 
 
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۱۲: خلط منفی شدن درآمد نهایی (MR &lt; 0) با منفی شدن درآمد کل (TR &lt; 0)</div>
+                        وقتی منحنی درآمد نهایی به زیر محور افقی می‌رود (MR &lt; 0)، داوطلب گمان می‌کند درآمد کل نیز منفی شده است! <b>اصل بنیادین:</b> درآمد کل حاصل‌ضرب P × Q است و تا زمانی که قیمت مثبت باشد، TR هرگز منفی نمی‌شود. منفی شدن MR فقط به معنای <b>شیب نزولی درآمد کل</b> در ناحیه کم‌کشش (|EᏧ| &lt; 1) است. برای نمونه در تقاضای P = 10 - Q، در تیراژ Q = 8 مقدار MR = -6 است اما TR = 2 × 8 = +16 همچنان مثبت می‌ماند.
+                    </div>
+
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۱۳: مغالطه کالای پست در برابر کالای گیفن (Giffen ⊂ Inferior)</div>
+                        هر کالای گیفنی قطعاً یک کالای پست است (چون برای صعودی شدن تقاضا باید اثر درآمدی منفی با اثر جانشینی مخالفت کند)، اما هر کالای پستی گیفن نیست! فقط زمانی کالای پست به گیفن تبدیل می‌شود که قدرمطلق اثر درآمدی منفی بر اثر جانشینی غلبه کند (|IE| &gt; |SE|).
+                    </div>
+
+                    <div class="trap-box">
+                        <div class="trap-header"><span>🚨</span> دام تستی ۱۴: سقف/کف قیمت غیرمؤثر و محاسبه اشتباه رانت بازار سیاه روی QᏧ</div>
+                        تعیین سقف قیمت بالاتر از تعادل (P<span class="math-sub">c</span> &gt; P*) یا کف قیمت پایین‌تر از تعادل (P<span class="math-sub">f</span> &lt; P*) کاملاً خنثی و بی‌اثر است و بازار در همان تعادل آزاد می‌ماند! همچنین در سقف قیمت مؤثر (P<span class="math-sub">c</span> &lt; P*)، رانت بازار سیاه فقط بر مبنای مقدار واقعی عرضه‌شده در بازار یعنی Qₛ شکل می‌گیرد، نه مقدار تقاضای QᏧ: Rent = (P<span class="math-sub">black</span> - P<span class="math-sub">c</span>) × Qₛ.
+                    </div>
+
                 <!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
@@ -9634,20 +9904,24 @@ body.theme-dark .step-content {
                 <div class="card">
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #1E3A8A; margin-bottom: 10px;">📝 کپسول دست‌نویس دفترچه بهادر (اقتصاد خرد)</h4>
                     <div class="notebook-capsule">
-1. P* = (a - c) / (b + d)  [قیمت تعادل اولیه بازار]
-2. Pc = (a - c + d·t) / (b + d)  [قیمت ناخالص خریدار با مالیات]
-3. Pp = Pc - t  [عایدی خالص دریافتی فروشنده]
-4. Burden_C / Burden_P = d / b = Es / |Ed|  [نسبت طلایی تسهیم بار مالیاتی]
+1. P* = (a - c) ÷ (b + d)  [قیمت تعادل اولیه بازار]
+2. P<span class="math-sub">c</span> = (a - c + d·t) ÷ (b + d)  [قیمت ناخالص خریدار با مالیات]
+3. P<span class="math-sub">p</span> = P<span class="math-sub">c</span> - t  [عایدی خالص دریافتی فروشنده]
+4. Burden<span class="math-sub">C</span> ÷ Burden<span class="math-sub">P</span> = d ÷ b = Eₛ ÷ |EᏧ|  [نسبت طلایی تسهیم بار مالیاتی]
 5. DWL = 0.5 · t · (Q₀ - Qₜ)  [زیان بار مرده رفاهی جامعه]
-6. APₗ = TP / L  [تولید متوسط - شیب خط متصل‌کننده مبدأ به نقطه روی TP]
-7. MPₗ = d(TP) / dL  [تولید نهایی - شیب خط مماس بر منحنی TP]
-8. MRTSₗₖ = MPₗ / MPₖ = w / r  [شرط طلایی تعادل بهینه تولیدکننده]
-9. MPₗ / w = MPₖ / r  [اصل برابری بازدهی نهایی آخرین ریال هزینه‌شده]
-10. Q = A · Lᵃ · Kᵇ ⟹ RTS = a + b  [بازده به مقیاس کاب-داگلاس: فزاینده > 1 ، ثابت = 1 ، کاهنده < 1]
-11. εₗ = MPₗ / APₗ  [کشش تولیدی کار - در اوج TP برابر صفر و در اوج AP برابر ۱]
+6. APₗ = TP ÷ L  [تولید متوسط - شیب خط متصل‌کننده مبدأ به نقطه روی TP]
+7. MPₗ = d(TP) ÷ dL  [تولید نهایی - شیب خط مماس بر منحنی TP]
+8. MRTSₗₖ = MPₗ ÷ MPₖ = w ÷ r  [شرط طلایی تعادل بهینه تولیدکننده]
+9. MPₗ ÷ w = MPₖ ÷ r  [اصل برابری بازدهی نهایی آخرین ریال هزینه‌شده]
+10. Q = A · Lᵃ · Kᵇ ⟹ RTS = a + b  [بازده به مقیاس کاب-داگلاس: فزاینده &gt; 1 ، ثابت = 1 ، کاهنده &lt; 1]
+11. εₗ = MPₗ ÷ APₗ  [کشش تولیدی کار - در اوج TP برابر صفر و در اوج AP برابر ۱]
 12. Stage II: Max APₗ ≤ L ≤ (MPₗ = 0)  [تنها منطقه اقتصادی و عقلایی تولید]
-13. Exy = (dQx / dPy) · (Py / Qx) < 0  [کشش متقاطع کالاهای مکمل - شیب منفی]
+13. Eₓᵧ = (dQₓ ÷ dPᵧ) · (Pᵧ ÷ Qₓ) &lt; 0  [کشش متقاطع کالاهای مکمل - شیب منفی]
 14. Q = min{aL , bK} ⟹ σ = 0  [مکمل کامل لئونتیف - زاویه ۹۰ درجه L شکل]
+15. Rent = (P<span class="math-sub">black</span> - P<span class="math-sub">c</span>) · Qₛ  [رانت بازار سیاه فقط روی عرضه محدود Qₛ]
+16. TE = SE + IE  [اسلاتسکی؛ کالای گیفن ⊂ کالای پست و دارای شرط |IE| &gt; |SE|]
+17. MR &lt; 0 ⟹ TR = P · Q &gt; 0  [در ناحیه کم‌کشش |EᏧ| &lt; 1، TR نزولی است اما تا P &gt; 0 مثبت می‌ماند]
+18. ∑ (wᵢ · Eᵢ) = 1  [قضیه تجمیع انجل؛ خط عبوری از مبدأ همیشه Eᵢ = 1 دارد]
                     </div>
                 </div>
             </div>
@@ -9993,13 +10267,13 @@ body.theme-dark .step-content {
                         <div>
                             <span class="badge badge-cost">فرمول طلایی ۱</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تیراژ نقطه سر‌به‌سر (BEP)</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('Q_BEP = FC ÷ (P - VC) = FC ÷ CM', this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q_BEP</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC</span><span class="math-den">P - VC</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC</span><span class="math-den">CM</span></span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">Q<span class="math-sub">BEP</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC</span><span class="math-den">P - VC</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">FC</span><span class="math-den">CM</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>منطق صورت و مخرج:</strong>
                                 <p>هزینه‌های ثابت کل (FC) در صورت قرار دارد؛ هر واحد محصول فروخته‌شده مبلغ حاشیه فروش (CM) را از هزینه ثابت کسر می‌کند تا به صفر برسد.</p>
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Q_BEP = FC ÷ (P - VC) = FC ÷ CM')">
+                        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-display'))">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -10119,8 +10393,8 @@ body.theme-dark .step-content {
   <!-- Projections from BEP -->
   <line x1="250" y1="125" x2="70" y2="125" stroke="#047857" stroke-width="1.5" stroke-dasharray="3,3"/>
   <line x1="250" y1="125" x2="250" y2="230" stroke="#047857" stroke-width="1.5" stroke-dasharray="3,3"/>
-  <text x="30" y="130" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#047857">TR_BEP</text>
-  <text x="240" y="246" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#047857">Q_BEP</text>
+  <text x="30" y="130" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#047857">TR<tspan baseline-shift="sub" font-size="8">BEP</tspan></text>
+  <text x="240" y="246" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#047857">Q<tspan baseline-shift="sub" font-size="8">BEP</tspan></text>
 
   <!-- Shaded Zones -->
   <!-- Loss Triangle -->
@@ -10284,7 +10558,7 @@ body.theme-dark .step-content {
                                 ۱. محاسبه تیراژ سر‌به‌سر، نسبت حاشیه فروش و سود هدف با مالیات:
                             </strong>
                             <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                CM = P - V &nbsp;|&nbsp; Q_BEP = FC / CM &nbsp;|&nbsp; Q* = [ FC + (Target / (1 - T)) ] / CM
+                                CM = P - V &nbsp;|&nbsp; Q<span class="math-sub">BEP</span> = FC ÷ CM &nbsp;|&nbsp; Q* = [ FC + (Target / (1 - T)) ] / CM
                             </div>
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
                                 <div>
@@ -10324,15 +10598,15 @@ body.theme-dark .step-content {
                                 ۲. محاسبه درجه اهرم عملیاتی (DOL) و نسبت حاشیه امنیت (MS%):
                             </strong>
                             <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                MS% = (Q_actual - Q_BEP) / Q_actual &nbsp;|&nbsp; DOL = 1 / MS%
+                                MS% = (Q<span class="math-sub">actual</span> - Q<span class="math-sub">BEP</span>) ÷ Q<span class="math-sub">actual</span> &nbsp;|&nbsp; DOL = 1 / MS%
                             </div>
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
                                 <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">تیراژ فروش واقعی (Q_actual):</label>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">تیراژ فروش واقعی (Q<span class="math-sub">actual</span>):</label>
                                     <input type="number" id="cst-actual-q" value="4000" step="200" class="param-input-box" style="width: 100%;">
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">تیراژ سر‌به‌سر (Q_BEP):</label>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">تیراژ سر‌به‌سر (Q<span class="math-sub">BEP</span>):</label>
                                     <input type="number" id="cst-bep-q" value="3000" step="200" class="param-input-box" style="width: 100%;">
                                 </div>
                             </div>
@@ -10352,23 +10626,23 @@ body.theme-dark .step-content {
                                 ۳. تفکیک هزینه‌های مختلط به روش حد بالا و پایین (High-Low Method):
                             </strong>
                             <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                نرخ متغیر: b = (Y_H - Y_L) / (X_H - X_L) &nbsp;|&nbsp; بهای ثابت: a = Y_H - b × X_H
+                                نرخ متغیر: b = (Y<span class="math-sub">H</span> - Y<span class="math-sub">L</span>) ÷ (X<span class="math-sub">H</span> - X<span class="math-sub">L</span>) &nbsp;|&nbsp; بهای ثابت: a = Y<span class="math-sub">H</span> - b × X<span class="math-sub">H</span>
                             </div>
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
                                 <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">فعالیت بالا (X_H):</label>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">فعالیت بالا (X<span class="math-sub">H</span>):</label>
                                     <input type="number" id="cst-xh" value="10000" step="500" class="param-input-box" style="width: 100%;">
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بهای کل در بالا (Y_H):</label>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بهای کل در بالا (Y<span class="math-sub">H</span>):</label>
                                     <input type="number" id="cst-yh" value="500000" step="10000" class="param-input-box" style="width: 100%;">
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">فعالیت پایین (X_L):</label>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">فعالیت پایین (X<span class="math-sub">L</span>):</label>
                                     <input type="number" id="cst-xl" value="4000" step="500" class="param-input-box" style="width: 100%;">
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بهای کل در پایین (Y_L):</label>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">بهای کل در پایین (Y<span class="math-sub">L</span>):</label>
                                     <input type="number" id="cst-yl" value="260000" step="10000" class="param-input-box" style="width: 100%;">
                                 </div>
                             </div>
@@ -10453,9 +10727,9 @@ body.theme-dark .step-content {
                     <div class="notebook-capsule">
 1. CM = P - VC  [حاشیه فروش واحد]
 2. CMR = CM / P  [نسبت حاشیه فروش]
-3. Q_BEP = FC / CM  [تیراژ سر‌به‌سر]
-4. Qₜarget = (FC + Target/(1 - T)) / CM  [سود هدف با مالیات]
-5. DOL = (Q * CM) / (Q * CM - FC)  [اهرم عملیاتی]
+3. Q<span class="math-sub">BEP</span> = FC ÷ CM  [تیراژ سر‌به‌سر]
+4. Q<span class="math-sub">target</span> = [FC + Target ÷ (1 - T)] ÷ CM  [سود هدف با مالیات]
+5. DOL = (Q · CM) ÷ (Q · CM - FC)  [اهرم عملیاتی]
                     </div>
                 </div>
             </div>
@@ -10617,13 +10891,13 @@ body.theme-dark .step-content {
                             <div class="tree-branch-header"><span class="badge badge-cost">رکن ۳</span><span>الگوریتم سیمپلکس (Simplex)</span></div>
                             <div class="tree-leaf-item"><strong style="color: #047857;">متغیرهای کمکی و مازاد</strong>تبدیل نامساوی‌ها به فرم استاندارد تساوی با ماتریس یکه اولیه.</div>
                             <div class="tree-leaf-item"><strong style="color: #047857;">متغیر ورودی به پایه</strong>انتخاب منفی‌ترین ضریب در سطر Z برای ورود به پایه در مسئله Max.</div>
-                            <div class="tree-leaf-item"><strong style="color: #047857;">آزمون حداقل نسبت</strong>تعیین متغیر خروجی با min{ bᵢ / a_ik | a_ik &gt; 0 } جهت حفظ موجه بودن.</div>
+                            <div class="tree-leaf-item"><strong style="color: #047857;">آزمون حداقل نسبت</strong>تعیین متغیر خروجی با min{ bᵢ ÷ aᵢₖ | aᵢₖ &gt; 0 } جهت حفظ موجه بودن.</div>
                         </div>
 
                         <div class="tree-branch-card" style="border-top: 4px solid #6D28D9;">
                             <div class="tree-branch-header"><span class="badge badge-finance">رکن ۴</span><span>نظریه دوگان و قیمت سایه</span></div>
                             <div class="tree-leaf-item"><strong style="color: #6D28D9;">روابط اولیه و دوگان</strong>تعداد متغیر دوگان = تعداد قیود اولیه؛ برابری مقدار تابع هدف در بهینگی.</div>
-                            <div class="tree-leaf-item"><strong style="color: #6D28D9;">قیمت سایه (Shadow Price)</strong>y_i* = ∂Z* / ∂bi؛ نرخ افزایش سود به ازای ۱ واحد منبع اضافی.</div>
+                            <div class="tree-leaf-item"><strong style="color: #6D28D9;">قیمت سایه (Shadow Price)</strong>yᵢ* = ∂Z* ÷ ∂bᵢ؛ نرخ افزایش سود به ازای ۱ واحد منبع اضافی.</div>
                             <div class="tree-leaf-item"><strong style="color: #6D28D9;">قضیه مکمل فزونی</strong>اگر منبعی دارای مازاد باشد (Slack &gt; 0)، قیمت سایه آن حتماً صفر است.</div>
                         </div>
                     </div>
@@ -10786,7 +11060,7 @@ body.theme-dark .step-content {
                         <div>
                             <span class="badge badge-or">فرمول طلایی ۱</span>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">قیمت سایه و ارزش منبع محدودکننده</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">y_i</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Zₘₐₓ</span><span class="math-den">∂bᵢ</span></span></div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">yᵢ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂Zₘₐₓ</span><span class="math-den">∂bᵢ</span></span></div>
                             <div class="card-inner" style="font-size: 0.74rem;">
                                 <strong>مفهوم کاربردی:</strong>
                                 <p>حداکثر قیمتی که مدیر حاضر است برای خرید یک واحد منبع اضافی iام پرداخت کند تا سود شرکت افزایش یابد.</p>
@@ -10839,8 +11113,8 @@ body.theme-dark .step-content {
                                     ∑ aᵢⱼ xⱼ + <span class="math-sym">Sᵢ</span><span class="math-op">=</span>bᵢ <span class="math-sep">|</span> Sᵢ ≥ 0 (ظرفیت بلااستفاده)
                                 </div>
                                 <div class="formula-line">
-                                    <span class="math-badge samp">قید بزرگتر-مساوی (کسر کردن مازاد e_i):</span>
-                                    ∑ aᵢⱼ xⱼ - <span class="math-sym">e_i</span><span class="math-op">=</span>bᵢ <span class="math-sep">|</span> e_i ≥ 0 (تولید بیش از حداقل)
+                                    <span class="math-badge samp">قید بزرگتر-مساوی (کسر کردن مازاد eᵢ):</span>
+                                    ∑ aᵢⱼ xⱼ - <span class="math-sym">eᵢ</span><span class="math-op">=</span>bᵢ <span class="math-sep">|</span> eᵢ ≥ 0 (تولید بیش از حداقل)
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">فرم ماتریسی سیمپلکس:</span>
@@ -10856,7 +11130,7 @@ body.theme-dark .step-content {
 
                             <div class="tier-card trap-tier">
                                 <strong>🚨 تله کنکور ارشد:</strong>
-                                فراموش کردن تغییر جهت نامساوی هنگام ضرب در منفی ۱! اگر قید x1 - 2x2 ≤ -4 باشد، باید به شکل -x1 + 2x2 ≥ 4 تبدیل شود و سپس متغیر مازاد e_i از آن کسر گردد.
+                                فراموش کردن تغییر جهت نامساوی هنگام ضرب در منفی ۱! اگر قید x1 - 2x2 ≤ -4 باشد، باید به شکل -x1 + 2x2 ≥ 4 تبدیل شود و سپس متغیر مازاد eᵢ از آن کسر گردد.
                             </div>
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('Constraint_LE: ∑ (aᵢⱼ · xⱼ) + Sᵢ = bᵢ   |   Constraint_GE: ∑ (aᵢⱼ · xⱼ) - eᵢ = bᵢ')">
@@ -10881,13 +11155,13 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">قضیه دوگانی قوی (Strong Duality):</span>
-                                    <span class="math-sym">Max Z_{opt}</span><span class="math-op">=</span><span class="math-sym">Min W_{opt}</span>  (سود اولیه = ارزش منابع دوگان)
+                                    <span class="math-sym">Max Z<span class="math-sub">opt</span></span><span class="math-op">=</span><span class="math-sym">Min W<span class="math-sub">opt</span></span>  (سود اولیه = ارزش منابع دوگان)
                                 </div>
                             </div>
 
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                • هر قید در اولیه متناظر با یک متغیر تصمیم (y_i) در دوگان است.<br>
+                                • هر قید در اولیه متناظر با یک متغیر تصمیم (yᵢ) در دوگان است.<br>
                                 • هر متغیر تصمیم (xⱼ) در اولیه متناظر با یک قید در دوگان است.<br>
                                 • متغیرهای بهینه دوگان (Y*) همان قیمت‌های سایه (Shadow Prices) منابع محدودکننده اولیه هستند.
                             </div>
@@ -10915,11 +11189,11 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">۲. ناموجهی (Infeasibility):</span>
-                                    باقی ماندن متغیر مصنوعی (Artificial R_i &gt; 0) در پایه نهایی سیمپلکس
+                                    باقی ماندن متغیر مصنوعی (Artificial Rᵢ &gt; 0) در پایه نهایی سیمپلکس
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">۳. بی‌کرانگی (Unboundedness):</span>
-                                    تمام ضرایب ستون لولا غیرمثبت باشند (y_{ik} ≤ 0) ==> آزمون نسبت ناممکن
+                                    تمام ضرایب ستون لولا غیرمثبت باشند (yᵢₖ ≤ 0) ⟹ آزمون نسبت ناممکن
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge comp">۴. تباهیدگی (Degeneracy):</span>
@@ -10951,7 +11225,7 @@ body.theme-dark .step-content {
                             <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">شرط تعادل فیزیکی کل:</span>
-                                    <span class="math-sym">∑</span> s_i <span class="math-op">=</span> <span class="math-sym">∑</span> dⱼ
+                                    <span class="math-sym">∑</span> sᵢ <span class="math-op">=</span> <span class="math-sym">∑</span> dⱼ
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">تعداد متغیرهای پایه (خانه‌های پر):</span>
@@ -11045,7 +11319,7 @@ body.theme-dark .step-content {
             <div class="step-content"><strong>گره‌های مقصد (انبارها/بازارها):</strong> سه گره مقصد در سمت راست (انبار ۱ با نیاز ۳۰، انبار ۲ با نیاز ۳۰ و انبار ۳ با نیاز ۴۰) قطب‌های تقاضا را تشکیل می‌دهند.</div>
         </div><div class="walkthrough-step">
             <span class="step-num">3</span>
-            <div class="step-content"><strong>کمان‌های جریان و هزینه‌ها:</strong> خطوط جهت‌دار متصل‌کننده، مسیرهای ممکن انتقال بار x_ij را با هزینه واحد حمل cᵢⱼ نمایش می‌دهند.</div>
+            <div class="step-content"><strong>کمان‌های جریان و هزینه‌ها:</strong> خطوط جهت‌دار متصل‌کننده، مسیرهای ممکن انتقال بار xᵢⱼ را با هزینه واحد حمل cᵢⱼ نمایش می‌دهند.</div>
         </div><div class="walkthrough-step">
             <span class="step-num">4</span>
             <div class="step-content"><strong>شرط توازن و تعداد متغیرهای اساسی:</strong> مجموع کل عرضه برابر ۱۰۰ و مجموع کل تقاضا برابر ۱۰۰ است (∑S = ∑D). در این مدل m=2 و n=3 است، بنابراین هر جواب موجه پایه دقیقاً باید شامل m + n - 1 = 2 + 3 - 1 = 4 متغیر اساسی مثبت بدون حلقه بسته باشد.</div>
@@ -11084,7 +11358,7 @@ body.theme-dark .step-content {
                             </div>
                             <div class="tier-card trap-tier">
                                 <strong>🚨 تله کنکور ارشد:</strong>
-                                برای حل دستگاه معادلات، مقدار یکی از پتانسیل‌ها (معمولاً سطری با بیشترین تخصیص) باید قراردادی صفر شود (u_1 = 0)؛ فراموش کردن این فرض یا اشتباه در علامت تفریق شاخص بهبود شایع‌ترین خطاست.
+                                برای حل دستگاه معادلات، مقدار یکی از پتانسیل‌ها (معمولاً سطری با بیشترین تخصیص) باید قراردادی صفر شود (u₁ = 0)؛ فراموش کردن این فرض یا اشتباه در علامت تفریق شاخص بهبود شایع‌ترین خطاست.
                             </div>
 <div class="visual-diagram-box">
         <div class="diagram-header">
@@ -11187,12 +11461,12 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">قیود نرمال‌سازی و تنوع‌بخشی صنایع:</span>
-                                    ∑ xᵢ <span class="math-op">=</span> 1  ,  x_i ≤ Cap_i  ,  Risk ≤ Risk_max
+                                    ∑ xᵢ <span class="math-op">=</span> 1  ,  xᵢ ≤ Capᵢ  ,  Risk ≤ Risk<span class="math-sub">max</span>
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                متغیرهای تصمیم x_i درصد وزنی سرمایه تخصیص‌یافته به هر نماد بورسی هستند. قید ∑ xᵢ = 1 تضمین می‌کند دقیقاً ۱۰۰ درصد نقدینگی مصرف شود و قیود سقف هر صنعت مانع ریسک تمرکز می‌شوند.
+                                متغیرهای تصمیم xᵢ درصد وزنی سرمایه تخصیص‌یافته به هر نماد بورسی هستند. قید ∑ xᵢ = 1 تضمین می‌کند دقیقاً ۱۰۰ درصد نقدینگی مصرف شود و قیود سقف هر صنعت مانع ریسک تمرکز می‌شوند.
                             </div>
                             <div class="tier-card bankai-tier">
                                 <strong>🔥 کاربرد در بورس تهران و صندوق‌های سرمایه‌گذاری:</strong>
@@ -11220,12 +11494,12 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">قیود بودجه کل و کف/سقف قراردادها:</span>
-                                    ∑ cⱼ · y_j ≤ Budget  ,  L_j ≤ y_j ≤ U_j
+                                    ∑ cⱼ · yⱼ ≤ Budget  ,  Lⱼ ≤ yⱼ ≤ Uⱼ
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
-                                مدل بهینه‌سازی بازاریابی که در آن a_j نرخ دسترسی هر کانال (تلویزیون، دیجیتال، محیطی) و cⱼ بهای هر تیزر است؛ هدف ایجاد بیشترین آگاهی در ازای حداقل هزینه است.
+                                مدل بهینه‌سازی بازاریابی که در آن aⱼ نرخ دسترسی هر کانال (تلویزیون، دیجیتال، محیطی) و cⱼ بهای هر تیزر است؛ هدف ایجاد بیشترین آگاهی در ازای حداقل هزینه است.
                             </div>
                             <div class="tier-card bankai-tier">
                                 <strong>🔥 کاربرد تجاری در شرکت‌های بورسی و فین‌تک‌ها:</strong>
@@ -11233,7 +11507,7 @@ body.theme-dark .step-content {
                             </div>
                             <div class="tier-card trap-tier">
                                 <strong>🚨 تله کنکور ارشد:</strong>
-                                اگر متغیرهای y_j غیرقابل تقسیم باشند (مثلاً تعداد بیلبورد)، مدل LP به IP تبدیل شده و روش حل آن به شاخه و حد (Branch and Bound) تغییر می‌کند.
+                                اگر متغیرهای yⱼ غیرقابل تقسیم باشند (مثلاً تعداد بیلبورد)، مدل LP به IP تبدیل شده و روش حل آن به شاخه و حد (Branch and Bound) تغییر می‌کند.
                             </div>
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('Max Z = ∑ (aⱼ · yⱼ)   |   ∑ (cⱼ · yⱼ) ≤ Budget   |   yⱼ ∈ {0, 1}')">
@@ -11254,11 +11528,11 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">جریمه ستون (Column Penalty):</span>
-                P_c = | c_{c, min1} - c_{c, min2} | ( اختلاف دو هزینه کمتر در ستون )
+                P<span class="math-sub">c</span> = | c<span class="math-sub">c,min1</span> - c<span class="math-sub">c,min2</span> | ( اختلاف دو هزینه کمتر در ستون )
             </div>
             <div class="formula-line">
                 <span class="math-badge app">قاعده اولویت تخصیص:</span>
-                Max { P_r , P_c } ==> تخصیص حداکثر بار به کم‌هزینه‌ترین خانه
+                Max { Pᵣ , P<span class="math-sub">c</span> } ⟹ تخصیص حداکثر بار به کم‌هزینه‌ترین خانه
             </div>
         </div>
 
@@ -11419,7 +11693,7 @@ body.theme-dark .step-content {
                 <span class="math-badge samp">مجموعه بی‌نهایت جواب بهینه (ترکیب محدب روی پاره‌خط BC):</span>
                 <span class="math-sym">X*</span>
                 <span class="math-op">=</span>
-                λ · <span class="math-sym">X_B</span> + (1 - λ) · <span class="math-sym">X_C</span>
+                λ · <span class="math-sym">X<span class="math-sub">B</span></span> + (1 - λ) · <span class="math-sym">X<span class="math-sub">C</span></span>
                 <span class="math-sep">|</span>
                 0 ≤ λ ≤ 1
                 <span class="math-op">⟹</span>
@@ -11465,7 +11739,7 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge samp">اثر در جدول سیمپلکس:</span>
-                <span class="math-sym">x_B</span> <span class="math-op">=</span> 0  در ستون RHS برای حداقل یک متغیر پایه
+                <span class="math-sym">x<span class="math-sub">B</span></span> <span class="math-op">=</span> 0  در ستون RHS برای حداقل یک متغیر پایه
             </div>
             <div class="formula-line">
                 <span class="math-badge app">پیامد الگوریتمی (خطر لوپ):</span>
@@ -11543,7 +11817,7 @@ body.theme-dark .step-content {
                                 ۱. تحلیل اقتصادی قیمت سایه و ارزش‌گذاری ظرفیت منابع:
                             </strong>
                             <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                قیمت سایه: y_i* = ∂Z* / ∂bᵢ &nbsp;|&nbsp; افزایش سود: ΔZ* = y_i* × Δbᵢ
+                                قیمت سایه: yᵢ* = ∂Z* ÷ ∂bᵢ &nbsp;|&nbsp; افزایش سود: ΔZ* = yᵢ* × Δbᵢ
                             </div>
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
                                 <div>
@@ -11551,7 +11825,7 @@ body.theme-dark .step-content {
                                     <input type="number" id="or-b" value="100" step="10" class="param-input-box" style="width: 100%;">
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قیمت سایه منبع (y_i*):</label>
+                                    <label style="font-size: 0.72rem; font-weight: 800; color: #64748B;">قیمت سایه منبع (yᵢ*):</label>
                                     <input type="number" id="or-shadow" value="25" step="2" class="param-input-box" style="width: 100%;">
                                 </div>
                                 <div>
@@ -11579,25 +11853,25 @@ body.theme-dark .step-content {
                                 ۲. آزمون حداقل نسبت سیمپلکس برای تعیین متغیر خارج‌شونده از پایه:
                             </strong>
                             <div style="font-size: 0.74rem; color: #475569; margin-bottom: 10px;">
-                                شرط آزمون: θ_i = bᵢ / a_ik (فقط برای a_ik > 0) &nbsp;|&nbsp; متغیر خارج‌شونده: Min { θ_i }
+                                شرط آزمون: θᵢ = bᵢ ÷ aᵢₖ (فقط برای aᵢₖ &gt; 0) &nbsp;|&nbsp; متغیر خارج‌شونده: Min { θᵢ }
                             </div>
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
                                 <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۱: b₁ | a₁_k:</label>
+                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۱: b₁ | a₁ₖ:</label>
                                     <div style="display: flex; gap: 4px;">
                                         <input type="number" id="or-b1" value="40" class="param-input-box" style="width: 50%;">
                                         <input type="number" id="or-a1" value="2" class="param-input-box" style="width: 50%;">
                                     </div>
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۲: b₂ | a₂_k:</label>
+                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۲: b₂ | a₂ₖ:</label>
                                     <div style="display: flex; gap: 4px;">
                                         <input type="number" id="or-b2" value="60" class="param-input-box" style="width: 50%;">
                                         <input type="number" id="or-a2" value="5" class="param-input-box" style="width: 50%;">
                                     </div>
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۳: b₃ | a₃_k:</label>
+                                    <label style="font-size: 0.7rem; color: #64748B;">سطر ۳: b₃ | a₃ₖ:</label>
                                     <div style="display: flex; gap: 4px;">
                                         <input type="number" id="or-b3" value="50" class="param-input-box" style="width: 50%;">
                                         <input type="number" id="or-a3" value="-3" class="param-input-box" style="width: 50%;">
@@ -11757,11 +12031,11 @@ body.theme-dark .step-content {
                         <div class="tree-node" style="border-right-color: #7C3AED;">
                             <h4 style="font-size: 0.84rem; font-weight: 800; color: var(--heading-primary); margin: 0 0 6px 0;">گام ۴: آزمون بهینگی پتانسیل MODI</h4>
                             <p style="font-size: 0.76rem; color: #475569; margin: 0 0 6px 0;">
-                                با فرض قراردادی u_A = 0 برای خانه‌های پایه (uᵢ + vⱼ = cᵢⱼ):<br>
-                                • v_تهران = ۸ - ۰ = ۸<br>
-                                • v_اصفهان = ۶ - ۰ = ۶<br>
-                                • u_B = ۱۲ - v_اصفهان = ۱۲ - ۶ = ۶<br>
-                                • v_شیراز = ۱۳ - u_B = ۱۳ - ۶ = ۷<br>
+                                با فرض قراردادی u<span class="math-sub">A</span> = 0 برای خانه‌های پایه (uᵢ + vⱼ = cᵢⱼ):<br>
+                                • v<span class="math-sub">تهران</span> = ۸ - ۰ = ۸<br>
+                                • v<span class="math-sub">اصفهان</span> = ۶ - ۰ = ۶<br>
+                                • u<span class="math-sub">B</span> = ۱۲ - v<span class="math-sub">اصفهان</span> = ۱۲ - ۶ = ۶<br>
+                                • v<span class="math-sub">شیراز</span> = ۱۳ - u<span class="math-sub">B</span> = ۱۳ - ۶ = ۷<br>
                                 <strong>ارزیابی خانه‌های خالی (Δᵢⱼ = cᵢⱼ - uᵢ - vⱼ):</strong><br>
                                 • خانه (A, شیراز): ۱۰ - (۰ + ۷) = +۳ ≥ ۰ (مطلوب)<br>
                                 • خانه (B, تهران): ۹ - (۶ + ۸) = -۵ &lt; ۰ (تولید فرصت بهبود و کاهش هزینه!).
@@ -12254,8 +12528,8 @@ body.theme-dark .step-content {
 2. Total Corner Points: (m + n)! ÷ (m! · n!)  [تعداد کل نقاط گوشه‌ای]
 3. Multiple Solutions: c₁ ÷ c₂ = a₁ ÷ a₂  [برابری شیب تابع هدف با قید فعال]
 4. Feasible Geometry: پاره‌خط (۱ قید =)، تک‌نقطه (۲ قید =)
-5. Degeneracy: تلاقی بیش از ۲ خط در یک رأس (x_B = 0 در سیمپلکس و لوپ)
-6. Min Ratio Test: min{ bᵢ ÷ a_ik | a_ik > 0 }  [قاعده خروج]
+5. Degeneracy: تلاقی بیش از ۲ خط در یک رأس (x<span class="math-sub">B</span> = 0 در سیمپلکس و لوپ)
+6. Min Ratio Test: min{ bᵢ ÷ aᵢₖ | aᵢₖ &gt; 0 }  [قاعده خروج]
 7. Shadow Price: yᵢ = dZ ÷ dbᵢ  [قیمت سایه منبع]
 8. sᵢ · yᵢ = 0  [قضیه مکمل فزونی]
                     </div>
@@ -12486,7 +12760,7 @@ body.theme-dark .step-content {
                         <div class="controls-column card" style="margin-bottom: 0;">
                             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
                                 <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-stat);">⚙️ پارامترهای جدول طبقه‌بندی استرجس</span>
-                                <span class="font-mono badge badge-stat">k = 1 + 3.32 log₁₀ N | s²_adj = s² - c²/12</span>
+                                <span class="font-mono badge badge-stat">k = 1 + 3.32 log₁₀ N | s²<span class="math-sub">adj</span> = s² - (c² ÷ 12)</span>
                             </div>
 
                             <div class="param-card">
@@ -12613,7 +12887,7 @@ body.theme-dark .step-content {
                                 • <b>حسابی (AM):</b> مرکز ثقل ترازوی داده‌ها؛ مجموع انحرافات صفر است.<br>
                                 • <b>هندسی (GM):</b> ریشه ضرب داده‌ها؛ سنجش رشد مرکب واقعی در بازار سرمایه.<br>
                                 • <b>هارمونیک (HM):</b> معکوس میانگین معکوس‌ها؛ خرید پله‌ای و نرخ‌های مسافت.<br>
-                                • <b>نامساوی طلایی:</b> Min ≤ H ≤ G ≤ X_bar ≤ Max (تساوی فقط در واریانس صفر).
+                                • <b>نامساوی طلایی:</b> Min ≤ H ≤ G ≤ x̄ ≤ Max (تساوی فقط در واریانس صفر).
                             </div>
                             <div class="tree-leaf-item">
                                 <strong style="color: #4338CA;">میانه و مد (شاخص‌های مقاوم)</strong>
@@ -12639,7 +12913,7 @@ body.theme-dark .step-content {
                                 <strong style="color: #DC2626;">واریانس، انحراف معیار و ضریب تغییرات</strong>
                                 • <b>واریانس (s²):</b> میانگین مجذور انحرافات با مخرج n - 1 (تصحیح بسل نااریب).<br>
                                 • <b>انحراف معیار (s):</b> جذر واریانس جهت بازگشت به مقیاس ریالی متغیر.<br>
-                                • <b>ضریب تغییرات (CV):</b> CV = (s / X_bar) × 100؛ تنها معیار مقایسه ریسک در دو مقیاس متفاوت.
+                                • <b>ضریب تغییرات (CV):</b> CV = (s / x̄) × 100؛ تنها معیار مقایسه ریسک در دو مقیاس متفاوت.
                             </div>
                         </div>
 
@@ -12866,7 +13140,7 @@ body.theme-dark .step-content {
                             <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">پارامتر جامعه (مو x):</span>
-                                    <span class="math-sym" style="color: #4338CA;">μ_x</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ xᵢ</span><span class="math-den">N</span></span>
+                                    <span class="math-sym" style="color: #4338CA;">μₓ</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ xᵢ</span><span class="math-den">N</span></span>
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">آماره نمونه (ایکس‌بار):</span>
@@ -12885,7 +13159,7 @@ body.theme-dark .step-content {
                                 <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
                                 • <b>تفاوت فلسفی مو و ایکس‌بار:</b> پارامتر مو (μ) ویژگی کل جامعه است (ثابت، حقیقی اما معمولاً نامعلوم). آماره ایکس‌بار (x̄) از نمونه گرفته می‌شود (متغیر تصادفی و معلوم).<br>
                                 • <b>مرکز ثقل فیزیکی:</b> تنها نقطه‌ای که مجموع انحرافات از آن صفر است: ∑(xᵢ - x̄) = 0.<br>
-                                • <b>اصل کمترین مربعات (OLS):</b> مجموع مربعات فواصل حول میانگین کمینه است: ∑(x_i - A)² در A = x̄ مینیمم می‌شود.
+                                • <b>اصل کمترین مربعات (OLS):</b> مجموع مربعات فواصل حول میانگین کمینه است: ∑(xᵢ - A)² در A = x̄ مینیمم می‌شود.
                             </div>
 
                             <div class="tier-card trap-tier">
@@ -12910,8 +13184,8 @@ body.theme-dark .step-content {
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
-                                • در جدول فراوانی، به جای تک‌تک داده‌ها، «مرکز دسته» (x_i یا m_i) را در «فراوانی مطلق» (f_i) ضرب می‌کنیم.<br>
-                                • فرمول مرکز دسته: میانگین کران پایین (L) و کران بالا (U): x_i = (L + U) / 2.<br>
+                                • در جدول فراوانی، به جای تک‌تک داده‌ها، «مرکز دسته» (xᵢ یا mᵢ) را در «فراوانی مطلق» (fᵢ) ضرب می‌کنیم.<br>
+                                • فرمول مرکز دسته: میانگین کران پایین (L) و کران بالا (U): xᵢ = (L + U) ÷ 2.<br>
                                 • مجموع فراوانی‌ها (∑ fᵢ) برابر با حجم کل مشاهدات (n) است.
                             </div>
 
@@ -12941,17 +13215,17 @@ body.theme-dark .step-content {
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین هندسی، بازده مرکب و توان‌های کسری</h4>
                             <div class="card-inner" style="margin: 10px 0; font-size: 0.74rem; background: #F8FAFC; border: 1.5px solid #C7D2FE; border-radius: 12px; line-height: 1.8;">
                                 <strong style="color: #4338CA;">💡 کالبدشکافی علائم ریاضی: حاصل‌ضرب پی (∏) و توان کسری (1/N):</strong><br>
-                                • <b>نماد ∏ (حرف پی بزرگ یونانی):</b> این نماد نشان‌دهنده <b>«حاصل‌ضرب زنجیره‌ای»</b> تمام داده‌ها است (دقیقاً همان‌طور که نماد ∑ نشان‌دهنده حاصل‌جمع است): ∏ x_i = x₁ × x₂ × ... × x_N.<br>
+                                • <b>نماد ∏ (حرف پی بزرگ یونانی):</b> این نماد نشان‌دهنده <b>«حاصل‌ضرب زنجیره‌ای»</b> تمام داده‌ها است (دقیقاً همان‌طور که نماد ∑ نشان‌دهنده حاصل‌جمع است): ∏ xᵢ = x₁ × x₂ × ... × x<span class="math-sub">N</span>.<br>
                                 • <b>توان کسری 1/N:</b> رساندن حاصل‌ضرب به توان ۱/N دقیقاً همان گرفتن <b>ریشه N-ام</b> از ضرب کل اعداد است: ( ∏ xᵢ )¹ᐟᴺ = ᴺ√[ ∏ xᵢ ] از ضرب کل مشاهدات.<br>
                                 • <b>رفع ابهام ستاره (*):</b> علامت ستاره (*) در اقتصاد و تحقیق در عملیات نماد نقطه «تعادل و بهینگی» (Optimal / Equilibrium) است و هرگز علامت ضرب نیست!
                             </div>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('μ_g = ( ∏ xᵢ )¹ᐟᴺ   |   G = x̄_g = ( ∏ xᵢ )¹ᐟⁿ   |   CAGR = [ ∏ (1 + Rₜ) ]¹ᐟⁿ - 1', this)" title="برای کپی فرمول کلیک کنید">
-                                <span class="math-sym" style="color: #4338CA;">μ_g</span><span class="math-op">=</span>( ∏ xᵢ )¹ᐟᴺ<span class="math-sep">|</span><span class="math-sym" style="color: #047857;">G = x̄_g</span><span class="math-op">=</span>( ∏ xᵢ )¹ᐟⁿ<span class="math-sep">|</span><span class="math-sym" style="color: #0284C7;">CAGR</span><span class="math-op">=</span>[ ∏ (1 + Rₜ) ]¹ᐟⁿ - 1
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+                                <span class="math-sym" style="color: #4338CA;">μ<span class="math-sub">g</span></span><span class="math-op">=</span>( ∏ xᵢ )¹ᐟᴺ<span class="math-sep">|</span><span class="math-sym" style="color: #047857;">G = x̄<span class="math-sub">g</span></span><span class="math-op">=</span>( ∏ xᵢ )¹ᐟⁿ<span class="math-sep">|</span><span class="math-sym" style="color: #0284C7;">CAGR</span><span class="math-op">=</span>[ ∏ (1 + Rₜ) ]¹ᐟⁿ - 1
                             </div>
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
-                                • <b>تطابق دقیق با نمادگذاری استاد در کلاس:</b> پارامتر جامعه با نماد «مو g» (μ_g) با ریشه Nام و آماره نمونه با «ایکس‌بار g» (x̄_g) یا G با ریشه nام تعریف می‌شود.<br>
-                                • <b>فرمول لگاریتمی محاسبه سریع:</b> ln(μ_g) = (1/N) ∑ ln(x_i) ==> μ_g = exp[ (1/N) ∑ ln(x_i) ].<br>
+                                • <b>تطابق دقیق با نمادگذاری استاد در کلاس:</b> پارامتر جامعه با نماد «مو g» (μ<span class="math-sub">g</span>) با ریشه Nام و آماره نمونه با «ایکس‌بار g» (x̄<span class="math-sub">g</span>) یا G با ریشه nام تعریف می‌شود.<br>
+                                • <b>فرمول لگاریتمی محاسبه سریع:</b> ln(μ<span class="math-sub">g</span>) = (1 ÷ N) ∑ ln(xᵢ) ⟹ μ<span class="math-sub">g</span> = exp[ (1 ÷ N) ∑ ln(xᵢ) ].<br>
                                 • <b>کاربرد بنیادین:</b> سنجش پدیده‌هایی با ماهیت نرخ رشد، بهره مرکب و بازدهی‌های متوالی بازار سرمایه.
                             </div>
 
@@ -12964,7 +13238,7 @@ body.theme-dark .step-content {
 
                             <div class="tier-card trap-tier">
                                 <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
-                                ضرب مستقیم درصدهای منفی و مثبت! در بازدهی‌های مالی، بازده‌ها ابتدا باید با ۱ جمع شوند: ∏(1 + R_t)، سپس ریشه nام گرفته شود و در انتها عدد ۱ کسر گردد.
+                                ضرب مستقیم درصدهای منفی و مثبت! در بازدهی‌های مالی، بازده‌ها ابتدا باید با ۱ جمع شوند: ∏(1 + Rₜ)، سپس ریشه nام گرفته شود و در انتها عدد ۱ کسر گردد.
                             </div>
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('G = ( ∏ xᵢ )¹ᐟⁿ   |   CAGR = [ ∏ (1 + Rₜ) ]¹ᐟⁿ - 1')">
@@ -12980,13 +13254,13 @@ body.theme-dark .step-content {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Harmonic Mean & DCA</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">میانگین هارمونیک (همساز) و خرید پله‌ای ارز/سهام</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormula('μ_h = N ÷ [ ∑ (1 ÷ xᵢ) ]   |   H = x̄_h = n ÷ [ ∑ (1 ÷ xᵢ) ]', this)" title="برای کپی فرمول کلیک کنید">
-                                <span class="math-sym" style="color: #4338CA;">μ_h</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">N</span><span class="math-den">∑ (1 / xᵢ)</span></span><span class="math-sep">|</span><span class="math-sym" style="color: #047857;">H = x̄_h</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">n</span><span class="math-den">∑ (1 / xᵢ)</span></span>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+                                <span class="math-sym" style="color: #4338CA;">μ<span class="math-sub">h</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">N</span><span class="math-den">∑ (1 ÷ xᵢ)</span></span><span class="math-sep">|</span><span class="math-sym" style="color: #047857;">H = x̄<span class="math-sub">h</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">n</span><span class="math-den">∑ (1 ÷ xᵢ)</span></span>
                             </div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
-                                • <b>تطابق دقیق با نماد استاد:</b> پارامتر جامعه «مو h» (μ_h) با صورت N بزرگ و آماره نمونه «ایکس‌بار h» (x̄_h) یا H با صورت n کوچک.<br>
+                                • <b>تطابق دقیق با نماد استاد:</b> پارامتر جامعه «مو h» (μ<span class="math-sub">h</span>) با صورت N بزرگ و آماره نمونه «ایکس‌بار h» (x̄<span class="math-sub">h</span>) یا H با صورت n کوچک.<br>
                                 • <b>تعریف تحلیلی:</b> معکوسِ میانگینِ معکوسِ مقادیر؛ حساس‌ترین میانگین نسبت به داده‌های نزدیک به صفر.<br>
                                 • <b>کاربرد بازار سرمایه:</b> میانگین وزنی قیمت خرید در خریدهای پله‌ای سهام با بودجه ریالی ثابت (Dollar-Cost Averaging).
                             </div>
@@ -13018,7 +13292,7 @@ body.theme-dark .step-content {
                             <div class="formula-display" dir="ltr" style="background: #FFFFFF; color: #4338CA;"><div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">سلسله‌مراتب جامعه:</span>
-                                    Min ≤ <span class="math-sym" style="color: #4338CA;">μ_h</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_g</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_x</span> ≤ <span class="math-sym" style="color: #4338CA;">μ_q</span> ≤ Max
+                                    Min ≤ <span class="math-sym" style="color: #4338CA;">μ<span class="math-sub">h</span></span> ≤ <span class="math-sym" style="color: #4338CA;">μ<span class="math-sub">g</span></span> ≤ <span class="math-sym" style="color: #4338CA;">μₓ</span> ≤ <span class="math-sym" style="color: #4338CA;">μ<span class="math-sub">q</span></span> ≤ Max
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">سلسله‌مراتب نمونه:</span>
@@ -13034,7 +13308,7 @@ body.theme-dark .step-content {
 
                             <div class="tier-card bankai-tier">
                                 <strong>🔥 تلفیق تکمیلی بانکای (شریف و CFA):</strong>
-                                • <b>اضافه شدن میانگین مربعی (RMS):</b> ریشه میانگین توان دوم داده‌ها (RMS = √[∑x_i²/n]) همواره بزرگتر از میانگین حسابی است و زنجیره را کامل می‌کند.<br>
+                                • <b>اضافه شدن میانگین مربعی (RMS):</b> ریشه میانگین توان دوم داده‌ها (RMS = √[ ∑xᵢ² ÷ n ]) همواره بزرگتر از میانگین حسابی است و زنجیره را کامل می‌کند.<br>
                                 • هرچه پراکندگی و واریانس داده‌ها بیشتر شود، شکاف بین H و G و x̄ عمیق‌تر می‌شود.
                             </div>
 
@@ -13108,7 +13382,7 @@ body.theme-dark .step-content {
                                 <strong>🎓 کالبدشکافی تحلیلی استاد: تفکیک ریشه‌ای «مد» از «دامنه تغییرات»:</strong>
                                 • <b>دامنه تغییرات (Range: R = Max - Min):</b> تفاصل بزرگ‌ترین مشاهده از کوچک‌ترین مشاهده است و یک شاخص <u>پراکندگی</u> است نه مرکزی.<br>
                                 • <b>مد (Mode یا نما):</b> مشاهده‌ای است که دارای <u>بیشترین تکرار و فراوانی</u> است (شاخص مرکزی).<br>
-                                • <b>تفاضل‌های دلتا در فرمول مد:</b> در جدول فراوانی، Δ1 تفاضل فراوانی طبقه مد از طبقه قبل (fₘₒᏧ - f_before) و Δ2 تفاضل فراوانی طبقه مد از طبقه بعد (fₘₒᏧ - f_after) است.
+                                • <b>تفاضل‌های دلتا در فرمول مد:</b> در جدول فراوانی، Δ1 تفاضل فراوانی طبقه مد از طبقه قبل (fₘₒᏧ - f<span class="math-sub">before</span>) و Δ2 تفاضل فراوانی طبقه مد از طبقه بعد (fₘₒᏧ - f<span class="math-sub">after</span>) است.
                             </div>
 
                             <div class="tier-card bankai-tier">
@@ -13141,7 +13415,7 @@ body.theme-dark .step-content {
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
-                                • برای جامعه مخرج N بزرگ است: σ² = ∑(x_i - μ)² / N.<br>
+                                • برای جامعه مخرج N بزرگ است: σ² = ∑(xᵢ - μ)² ÷ N.<br>
                                 • برای نمونه مخرج n - 1 کوچک است و به آن «درجات آزادی» می‌گویند.<br>
                                 • انحراف معیار جذر واریانس است تا هم‌واحد با متغیر اصلی شود.
                             </div>
@@ -13200,7 +13474,7 @@ body.theme-dark .step-content {
                                 <span class="font-mono" style="font-size: 0.7rem; color: #64748B;">Quartiles, IQR & Outliers</span>
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">چارک‌ها، دامنه میان‌چارکی و مرز داده‌های پرت توکی</h4>
-                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">IQR</span><span class="math-op">=</span>Q_3 - Q₁<span class="math-sep">|</span>[ Q₁ - 1.5×IQR , Q₃ + 1.5×IQR ]</div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید"><span class="math-sym">IQR</span><span class="math-op">=</span>Q₃ - Q₁<span class="math-sep">|</span>[ Q₁ - 1.5×IQR , Q₃ + 1.5×IQR ]</div>
                             
                             <div class="tier-card prof-tier">
                                 <strong>🎓 کالبدشکافی تحلیلی و مبنای تدریس دانشگاهی:</strong>
@@ -13299,18 +13573,18 @@ body.theme-dark .step-content {
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">نیمه‌واریانس، نیمه‌انحراف معیار و نسبت سورتینو</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('SV = (1 / n) * ∑ [ min(0, x_i - x̄) ]² ; Semi-SD = √SV ; Sortino = [ E(R) - Rf ] / Semi-SD', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('SV = (1 / n) * ∑ [ min(0, xᵢ - x̄) ]² ; Semi-SD = √SV ; Sortino = [ E(R) - Rf ] / Semi-SD', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">نیمه‌واریانس نسبت به میانگین (SV):</span>
-                                    <span class="math-sym">SV</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">n</span></span> ∑<span class="math-sup">xᵢ &lt; x̄</span> ( x_i - x̄ )²
+                                    <span class="math-sym">SV</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">n</span></span> ∑<span class="math-sup">xᵢ &lt; x̄</span> ( xᵢ - x̄ )²
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">نیمه‌واریانس نسبت به تارگت بازده B:</span>
-                                    <span class="math-sym">SV_B</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">n</span></span> ∑<span class="math-sup">x_i &lt; B</span> ( x_i - B )²
+                                    <span class="math-sym">SV<span class="math-sub">B</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">n</span></span> ∑<span class="math-sup">xᵢ &lt; B</span> ( xᵢ - B )²
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">نیمه‌انحراف معیار و نسبت سورتینو:</span>
-                                    <span class="math-sym">Semi-SD</span><span class="math-op">=</span>√SV <span class="math-sep">|</span> <span class="math-sym">Sortino</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E(R) - R_f</span><span class="math-den">Semi-SD</span></span>
+                                    <span class="math-sym">Semi-SD</span><span class="math-op">=</span>√SV <span class="math-sep">|</span> <span class="math-sym">Sortino</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">E(R) - R<span class="math-sub">f</span></span><span class="math-den">Semi-SD</span></span>
                                 </div>
                             </div>
 
@@ -13318,7 +13592,7 @@ body.theme-dark .step-content {
                                 <strong>🎓 کالبدشکافی تحلیلی و ریشه‌یابی از صفر تا صد:</strong>
                                 • <b>نقص ذاتی واریانس:</b> واریانس کل نوسانات صعودی (سودهای رویایی) را دقیقاً مشابه نوسانات نزولی (زیان و تبخیر سرمایه) مجازات می‌کند!<br>
                                 • <b>فلسفه نیمه‌واریانس هری مارکوویتز:</b> فقط نوساناتی را که کمتر از میانگین (یا زیر بازده هدف B) افتاده‌اند وزن‌دهی و مجذور می‌کند.<br>
-                                • <b>شرط ریاضی فیلتر:</b> اگر داده بالاتر از میانگین باشد، انحراف آن صفر در نظر گرفته می‌شود: min(0, x_i - x̄).
+                                • <b>شرط ریاضی فیلتر:</b> اگر داده بالاتر از میانگین باشد، انحراف آن صفر در نظر گرفته می‌شود: min(0, xᵢ - x̄).
                             </div>
 
                             <div class="tier-card bankai-tier">
@@ -13351,15 +13625,15 @@ body.theme-dark .step-content {
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('X̄_gw = [ ∏ (xᵢʷⁱ) ]¹ᐟᵠʷ   |   ln(X̄_gw) = [ ∑ (wᵢ · ln xᵢ) ] ÷ ∑ wᵢ   |   x̄_w = [ ∑ (wᵢ × xᵢ) ] ÷ ∑ wᵢ', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">میانگین هندسی وزنی (فضای ضربی و رشد):</span>
-                                    <span class="math-sym">X̄_gw</span><span class="math-op">=</span>[ ∏ ( xᵢ<span class="math-sup">wᵢ</span> ) ]<span class="math-sup">¹ᐟᵠʷ</span>
+                                    <span class="math-sym">X̄<span class="math-sub">gw</span></span><span class="math-op">=</span>[ ∏ ( xᵢ<span class="math-sup">wᵢ</span> ) ]<span class="math-sup">¹ᐟᵠʷ</span>
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">زایش لگاریتمی میانگین هندسی وزنی:</span>
-                                    <span class="math-sym">ln(X̄_{gw})</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ [ w_i × ln(X_i) ]</span><span class="math-den">∑ w_i</span></span>
+                                    <span class="math-sym">ln(X̄<span class="math-sub">gw</span>)</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ [ wᵢ × ln(Xᵢ) ]</span><span class="math-den">∑ wᵢ</span></span>
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">میانگین حسابی وزنی (فضای جمع‌پذیر):</span>
-                                    <span class="math-sym">X̄_w</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ ( w_i × X_i )</span><span class="math-den">∑ w_i</span></span>
+                                    <span class="math-sym">X̄<span class="math-sub">w</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ ( wᵢ × Xᵢ )</span><span class="math-den">∑ wᵢ</span></span>
                                 </div>
                             </div>
 
@@ -13391,15 +13665,15 @@ body.theme-dark .step-content {
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('قضیه ۱: ∑ (xᵢ - x̄) = 0   |   قضیه ۲: min ∑ (xᵢ - c)² ──► c = x̄   |   x̄_c = [ ∑ (nⱼ × x̄ⱼ) ] ÷ ∑ nⱼ', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">قضیه ۱ (صفر شدن مجموع انحرافات):</span>
-                                    <span class="math-sym">∑ ( x_i - x̄ )</span><span class="math-op">=</span>0
+                                    <span class="math-sym">∑ ( xᵢ - x̄ )</span><span class="math-op">=</span>0
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">قضیه ۲ (کمینه‌سازی مجموع مجذورات OLS):</span>
-                                    min_c ∑ ( x_i - c )² <span class="math-op">&lt;=&gt;</span> <span class="math-sym">c = x̄</span>
+                                    min<span class="math-sub">c</span> ∑ ( xᵢ - c )² <span class="math-op">⟺</span> <span class="math-sym">c = x̄</span>
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">قضیه ۳ (میانگین کل جوامع ادغام‌شده):</span>
-                                    <span class="math-sym">x̄_c</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ ( n_j × x̄_j )</span><span class="math-den">∑ n_j</span></span>
+                                    <span class="math-sym">x̄<span class="math-sub">c</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ ( nⱼ × x̄ⱼ )</span><span class="math-den">∑ nⱼ</span></span>
                                 </div>
                             </div>
 
@@ -13436,11 +13710,11 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">شاخص‌های پراکندگی (انحراف معیار، دامنه R، MAD، IQR):</span>
-                                    <span class="math-sym">s_y</span><span class="math-op">=</span>|a| × s_x <span class="math-sep">|</span> <span class="math-sym">R_y</span><span class="math-op">=</span>|a| × R_x
+                                    <span class="math-sym">sᵧ</span><span class="math-op">=</span>|a| × sₓ <span class="math-sep">|</span> <span class="math-sym">Rᵧ</span><span class="math-op">=</span>|a| × Rₓ
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">واریانس داده‌های تبدیل‌شده:</span>
-                                    <span class="math-sym">s²_y</span><span class="math-op">=</span>a² × s²_x
+                                    <span class="math-sym">sᵧ²</span><span class="math-op">=</span>a² × sₓ²
                                 </div>
                             </div>
 
@@ -13452,7 +13726,7 @@ body.theme-dark .step-content {
 
                             <div class="tier-card trap-tier">
                                 <strong>🚨 تله کنکور ارشد:</strong>
-                                اگر a منفی باشد (مثلاً y = -2x + 10)، انحراف معیار منفی نمی‌شود! انحراف معیار در قدرمطلق |-2| = +2 ضرب می‌گردد: s_y = 2 × s_x.
+                                اگر a منفی باشد (مثلاً y = -2x + 10)، انحراف معیار منفی نمی‌شود! انحراف معیار در قدرمطلق |-2| = +2 ضرب می‌گردد: sᵧ = 2 × sₓ.
                             </div>
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('ȳ = a · x̄ + b   |   s_y = |a| · s_x   |   s²_y = a² · s²_x   |   R_y = |a| · R_x')">
@@ -13480,7 +13754,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">نمونه‌گیری طبقه‌ای با تخصیص متناسب:</span>
-                                    <span class="math-sym">n_h</span><span class="math-op">=</span>n × ( <span class="math-frac"><span class="math-num">N_h</span><span class="math-den">N</span></span> )
+                                    <span class="math-sym">nₕ</span><span class="math-op">=</span>n × ( <span class="math-frac"><span class="math-num">Nₕ</span><span class="math-den">N</span></span> )
                                 </div>
                             </div>
 
@@ -13516,7 +13790,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">انحراف متوسط از میانگین (جامعه):</span>
-                                    <span class="math-sym">MAD</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ | x_i - μ |</span><span class="math-den">N</span></span>
+                                    <span class="math-sym">MAD</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∑ | xᵢ - μ |</span><span class="math-den">N</span></span>
                                 </div>
                             </div>
                             
@@ -13592,7 +13866,7 @@ body.theme-dark .step-content {
                         <div class="stat-kpi-card" style="border-top: 3px solid #2563EB;">
                             <div class="stat-kpi-header">
                                 <span class="stat-kpi-title">میانگین حسابی</span>
-                                <span class="stat-kpi-badge">X_bar</span>
+                                <span class="stat-kpi-badge">x̄</span>
                             </div>
                             <div class="stat-kpi-val" id="stat-kpi-am" style="color: #2563EB;">12.40</div>
                             <div class="stat-kpi-formula">∑ xᵢ / n</div>
@@ -13615,7 +13889,7 @@ body.theme-dark .step-content {
                                 <span class="stat-kpi-badge">H (HM)</span>
                             </div>
                             <div class="stat-kpi-val" id="stat-kpi-hm" style="color: #D97706;">5.16</div>
-                            <div class="stat-kpi-formula">n / ∑(1/x_i)</div>
+                            <div class="stat-kpi-formula">n / ∑(1 ÷ xᵢ)</div>
                         </div>
 
                         <!-- 4. Range -->
@@ -13689,14 +13963,14 @@ body.theme-dark .step-content {
                                 <span class="stat-kpi-badge">CV%</span>
                             </div>
                             <div class="stat-kpi-val" id="stat-kpi-cv" style="color: #0EA5E9;">98.37%</div>
-                            <div class="stat-kpi-formula">(s / X_bar) × 100</div>
+                            <div class="stat-kpi-formula">(s / x̄) × 100</div>
                         </div>
                     </div>
 
                     <!-- Golden Inequality & Comparison Alert -->
                     <div id="stat-inequality-alert" style="background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 12px; padding: 12px 16px; margin-bottom: 14px; font-size: 0.78rem; line-height: 1.8; color: #1E3A8A;">
                         <strong>🌟 ارزیابی نامساوی طلایی میانگین‌ها:</strong>
-                        <span id="stat-inequality-text">Min (2.0) ≤ H (5.16) ≤ G (8.00) ≤ X_bar (12.40) ≤ Max (32.0) برقرار است.</span>
+                        <span id="stat-inequality-text">Min (2.0) ≤ H (5.16) ≤ G (8.00) ≤ x̄ (12.40) ≤ Max (32.0) برقرار است.</span>
                     </div>
 
                     <!-- Step-by-Step Table -->
@@ -13709,7 +13983,7 @@ body.theme-dark .step-content {
                             <thead>
                                 <tr>
                                     <th>ردیف (i)</th>
-                                    <th>داده مرتب (x_i)</th>
+                                    <th>داده مرتب (xᵢ)</th>
                                     <th>انحراف از میانگین (xᵢ - x̄)</th>
                                     <th>قدرمطلق انحراف |xᵢ - x̄|</th>
                                     <th>مجذور انحراف (xᵢ - x̄)²</th>
@@ -13740,7 +14014,7 @@ body.theme-dark .step-content {
                     <div class="algo-step" style="border-right-color: #4338CA;">
                         <span class="algo-step-title">گام اول: میانگین حسابی (AM)</span>
                         مجموع داده‌ها: 2 + 4 + 8 + 16 + 32 = 62٪.<br>
-                        میانگین حسابی: X_bar = 62 ÷ 5 = 12.4٪.
+                        میانگین حسابی: x̄ = 62 ÷ 5 = 12.4٪.
                     </div>
 
                     <div class="algo-step" style="border-right-color: #047857;">
@@ -13802,12 +14076,12 @@ body.theme-dark .step-content {
                 <div class="card">
                     <h4 style="font-size: 0.9rem; font-weight: 900; color: #4338CA; margin-bottom: 10px;">📝 کپسول دست‌نویس دفترچه بهادر (آمار کاربردی ۱)</h4>
                     <div class="notebook-capsule">
-1. H <= G <= X_bar  [نامساوی قطعی میانگین‌ها]
+1. H ≤ G ≤ x̄  [نامساوی قطعی میانگین‌ها]
 2. G = ( ∏ xᵢ )¹ᐟⁿ  [میانگین هندسی]
 3. H = n / ∑ (1 / xᵢ)  [میانگین هارمونیک]
-4. Mode = 3*Median - 2*Mean  [رابطه تجربی پیرسون]
-5. CV = (s / X_bar) * 100  [ضریب تغییرات و سنجش ریسک نسبی]
-6. Z = (X - mu) / sigma  [نمره استاندارد]
+4. Mode = 3 · Median - 2 · Mean  [رابطه تجربی پیرسون]
+5. CV = (s ÷ x̄) × 100  [ضریب تغییرات و سنجش ریسک نسبی]
+6. Z = (X - μ) ÷ σ  [نمره استاندارد]
                     </div>
                 </div>
             </div>
@@ -14259,7 +14533,7 @@ body.theme-dark .step-content {
                         <div class="controls-column card" style="margin-bottom: 0;">
                             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; margin-bottom: 12px;">
                                 <span style="font-size: 0.82rem; font-weight: 900; color: var(--c-math);">⚙️ ماتریس هسیان و مشتقات جزئی</span>
-                                <span class="font-mono badge badge-math">D = f_xx·f_yy - (f_xy)²</span>
+                                <span class="font-mono badge badge-math">D = f<span class="math-sub">xx</span> · f<span class="math-sub">yy</span> - (f<span class="math-sub">xy</span>)²</span>
                             </div>
 
                             <div class="param-card">
@@ -14290,8 +14564,8 @@ body.theme-dark .step-content {
                             <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 10px 12px; margin-top: 10px;">
                                 <div style="font-size: 0.78rem; font-weight: 800; color: #0F172A; margin-bottom: 4px;">◈ آزمون دترمینان هسیان (Hessian Test):</div>
                                 <div style="font-size: 0.72rem; color: #334155; line-height: 1.6;">
-                                    • اگر D &gt; 0 و f_xx &gt; 0  ==&gt;  <b>مینیمم محلی</b><br>
-                                    • اگر D &gt; 0 و f_xx &lt; 0  ==&gt;  <b>ماکزیمم محلی</b><br>
+                                    • اگر D &gt; 0 و f<span class="math-sub">xx</span> &gt; 0  ==&gt;  <b>مینیمم محلی</b><br>
+                                    • اگر D &gt; 0 و f<span class="math-sub">xx</span> &lt; 0  ==&gt;  <b>ماکزیمم محلی</b><br>
                                     • اگر D &lt; 0  ==&gt;  <b>نقطه زینی (Saddle Point)</b><br>
                                     • اگر D = 0  ==&gt;  آزمون بی‌نتیجه است
                                 </div>
@@ -14316,7 +14590,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="kpi-card" style="border-top: 3px solid #059669;">
                                     <div class="kpi-title">مشتقات دوم متقاطع</div>
-                                    <div class="kpi-val" id="mhess-val-fxy" style="color: #059669;">f_xy = 0</div>
+                                    <div class="kpi-val" id="mhess-val-fxy" style="color: #059669;">fₓᵧ = 0</div>
                                     <div class="kpi-sub">قضیه کلرو-شوارتز</div>
                                 </div>
                                 <div class="kpi-card" style="border-top: 3px solid #7C3AED;">
@@ -14580,7 +14854,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">تعبیر فیزیکی و هندسی:</span>
-                                    <span class="math-sym">m_{tan}</span><span class="math-op">=</span><span class="math-sym">dy / dx</span><span class="math-sep">|</span> نرخ تغییر آنی تابع در نقطه
+                                    <span class="math-sym">m<span class="math-sub">tan</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">dy</span><span class="math-den">dx</span></span><span class="math-sep">|</span> نرخ تغییر آنی تابع در نقطه
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
@@ -14614,7 +14888,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">قاعده زنجیره‌ای (Chain Rule):</span>
-                                    <span class="math-sym">d/dx [ f(g(x)) ]</span><span class="math-op">=</span>f'(g(x)) · g'(x)
+                                    <span class="math-frac"><span class="math-num">d</span><span class="math-den">dx</span></span> [ f(g(x)) ]<span class="math-op">=</span>f'(g(x)) · g'(x)
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
@@ -14782,7 +15056,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">شرط طلایی حداکثر سود (FOC & SOC):</span>
-                                    <span class="math-sym">MR = MC</span> <span class="math-sep">|</span> <span class="math-sym">d²π/dQ² &lt; 0</span> (تقعر رو به پایین)
+                                    <span class="math-sym">MR = MC</span> <span class="math-sep">|</span> <span class="math-frac"><span class="math-num">d²π</span><span class="math-den">dQ²</span></span> &lt; 0 (تقعر رو به پایین)
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
@@ -14860,7 +15134,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">شرایط مرتبه اول (FOC):</span>
-                                    <span class="math-sym">ℒₓ = 0</span> <span class="math-sep">|</span> <span class="math-sym">ℒᵧ = 0</span> <span class="math-sep">|</span> <span class="math-sym">ℒ_λ = 0</span> (ارضای قید)
+                                    <span class="math-sym">ℒₓ = 0</span> <span class="math-sep">|</span> <span class="math-sym">ℒᵧ = 0</span> <span class="math-sep">|</span> <span class="math-sym">ℒ<span class="math-sub">λ</span> = 0</span> (ارضای قید)
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
@@ -15075,7 +15349,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">قضیه اویلر (Euler's Theorem):</span>
-                                    <span class="math-sym">x · ( ∂f / ∂x ) + y · ( ∂f / ∂y )</span><span class="math-op">=</span>n · f(x, y)
+                                    x · ( <span class="math-frac"><span class="math-num">∂f</span><span class="math-den">∂x</span></span> ) + y · ( <span class="math-frac"><span class="math-num">∂f</span><span class="math-den">∂y</span></span> )<span class="math-op">=</span>n · f(x, y)
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
@@ -15159,11 +15433,11 @@ body.theme-dark .step-content {
                             <div class="formula-stack" dir="ltr" onclick="copyFormula('z = √(R² - x² - y²) ; Domain: x² + y² ≤ R² ; Range: [0, R]', this)" title="برای کپی کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">دامنه تابع رادیکالی نیم‌کره:</span>
-                                    <span class="math-sym">D_z</span><span class="math-op">=</span>{ (x, y) ∈ ℝ² | x² + y² ≤ R² } (دیسک بسته دایره‌ای)
+                                    <span class="math-sym">D<span class="math-sub">z</span></span><span class="math-op">=</span>{ (x, y) ∈ ℝ² | x² + y² ≤ R² } (دیسک بسته دایره‌ای)
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">برد تابع رویه:</span>
-                                    <span class="math-sym">R_z</span><span class="math-op">=</span>[ 0 , R ] (پاره‌خط عمودی روی محور z)
+                                    <span class="math-sym">R<span class="math-sub">z</span></span><span class="math-op">=</span>[ 0 , R ] (پاره‌خط عمودی روی محور z)
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
@@ -15195,7 +15469,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge app">خطای درصدی تقریب تغییرات:</span>
-                                    <span class="math-sym">%Error_V</span> <span class="math-op">=</span> 2 · ( %Error_r ) + ( %Error_h )
+                                    <span class="math-sym">%Error<span class="math-sub">V</span></span> <span class="math-op">=</span> 2 · ( %Error<span class="math-sub">r</span> ) + ( %Error<span class="math-sub">h</span> )
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
@@ -15208,7 +15482,7 @@ body.theme-dark .step-content {
                             </div>
                             <div class="tier-card trap-tier">
                                 <strong>🚨 تله کنکور ارشد:</strong>
-                                تمایز تغییر واقعی ΔV با دیفرانسیل کل dV! تغییر واقعی برابر V_2 - V_1 است و شامل جملات درجه بالای سری تایلور است؛ تفاوت dV و ΔV خطای تقریب نام دارد.
+                                تمایز تغییر واقعی ΔV با دیفرانسیل کل dV! تغییر واقعی برابر V₂ - V₁ است و شامل جملات درجه بالای سری تایلور است؛ تفاوت dV و ΔV خطای تقریب نام دارد.
                             </div>
                         </div>
                         <button class="btn-copy-formula" onclick="copyFormula('dV = (2π · r · h) · dr + (π · r²) · dh   |   dV ÷ V = 2 · (dr ÷ r) + (dh ÷ h)')">
@@ -17444,12 +17718,12 @@ window.resetORSimplex = resetORSimplex;
                 {
                     q: 'در نظریه تعادل مصرف‌کننده، شرط حداکثرسازی مطلوبیت تحت قید بودجه در نقطه بهینه درونی (مماس) کدام است؟',
                     opts: [
-                        '۱. برابری نرخ نهایی جانشینی با نسبت قیمت کالاها (MRS_xy = Px / Py <=> MUx / Px = MUy / Py)',
+                        '۱. برابری نرخ نهایی جانشینی با نسبت قیمت کالاها (MRSₓᵧ = Pₓ ÷ Pᵧ ⟺ MUₓ ÷ Pₓ = MUᵧ ÷ Pᵧ)',
                         '۲. برابری مطلوبیت نهایی کل کالاها با صفر (MUx = MUy = 0)',
                         '۳. بزرگتر بودن قدرمطلق شیب منحنی بی‌تفاوتی از شیب خط بودجه',
                         '۴. صرف تمام درآمد روی کالایی که قیمت کمتری دارد'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'کالبدشکافی تحلیلی: در نقطه تماس خط بودجه با بالاترین منحنی بی‌تفاوتی دست‌یافتنی، شیب منحنی بی‌تفاوتی (-MUx/MUy) با شیب خط بودجه (-Px/Py) برابر می‌شود که به تساوی طلایی مطلوبیت نهایی ریالی ختم می‌گردد: MUx/Px = MUy/Py. یعنی آخرین ریال خرج‌شده روی هر کالا باید بازدهی مطلوبیت یکسانی به ارمغان آورد.'
                 },
                 {
@@ -17460,7 +17734,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. دو کالا مستقل از هم هستند و هیچ تغییری در تقاضا رخ نمی‌دهد',
                         '۴. کالای X پست و کالای Y لوکس محسوب می‌شود'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'کالبدشکافی تحلیلی: مثبت بودن کشش متقاطع (Exy > 0) نشان‌دهنده رابطه جانشینی است. فرمول درصد تغییر تقاضا: %ΔQx = Exy × %ΔPy = (+2.4) × (+10%) = +24%. یعنی با گرانی کالای Y، مصرف‌کنندگان برای تأمین نیاز خود به سمت کالای هم‌رده X سرازیر می‌شوند.'
                 },
                 {
@@ -17471,7 +17745,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. رسم خط قاطع بین نقطه A و نقطه میانی',
                         '۴. روش هندسی برای توابع غیرخطی غیرقابل اجراست و فقط برای خط راست صادق است'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'کالبدشکافی تحلیلی: روش هندسی پاره‌خط‌ها برای تقاضای غیرخطی با رسم خط مماس بر منحنی در نقطه A اجرا می‌شود. امتداد خط مماس محور قیمت را در T\' و محور مقدار را در B\' قطع می‌کند و کشش دقیقاً برابر پاره‌خط پایین مماس بر پاره‌خط بالای مماس یعنی AB\'/T\'A است.'
                 },
                 {
@@ -17482,7 +17756,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. درآمد کل برابر ۱۰ و تقاضا بی‌نهایت باکشش',
                         '۴. درآمد کل در حال صعود و کشش برابر ۲'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'کالبدشکافی تحلیلی: درآمد کل TR = 10Q - Q² است و مشتق آن MR = 10 - 2Q است. با قرار دادن MR = 0 تیراژ Q = 5 و قیمت P = 5 بدست می‌آید که در آن TR = 25 حداکثر می‌شود. طبق رابطه آموروسو MR = P(1 - 1/|Ed|)، شرط صفر شدن MR برابری کشش با یک است.'
                 },
                 {
@@ -17493,7 +17767,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. زیرا بنزین در بلندمدت به کالای پست تبدیل می‌شود',
                         '۴. زیرا در بلندمدت شیب خط تقاضا عمودی‌تر می‌شود'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'کالبدشکافی تحلیلی: افق زمانی یکی از ۶ محرک بنیادین کشش است. در کوتاه‌مدت مصرف‌کننده قفل بوده و عادت مصرفی صلب است (کم‌کشش)؛ اما در بلندمدت با پیدایش جانشین‌ها و امکان تغییر فناوری، کشش به شدت افزایش می‌یابد.'
                 },
                 {
@@ -17504,7 +17778,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. کشش کلی فقط در بازار انحصار کامل محاسبه می‌شود',
                         '۴. کشش جزئی همواره منفی و کشش کلی همواره مثبت است'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'کالبدشکافی تحلیلی: کشش جزئی متکی بر فرض Ceteris Paribus و مشتق جزئی نسبت به قیمت کالا است؛ در حالی که کشش کلی با احتساب دیفرانسیل کل dQ = (∂Q/∂P)dP + (∂Q/∂I)dI + ... اثرات همزمان زنجیره‌ای را در کل اقتصاد محاسبه می‌کند.'
                 },
 
@@ -17516,7 +17790,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. |Ed| = ∞ و درآمد کل در حال صعود است',
                         '۴. |Ed| = 2 و درآمد کل نزولی است'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'در توابع تقاضای خطی، در نقطه میانی هندسی طول پاره‌خط بالا با پاره‌خط پایین مساوی است (|Ed| = PB/PA = 1). طبق رابطه آموروسو-رابینسون MR = P[1 - 1/|Ed|]، هرگاه |Ed| = 1 شود، MR = 0 شده و درآمد کل (TR) به اوج و ماکزیمم خود می‌رسد.'
                 },
                 {
@@ -17527,7 +17801,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. Es = 0.2 به دلیل نسبت P به Q',
                         '۴. Es = 0 چون عرض از مبدأ صفر است'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'طبق قضیه هندسی خطوط عرضه، هر خط عرضه‌ای که از مبدأ مختصات (0,0) عبور کند دارای فرمول Q = dP است. بنابراین Es = (dQ/dP) × (P/Q) = d × (P / dP) = 1. کشش در تمامی نقاط این خط دقیقاً یک است، صرف‌نظر از زاویه شیب.'
                 },
                 {
@@ -17538,7 +17812,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. ۱.۵ (کشش واحد)',
                         '۴. ۳ (باکشش کامل)'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'قاعده طلایی روش هندسی: |Ed| = پاره‌خط پایین / پاره‌خط بالا = PB / PA = 6 / 3 = 2. چون کشش بزرگتر از ۱ است، در این نقطه تقاضا باکشش است.'
                 },
 
@@ -17551,7 +17825,7 @@ window.resetORSimplex = resetORSimplex;
                         '۴. سهم خریدار ۴ ریال و DWL = ۳۰ ریال'
                     ],
                     correct: 0,
-                    expl: '<b>کالبدشکافی تحلیلی:</b> شیب تقاضا b = ۲ و شیب عرضه d = ۳ است.<br>• سهم خریدار: t × [d / (b + d)] = ۱۰ × [۳ / ۵] = ۶ ریال.<br>• کاهش تیراژ تعادلی: ΔQ = [b×d / (b+d)] × t = [۶/۵] × ۱۰ = ۱۲ واحد.<br>• زیان رفاهی جامعه: DWL = ۰.۵ × t × ΔQ = ۰.۵ × ۱۰ × ۱۲ = ۶۰ ریال.<br><b>تله کنکور:</b> اشتباه گرفتن ضریب d با b در صورت کسر تسهیم بار مالیاتی.'
+                    expl: '<b>کالبدشکافی تحلیلی:</b> شیب تقاضا b = ۲ و شیب عرضه d = ۳ است.<br>• سهم خریدار: t × [d ÷ (b + d)] = ۱۰ × [۳ / ۵] = ۶ ریال.<br>• کاهش تیراژ تعادلی: ΔQ = [b·d ÷ (b+d)] × t = [۶/۵] × ۱۰ = ۱۲ واحد.<br>• زیان رفاهی جامعه: DWL = ۰.۵ × t × ΔQ = ۰.۵ × ۱۰ × ۱۲ = ۶۰ ریال.<br><b>تله کنکور:</b> اشتباه گرفتن ضریب d با b در صورت کسر تسهیم بار مالیاتی.'
                 },
                 {
                     q: 'اگر قدرمطلق کشش قیمتی تقاضا برای کالایی |Ed| = 0.6 باشد، افزایش ۱۰ درصدی قیمت چه تاثیری بر درآمد کل (TR) فروشنده دارد؟',
@@ -17572,7 +17846,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. از نقطه صفر شدن MPₗ به بعد؛ زیرا در این بازه تولید کل بیشترین مقدار ممکن را داراست',
                         '۴. از نقطه اوج TP تا جایی که APₗ منفی شود'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'کالبدشکافی تحلیلی: مرحله دوم تولید از ماکزیمم APₗ (جایی که MPₗ = APₗ) آغاز شده و تا صفر شدن MPₗ (ماکزیمم TP) ادامه دارد. این مرحله تنها منطقه عقلایی تولید است. در مرحله اول، بازده متوسط کارگر در حال افزایش است و سرمایه ثابت کمتر از ظرفیت اسمی به کار گرفته شده است، بنابراین توقف در مرحله اول غیرعقلایی است.'
                 },
                 {
@@ -17583,7 +17857,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. L* = 40 و K* = 30 با حداکثر تولید Q* = 12,000',
                         '۴. L* = 100 و K* = 50 با حداکثر تولید Q* = 50,000'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'کالبدشکافی تحلیلی: شرط تعادل MRTSₗₖ = w/r => (10K)/(10L) = 1/2 => L = 2K. جایگذاری در خط بودجه: 1(2K) + 2K = 100 => 4K = 100 => K* = 25 و L* = 50. حداکثر تولید بهینه: Q* = 10 × 50 × 25 = 12,500 واحد.'
                 },
                 {
@@ -17594,8 +17868,52 @@ window.resetORSimplex = resetORSimplex;
                         '۳. بازده کاهنده به مقیاس (DRTS با RTS = 0.7) و کشش تولیدی کار برابر ۰.۵',
                         '۴. بازده فزاینده به مقیاس با کشش تولیدی کار برابر ۱.۴'
                     ],
-                    ans: 0,
-                    expl: 'کالبدشکافی تحلیلی: در تابع کاب-داگلاس توان نهاده کار (α = 0.7) مستقیماً کشش تولیدی کار (εL = (MPₗ ÷ APₗ) = 0.7) است. بازده به مقیاس مجموع توان‌هاست: RTS = α + β = 0.7 + 0.5 = 1.2. چون RTS > 1 است، تولید دارای بازده فزاینده به مقیاس (IRTS) و صرفه‌های ناشی از مقیاس است.'
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: در تابع کاب-داگلاس توان نهاده کار (α = 0.7) مستقیماً کشش تولیدی کار (εₗ = (MPₗ ÷ APₗ) = 0.7) است. بازده به مقیاس مجموع توان‌هاست: RTS = α + β = 0.7 + 0.5 = 1.2. چون RTS > 1 است، تولید دارای بازده فزاینده به مقیاس (IRTS) و صرفه‌های ناشی از مقیاس است.'
+                },
+                            {
+                    q: 'در تقاضای خطی P = 10 - Q، در تیراژ فروش Q = 8 وضعیت درآمد نهایی (MR) و درآمد کل (TR) به ترتیب چگونه است؟',
+                    opts: [
+                        '۱. درآمد نهایی منفی (MR = -6) ولی درآمد کل همچنان مثبت (TR = +16) و نزولی است',
+                        '۲. هم درآمد نهایی و هم درآمد کل هر دو منفی می‌شوند (TR = -16)',
+                        '۳. درآمد نهایی مثبت (MR = +6) و درآمد کل برابر ۲ است',
+                        '۴. درآمد نهایی صفر است زیرا تقاضا در ناحیه بی‌کشش قرار دارد'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: در تقاضای P = 10 - Q داریم: TR = 10Q - Q² و MR = 10 - 2Q. در Q = 8 قیمت P = 2 و درآمد کل TR = 2 × 8 = +16 > 0 است، در حالی که مشتق آن یعنی MR = 10 - 16 = -6 < 0 می‌باشد. منفی شدن MR به معنای نزولی شدن شیب TR است، نه منفی شدن مقدار درآمد کل.'
+                },
+                {
+                    q: 'در بازار کالایی با توابع QᏧ = 10 - P و Qₛ = P، دولت سقف قیمت دستوری P꜀ = 3 اعمال می‌کند. شکاف بازار و کل رانت دلالان بازار سیاه چقدر است؟',
+                    opts: [
+                        '۱. کمبود ۴ واحد (Shortage = 4) و رانت بازار سیاه برابر ۱۲ واحد پول',
+                        '۲. کمبود ۴ واحد و رانت بازار سیاه برابر ۲۸ واحد پول',
+                        '۳. مازاد عرضه ۴ واحد و رانت برابر ۱۲ واحد پول',
+                        '۴. سقف قیمت غیرمؤثر است و بازار در تعادل P* = 5 می‌ماند'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: تعادل آزاد در P* = 5 و Q* = 5 است. چون P꜀ = 3 < 5، سقف مؤثر است؛ Qₛ = 3 و QᏧ = 7 پس کمبود برابر 7 - 3 = 4 واحد است. قیمت بازار سیاه برای تیراژ عرضه‌شده Qₛ = 3 روی منحنی تقاضا کشف می‌شود: P(black) = 10 - 3 = 7. رانت واسطه‌ها: (7 - 3) × 3 = 12.'
+                },
+                {
+                    q: 'در تفکیک اثرات اسلاتسکی هنگام کاهش قیمت کالای X (ΔPₓ < 0)، کدام عبارت درباره رابطه منطقی «کالای پست» و «کالای گیفن» همواره صحیح است؟',
+                    opts: [
+                        '۱. هر کالای گیفنی لزوماً پست است، و زمانی رخ می‌دهد که اثر درآمدی منفی بر اثر جانشینی غلبه کند (|IE| > |SE|)',
+                        '۲. هر کالای پستی لزوماً یک کالای گیفن با منحنی تقاضای صعودی است',
+                        '۳. در کالای گیفن اثر جانشینی مثبت است و تقاضا نزولی باقی می‌ماند',
+                        '۴. کالای گیفن نوعی کالای لوکس با کشش درآمدی بزرگتر از یک است'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: اثر جانشینی (SE) با کاهش قیمت همواره مثبت (ΔX > 0) است. برای اینکه اثر کل منفی شود (قانون تقاضا نقض شود)، اثر درآمدی حتماً باید منفی باشد (کالای پست) و قدرمطلق آن بزرگتر از اثر جانشینی باشد (|IE| > |SE|). بنابراین مجموعه گیفن زیرمجموعه‌ای از کالاهای پست است.'
+                },
+                {
+                    q: 'مصرف‌کننده‌ای با بودجه I = 60 و قیمت‌های Pₓ = 2 و Pᵧ = 5 دارای تابع مطلوبیت جانشین کامل U(X, Y) = 2X + 3Y است. سبد بهینه مصرفی کدام است؟',
+                    opts: [
+                        '۱. راه‌حل گوشه‌ای X* = 30 , Y* = 0 با مطلوبیت ۶۰ (صرف ۱۰۰٪ بودجه روی X)',
+                        '۲. راه‌حل گوشه‌ای X* = 0 , Y* = 12 با مطلوبیت ۳۶',
+                        '۳. سبد میانی X* = 15 , Y* = 6 با مطلوبیت ۴۸',
+                        '۴. تعادل بی‌تفاوت و نامعین روی کل خط بودجه'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: بازدهی مطلوبیت آخرین تومان برای کالای X برابر MUₓ ÷ Pₓ = 2 ÷ 2 = 1.0 و برای کالای Y برابر MUᵧ ÷ Pᵧ = 3 ÷ 5 = 0.6 است. چون 1.0 > 0.6 است، مصرف‌کننده تمام بودجه ۶۰ واحدی را صرف کالای X می‌کند: X* = 60 ÷ 2 = 30 و Y* = 0.'
                 },
             ],
             cost: [
@@ -17631,7 +17949,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. ۹ متغیر پایه (m + n)',
                         '۴. ۱ متغیر پایه'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'در مدل حمل و نقل با m مبدأ و n مقصد، به دلیل وجود قید توازن ∑S = ∑D یکی از قیود وابسته خطی است. بنابراین رتبه ماتریس ضرایب m + n - 1 است و هر جواب موجه پایه دقیقاً باید دارای m + n - 1 متغیر اساسی باشد: 4 + 5 - 1 = 8.'
                 },
                 {
@@ -17642,7 +17960,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. فقط خانه‌های با هزینه کمتر علامت منفی می‌گیرند',
                         '۴. علامت‌ها به صورت تصادفی بر اساس ظرفیت سطر تعیین می‌شوند'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'برای حفظ توازن مجموع سطرها و ستون‌ها، حلقه بسته باید متناوباً دارای علامت‌های مثبت و منفی (+θ, -θ, +θ, -θ) باشد و چرخش‌ها منحصراً روی خانه‌های پایه انجام گیرد.'
                 },
 
@@ -17695,12 +18013,12 @@ window.resetORSimplex = resetORSimplex;
                 {
                     q: 'اگر حجم استوانه V = π r² h باشد، خطای نسبی حجم (dV / V) بر حسب خطای نسبی شعاع (dr / r) و ارتفاع (dh / h) با استفاده از دیفرانسیل کل کدام است؟',
                     opts: [
-                        '۱. dV / V = 2 (dr / r) + (dh / h)',
+                        '۱. dV ÷ V = 2·(dr ÷ r) + (dh ÷ h)',
                         '۲. dV / V = (dr / r) + (dh / h)',
                         '۳. dV / V = (dr / r) + 2 (dh / h)',
-                        '۴. dV / V = 2π (dr / r) + π (dh / h)'
+                        '۴. dV ÷ V = 2π·(dr ÷ r) + π·(dh ÷ h)'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'دیفرانسیل کل dV = 2πrh·dr + πr²·dh است. با تقسیم طرفین بر حجم V = πr²h بدست می‌آید: dV / V = 2(dr / r) + (dh / h). توان ۲ شعاع به عنوان ضریب حساسیت دو برابری در خطای نسبی ظاهر می‌شود.'
                 },
 
@@ -17730,7 +18048,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. هر دو قید هم‌زمان فعال هستند و جواب چندگانه ایجاد می‌کنند',
                         '۴. مسئله به دلیل تناقض قیود فاقد ناحیه موجه است'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'با ساده‌سازی، قید اول x₁ + x₂ ≤ 3 و قید دوم x₁ + x₂ ≤ 4 است. چون شیب‌ها یکسان بوده و قید دوم ضعیف‌تر است، قید دوم کاملاً در پشت قید اول قرار گرفته و مازاد است (متغیر اسلک آن در بهینه s₂ > 0 و قیمت سایه آن y₂* = 0 است).'
                 },
                 {
@@ -17741,7 +18059,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. مسئله فاقد ناحیه موجه (Infeasible) می‌شود',
                         '۴. مسئله دارای بی‌نهایت جواب بهینه روی پاره‌خط مرزی است'
                     ],
-                    ans: 1,
+                    correct: 1,
                     expl: 'تله کلاسیک کنکور: ناحیه موجه از بالا بی‌کران است، اما برای هدف Min Z به دنبال کوچک‌ترین مقدار هستیم که در پایین‌ترین نقطه مرزی یعنی نقطه (0, 0) با مقدار Z* = 0 حاصل می‌شود.'
                 },
                 {
@@ -17752,7 +18070,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. x₁* = 100 با توقف کامل متغیر دوم',
                         '۴. x₁* = 40'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'چون مجموع دو متغیر ۱۰۰ است، به ازای هر واحد افزایش x₁، متغیر x₂ یک واحد کاهش می‌یابد که صرفه‌جویی ۵ - ۳ = ۲ تومان دارد؛ پس x₁ تا سقف مجاز پاره‌خط یعنی ۶۰ رشد می‌کند.'
                 },
                 {
@@ -17763,7 +18081,7 @@ window.resetORSimplex = resetORSimplex;
                         '۳. ۶ نقطه',
                         '۴. ۴ نقطه'
                     ],
-                    ans: 0,
+                    correct: 0,
                     expl: 'تعداد کل خطوط مرزی ۵ است که ۱۰ تلاقی ایجاد می‌کند؛ اما خط عمودی x₁ = 4 با محور عمودی موازی بوده و هرگز متلاقی نمی‌شوند، پس تعداد کل تلاقی‌ها ۹ نقطه (شامل ۴ نقطه BFS و ۵ نقطه BIS) است.'
                 },
 
@@ -17817,7 +18135,7 @@ window.resetORSimplex = resetORSimplex;
                         '۴. ضریب تغییرات ۱۰ برابر می‌شود'
                     ],
                     correct: 0,
-                    expl: '<b>کالبدشکافی تحلیلی و تله کنکور ارشد:</b><br>• با تبدیل y = ax + b داریم: میانگین جدید ȳ = ax̄ + b و انحراف معیار جدید s_y = |a| s_x.<br>• ضریب تغییرات جدید: CV_y = (a s_x) / (a x̄ + b) = s_x / (x̄ + b/a).<br>• چون مخرج با عدد مثبت b/a بزرگتر شده، مقدار CV اکیداً کاهش می‌یابد! (CV تنها زمانی بی‌تغییر می‌ماند که فقط عمل ضرب انجام شود: b = 0).'
+                    expl: '<b>کالبدشکافی تحلیلی و تله کنکور ارشد:</b><br>• با تبدیل y = ax + b داریم: میانگین جدید ȳ = ax̄ + b و انحراف معیار جدید sᵧ = |a| · sₓ.<br>• ضریب تغییرات جدید: CVᵧ = (a · sₓ) ÷ (a · x̄ + b) = sₓ ÷ (x̄ + b ÷ a).<br>• چون مخرج با عدد مثبت b/a بزرگتر شده، مقدار CV اکیداً کاهش می‌یابد! (CV تنها زمانی بی‌تغییر می‌ماند که فقط عمل ضرب انجام شود: b = 0).'
                 },
                 {
                     q: 'در توزیع داده‌های پیوسته طبقه‌بندی شده، رابطه درون‌یابی خطی برای استخراج میانه کدام است؟',
@@ -17882,7 +18200,8 @@ const quizState = {
             let correctCount = 0, wrongCount = 0;
             list.forEach((item, idx) => {
                 if (st.submitted[idx]) {
-                    if (st.selected[idx] === item.correct) correctCount++;
+                    const ansIdx = item.correct !== undefined ? item.correct : item.ans;
+                    if (st.selected[idx] === ansIdx) correctCount++;
                     else wrongCount++;
                 }
             });
@@ -17915,7 +18234,8 @@ const quizState = {
                     let optClass = 'quiz-opt-btn';
                     if (sel === oIdx) optClass += ' selected';
                     if (isSub) {
-                        if (oIdx === item.correct) optClass += ' correct';
+                        const cIdx = item.correct !== undefined ? item.correct : item.ans;
+                        if (oIdx === cIdx) optClass += ' correct';
                         else if (sel === oIdx) optClass += ' wrong';
                     }
                     qHtml += '<div class="' + optClass + '" onclick="selectQuizOpt(\'' + course + '\', ' + qIdx + ', ' + oIdx + ')">' + opt + '</div>';
@@ -17949,7 +18269,9 @@ const quizState = {
                 return;
             }
             quizState[course].submitted[qIdx] = true;
-if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveMistake(course, qIdx, quizState[course].selected[qIdx], quizBank[course][qIdx]); }
+const targetQ = quizBank[course][qIdx];
+            const rightAns = targetQ.correct !== undefined ? targetQ.correct : targetQ.ans;
+            if (quizState[course].selected[qIdx] !== rightAns) { saveMistake(course, qIdx, quizState[course].selected[qIdx], quizBank[course][qIdx]); }
             renderQuiz(course);
         }
         window.submitQuizAnswer = submitQuizAnswer;
@@ -17998,7 +18320,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             {
                 cat: 'آمار کاربردی ۱',
                 q: 'اثر تبدیل خطی y = ax + b بر میانگین، واریانس و انحراف معیار چیست؟',
-                a: '<b>پاسخ نخبگانی:</b> میانگین تابع خطی کامل می‌گیرد: ȳ = a×x̄ + b. اما در شاخص‌های پراکندگی عدد ثابت b بی‌اثر است؛ بنابراین انحراف معیار s_y = |a| × s_x و واریانس s²_y = a² × s²_x می‌شود.'
+                a: '<b>پاسخ نخبگانی:</b> میانگین تابع خطی کامل می‌گیرد: ȳ = a×x̄ + b. اما در شاخص‌های پراکندگی عدد ثابت b بی‌اثر است؛ بنابراین انحراف معیار sᵧ = |a| × sₓ و واریانس sᵧ² = a² × sₓ² می‌شود.'
             },
             {
                 cat: 'آمار کاربردی ۱',
@@ -18009,7 +18331,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             {
                 cat: 'آمار کاربردی ۱',
                 q: 'چرا میانگین حسابی برای رشد ثروت سراب ایجاد می‌کند و میانگین هندسی ارجح است؟',
-                a: '<b>پاسخ نخبگانی:</b> میانگین حسابی اثر معکوس ضربی زیان را نادیده می‌گیرد. ۵۰٪ زیان نیازمند ۱۰۰٪ سود برای جبران است. تقریب درگ نوسان: G ≈ X_bar - 0.5×σ² نشان می‌دهد هرچه نوسان بیشتر باشد، میانگین هندسی از حسابی کمتر شده و بازده واقعی ثروت کاهش می‌یابد.'
+                a: '<b>پاسخ نخبگانی:</b> میانگین حسابی اثر معکوس ضربی زیان را نادیده می‌گیرد. ۵۰٪ زیان نیازمند ۱۰۰٪ سود برای جبران است. تقریب درگ نوسان: G ≈ x̄ - 0.5×σ² نشان می‌دهد هرچه نوسان بیشتر باشد، میانگین هندسی از حسابی کمتر شده و بازده واقعی ثروت کاهش می‌یابد.'
             },
             {
                 cat: 'آمار کاربردی ۱',
@@ -18029,12 +18351,12 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
             {
                 cat: 'اقتصاد خرد',
                 q: 'قانون طلایی تسهیم بار مالیاتی دولت بین خریدار و فروشنده چیست؟',
-                a: '<b>پاسخ نخبگانی:</b> بار مالیاتی معکوس کشش است: Burden_C / Burden_P = Es / |Ed| = d / b. هر طرف که کشش کمتری داشته باشد (انعطاف کمتر برای فرار از بازار)، سهم بیشتری از مالیات را به دوش می‌کشد.'
+                a: '<b>پاسخ نخبگانی:</b> بار مالیاتی معکوس کشش است: BurdenC ÷ BurdenP = Eₛ ÷ |EᏧ| = d / b. هر طرف که کشش کمتری داشته باشد (انعطاف کمتر برای فرار از بازار)، سهم بیشتری از مالیات را به دوش می‌کشد.'
             },
             {
                 cat: 'آمار کاربردی ۱',
                 q: 'سلسله‌مراتب نامساوی طلایی میانگین‌ها و شرط برابری آن‌ها چیست؟',
-                a: '<b>پاسخ نخبگانی:</b> رابطه Min ≤ H ≤ G ≤ X_bar ≤ RMS ≤ Max همواره برقرار است. شرط تساوی H = G = X_bar این است که واریانس صفر باشد و تمام داده‌ها با هم برابر باشند.'
+                a: '<b>پاسخ نخبگانی:</b> رابطه Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max همواره برقرار است. شرط تساوی H = G = x̄ این است که واریانس صفر باشد و تمام داده‌ها با هم برابر باشند.'
             },
             {
                 cat: 'آمار کاربردی ۱',
@@ -19006,7 +19328,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     {
                         step: "گام ۲ (تسهیم بار مالیاتی دولت)",
                         title: "کشش کمتر یعنی پرداخت سهم بیشتر مالیات",
-                        formula: "Burden_C ÷ Burden_P = Eₛ ÷ |EᏧ|",
+                        formula: "BurdenC ÷ BurdenP = Eₛ ÷ |EᏧ|",
                         desc: "هر طرفی که کشش کمتری داشته باشد، انعطاف‌پذیری کمتری در بازار دارد و سهم بیشتری از مالیات را به دوش می‌کشد.",
                         trap: "اگر تقاضا کاملاً بی‌کشش باشد (|Ed| = 0)، ۱۰۰٪ بار مالیات بر دوش مصرف‌کننده می‌افتد."
                     }
@@ -20136,7 +20458,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
 
             // Update Telemetry
             const gradEl = document.getElementById('mhess-val-grad'); if (gradEl) gradEl.innerText = `(${fx.toFixed(1)} , ${fy.toFixed(1)})`;
-            const fxyEl = document.getElementById('mhess-val-fxy'); if (fxyEl) fxyEl.innerText = `f_xy = ${fxy.toFixed(1)}`;
+            const fxyEl = document.getElementById('mhess-val-fxy'); if (fxyEl) fxyEl.innerText = `fₓᵧ = ${fxy.toFixed(1)}`;
             const dEl = document.getElementById('mhess-val-d'); if (dEl) dEl.innerText = D.toFixed(1);
             const typeEl = document.getElementById('mhess-val-type'); if (typeEl) typeEl.innerText = pointType;
 
@@ -21251,8 +21573,8 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     </div>
                     <div class="workout-step">
                         <strong>گام ۲ (نقطه سر‌به‌سر تعدادی و ریالی - BEP):</strong><br>
-                        • تیراژ سر‌به‌سر: Q_BEP = FC / CM = ${fc.toLocaleString()} / ${cm.toLocaleString()} = <b>${Math.ceil(qBep).toLocaleString()} واحد</b><br>
-                        • فروش ریالی سر‌به‌سر: S_BEP = Q_BEP × P = <b>${Math.ceil(sBep).toLocaleString()} ریال</b>
+                        • تیراژ سر‌به‌سر: Q(BEP) = FC ÷ CM = ${fc.toLocaleString()} / ${cm.toLocaleString()} = <b>${Math.ceil(qBep).toLocaleString()} واحد</b><br>
+                        • فروش ریالی سر‌به‌سر: S(BEP) = Q(BEP) × P = <b>${Math.ceil(sBep).toLocaleString()} ریال</b>
                     </div>
                     <div class="workout-step" style="background: #ECFDF5; border-color: #A7F3D0; color: #065F46;">
                         <strong>گام ۳ (تحقق سود هدف خالص با اثر مالیات):</strong><br>
@@ -21281,7 +21603,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                     </div>
                     <div class="workout-step">
                         <strong>گام ۱ (حاشیه امنیت مقداری و درصدی - Margin of Safety):</strong><br>
-                        • حاشیه امنیت مقداری: MS = Q_actual - Q_BEP = ${qAct.toLocaleString()} - ${qBep.toLocaleString()} = <b>${msUnits.toLocaleString()} واحد حاشیه اطمینان</b><br>
+                        • حاشیه امنیت مقداری: MS = Q(actual) - Q(BEP) = ${qAct.toLocaleString()} - ${qBep.toLocaleString()} = <b>${msUnits.toLocaleString()} واحد حاشیه اطمینان</b><br>
                         • نسبت حاشیه امنیت: MS% = (${msUnits} / ${qAct}) × 100 = <b>${msPct.toFixed(2)}%</b>
                     </div>
                     <div class="workout-step" style="background: #F0FDF4; border-color: #BBF7D0; color: #166534;">
@@ -21594,7 +21916,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'm6',
                 title: 'کشش تقاضای غیرخطی با خط مماس',
                 prompt: 'نسبت هندسی پاره‌خط‌های خط مماس بر تقاضای خمیده در نقطه A چیست؟',
-                canonical: '|Ed| = AB\'/T\'A',
+                canonical: '|EᏧ| = AB\' ÷ T\'A',
                 aliases: ['|Ed| = AB/TA', '|Ed|=AB\'/T\'A', 'Ed = AB\'/T\'A', '|Ed| = AB / TA', '|Ed| = AB/T\'A'],
                 hint: 'پاره‌خط پایینی خط مماس تقسیم بر پاره‌خط بالایی خط مماس.',
                 breakdown: 'کالبدشکافی: خط مماس محور قیمت را در T\' و محور مقدار را در B\' قطع می‌کند؛ نسبت پاره‌خط پایین به بالا برابر با کشش نقطه‌ای است.'
@@ -21613,7 +21935,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'm1',
                 title: 'کشش قیمتی تقاضا با مشتق',
                 prompt: 'فرمول مشتقی کشش قیمتی تقاضا (Ed) بر حسب dQ/dP و نسبت P به Q چیست؟',
-                canonical: 'Ed = (dQ/dP) * (P/Q)',
+                canonical: 'EᏧ = (dQ ÷ dP) · (P ÷ Q)',
                 aliases: ['Ed=(dQ/dP)*(P/Q)', 'Ed=(dq/dp)*(p/q)', 'ed=(dq/dp)*(p/q)', 'Ed = (dQ / dP) * (P / Q)'],
                 hint: 'مشتق تقاضا نسبت به قیمت را در قیمت فعلی ضرب و بر مقدار فعلی تقسیم کنید.',
                 breakdown: 'کالبدشکافی: شیب منفی منحنی تقاضا (dQ/dP < 0) باعث منفی شدن کشش می‌شود که برای تفسیر در قدر مطلق قرار می‌گیرد.'
@@ -21622,7 +21944,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'm2',
                 title: 'شاخص درجه انحصار لرنر (Lerner Index)',
                 prompt: 'فرمول شاخص لرنر (L) بر حسب قیمت (P) و هزینه نهایی (MC) چیست؟',
-                canonical: 'L = (P - MC) / P',
+                canonical: 'L = (P - MC) ÷ P',
                 aliases: ['L=(P-MC)/P', 'l=(p-mc)/p', 'L = (P - MC) / P = 1 / |Ed|', 'L = 1 / |Ed|'],
                 hint: 'کسر حاشیه سود نهایی (P - MC) تقسیم بر قیمت فروش (P).',
                 breakdown: 'کالبدشکافی: در رقابت کامل P = MC و شاخص صفر است؛ هرچه کشش کمتر باشد، قدرت قیمت‌گذاری انحصارگر بالاتر است.'
@@ -21631,7 +21953,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'm3',
                 title: 'رابطه درآمد نهایی آموروسو-رابینسون',
                 prompt: 'رابطه درآمد نهایی (MR) با قیمت (P) و قدرمطلق کشش قیمتی تقاضا (|Ed|) را بنویسید:',
-                canonical: 'MR = P * (1 - 1 / |Ed|)',
+                canonical: 'MR = P · [ 1 - (1 ÷ |EᏧ|) ]',
                 aliases: ['MR=P*(1-1/|Ed|)', 'mr=p*(1-1/|ed|)', 'MR = P * (1 - 1/Ed)', 'MR = P * (1 - 1 / Ed)'],
                 hint: 'قیمت ضرب‌در پرانتز یک منهای معکوس قدرمطلق کشش تقاضا.',
                 breakdown: 'کالبدشکافی: اگر تقاضا باکشش (|Ed| > 1) باشد، کسر کوچک‌تر از یک و MR مثبت است؛ در کشش واحد، MR صفر و درآمد کل حداکثر است.'
@@ -21640,7 +21962,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'm4',
                 title: 'نرخ نهایی جانشینی در مصرف (MRS)',
                 prompt: 'فرمول تعادل مصرف‌کننده و برابری MRS با مطلوبیت‌های نهایی (MUx و MUy) چیست؟',
-                canonical: 'MRS = MUx / MUy',
+                canonical: 'MRSₓᵧ = MUₓ ÷ MUᵧ',
                 aliases: ['MRS=MUx/MUy', 'mrs=mux/muy', 'MRS = MUx / MUy = Px / Py'],
                 hint: 'نسبت مطلوبیت نهایی کالای x به مطلوبیت نهایی کالای y.',
                 breakdown: 'کالبدشکافی: قدر مطلق شیب منحنی بی‌تفاوتی مصرف‌کننده که در نقطه تعادل مماس بر خط بودجه با شیب Px/Py است.'
@@ -21649,7 +21971,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'm5',
                 title: 'سهم خریدار از بار مالیاتی (Tax Incidence)',
                 prompt: 'فرمول سهم خریدار (Tb) از مالیات بر حسب کشش عرضه (Es) و تقاضا (|Ed|) چیست؟',
-                canonical: 'Tb = Es / (Es + |Ed|)',
+                canonical: 'Tᵇ = Eₛ ÷ (Eₛ + |EᏧ|)',
                 aliases: ['Tb=Es/(Es+|Ed|)', 'tb=es/(es+|ed|)', 'Tb = Es / (Es + Ed)'],
                 hint: 'کشش طرف دیگر (عرضه) در صورت کسر، و مجموع کشش‌ها در مخرج.',
                 breakdown: 'کالبدشکافی: هر طرفی که کشش کمتری داشته باشد (ناکشاتر باشد)، سهم بیشتری از مالیات را به دوش می‌کشد.'
@@ -21690,13 +22012,49 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 hint: 'مجموع هزینه دستمزد کارگران (w·L) و هزینه اجاره ماشین‌آلات (r·K).',
                 breakdown: 'کالبدشکافی: بودجه کل تولیدکننده با شیب منفی -w/r که موقعیت آن با بودجه کل TC تعیین می‌شود.'
             },
+                    {
+                id: 'm12',
+                title: 'رانت بازار سیاه در سقف قیمت مؤثر',
+                prompt: 'فرمول محاسبه رانت دلالان بازار سیاه (Rent) بر حسب قیمت بازار سیاه (Pᵇˡᵃᶜᵏ)، سقف قیمت (Pᶜ) و مقدار عرضه (Qₛ) چیست؟',
+                canonical: 'Rent = (Pᵇˡᵃᶜᵏ - Pᶜ) · Qₛ',
+                aliases: ['Rent=(P_black-P_c)*Q_s', 'Rent = (P_black - P_c) * Qs', 'Rent = (P_black - Pc) * Qs', 'Rent = (Pblack - Pc) * Qs', 'Rent = (Pᵇˡᵃᶜᵏ - Pᶜ) × Qₛ'],
+                hint: 'اختلاف قیمت بازار سیاه روی تقاضا و سقف قیمت دولتی، ضرب‌در مقدار واقعی عرضه‌شده (Qₛ).',
+                breakdown: 'کالبدشکافی: واسطه‌ها کالای کمیاب را به نرخ مصوب Pᶜ خریداری کرده و به قیمت تقاضای مصرف‌کنندگان برای همان تیراژ محدود Qₛ می‌فروشند.'
+            },
+            {
+                id: 'm13',
+                title: 'معادله تفکیک اثرات اسلاتسکی (Slutsky)',
+                prompt: 'رابطه بنیادی تفکیک اثر کل تغییر قیمت (TE) به اثر جانشینی (SE) و اثر درآمدی (IE) چیست؟',
+                canonical: 'TE = SE + IE',
+                aliases: ['TE=SE+IE', 'te=se+ie', 'TE = SE + IE'],
+                hint: 'اثر کل مساوی مجموع برداری اثر جانشینی خالص و اثر درآمدی است.',
+                breakdown: 'کالبدشکافی: در کالای عادی SE و IE هم‌جهت‌اند؛ در کالای پست مخالف‌اند و تنها در کالای گیفن |IE| بر |SE| غلبه می‌کند.'
+            },
+            {
+                id: 'm14',
+                title: 'قضیه تجمیع انجل (Engel Aggregation)',
+                prompt: 'رابطه مجموع وزنی کشش‌های درآمدی کالاهای سبد مصرفی با سهم بودجه (wᵢ) چیست؟',
+                canonical: '∑ (wᵢ · Eᵢ) = 1',
+                aliases: ['sum(wi*Ei)=1', 'sum(w_i * E_i) = 1', '∑ (wᵢ × Eᵢ) = 1', 'sum(w_i*E_i)=1'],
+                hint: 'حاصل‌جمع سهم بودجه هر کالا ضرب‌در کشش درآمدی آن دقیقاً مساوی یک است.',
+                breakdown: 'کالبدشکافی: تمام بودجه خانوار باید بین کالاها تقسیم شود؛ بنابراین همه کالاها همزمان نمی‌توانند لوکس (Eᵢ > 1) یا همگی پست باشند.'
+            },
+            {
+                id: 'm15',
+                title: 'تداوم مثبت بودن درآمد کل در ناحیه منفی MR',
+                prompt: 'فرمول درآمد کل (TR) و شرط منفی شدن درآمد نهایی (MR < 0) بدون منفی شدن TR بر حسب قدرمطلق کشش تقاضا (|EᏧ|) چیست؟',
+                canonical: 'TR = P · Q > 0  |  |EᏧ| < 1',
+                aliases: ['TR=P*Q>0|Ed<1', 'TR = P * Q > 0', 'MR < 0 => |Ed| < 1', '|Ed| < 1'],
+                hint: 'درآمد کل حاصل‌ضرب P در Q است (همواره نامنفی) و در ناحیه کم‌کشش (|EᏧ| < 1) فقط شیب آن (MR) منفی می‌شود.',
+                breakdown: 'کالبدشکافی: منفی شدن درآمد نهایی (MR < 0) نشان‌دهنده کاهش و نزولی شدن TR است، نه منفی شدن مقدار ریالی TR.'
+            },
         ],
         cost: [
             {
                 id: 'c1',
                 title: 'تیراژ نقطه سر‌به‌سر (BEP Volume)',
                 prompt: 'فرمول تیراژ نقطه سر‌به‌سر (Q_BEP) بر حسب هزینه ثابت (FC)، قیمت فروش (P) و بهای متغیر (V) چیست؟',
-                canonical: 'Q = FC / (P - V)',
+                canonical: 'Q = FC ÷ (P - V)',
                 aliases: ['Q=FC/(P-V)', 'q=fc/(p-v)', 'BEP = FC / (P - V)', 'Q_BEP = FC / (P - V)', 'Q = FC / CM'],
                 hint: 'هزینه ثابت تقسیم بر حاشیه فروش هر واحد (P - V).',
                 breakdown: 'کالبدشکافی: در این تیراژ، حاشیه فروش کل دقیقاً هزینه‌های ثابت را پوشش می‌دهد و سود عملیاتی (EBIT) صفر است.'
@@ -21705,7 +22063,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'c2',
                 title: 'درجه اهرم عملیاتی (DOL)',
                 prompt: 'فرمول درجه اهرم عملیاتی (DOL) بر حسب حاشیه فروش (CM) و سود عملیاتی (EBIT) چیست؟',
-                canonical: 'DOL = CM / EBIT',
+                canonical: 'DOL = CM ÷ EBIT',
                 aliases: ['DOL=CM/EBIT', 'dol=cm/ebit', 'DOL = CM / (CM - FC)', 'DOL = Q*(P-V) / [Q*(P-V) - FC]'],
                 hint: 'حاشیه فروش کل تقسیم بر سود عملیاتی (قبل از بهره و مالیات).',
                 breakdown: 'کالبدشکافی: نشان‌دهنده حساسیت درصد تغییر سود به درصد تغییر فروش؛ معکوس نسبت حاشیه امنیت است (DOL = 1 / MS).'
@@ -21714,7 +22072,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'c3',
                 title: 'نسبت حاشیه امنیت (Margin of Safety)',
                 prompt: 'فرمول نسبت حاشیه امنیت بر حسب فروش فعلی (Sales) و فروش سر‌به‌سر (BEP) چیست؟',
-                canonical: 'MS = (Sales - BEP) / Sales',
+                canonical: 'MS = (Sales - BEP) ÷ Sales',
                 aliases: ['MS=(Sales-BEP)/Sales', 'ms=(sales-bep)/sales', 'MS = 1 / DOL'],
                 hint: 'تفاضل فروش از نقطه سر‌به‌سر تقسیم بر کل فروش.',
                 breakdown: 'کالبدشکافی: نشان می‌دهد فروش شرکت تا چند درصد می‌تواند افت کند بدون اینکه شرکت وارد منطقه زیان‌دهی شود.'
@@ -21723,7 +22081,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'c4',
                 title: 'تیراژ سود هدف با مالیات شرکتی',
                 prompt: 'فرمول تیراژ سود هدف (Q) با در نظر گرفتن مالیات نرخ T و هزینه ثابت FC چیست؟',
-                canonical: 'Q = [FC + Target / (1 - T)] / (P - V)',
+                canonical: 'Q = [ FC + Target ÷ (1 - T) ] ÷ (P - V)',
                 aliases: ['Q=[FC+Target/(1-T)]/(P-V)', 'q=[fc+target/(1-t)]/(p-v)', 'Q = (FC + TP / (1 - T)) / (P - V)'],
                 hint: 'سود پس از مالیات را بر (1 - T) تقسیم کنید تا قبل از مالیات شود، سپس با FC جمع و بر حاشیه فروش تقسیم کنید.',
                 breakdown: 'کالبدشکافی: چون مالیات بر سود وضع می‌شود، سود هدف قبل از ورود به فرمول سر‌به‌سر باید به سود ناخالص پیش از مالیات تبدیل شود.'
@@ -21779,7 +22137,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'o5',
                 title: 'قیمت سایه منبع محدودکننده (Shadow Price)',
                 prompt: 'فرمول مشتقی قیمت سایه (y_i) بر حسب تغییرات تابع هدف بهینه (Z) نسبت به تغییر ظرفیت منبع (bᵢ) چیست؟',
-                canonical: 'yᵢ = dZ / dbᵢ',
+                canonical: 'yᵢ = dZ ÷ dbᵢ',
                 aliases: ['y_i=dZ/dbᵢ', 'yi=dz/dbi', 'yᵢ = ∂Z / ∂bᵢ', 'yᵢ = dZ/dbᵢ'],
                 hint: 'مشتق جزئی تابع هدف بهینه نسبت به مقدار موجودی منبع iام.',
                 breakdown: 'کالبدشکافی: حداکثر قیمتی که مدیر حاضر است برای دریافت یک واحد بیشتر از منبع محدودکننده بپردازد.'
@@ -21788,7 +22146,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'o6',
                 title: 'تابع هدف بهینه‌سازی خطی پورتفوی سرمایه‌گذاری (Portfolio LP)',
                 prompt: 'فرمول تابع هدف بیشینه‌سازی بازده پورتفو (Max Z) با وزن دارایی‌ها (x_i) و بازده انتظاری (r_i) چیست؟',
-                canonical: 'Max Z = sum(r_i * x_i)',
+                canonical: 'Max Z = ∑ (rᵢ · xᵢ)',
                 aliases: ['Max Z = sum(r_i * x_i)', 'Max Z = ∑ r_i * x_i', 'Max Z = sum(ri*xi)', 'Z = sum(r_i * x_i)'],
                 hint: 'مجموع حاصل‌ضرب بازده مورد انتظار هر دارایی در وزن تخصیص‌یافته به آن.',
                 breakdown: 'کالبدشکافی: با قید sum(x_i) = 1 تضمین می‌کند کل سرمایه به بهینه‌ترین ترکیب دارایی‌ها تخصیص یابد.'
@@ -21797,7 +22155,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'o7',
                 title: 'تعداد کل نقاط گوشه‌ای در برنامه‌ریزی خطی',
                 prompt: 'فرمول ترکیباتی تعداد کل نقاط گوشه‌ای مدل برنامه‌ریزی خطی بر حسب تعداد قیود (m) و تعداد متغیرها (n) چیست؟',
-                canonical: '(m + n)! / (m! · n!)',
+                canonical: '(m + n)! ÷ (m! · n!)',
                 aliases: ['(m+n)!/(m!*n!)', '(m+n)!/(m!·n!)', 'C(m+n, n)', '(m+n)! / (m! * n!)', '(m + n)! / (m! * n!)', 'c(m+n,n)'],
                 hint: 'تعداد کل خطوط مرزی m + n است و هر رأس از تلاقی n خط به وجود می‌آید.',
                 breakdown: 'کالبدشکافی: ترکیب انتخاب n از m+n خط؛ تمام تلاقی‌های ممکن مرزها را مشخص می‌کند که بخشی از آن‌ها موجه و بخشی ناموجه هستند.'
@@ -21806,7 +22164,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'o8',
                 title: 'شرط جبری جواب بهینه چندگانه',
                 prompt: 'شرط برابری شیب تابع هدف (ضرایب c₁, c₂) با شیب قید فعال مرزی (ضرایب a₁, a₂) را بنویسید:',
-                canonical: 'c₁ / c₂ = a₁ / a₂',
+                canonical: 'c₁ ÷ c₂ = a₁ ÷ a₂',
                 aliases: ['c1/c2 = a1/a2', 'c1/c2=a1/a2', 'c₁/c₂ = a₁/a₂', 'c₁ / c₂ = aᵢ₁ / aᵢ₂', 'c1 / c2 = a1 / a2'],
                 hint: 'نسبت ضرایب متغیر اول به متغیر دوم در تابع هدف باید با نسبت متناظر در قید فعال برابر باشد.',
                 breakdown: 'کالبدشکافی: موازی بودن خط تراز سود با مرز فعال؛ سبب مماس شدن خط سود با کل پاره‌خط مرزی و ایجاد بی‌نهایت جواب بهینه می‌شود.'
@@ -21815,7 +22173,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'o9',
                 title: 'ارزش سایه قید مازاد یا زائد (Redundant Constraint Shadow Price)',
                 prompt: 'قیمت سایه (yᵢ*) یک قید مازاد یا زائد (Redundant Constraint) در جواب بهینه برنامه‌ریزی خطی چقدر است؟',
-                canonical: 'y_redundant = 0',
+                canonical: 'yᵢ* = 0',
                 aliases: ['y=0', 'y_i=0', 'y_redundant=0', 'y=0', 'shadow=0', 'yᵢ = 0', 'y=0 تومان'],
                 hint: 'چون قید مازاد هیچ تماسی با مرز فعال ندارد و منبع آن اضافی است، ارزش سایه آن دقیقاً صفر است.',
                 breakdown: 'کالبدشکافی تحلیلی استاد: طبق قضیه مکمل فزونی، چون متغیر کمکی قید مازاد در پایه نهایی مثبت است (s_redundant > 0)، قیمت سایه آن متناظراً صفر مطلق می‌شود.'
@@ -21833,7 +22191,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'o11',
                 title: 'شرط توقف به دلیل جواب بی‌کران در آزمون نسبت سیمپلکس',
                 prompt: 'در جدول سیمپلکس، در چه صورتی برای متغیر ورودی kام، مسئله دارای جواب نامتناهی (Unbounded) اعلام می‌شود؟',
-                canonical: 'a_ik ≤ 0',
+                canonical: 'aᵢₖ ≤ 0',
                 aliases: ['a_ik <= 0', 'a_ik<=0', 'a_ik ≤ 0', 'aik<=0', 'aik <= 0', 'all a_ik <= 0'],
                 hint: 'تمامی درایه‌های ستون لولایی برای متغیر ورودی صفر یا منفی باشند.',
                 breakdown: 'کالبدشکافی: اگر درایه‌های ستون لولایی همگی منفی یا صفر باشند، هیچ مانعی برای رشد متغیر ورودی وجود ندارد و متغیر خارج‌شونده‌ای یافت نمی‌شود.'
@@ -21844,7 +22202,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 's1',
                 title: 'انحراف متوسط از میانگین (MAD)',
                 prompt: 'فرمول انحراف متوسط از میانگین (MAD) برای n مشاهده نمونه با میانگین x_bar چیست؟',
-                canonical: 'MAD = sum(|x_i - x_bar|) / n',
+                canonical: 'MAD = [ ∑ |xᵢ - x̄| ] ÷ n',
                 aliases: ['MAD=sum(|x_i-x_bar|)/n', 'MAD = ∑ |x_i - x_bar| / n', 'mad=sum(|xi-xbar|)/n', 'MAD = sum(|x - x_bar|)/n'],
                 hint: 'مجموع قدر مطلق انحرافات داده‌ها از میانگین تقسیم بر تعداد کل مشاهدات (n).',
                 breakdown: 'کالبدشکافی: حذف اثر علامت منفی‌ها از مسیر خطی بدون مربع‌سازی؛ مقاوم در برابر داده‌های پرت و محبوب در زنجیره تامین.'
@@ -21853,7 +22211,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 's2',
                 title: 'واریانس نمونه و تصحیح بسل (Sample Variance)',
                 prompt: 'فرمول واریانس نمونه (s²) با تصحیح بسل در مخرج چیست؟',
-                canonical: 's^2 = sum((x_i - x_bar)^2) / (n - 1)',
+                canonical: 's² = [ ∑ (xᵢ - x̄)² ] ÷ (n - 1)',
                 aliases: ['s^2=sum((x_i-x_bar)^2)/(n-1)', 's^2 = ∑ (x_i - x_bar)² / (n - 1)', 's2 = sum((x_i - x_bar)^2) / (n - 1)', 's² = ∑ (xᵢ - x̄)² / (n - 1)'],
                 hint: 'مجموع مجذور انحرافات تقسیم بر درجات آزادی (n - 1).',
                 breakdown: 'کالبدشکافی: تقسیم بر n - 1 اریبی برآوردگر را برطرف کرده و تخمین نااریب از واریانس کل جامعه ارائه می‌دهد.'
@@ -21862,7 +22220,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 's3',
                 title: 'نیمه‌واریانس جامعه با مخرج مشاهدات زیر هدف (Semi-Variance)',
                 prompt: 'طبق قرارداد دانشگاهی استاد، فرمول نیمه‌واریانس (SV) برای k مشاهده پایین‌تر از هدف (Target) چیست؟',
-                canonical: 'SV = sum((x_i - Target)^2) / k',
+                canonical: 'SV = [ ∑ (xᵢ - Target)² ] ÷ k',
                 aliases: ['SV=sum((x_i-Target)^2)/k', 'SV = ∑ (x_i - Target)² / k', 'sv=sum((xi-target)^2)/k', 'SV = sum((x_i - mu)^2) / k'],
                 hint: 'مجموع مجذور انحرافات مقادیر زیان‌بار (زیر حد هدف) تقسیم بر k (تعداد دفعات وقوع ریزش).',
                 breakdown: 'کالبدشکافی: سنجش ریسک نامطلوب (Downside Risk) و مخرج نسبت سورتینو؛ نوسانات مثبت ریسک محسوب نمی‌شوند.'
@@ -21871,7 +22229,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 's4',
                 title: 'ضریب تغییرات و سنجش ریسک نسبی (CV)',
                 prompt: 'فرمول ضریب تغییرات (CV) بر حسب انحراف معیار (s) و میانگین (x̄) چیست؟',
-                canonical: 'CV = s / x_bar',
+                canonical: 'CV = s ÷ x̄',
                 aliases: ['CV=s/x_bar', 'cv=s/x_bar', 'CV = sigma / mu', 'CV = s / xbar', 'CV = s / x̄', 'CV = (s / x̄) * 100'],
                 hint: 'انحراف معیار تقسیم بر میانگین حسابی.',
                 breakdown: 'کالبدشکافی: معیار ریسک بدون بعد و خنثی از مقیاس؛ مناسب برای مقایسه نوسان دو سهم با قیمت‌های بسیار متفاوت.'
@@ -21880,7 +22238,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 's5',
                 title: 'انحراف چارکی و دامنه میان‌چارکی (Quartile Deviation)',
                 prompt: 'فرمول انحراف چارکی (QD) بر حسب چارک اول (Q₁) و چارک سوم (Q₃) چیست؟',
-                canonical: 'QD = (Q3 - Q1) / 2',
+                canonical: 'QD = (Q₃ - Q₁) ÷ 2',
                 aliases: ['QD=(Q3-Q1)/2', 'qd=(q3-q1)/2', 'QD = IQR / 2', 'QD = (Q₃ - Q₁) / 2'],
                 hint: 'نصف دامنه میان‌چارکی (IQR / 2).',
                 breakdown: 'کالبدشکافی: شاخص پراکندگی ناپارامتری و مقاوم در برابر داده‌های پرت؛ تغییر ۵۰ درصد داده‌های کناری هیچ اثری روی آن ندارد.'
@@ -21889,7 +22247,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 's6',
                 title: 'نابرابری طلایی و سلسله‌مراتب میانگین‌ها',
                 prompt: 'رابطه نامساوی طلایی بین میانگین هارمونیک (H)، هندسی (G)، حسابی (x̄) و جذر میانگین مربعات (RMS) چیست؟',
-                canonical: 'H <= G <= x_bar <= RMS',
+                canonical: 'H ≤ G ≤ x̄ ≤ RMS',
                 aliases: ['H<=G<=x_bar<=RMS', 'H <= G <= x_bar', 'H <= G <= X_bar <= RMS', 'Min <= H <= G <= x_bar <= Max', 'H ≤ G ≤ x̄ ≤ RMS', 'Min ≤ H ≤ G ≤ x̄ ≤ RMS ≤ Max'],
                 hint: 'کوچک‌ترین میانگین هارمونیک، سپس هندسی، سپس حسابی و بزرگ‌ترین جذر مجذورات است.',
                 breakdown: 'کالبدشکافی: برابری تنها زمانی رخ می‌دهد که تمام داده‌ها یکسان باشند (x1 = x2 = ... = xn).'
@@ -21900,7 +22258,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'mt1',
                 title: 'دیفرانسیل کل تابع دومتغیره (Total Differential)',
                 prompt: 'فرمول دیفرانسیل کل تابع z = f(x, y) بر حسب مشتقات جزئی و دیفرانسیل‌های dx و dy چیست؟',
-                canonical: 'dz = (dz/dx) * dx + (dz/dy) * dy',
+                canonical: 'dz = (∂z ÷ ∂x) · dx + (∂z ÷ ∂y) · dy',
                 aliases: ['dz=(dz/dx)*dx+(dz/dy)*dy', 'dz = (∂z/∂x) dx + (∂z/∂y) dy', 'dz = (∂z/∂x)*dx + (∂z/∂y)*dy', 'dz = fx*dx + fy*dy'],
                 hint: 'مشتق جزئی نسبت به x در dx به علاوه مشتق جزئی نسبت به y در dy.',
                 breakdown: 'کالبدشکافی تحلیلی استاد: تقریب خطی لایب‌نیتس برای سنجش پاسخ خروجی به شوک‌های هم‌زمان چند متغیر مستقل.'
@@ -21909,7 +22267,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'mt2',
                 title: 'دیفرانسیل کل حجم استوانه مستدیر (Cylinder Volume)',
                 prompt: 'فرمول تغییر تقریبی حجم استوانه V = π · r² · h با دیفرانسیل کل بر حسب dr و dh چیست؟',
-                canonical: 'dV = (2*pi*r*h) * dr + (pi*r^2) * dh',
+                canonical: 'dV = (2π · r · h) · dr + (π · r²) · dh',
                 aliases: ['dV=(2*pi*r*h)*dr+(pi*r^2)*dh', 'dV = 2*pi*r*h*dr + pi*r^2*dh', 'dV = (2πrh)dr + (πr²)dh', 'dv = (2*pi*r*h)*dr + (pi*r^2)*dh', 'dV = (2π · r · h) · dr + (π · r²) · dh'],
                 hint: 'مشتق حجم نسبت به شعاع r (برابر 2π · r · h) در dr به علاوه مشتق حجم نسبت به ارتفاع h (برابر π · r²) در dh.',
                 breakdown: 'کالبدشکافی تحلیلی استاد: چون شعاع توان ۲ دارد، نرخ حساسیت حجم به تغییرات شعاع دو برابر اثر هندسی ارتفاع است.'
@@ -21918,7 +22276,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'mt3',
                 title: 'خطای نسبی حجم استوانه (Relative Error)',
                 prompt: 'فرمول خطای نسبی حجم استوانه (dV / V) بر حسب خطای نسبی شعاع (dr / r) و ارتفاع (dh / h) چیست؟',
-                canonical: 'dV / V = 2 * (dr / r) + (dh / h)',
+                canonical: 'dV ÷ V = 2 · (dr ÷ r) + (dh ÷ h)',
                 aliases: ['dV/V=2*(dr/r)+(dh/h)', 'dv/v = 2*(dr/r) + (dh/h)', 'dV / V = 2*(dr/r) + (dh/h)', 'dV/V = 2(dr/r) + (dh/h)'],
                 hint: 'توان هر متغیر در فرمول ضربی، ضریب خطای نسبی آن در دیفرانسیل کل است (ضریب شعاع ۲ و ارتفاع ۱).',
                 breakdown: 'کالبدشکافی: خطای ۱ درصدی در شعاع استوانه منجر به خطای ۲ درصدی در حجم کل خواهد شد.'
@@ -21927,7 +22285,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'mt4',
                 title: 'کشش نقطه‌ای تقاضا با مشتق (Point Elasticity)',
                 prompt: 'فرمول مشتقی کشش نقطه‌ای تقاضا (Ed) بر حسب dQ/dP و قیمت و مقدار چیست؟',
-                canonical: 'Ed = (dQ/dP) * (P/Q)',
+                canonical: 'EᏧ = (dQ ÷ dP) · (P ÷ Q)',
                 aliases: ['Ed=(dQ/dP)*(P/Q)', 'ed=(dq/dp)*(p/q)', 'Ed = (dQ / dP) * (P / Q)'],
                 hint: 'مشتق مقدار نسبت به قیمت ضرب در نسبت قیمت به مقدار.',
                 breakdown: 'کالبدشکافی: عکس شیب منحنی تقاضا در فضای (P, Q) که بر اساس تغییرات درصدی بدون بعد شده است.'
@@ -21936,7 +22294,7 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
                 id: 'mt5',
                 title: 'تابع لاگرانژ در بهینه‌سازی مقید (Lagrange Multiplier)',
                 prompt: 'فرم کلی تابع لاگرانژ L(x, y, lambda) برای بهینه‌سازی f(x, y) تحت قید g(x, y) = c چیست؟',
-                canonical: 'L = f(x, y) - lambda * [g(x, y) - c]',
+                canonical: 'ℒ = f(x, y) - λ · [g(x, y) - c]',
                 aliases: ['L=f(x,y)-lambda*[g(x,y)-c]', 'L = f(x, y) + lambda * (c - g(x, y))', 'L = f(x,y) - lambda*(g(x,y)-c)'],
                 hint: 'تابع هدف اصلی منهای ضریب لاگرانژ (لاندا) ضرب‌در پرانتز رابطه قید برابر صفر.',
                 breakdown: 'کالبدشکافی: تبدیل مسئله بهینه‌سازی مقید به نامقید چندمتغیره؛ مقدار لاندا بیانگر قیمت سایه قید است.'
@@ -21954,18 +22312,20 @@ if (quizState[course].selected[qIdx] !== quizBank[course][qIdx].correct) { saveM
     function normalizeFormula(str) {
         if (!str) return '';
         var s = str.trim().toLowerCase();
-        // Remove spaces and underscores
+        // Normalize x̄/xbar and underscores cleanly before ascii collapse
+        s = s.replace(/x\u0304/g, 'xbar').replace(/x̄/g, 'xbar').replace(/x_bar/g, 'xbar');
         s = s.replace(/\s+/g, '').replace(/_/g, '');
         // Normalize unicode subscripts and superscripts to standard ascii
         s = s.replace(/ₗ/g, 'l').replace(/ₖ/g, 'k').replace(/ᵅ/g, 'a').replace(/ᵝ/g, 'b');
-        s = s.replace(/₁/g, '1').replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4').replace(/₅/g, '5');
+        s = s.replace(/ₓ/g, 'x').replace(/ᵧ/g, 'y').replace(/ᵣ/g, 'r').replace(/ₚ/g, 'p').replace(/ₜ/g, 't').replace(/ₑ/g, 'e');
+        s = s.replace(/ᵇˡᵃᶜᵏ/g, 'black').replace(/ᶜ/g, 'c').replace(/ᵇ/g, 'b');
+        s = s.replace(/₀/g, '0').replace(/₁/g, '1').replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4').replace(/₅/g, '5');
         s = s.replace(/ᵢ/g, 'i').replace(/ⱼ/g, 'j').replace(/ₘ/g, 'm').replace(/ₙ/g, 'n').replace(/ₛ/g, 's').replace(/Ꮷ/g, 'd');
         // Replace common unicode operators with standard ascii
         s = s.replace(/×/g, '*').replace(/·/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
-        s = s.replace(/²/g, '^2').replace(/³/g, '^3');
-        s = s.replace(/∂/g, 'd').replace(/δ/g, 'd').replace(/μ/g, 'mu').replace(/σ/g, 'sigma');
-        s = s.replace(/π/g, 'pi').replace(/∑/g, 'sum').replace(/∏/g, 'prod');
-        s = s.replace(/x̄/g, 'x_bar').replace(/xbar/g, 'x_bar');
+        s = s.replace(/²/g, '^2').replace(/³/g, '^3').replace(/≤/g, '<=').replace(/≥/g, '>=').replace(/⟹/g, '=>');
+        s = s.replace(/∂/g, 'd').replace(/δ/g, 'd').replace(/Δ/g, 'delta').replace(/μ/g, 'mu').replace(/σ/g, 'sigma');
+        s = s.replace(/π/g, 'pi').replace(/λ/g, 'lambda').replace(/ℒ/g, 'l').replace(/∑/g, 'sum').replace(/∏/g, 'prod');
         // Clean outer redundant brackets
         s = s.replace(/[\[\{]/g, '(').replace(/[\]\}]/g, ')');
         return s;
