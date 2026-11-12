@@ -9268,7 +9268,114 @@ body.theme-dark .step-content {
                         </div>
                     </div>
 
-                <!-- End of Isolated View Boundary Guard -->
+                
+                    <!-- CARD 25: COBB-DOUGLAS DEMAND & CONSTANT ELASTICITY -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۲۵</span>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: کشش و بار مالیاتی</button>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تابع تقاضای کاب-داگلاس ضربی-کسری، کشش‌های توان ثابت و هندسه خطی منحنی انجل</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">تابع تقاضای کاب-داگلاس (فرم ضربی-کسری):</span>
+                                    <span class="math-sym">X</span><span class="math-op">=</span><span class="math-sym">k</span> · <span class="math-frac"><span class="math-num">I</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-sym">k</span> · <span class="math-sym">I¹</span> · <span class="math-sym">Pₓ⁻¹</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">کشش درآمدی تقاضا (توان درآمد):</span>
+                                    <span class="math-sym">Eᵢ</span><span class="math-op">=</span>+1.0 <span class="math-op">⟹</span> کالای عادی با کشش واحد (مرز ضروری و لوکس)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">کشش قیمتی تقاضا (توان قیمت):</span>
+                                    <span class="math-sym">Eₚ</span><span class="math-op">=</span>-1.0 <span class="math-op">⟹</span> |<span class="math-sym">Eₚ</span>|<span class="math-op">=</span>1.0 (تقاضای با کشش واحد)
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge pop">معادله منحنی انجل (با ثبات Pₓ):</span>
+                                    <span class="math-sym">I</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">Pₓ</span><span class="math-den">k</span></span> ) · <span class="math-sym">X</span> <span class="math-op">⟹</span> خط مستقیم عبوری از مبدأ (کشش واحد در تمام نقاط)
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد (مسئله آزمون دانشگاهی):</strong>
+                                • <b>تغییر پوسته جبری تابع:</b> در آزمون، تابع تقاضا به فرم <span dir="ltr">X = 0.4 · (I ÷ Pₓ)</span> داده شد. طبق قاعده توابع توانی کاب-داگلاس، توان هر متغیر مستقیماً همان کشش ثابت است؛ لذا توان درآمد مساوی ۱ است (<span dir="ltr">Eᵢ = +1.0</span>) و توان قیمت مساوی ۱- است (<span dir="ltr">Eₚ = -1.0</span>).<br>
+                                • <b>هندسه منحنی انجل عبوری از مبدأ:</b> با فرض <span dir="ltr">Pₓ = 2</span>، رابطه درآمد و مقدار به صورت <span dir="ltr">X = 0.2 I</span> یا معکوس <span dir="ltr">I = 5X</span> درمی‌آید. چون عرض از مبدأ صفر است، در هر نقطه شیب خط (<span dir="ltr">dI ÷ dX = 5</span>) با شیب وتر متصل به مبدأ (<span dir="ltr">I ÷ X = 5</span>) دقیقاً برابر است؛ لذا کشش درآمدی در سرتاسر منحنی انجل همواره مساوی ۱ است.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 کاربرد پورتفو و سهم بودجه (Budget Share):</strong>
+                                در توابع تقاضای کاب-داگلاس، سهم هزینه کالا در بودجه خانوار (<span dir="ltr">Sₓ = (Pₓ · X) ÷ I = 0.4</span>) همواره عددی ثابت (۴۰٪) است. این یعنی مصرف‌کننده صرف‌نظر از جهش‌های تورمی یا افزایش ثروت، کسری دقیق و تغییرناپذیر از جریان نقد خود را به این دارایی تخصیص می‌دهد.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                طراحان با ارائه فرم ضربی-کسری داوطلبان را فریب می‌دهند تا دقایق ارزشمند را صرف مشتق‌گیری طولانی و زنجیره‌ای کنند؛ در حالی که در توابع فرم <span dir="ltr">X = k · Iᵃ · Pₓᵇ</span>، کشش درآمدی مستقیماً عدد a و کشش قیمتی عدد b است! همچنین شیب ثابت خط انجل به معنای تغییر کشش نیست؛ اگر خط از مبدأ بگذرد، کشش درآمدی همواره مساوی ۱ است.
+                            </div>
+                        </div>
+
+                        <div class="formula-card-actions">
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')">
+                                <span>⚡</span> فلش‌بک به کشش
+                            </button>
+                            <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+                                <span>📋</span> کپی فرمول
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CARD 26: GOSSEN'S FIRST LAW & EQUAL MARGINAL UTILITY PER DOLLAR -->
+                    <div class="formula-card">
+                        <div>
+                            <span class="badge badge-micro">فرمول طلایی ۲۶</span>
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک: مشتق و بهینه‌سازی</button>
+                            <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">نظریه مطلوبیت، قانون مطلوبیت نهایی نزولی (قانون اول گوسن) و قاعده تخصیص ریالی بودجه</h4>
+                            
+                            <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+                                <div class="formula-line">
+                                    <span class="math-badge pop">مطلوبیت نهایی (مشتق و تغییرات گسسته):</span>
+                                    <span class="math-sym">MU</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">d(TU)</span><span class="math-den">dQ</span></span> <span class="math-op">,</span> <span class="math-sym">MU</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">ΔTU</span><span class="math-den">ΔQ</span></span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge samp">قانون اول گوسن (مطلوبیت نهایی نزولی):</span>
+                                    <span class="math-frac"><span class="math-num">d(MU)</span><span class="math-den">dQ</span></span> &lt; 0 <span class="math-op">⟹</span> با افزایش مصرف متوالی، مطلوبیت آخرین واحد پیوسته کاهش می‌یابد
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge app">شرط برابری بازدهی ریالی (تعادل نهایی):</span>
+                                    <span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">MUᵧ</span><span class="math-den">Pᵧ</span></span><span class="math-op">=</span>...<span class="math-op">=</span><span class="math-sym">λ</span>
+                                </div>
+                                <div class="formula-line">
+                                    <span class="math-badge pop">قاعده بازتخصیص عقلایی بودجه:</span>
+                                    اگر <span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">Pₓ</span></span> &gt; <span class="math-frac"><span class="math-num">MUᵧ</span><span class="math-den">Pᵧ</span></span> <span class="math-op">⟹</span> افزایش مصرف کالای X و کاهش مصرف کالای Y تا برقراری تعادل
+                                </div>
+                            </div>
+
+                            <div class="tier-card prof-tier">
+                                <strong>🎓 کالبدشکافی تحلیلی استاد (مسئله آزمون دانشگاهی):</strong>
+                                • <b>جدول گسسته مطلوبیت:</b> در آزمون برای مقادیر <span dir="ltr">Q = 1, 2, 3, 4</span> مطلوبیت کل به ترتیب <span dir="ltr">TU = 10, 18, 24, 28</span> بود؛ لذا مطلوبیت‌های نهایی برابرند با: <span dir="ltr">MU₁ = 10, MU₂ = 8, MU₃ = 6, MU₄ = 4</span> که اثبات تجربی نزولی بودن MU است.<br>
+                                • <b>تصمیم‌گیری بهینه ریالی:</b> با فرض <span dir="ltr">MUₓ = 20 , Pₓ = 4</span> و <span dir="ltr">MUᵧ = 30 , Pᵧ = 10</span>، بازدهی آخرین یک تومان برای کالای اول برابر <span dir="ltr">20 ÷ 4 = 5</span> و برای کالای دوم برابر <span dir="ltr">30 ÷ 10 = 3</span> است. چون ۵ &gt; ۳ است، هر ریال روی کالای اول لذت بیشتری تولید می‌کند؛ لذا باید «مصرف کالای اول (X) افزایش» و «مصرف کالای دوم (Y) کاهش» یابد.
+                            </div>
+
+                            <div class="tier-card bankai-tier">
+                                <strong>🔥 اصل هم‌ارزی نهایی پولی (Equi-marginal Utility Principle):</strong>
+                                حداکثرسازی رفاه ذهنی سرمایه‌گذار در بودجه‌بندی سبد دارایی‌ها زمانی محقق می‌شود که نرخ نهایی بازدهی روانی به ازای آخرین واحد سرمایه در تمامی بازارها هم‌تراز شود. در غیر این صورت، انتقال سرمایه از بازار کم‌بازده به پربازده رفاه کل را بی‌درنگ افزایش می‌دهد.
+                            </div>
+
+                            <div class="tier-card trap-tier">
+                                <strong>🚨 تله مرگبار طراحان کنکور ارشد:</strong>
+                                مقایسه خام مطلوبیت‌ها بدون توجه به قیمت! داوطلب با دیدن <span dir="ltr">MUᵧ = 30</span> در برابر <span dir="ltr">MUₓ = 20</span> به اشتباه فریب می‌خورد و کالای Y را جذاب‌تر می‌پندارد؛ در حالی که معیار عقلانیت نسبت <span dir="ltr">MU ÷ P</span> است نه ارزش اسمی مطلوبیت. همچنین نقطه ماکسیمم <span dir="ltr">TU</span> جایی است که <span dir="ltr">MU = 0</span> شود، نه جایی که MU بیشینه است.
+                            </div>
+                        </div>
+
+                        <div class="formula-card-actions">
+                            <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')">
+                                <span>⚡</span> فلش‌بک به مطلوبیت
+                            </button>
+                            <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+                                <span>📋</span> کپی فرمول
+                            </button>
+                        </div>
+                    </div>
+
+<!-- End of Isolated View Boundary Guard -->
                 <div class="view-end-guard">
                     <span>🔒</span>
                     <span>پایان بخش فرمول‌نامه جامع و تفکیکی | جهت ورود به سایر بخش‌ها، از داک شناور زیرین استفاده کنید</span>
@@ -9506,7 +9613,7 @@ body.theme-dark .step-content {
                         <div>
                             <span class="badge badge-micro">کارگاه حل مسائل امتحانی دانشگاهی</span>
                             <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
-                                📝 حل تشریحی ۵ مسئله امتحانی اقتصاد خرد (فصول ۱، ۲ و ۳)
+                                📝 حل تشریحی و گام‌به‌گام ۸ مسئله امتحانی و آزمون دانشگاهی اقتصاد خرد (فصول ۱، ۲ و ۳)
                             </h3>
                             <p style="font-size: 0.76rem; color: #64748B; margin: 3px 0 0 0;">
                                 الگوی پاسخ‌نویسی نمره‌آور سر جلسه، تفکیک گام‌های جبری، اثبات‌های ریاضی و تحلیل‌های اقتصادی ملاک مصحح کنکور
@@ -9515,7 +9622,250 @@ body.theme-dark .step-content {
                         <span class="badge badge-dark">ملاک بارم‌بندی ۲۰ از ۲۰</span>
                     </div>
 
-                    <!-- PROBLEM 1: PRICE CONTROLS & BLACK MARKET -->
+                    
+                    <!-- ========================================================
+                         UNIVERSITY MIDTERM EXAM SOLUTIONS (حل تشریحی آزمون میان‌ترم بهادر)
+                         ======================================================== -->
+                    <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(59, 130, 246, 0.03) 100%); border: 1.5px solid #3B82F6; border-radius: 14px; padding: 14px 16px; margin-bottom: 22px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                            <div>
+                                <span class="badge" style="background: #2563EB; color: #FFFFFF; font-weight: 800; font-size: 0.72rem;">آزمون رسمی میان‌ترم دانشگاه</span>
+                                <h3 style="font-size: 1.05rem; font-weight: 900; color: var(--heading-primary); margin: 5px 0 0 0;">
+                                    🎯 حل تشریحی و گام‌به‌گام ۳ مسئله برگه امتحانی اخیر (فصول ۱، ۲ و ۳)
+                                </h3>
+                                <p style="font-size: 0.76rem; color: #475569; margin: 3px 0 0 0;">
+                                    کالبدشکافی کامل، استخراج هندسی و جبری، رفع تله‌های ذهنی و شیوه نگارش نمره‌آور ۲۰ از ۲۰ سر جلسه امتحان
+                                </p>
+                            </div>
+                            <span class="badge" style="background: #EFF6FF; color: #1D4ED8; font-weight: 900; font-size: 0.75rem;">مجموع بارم: ۵.۰ نمره</span>
+                        </div>
+                    </div>
+
+                    <!-- EXAM PROBLEM 1 -->
+                    <div class="formula-card" style="border-right: 4px solid #2563EB; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #EFF6FF; color: #1D4ED8; font-weight: 800; font-size: 0.68rem;">مسئله ۱ امتحان میان‌ترم</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    تعادل بازار، مازاد رفاه مصرف‌کننده (CS) و تولیدکننده (PS)، وضع مالیات بر فروشنده و آزمون تقاضای عمودی
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۱.۵ نمره</span>
+                        </div>
+
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
+                            <strong>صورت مسئله آزمون:</strong> در بازار کالایی معین، توابع تقاضا و عرضه به صورت <span dir="ltr">QᏧ = 40 - 2P</span> و <span dir="ltr">Qₛ = -10 + 2P</span> هستند.<br>
+                            الف) قیمت و مقدار تعادلی و مازاد رفاه مصرف‌کننده (CS) و تولیدکننده (PS) را به دست آورید و مفهوم اقتصادی آن‌ها را شرح دهید.<br>
+                            ب) اگر دولت مالیات ثابت <span dir="ltr">t = 4</span> واحد بر هر واحد فروش کالا وضع کند، تعادل جدید بازار، قیمت پرداختی خریدار و دریافتی خالص فروشنده را محاسبه کنید.<br>
+                            ج) کدام طرف بار مالیاتی بیشتری تحمل می‌کند؟ چرا؟ اگر تقاضا کاملاً بی‌کشش (عمودی) بود وضعیت تسهیم مالیات چه تغییری می‌کرد؟
+                        </div>
+
+                        <!-- Step 1: Equilibrium -->
+                        <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام الف ۱: محاسبه تعادل اولیه بازار</strong>
+                            <p style="margin: 2px 0;">شرط تعادل، برابری مقدار تقاضا و عرضه است:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">QᏧ</span><span class="math-op">=</span><span class="math-sym">Qₛ</span>
+                                <span class="math-op">⟹</span>
+                                <span class="math-sym">40</span> <span class="math-op">-</span> <span class="math-sym">2P</span><span class="math-op">=</span><span class="math-sym">-10</span> <span class="math-op">+</span> <span class="math-sym">2P</span>
+                                <span class="math-op">⟹</span>
+                                <span class="math-sym">4P</span><span class="math-op">=</span><span class="math-sym">50</span>
+                                <span class="math-op">⟹</span>
+                                <span class="math-sym">P*</span><span class="math-op">=</span><span class="math-sym">12.5</span> تومان
+                            </div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">Q*</span><span class="math-op">=</span><span class="math-sym">40</span> <span class="math-op">-</span> <span class="math-sym">2</span> × (<span class="math-sym">12.5</span>)<span class="math-op">=</span><span class="math-sym">40</span> <span class="math-op">-</span> <span class="math-sym">25</span><span class="math-op">=</span><span class="math-sym">15</span> واحد
+                            </div>
+                        </div>
+
+                        <!-- Step 2: CS & PS -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام الف ۲: استخراج مساحت مازاد مصرف‌کننده (CS) و تولیدکننده (PS)</strong>
+                            <p style="margin: 2px 0;">• <b>عرض از مبدأ تقاضا (حداکثر قیمت تمایل به خرید Pₘₐₓ):</b> با قرار دادن <span dir="ltr">QᏧ = 0</span> داریم: <span dir="ltr">0 = 40 - 2P ⟹ Pₘₐₓ = 20</span> تومان.</p>
+                            <p style="margin: 2px 0;">• <b>ارتفاع مثلث CS:</b> <span dir="ltr">Pₘₐₓ - P* = 20 - 12.5 = 7.5</span> تومان.</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">CS</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> × ( <span class="math-sym">Pₘₐₓ</span> <span class="math-op">-</span> <span class="math-sym">P*</span> ) × <span class="math-sym">Q*</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> × (<span class="math-sym">7.5</span>) × (<span class="math-sym">15</span>)<span class="math-op">=</span><span class="math-sym">56.25</span> تومان
+                            </div>
+                            <p style="margin: 4px 0 2px 0;">• <b>عرض از مبدأ عرضه (حداقل قیمت آستانه شروع عرضه Pₘᵢₙ):</b> با قرار دادن <span dir="ltr">Qₛ = 0</span> داریم: <span dir="ltr">0 = -10 + 2P ⟹ Pₘᵢₙ = 5</span> تومان.</p>
+                            <p style="margin: 2px 0;">• <b>ارتفاع مثلث PS:</b> <span dir="ltr">P* - Pₘᵢₙ = 12.5 - 5 = 7.5</span> تومان.</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">PS</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> × ( <span class="math-sym">P*</span> <span class="math-op">-</span> <span class="math-sym">Pₘᵢₙ</span> ) × <span class="math-sym">Q*</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">2</span></span> × (<span class="math-sym">7.5</span>) × (<span class="math-sym">15</span>)<span class="math-op">=</span><span class="math-sym">56.25</span> تومان
+                            </div>
+                            <p style="margin: 4px 0 0 0; color: #334155;"><b>شرح اقتصادی:</b> مازاد مصرف‌کننده (CS) منفعت رفاهی روانی خریداران از پرداخت قیمتی کمتر از حداکثر ارزش ذخیره ذهنی است. مازاد تولیدکننده (PS) درآمد مازاد فروشندگان نسبت به حداقل هزینه نهایی تولید است.</p>
+                        </div>
+
+                        <!-- Step 3: Tax t=4 -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ب: وضع مالیات بر واحد t = 4 بر فروشنده و تعادل جدید</strong>
+                            <p style="margin: 2px 0;">مالیات بر فروشنده، هزینه نهایی تولید را به میزان t واحد بالا می‌برد. معادله معکوس عرضه اولیه: <span dir="ltr">P = 5 + 0.5Qₛ</span>.</p>
+                            <p style="margin: 2px 0;">معادله معکوس عرضه جدید: <span dir="ltr">P' = 5 + 0.5Qₛ + 4 = 9 + 0.5Qₛ</span> ⟹ تابع مستقیم جدید: <span dir="ltr">Qₛ' = -18 + 2P</span>.</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">40</span> <span class="math-op">-</span> <span class="math-sym">2P</span><span class="math-op">=</span><span class="math-sym">-18</span> <span class="math-op">+</span> <span class="math-sym">2P</span>
+                                <span class="math-op">⟹</span>
+                                <span class="math-sym">4P</span><span class="math-op">=</span><span class="math-sym">58</span>
+                                <span class="math-op">⟹</span>
+                                <span class="math-sym">P₁</span><span class="math-op">=</span><span class="math-sym">14.5</span> تومان (قیمت ناخالص پرداختی خریدار)
+                            </div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">Q₁</span><span class="math-op">=</span><span class="math-sym">40</span> <span class="math-op">-</span> <span class="math-sym">2</span> × (<span class="math-sym">14.5</span>)<span class="math-op">=</span><span class="math-sym">11</span> واحد (تیراژ تعادل جدید)
+                            </div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">P₂</span><span class="math-op">=</span><span class="math-sym">P₁</span> <span class="math-op">-</span> <span class="math-sym">t</span><span class="math-op">=</span><span class="math-sym">14.5</span> <span class="math-op">-</span> <span class="math-sym">4</span><span class="math-op">=</span><span class="math-sym">10.5</span> تومان (دریافتی خالص تولیدکننده)
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Tax Incidence & Vertical Demand -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ج: تسهیم بار مالیاتی و حالت تقاضای عمودی</strong>
+                            <p style="margin: 2px 0;">• <b>سهم خریدار از مالیات:</b> <span dir="ltr">ΔPᵦ = P₁ - P* = 14.5 - 12.5 = 2.0</span> تومان (۵۰٪ بار مالیاتی).</p>
+                            <p style="margin: 2px 0;">• <b>سهم فروشنده از مالیات:</b> <span dir="ltr">ΔPₛ = P* - P₂ = 12.5 - 10.5 = 2.0</span> تومان (۵۰٪ بار مالیاتی).</p>
+                            <p style="margin: 2px 0;">• <b>علت علمی:</b> چون قدر مطلق شیب تقاضا (<span dir="ltr">|b| = 2</span>) با شیب عرضه (<span dir="ltr">d = 2</span>) برابر است، کشش دو طرف متقارن بوده و مالیات دقیقاً نصف-نصف تقسیم می‌شود.</p>
+                            <p style="margin: 4px 0 0 0; color: #B91C1C;">• <b>حالت تقاضای کاملاً بی‌کشش (عمودی: EᏧ = 0):</b> اگر تقاضا عمودی باشد، خریداران هیچ قدرت فراری از بازار ندارند؛ لذا ۱۰۰٪ بار مالیاتی (۴ تومان) به خریدار منتقل می‌شود. قیمت بازار دقیقاً به اندازه مالیات بالا می‌رود (<span dir="ltr">P₁ = 12.5 + 4 = 16.5</span> تومان)، مقدار تعادل روی ۱۵ واحد ثابت می‌ماند و فروشنده همان ۱۲.۵ تومان اولیه را خالص دریافت می‌کند.</p>
+                        </div>
+                    </div>
+
+                    <!-- EXAM PROBLEM 2 -->
+                    <div class="formula-card" style="border-right: 4px solid #10B981; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #ECFDF5; color: #047857; font-weight: 800; font-size: 0.68rem;">مسئله ۲ امتحان میان‌ترم</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    تابع تقاضای کاب-داگلاس ضربی-کسری X = 0.4(I/Px)، کشش‌های ثابت، منحنی انجل و طبقه‌بندی کالاها
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۱.۵ نمره</span>
+                        </div>
+
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
+                            <strong>صورت مسئله آزمون:</strong> تابع تقاضای کالایی به فرم <span dir="ltr">X = 0.4 · ( I ÷ Pₓ )</span> داده شده است.<br>
+                            الف) کشش درآمدی و کشش قیمتی تقاضا را محاسبه کرده، نوع کالا را تعیین کنید و اگر <span dir="ltr">Pₓ = 2</span> باشد مقدار مصرف را برای درآمدهای ۱۰۰ و ۱۵۰ به دست آورید.<br>
+                            ب) معادله منحنی انجل را بنویسید و اثبات کنید چرا کشش درآمدی هنگام عبور منحنی از مبدأ همواره مساوی یک است.<br>
+                            ج) تفاوت کالای لوکس، ضروری و پست را از نظر مقدار کشش درآمدی با ذکر مثال بیان کنید.
+                        </div>
+
+                        <!-- Step 1: Elasticities & Demand -->
+                        <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام الف: استخراج کشش‌ها، طبقه‌بندی کالا و مقادیر مصرف جدید</strong>
+                            <p style="margin: 2px 0;">بازنویسی تابع به فرم توانی: <span dir="ltr">X = 0.4 · I¹ · Pₓ⁻¹</span>.</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">Eᵢ</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">dX</span><span class="math-den">dI</span></span> ) × ( <span class="math-frac"><span class="math-num">I</span><span class="math-den">X</span></span> )<span class="math-op">=</span>( <span class="math-frac"><span class="math-num">0.4</span><span class="math-den">Pₓ</span></span> ) × [ <span class="math-frac"><span class="math-num">I</span><span class="math-den">0.4 · (I ÷ Pₓ)</span></span> ]<span class="math-op">=</span>+1.0
+                            </div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">Eₚ</span><span class="math-op">=</span>( <span class="math-frac"><span class="math-num">dX</span><span class="math-den">dPₓ</span></span> ) × ( <span class="math-frac"><span class="math-num">Pₓ</span><span class="math-den">X</span></span> )<span class="math-op">=</span>- ( <span class="math-frac"><span class="math-num">0.4 I</span><span class="math-den">Pₓ²</span></span> ) × [ <span class="math-frac"><span class="math-num">Pₓ</span><span class="math-den">0.4 · (I ÷ Pₓ)</span></span> ]<span class="math-op">=</span>-1.0 <span class="math-op">⟹</span> |<span class="math-sym">Eₚ</span>|<span class="math-op">=</span>1.0
+                            </div>
+                            <p style="margin: 2px 0;">• <b>نوع کالا:</b> چون <span dir="ltr">Eᵢ &gt; 0</span> است، کالا عادی است؛ و چون دقیقاً مساوی ۱ است، کالایی با کشش واحد (مرز بین لوکس و ضروری) است.</p>
+                            <p style="margin: 2px 0;">• <b>محاسبه مصرف در Pₓ = 2 ثابت:</b></p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">X₁</span><span class="math-op">=</span><span class="math-sym">0.4</span> × ( <span class="math-frac"><span class="math-num">100</span><span class="math-den">2</span></span> )<span class="math-op">=</span><span class="math-sym">20</span> واحد <span class="math-op">,</span> <span class="math-sym">X₂</span><span class="math-op">=</span><span class="math-sym">0.4</span> × ( <span class="math-frac"><span class="math-num">150</span><span class="math-den">2</span></span> )<span class="math-op">=</span><span class="math-sym">30</span> واحد
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Engel Curve & Proof -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ب: استخراج معادله منحنی انجل و اثبات قضیه عبور از مبدأ</strong>
+                            <p style="margin: 2px 0;">با جایگذاری <span dir="ltr">Pₓ = 2</span> در تابع تقاضا:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">X</span><span class="math-op">=</span><span class="math-sym">0.4</span> × ( <span class="math-frac"><span class="math-num">I</span><span class="math-den">2</span></span> )<span class="math-op">=</span><span class="math-sym">0.2 I</span> <span class="math-op">⟺</span> <span class="math-sym">I</span><span class="math-op">=</span><span class="math-sym">5X</span> (معادله معکوس انجل)
+                            </div>
+                            <p style="margin: 3px 0 0 0;">• <b>اثبات ریاضی کشش درآمدی واحد در خطوط عبوری از مبدأ:</b></p>
+                            <p style="margin: 2px 0;">فرمول کشش نسبت شیب خط به شیب وتر متصل به مبدأ است: <span dir="ltr">Eᵢ = (dX ÷ dI) ÷ (X ÷ I)</span>. هر خط راستی که از مبدأ مختصات بگذرد به فرم <span dir="ltr">I = m · X</span> است و عرض از مبدأ آن صفر است؛ بنابراین در تمام نقاط، شیب خط با شیب وتر مبدأ برابر است (<span dir="ltr">dX ÷ dI = 1/m</span> و <span dir="ltr">X ÷ I = 1/m</span>). در نتیجه کسرها یکدیگر را ساده کرده و کشش درآمدی در تمام طول منحنی انجل دقیقاً مساوی ۱ باقی می‌ماند.</p>
+                        </div>
+
+                        <!-- Step 3: Goods Comparison Table -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ج: ماتریس تمایز کالای لوکس، ضروری و پست</strong>
+                            <div style="overflow-x: auto; margin-top: 6px;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 0.74rem; text-align: right;">
+                                    <thead>
+                                        <tr style="background: #F1F5F9; border-bottom: 2px solid #CBD5E1;">
+                                            <th style="padding: 6px 8px;">نوع کالا</th>
+                                            <th style="padding: 6px 8px;">دامنه کشش درآمدی</th>
+                                            <th style="padding: 6px 8px;">رفتار سهم بودجه در خانوار</th>
+                                            <th style="padding: 6px 8px;">مثال عینی</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid #E2E8F0;">
+                                            <td style="padding: 6px 8px; font-weight: bold; color: #1D4ED8;">لوکس (Luxury)</td>
+                                            <td style="padding: 6px 8px;" dir="ltr">Eᵢ &gt; 1</td>
+                                            <td style="padding: 6px 8px;">رشد تقاضا سریع‌تر از رشد درآمد است؛ سهم کالا در بودجه صعودی است.</td>
+                                            <td style="padding: 6px 8px;">خودروهای گران‌قیمت، سفرهای تفریحی، جواهرات</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #E2E8F0;">
+                                            <td style="padding: 6px 8px; font-weight: bold; color: #047857;">ضروری (Necessity)</td>
+                                            <td style="padding: 6px 8px;" dir="ltr">0 &lt; Eᵢ &lt; 1</td>
+                                            <td style="padding: 6px 8px;">تقاضا با درآمد زیاد می‌شود اما کندتر؛ سهم کالا در بودجه نزولی است.</td>
+                                            <td style="padding: 6px 8px;">نان، برنج، لبنیات پایه، خدمات بهداشتی و درمان</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 6px 8px; font-weight: bold; color: #B91C1C;">پست (Inferior)</td>
+                                            <td style="padding: 6px 8px;" dir="ltr">Eᵢ &lt; 0</td>
+                                            <td style="padding: 6px 8px;">با رشد درآمد، مصرف‌کننده خرید را متوقف کرده و جنس باکیفیت‌تر جایگزین می‌کند.</td>
+                                            <td style="padding: 6px 8px;">نان خشک، بلیت وسایل نقلیه فرسوده، پوشاک دست‌دوم</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXAM PROBLEM 3 -->
+                    <div class="formula-card" style="border-right: 4px solid #8B5CF6; margin-bottom: 20px;">
+                        <div class="formula-card-header">
+                            <div>
+                                <span class="badge" style="background: #F5F3FF; color: #6D28D9; font-weight: 800; font-size: 0.68rem;">مسئله ۳ امتحان میان‌ترم</span>
+                                <h4 style="font-size: 0.95rem; font-weight: 900; color: var(--heading-primary); margin: 4px 0 0 0;">
+                                    نظریه مطلوبیت، قانون اول گوسن (مطلوبیت نهایی نزولی)، خواص منحنی‌های بی‌تفاوتی و تخصیص بهینه بودجه
+                                </h4>
+                            </div>
+                            <span class="badge" style="background: #DCFCE7; color: #166534; font-size: 0.7rem;">بارم: ۲.۰ نمره</span>
+                        </div>
+
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 0.78rem;">
+                            <strong>صورت مسئله آزمون:</strong> جدول مطلوبیت کل فردی به شرح زیر است: برای مقادیر <span dir="ltr">Q = 1, 2, 3, 4</span> مطلوبیت کل به ترتیب <span dir="ltr">TU = 10, 18, 24, 28</span> است.<br>
+                            الف) مطلوبیت نهایی (MU) را در هر سطح مصرف حساب کنید و نام قانون حاکم بر آن را بنویسید.<br>
+                            ب) ۳ ویژگی منحنی‌های بی‌تفاوتی را با ذکر دلیل علمی نام ببرید.<br>
+                            ج) اگر مصرف‌کننده با <span dir="ltr">MUₓ = 20 , Pₓ = 4</span> و <span dir="ltr">MUᵧ = 30 , Pᵧ = 10</span> مواجه باشد، آیا در تعادل است؟ راهکار حرکت به سمت تعادل چیست؟
+                        </div>
+
+                        <!-- Step 1: Discrete MU & Gossen -->
+                        <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام الف: محاسبه مطلوبیت نهایی و تبیین قانون حاکم</strong>
+                            <p style="margin: 2px 0;">فرمول مطلوبیت نهایی گسسته: <span dir="ltr">MU = ΔTU ÷ ΔQ</span>.</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">MU₁</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">-</span> <span class="math-sym">0</span><span class="math-op">=</span><span class="math-sym">10</span> <span class="math-op">,</span>
+                                <span class="math-sym">MU₂</span><span class="math-op">=</span><span class="math-sym">18</span> <span class="math-op">-</span> <span class="math-sym">10</span><span class="math-op">=</span><span class="math-sym">8</span> <span class="math-op">,</span>
+                                <span class="math-sym">MU₃</span><span class="math-op">=</span><span class="math-sym">24</span> <span class="math-op">-</span> <span class="math-sym">18</span><span class="math-op">=</span><span class="math-sym">6</span> <span class="math-op">,</span>
+                                <span class="math-sym">MU₄</span><span class="math-op">=</span><span class="math-sym">28</span> <span class="math-op">-</span> <span class="math-sym">24</span><span class="math-op">=</span><span class="math-sym">4</span>
+                            </div>
+                            <p style="margin: 3px 0 0 0;">• <b>نام قانون حاکم:</b> «قانون مطلوبیت نهایی نزولی» (قانون اول گوسن - Law of Diminishing Marginal Utility).</p>
+                            <p style="margin: 2px 0; color: #334155;"><b>شرح علمی:</b> مصرف واحدهای پی‌درپی از یک کالا، شدت نیاز مصرف‌کننده را اشباع کرده و مطلوبیت افزوده حاصل از آخرین واحد را نزولی می‌سازد.</p>
+                        </div>
+
+                        <!-- Step 2: Indifference Curves -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ب: ویژگی‌های سه‌گانه منحنی‌های بی‌تفاوتی با ادله علمی</strong>
+                            <p style="margin: 2px 0;"><b>۱. شیب منفی دارند:</b> چون سطح رضایت در طول منحنی ثابت است، با کاهش مصرف کالای Y، مصرف‌کننده برای جبران کمبود حتماً باید کالای X بیشتری مصرف کند (اصل عدم اشباع).</p>
+                            <p style="margin: 2px 0;"><b>۲. نسبت به مبدأ مختصات محدب هستند:</b> به دلیل نزولی بودن نرخ نهایی جانشینی (MRS)؛ با کاهش یک کالا، مصرف‌کننده تمایل کمتری دارد تا واحدهای باقیمانده و کمیاب آن را فدا کند.</p>
+                            <p style="margin: 2px 0;"><b>۳. یکدیگر را هرگز قطع نمی‌کنند:</b> تقاطع دو منحنی ناقض اصل بنیادین «ترایایی» (انتقال‌پذیری عقلایی ترجیحات: اگر A~B و B~C پس A~C) بوده و به تناقض آشکار منطقی می‌انجامد.</p>
+                        </div>
+
+                        <!-- Step 3: Optimal Allocation Decision -->
+                        <div style="margin-top: 12px; font-size: 0.77rem; line-height: 1.7;">
+                            <strong style="color: #1E293B;">گام ج: تصمیم‌گیری بهینه بر مبنای بازدهی ریالی آخرین واحد پول</strong>
+                            <p style="margin: 2px 0;">محاسبه مطلوبیت نهایی به ازای یک واحد پول برای هر کالا:</p>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">کالای اول:</span> <span class="math-frac"><span class="math-num">MUₓ</span><span class="math-den">Pₓ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">20</span><span class="math-den">4</span></span><span class="math-op">=</span><span class="math-sym">5</span> واحد مطلوبیت به ازای هر تومان
+                            </div>
+                            <div class="formula-display" dir="ltr" onclick="copyFormulaCard(this)">
+                                <span class="math-sym">کالای دوم:</span> <span class="math-frac"><span class="math-num">MUᵧ</span><span class="math-den">Pᵧ</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">30</span><span class="math-den">10</span></span><span class="math-op">=</span><span class="math-sym">3</span> واحد مطلوبیت به ازای هر تومان
+                            </div>
+                            <p style="margin: 4px 0 2px 0;">• <b>وضعیت تعادل:</b> چون <span dir="ltr">5 &gt; 3</span> است (<span dir="ltr">MUₓ ÷ Pₓ &gt; MUᵧ ÷ Pᵧ</span>)، مصرف‌کننده در نقطه تعادل قرار <b>ندارد</b>.</p>
+                            <p style="margin: 2px 0; color: #1D4ED8;">• <b>دستورالعمل عقلایی حرکت به سمت تعادل:</b> هر ریالی که به خرید کالای X اختصاص یابد ۵ واحد لذت ایجاد می‌کند در حالی که روی کالای Y تنها ۳ واحد لذت تولید می‌کند. بنابراین مصرف‌کننده باید <b>«مصرف کالای X را افزایش»</b> و <b>«مصرف کالای Y را کاهش»</b> دهد تا بر اساس قانون گوسن، با افزایش مصرف X مطلوبیت نهایی MUₓ افت کند و با کاهش مصرف Y مطلوبیت MUᵧ بالا رود تا شرط برابری ریالی (<span dir="ltr">MUₓ ÷ Pₓ = MUᵧ ÷ Pᵧ</span>) محقق شود.</p>
+                        </div>
+                    </div>
+
+<!-- PROBLEM 1: PRICE CONTROLS & BLACK MARKET -->
                     <div class="formula-card" style="border-right: 4px solid #2563EB; margin-bottom: 20px;">
                         <div class="formula-card-header">
                             <div>
@@ -17914,6 +18264,39 @@ window.resetORSimplex = resetORSimplex;
                     ],
                     correct: 0,
                     expl: 'کالبدشکافی تحلیلی: بازدهی مطلوبیت آخرین تومان برای کالای X برابر MUₓ ÷ Pₓ = 2 ÷ 2 = 1.0 و برای کالای Y برابر MUᵧ ÷ Pᵧ = 3 ÷ 5 = 0.6 است. چون 1.0 > 0.6 است، مصرف‌کننده تمام بودجه ۶۰ واحدی را صرف کالای X می‌کند: X* = 60 ÷ 2 = 30 و Y* = 0.'
+                },
+                {
+                    q: 'در بازاری با توابع QᏧ = 40 - 2P و Qₛ = -10 + 2P، اگر مالیات بر واحد t = 4 بر فروشندگان وضع شود و تابع تقاضا کاملاً بی‌کشش (عمودی) باشد، چه میزان از مالیات به خریداران منتقل می‌شود و قیمت تعادلی جدید چقدر خواهد بود؟',
+                    opts: [
+                        '۱. انتقال ۱۰۰٪ بار مالیاتی به خریداران؛ قیمت جدید بازار P₁ = 16.5 تومان',
+                        '۲. انتقال ۵۰٪ بار مالیاتی به خریداران؛ قیمت جدید بازار P₁ = 14.5 تومان',
+                        '۳. انتقال ۰٪ بار مالیاتی به خریداران؛ قیمت بدون تغییر P* = 12.5 تومان',
+                        '۴. انتقال ۷۵٪ بار مالیاتی به خریداران؛ قیمت جدید بازار P₁ = 15.5 تومان'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: در تقاضای کاملاً بی‌کشش (عمودی: EᏧ = 0)، خریداران هیچ قدرت جانشینی و فراری از بازار ندارند؛ لذا ۱۰۰٪ بار مالیات به خریدار منتقل می‌شود. قیمت بازار به اندازه کل مالیات گران می‌شود (P₁ = P* + t = 12.5 + 4 = 16.5 تومان) و مقدار تعادل روی ۱۵ واحد و دریافتی خالص فروشنده روی ۱۲.۵ تومان بدون تغییر می‌ماند.'
+                },
+                {
+                    q: 'اگر تابع تقاضای کالایی به فرم X = 0.4(I ÷ Pₓ) باشد، کشش درآمدی تقاضا (Eᵢ)، کشش قیمتی تقاضا (Eₚ) و رفتار منحنی انجل آن چگونه است؟',
+                    opts: [
+                        '۱. Eᵢ = +1.0 (عادی با کشش واحد) ، |Eₚ| = 1.0 (کشش واحد) ، انجل خطی عبوری از مبدأ',
+                        '۲. Eᵢ = +0.4 (ضروری) ، |Eₚ| = 0.4 (بی‌کشش) ، انجل با عرض از مبدأ مثبت',
+                        '۳. Eᵢ = -1.0 (پست) ، |Eₚ| = 2.0 (باکشش) ، انجل با شیب منفی',
+                        '۴. Eᵢ = +1.5 (لوکس) ، |Eₚ| = 1.0 (کشش واحد) ، انجل غیرخطی و محدب'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: در توابع توانی کاب-داگلاس X = k · Iᵃ · Pₓᵇ، توان هر متغیر مستقیماً بیانگر کشش ثابت آن است. در اینجا توان درآمد ۱ است (Eᵢ = +1.0) و توان قیمت ۱- است (|Eₚ| = 1.0). منحنی انجل با ثبات قیمت به صورت I = 5X خطی عبوری از مبدأ است و در تمام طول خط، کشش درآمدی همواره مساوی ۱ باقی می‌ماند.'
+                },
+                {
+                    q: 'اگر مصرف‌کننده‌ای با قیمت‌های Pₓ = 4 و Pᵧ = 10 مواجه باشد و مطلوبیت‌های نهایی MUₓ = 20 و MUᵧ = 30 را دریافت کند، تصمیم عقلایی او برای حرکت به سمت تعادل و حداکثرسازی مطلوبیت چیست؟',
+                    opts: [
+                        '۱. افزایش مصرف کالای X و کاهش مصرف کالای Y به دلیل MUₓ/Pₓ = 5 > MUᵧ/Pᵧ = 3',
+                        '۲. افزایش مصرف کالای Y و کاهش مصرف کالای X به دلیل بزرگتر بودن مطلوبیت نهایی خام (30 > 20)',
+                        '۳. حفظ ترکیب مصرف فعلی به دلیل برقراری شرایط تعادل پایدار مصرف‌کننده',
+                        '۴. کاهش مصرف هر دو کالا به دلیل نزولی بودن نرخ نهایی جانشینی'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: ملاک عقلانیت و بهینگی، بازدهی مطلوبیت به ازای هر واحد پول (MU ÷ P) است نه مقدار خام MU. برای کالای اول بازدهی 20 ÷ 4 = 5 و برای کالای دوم 30 ÷ 10 = 3 است. چون 5 > 3 است، هر ریال روی X لذت بیشتری دارد؛ لذا مصرف‌کننده باید مصرف X را افزایش و Y را کاهش دهد تا بر اساس قانون اول گوسن با کاهش MUₓ و افزایش MUᵧ به برابری برسد.'
                 },
             ],
             cost: [
