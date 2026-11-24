@@ -4966,7 +4966,7 @@ body:not(.theme-dark) h4, body:not(.theme-dark) h5, body:not(.theme-dark) h6 {
    100% Contrast Invariant + Zero-Clipping 6-Button Mobile Dock
    ============================================================ */
 
-/* ── 1. LIGHT MODE CONTRAST RULES (body:not(.theme-dark)) ── */
+/* -- 1. LIGHT MODE CONTRAST RULES (body:not(.theme-dark)) -- */
 body:not(.theme-dark) {
   background-color: #F8FAFC !important;
   color: #0F172A !important;
@@ -5037,7 +5037,7 @@ body:not(.theme-dark) #banner-desc {
   color: #F1F5F9 !important;
 }
 
-/* ── 2. DARK MODE CONTRAST RULES (body.theme-dark) ── */
+/* -- 2. DARK MODE CONTRAST RULES (body.theme-dark) -- */
 body.theme-dark {
   background-color: #070B14 !important;
   color: #F1F5F9 !important;
@@ -5095,7 +5095,7 @@ body.theme-dark #banner-desc {
   color: #CBD5E1 !important;
 }
 
-/* ── 3. UNIVERSAL EXECUTIVE DOCK (RESPONSIVE FLUID ENGINE) ── */
+/* -- 3. UNIVERSAL EXECUTIVE DOCK (RESPONSIVE FLUID ENGINE) -- */
 .executive-dock {
   position: fixed !important;
   bottom: 10px !important;
@@ -5235,7 +5235,7 @@ body.theme-dark .dock-btn.active .dock-indicator {
   width: 18px !important;
 }
 
-/* ── 4. RESPONSIVE BREAKPOINTS (ANDROID PORTRAIT VS PC/LANDSCAPE) ── */
+/* -- 4. RESPONSIVE BREAKPOINTS (ANDROID PORTRAIT VS PC/LANDSCAPE) -- */
 @media screen and (max-width: 540px) {
   body {
     padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px)) !important;
@@ -5303,7 +5303,7 @@ body.theme-dark .dock-btn.active .dock-indicator {
    & ANDROID MOBILE ZERO-OVERFLOW CONTAINMENT ENGINE
    ============================================================ */
 
-/* ── 1. GLOBAL ZERO-OVERFLOW CONTAINMENT RESET ── */
+/* -- 1. GLOBAL ZERO-OVERFLOW CONTAINMENT RESET -- */
 *, *::before, *::after {
   box-sizing: border-box !important;
 }
@@ -5327,7 +5327,7 @@ main, #bankai-cockpit-app, .discipline-pane, .subtab-view, .card, .sim-layout {
   box-sizing: border-box !important;
 }
 
-/* ── 2. SOVEREIGN OBSIDIAN PALETTE (COGNITIVE PSYCHOLOGY - ZERO GLARE) ── */
+/* -- 2. SOVEREIGN OBSIDIAN PALETTE (COGNITIVE PSYCHOLOGY - ZERO GLARE) -- */
 body.theme-dark {
   background-color: #070A13 !important;
   color: #E2E8F0 !important;
@@ -5392,7 +5392,7 @@ body.theme-dark .param-label {
   color: #CBD5E1 !important;
 }
 
-/* ── 3. CALM WARM SLATE THEME (LIGHT FALLBACK - ZERO BLINDING GLARE) ── */
+/* -- 3. CALM WARM SLATE THEME (LIGHT FALLBACK - ZERO BLINDING GLARE) -- */
 body:not(.theme-dark) {
   background-color: #F1F5F9 !important;
   color: #0F172A !important;
@@ -5445,7 +5445,7 @@ body:not(.theme-dark) #banner-title {
   color: #FFFFFF !important;
 }
 
-/* ── 4. TABLE RESPONSIVE SCROLL WRAPPERS (ELIMINATING SPILLOVER) ── */
+/* -- 4. TABLE RESPONSIVE SCROLL WRAPPERS (ELIMINATING SPILLOVER) -- */
 .sensitivity-container,
 .stat-table-wrapper,
 .table-responsive {
@@ -5466,7 +5466,7 @@ body:not(.theme-dark) #banner-title {
   border-collapse: collapse !important;
 }
 
-/* ── 5. RESPONSIVE CANVAS ARENA & CHART SIZING ── */
+/* -- 5. RESPONSIVE CANVAS ARENA & CHART SIZING -- */
 .canvas-arena-wrapper {
   width: 100% !important;
   max-width: 100% !important;
@@ -5489,7 +5489,7 @@ canvas {
   box-sizing: border-box !important;
 }
 
-/* ── 6. SYMMETRICALLY ANCHORED MOBILE DOCK (100% VISIBLE, ZERO CLIPPING) ── */
+/* -- 6. SYMMETRICALLY ANCHORED MOBILE DOCK (100% VISIBLE, ZERO CLIPPING) -- */
 @media screen and (max-width: 540px) {
   body {
     padding: 8px 8px 80px 8px !important;
@@ -5622,7 +5622,7 @@ canvas {
    & MATHEMATICAL FORMULA PERFECTION ENGINE
    ============================================================ */
 
-/* ── 1. GLOBAL ROOT BASE: PURE WHITE & IVORY PORCELAIN (DEFAULT) ── */
+/* -- 1. GLOBAL ROOT BASE: PURE WHITE & IVORY PORCELAIN (DEFAULT) -- */
 :root {
   --bg-base:        #F8FAFC;
   --bg-card:        #FFFFFF;
@@ -5705,7 +5705,7 @@ body:not(.theme-dark) #banner-desc {
   color: #F1F5F9 !important;
 }
 
-/* ── 2. FORMULA TYPOGRAPHY & BOX ARCHITECTURE ── */
+/* -- 2. FORMULA TYPOGRAPHY & BOX ARCHITECTURE -- */
 .formula-card {
   background: #FFFFFF !important;
   border: 1.5px solid #CBD5E1 !important;
@@ -5856,7 +5856,7 @@ body:not(.theme-dark) #banner-desc {
   border: 1px solid #FDE68A !important;
 }
 
-/* ── 3. FLOATING DOCK IN CRISP LIGHT THEME ── */
+/* -- 3. FLOATING DOCK IN CRISP LIGHT THEME -- */
 body:not(.theme-dark) .dock-inner {
   background: rgba(255, 255, 255, 0.96) !important;
   border: 1.5px solid #CBD5E1 !important;
@@ -8503,7 +8503,7 @@ body.theme-dark .step-content {
 
         <div class="tier-card trap-tier">
             <strong>🚨 تله کنکور ارشد:</strong>
-            طراحان تست می‌پرسند: «چرا بنگاه عاقل هرگز در مرحله اول تولید توقف نمی‌کند؟» پاسخ: در مرحله اول بازده متوسط کارگر در حال افزایش است، پس اگر بنگاه در این مرحله تولید کند، سرمایه ثابت ($K$) زیر ظرفیت اسمی معطل مانده و هزینه ثابت سربار به ازای هر واحد محصول بالا می‌ماند. همچنین در نقطه ماکزیمم TP، تولید نهایی دقیقاً صفر است (MPₗ = 0)، نه تولید متوسط!
+            طراحان تست می‌پرسند: «چرا بنگاه عاقل هرگز در مرحله اول تولید توقف نمی‌کند؟» پاسخ: در مرحله اول بازده متوسط کارگر در حال افزایش است، پس اگر بنگاه در این مرحله تولید کند، سرمایه ثابت (K) زیر ظرفیت اسمی معطل مانده و هزینه ثابت سربار به ازای هر واحد محصول بالا می‌ماند. همچنین در نقطه ماکزیمم TP، تولید نهایی دقیقاً صفر است (MPₗ = 0)، نه تولید متوسط!
         </div>
 
         <div class="visual-diagram-box">
@@ -9992,8 +9992,8 @@ body.theme-dark .step-content {
                         <!-- Step 1 -->
                         <div style="margin-top: 10px; font-size: 0.77rem; line-height: 1.7;">
                             <strong style="color: #1E293B;">گام ۱: استخراج نقاط برخورد تقاضا با محورهای مختصات</strong>
-                            <p style="margin: 2px 0;">• عرض از مبدأ (محور قیمت): اگر <span dir="ltr">Q = 0</span> باشد ──► <span dir="ltr">P = 10</span> (نقطه N(0, 10))</p>
-                            <p style="margin: 2px 0;">• طول از مبدأ (محور مقدار): اگر <span dir="ltr">P = 0</span> باشد ──► <span dir="ltr">0 = 10 - 2Q ⟹ Q = 5</span> (نقطه M(5, 0))</p>
+                            <p style="margin: 2px 0;">• عرض از مبدأ (محور قیمت): اگر <span dir="ltr">Q = 0</span> باشد ➔ <span dir="ltr">P = 10</span> (نقطه N(0, 10))</p>
+                            <p style="margin: 2px 0;">• طول از مبدأ (محور مقدار): اگر <span dir="ltr">P = 0</span> باشد ➔ <span dir="ltr">0 = 10 - 2Q ⟹ Q = 5</span> (نقطه M(5, 0))</p>
                         </div>
 
                         <!-- Step 2 -->
@@ -11521,7 +11521,7 @@ body.theme-dark .step-content {
                                 اشتباه در تعیین علامت متغیر دوگان! اگر قید اولیه به صورت تساوی (=) باشد، متغیر دوگان متناظر با آن آزاد در علامت (URS: Unrestricted in Sign) خواهد بود!
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('Primal: Max Z = cᵀ x , A x ≤ b   ◄──►   Dual: Min W = bᵀ y , Aᵀ y ≥ c   |   Max Z* = Min W*')">
+                        <button class="btn-copy-formula" onclick="copyFormula('Primal: Max Z = cᵀ x , A x ≤ b   ◄➔   Dual: Min W = bᵀ y , Aᵀ y ≥ c   |   Max Z* = Min W*')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -14012,7 +14012,7 @@ body.theme-dark .step-content {
                             </div>
                             <h4 style="font-size: 0.92rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">ویژگی‌های جبری و قضایای بنیادین میانگین حسابی</h4>
                             
-                            <div class="formula-stack" dir="ltr" onclick="copyFormula('قضیه ۱: ∑ (xᵢ - x̄) = 0   |   قضیه ۲: min ∑ (xᵢ - c)² ──► c = x̄   |   x̄_c = [ ∑ (nⱼ × x̄ⱼ) ] ÷ ∑ nⱼ', this)" title="برای کپی فرمول کلیک کنید">
+                            <div class="formula-stack" dir="ltr" onclick="copyFormula('قضیه ۱: ∑ (xᵢ - x̄) = 0   |   قضیه ۲: min ∑ (xᵢ - c)² ➔ c = x̄   |   x̄_c = [ ∑ (nⱼ × x̄ⱼ) ] ÷ ∑ nⱼ', this)" title="برای کپی فرمول کلیک کنید">
                                 <div class="formula-line">
                                     <span class="math-badge pop">قضیه ۱ (صفر شدن مجموع انحرافات):</span>
                                     <span class="math-sym">∑ ( xᵢ - x̄ )</span><span class="math-op">=</span>0
@@ -14039,7 +14039,7 @@ body.theme-dark .step-content {
                                 فریب میانگینِ میانگین‌ها! اگر کلاسی ۲۰ نفره میانگین ۱۸ و کلاسی ۱۰ نفره میانگین ۱۴ داشته باشد، میانگین کل (۱۸+۱۴)/۲ = ۱۶ نیست! باید وزنی حساب شود: [ (20×18) + (10×14) ] / 30 = 16.67.
                             </div>
                         </div>
-                        <button class="btn-copy-formula" onclick="copyFormula('∑ (xᵢ - x̄) = 0   |   min ∑ (xᵢ - c)² ──► c = x̄   |   x̄_c = [ ∑ (nⱼ × x̄ⱼ) ] ÷ ∑ nⱼ')">
+                        <button class="btn-copy-formula" onclick="copyFormula('∑ (xᵢ - x̄) = 0   |   min ∑ (xᵢ - c)² ➔ c = x̄   |   x̄_c = [ ∑ (nⱼ × x̄ⱼ) ] ÷ ∑ nⱼ')">
                             <span>📋</span> کپی فرمول
                         </button>
                     </div>
@@ -15663,7 +15663,7 @@ body.theme-dark .step-content {
                                 </div>
                                 <div class="formula-line">
                                     <span class="math-badge samp">حالات چهارگانه آزمون مشتق دوم:</span>
-                                    <span class="math-sym">Δ &gt; 0 , fₓₓ &lt; 0 ──► Max</span> <span class="math-sep">|</span> <span class="math-sym">Δ &gt; 0 , fₓₓ &gt; 0 ──► Min</span> <span class="math-sep">|</span> <span class="math-sym">Δ &lt; 0 ──► Saddle</span>
+                                    <span class="math-sym">Δ &gt; 0 , fₓₓ &lt; 0 ➔ Max</span> <span class="math-sep">|</span> <span class="math-sym">Δ &gt; 0 , fₓₓ &gt; 0 ➔ Min</span> <span class="math-sep">|</span> <span class="math-sym">Δ &lt; 0 ➔ Saddle</span>
                                 </div>
                             </div>
                             <div class="tier-card prof-tier">
