@@ -8821,7 +8821,7 @@ body.theme-dark .step-content {
             </div>
             <div class="formula-line">
                 <span class="math-badge app">طیف رژیم‌های تکنولوژی (لئونتیف، کاب-داگلاس، جانشین کامل، CES):</span>
-                <span class="math-sym">σ_Leontief</span><span class="math-op">=</span>0 <span class="math-op">,</span> <span class="math-sym">σ_Cobb-Douglas</span><span class="math-op">=</span>1 <span class="math-op">,</span> <span class="math-sym">σ_Linear</span><span class="math-op">=</span><span class="math-sym">∞</span> <span class="math-op">,</span> <span class="math-sym">σ_CES</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">1 + ρ</span></span>
+                <span class="math-sym">σ₍لئونتیف₎</span><span class="math-op">=</span>0 <span class="math-op">,</span> <span class="math-sym">σ₍کاب-داگلاس₎</span><span class="math-op">=</span>1 <span class="math-op">,</span> <span class="math-sym">σ₍خطی₎</span><span class="math-op">=</span><span class="math-sym">∞</span> <span class="math-op">,</span> <span class="math-sym">σ₍CES₎</span><span class="math-op">=</span><span class="math-frac"><span class="math-num">1</span><span class="math-den">1 + ρ</span></span>
             </div>
         </div>
 
@@ -8941,10 +8941,157 @@ body.theme-dark .step-content {
 
 
 
-<!-- FORMULA 22: PRICE CONTROLS & BLACK MARKET -->
+
+
+<!-- Card 22: Input Price Change, Substitution Effect & Output Effect in Producer Theory -->
+<div class="formula-card">
+    <div>
+        <span class="badge badge-micro">فرمول طلایی ۲۲</span>
+        <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تغییر در تعادل تولیدکننده: تفکیک اثر تغییر قیمت نهاده به اثر جانشینی (Substitution) و اثر تولیدی (Output Effect)</h4>
+        
+        <div class="formula-stack" dir="ltr" onclick="copyFormulaCard(this)" title="برای کپی فرمول کلیک کنید">
+            <div class="formula-line">
+                <span class="math-badge pop">تفکیک اثر کل تغییر دستمزد بر تقاضای کارگر (معادله اسلاتسکی تولیدکننده):</span>
+                <span class="math-sym">ΔLₜₒₜₐₗ</span><span class="math-op">=</span><span class="math-sym">ΔLₛᵤᵦ</span><span class="math-op">+</span><span class="math-sym">ΔLₒᵤₜ</span>
+            </div>
+            <div class="formula-line">
+                <span class="math-badge samp">معادله دیفرانسیلی تفکیک اثرات (کاهش دستمزد w ⟹ تغییر اشتغال L):</span>
+                <span class="math-frac"><span class="math-num">dL</span><span class="math-den">dw</span></span><span class="math-op">=</span><span class="math-frac"><span class="math-num">∂L</span><span class="math-den">∂w</span></span><span class="math-sym">₍Q=const₎</span><span class="math-op">+</span><span class="math-frac"><span class="math-num">∂L</span><span class="math-den">∂Q</span></span><span class="math-op">·</span><span class="math-frac"><span class="math-num">∂Q</span><span class="math-den">∂w</span></span>
+            </div>
+            <div class="formula-line">
+                <span class="math-badge app">جهت اثرات در نهاده عادی و پست (قاعده پایداری تقاضای مشتق‌شده نهاده):</span>
+                <span class="math-sym">نهاده عادی:</span> <span class="math-sym">ΔLₛᵤᵦ</span><span class="math-op">&gt;</span>0 <span class="math-op">,</span> <span class="math-sym">ΔLₒᵤₜ</span><span class="math-op">&gt;</span>0 <span class="math-op">⟹</span> <span class="math-sym">ΔLₜₒₜₐₗ</span><span class="math-op">&gt;</span>0
+            </div>
+        </div>
+
+        <div class="tier-card prof-tier">
+            <strong>🎓 کالبدشکافی تحلیلی استاد:</strong>
+            • <b>منطق چرخش خط هزینه و تفکیک دوسطحی:</b> با کاهش دستمزد کارگر (w)، خط هزینه یکسان به سمت راست می‌چرخد؛ زیرا طول از مبدأ آن (TC ÷ w) افزایش می‌یابد. برای درک علمی رفتار بنگاه، واکنش کل به دو گام تفکیک می‌شود:<br>
+            • <b>۱. اثر جانشینی (Substitution Effect):</b> فرض می‌کنیم بودجه فرضی بنگاه به گونه‌ای تعدیل شود که روی همان سطح تولید قبلی (منحنی هم‌تولیدی اولیه Q₁) باقی بماند، اما با نسبت قیمت‌های جدید (w ÷ r ملایم‌تر). در این حالت، نقطه تعادل در امتداد منحنی هم‌تولیدی حرکت می‌کند و کارگر جایگزین سرمایه می‌شود (L افزایش و K کاهش می‌یابد). این اثر همواره منفی است؛ یعنی با ارزان شدن نهاده، استخدام آن قطعاً بالا می‌رود.<br>
+            • <b>۲. اثر تولیدی / اثر ستانده (Output Effect):</b> در گام دوم، کاهش دستمزد باعث کاهش هزینه نهایی تولید شده و سودآوری بنگاه بالا می‌رود؛ بنابراین بنگاه با همان بودجه اولیه مقیاس تولید را گسترش داده و به منحنی هم‌تولیدی بالاتر (Q₂) جهش می‌کند.<br>
+            • <b>نهاده عادی در برابر نهاده پست:</b> اگر کارگر نهاده عادی باشد، افزایش تولید مستلزم استخدام کارگر بیشتر است (اثر تولیدی مثبت و هم‌جهت با اثر جانشینی)؛ اما اگر کارگر نهاده پست باشد، افزایش تولید باعث کاهش استخدام کارگر به نفع اتوماسیون می‌شود (اثر تولیدی منفی). با این حال، همیشه اثر جانشینی قوی‌تر است و تقاضای کل نهاده صعودی باقی می‌ماند.
+        </div>
+
+        <div class="tier-card bankai-tier">
+            <strong>⚡ رهیافت تکمیلی بانکای / CFA (تفاوت بنیادین با نظریه مصرف‌کننده و هندسه مسیر توسعه):</strong>
+            • <b>چرا اثر تولیدی جایگزین اثر درآمدی شد؟</b> در نظریه مصرف‌کننده، کاهش قیمت کالا قدرت خرید واقعی خانوار را افزایش می‌دهد که «اثر درآمدی» نام دارد و در کالای گیفن می‌تواند اثر جانشینی را خنثی کند. اما در نظریه بنگاه، تولیدکننده کالا مصرف نمی‌کند بلکه ستانده فیزیکی تولید می‌کند؛ لذا کاهش قیمت نهاده به «اثر خروجی/تولیدی» تعبیر می‌شود.<br>
+            • <b>فقدان پارادوکس گیفن در نهاده‌های تولید:</b> بر اساس قضایای هیکس و ساموئلسون در تئوری تولید، منحنی تقاضای مشتق‌شده بنگاه برای نهاده‌های تولید در بازار رقابتی <b>همواره نزولی</b> است؛ یعنی کاهش دستمزد قطعاً استخدام کارگر را بالا می‌برد و هیچ‌گاه کالای گیفن در بازار نهاده‌ها رخ نمی‌دهد.<br>
+            • <b>هندسه مسیر توسعه (Expansion Path):</b> اگر هر دو عامل عادی باشند، مسیر توسعه دارای شیب مثبت است؛ اما اگر نیروی کار عامل پست باشد، مسیر توسعه شیب منفی پیدا کرده و به سمت محور سرمایه (K) خمیده می‌شود!
+        </div>
+
+        <div class="tier-card trap-tier">
+            <strong>🚨 تله کنکور ارشد:</strong>
+            طراحان کنکور ارشد تقابل اثر جانشینی و تولیدی در نهاده پست را هدف می‌گیرند! به خاطر بسپارید:<br>
+            ۱. در صورت کاهش دستمزد (w ↓)، اثر جانشینی همواره استخدام کارگر را افزایش می‌دهد (ΔLₛᵤᵦ > 0)؛ چه نهاده عادی باشد چه پست!<br>
+            ۲. تفاوت نهاده عادی و پست فقط در جهت <b>اثر تولیدی (Output Effect)</b> است: در نهاده عادی اثر تولیدی استخدام را باز هم افزایش می‌دهد، اما در نهاده پست اثر تولیدی استخدام را کاهش می‌دهد (ΔLₒᵤₜ < 0).<br>
+            ۳. با وجود منفی بودن اثر تولیدی در نهاده پست، اثر کل کاهش دستمزد همچنان مثبت است (|ΔLₛᵤᵦ| > |ΔLₒᵤₜ|)؛ یعنی قانون تقاضای نهاده‌ها هرگز نقض نمی‌شود.
+        </div>
+
+        <div class="visual-diagram-box">
+            <div class="diagram-header">
+                <span class="diagram-badge">🗺️ اطلس هندسی و ترسیمی</span>
+                <h5 class="diagram-title">کالبدشکافی هندسی تفکیک اثر جانشینی و اثر تولیدی (Output Effect) در نظریه تولیدکننده</h5>
+            </div>
+            <div class="diagram-svg-container">
+                <svg viewBox="0 0 520 280" class="academic-svg" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrow-prod-decomp" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155"/>
+                        </marker>
+                    </defs>
+
+                    <!-- Background Grid -->
+                    <line x1="70" y1="50" x2="480" y2="50" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="70" y1="100" x2="480" y2="100" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="70" y1="150" x2="480" y2="150" stroke="#F1F5F9" stroke-width="1"/>
+                    <line x1="70" y1="200" x2="480" y2="200" stroke="#F1F5F9" stroke-width="1"/>
+
+                    <!-- Axes -->
+                    <line x1="70" y1="230" x2="70" y2="25" stroke="#334155" stroke-width="2" marker-end="url(#arrow-prod-decomp)"/>
+                    <line x1="70" y1="230" x2="495" y2="230" stroke="#334155" stroke-width="2" marker-end="url(#arrow-prod-decomp)"/>
+                    <text x="50" y="30" fill="#0F172A" font-size="12" font-weight="900">سرمایه (K)</text>
+                    <text x="495" y="248" fill="#0F172A" font-size="12" font-weight="900" text-anchor="end">نیروی کار (L)</text>
+
+                    <!-- Initial Isocost Line 1 (Steep: w1/r) -->
+                    <line x1="70" y1="50" x2="250" y2="230" stroke="#64748B" stroke-width="1.8"/>
+                    <text x="250" y="222" fill="#64748B" font-size="9" font-weight="700">TC₁ (w₁)</text>
+
+                    <!-- Final Isocost Line 2 (Flatter rotated: w2/r after w decreases) -->
+                    <line x1="70" y1="50" x2="450" y2="230" stroke="#2563EB" stroke-width="2"/>
+                    <text x="450" y="222" fill="#2563EB" font-size="9.5" font-weight="800">TC₂ (w₂ &lt; w₁)</text>
+
+                    <!-- Hypothetical Compensated Isocost Line (Parallel to TC2, tangent to Q1) -->
+                    <line x1="70" y1="110" x2="310" y2="230" stroke="#DC2626" stroke-width="1.8" stroke-dasharray="5,4"/>
+                    <text x="312" y="222" fill="#DC2626" font-size="8.5" font-weight="700">خط فرضی جبرانی</text>
+
+                    <!-- Isoquant Curve Q1 -->
+                    <path d="M 100 80 C 115 130, 140 165, 185 180 C 230 195, 290 200, 340 200" fill="none" stroke="#4338CA" stroke-width="2.2"/>
+                    <text x="345" y="198" fill="#4338CA" font-size="10" font-weight="900">Q₁ (تولید اولیه)</text>
+
+                    <!-- Isoquant Curve Q2 (Higher Output) -->
+                    <path d="M 145 60 C 165 105, 205 135, 270 148 C 340 160, 410 165, 460 165" fill="none" stroke="#059669" stroke-width="2.2"/>
+                    <text x="465" y="162" fill="#059669" font-size="10" font-weight="900">Q₂ (تولید نهایی)</text>
+
+                    <!-- Equilibrium Point E1 (Initial) -->
+                    <circle cx="150" cy="150" r="4.5" fill="#4338CA" stroke="#FFFFFF" stroke-width="1.5"/>
+                    <text x="135" y="145" fill="#4338CA" font-size="10" font-weight="900">E₁</text>
+                    <line x1="150" y1="150" x2="150" y2="230" stroke="#4338CA" stroke-width="1.2" stroke-dasharray="3,3"/>
+                    <text x="150" y="244" fill="#4338CA" font-size="9" font-weight="800" text-anchor="middle">L₁</text>
+
+                    <!-- Equilibrium Point B (Substitution point on Q1) -->
+                    <circle cx="195" cy="182" r="4.5" fill="#DC2626" stroke="#FFFFFF" stroke-width="1.5"/>
+                    <text x="195" y="174" fill="#DC2626" font-size="10" font-weight="900">Eₛ</text>
+                    <line x1="195" y1="182" x2="195" y2="230" stroke="#DC2626" stroke-width="1.2" stroke-dasharray="3,3"/>
+                    <text x="195" y="244" fill="#DC2626" font-size="9" font-weight="800" text-anchor="middle">Lₛ</text>
+
+                    <!-- Equilibrium Point E2 (Final point on Q2) -->
+                    <circle cx="275" cy="148" r="4.5" fill="#059669" stroke="#FFFFFF" stroke-width="1.5"/>
+                    <text x="275" y="140" fill="#059669" font-size="10" font-weight="900">E₂</text>
+                    <line x1="275" y1="148" x2="275" y2="230" stroke="#059669" stroke-width="1.2" stroke-dasharray="3,3"/>
+                    <text x="275" y="244" fill="#059669" font-size="9" font-weight="800" text-anchor="middle">L₂</text>
+
+                    <!-- Brackets & Decomposition Labels below Axis -->
+                    <line x1="152" y1="256" x2="193" y2="256" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow-prod-decomp)"/>
+                    <text x="172" y="268" fill="#DC2626" font-size="8" font-weight="800" text-anchor="middle">اثر جانشینی</text>
+
+                    <line x1="197" y1="256" x2="273" y2="256" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow-prod-decomp)"/>
+                    <text x="235" y="268" fill="#059669" font-size="8" font-weight="800" text-anchor="middle">اثر تولیدی (ستانده)</text>
+
+                    <line x1="152" y1="276" x2="273" y2="276" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrow-prod-decomp)"/>
+                    <text x="212" y="274" fill="#2563EB" font-size="8.5" font-weight="900" text-anchor="middle">اثر کل (Total Effect)</text>
+
+                    <!-- Inset Callout Box: Summary -->
+                    <rect x="300" y="40" width="180" height="65" rx="8" fill="#FFFFFF" fill-opacity="0.92" stroke="#CBD5E1" stroke-width="1.2"/>
+                    <text x="310" y="55" fill="#0F172A" font-size="9.5" font-weight="800">قاعده تفکیک اثرات در تولیدکننده:</text>
+                    <text x="310" y="70" fill="#DC2626" font-size="8.5" font-weight="700">• اثر جانشینی: E₁ ──► Eₛ (روی Q₁)</text>
+                    <text x="310" y="85" fill="#059669" font-size="8.5" font-weight="700">• اثر تولیدی: Eₛ ──► E₂ (جهش به Q₂)</text>
+                    <text x="310" y="98" fill="#2563EB" font-size="8.5" font-weight="800">• اثر کل: L₂ - L₁ = ΔLₛᵤᵦ + ΔLₒᵤₜ</text>
+                </svg>
+            </div>
+            <div class="diagram-walkthrough">
+                <strong>📌 الگوریتم ۴ مرحله‌ای ساخت و تحلیل هندسی:</strong>
+                <p>۱. <b>ترسیم تعادل اولیه (E₁):</b> خط هزینه اولیه TC₁ با شیب تندتر (-w₁ ÷ r) در نقطه E₁ بر منحنی هم‌تولیدی اول Q₁ مماس است و سطح اشتغال اولیه L₁ را تثبیت می‌کند.</p>
+                <p>۲. <b>چرخش خط هزینه با کاهش دستمزد:</b> با افت دستمزد از w₁ به w₂، خط هزینه حول محور سرمایه چرخش کرده و شیب آن ملایم‌تر می‌شود (-w₂ ÷ r) و خط TC₂ شکل می‌گیرد.</p>
+                <p>۳. <b>تحدید اثر جانشینی (E₁ به Eₛ):</b> با خط فرضی قرمز مماس بر همان منحنی Q₁ با نسبت قیمت جدید، اثر جانشینی به دست می‌آید (L₁ ──► Lₛ) که کارگر به جای سرمایه استخدام می‌شود.</p>
+                <p>۴. <b>جهش اثر تولیدی (Eₛ به E₂):</b> با اعمال بودجه کامل، خط هزینه به موقعیت نهایی TC₂ انتقال موازی یافته و بر منحنی هم‌تولیدی بالاتر Q₂ در نقطه E₂ مماس می‌شود (Lₛ ──► L₂)، که نشان‌دهنده گسترش مقیاس تولید است.</p>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')">
+            <span>⚡</span> فلش‌بک به تعادل تولیدکننده
+        </button>
+        <button class="btn-copy-formula" onclick="copyFormulaCard(this.parentElement.previousElementSibling.querySelector('.formula-stack'))">
+            <span>📋</span> کپی فرمول
+        </button>
+    </div>
+</div>
+
+
+<!-- FORMULA 23: PRICE CONTROLS & BLACK MARKET -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-micro">فرمول طلایی ۲۲</span>
+                            <span class="badge badge-micro">فرمول طلایی ۲۳</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: سقف و کف قیمت</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">کنترل قیمت‌های دولتی (سقف قیمت Pc و کف قیمت Pf)، شکاف کمبود و مازاد، و بازار سیاه</h4>
                             
@@ -9064,10 +9211,10 @@ body.theme-dark .step-content {
                         </div>
                     </div>
 
-                    <!-- FORMULA 23: SLUTSKY DECOMPOSITION -->
+                    <!-- FORMULA 24: SLUTSKY DECOMPOSITION -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-micro">فرمول طلایی ۲۳</span>
+                            <span class="badge badge-micro">فرمول طلایی ۲۴</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک: مشتق و اثرات تقاضا</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تفکیک اثرات اسلاتسکی و هیکس (Slutsky Decomposition): اثر کل، جانشینی و درآمدی</h4>
                             
@@ -9199,10 +9346,10 @@ body.theme-dark .step-content {
                         </div>
                     </div>
 
-                    <!-- FORMULA 24: ENGEL CURVES, ICC/PCC & BACKWARD-BENDING LABOR SUPPLY -->
+                    <!-- FORMULA 25: ENGEL CURVES, ICC/PCC & BACKWARD-BENDING LABOR SUPPLY -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-micro">فرمول طلایی ۲۴</span>
+                            <span class="badge badge-micro">فرمول طلایی ۲۵</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: کشش و رفتار مصرف‌کننده</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">منحنی‌های انگل (Engel)، استخراج از ICC/PCC و عرضه کار خمیده به عقب</h4>
                             
@@ -9301,10 +9448,10 @@ body.theme-dark .step-content {
                         </div>
                     </div>
 
-                    <!-- FORMULA 25: SPECIAL INDIFFERENCE CURVES & KING'S LAW -->
+                    <!-- FORMULA 26: SPECIAL INDIFFERENCE CURVES & KING'S LAW -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-micro">فرمول طلایی ۲۵</span>
+                            <span class="badge badge-micro">فرمول طلایی ۲۶</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک: مشتق و مطلوبیت نهایی</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">حالات ۶گانه خاص منحنی‌های بی‌تفاوتی و قانون کینگ (پارادوکس وفور)</h4>
                             
@@ -9407,10 +9554,10 @@ body.theme-dark .step-content {
                     </div>
 
                 
-                    <!-- CARD 26: COBB-DOUGLAS DEMAND & CONSTANT ELASTICITY -->
+                    <!-- CARD 27: COBB-DOUGLAS DEMAND & CONSTANT ELASTICITY -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-micro">فرمول طلایی ۲۶</span>
+                            <span class="badge badge-micro">فرمول طلایی ۲۷</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('elasticity')"><span>⚡</span> فلش‌بک: کشش و بار مالیاتی</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">تابع تقاضای کاب-داگلاس ضربی-کسری، کشش‌های توان ثابت و هندسه خطی منحنی انجل</h4>
                             
@@ -9460,10 +9607,10 @@ body.theme-dark .step-content {
                         </div>
                     </div>
 
-                    <!-- CARD 27: GOSSEN'S FIRST LAW & EQUAL MARGINAL UTILITY PER DOLLAR -->
+                    <!-- CARD 28: GOSSEN'S FIRST LAW & EQUAL MARGINAL UTILITY PER DOLLAR -->
                     <div class="formula-card">
                         <div>
-                            <span class="badge badge-micro">فرمول طلایی ۲۷</span>
+                            <span class="badge badge-micro">فرمول طلایی ۲۸</span>
                             <button class="btn-direct-flashback" onclick="openDirectFlashback('derivative')"><span>⚡</span> فلش‌بک: مشتق و بهینه‌سازی</button>
                             <h4 style="font-size: 0.88rem; font-weight: 900; color: var(--heading-primary); margin-top: 6px;">نظریه مطلوبیت، قانون مطلوبیت نهایی نزولی (قانون اول گوسن) و قاعده تخصیص ریالی بودجه</h4>
                             
@@ -18457,6 +18604,28 @@ window.resetORSimplex = resetORSimplex;
                     ],
                     correct: 0,
                     expl: 'کالبدشکافی تحلیلی: در تابع لئونتیف، نهاده‌ها با نسبت فنی ثابت ترکیب می‌شوند (منحنی‌های هم‌مقداری L-شکل) و هیچ امکانی برای تعویض نهاده‌ها وجود ندارد، لذا σ = 0 است. در تابع خطی (جانشین کامل)، نهاده‌ها با نرخ ثابت قابل معاوضه‌اند و منحنی‌ها خطوط راست با شیب منفی هستند، لذا سهولت جانشینی بی‌نهایت است (σ = ∞). در تابع کاب-داگلاس نیز کشش جانشینی دقیقاً ۱ است.'
+                },
+                {
+                    q: 'در نظریه رفتار تولیدکننده، در صورت کاهش دستمزد نیروی کار (w ↓)، تفاوت ماهوی رفتار نهاده عادی با نهاده پست در کدام گزینه به درستی بیان شده است؟',
+                    opts: [
+                        '۱. اثر جانشینی در هر دو نهاده مثبت است؛ اما اثر تولیدی در نهاده عادی مثبت و در نهاده پست منفی است',
+                        '۲. در نهاده عادی اثر جانشینی مثبت است ولی در نهاده پست اثر جانشینی منفی و معکوس می‌شود',
+                        '۳. در نهاده پست اثر کل کاهش دستمزد منفی است و استخدام کارگر قطعاً کاهش می‌یابد (پدیده گیفن نهاده)',
+                        '۴. در نهاده عادی مسیر توسعه شیب منفی دارد ولی در نهاده پست مسیر توسعه شیب مثبت به خود می‌گیرد'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: با کاهش دستمزد، اثر جانشینی بدون استثنا در تمام انواع نهاده‌ها (عادی یا پست) مثبت است و تمایل به جایگزینی کارگر به جای سرمایه را نشان می‌دهد (ΔL_sub > 0). وجه تمایز بنیادین در «اثر تولیدی / ستانده (Output Effect)» نهفته است؛ در نهاده عادی افزایش ظرفیت تولید ناشی از ارزان شدن نهاده منجر به استخدام بیشتر آن می‌شود (ΔL_out > 0)، در حالی که در نهاده پست با گسترش مقیاس، استخدام کارگر به نفع مکانیزاسیون کاهش می‌یابد (ΔL_out < 0). با این حال، همیشه |ΔL_sub| > |ΔL_out| بوده و تقاضای کل نهاده همواره نزولی می‌ماند.'
+                },
+                {
+                    q: 'اگر در تابع تولید بنگاهی با دو نهاده کار (L) و سرمایه (K)، نیروی کار عاملی «پست» باشد، هندسه و شیب «مسیر توسعه (Expansion Path)» بنگاه چگونه خواهد بود؟',
+                    opts: [
+                        '۱. دارای شیب منفی است و با افزایش هزینه کل (TC) به سمت محور عمودی سرمایه (K) خمیده می‌شود',
+                        '۲. دارای شیب مثبت استاندارد است و تقاضای هر دو نهاده به یک نسبت افزایش می‌یابد',
+                        '۳. کاملاً افقی و منطبق بر محور نیروی کار (L) رسم می‌گردد',
+                        '۴. به یک خط مستقیم ۴۵ درجه از مبدأ مختصات تبدیل می‌شود'
+                    ],
+                    correct: 0,
+                    expl: 'کالبدشکافی تحلیلی: مسیر توسعه مکان هندسی نقاط مماس خطوط هزینه یکسان و منحنی‌های هم‌تولیدی در سطوح مختلف بودجه (TC) است. اگر عاملی عادی باشد، با افزایش TC مصرف آن بالا می‌رود (شیب مثبت). اما اگر کارگر پست باشد، با افزایش مقیاس و بودجه، بنگاه کارگر کمتر و سرمایه بیشتری استخدام می‌کند؛ در نتیجه نقاط تعادل جدید به سمت چپ و بالا حرکت کرده و مسیر توسعه شیب منفی پیدا می‌کند و به سمت محور K انحنا می‌یابد.'
                 },
             ],
             cost: [
